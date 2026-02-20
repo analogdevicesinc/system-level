@@ -8,6 +8,7 @@ Learning! Tutorials, Workshops, Etc
    demo_hp_analog_meets_ai/index
    an_industrial_story/index
    ADS-B_airplane_tracking_tutorial/index
+   monopulse_tracker/index
 
 Mixed Signal Basics
 -------------------------------------------------------------------------------
