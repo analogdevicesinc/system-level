@@ -9,7 +9,7 @@ The latest Pluto firmware is found here:
 
 It is recommended that all Phaser's operate with version 0.39, or later.  Details on how to perform the firmware update are found here:
 
-[https://wiki.analog.com/university/tools/pluto/users/firmware](https://wiki.analog.com/university/tools/pluto/users/firmware)
+{ref}`pluto-m2k firmware`
 
 
 ## Pluto Configuration

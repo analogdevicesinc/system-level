@@ -32,7 +32,7 @@ When installing the Pluto Toolbox, a "Connect Hardware" window will open.  Just 
 ```{caution} 
 When installing this Pluto Toolbox, MATLAB may prompt you to update or reinstall Pluto's firmware.  
 ⚠️**Do not allow MATLAB to modify Pluto's firmware!**⚠️  
-Instead, follow the [Upgrading Firmware](../get-started/firmware.md) section of this guide to ensure you have the latest firmware, with the correct configuration for the Phaser.  
+Instead, follow {ref}`pluto getstarted firmware_upgrade_section` to update Pluto's firmware.
 ```
 
 
