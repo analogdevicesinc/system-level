@@ -17,11 +17,11 @@ Receive
 ~~~~~~~
 
 -  Supports 1 direct conversion RF receive channels
--  Fully integrated snythesizers (including loop filter)
+-  Fully integrated synthesizers (including loop filter)
 -  Data path consists of LNA, Demodulator, LPF, ADC and digital filters
 -  AGC, Quadrature calibration and DC offset calibration
 -  NF: 2.5dB @1GHz
--  ADC: Continous time sigma-delta, 640MSPS
+-  ADC: Continuous time sigma-delta, 640MSPS
 -  Digital Filters: 128 complex taps, decimation between 2 and 48
 -  Gain: 1dB step size, 80dB analog range, 30dB digital range (post ADC scaling)
 -  On-chip sensor for temperature-corrected RSSI
@@ -30,7 +30,7 @@ Transmit
 ~~~~~~~~
 
 -  Supports 1 direct conversion RF receive channels
--  Fully integrated snythesizers (including loop filter)
+-  Fully integrated synthesizers (including loop filter)
 -  Data path consists of digital filters, DAC and Modulators
 -  Digital Filters: 128 complex taps, interpolation between 2 and 48
 -  Gain: 0.25dB step size, 86dB range.

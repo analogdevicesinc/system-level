@@ -7,8 +7,6 @@ The purpose of the AD-FMComms4-EBZ is to provide an RF platform to software deve
 
 The AD-FMComms4-EBZ board is very similar to the `ad-fmcomms2-ebz <https://wiki.analog.com/ad-fmcomms2-ebz>`_ and `ad-fmcomms3-ebz <https://wiki.analog.com/ad-fmcomms3-ebz>`_ boards with only one exception, rather than the :adi:`AD9361` (which is 2 Rx, 2 Tx), it uses the :adi:`AD9364`, a lower cost 1 Rx, 1 Tx device. The AD-FMComms4-EBZ includes both types of external baluns, one targeted for wider tuning range applications (Minicircuits `TCM1-63AX+ <http://www.minicircuits.com/pdfs/TCM1-63AX+.pdf>`_), and ones which provide optimized performance for 2.4 GHz.
 
-`ad-fmcomms4.ashx <http://www.analog.com/-/media/analog/en/evaluation-board-images/images/ad-fmcomms4.ashx>`_
-
 Since much of the FMCOMMS2/3/4 share a common device/infrastructure, much of the
 documentation is the same.
 
@@ -33,8 +31,8 @@ documentation is the same.
 
       -  `Linux on ZC702, ZC706, ZED <https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/quickstart/zynq>`_
       -  `Linux on KC705, VC707 <https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/quickstart/microblaze>`_
-      -  `Configure a pre-existing SD-Card <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_
-      -  `Update the old card you received with your hardware <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_
+      -  :external+kuiper:doc:`Configure a pre-existing SD-Card <index>`
+      -  :external+kuiper:doc:`Update the old card you received with your hardware <index>`
 
    -  Linux Applications
 
