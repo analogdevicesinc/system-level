@@ -11,14 +11,14 @@ For additional information or to purchase the AD-TRXBOOST1-EBZ, visit:
 www.analog.com/AD-TRXBOOST1-EBZ
 
 Features
-========
+--------
 
 -  Includes schematics, layout, BOM, Gerber files
 -  Powered from single Keyed connector that matches the header on the FMCOMMS2/3/4 series.
 -  Provides one channel TX and one channel RX boost.
 
 ADL5610 Gain Block
-==================
+------------------
 
 -  30MHz to 6 GHz
 -  Fixed gain of 18.4dB
@@ -28,7 +28,7 @@ ADL5610 Gain Block
 -  Single 5V supply
 
 ADL5521 LNA
-===========
+-----------
 
 -  400MHz to 4GHz
 -  Fixed gain of 20.8dB at 900MHz
@@ -38,7 +38,7 @@ ADL5521 LNA
 -  Single supply between 3V and 5V
 
 Applications
-============
+------------
 
 -  Electronic test and measurement equipment
 -  General-purpose software radios
