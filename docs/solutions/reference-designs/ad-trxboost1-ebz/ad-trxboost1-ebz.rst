@@ -16,7 +16,7 @@ LNA to the RX input of the AD9361.
 -  :doc:`Characterization </solutions/reference-designs/ad-trxboost1-ebz/characterization>`
 -  :doc:`Hardware </solutions/reference-designs/ad-trxboost1-ebz/hardware>` (including :doc:`schematics </solutions/reference-designs/ad-trxboost1-ebz/hardware>`)
 -  :doc:`Production Testing Process </solutions/reference-designs/ad-trxboost1-ebz/testing>`
--  :doc:`Practical Guide </solutions/reference-designs/ad-trxboost1-ebz/practical>` to using the :adi:`AD-TRXBOOST1-EBZ` with the `ad-fmcomms3-ebz <https://wiki.analog.com/ad-fmcomms3-ebz>`_
+-  :doc:`Practical Guide </solutions/reference-designs/ad-trxboost1-ebz/practical>` to using the :adi:`AD-TRXBOOST1-EBZ` with the :adi:`AD-FMCOMMS3-EBZ`
 -  :doc:`Help and Support </solutions/reference-designs/ad-trxboost1-ebz/help_and_support>`
 
 .. esd-warning::

@@ -13,7 +13,12 @@ checked to be within certain bounds.
 Creating an SD test card
 ------------------------
 
-First, write the latest available SD card image found at `kuiper-linux <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_ to a spare card and prepare the card to boot into Linux as detailed on that page for the target FMCOMMS and carrier boards. In this case copy the BOOT.BIN and devicetree.dtb files from the zynq-zc706-adv7511-ad9361-fmcomms2-3 folder into the base directory of the SD card's boot partition).
+First, write the latest available SD card image found at
+:external+kuiper:doc:`kuiper-linux <index>` to a spare card and prepare the
+card to boot into Linux as detailed on that page for the target FMCOMMS and
+carrier boards. In this case copy the BOOT.BIN and devicetree.dtb files from
+the zynq-zc706-adv7511-ad9361-fmcomms2-3 folder into the base directory of
+the SD card's boot partition).
 
 Then the card needs to be modified to run the tests automatically on boot. Test scripts are provided in `linux_image_ADI-scripts <https://github.com/analogdevicesinc/linux_image_ADI-scripts>`_ that automate initializing osc with the correct profile and environment.
 
@@ -51,7 +56,9 @@ Test process
 
 The TRXBOOST1 testing should be done using the following steps:
 
--  Make sure the ZC706 is plugged in with the testing SD card inserted and the HDMI monitor and keyboard/mouse are properly attached to the system and powered on.
+-  Make sure the ZC706 is plugged in with the testing SD card inserted and the
+   HDMI monitor and keyboard/mouse are properly attached to the system and
+   powered on.
 -  The TRXBOOST1 board should be mounted on the TX2A/RX2A jacks of the
    AD-FMCOMMS3-EBZ board and the power cable connected as seen in the following
    image.
@@ -60,9 +67,11 @@ The TRXBOOST1 testing should be done using the following steps:
    :align: center
    :width: 800
 
--  Connect the RX_IN and TX_OUT jacks on the TRXBOOST1 board with the SMA loopback cable.
+-  Connect the RX_IN and TX_OUT jacks on the TRXBOOST1 board with the SMA
+   loopback cable.
 -  Power on the ZC706 board.
--  The board should boot into the ADI Linux environment and begin the tests automatically.
+-  The board should boot into the ADI Linux environment and begin the tests
+   automatically.
 -  When tests pass, the following window should be shown as seen in the image
    below. If tests fail, a error dialog will be shown instead. In either case,
    hit the confirmation button to halt Linux and after several seconds power off
