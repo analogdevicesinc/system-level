@@ -14,7 +14,8 @@ Features
 --------
 
 -  Includes schematics, layout, BOM, Gerber files
--  Powered from single Keyed connector that matches the header on the FMCOMMS2/3/4 series.
+-  Powered from single Keyed connector that matches the header on the
+   FMCOMMS2/3/4 series.
 -  Provides one channel TX and one channel RX boost.
 
 ADL5610 Gain Block
