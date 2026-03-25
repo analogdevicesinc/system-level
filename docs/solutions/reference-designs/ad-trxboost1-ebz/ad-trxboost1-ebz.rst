@@ -1,7 +1,11 @@
 AD-TRXBOOST1-EBZ User Guide
 ===========================
 
-The :adi:`AD-TRXBOOST1-EBZ` is an add on board for the :adi:`FMCOMMS2/3/4/5 <AD-FMCOMMS2-EBZ>` boards which contain the :adi:`AD9361`. While the complete chip level design package can be found on the ADI product pages of this RF transceiver, information on the card, and how to use it and the design package that surrounds it, can be found here.
+The :adi:`AD-TRXBOOST1-EBZ` is an add on board for the
+:adi:`FMCOMMS2/3/4/5 <AD-FMCOMMS2-EBZ>` boards which contain the
+:adi:`AD9361`. While the complete chip level design package can be found on the
+ADI product pages of this RF transceiver, information on the card, and how to
+use it and the design package that surrounds it, can be found here.
 
 The purpose of the AD-TRXBOOST1-EBZ is to add an pre-amp to the TX output and an
 LNA to the RX input of the AD9361.

@@ -1,7 +1,10 @@
 AD-TRXBOOST1-EBZ Quick Start Guide
 ==================================
 
-The Quick Start Guide provides step by step instructions detailing how to plug in, and set up the AD-TRXBOOST1-EBZ board. The `ZC706 <https://www.xilinx.com/ZC706>`_ and :adi:`AD-FMCOMMS3-EBZ` platforms will be used to demonstrate the appropriate board and cable connections.
+The Quick Start Guide provides step by step instructions detailing how to plug
+in, and set up the AD-TRXBOOST1-EBZ board. The `ZC706 <https://www.xilinx.com/ZC706>`_
+and :adi:`AD-FMCOMMS3-EBZ` platforms will be used to demonstrate the
+appropriate board and cable connections.
 
 Connecting to FMCOMMS2/3/4
 --------------------------
