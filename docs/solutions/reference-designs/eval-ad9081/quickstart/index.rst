@@ -11,6 +11,7 @@ how to program the bitstream, run a no-OS program or boot a Linux distribution.
 .. toctree::
 
    On A10SoC <a10soc>
+   On FM87 <fm87>
    On VCK190 <vck190>
    On ZC706 <zc706>
    On VCU118 <vcu118>
@@ -46,10 +47,10 @@ The carriers we support are:
      - EVAL-AD9082
    - - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
      - FMCA
-     - ---
-   - - :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
+     - N/A
+   - - `Agilex 7 SoC (FM87) <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
      - FMCA
-     - ---
+     - N/A
    - - :xilinx:`VCK190`
      - FMCP1 (J51)
      - FMCP1 (J51)
@@ -81,11 +82,11 @@ The supported OS are:
    - - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
      - Yes
      - Yes
-     - ---
-   - - :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
-     - ---
-     - ---
-     - ---
+     - No
+   - - `Agilex 7 SoC (FM87) <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
+     - Yes
+     - Yes
+     - No
    - - :xilinx:`VCK190`
      - Yes
      - Yes
@@ -118,11 +119,15 @@ JTAG (no-OS) connections. A few typical setups are shown below.
 ZCU102 + EVAL-AD9081
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../images/ad9081_zcu102_setup.png
+.. figure:: ../images/ad9081_zcu102_setup.png
    :width: 800
+
+   ZCU102 + EVAL-AD9081 setup
 
 VCK190 + EVAL-AD9081
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../images/ad9081_vck190_setup.jpg
+.. figure:: ../images/ad9081_vck190_setup.jpg
    :width: 800
+
+   VCK190 + EVAL-AD9081 setup
