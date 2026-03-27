@@ -9,15 +9,17 @@ This guide provides quick instructions on how to setup the
 - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
   (Rev. C or later) on FMCA
 
-.. image:: ../../images/a10soc.jpg
+.. figure:: ../../images/a10soc.jpg
    :width: 900
+
+   Arria 10 SoC development kit
 
 .. esd-warning::
 
 .. warning::
 
-    :adi:`EVAL-AD9082` is not supported on
-    :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`!
+   :adi:`EVAL-AD9082` is not supported on
+   :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`!
 
 Using Linux as software
 -------------------------------------------------------------------------------
@@ -27,11 +29,11 @@ Necessary files
 
 .. note::
 
-  The SD card includes several folders in the root directory of the BOOT
-  partition. In order to configure the SD card to work with a specific FPGA
-  board and ADI hardware, several files must be copied onto the root directory.
-  Using the host PC, drag and drop the required files onto the BOOT partition,
-  and use the EJECT function when removing the SD card from the reader.
+   The SD card includes several folders in the root directory of the BOOT
+   partition. In order to configure the SD card to work with a specific FPGA
+   board and ADI hardware, several files must be copied onto the root directory.
+   Using the host PC, drag and drop the required files onto the BOOT partition,
+   and use the EJECT function when removing the SD card from the reader.
 
 The following files are needed for the system to boot:
 
@@ -62,18 +64,15 @@ can build them manually:
 - Instructions on how to choose the boot files from the SD card can be found in
   the **Platform-Specific Manual Steps** section from here:
   :external+kuiper:ref:`hardware-configuration`.
-- Instructions on how to manually build the boot files from source can be found
-  here:
-
-   - :dokuwiki:`Building the Intel SoC-FPGA kernel and devicetrees from source <resources/tools-software/linux-build/generic/socfpga>`
-   - :external+hdl:ref:`ad9081_fmca_ebz` build documentation. More HDL build
-     details at :external+hdl:ref:`build_hdl`.
+- Instructions on how to manually build the HDL from source can be found in the
+  :external+hdl:ref:`ad9081_fmca_ebz` build documentation. More HDL build
+  details at :external+hdl:ref:`build_hdl`.
 
 .. important::
 
-  Some projects provide multiple devicetree files in the SD card's boot
-  folders. Make sure you select the devicetree that matches your specific use
-  case.
+   Some projects provide multiple devicetree files in the SD card's boot
+   folders. Make sure you select the devicetree that matches your specific use
+   case.
 
 Required software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,7 +96,7 @@ Required hardware
 More details as to why you need these, can be found at
 :ref:`ad9081 prerequisites`.
 
-.. _ad9081 quickstart a10soc_changes:
+.. _ad9081 quickstart a10soc-changes:
 
 A10SoC required hardware changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,8 +131,10 @@ These resistors can be found on the backside of the A10SoC, underneath the
 FMCA connector (J29). The following picture shows the required configuration
 to be compatible with the :adi:`EVAL-AD9081`.
 
-.. image:: ../../images/a10soc_fmc_rework.jpg
+.. figure:: ../../images/a10soc_fmc_rework.jpg
    :width: 400
+
+   A10SoC FMCA connector resistor rework
 
 Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,8 +142,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_a10soc_setup.jpg
+.. figure:: ../images/ad9081_a10soc_setup.jpg
    :width: 800
+
+   EVAL-AD9081 on the Arria 10 SoC setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
@@ -664,8 +667,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :ref:`JESD204 status utility <software jesd-status>`,
-run:
+To use the :ref:`JESD204 status utility <software jesd-status>`, run:
 
 .. shell::
 

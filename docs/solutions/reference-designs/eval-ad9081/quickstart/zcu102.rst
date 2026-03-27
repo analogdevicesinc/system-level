@@ -8,8 +8,10 @@ This guide provides quick instructions on how to setup the
 
 - :xilinx:`ZCU102` FMC HPC0
 
-.. image:: ../../images/zcu102.jpg
+.. figure:: ../../images/zcu102.jpg
    :width: 900
+
+   ZCU102 FPGA board
 
 .. esd-warning::
 
@@ -21,11 +23,11 @@ Necessary files
 
 .. note::
 
-  The SD card includes several folders in the root directory of the BOOT
-  partition. In order to configure the SD card to work with a specific FPGA
-  board and ADI hardware, several files must be copied onto the root directory.
-  Using the host PC, drag and drop the required files onto the BOOT partition,
-  and use the EJECT function when removing the SD card from the reader.
+   The SD card includes several folders in the root directory of the BOOT
+   partition. In order to configure the SD card to work with a specific FPGA
+   board and ADI hardware, several files must be copied onto the root directory.
+   Using the host PC, drag and drop the required files onto the BOOT partition,
+   and use the EJECT function when removing the SD card from the reader.
 
 The following files are needed for the system to boot:
 
@@ -48,9 +50,9 @@ can build them manually:
 
 .. important::
 
-  Some projects provide multiple devicetree files in the SD card's boot
-  folders. Make sure you select the devicetree that matches your specific use
-  case.
+   Some projects provide multiple devicetree files in the SD card's boot
+   folders. Make sure you select the devicetree that matches your specific use
+   case.
 
 Required Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,8 +81,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_zcu102_setup.png
+.. figure:: ../images/ad9081_zcu102_setup.png
    :width: 800
+
+   EVAL-AD9081 on the ZCU102 setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
@@ -94,8 +98,10 @@ Follow the steps in this order, to avoid damaging the components:
 #. Configure :xilinx:`ZCU102` for SD card boot mode (mode SW6[4:1] switch in
    the position **OFF,OFF,OFF,ON** as seen in the below picture)
 
-   .. image:: ../../images/zcu102_1p0_bootmode.jpg
-    :width: 400
+   .. figure:: ../../images/zcu102_1p0_bootmode.jpg
+      :width: 400
+
+      ZCU102 SD card boot mode switch settings
 
 #. Plug-in an Ethernet cable from your router/switch to the Ethernet port on
    the FPGA board
@@ -998,8 +1004,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :ref:`JESD204 status utility <software jesd-status>`,
-run:
+To use the :ref:`JESD204 status utility <software jesd-status>`, run:
 
 .. shell::
 
@@ -1074,8 +1079,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_zcu102_setup.png
+.. figure:: ../images/ad9081_zcu102_setup.png
    :width: 800
+
+   EVAL-AD9081 on the ZCU102 setup
 
 Follow the steps in this order, to avoid damaging the components:
 

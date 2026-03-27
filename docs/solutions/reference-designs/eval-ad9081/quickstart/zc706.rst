@@ -8,8 +8,10 @@ This guide provides quick instructions on how to setup the
 
 - :xilinx:`ZC706` FMC HPC
 
-.. image:: ../../images/zc706.png
+.. figure:: ../../images/zc706.png
    :width: 900
+
+   ZC706 FPGA board
 
 .. esd-warning::
 
@@ -21,11 +23,11 @@ Necessary files
 
 .. note::
 
-  The SD card includes several folders in the root directory of the BOOT
-  partition. In order to configure the SD card to work with a specific FPGA
-  board and ADI hardware, several files must be copied onto the root directory.
-  Using the host PC, drag and drop the required files onto the BOOT partition,
-  and use the EJECT function when removing the SD card from the reader.
+   The SD card includes several folders in the root directory of the BOOT
+   partition. In order to configure the SD card to work with a specific FPGA
+   board and ADI hardware, several files must be copied onto the root directory.
+   Using the host PC, drag and drop the required files onto the BOOT partition,
+   and use the EJECT function when removing the SD card from the reader.
 
 The following files are needed for the system to boot:
 
@@ -48,9 +50,9 @@ can build them manually:
 
 .. important::
 
-  Some projects provide multiple devicetree files in the SD card's boot
-  folders. Make sure you select the devicetree that matches your specific use
-  case.
+   Some projects provide multiple devicetree files in the SD card's boot
+   folders. Make sure you select the devicetree that matches your specific use
+   case.
 
 Required Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,8 +81,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081-fmca-ebz-zc706.png
+.. figure:: ../images/ad9081-fmca-ebz-zc706.png
    :width: 800
+
+   EVAL-AD9081 on the ZC706 setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
@@ -637,11 +641,11 @@ To see the IIO devices detected, run:
 
 .. shell::
 
-    $iio_info | grep iio:device
-    iio:device0: xadc
-    iio:device1: hmc7044
-    iio:device2: axi-ad9081-tx-hpc (buffer capable)
-    iio:device3: axi-ad9081-rx-hpc (buffer capable)
+   $iio_info | grep iio:device
+   iio:device0: xadc
+   iio:device1: hmc7044
+   iio:device2: axi-ad9081-tx-hpc (buffer capable)
+   iio:device3: axi-ad9081-rx-hpc (buffer capable)
 
 To see the EEPROM specifications, run:
 
@@ -649,8 +653,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :ref:`JESD204 status utility <software jesd-status>`,
-run:
+To use the :ref:`JESD204 status utility <software jesd-status>`, run:
 
 .. shell::
 
@@ -764,8 +767,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081-fmca-ebz-zc706.png
+.. figure:: ../images/ad9081-fmca-ebz-zc706.png
    :width: 800
+
+   EVAL-AD9081 on the ZC706 setup
 
 Follow the steps in this order, to avoid damaging the components:
 
