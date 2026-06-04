@@ -338,12 +338,12 @@ external equipment requirements and how to set the boot switches.
 
 Once you have a working platform, you may be interested in investigating:
 
-- :doc:`Introduction </solutions/reference-designs/fmcomms2/common/ad9361_ad9363_ad9364_general_description>` to the
+- :ref:`Introduction <fmcomms2 common ad9361>` to the
   AD9361/AD9364
-- :doc:`Tuning </solutions/reference-designs/fmcomms2/software/filters/filters>` the
+- :ref:`Tuning <fmcomms2 software filters>` the
   AD9361/AD9364 FIR Filters for your application
 - How to
-  :doc:`simulate </solutions/reference-designs/fmcomms2/software/simrf>` the
+  :ref:`simulate <fmcomms2 software simrf>` the
   part with
   `MathWorks RF Blockset (formerly SimRF) <https://www.mathworks.com/hardware-support/analog-devices-rf-transceivers.html>`_,
   to see if it is appropriate for your application
@@ -370,7 +370,7 @@ Once you have a working platform, you may be interested in investigating:
   and
   :adi:`Part 4 <library/analogDialogue/archives/49-12/four-step-sdr-04.html>`
 - Look at
-  :doc:`FMCOMMS2 </solutions/reference-designs/fmcomms2/hardware/hardware>`,
+  :ref:`FMCOMMS2 <fmcomms2 hardware>`,
   :ref:`FMCOMMS3 <ad-fmcomms3-ebz>`,
   :dokuwiki:`FMCOMMS4 <resources/eval/user-guides/ad-fmcomms4-ebz/hardware>`,
   :dokuwiki:`FMCOMMS5 <resources/eval/user-guides/ad-fmcomms5-ebz/hardware>`
