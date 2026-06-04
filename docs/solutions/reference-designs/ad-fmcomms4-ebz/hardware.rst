@@ -1,35 +1,39 @@
+.. _fmcomms4 hardware:
+
 AD-FMCOMMS4-EBZ Hardware
 ========================
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------
 
-.. admonition:: Download
-   :class: download
+.. note::
 
+   Note that the Baluns on the Rev C board (T101-T104) are either:
 
-   .. note::
+   - Johanson Technology's `2450BL15B050E <http://www.johansontechnology.com/datasheets/baluns/JTI_Balun-2450BL15B050_12-03.pdf>`__
+     2.45 GHz Balun. This balun is rated for a operating frequency of
+     2400~2500 MHz and is connected to RXB Input and TXB Output. If you
+     want to evaluate the part outside of this frequency range, use the
+     other SMA.
+   - Mini Circuits `TCM1-63AX+ <http://www.minicircuits.com/pdfs/TCM1-63AX+.pdf>`_.
+     They are rated for an operating frequency between 70 MHz and 6 GHz, and are
+     connected to the RXA Input and TXB Output.
 
-      Note that the Baluns on the Rev C board (T101-T104) are either:
+:adi:`AD-FMCOMMS4-EBZ Design & Integration Files
+<media/en/reference-design-documentation/design-integration-files/ad-fmcomms4-ebz-designsupport.zip>`
 
-
-         -  Johanson Technology's `2450BL15B050E <http://www.johansontechnology.com/datasheets/baluns/JTI_Balun-2450BL15B050_12-03.pdf>`_ 2.45 GHz Balun. This balun is rated for a operating frequency of 2400~2500 MHz and is connected to RXB Input and TXB Output. If you want to evaluate the part outside of this frequency range, use the other SMA.
-         -  Mini Circuits `TCM1-63AX+ <http://www.minicircuits.com/pdfs/TCM1-63AX+.pdf>`_. They are rated for an operating frequency between 70 MHz and 6 GHz, and are connected to the RXA Input and TXB Output.
-
-
-
-   :adi:`AD-FMCOMMS4-EBZ Design & Integration Files <media/en/reference-design-documentation/design-integration-files/ad-fmcomms4-ebz-designsupport.zip>`
-
-   -  Schematic
-   -  PCB Layout
-   -  Bill of Materials
-   -  Allegro Project
-
+ - Schematic
+ - PCB Layout
+ - Bill of Materials
+ - Allegro Project
 
 I/O Voltage
 -----------
 
-The :adi:`AD-FMCOMMS4-EBZ` (AD9364) assumes a VDD_INTERFACE voltage between 1.71V and 2.625V (1.8 to 2.5 +/- 5%), so on your FPGA carrier board, you should ensure that V\ :sub:`ADJ` is between these levels. Setting things to 3.3V will damage the part.
+The :adi:`AD-FMCOMMS4-EBZ` (AD9364) assumes a VDD_INTERFACE voltage between
+1.71V and 2.625V (1.8 to 2.5 +/- 5%), so on your FPGA carrier board, you should
+ensure that V\ :sub:`ADJ` is between these levels. Setting things to 3.3V will
+damage the part.
 
 Picture and Main components
 ---------------------------

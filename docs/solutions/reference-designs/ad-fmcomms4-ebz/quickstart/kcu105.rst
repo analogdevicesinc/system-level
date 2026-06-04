@@ -1,0 +1,392 @@
+.. _fmcomms4 quickstart kcu105:
+
+KCU105 Quickstart
+===============================================================================
+
+This guide provides quick instructions on how to set up the
+:adi:`AD-FMCOMMS4-EBZ` on:
+
+- :xilinx:`KCU105` on FMC LPC
+
+.. image:: ../../images/kcu105.png
+   :width: 800
+
+Using Linux as software
+--------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+  This carrier only has programming logic (PL) and, thus, a MicroBlaze soft core
+  is necessary to run Linux. As such, the files required for running Linux need
+  to be manually built.
+
+The following files are needed for the system to boot:
+
+- HDL bitstream file: ``system_top.bit``
+- Linux Kernel image: ``simpleImage.strip``
+
+Instructions on how to manually build the boot files from source can be found
+here:
+
+  - :ref:`linux-kernel microblaze`
+  - :external+hdl:ref:`fmcomms2` build documentation. More HDL build details
+    at :external+hdl:ref:`build_hdl`
+
+.. important::
+
+  Some projects provide multiple devicetree files. Make sure you select the
+  devicetree that matches your specific use case when building the
+  **simpleImage**.
+
+Required Software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx Vivado and Vitis (downloading Vitis from
+  :xilinx:`here <support/download/index.html/content/xilinx/en/downloadNav/vitis.html>`
+  will include Vivado as well)
+- A UART terminal (Putty/Tera Term/Minicom, etc.) with baud rate 115200 (8N1)
+
+Required hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- :xilinx:`KCU105` FPGA board and its power supply
+- :adi:`AD-FMCOMMS4-EBZ` FMC evaluation board
+- Micro-USB cable (JTAG)
+- Micro-USB cable (UART)
+- (Optional) 2x SMA cable for analog signal loopback
+- (Optional) Ethernet cable for remote IIO access
+
+More details as to why you need these, can be found at
+:ref:`fmcomms4 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/fmcomms4_kcu105.jpeg
+   :width: 900
+
+.. esd-warning::
+
+In the following example, we will make a physical loopback between the ADC
+and the DAC channels on the evaluation board, using SMA cables.
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Connect the :adi:`AD-FMCOMMS4-EBZ` FMC board to the
+   :xilinx:`KCU105` FMC **LPC** socket
+#. Connect USB UART J4 (Micro-USB) to your host PC
+#. Connect USB JTAG J87 (Micro-USB) to your host PC
+#. (Optional) Connect the external clock generator and/or loopback cables
+#. (Optional) Plug-in an Ethernet cable from your router/switch to the Ethernet
+   port on the FPGA board
+#. Plug in the power supply and turn on the power switch on the FPGA board
+#. Program the FPGA using the steps shown
+   :ref:`here <linux-kernel microblaze boot>`.
+#. Observe console output messages on your terminal (use the first ttyUSB or
+   COM port registered)
+
+Boot messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After running the ``con`` command in
+:ref:`XSDB <linux-kernel microblaze boot>`, the Linux kernel
+begins booting and its messages appear on the serial console.
+Make sure a UART terminal is open at 115200, 8N1 before issuing
+``con``.
+
+.. collapsible:: Complete boot log
+
+   ::
+
+      Ramdisk addr 0x00000000,
+      Compiled-in FDT at 0x80854fe0
+      earlycon: uartlite_a0 at MMIO 0x40600000 (options '115200n8')
+      printk: legacy bootconsole [uartlite_a0] enabled
+      cma: Reserved 512 MiB at 0x8fc00000 on node -1
+      Linux version 6.12.0-27342-gc37b1d7e85e3 (ehadarau@romlx6) (microblazeel-amd-linux-gcc.real (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 Fri May 22 15:18:47 EEST 2026
+      setup_memory: max_mapnr: 0x7ffff
+      setup_memory: min_low_pfn: 0x80000
+      setup_memory: max_low_pfn: 0xb0000
+      setup_memory: max_pfn: 0xfffff
+      Zone ranges:
+        DMA      [mem 0x0000000080000000-0x00000000afffffff]
+        Normal   empty
+        HighMem  [mem 0x00000000b0000000-0x00000000ffffefff]
+      Movable zone start for each node
+      Early memory node ranges
+        node   0: [mem 0x0000000080000000-0x00000000ffffefff]
+      Initmem setup node 0 [mem 0x0000000080000000-0x00000000ffffefff]
+      setup_cpuinfo: initialising
+      setup_cpuinfo: Using full CPU PVR support
+      wt_msr_noirq
+      pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+      pcpu-alloc: [0] 0
+      Kernel command line: earlycon
+      Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+      Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)
+      Built 1 zonelists, mobility grouping on.  Total pages: 524287
+      mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+      SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+      NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+      irq-xilinx: mismatch in kind-of-intr param
+      irq-xilinx: /amba_pl/interrupt-controller@41200000: num_irq=16, edge=0xffffc5f0
+      /amba_pl/timer@41c00000: irq=1
+      clocksource: xilinx_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+      xilinx_timer_shutdown
+      xilinx_timer_set_periodic
+      sched_clock: 32 bits at 100MHz, resolution 10ns, wraps every 21474836475ns
+      Console: colour dummy device 80x25
+      printk: legacy console [tty0] enabled
+      printk: legacy bootconsole [uartlite_a0] disabled
+      Ramdisk addr 0x00000000,
+      Compiled-in FDT at 0x80854fe0
+      earlycon: uartlite_a0 at MMIO 0x40600000 (options '115200n8')
+      printk: legacy bootconsole [uartlite_a0] enabled
+      cma: Reserved 512 MiB at 0x8fc00000 on node -1
+      Linux version 6.12.0-27342-gc37b1d7e85e3 (ehadarau@romlx6) (microblazeel-amd-linux-gcc.real (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 Fri May 22 15:18:47 EEST 2026
+      setup_memory: max_mapnr: 0x7ffff
+      setup_memory: min_low_pfn: 0x80000
+      setup_memory: max_low_pfn: 0xb0000
+      setup_memory: max_pfn: 0xfffff
+      Zone ranges:
+        DMA      [mem 0x0000000080000000-0x00000000afffffff]
+        Normal   empty
+        HighMem  [mem 0x00000000b0000000-0x00000000ffffefff]
+      Movable zone start for each node
+      Early memory node ranges
+        node   0: [mem 0x0000000080000000-0x00000000ffffefff]
+      Initmem setup node 0 [mem 0x0000000080000000-0x00000000ffffefff]
+      setup_cpuinfo: initialising
+      setup_cpuinfo: Using full CPU PVR support
+      wt_msr_noirq
+      pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+      pcpu-alloc: [0] 0
+      Kernel command line: earlycon
+      Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+      Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)
+      Built 1 zonelists, mobility grouping on.  Total pages: 524287
+      mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+      SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+      NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+      irq-xilinx: mismatch in kind-of-intr param
+      irq-xilinx: /amba_pl/interrupt-controller@41200000: num_irq=16, edge=0xffffc5f0
+      /amba_pl/timer@41c00000: irq=1
+      clocksource: xilinx_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+      xilinx_timer_shutdown
+      xilinx_timer_set_periodic
+      sched_clock: 32 bits at 100MHz, resolution 10ns, wraps every 21474836475ns
+      Console: colour dummy device 80x25
+      printk: legacy console [tty0] enabled
+      printk: legacy bootconsole [uartlite_a0] disabled
+      Calibrating delay loop... 49.35 BogoMIPS (lpj=246784)
+      pid_max: default: 32768 minimum: 301
+      Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+      Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+      Memory: 1533248K/2097148K available (8531K kernel code, 694K rwdata, 7156K rodata, 209K init, 193K bss, 39136K reserved, 524288K cma-reserved, 1310716K highmem)
+      devtmpfs: initialized
+      clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+      futex hash table entries: 256 (order: -1, 3072 bytes, linear)
+      NET: Registered PF_NETLINK/PF_ROUTE protocol family
+      DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+      DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+      pps_core: LinuxPPS API ver. 1 registered
+      pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+      PTP clock support registered
+      jesd204: found 0 devices and 0 topologies
+      vgaarb: loaded
+      clocksource: Switched to clocksource xilinx_clocksource
+      NET: Registered PF_INET protocol family
+      IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+      tcp_listen_portaddr_hash hash table entries: 1024 (order: 0, 4096 bytes, linear)
+      Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+      TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+      TCP bind hash table entries: 2048 (order: 2, 16384 bytes, linear)
+      TCP: Hash tables configured (established 2048 bind 2048)
+      UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
+      UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
+      NET: Registered PF_UNIX/PF_LOCAL protocol family
+      RPC: Registered named UNIX socket transport module.
+      RPC: Registered udp transport module.
+      RPC: Registered tcp transport module.
+      RPC: Registered tcp-with-tls transport module.
+      RPC: Registered tcp NFSv4.1 backchannel transport module.
+      PCI: CLS 0 bytes, default 32
+      workingset: timestamp_bits=30 max_order=19 bucket_order=0
+      Key type cifs.idmap registered
+      jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+      romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+      bounce: pool size: 64 pages
+      io scheduler mq-deadline registered
+      io scheduler kyber registered
+      Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+      40600000.serial: ttyUL0 at MMIO 0x40600000 (irq = 4, base_baud = 0) is a uartlite
+      printk: legacy console [ttyUL0] enabled
+      uartlite 41400000.serial: error -EINVAL: could not read current-speed
+      uartlite 41400000.serial: probe with driver uartlite failed with error -22
+      brd: module loaded
+      xilinx_axienet 40e00000.ethernet: missing/invalid xlnx,addrwidth property, using default
+      process '/bin/busybox' started with executable stack
+      i2c_dev: i2c /dev entries driver
+      pca954x 0-0075: supply vdd not found, using dummy regulator
+      i2c i2c-0: Added multiplexed i2c bus 1
+      i2c i2c-0: Added multiplexed i2c bus 2
+      at24 3-0050: supply vcc not found, using dummy regulator
+      at24 3-0050: 256 byte 24c02 EEPROM, writable, 1 bytes/write
+      i2c i2c-0: Added multiplexed i2c bus 3
+      i2c i2c-0: Added multiplexed i2c bus 4
+      pca954x 0-0075: registered 4 multiplexed busses for I2C mux pca9544
+      ad9361 spi0.0: ad9361_probe : enter (ad9364)
+      ad9361 spi0.0: ad9361_probe : AD936x Rev 0 successfully initialized
+      cf_axi_dds 79024000.cf-ad9361-dds-core-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.02.b) at 0x79024000 mapped to 0x(ptrval), probed DDS AD9364
+      axi_sysid 45000000.axi-sysid-0: AXI System ID core version (1.01.a) found
+      axi_sysid 45000000.axi-sysid-0: [fmcomms2] on [kcu105] git branch <main> git <5b6a3af7bcb6c253739fa68b4b3e026808e0a93d> clean [2026-05-20 15:41:58] UTC
+      Initializing XFRM netlink socket
+      NET: Registered PF_INET6 protocol family
+      Segment Routing with IPv6
+      In-situ OAM (IOAM) with IPv6
+      sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+      NET: Registered PF_PACKET protocol family
+      NET: Registered PF_KEY protocol family
+      Key type dns_resolver registered
+      Key type encrypted registered
+      cf_axi_adc 79020000.cf-ad9361-lpc: ADI AIM (10.03.) probed ADC AD9364 as MASTER
+      clk: Disabling unused clocks
+      Freeing unused kernel image (initmem) memory: 208K
+      This architecture does not have kernel memory protection.
+      Run /init as init process
+        with arguments:
+          /init
+        with environment:
+          HOME=/
+          TERM=linux
+      Starting syslogd: OK
+      Starting klogd: OK
+      Running sysctl: OK
+      Saving random seed: random: crng init done
+      OK
+      Starting network: udhcpc: started, v1.31.1
+      xilinx_axienet 40e00000.ethernet eth0: PHY [axienet-40e00000:07] driver [Marvell 88E1111] (irq=POLL)
+      xilinx_axienet 40e00000.ethernet eth0: configuring for phy/sgmii link mode
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: no lease, failing
+      Starting dropbear sshd: OK
+      Starting IIO Server Daemon
+
+      Welcome to Buildroot
+      buildroot login:
+
+Useful commands for the serial terminal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The below commands are to be run in the serial terminal connected to the FPGA.
+
+When prompted for login, use the following credentials:
+
+- username: **root**
+- password: **analog**
+
+To find out the IP of the FPGA board, run the following command and take the
+IP specified at "eth0 inet":
+
+.. shell::
+
+   $ifconfig
+
+To see the IIO devices detected, run:
+
+.. shell::
+
+    $iio_info | grep iio:device
+     iio:device0: ad7291
+     iio:device1: ad9361-phy
+     iio:device2: cf-ad9361-dds-core-lpc (buffer capable)
+     iio:device3: cf-ad9361-lpc (buffer capable)
+
+To power off the system, run the following command, and wait for the final
+message to be printed, then power off the FPGA board from the switch as well.
+
+.. shell::
+
+   $poweroff
+
+To disconnect XSDB when done:
+
+.. shell::
+   :show-user:
+
+   xsdb% disconnect
+
+Using no-OS as software
+--------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following files are needed for the system to boot:
+
+- HDL boot file: ``system_top.xsa``
+- no-OS project: :git-no-os:`projects/ad9361`
+
+Instructions on how to build the boot files from source can be found here:
+
+- :external+hdl:ref:`fmcomms2`. More HDL build details at
+  :external+hdl:ref:`build_hdl`
+- :external+no-OS:doc:`projects/rf-transceiver/ad9361`. More no-OS build
+  details at :external+no-OS:doc:`build_guide`
+
+Required Software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx Vivado and Vitis (downloading Vitis from
+  :xilinx:`here <support/download/index.html/content/xilinx/en/downloadNav/vitis.html>`
+  will include Vivado as well)
+- An UART terminal (Putty/Tera Term/Minicom, etc.), Baud rate 115200 (8N1)
+
+Required Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx :xilinx:`KCU105` FPGA board and its power supply
+- :adi:`AD-FMCOMMS4-EBZ` FMC evaluation board
+- 2x Micro-USB cables, one for UART and one for JTAG
+- 2x SMA cable or Antenna
+
+More details as to why you need these, can be found at
+:ref:`fmcomms4 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/fmcomms4_kcu105.jpeg
+   :width: 800
+
+.. esd-warning::
+
+In the following example, we will make a physical loopback between the ADC
+and the DAC channels on the evaluation board, using SMA cables.
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Connect the :adi:`AD-FMCOMMS4-EBZ` FMC board to the
+   :xilinx:`KCU105` FMC **LPC** socket
+#. Connect USB UART J4 (Micro-USB) to your host PC
+#. Connect USB JTAG J87 (Micro-USB) to your host PC
+#. Plug in the power supply and turn on the power switch on the FPGA board
+#. Build and run the project using the steps shown
+   :external+no-OS:doc:`here <projects/rf-transceiver/ad9361>`.
+#. Observe console output messages on your terminal (use the first ttyUSB or
+   COM port registered)
