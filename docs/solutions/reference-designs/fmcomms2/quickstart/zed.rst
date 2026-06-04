@@ -41,9 +41,7 @@ can build them manually:
 - Instructions on how to manually build the boot files from source can be found
   here:
 
-  - :ref:`linux-kernel zynq` (the only difference compared to the ZynqMP is
-    that instead of running ``make adi_zynqmp_defconfig``,
-    you must run ``make zynq_xcomm_adv7511_defconfig``)
+  - :ref:`linux-kernel zynq`
   - :external+hdl:ref:`fmcomms2` build documentation. More HDL build details at
     :external+hdl:ref:`build_hdl`.
 
@@ -86,6 +84,8 @@ AD-FMCOMMS2-EBZ/ZED
 
 .. image:: ../images/fmcomms2_zed_linux.jpeg
    :width: 800
+
+.. esd-warning::
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
