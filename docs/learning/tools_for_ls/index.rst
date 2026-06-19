@@ -1,7 +1,7 @@
 .. _datax-tools-for-ls-system-design:
 
-ADI DataX Tools for Low Speed Mixed Signal System Design
---------------------------------------------------------
+ADI DataX™ Tools for Low Speed Mixed Signal System Design
+---------------------------------------------------------
 
 .. note::
 
@@ -10,44 +10,89 @@ ADI DataX Tools for Low Speed Mixed Signal System Design
 Introduction
 ~~~~~~~~~~~~
 
-The goal of this tutorial is to equip the reader with a collection of `ADI DataX
-<https://developer.analog.com/solutions/adi-datax>`__-enabled hardware and
-software tools for developing low-speed mixed-signal applications. Complete
-written instructions follow, as well as a video guide and a slide deck that can
-be used for delivering as a hands-on workshop.
+`ADI DataX™ <https://developer.analog.com/solutions/adi-datax>`__ is a highly
+adaptable, open technology stack that bridges the gap between signal chains and
+applications across a wide range of processing platforms, operating systems, and
+software ecosystems to enable physically intelligent systems.
 
-But first - what exactly does “Low Speed” mean? In the context of this tutorial,
-it means that timing is not very critical. Signals are either completely static
-or moving slowly such that it doesn't matter if the instant that an ADC samples
-the signal wiggles around a bit relative to the previous sampling. While clock
-jitter is one source of this uncertainty, software delays (such as the time
-between a timer interrupt and the assertion of a “convert” edge) will likely be
-dominant. Important parameters in low-speed applications are offset, gain error,
-linearity, and temperature drift. “Noise” in a low-speed application is
-typically synonymous with resolution, and can be roughly measured by applying a
-quiet input signal (like a short circuit) and taking a histogram of the output
-readings. AC performance metrics such as signal to noise ratio and total
-harmonic distortion extracted from a Fourier transform of the data will not be
-considered. In contrast - sample jitter is important in a “high speed”
-application. If you are measuring signal to noise ratio, the Signal to Noise
-ratio (SNR) can be no greater than:
+Rather than being a single library or runtime, ADI DataX is a collection of
+reusable software building blocks, including device drivers, middleware, FPGA
+IP, and reference designs - aligned under a common architecture and enablement
+model. This concept is depicted somewhat abstractly in :numref:`fig-datax_diag`
 
-:math:`SNR <= -20 * log(2*\pi*f_{IN}*t_{j})`
+.. _fig-datax_diag:
 
-Where:
-:math:`f_{IN}` is the analog input frequency in Hz
-:math:`t_{j}` is the RMS jitter in seconds RMS
+.. figure:: adi_datax_diag.png
+   :width: 700px
+   :height: 400px
+   :align: center
 
-In this tutorial, we will use a transistor curve tracer as an example
-application that involves setting voltages and currents, reading voltages and
-currents, doing some basic math, and displaying a result. Each reading will be
-treated independently, no correlation to previous or future readings. We will
-NOT be measuring AC Signal to Noise Ratio (SNR), Total Harmonic Distortion
-(THD), nor measuring steps, wiggles, or any other situation where precise timing
-is required. Rest assured, there are lots of very interesting applications in
-this category; consider a vector network analyzer (VNA) - set an excitation
-frequency, measure forward and reflected power and phase, do some math, step,
-repeat, and when done, display the results.
+   ADI DataX Layers
+
+The goal of this tutorial is to bring :numref:`fig-datax_diag` to life in a
+tangible way by working through two application examples that map into the
+diagram as shown in :numref:`fig-datax_diag_w_apps`
+
+.. _fig-datax_diag_w_apps:
+
+.. figure:: adi_datax_diag_w_apps.png
+   :width: 700px
+   :height: 400px
+   :align: center
+
+   Applications mappped onto ADI DataX layers
+
+In this tutorial, we will use a transistor curve tracer and temperature sensor
+as example applications. The temperature sensor simply involves reading
+temperature, doing some math to convert units if necessary, and displaying the
+result. The curve tracer involves setting voltages and currents, reading
+voltages and currents, doing some basic math, and displaying a result. Each
+reading will be treated independently, no correlation to previous or future
+readings. We will NOT be measuring AC Signal to Noise Ratio (SNR), Total
+Harmonic Distortion (THD), nor measuring steps, wiggles, or any other situation
+where precise timing is required. Rest assured, there are lots of very
+interesting applications in this category; consider a vector network analyzer
+(VNA) - set an excitation frequency, measure forward and reflected power and
+phase, do some math, step, repeat, and when done, display the results.
+
+We will start with a Linux-based workflow, leveraging Linux device drivers
+pre-built in ADI Kuiper Linux, Pyadi-iio. We'll then show how to migrate to
+other languages (C, C#, MATLAB), other processing platforms (ARM-based
+MAX32xxx, Raspberry Pi Pico), ecosystems (no-OS / bare metal, Zephyr), and
+middleware layers (GNURadio, ROS). With ADI DataX, switching between these
+layers is cheap - there is little to no barrier to getting a proof of concept up
+and running in Linux, then switching to bare metal or Zephyr as development
+continues.
+
+Complete written instructions follow, as well as a video guide and a slide deck
+that can be used for delivering as a hands-on workshop.
+
+.. NOTE::
+   What exactly does “Low Speed” mean? In the context of this tutorial, it means
+   that timing is not very critical. Signals are either completely static
+   or moving slowly such that it doesn't matter if the instant that an ADC samples
+   the signal wiggles around a bit relative to the previous sampling. While clock
+   jitter is one source of this uncertainty, software delays (such as the time
+   between a timer interrupt and the assertion of a “convert” edge) will likely be
+   dominant. Important parameters in low-speed applications are offset, gain error,
+   linearity, and temperature drift. “Noise” in a low-speed application is
+   typically synonymous with resolution, and can be roughly measured by applying a
+   quiet input signal (like a short circuit) and taking a histogram of the output
+   readings. AC performance metrics such as signal to noise ratio and total
+   harmonic distortion extracted from a Fourier transform of the data will not be
+   considered. In contrast - sample jitter is important in a “high speed”
+   application. If you are measuring signal to noise ratio, the Signal to Noise
+   ratio (SNR) can be no greater than:
+
+   :math:`SNR <= -20 * log(2*\pi*f_{IN}*t_{j})`
+
+   Where:
+
+   :math:`f_{IN}` is the analog input frequency in Hz
+
+   :math:`t_{j}` is the RMS jitter in seconds RMS
+
+
 
 Materials
 ~~~~~~~~~
