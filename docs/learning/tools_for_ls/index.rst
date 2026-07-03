@@ -239,6 +239,26 @@ Next Steps: Developing on a remote host
 Next Steps: Other languages (C++, C#, MATLAB, etc.)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Next Steps: ROS2 Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While the previous exercises used Python and pyadi-iio, the IIO framework can
+also be integrated with **ROS2** (Robot Operating System 2) for robotics and
+automation applications. The `adi_iio <https://github.com/analogdevicesinc/adi_ros2>`__
+ROS2 package provides a bridge between IIO devices and the ROS2 ecosystem,
+exposing device attributes as ROS2 topics and services.
+
+In this section, we will run a servo motor control demo that uses the
+ADALM-LSMSPG to generate position commands and read feedback, demonstrating
+how IIO devices can be integrated into a ROS2-based control system.
+
+:doc:`Continue to ROS2 Integration Tutorial <ros2_integration/index>`
+
+.. toctree::
+   :hidden:
+
+   ros2_integration/index
+
 IIO as a Tool for Migrating to an Embedded Implementation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
