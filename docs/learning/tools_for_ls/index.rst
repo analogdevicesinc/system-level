@@ -103,23 +103,16 @@ Instruments, Inc. develop their first products:
 The temperature sensor simply involves reading temperature, doing some math to
 convert units if necessary, and displaying the result. The curve tracer involves
 setting voltages and currents, reading voltages and currents, doing some basic
-math, and displaying a result. Each reading is considered independently, no
-correlation to previous or future readings. We will NOT be measuring AC Signal
-to Noise Ratio (SNR), Total Harmonic Distortion (THD), nor measuring steps,
-wiggles, wavelets, or any other situation where precise timing is required. Rest
-assured, there are lots of very interesting applications in this category;
-consider a vector network analyzer (VNA) - set an excitation frequency, measure
-forward and reflected power and phase, do some math, step, repeat, and when
-done, display the results.
+math, and displaying a result.
 
-We will start with a Linux-based workflow, leveraging Linux device drivers
+We will start with a Linux-based workflow because it's extremely convenient
+(trust us!) using the ubiquitious Raspberry Pi, leveraging Linux device drivers
 pre-built in ADI Kuiper Linux, Pyadi-iio. We'll then show how to migrate to
-other languages (C, C#, MATLAB), other processing platforms (ARM-based
-MAX32xxx, Raspberry Pi Pico), ecosystems (no-OS / bare metal, Zephyr), and
-middleware layers (GNURadio, ROS). With ADI DataX, switching between these
-layers is cheap - there is little to no barrier to getting a proof of concept up
-and running in Linux, then switching to bare metal or Zephyr as development
-continues.
+other languages (C, C#, MATLAB), other processing platforms (ARM-based MAX32xxx,
+Raspberry Pi Pico), ecosystems (no-OS / bare metal, Zephyr), and middleware
+layers (GNURadio, ROS). With ADI DataX, switching between these layers is cheap
+- there is little to no barrier to getting a proof of concept up and running in
+Linux, then switching to bare metal or Zephyr as development continues.
 
 Complete written instructions follow, as well as a video guide and a slide deck
 that can be used for delivering as a hands-on workshop.
@@ -127,20 +120,16 @@ that can be used for delivering as a hands-on workshop.
 .. NOTE::
 
    What exactly does “Low Speed” mean? In the context of this tutorial, it means
-   that timing is not very critical. Signals are either completely static
-   or moving slowly such that it doesn't matter if the instant that an ADC samples
-   the signal wiggles around a bit relative to the previous sampling. While clock
-   jitter is one source of this uncertainty, software delays (such as the time
-   between a timer interrupt and the assertion of a “convert” edge) will likely be
-   dominant. Important parameters in low-speed applications are offset, gain error,
-   linearity, and temperature drift. “Noise” in a low-speed application is
-   typically synonymous with resolution, and can be roughly measured by applying a
-   quiet input signal (like a short circuit) and taking a histogram of the output
-   readings. AC performance metrics such as signal to noise ratio and total
-   harmonic distortion extracted from a Fourier transform of the data will not be
-   considered. In contrast - sample jitter is important in a “high speed”
-   application. If you are measuring signal to noise ratio, the Signal to Noise
-   ratio (SNR) can be no greater than:
+   that timing is not very critical. Signals are either completely static or
+   moving slowly such that it doesn't matter if the instant that an ADC samples
+   the signal wiggles around a bit relative to the previous sampling. While
+   clock jitter is one source of this uncertainty, software delays (such as the
+   time between a timer interrupt and the assertion of a “convert” edge) will
+   likely be dominant. AC performance metrics such as signal to noise ratio
+   (SNR) and total harmonic distortion (THD) extracted from a Fourier transform
+   of the data will not be considered. In contrast - sample jitter is important
+   in a “high speed” application. If you are measuring signal to noise ratio,
+   the SNR can be no greater than:
 
    :math:`SNR <= -20 * log(2*\pi*f_{IN}*t_{j})`
 
@@ -149,6 +138,16 @@ that can be used for delivering as a hands-on workshop.
    :math:`f_{IN}` is the analog input frequency in Hz
 
    :math:`t_{j}` is the RMS jitter in seconds RMS
+   
+   Important parameters in low-speed applications are typically offset, gain
+   error, linearity, and temperature drift. Each reading is considered
+   independently, no correlation to previous or future readings. We will NOT be
+   measuring AC SNR, THD, nor measuring steps, wiggles, wavelets, or any other
+   situation where precise timing is required. Rest assured, there are lots of
+   very interesting applications in this category; consider a vector network
+   analyzer (VNA) - set an excitation frequency, measure forward and reflected
+   power and phase, do some math, step, repeat, and when done, display the
+   results.
 
 
 
@@ -165,7 +164,8 @@ Materials
 -  :adi:`ADALM2000
    <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/adalm2000.html>`
    (Optional, for observing signals.)
-- :adi:`MAX32666FTHR<max32666fthr>` development board (for no-OS examples)
+- :adi:`MAX32655FTHR<max32655fthr>` development board (for no-OS and Zephyr
+  examples)
 - Either:
    - :adi:`ADALM-LSMSPG<adalm-lsmspg>` Low-Speed Mixed Signal Playground module
 - Or:
@@ -263,11 +263,24 @@ possible so you can get to work.
 Introducing the exciting new products to which we'll apply our skills
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The temperature sensor is intended as an "as simple as possible" application.
-The temperature sensor IC itself is the ADT75, which has cross-references from
-multiple manufacturers (all inferior to Analog Devices, of course!). The Linux
-device driver has been in the kernel since at least version 2 (1998), and you
-can buy a ten-pack of breakout boards for $15 USD.
+As mentioned above, we're going to be building a prototype temperature sensor
+and transistor curve tracer. The temperature sensor is intended as an "as simple
+as possible" application. The temperature sensor IC itself is the ADT75, which
+has cross-references from multiple manufacturers (all inferior to Analog
+Devices, of course!). The Linux device driver has been in the kernel since at
+least version 2 (1998), and you can buy a ten-pack of breakout boards for $15
+USD.
+
+The curve tracer is "more advanced" - it involves setting the current into
+an NPN transistor's base  (or out of a PNP's base), sweeping the collector
+voltage, and measuring the resulting collector current. This example is intended
+as the simplest possible application that exercises the following operations:
+
+- Set a couple of voltages and currents
+- Measure a couple of voltages and currents
+- Do some math
+- Step and repeat
+- Display results
 
 Component selection based on software support (vs. pure analog performance)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -426,6 +439,8 @@ So now we can fire up our favorite bloated (oops - "full featured") Python,
 MATLAB, C#, etc. development environment, and communicate with the target
 hardware over a network connection.
 
+<<Screenshot of Spyder or VSCode on remote machine>>
+
 Language Support: C, C++
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -509,10 +524,36 @@ remote host into the embedded target, replacing the tinyiiod server entirely.
 
    standalone_no-os_example/index
 
-Ecosystem Support: ROS2 Integration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RTOS Support: Zephyr
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-While the previous exercises used Python and pyadi-iio, the IIO framework can
+Zephyr is an open-source, scalable real-time operating system (RTOS) for
+resource-constrained embedded devices, providing a small-footprint kernel along
+with integrated drivers, networking, security, and application services across a
+wide range of hardware architectures. Zephyr supports more than 1000 development
+boards, and hundreds of shields - including... the ADALM-LSMSPG!:
+
+`Zephyr Shields: Analog Devices Low-Speed Mixed Signal Playground <https://docs.zephyrproject.org/latest/boards/shields/adi_lsmspg/doc/index.html>`__
+
+And the MAX32655FTHR:
+
+`Zephyr Boards: Analog Devices MAX32655FTHR <https://docs.zephyrproject.org/latest/boards/adi/max32655fthr/doc/index.html>`__
+
+In the Zephyr section of this workshop, we will run the tinyiiod server, a
+few standalone examples, and the debug console.
+
+:doc:`Continue to the Zephyr examples <zephyr_example/index>`
+
+.. toctree::
+   :hidden:
+
+   zephyr_example/index
+
+
+Ecosystem / Framework Support: ROS2 Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While the previous exercises used Python and pyadi-iio, the IIO subsystem can
 also be integrated with **ROS2** (Robot Operating System 2) for robotics and
 automation applications. The `adi_iio <https://github.com/analogdevicesinc/adi_ros2>`__
 ROS2 package provides a bridge between IIO devices and the ROS2 ecosystem,
