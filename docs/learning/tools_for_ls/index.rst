@@ -448,7 +448,7 @@ Of course we're not limited to Python! The libiio is written natively in C, so
 we can write a simple C program that runs natively in Linux, on the Raspberry
 Pi. In this section, we'll go through this process.
 
-:doc:`Continue to C, C++ Tutorial <native_c_example/index>`
+:ref:`Continue to C, C++ Tutorial <datax-native-c-example>`
 
 .. toctree::
    :hidden:
@@ -462,7 +462,7 @@ The LM75, AD5592r, and AD5593r are supported in ADI's MATLAB precision toolbox.
 In this section, we'll work through porting the temperature sensor and curve
 tracer to MATLAB.
 
-:doc:`Continue to MATLAB Tutorial <matlab_example/index>`
+:ref:`Continue to MATLAB Tutorial <datax-matlab-example>`
 
 .. toctree::
    :hidden:
@@ -495,7 +495,7 @@ previously talked to the Raspberry Pi, to talk to your actual embedded target.
 
 To see this in action:
 
-:doc:`Continue to tinyiiod Tutorial <tinyiiod_example/index>`
+:ref:`Continue to tinyiiod Tutorial <datax-iio-for-migrating>`
 
 .. toctree::
    :hidden:
@@ -517,7 +517,7 @@ designed to be easily portable to other platforms as well.
 Let's now migrate the curve tracer logic that until now ran in Python on a
 remote host into the embedded target, replacing the tinyiiod server entirely.
 
-:doc:`Continue to tinyiiod Tutorial <standalone_no-os_example/index>`
+:ref:`Continue to tinyiiod Tutorial <datax-no-os-standalone>`
 
 .. toctree::
    :hidden:
@@ -542,7 +542,7 @@ And the MAX32655FTHR:
 In the Zephyr section of this workshop, we will run the tinyiiod server, a
 few standalone examples, and the debug console.
 
-:doc:`Continue to the Zephyr examples <zephyr_example/index>`
+:ref:`Continue to the Zephyr examples <datax-zephyr-example>`
 
 .. toctree::
    :hidden:
@@ -563,7 +563,7 @@ In this section, we will run a servo motor control demo that uses the
 ADALM-LSMSPG to generate position commands and read feedback, demonstrating
 how IIO devices can be integrated into a ROS2-based control system.
 
-:doc:`Continue to ROS2 Integration Tutorial <ros2_integration/index>`
+:ref:`Continue to ROS2 Integration Tutorial <datax-ros2-integration>`
 
 .. toctree::
    :hidden:
