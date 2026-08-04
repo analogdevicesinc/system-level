@@ -168,6 +168,10 @@ The following steps run through a **near mode calibration** with the target posi
 
 -  Calibrated firmware is now stored in EEPROM.
 
+.. note::
+
+   To be added.
+
 .. admonition:: Download
    :class: download
 

@@ -1,5 +1,5 @@
 Setting up the system
-=====================
+---------------------
 
 Required hardware
 -----------------

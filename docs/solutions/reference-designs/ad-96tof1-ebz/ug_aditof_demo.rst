@@ -33,7 +33,7 @@ the GUI. The camera board outputs data at 30 frames per second (fps), but due to
 USB connection limitations, the host PC acquires the frames at a lower rate.
 
 Enabling the point cloud display in aditof-demo
-===============================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  The demo application has the capability to display a point cloud image if it
    detects an OpenCV module called viz.
@@ -55,7 +55,7 @@ Unfortunately OpenCV does not provide binaries for this module so a manual build
    enable the point cloud only in the desktop sdk
 
 Troubleshooting
-===============
+~~~~~~~~~~~~~~~
 
 -  The demo application hangs after closing the main window
 
