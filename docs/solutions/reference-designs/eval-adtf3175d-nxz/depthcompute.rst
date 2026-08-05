@@ -1,9 +1,75 @@
+Depth Compute
+=============
+
+Depth Compute CLI
+-----------------
+
+.. note::
+
+   This tool was removed from the host starting with Eval Kit version 5.0.0.
+
+The Depth Compute CLI processes data from the Data Collect CLI to generate
+three types of outputs:
+
+RadialDepth folder
+   Depth images measuring distance radially from the lens center
+
+AB folder
+   Active Brightness images where the value at each pixel is the intensity of
+   the return laser light
+
+XYZ folder
+   Point cloud data with real-world Cartesian coordinates for each pixel
+
+Usage Example
+~~~~~~~~~~~~~
+
+For EVAL-ADTF3175D-NXZ, use two commands depending on collection mode (MP or
+QMP)::
+
+   tofi_compute_depth.exe --I=../data_output --CCB=../crXXX.ccb --MODE=1 --O=../proc_data --INI=../config/RawToDepthAdsd3500.ini
+
+Use the appropriate INI configuration file with ``ISP_Enable=1``.
+
+Visualization Commands
+~~~~~~~~~~~~~~~~~~~~~~
+
+The toolkit includes Python scripts for output analysis::
+
+   visualize_depth.py
+   visualize_ab.py
+   visualize_pointcloud.py
+
+Depth Compute Libraries
+-----------------------
+
+The ADTF3175D evaluation kit requires depth compute binaries to convert raw
+data to depth data.
+
+The installers are packaged within an image download zipfile accessible through
+the GitHub-based installer. Consult the :doc:`getting_started` guide for
+detailed download instructions.
+
+**Windows Options:**
+
+-  GPU variant: ``TOF_DepthComputeEngine_Windows-RelX.X.0.exe``
+-  CPU variant: ``TOF_DepthComputeEngine_Windows-RelX.X.1.exe``
+   (default in GitHub Installer 3.2.0)
+
+**Linux Options:**
+
+-  GPU variant: ``TOF_DepthComputeEngine_Linux-RelX.X.0``
+-  CPU variant: ``TOF_DepthComputeEngine_Linux-RelX.X.1``
+
+Both Windows and Linux distributions support OpenCL-based processing through
+GPU or CPU implementations.
+
 Depth Compute Parameters
-========================
+------------------------
 
 .. important::
 
-   This page has been deprecated and replaced by an App note that is available
+   This section has been deprecated and replaced by an App note that is available
    from the ADI ToF Team.
 
 The ADSD3100 and ADSD3030 generate raw depth data which is processed using ADI's
@@ -11,7 +77,7 @@ proprietary depth compute pipeline. The user is able to modify some of the depth
 compute parameters to tune performance to a specific application.
 
 Where can the user modify these parameters?
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 While running the SDK, one of the inputs for initializing the camera is an ini
 file. This file contains control to depth compute parameters as well as ADSD3500
@@ -47,8 +113,8 @@ For example:
 -  phaseInvalid=0
 -  xyzEnable=1
 
-Depth compute parameters
-------------------------
+Parameter Reference
+~~~~~~~~~~~~~~~~~~~
 
 +--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------------+
 | Name                                 | Unit    | Function                                                                                                                                                                                                                                                                                                                                                                                                | Range                                                | Notes                                                                                          |
@@ -71,7 +137,7 @@ Depth compute parameters
 +--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------------+
 | jblfExponentialTerm                  |         | Noise reduction filter edge preservation strength. Defines the amount of depth edge preservation in the noise reduction filter. Set jblfExponentialTerm=0 to disable edge preservation. Set large value to preserve more depth edges.                                                                                                                                                                   |                                                      | N/A to the ADSD3500                                                                            |
 +--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------------+
-| jblfMaxEdge                          |         | Noise reduction filter edge invalidation threshold. Defines the depth “edgeness” above which a pixel depth value is invalid. If a pixel per-frequency active brightness is below jblfABThreshold, jblfMaxEdge is set to infinity for that pixel, which disables edge invalidation for that pixel                                                                                                        |                                                      | N/A to the ADSD3500                                                                            |
+| jblfMaxEdge                          |         | Noise reduction filter edge invalidation threshold. Defines the depth "edgeness" above which a pixel depth value is invalid. If a pixel per-frequency active brightness is below jblfABThreshold, jblfMaxEdge is set to infinity for that pixel, which disables edge invalidation for that pixel                                                                                                        |                                                      | N/A to the ADSD3500                                                                            |
 +--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------------+
 | jblfABThreshold                      |         | See jblfMaxEdge.                                                                                                                                                                                                                                                                                                                                                                                        |                                                      | N/A to the ADSD3500                                                                            |
 +--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------------+
@@ -99,7 +165,7 @@ Depth compute parameters
 +--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------------+
 
 inputFormat
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 -  mipiRaw12 - Input data is 12-bit packed in mipiraw12format. This is the raw data output of ADSD3030.
 -  mipiRaw12_11 -Input Data is 12- bit packed in mipiraw12 format with 12th bit as 0. This is the raw data output of ADSD3100.
@@ -112,7 +178,7 @@ inputFormat
    data will be unpacked by NXP.
 
 interleavingEnable
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
 Instructs the ADSD3500 to generated interleaved data on MIPI or use virtual
 channels.
@@ -121,7 +187,7 @@ channels.
 -  1 - enable interleaving
 
 bitsInPhaseOrDepth
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
 Instructs the ADSD3500 how many bits to use for the phase or depth frames.
 
@@ -132,7 +198,7 @@ Instructs the ADSD3500 how many bits to use for the phase or depth frames.
 -  16 - 16-bits depth
 
 bitsInConf
-~~~~~~~~~~
+^^^^^^^^^^
 
 Instructs the ADSD3500 how many bits to use for Confidence data or to disable
 Confidence data.
@@ -142,7 +208,7 @@ Confidence data.
 -  8 - 8-bits confidence
 
 bitsInAB
-~~~~~~~~
+^^^^^^^^
 
 Instructs the ADSD3500 how many bits to use for AB data.
 
