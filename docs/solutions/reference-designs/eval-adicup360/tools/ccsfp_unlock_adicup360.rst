@@ -42,7 +42,5 @@ How to Recover the ADICUP360
    :align: center
    :width: 400
 
-*End of Document*
-
 .. |image1| image:: ../images/cm3wsd_setup.png
    :width: 400

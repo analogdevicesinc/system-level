@@ -127,9 +127,7 @@ Debugging the ADuCM30_ISM43340_CN0357 project
    :align: center
    :width: 600
 
-::
-
-     * Use step-by-step execution or directly run the program.
+- Use step-by-step execution or directly run the program.
 
 After completion of the above steps, the program will remain written into the
 system flash and it will run by default every time the board is powered up.

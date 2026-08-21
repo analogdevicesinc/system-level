@@ -12,9 +12,9 @@ The ADuCM360_demo_adxl362 project uses the :doc:`EVAL-ADXL362-ARDZ shield </solu
    :align: left
    :width: 450
 
-The application reads the \*\* X \*\* , \*\* Y \*\*, and \*\* Z \*\* acceleration registers each **500 [ms]**. The acceleration in the 3 axes is displayed in **[mG]** on the LCD. Also this application demonstrates the usage of the motion switch. Movement zones - **UP**, **DOWN**, **RIGHT**, **LEFT**, **CENTER** - are displayed in the right side of the LCD.
+The application reads the **X**, **Y**, and **Z** acceleration registers each **500 [ms]**. The acceleration in the 3 axes is displayed in **[mG]** on the LCD. Also this application demonstrates the usage of the motion switch. Movement zones - **UP**, **DOWN**, **RIGHT**, **LEFT**, **CENTER** - are displayed in the right side of the LCD.
 
-The **EVAL-ADXL362-ARDZ** shield provide an internal temperature sensor as an additional features which is read in the same software loop. The value is displayed in ADC codes or in Celsius degrees. The temperature** Treal \*\* is derived from the ADC readings \*\* Tadc \*\* using the predefined formula:
+The **EVAL-ADXL362-ARDZ** shield provide an internal temperature sensor as an additional features which is read in the same software loop. The value is displayed in ADC codes or in Celsius degrees. The temperature **Treal** is derived from the ADC readings **Tadc** using the predefined formula:
 
 ::
 
@@ -174,7 +174,7 @@ Outputting Data
 LCD Screen on EVAL-ADXL362-ARDZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The application reads the \*\* X \*\* , \*\* Y \*\*, and \*\* Z \*\* acceleration registers and the \*\* t \*\* temperature register every **500 [ms]**. The acceleration in the 3 axes is displayed in **[mG]** on the LCD, and the temperature can be displayed in both **[ADC]** codes or degrees **[C]** depending on how the software is configured.
+The application reads the **X**, **Y**, and **Z** acceleration registers and the **t** temperature register every **500 [ms]**. The acceleration in the 3 axes is displayed in **[mG]** on the LCD, and the temperature can be displayed in both **[ADC]** codes or degrees **[C]** depending on how the software is configured.
 
 There is a movement plane offset to the right of the LDC screen which shows which direction the board is currently tiled.( **UP**, **DOWN**, **RIGHT**, **LEFT**, **CENTER**)
 
@@ -217,8 +217,6 @@ The **RTE** folder contains device and system related files:
 
 -  **Device Folder** – contains low levels drivers for ADuCM360 microcontroller.(try not to edit these files)
 -  **system.rteconfig** - Allows the user to select the peripherial components they need, along with the startup and ARM cmsis files needed for the project.
-
-*End of Document*
 
 .. |image1| image:: ../images/eval-adxl362-ardz_default_software_config.png
    :width: 360

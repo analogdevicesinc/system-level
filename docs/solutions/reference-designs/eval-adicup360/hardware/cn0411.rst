@@ -1,11 +1,23 @@
 EVAL-CN0411-ARDZ Shield Overview
 ================================
 
-| :adi:`CN0411` is a total dissolved solids measurement (TDS) system using direct measurement of conductivity of the solution. The system can measure low to high conductivity levels ranging from 1 μS to 0.1 S and can accommodate 2-wire conductivity probes of different cell constants from 0.01 to 10. Temperature compensation is performed using either a 100 Ω or 1000 Ω 2-wire RTD.
-| :adi:`CN0411` generates a bipolar square wave excitation across the conductivity probe using the :adi:`AD5683R`, a 16-bit SPI voltage DAC, and the :adi:`ADG884`, ultra-low on-resistance CMOS Dual 2:1 SPDT switch. The frequency of the excitation is controlled by a PWM signal from the microcontroller which can be set to either 2.4 kHz or 94 Hz via the system software.
-| The range of conductivity measurement can be adjusted using gain resistors switched using the :adi:`ADG1608`, a 16:1 multiplexer.
-| The conductivity cell signal is measured by the :adi:`AD8220`, a low-input current JFET instrumentation amplifier. Then, A track-and-hold amplifier implemented using :adi:`AD8628`, a zero-drift rail-to-rail single supply op amp, samples the signal for the :adi:`AD7124-8`, a low noise low power 24-bit Sigma-Delta ADC. With the software calibration, the calibrated system accuracy is less than 2% for all conductivity ranges from 1 μS to 0.01 S and less than 7% for conductivity ranges greater than 0.01 S. This makes the system reliable for conductivity measurement used to compute TDS.
-| This design uses a combination of components that allow for single supply operation which minimize circuit complexity, making this suitable for low-power and portable instrument applications. Applications include chemical water analysis for field research, and monitoring water systems and natural bodies of water.
+:adi:`CN0411` is a total dissolved solids measurement (TDS) system using
+direct measurement of conductivity of the solution. The system can measure low to high conductivity levels ranging from 1 μS to 0.1 S and can accommodate 2-wire conductivity probes of different cell constants from 0.01 to 10. Temperature compensation is performed using either a 100 Ω or 1000 Ω 2-wire RTD.
+:adi:`CN0411` generates a bipolar square wave excitation across the
+conductivity probe using the :adi:`AD5683R`, a 16-bit SPI voltage DAC, and
+the :adi:`ADG884`, ultra-low on-resistance CMOS Dual 2:1 SPDT switch. The frequency of the excitation is controlled by a PWM signal from the microcontroller which can be set to either 2.4 kHz or 94 Hz via the system software.
+The range of conductivity measurement can be adjusted using gain resistors
+switched using the :adi:`ADG1608`, a 16:1 multiplexer.
+The conductivity cell signal is measured by the :adi:`AD8220`, a low-input
+current JFET instrumentation amplifier. Then, A track-and-hold amplifier
+implemented using :adi:`AD8628`, a zero-drift rail-to-rail single supply op
+amp, samples the signal for the :adi:`AD7124-8`, a low noise low power 24-bit
+Sigma-Delta ADC. With the software calibration, the calibrated system accuracy is less than 2% for all conductivity ranges from 1 μS to 0.01 S and less than 7% for conductivity ranges greater than 0.01 S. This makes the system reliable for conductivity measurement used to compute TDS.
+This design uses a combination of components that allow for single supply
+operation which minimize circuit complexity, making this suitable for low-power
+and portable instrument applications. Applications include chemical water
+analysis for field research, and monitoring water systems and natural bodies
+of water.
 
 .. image:: ../images/20180628_145941.jpg
    :align: center
@@ -33,8 +45,11 @@ The :adi:`CN0411` connects to the :adi:`EVAL-ADICUP360 <ADICUP360>` using the Ar
 Sensor Connections
 ^^^^^^^^^^^^^^^^^^
 
-| The CN-0411 has three hardware connectors which have no polarity and can connect directly to the sensors:
-| J1 is for 2-wire conductivity probes with a BNC plug. This is compatible with common commercial probes. Below are recommended probes of different cell constants.
+The CN-0411 has three hardware connectors which have no polarity and can
+connect directly to the sensors:
+J1 is for 2-wire conductivity probes with a BNC plug. This is compatible with
+common commercial probes. Below are recommended probes of different cell
+constants.
 
 ============= =============================== ========
 Cell Constant Description                     Images
@@ -218,8 +233,6 @@ Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0411-ARDZ?&v=RevC>`_ to receive all these great benefits and more!
-
-*End of Document*
 
 .. |image1| image:: ../images/shunt_header_positions.jpg
    :width: 600

@@ -244,8 +244,6 @@ The **RTE** folder contains device and system related files:
 -  **Device Folder** – contains low levels drivers for ADuCM360 microcontroller.(try not to edit these files)
 -  **system.rteconfig** - Allows the user to select the peripherial components they need, along with the startup and ARM cmsis files needed for the project.
 
-*End of Document*
-
 .. |image1| image:: ../images/rh_mode.jpg
    :width: 850
 

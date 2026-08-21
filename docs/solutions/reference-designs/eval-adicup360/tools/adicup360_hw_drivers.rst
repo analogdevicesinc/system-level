@@ -15,7 +15,7 @@ which USB port you have plugged into your laptop or PC.
    that the drivers are being installed in the task bar, open it up and wait
    till everything finished before progressing.
 
-| |image1|
+|image1|
 
 Mass Storage Drives
 -------------------
@@ -54,7 +54,9 @@ Then go to the **My Computer** view and search for the Bootloader drive, if you 
    The current ADICUP360 interface file can be downloaded here:
 
    
-   `ADICUP360 Interface File <../resources/if_k20dx128_target_aducm360.zip>`_
+   .. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace with its analog.com designsupport URL and restore the link:
+      `ADICUP360 Interface File <../resources/if_k20dx128_target_aducm360.zip>`_
    
 
 Serial Drive
@@ -68,8 +70,6 @@ applications as well) This will allow you to output data to a PC or even send
 UART commands to the ADICUP360.
 
 The PC will start searching for and install the following drivers:|image6|
-
-*End of Document*
 
 .. |image1| image:: ../images/device_drivers_install_notification.png
    :width: 400

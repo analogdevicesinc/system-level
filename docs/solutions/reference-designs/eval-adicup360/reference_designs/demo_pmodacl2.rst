@@ -14,15 +14,15 @@ The ADuCM360_demo_pmodacl2 project uses the `PmodACL2 PMOD <http://store.digilen
    :align: left
    :width: 600
 
-The application reads the \*\* X \*\* , \*\* Y \*\*, and \*\* Z \*\* acceleration registers. The acceleration in the 3 axis is displayed in **[mG]**. There is also an internal temperature sensor in the ADXL362, which is read and out either in **[C]** or **[codes]**. This is set by changing the **TEMP_ADC** variable within the *main.c* file. (Value of [0] is degrees Celsius, and value [1] is ADC codes) The acceleration range can also be selected by setting the **ADXL_SENSE** variable with the *main.c* file. (Values of [2, 4, and 8 are acceptable] )
+The application reads the **X**, **Y**, and **Z** acceleration registers. The acceleration in the 3 axis is displayed in **[mG]**. There is also an internal temperature sensor in the ADXL362, which is read and out either in **[C]** or **[codes]**. This is set by changing the **TEMP_ADC** variable within the *main.c* file. (Value of [0] is degrees Celsius, and value [1] is ADC codes) The acceleration range can also be selected by setting the **ADXL_SENSE** variable with the *main.c* file. (Values of [2, 4, and 8 are acceptable] )
 
 All the outputs are printed from the UART to the USER USB port and can be read
 on the PC using a serial terminal program, such as Putty or Tera Term.
 
 For precision applications, each **ADXL362** chip requires individual calibration which can be done by measuring and setting the definitions // ACC_TEMP_BIAS// and // ACC_TEMP_SENSITIVITY// parameters in the *ADXL362.h* file.
 
-The temperature in degrees celsius, \*\* Treal \*\*, can be derived from the ADC
-readings \*\* Tadc \*\* using the predefined formula:
+The temperature in degrees celsius, **Treal**, can be derived from the ADC
+readings **Tadc** using the predefined formula:
 
 ::
 
@@ -214,5 +214,3 @@ The **RTE** folder contains device and system related files:
 
 -  **Device Folder** – contains low levels drivers for ADuCM360 microcontroller.(try not to edit these files)
 -  **system.rteconfig** - Allows the user to select the peripherial components they need, along with the startup and ARM cmsis files needed for the project.
-
-*End of Document*

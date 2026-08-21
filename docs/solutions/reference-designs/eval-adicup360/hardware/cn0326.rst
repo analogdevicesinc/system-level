@@ -70,10 +70,16 @@ Schematics, PCB Layout, Bill of Materials
    :class: download
 
    
-   -  `Schematics <../resources/eval-cn0326-pmdz-cadenceschematic-reva.pdf>`_ (PDF)
-   -  `Bill of Materials <../images/eval-cn0326-pmdz-bom-reva.xls>`_ (Excel)
-   -  `Layout Gerbers <../resources/eval-cn0326-pmdz-gbr-reva.zip>`_ (ZIP)
-   -  `Assembly Drawing <../resources/eval-cn0326-pmdz-assemblydrawing.pdf>`_ (PDF)
-   
+   .. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace with its analog.com designsupport URL and restore the list:
 
-*End of Document*
+      -  `Schematics <../resources/eval-cn0326-pmdz-cadenceschematic-reva.pdf>`_ (PDF)
+
+   -  `Bill of Materials <../images/eval-cn0326-pmdz-bom-reva.xls>`_ (Excel)
+
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Layout Gerbers <../resources/eval-cn0326-pmdz-gbr-reva.zip>`_ (ZIP)
+      -  `Assembly Drawing <../resources/eval-cn0326-pmdz-assemblydrawing.pdf>`_ (PDF)
+   

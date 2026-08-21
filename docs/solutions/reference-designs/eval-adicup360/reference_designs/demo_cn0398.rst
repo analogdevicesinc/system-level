@@ -102,7 +102,9 @@ The following is a list of items needed in order to replicate this demo.
 Video
 -----
 
-|youtube>43GfiE8uAa4| *All About Circuits* created a video showing users how they can use the moisture sensor portion of the CN0398 to monitor the water level of your household plants. Check it out!
+*All About Circuits* created a video showing users how they can use the
+moisture sensor portion of the CN0398 to monitor the water level of your
+household plants. Check it out!
 
 Setting up the hardware
 -----------------------
@@ -116,8 +118,10 @@ Setting up the hardware
 
 -  Connect the **EVAL-CN0398-ARDZ** to the Arduino connectors **P2, P5, P6, P7, P8** of the **EVAL-ADICUP360** board.
 -  Connect the pH sensor to the **J1** connector of the EVAL-CN0398-ARDZ.
--  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.\ :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
--  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.\ :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
+-  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.
+   :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
+-  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.
+   :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
 
 .. important::
 
@@ -126,7 +130,10 @@ Setting up the hardware
    voltage excitation greater than 5V on the EVAL-CN0398-ARDZ. Only moisture
    sensors using less than 3.3V can run off the USB power option.
 
--  Set the jumpers on the **EVAL-CN0398-ARDZ** to the position shown below. FIXME (need picture)
+-  Set the jumpers on the **EVAL-CN0398-ARDZ** as described in the Connectors
+   and Jumper Configurations section of the
+   :doc:`EVAL-CN0398-ARDZ hardware guide </solutions/reference-designs/eval-adicup360/hardware/cn0398>`,
+   according to the power supply required by your moisture sensor.
 -  Plug in the USB cable from the PC to the EVAL-ADICUP360 base board via the
    Debug USB.(P14)
 
@@ -239,9 +246,5 @@ The **RTE** folder contains device and system related files:
 -  **Device Folder** – contains low levels drivers for ADuCM360 microcontroller.(try not to edit these files)
 -  **system.rteconfig** - Allows the user to select the peripherial components they need, along with the startup and ARM cmsis files needed for the project.
 
-*End of Document*
-
 .. |image1| image:: ../images/398andaicup.png
    :width: 650
-
-.. |youtube>43GfiE8uAa4| image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/reference_designs/youtube>43gfie8uaa4

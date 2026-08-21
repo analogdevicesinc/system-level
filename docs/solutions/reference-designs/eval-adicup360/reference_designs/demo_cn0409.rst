@@ -212,8 +212,6 @@ read/write functions; Memory read/write functions; turbidity calculations;
 
 In the **src** and **include** folders you will find the source and header files related to CN0409 software application. The *Communication.cpp/h* files contain UART and I2C specific data, meanwhile the *CN0409.cpp/h* files contain the calculation part and *Flash.cpp/h* provide memory management. .
 
-*End of Document*
-
 .. |image1| image:: ../images/cn0409.jpg
    :width: 400
 

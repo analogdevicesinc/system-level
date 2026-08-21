@@ -109,10 +109,13 @@ Schematic, PCB Layout, Bill of Materials
    
    EVAL-CN0391-ARDZ Design & Integration Files
    
-   -  `Schematics <../resources/02-042340-01-a-1.pdf>`_
-   -  `PCB Layout <../resources/art.zip>`_
-   -  `Bill of Materials <../resources/bom.zip>`_
-   -  `Allegro Project <../resources/20-042340-01a.zip>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Schematics <../resources/02-042340-01-a-1.pdf>`_
+      -  `PCB Layout <../resources/art.zip>`_
+      -  `Bill of Materials <../resources/bom.zip>`_
+      -  `Allegro Project <../resources/20-042340-01a.zip>`_
    
 
 Software
@@ -127,5 +130,3 @@ Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0391-ARDZ?&v=RevA>`_ to receive all these great benefits and more!
-
-*End of Document*

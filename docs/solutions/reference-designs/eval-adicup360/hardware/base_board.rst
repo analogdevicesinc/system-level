@@ -14,12 +14,6 @@ and the layout.
 .. image:: ../images/hw_rev1_1_art.png
    :width: 600
 
-Getting Started Video
----------------------
-
-.. image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/hardware/analogtv>4784514204001
-   :alt: analogTV>4784514204001
-
 Connectors
 ----------
 
@@ -28,29 +22,12 @@ The following connectors are populated on the base board:
 .. image:: ../images/hw_rev1_1_connectors.png
    :width: 600
 
-::
-
-     * DC Power Jack:    Core positive, accepts +7V to +12V DC supply voltage;
-
-::
-
-     * DEBUG USB:        Used for flash programming and debug interface;
-
-::
-
-     * USER USB:         Provides a Virtual serial port connection to ADuCM360 microcontroller;
-
-::
-
-     * PMOD_SPI:         12-pin SPI PMOD connector;
-
-::
-
-     * PMOD_I2C:         8-pin I2C PMOD connector;
-
-::
-
-     * Six Arduino connectors described in the table below.
+- DC Power Jack: Core positive, accepts +7V to +12V DC supply voltage
+- DEBUG USB: Used for flash programming and debug interface
+- USER USB: Provides a Virtual serial port connection to ADuCM360 microcontroller
+- PMOD_SPI: 12-pin SPI PMOD connector
+- PMOD_I2C: 8-pin I2C PMOD connector
+- Six Arduino connectors described in the table below
 
 +---------------+---------+----------+----------------------------------------------------+----------------------+
 | Connector     | Pin No. | Pin Name | ADuCM360 pin or other function                     | Arduino Due Pin Name |
@@ -245,11 +222,11 @@ Jumpers J1, J2, J3, J4, J5
 +===============+======================================================================================================================================+
 | |image13|     | ADuCM360's UART pins **are connected** to the Virtual serial port of the Debug adapter                                               |
 +---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| |image14|     | ADuCM360's UART pins \*\* are not connected*\* to the Virtual serial port of the Debug adapter                                       |
+| |image14|     | ADuCM360's UART pins **are not connected** to the Virtual serial port of the Debug adapter                                           |
 +---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| |image15|     | ADuCM360's SWD lines \*\* are connected*\* to the Debug adapter. ADuCM360 can be programmed                                          |
+| |image15|     | ADuCM360's SWD lines **are connected** to the Debug adapter. ADuCM360 can be programmed                                              |
 +---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| |image16|     | ADuCM360's SWD lines \*\* are not connected*\* to the Debug adapter. ADuCM360 cannot be programmed                                   |
+| |image16|     | ADuCM360's SWD lines **are not connected** to the Debug adapter. ADuCM360 cannot be programmed                                       |
 +---------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | |image17|     | ADuCM360's RESET line **is connected** to the Debug adapter. The button **B1** can be used to invoke the Debug adapter's Bootloader. |
 +---------------+--------------------------------------------------------------------------------------------------------------------------------------+
@@ -338,39 +315,17 @@ Software examples
 
 -  :doc:`CLI demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cli>`
 
-*End of Document*
-
-.. |image1| image:: ../images/p12_close.png
-   :width: 32
-
-.. |image2| image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-aducm360-ardz/hardware/
 .. |image3| image:: ../images/p12_close.png
    :width: 32
 
-.. |image4| image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-aducm360-ardz/hardware/
+.. |image4| image:: ../images/p12_open1.png
+   :width: 32
+
 .. |image5| image:: ../images/refnsel_1-2.png
    :width: 39
 
 .. |image6| image:: ../images/refnsel_2-3.png
    :width: 39
-
-.. |image7| image:: ../images/j1-2.png
-   :width: 121
-
-.. |image8| image:: ../images/j1-2_1.png
-   :width: 121
-
-.. |image9| image:: ../images/j3-4.png
-   :width: 121
-
-.. |image10| image:: ../images/j3-4_1.png
-   :width: 121
-
-.. |image11| image:: ../images/j5.png
-   :width: 121
-
-.. |image12| image:: ../images/j5_1.png
-   :width: 121
 
 .. |image13| image:: ../images/j1-2.png
    :width: 121
@@ -389,21 +344,6 @@ Software examples
 
 .. |image18| image:: ../images/j5_1.png
    :width: 121
-
-.. |image19| image:: ../images/switch_p1_2_user.png
-   :width: 128
-
-.. |image20| image:: ../images/switch_p1_2_debug.png
-   :width: 128
-
-.. |image21| image:: ../images/switch_p1_2_gpio.png
-   :width: 128
-
-.. |image22| image:: ../images/switch_p6_7_user.png
-   :width: 128
-
-.. |image23| image:: ../images/switch_p6_7_gpio.png
-   :width: 128
 
 .. |image24| image:: ../images/switch_p1_2_user.png
    :width: 128

@@ -23,7 +23,7 @@ This page will outline:
    have support for CMSIS-DAP Debugger.
 
 How to import and run an existing project
-=========================================
+-----------------------------------------
 
 You can find the already created IAR and Keil projects on the **EVAL-ADICUP360 Git repository**, together with Eclipse project. Further it will be used as example the **ADuCM360_demo_blink** projects. Please use the link below to download the package:
 
@@ -73,7 +73,7 @@ A Debug session will open. You can run the program or can debug step by step:
    :width: 650
 
 How to create a new project for ADuCM360
-========================================
+-----------------------------------------
 
 Both IDEs offer support for ADuCM360 microcontroller which make it very easy to use them with **EVAL-ADICUP360** board. In this chapter will be presented basic setup how to create a new ADuCM360 project. The build, download and debug steps were already explained above.
 
@@ -162,8 +162,6 @@ Select **Target 1** -> go to Options button -> Debug tab -> select *CMSIS-DAP De
 
 .. image:: ../images/demo_keil_4.png
    :width: 650
-
-*End of Document*
 
 .. |image1| image:: ../images/demo_iar_2.png
    :width: 650

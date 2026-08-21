@@ -29,26 +29,14 @@ timer interrupt method).
 Setting up the hardware
 -----------------------
 
-::
-
-     * To program the EVAL-ADICUP360, set the jumpers as shown in the next figure. The important jumpers are highlighted in red.
+- To program the EVAL-ADICUP360, set the jumpers as shown in the next figure.
+  The important jumpers are highlighted in red.
 
 .. image:: ../images/hw_rev1_1_setup.png
    :width: 500
 
-::
-
-     * Connect the PC to the EVAL-ADICUP360 via DEBUG USB
-
-::
-
-     * Load the program and run it.
-
-ADICUP360 + Demo Blink Video
-----------------------------
-
-.. image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/reference_designs/analogtv>4784514204001
-   :alt: analogTV>4784514204001
+- Connect the PC to the EVAL-ADICUP360 via DEBUG USB
+- Load the program and run it.
 
 Obtaining the source code
 -------------------------
@@ -83,9 +71,7 @@ Debugging the ADuCM360_demo_blink project
    :align: center
    :width: 500
 
-::
-
-     * Use step-by-step execution or directly run the program.
+- Use step-by-step execution or directly run the program.
 
 After completion of the steps above the program will remain written into the
 system flash and it will run by default every time the board is powered up.

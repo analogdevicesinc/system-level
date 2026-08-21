@@ -52,7 +52,7 @@ Hardware Setup
 --------------
 
 Connectors, Sensors, and Configurations
-=======================================
+-----------------------------------------
 
 .. image:: ../images/cn0396_board_label_wiki.png
    :align: center
@@ -131,7 +131,7 @@ Jumper Pin 2 and Pin 3 D3
 --------------
 
 Schematic, PCB Layout, Bill of Materials
-========================================
+-----------------------------------------
 
 .. admonition:: Download
    :class: download
@@ -148,7 +148,7 @@ Schematic, PCB Layout, Bill of Materials
 --------------
 
 Software
-========
+--------
 
 -  :doc:`ADICUP360 + CN0396 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0396>`
 -  `Arduino Uno + CN0396 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0396>`_
@@ -159,5 +159,3 @@ Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0396-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
-
-*End of Document*

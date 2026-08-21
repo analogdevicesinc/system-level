@@ -15,7 +15,9 @@ Reports
 
 The ADICUP360 passes all requirements of the `CE <https://en.wikipedia.org/wiki/CE_marking>`_ tests.
 
--  `ADICUP360 EMC emissions and immunity test report <resources/eval-adicup360-emc_emissions_and_ce_test_report.pdf>`_
+.. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup360-resources-backup/);
+   replace with its analog.com designsupport URL and restore the link:
+   `ADICUP360 EMC emissions and immunity test report <resources/eval-adicup360-emc_emissions_and_ce_test_report.pdf>`_
 
 What are all these logos?
 -------------------------

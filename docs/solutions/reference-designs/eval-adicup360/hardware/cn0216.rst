@@ -58,12 +58,13 @@ Pin 8      Not Used
 REF SEL / Bridge Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| These set of jumpers allow the circuit to be configured for use with 4-wire or 6-wire load cells.
+These set of jumpers allow the circuit to be configured for use with 4-wire or
+6-wire load cells.
 
 .. note::
 
-   | NOTE - Any 4 or 6 wire load cells can be used with the EVAL-CN0216-ARDZ.
-   | The Tedeah Huntleigh Model 1042 load cell was used during testing.
+   Any 4 or 6 wire load cells can be used with the EVAL-CN0216-ARDZ.
+   The Tedeah Huntleigh Model 1042 load cell was used during testing.
 
 |image1| Place jumpers/shunts as shown above for 6-wire resistive bridge configuration
 
@@ -110,19 +111,35 @@ Schematic, Bill of Materials, Gerber Files, Layout Files
    EVAL-CN0216-ARDZ Rev C Files
 
    
-   -  `Schematic PDF <../resources/eval-cn0216-ardz-cadanceschematic-revc.pdf>`_
-   -  `Layout PDF <../resources/eval-cn0216-ardz-cadencelayout-revc.pdf>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Schematic PDF <../resources/eval-cn0216-ardz-cadanceschematic-revc.pdf>`_
+      -  `Layout PDF <../resources/eval-cn0216-ardz-cadencelayout-revc.pdf>`_
+
    -  `Bill of Materials <../images/eval-cn0216-ardz-bom-revc.xls>`_
-   -  `Allegro Files <../resources/eval-cn0216-ardz-cadencelibrary-revc.zip>`_
-   -  `Gerber Files <../resources/eval-cn0216-ardz-gbr-revc.zip>`_
+
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Allegro Files <../resources/eval-cn0216-ardz-cadencelibrary-revc.zip>`_
+      -  `Gerber Files <../resources/eval-cn0216-ardz-gbr-revc.zip>`_
    
    EVAL-CN0216-ARDZ Rev B Files
    
-   -  `Schematic PDF <../resources/eval-cn0216-ardz-cadanceschematic-revb.pdf>`_
-   -  `Layout PDF <../resources/eval-cn0216-ardz-cadencelayout-revb.pdf>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Schematic PDF <../resources/eval-cn0216-ardz-cadanceschematic-revb.pdf>`_
+      -  `Layout PDF <../resources/eval-cn0216-ardz-cadencelayout-revb.pdf>`_
+
    -  `Bill of Materials <../images/eval-cn0216-ardz-bom-revb.xls>`_
-   -  `Allegro Files <../resources/eval-cn0216-ardz-cadencelibrary-revb.zip>`_
-   -  `Gerber Files <../resources/eval-cn0216-ardz-gbr-revb.zip>`_
+
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Allegro Files <../resources/eval-cn0216-ardz-cadencelibrary-revb.zip>`_
+      -  `Gerber Files <../resources/eval-cn0216-ardz-gbr-revb.zip>`_
    
 
 --------------
@@ -145,8 +162,6 @@ Software
 
 -  :doc:`ADICUP360 + CN0216 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0216>`
 -  `Arduino Uno + CN0216 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0216>`_
-
-*End of Document*
 
 .. |image1| image:: ../images/cn0216_ref_sel_-_2.png
    :width: 100

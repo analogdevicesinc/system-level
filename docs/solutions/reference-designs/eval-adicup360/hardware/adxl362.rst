@@ -15,12 +15,6 @@ The :adi:`EVAL-ADXL362-ARDZ` Shield is designed in Arduino Uno R3 format which m
 
    The :adi:`EVAL-ADXL362-ARDZ` board has a large capacitor (C18) on the board which holds charge for the LCD screen. When power cycling the system, you must wait approximately 5 seconds to allow enough time for the capacitors on the :adi:`EVAL-ADXL362-ARDZ` board to fully discharge. This is a power requirement for the :adi:`ADXL362`, which notes in the datasheet that the power rail must come all the way back down to 0V before powering back up.
 
-Getting Started Video
----------------------
-
-.. image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/hardware/analogtv>4807248650001
-   :alt: analogTV>4807248650001
-
 Connectors and Jumper configuration
 -----------------------------------
 
@@ -39,7 +33,8 @@ Configuration Function
 |image2|      Routes ADXL362 CS pin to P0.4/RTS/IRQ1
 ============= ======================================
 
-| ==== LCD_CS_SEL ====
+LCD_CS_SEL
+~~~~~~~~~~
 
 ============= =======================================
 Configuration Function
@@ -48,7 +43,8 @@ Configuration Function
 |image4|      Connects LCD CS pin to P1.4/PWM2/MISO0.
 ============= =======================================
 
-| ==== ADXL_INT_SEL ====
+ADXL_INT_SEL
+~~~~~~~~~~~~
 
 ============= =====================================================
 Configuration Function
@@ -57,7 +53,8 @@ Configuration Function
 |image6|      Connects ADXL362 Interrupt pin 2 (INT2) to P1.0/IRQ3.
 ============= =====================================================
 
-| ==== LDC_RST_SEL ====
+LDC_RST_SEL
+~~~~~~~~~~~
 
 ============= ===================================
 Configuration Function
@@ -66,7 +63,8 @@ Configuration Function
 |image8|      Connects LCD Reset to pin P1.1/IRQ4
 ============= ===================================
 
-| ===== Schematics, PCB Layout, Bill of Materials =====
+Schematics, PCB Layout, Bill of Materials
+-----------------------------------------
 
 .. admonition:: Download
    :class: download
@@ -93,8 +91,6 @@ Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-ADXL362-ARDZ?&v=RevD>`_ to receive all these great benefits and more!
-
-*End of Document*
 
 .. |image1| image:: ../images/horizontal_jumper_12.png
    :width: 125

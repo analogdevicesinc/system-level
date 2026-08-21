@@ -85,7 +85,5 @@ Registration
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0397-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
 
-*End of Document*
-
 .. |image1| image:: ../images/cn0397_chip_select.jpg
 .. |image2| image:: ../images/cs_config.jpg

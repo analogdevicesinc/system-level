@@ -47,18 +47,14 @@ The following is a list of items needed in order to replicate this demo.
 Setting up the hardware
 -----------------------
 
-::
-
-     - To program the base board, set the jumpers/switches as shown in the next figure. The important jumpers/switches are highlighted in red.
+- To program the base board, set the jumpers/switches as shown in the next figure. The important jumpers/switches are highlighted in red.
 
 .. image:: ../images/aduicup360_switch_config.png
    :align: center
    :width: 500
 
-::
-
-     - Plug the EVAL-ADT7420-PMDZ PMOD in the EVAL-ADICUP360 base board, via the PMOD_I2C port (P10).
-     - Plug in the USB cable from the PC to the EVAL-ADICUP360 base board via the Debug USB.(P14)
+- Plug the EVAL-ADT7420-PMDZ PMOD in the EVAL-ADICUP360 base board, via the PMOD_I2C port (P10).
+- Plug in the USB cable from the PC to the EVAL-ADICUP360 base board via the Debug USB.(P14)
 
 Obtaining the Source Code
 -------------------------
@@ -202,5 +198,3 @@ The **RTE** folder contains device and system related files:
 
 -  **Device Folder** – contains low levels drivers for ADuCM360 microcontroller.(try not to edit these files)
 -  **system.rteconfig** - Allows the user to select the peripherial components they need, along with the startup and ARM cmsis files needed for the project.
-
-*End of Document*

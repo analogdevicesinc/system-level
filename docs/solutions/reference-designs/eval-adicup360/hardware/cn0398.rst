@@ -30,8 +30,10 @@ General Setup
 Test Setup Functional Block Diagram
 -----------------------------------
 
-| |image1|
-| ====== Connectors and Jumper Configurations ======
+|image1|
+
+Connectors and Jumper Configurations
+-------------------------------------
 
 Chip Select
 -----------
@@ -39,8 +41,18 @@ Chip Select
 .. image:: ../images/cn0398_board.png
    :align: left
 
-| |image2|\ The chip select is configurable to be routed to 3 general purpose I/O pins of the board, digital pins 8, 9 and 10, allowing multiple boards using SPI communications protocol to be stacked up. As default, shunt is placed across pins 1 and 2 of connector P5 of EVAL-CN0398-ARDZ shield board which associates to the used of GPIO pin 10 of EVAL-ADICUP360.
-| ===== Moisture Sensor Connector (P2) ===== |image3|
+|image2|
+
+The chip select is configurable to be routed to 3 general purpose I/O pins of
+the board, digital pins 8, 9 and 10, allowing multiple boards using SPI
+communications protocol to be stacked up. As default, shunt is placed across
+pins 1 and 2 of connector P5 of EVAL-CN0398-ARDZ shield board which associates
+to the used of GPIO pin 10 of EVAL-ADICUP360.
+
+Moisture Sensor Connector (P2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image3|
 
 .. note::
 
@@ -52,7 +64,7 @@ Moisture Sensor Power Supply Jumper Selection
 If the moisture sensor requires a 5V power supply place the jumper as seen on
 the image below
 
-| |image4|
+|image4|
 
 .. note::
 
@@ -61,7 +73,7 @@ the image below
 If the moisture sensor requires a 3.3V power supply, place the jumper as seen on
 the image below
 
-| |image5|
+|image5|
 
 .. note::
 
@@ -71,10 +83,12 @@ the image below
 RTD Connector (P1)
 ------------------
 
-| |image6|
-| ==== Possible RTD Configuration ====
+|image6|
 
-| |image7| |image8| |image9|
+Possible RTD Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image7| |image8| |image9|
 
 .. note::
 
@@ -87,15 +101,17 @@ pH Probe Connector (J1)
 The EVAL-CN0398-ARDZ shield board comes with a BNC connector J1 for pH sensors
 as shown on the image below
 
-| |image10|
-| The output of the pH sensor is bipolar and gives a maximum signal of ±414 mV at 25°C. The :adi:`ad7124-8` operates from a single power supply therefore the pH probe should be biased above ground so that it is within the acceptable common-mode range of the :adi:`ad7124-8`. One of the integrated features of the :adi:`ad7124-8` is its internal bias voltage generator that sets the common mode voltage of a channel to AVDD/2, or 1.65 V. This bias voltage from the ADC is applied to the pH probe shield and sets the output of the sensor 1.65 V ±414 mV at 25°C. For information about pH calibration, visit :adi:`CN0398` Circuit Note.
+|image10|
+
+The output of the pH sensor is bipolar and gives a maximum signal of ±414 mV
+at 25°C. The :adi:`ad7124-8` operates from a single power supply therefore the pH probe should be biased above ground so that it is within the acceptable common-mode range of the :adi:`ad7124-8`. One of the integrated features of the :adi:`ad7124-8` is its internal bias voltage generator that sets the common mode voltage of a channel to AVDD/2, or 1.65 V. This bias voltage from the ADC is applied to the pH probe shield and sets the output of the sensor 1.65 V ±414 mV at 25°C. For information about pH calibration, visit :adi:`CN0398` Circuit Note.
 
 .. note::
 
-   \ `Atlas Scientific <http://www.atlas-scientific.com/product_pages/probes/ph_probe.html>`_ pH probe was used during evaluation
+   `Atlas Scientific <http://www.atlas-scientific.com/product_pages/probes/ph_probe.html>`_ pH probe was used during evaluation
 
 Schematic, PCB Layout, Bill of Materials
-========================================
+-----------------------------------------
 
 .. admonition:: Download
    :class: download
@@ -110,7 +126,7 @@ Schematic, PCB Layout, Bill of Materials
    
 
 Software
-========
+--------
 
 -  :doc:`ADICUP360 + CN0398 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0398>`
 -  `ADICUP3029 + CN0398 Wi-Fi Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0398>`_
@@ -121,8 +137,6 @@ Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0398-ARDZ?&v=RevC>`_ to receive all these great benefits and more!
-
-*End of Document*
 
 .. |image1| image:: ../images/blockdiagram.png
 .. |image2| image:: ../images/cs_jumper.png

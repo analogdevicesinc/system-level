@@ -70,8 +70,10 @@ The ADT7420 can have up to 4 unique I2C device addresses, depending on the logic
 level of pins A1 and A0. The default configuration for the EVAL-ADT7420-PMDZ is
 for A1 and A0 to be tied low, so the default I2C address is 0x48.
 
-| |image2|
-| If you decide to change the I2C address, then you will need to switch the position of the JP1 and JP2 solder links using the following table.
+|image2|
+
+If you decide to change the I2C address, then you will need to switch the
+position of the JP1 and JP2 solder links using the following table.
 
 +--------------------------+--------------------------+----------------+----------------+-------------------------+
 | JP1 Solder link Position | JP2 Solder link Position | A1 Logic Level | A0 Logic Level | I2C Device Address(Hex) |
@@ -93,8 +95,11 @@ Over/Under temperature conditions, as well as Critical temperature events.
 Access to these pins and functions are provided via the INT and CT connections
 on the board.
 
-| |image3|
-| The temperatures are software configurable, and all you need to do is monitor the INT (for Over/Under temp conditions) or CT (for Critical temp events) with respect to GND.
+|image3|
+
+The temperatures are software configurable, and all you need to do is monitor
+the INT (for Over/Under temp conditions) or CT (for Critical temp events) with
+respect to GND.
 
 Software Examples
 -----------------
@@ -123,8 +128,6 @@ Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-ADT7420-PMDZ?&v=Rev A>`_ to receive all these great benefits and more!
-
-*End of Document*
 
 .. |image1| image:: ../images/adt7420_power_led.png
    :width: 300

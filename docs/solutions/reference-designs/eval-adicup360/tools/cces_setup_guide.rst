@@ -23,7 +23,7 @@ following features and many more:
    IDE as well.
 
 Pre-Requisites and Requirements List
-====================================
+-------------------------------------
 
 There are a few things that you will need for the tools and software to work
 properly.
@@ -45,16 +45,15 @@ properly.
       -  Or other favorite Terminal program
 
 CrossCore Embedded Studio Download Packages
-===========================================
+--------------------------------------------
 
 .. admonition:: Download
    :class: download
 
-   
    The EVAL-ADICUP360 **requires** the use of Crosscore Embedded Studios version **2.7.0 or higher**.
-   
+
    :adi:`CrossCore Embedded Studio <en/design-center/evaluation-hardware-and-software/software/adswt-cces.html>`
-   
+
 
 The following features are available and supported
 --------------------------------------------------
@@ -71,7 +70,7 @@ The following features are only supported via the Windows version
 -  Debugging an Application using the CrossCore Debugger (TPSDK)
 
 CrossCore Embedded Studio Installer Instructions
-================================================
+-------------------------------------------------
 
 It is best that you save all the files/folders to the default directories
 recommended by the CrossCore Embedded Studios installer. This way all the
@@ -126,17 +125,16 @@ Analog Devices local directory structure which can be found below.
 -  CMSIS Pack files are installed to **/opt/analog/cces/2.8.0/ARM/packs**
 
 Activating CrossCore Embedded Studio
-====================================
+-------------------------------------
 
 The first time you launch CrossCore Embedded Studio, you will be prompted to input a serial number, name, and email address. The serial number for **ALL** EVAL-ADICUP360 boards is:
 
 .. important::
 
-   
    EVAL-ADICUP360 CrossCore Serial Number
-   
+
    EZK-CCES-5JNP-FQH2-IAZZ-IJY4-E4HG-YIY6-JE01
-   
+
 
 The New License Wizard will guide you through the process.
 
@@ -153,8 +151,7 @@ allow you full and unlimited access to all the features of the tool when using
 the Analog Devices family of ARM Cortex Processor.
 
 CrossCore Embedded Studio Support
-=================================
+----------------------------------
 
-For more details on CrossCore Embedded Studio, updated versions of the tools, release notes, tools documentation, or other support. Please visit the CrossCore :adi:`webpage <cces>`, or email the CrossCore support team at `processor.tools.support@analog.com <https://wiki.analog.com/mailto/processor.tools.support@analog.com>`_
+For more details on CrossCore Embedded Studio, updated versions of the tools, release notes, tools documentation, or other support. Please visit the CrossCore :adi:`webpage <cces>`, or email the CrossCore support team at `processor.tools.support@analog.com <mailto:processor.tools.support@analog.com>`_
 
-*End of Document*

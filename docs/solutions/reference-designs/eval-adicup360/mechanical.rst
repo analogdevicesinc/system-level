@@ -18,8 +18,7 @@ it to the list.
    the easiest to use, you can simply drag and drop the STL files into the
    browser.
 
-   
-   ` <http://www.viewstl.com/>`__
+   `ViewSTL <http://www.viewstl.com/>`__
 
 .. important::
 
@@ -29,15 +28,17 @@ it to the list.
    printer. It is up to the user to make sure the enclosures can be printed on
    their machines.
 
+.. TODO(wiki-migration): 3D STL file removed from repo (backup: ~/eval-adicup360-resources-backup/);
+   the "ADICUP360 Case 1" cell below was de-linked. Restore the download link once its
+   analog.com designsupport URL is available:
+   `ADICUP360 Case 1 <resources/adicup360_mma_case_1.zip>`_
+
 +-----------------------------------------------------------------------------------------------------------------------------------+--------------------------+-----------------------------------------------------------+----------+
 | 3D STL File                                                                                                                       | Boards Intended for Case | Description                                               | Picture  |
 +===================================================================================================================================+==========================+===========================================================+==========+
-| `ADICUP360 Case 1 <resources/adicup360_mma_case_1.zip>`_                                                                          | EVAL-ADICUP360           | \* Base plate used for ADICUP360 board and add on boards. | |image2| |
+| ADICUP360 Case 1                                                                                                                  | EVAL-ADICUP360           | \* Base plate used for ADICUP360 board and add on boards. | |image2| |
 |                                                                                                                                   |                          | \* Screw holes lined up for secure installation           |          |
 +-----------------------------------------------------------------------------------------------------------------------------------+--------------------------+-----------------------------------------------------------+----------+
-
-.. |image1| image:: images/adicup360_mma_case1.png
-   :width: 100
 
 .. |image2| image:: images/adicup360_mma_case1.png
    :width: 100

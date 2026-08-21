@@ -14,15 +14,15 @@ The ADuCM360_demo_adxl355_pmdz project uses the :adi:`EVAL-ADXL355-PMDZ` which h
    :align: center
    :width: 600
 
-The application reads the \*\* X \*\* , \*\* Y \*\*, and \*\* Z \*\* acceleration registers. The acceleration in the 3 axis is displayed in **[G]**. There is an internal temperature sensor in the ADXL355, which is converted by the on chip 12-bit ADC. The acceleration range can also be selected by setting the **ADXL355_RANGE** variable with the *ADXL355.h* file. (Values of [2, 4, and 8 are acceptable] )
+The application reads the **X**, **Y**, and **Z** acceleration registers. The acceleration in the 3 axis is displayed in **[G]**. There is an internal temperature sensor in the ADXL355, which is converted by the on chip 12-bit ADC. The acceleration range can also be selected by setting the **ADXL355_RANGE** variable with the *ADXL355.h* file. (Values of [2, 4, and 8 are acceptable] )
 
 All the outputs are printed from the UART to the USER USB port and can be read
 on the PC using a serial terminal program, such as Putty or Tera Term.
 
 For precision applications, each **ADXL355** chip requires individual calibration which can be done by measuring and setting the definitions // ACC_TEMP_BIAS// and // ACC_TEMP_SENSITIVITY// parameters in the *ADXL362.h* file.
 
-The temperature in degrees celsius, can be derived from the ADC readings \*\*
-Tadc \*\* using the predefined formula:
+The temperature in degrees celsius, can be derived from the ADC readings
+**Tadc** using the predefined formula:
 
 ::
 
@@ -114,14 +114,14 @@ Configuring the Software Parameters
 
    #define ADXL_SENSE        2
 
--  \*\* Sensor activity and inactivity thresholds*\* - *ACT_VALUE* and *INACT_VALUE* paramaters used to determine at which acceleration values the sensor can react at sleep/wake-up commands (*ADXL355.h*):
+-  **Sensor activity and inactivity thresholds** - *ACT_VALUE* and *INACT_VALUE* paramaters used to determine at which acceleration values the sensor can react at sleep/wake-up commands (*ADXL355.h*):
 
 ::
 
    #define ACT_VALUE          50
    #define INACT_VALUE        50
 
--  \*\* Sensor activity and inactivity time*\* - *ACT_TIMER* and *INACT_TIMER* paramaters used to determine sleep/wake-up intervals(*ADXL355.h*):
+-  **Sensor activity and inactivity time** - *ACT_TIMER* and *INACT_TIMER* paramaters used to determine sleep/wake-up intervals(*ADXL355.h*):
 
 ::
 
@@ -181,5 +181,3 @@ The **RTE** folder contains device and system related files:
 
 -  **Device Folder** – contains low levels drivers for ADuCM360 microcontroller.(try not to edit these files)
 -  **system.rteconfig** - Allows the user to select the peripherial components they need, along with the startup and ARM cmsis files needed for the project.
-
-*End of Document*

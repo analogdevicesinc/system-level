@@ -2,17 +2,18 @@ Smart Greenhouse Application Demo
 =================================
 
 Overview
-========
+--------
 
-| |image1|
-| The demo concentrates on several important agriculture characteristics including soil moisture, soil pH with temperature compensation, as well as visible light recognition and control. These are three of the main sources of plant growth, and monitoring these are critical to the efficiency and optimization of the crop you are growing.\ :adi:`CN0398` is a reference design that enables the demo to measure soil moisture, soil pH, and temperature. :adi:`CN0397` allows the demo to measure the light intensities at certain visible light wavelengths that plants are sensitive to. :adi:`CN0370` is a 16-bit LED current driver that controls the light intensity for a particular color LED, providing optimal lighting levels for the plants.
+|image1|
+
+The demo concentrates on several important agriculture characteristics including soil moisture, soil pH with temperature compensation, as well as visible light recognition and control. These are three of the main sources of plant growth, and monitoring these are critical to the efficiency and optimization of the crop you are growing. :adi:`CN0398` is a reference design that enables the demo to measure soil moisture, soil pH, and temperature. :adi:`CN0397` allows the demo to measure the light intensities at certain visible light wavelengths that plants are sensitive to. :adi:`CN0370` is a 16-bit LED current driver that controls the light intensity for a particular color LED, providing optimal lighting levels for the plants.
 
 Smart Greenhouse demo showcases the capability of :adi:`ADICUP360` in a fast prototyping environment in combination of 3 reference designs in two different form factors, Arduino form factor and PMOD form factor, to cater an applications in Smart Agriculture.
 
 To learn more about the reference designs, please refer their individual circuit notes :adi:`CN0370`, :adi:`CN0397` and :adi:`CN0398`.
 
 Setup Requirements
-==================
+------------------
 
 **Smart Greenhouse Demo Requirements**
 
@@ -45,7 +46,7 @@ Setup Requirements
    -  `Putty <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
 
 How to setup Hardware
-=====================
+---------------------
 
 Functional Block Diagram
 
@@ -63,7 +64,11 @@ CN0397 Hardware Setup
 
 |image5|
 
-CN0370 Hardware Setup |image6| Chip select Assignment for each CN0370 boards are as follows: {{ :resources:eval:user-guides:eval-adicup360:application_demos:connect2.png \|\
+CN0370 Hardware Setup
+
+|image6|
+
+Chip select Assignment for each CN0370 boards are as follows:
 
 |image7|
 
@@ -96,7 +101,7 @@ Complete setup |image8| Hardware Connections as follows
 -  Apply +5V, 1A supply to each CN0370 board
 
 Software Description
-====================
+--------------------
 
 The demo software is an integrated software of all the three reference designs
 which allows measurements of soil pH and moisture measurements with temperature
@@ -311,8 +316,6 @@ Serial Terminal/Output
 ----------------------
 
 |image9| In puTTy cofiguration, select serial as the connection type with a baud rate of 115200. Select the correct COM port by checking it in your device manager. |image10|
-
-*End of Document*
 
 .. |image1| image:: ../images/greenhouse.jpg
    :width: 600

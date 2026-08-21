@@ -44,25 +44,29 @@ Sensor Footprint
 Chip Select
 ~~~~~~~~~~~
 
-| This set of jumpers allows for changing the pin mapping of the AD7790 and AD5270 chip select lines to different Arduino digital pins. Place jumper/shunt as shown to connect to the corresponding Digital IO pin.
-| **AD7790 CS Selection**
+This set of jumpers allows for changing the pin mapping of the AD7790 and
+AD5270 chip select lines to different Arduino digital pins. Place jumper/shunt
+as shown to connect to the corresponding Digital IO pin.
+
+**AD7790 CS Selection**
 
 .. image:: ../images/cn0357-hdr-01.png
    :align: left
    :width: 101
 
-| Pin 1 shunted to Pin 2 CS connected to **Digital Pin 10**
-| Pin 3 shunted to Pin 4 CS connected to **Digital Pin 9**
-| Pin 5 shunted to Pin 6 CS connected to **Digital Pin 8**
-| **AD5270 CS Selection**
+- Pin 1 shunted to Pin 2 CS connected to **Digital Pin 10**
+- Pin 3 shunted to Pin 4 CS connected to **Digital Pin 9**
+- Pin 5 shunted to Pin 6 CS connected to **Digital Pin 8**
+
+**AD5270 CS Selection**
 
 .. image:: ../images/cn0357-hdr-02.png
    :align: left
    :width: 100
 
-| Pin 1 shunted to Pin 2 CS connected to **Digital Pin 7**
-| Pin 3 shunted to Pin 4 CS connected to **Digital Pin 6**
-| Pin 5 shunted to Pin 6 CS connected to **Digital Pin 5**
+- Pin 1 shunted to Pin 2 CS connected to **Digital Pin 7**
+- Pin 3 shunted to Pin 4 CS connected to **Digital Pin 6**
+- Pin 5 shunted to Pin 6 CS connected to **Digital Pin 5**
 
 --------------
 
@@ -84,19 +88,25 @@ Schematic, Bill of Materials, Gerber Files, Layout Files
    EVAL-CN0357-ARDZ Rev C Files
 
    
-   -  `Schematic <../resources/eval-cn0357-ardz-cadenceschematic-revc.pdf>`_
-   -  `Layout <../resources/eval-cn0357-ardz-cadencelayout-revc.pdf>`_
-   -  `Bill of Materials <../resources/eval-cn0357-ardz-bom-revc.pdf>`_
-   -  `Cadence Files <../resources/eval-cn0357-ardz-cadencelibrary-revc.zip>`_
-   -  `Gerber Files <../resources/eval-cn0357-ardz-gbr-revc.zip>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Schematic <../resources/eval-cn0357-ardz-cadenceschematic-revc.pdf>`_
+      -  `Layout <../resources/eval-cn0357-ardz-cadencelayout-revc.pdf>`_
+      -  `Bill of Materials <../resources/eval-cn0357-ardz-bom-revc.pdf>`_
+      -  `Cadence Files <../resources/eval-cn0357-ardz-cadencelibrary-revc.zip>`_
+      -  `Gerber Files <../resources/eval-cn0357-ardz-gbr-revc.zip>`_
    
    EVAL-CN0357-ARDZ Rev B Files
    
-   -  `Schematic <../resources/eval-cn0357-ardz-cadenceschematic-revb.pdf>`_
-   -  `Layout <../resources/eval-cn0357-ardz-cadencelayout-revb.pdf>`_
-   -  `Bill of Materials <../resources/eval-cn0357-ardz-bom-revb.pdf>`_
-   -  `Cadence Files <../resources/eval-cn0357-ardz-cadencelibrary-revb.zip>`_
-   -  `Gerber Files <../resources/eval-cn0357-ardz-gbr-revb.zip>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Schematic <../resources/eval-cn0357-ardz-cadenceschematic-revb.pdf>`_
+      -  `Layout <../resources/eval-cn0357-ardz-cadencelayout-revb.pdf>`_
+      -  `Bill of Materials <../resources/eval-cn0357-ardz-bom-revb.pdf>`_
+      -  `Cadence Files <../resources/eval-cn0357-ardz-cadencelibrary-revb.zip>`_
+      -  `Gerber Files <../resources/eval-cn0357-ardz-gbr-revb.zip>`_
    
 
 --------------
@@ -111,5 +121,3 @@ RevB to RevC:
 -  No longer need external 7V to 12V wall power supply
 
    -  Board Powered through 5V pin (Arduino POWER header)
-
-*End of Document*

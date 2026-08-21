@@ -79,7 +79,11 @@ Schematics, PCB Layout, Bill of Materials
    :class: download
 
    
-   -  `Schematics <../resources/eval-cn0336-pmdz-altium_designerschematic-rev0.pdf>`_ (PDF)
-   -  `Layout Gerbers <../resources/eval-cn0336-pmdz-gbr-rev0.zip>`_ (ZIP)
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup360-resources-backup/);
+      replace each link below with its analog.com designsupport URL and restore the list:
+
+      -  `Schematics <../resources/eval-cn0336-pmdz-altium_designerschematic-rev0.pdf>`_ (PDF)
+      -  `Layout Gerbers <../resources/eval-cn0336-pmdz-gbr-rev0.zip>`_ (ZIP)
+
    -  `Bill of Materials <../images/eval-cn0336-pmdz-bom-rev0.xls>`_ (Excel)
    
