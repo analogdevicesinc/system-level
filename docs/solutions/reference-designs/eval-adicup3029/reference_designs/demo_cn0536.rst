@@ -9,7 +9,7 @@ A sample python code is available to **plot** MQTT data into a graph with a radi
 
 The **ADuCM3029_demo_cn0536** project is using the the :adi:`CN0536` and :adi:`EVAL-ADICUP3029` prototyping board.
 
-This page will go through how to build and run the demo from the **software** point of view and for more detailed information about the :adi:`CN0536` from the **hardware** side can be found `here <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0536>`_.
+This page will go through how to build and run the demo from the **software** point of view and for more detailed information about the :adi:`CN0536` from the **hardware** side can be found :dokuwiki:`here <resources/eval/user-guides/circuits-from-the-lab/cn0536>`.
 
 An overview about the theme can be seen in the following diagram:
 
@@ -24,8 +24,7 @@ Software flow
 Demo Video
 ----------
 
-.. image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/reference_designs/youtube>moclurd4uis
-   :alt: youtube>moclurd4uis
+.. video:: https://www.youtube.com/watch?v=moclurd4uis
 
 Demo Requirements
 -----------------
@@ -87,7 +86,7 @@ UART demo with precompiled program
       :align: center
 
    -  Start the serial terminal program.
-   -  Connect it to the desired port. Eg. COM4, check `step by step guide <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-adxrs290-pmdz/uart_serial_terminal>`_ if needed.
+   -  Connect it to the desired port. Eg. COM4, check :ref:`step by step guide <eval_adxrs290_pmdz uart_serial_terminal>` if needed.
    -  Set the **BAUDRATE** to **115200**
    -  Watch the output. Data will be send every 10 seconds by default.
 
@@ -214,7 +213,7 @@ Working with the software
    -  Download the EVAL-ADICUP3029 `repository <https://github.com/analogdevicesinc/EVAL-ADICUP3029>`_ with ``git clone --recursive `EVAL-ADICUP3029 <https://github.com/analogdevicesinc/EVAL-ADICUP3029>`_.git``
    -  Using the **--recursive** is **important** in order for the submodules to be initialized.
    -  Go to :git-EVAL-ADICUP3029:`project directory <projects/ADuCM3029_demo_cn0536>`. ``cd projects\ADuCM3029_demo_cn0536``
-   -  Follow this `guide <https://wiki.analog.com/resources/no-os/build>`_ to create a CCES project. This command should be enough: ``make update_srcs``
+   -  Follow this :dokuwiki:`guide <resources/no-os/build>` to create a CCES project. This command should be enough: ``make update_srcs``
    -  A folder **build** will be created and inside it the CCES project.
    -  Import the new generated project into your workspace. See :doc:`wiki </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`
    -  Now the project structure should look like this:

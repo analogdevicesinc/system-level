@@ -11,7 +11,7 @@ The **ADuCM3029_demo_esp8266** is a Wi-Fi demo project for the **EVAL-ADICUP3029
 General Description/Overview
 ----------------------------
 
-The ADuCM3029_demo_esp8266 project uses the `EVAL-ADXL362-ARDZ shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/adxl362>`_ which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32). However, for this example the display is not used.
+The ADuCM3029_demo_esp8266 project uses the :dokuwiki:`EVAL-ADXL362-ARDZ shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32). However, for this example the display is not used.
 
 The **EVAL-ADICUP3029** is designed for IOT (Internet of Things) applications in mind, and therefore comes with on board Wi-Fi **ESP8266** module.
 
@@ -83,7 +83,7 @@ The software for the **ADuCM3029_demo_esp8266** can be found here:
 
    Prebuilt ESP8266 Hex File
 
-   -  `AduCM3029_demo_esp8266.Hex <https://github.com/analogdevicesinc/EVAL-ADICUP3029/releases/download/Latest/ADuCM3029_demo_esp8266_.hex>`_
+   -  `AduCM3029_demo_esp8266.Hex <https://github.com/analogdevicesinc/EVAL-ADICUP3029/releases/download/Latest/ADuCM3029_demo_esp8266_demo.hex>`_
 
    Complete ESP8266 Source Files
 
@@ -145,7 +145,7 @@ This example uses the `Eclipse Mosquitto <https://mosquitto.org>`_ which is an o
 
    -  `OpenSSL <http://slproweb.com/products/Win32OpenSSL.html>`_
 
-      -  `pthreads <https://wiki.analog.com/ftp/sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86>`_
+      -  :dokuwiki:`pthreads <ftp/sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86>`
       -  Refer to pictures outlined in the additional `step by step instructions. <https://sivatechworld.wordpress.com/2015/06/11/step-by-step-installing-and-configuring-mosquitto-with-windows-7>`_
 
 -  Make sure these additional programs are installed before you continue
@@ -220,12 +220,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~

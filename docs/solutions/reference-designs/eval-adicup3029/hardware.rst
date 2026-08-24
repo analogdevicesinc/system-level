@@ -12,10 +12,10 @@ demo software projects.
 The following boards are currently available:
 
 -  :doc:`EVAL-ADICUP3029 Base Board </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`
--  `EVAL-ADXL362-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/adxl362>`_
+-  :dokuwiki:`EVAL-ADXL362-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>`
 -  :doc:`EVAL-ADXL372-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/adxl372>`
--  `EVAL-ADT7420-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/adt7420>`_
--  `EVAL-CN0326-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0326>`_
--  `EVAL-CN0357-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0357>`_
--  `EVAL-CN0397-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0397>`_
--  `EVAL-CN0398-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
+-  :dokuwiki:`EVAL-ADT7420-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/adt7420>`
+-  :dokuwiki:`EVAL-CN0326-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/cn0326>`
+-  :dokuwiki:`EVAL-CN0357-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0357>`
+-  :dokuwiki:`EVAL-CN0397-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
+-  :dokuwiki:`EVAL-CN0398-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`

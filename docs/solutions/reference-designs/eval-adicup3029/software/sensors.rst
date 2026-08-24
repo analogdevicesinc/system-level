@@ -44,7 +44,7 @@ The software pack can be downloaded in several ways.
 
 -  Cloning the ADICUP3029 Github Repository
 
-   -  Cloning a public facing Git repository can be done through the CrossCore Embedded Studios tools or directly from the Github website (which will store it to a local directory on your computer.) The same general rules apply from above, where importing the example from Github through the tools package is **recommended**, over downloading the zip file and storing it to a directory of your choice.
+   -  Cloning a public facing Git repository can be done through the CrossCore Embedded Studio tools or directly from the Github website (which will store it to a local directory on your computer.) The same general rules apply from above, where importing the example from Github through the tools package is **recommended**, over downloading the zip file and storing it to a directory of your choice.
 
 .. admonition:: Download
    :class: download

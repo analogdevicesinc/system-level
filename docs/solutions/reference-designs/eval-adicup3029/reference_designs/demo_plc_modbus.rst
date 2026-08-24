@@ -668,12 +668,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~
@@ -908,7 +908,9 @@ Detect system configuration example
 Next, if we want to determine the system configuration we can run the following
 script from the attached archive.
 
-`detect_configuration.zip <../resources/detect_configuration.zip>`_
+.. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+   replace with its analog.com designsupport URL and restore the download:
+   :download:`detect_configuration.zip <../resources/detect_configuration.zip>`
 
 For a PLC configuration the script output will look similarly like this:
 
@@ -1002,7 +1004,9 @@ Change or check the system registers example
 Next, if we want to check or change the system registers we can run the
 following script from the attached archive.
 
-`read_or_write_registers.zip <../resources/read_or_write_registers.zip>`_
+.. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+   replace with its analog.com designsupport URL and restore the download:
+   :download:`read_or_write_registers.zip <../resources/read_or_write_registers.zip>`
 
 Depending on the system configuration, one or more DCS nodes will be detected.
 After the user selects a valid DCS node, a menu will appear which contain all
@@ -1070,6 +1074,7 @@ nothing.
    q - Quit.
 
    Enter test option:
+
 Example Applications in Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1089,7 +1094,9 @@ The HART protocol is proprietary, customers implementing a full HART stack shoul
 -  configure and write DAC channels;
 -  configure HART modems and send HART command zero.
 
-`dcs_cn0435.zip <../resources/dcs_cn0435.zip>`_
+.. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+   replace with its analog.com designsupport URL and restore the download:
+   :download:`dcs_cn0435.zip <../resources/dcs_cn0435.zip>`
 
 ::
 
@@ -1159,6 +1166,7 @@ The HART protocol is proprietary, customers implementing a full HART stack shoul
    d - Select HART channel                                              q - Quit
 
    Enter Option:
+
 *End of Document*
 
 .. |Common registers| image:: ../images/cn0435_qmodmaster_general_reg.png

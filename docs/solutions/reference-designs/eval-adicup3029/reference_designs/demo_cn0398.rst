@@ -114,8 +114,8 @@ Setting up the Hardware
    |image2|\ |image3|
    \* Connect the **EVAL-CN0398-ARDZ** shield to the board.
 -  Connect the pH sensor to the **J1** connector of the EVAL-CN0398-ARDZ.
--  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.\ `(see connection details) <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
--  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.\ `(see connection details) <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
+-  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.\ :dokuwiki:`(see connection details) <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
+-  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.\ :dokuwiki:`(see connection details) <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
 -  Set the jumpers on the **EVAL-CN0398-ARDZ** to the position shown below.(**P8 SENSOR** to **3.3V**; **VIN SUPPLY** to **5V**; **P5** to **10 on DIG11**)
 
 .. image:: ../images/cn0398_jumper_positions.jpg
@@ -185,7 +185,7 @@ This example uses the `Eclipse Mosquitto <https://mosquitto.org>`_ which is an o
 
    -  `OpenSSL <http://slproweb.com/products/Win32OpenSSL.html>`_
 
-      -  `pthreads <https://wiki.analog.com/ftp/sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86>`_
+      -  :dokuwiki:`pthreads <ftp/sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86>`
 
 -  Make sure these additional programs are installed before you continue
 -  Click next and finish the installation.
@@ -292,12 +292,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 .. |image1| image:: ../images/cn0398_demo_shield_front_sensors_attached_adicup3029.jpg
    :width: 600

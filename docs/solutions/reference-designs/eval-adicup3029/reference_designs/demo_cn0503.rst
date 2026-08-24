@@ -26,7 +26,7 @@ The following is a list of items needed in order to replicate this demo.
    -  EVAL-CN0503-ARDZ
    -  Mirco USB to USB cable
    -  PC or Laptop with a USB port
-   -  3D printed mechanical fixtures described in the `Hardware User Guide <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503>`_
+   -  3D printed mechanical fixtures described in the :dokuwiki:`Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0503>`
 
 -  Software
 
@@ -41,7 +41,7 @@ The following is a list of items needed in order to replicate this demo.
 Setting up the Hardware
 -----------------------
 
--  Set up the the **EVAL-CN0503-ARDZ** as shown in the `Hardware User Guide <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503>`_.
+-  Set up the the **EVAL-CN0503-ARDZ** as shown in the :dokuwiki:`Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0503>`.
 -  Connect the board to the **EVAL-ADICUP3029** via the Arduino headers.
 
 .. image:: ../images/cn0503_arduino.jpg
@@ -297,12 +297,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~
@@ -334,10 +334,10 @@ Interacting with the CLI
 Hardware User Guide and Demo Guides
 -----------------------------------
 
--  `EVAL-CN0503-ARDZ Hardware User Guide <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503>`_
--  `Optical Platform: Fluorescence Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503/fluorescence>`_
--  `Optical Platform: pH Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503/colorimetry>`_
--  `Optical Platform: Turbidity Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503/turbidity>`_
--  `Optical Platform: Nitrate Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503/nitrate-measurement>`_
+-  :dokuwiki:`EVAL-CN0503-ARDZ Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0503>`
+-  :dokuwiki:`Optical Platform: Fluorescence Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/fluorescence>`
+-  :dokuwiki:`Optical Platform: pH Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/colorimetry>`
+-  :dokuwiki:`Optical Platform: Turbidity Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/turbidity>`
+-  :dokuwiki:`Optical Platform: Nitrate Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/nitrate-measurement>`
 
 *End of Document*

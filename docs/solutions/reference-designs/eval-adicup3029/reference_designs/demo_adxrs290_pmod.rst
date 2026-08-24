@@ -109,7 +109,10 @@ The software for the **ADICUP3029_ADXRS290** demo can be found here:
 
    Prebuilt ADXRS290_CLI Hex File
 
-   -  `ADXRS290-PMDZ.zip <../resources/adxrs290_no_os_cli_demo.zip>`_
+   .. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace with its analog.com designsupport URL and restore the download:
+
+      -  :download:`ADXRS290-PMDZ.zip <../resources/adxrs290_no_os_cli_demo.zip>`
 
    Complete ADXRS290_CLI Source Files
 
@@ -123,12 +126,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~
@@ -145,11 +148,9 @@ The high level modules are in the **src** folder and are:
 
 The low level modules are the platform drivers and are included in the **platform_source** and **platform_include** folders.
 
-|image1|
-
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the `tools user guide. <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/tools/cces_user_guide>`_
+   For more information on importing, debugging, or other tools related questions, please see the :dokuwiki:`tools user guide. <resources/eval/user-guides/eval-adicup360/tools/cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -254,10 +255,13 @@ Schematic, PCB Layout, Bill of Materials
 .. admonition:: Download
    :class: download
 
-   -  `Schematics <../resources/02_065300a_top.pdf>`_
-   -  `PCB Layout <../resources/08_065300a.pdf>`_
-   -  `Allegro Project <../resources/20-065300-01a.zip>`_
-   -  `Bill of Materials <../resources/bom.zip>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace each with its analog.com designsupport URL and restore the downloads:
+
+      -  :download:`Schematics <../resources/02_065300a_top.pdf>`
+      -  :download:`PCB Layout <../resources/08_065300a.pdf>`
+
+   -  :adi:`EVAL-ADXRS290-PMDZ Design & Integration Files <media/en/evaluation-documentation/evaluation-design-files/eval-adxrs290-pmdz-designsupport.zip>`
 
 Additional Information and Useful Links
 ---------------------------------------
@@ -271,5 +275,3 @@ Reference Demos & Software
 -  :git-no-OS:`ADXRS290 No-OS Drivers <projects/adxrs290-pmdz>`
 
 *End of Document*
-
-.. |image1| image:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/reference_designs/adxrs290_pmdz_project_struct.png

@@ -150,7 +150,7 @@ Software Examples
 -----------------
 
 -  :doc:`ADICUP3029 + ADXL372 Bluetooth Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_adxl372>`
--  `Arduino Uno + ADXL372 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_adxl372>`_
+-  :dokuwiki:`Arduino Uno + ADXL372 Demo <resources/eval/user-guides/arduino-uno/reference_designs/demo_adxl372>`
 
 Registration
 ------------

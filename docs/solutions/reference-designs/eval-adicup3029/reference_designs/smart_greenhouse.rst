@@ -35,8 +35,8 @@ The following is a list of items needed in order to replicate this demo.
 -  Boards/Hardware
 
    -  :doc:`EVAL-ADICUP3029 Base Board </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`
-   -  `EVAL-CN0397-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0397>`_
-   -  `EVAL-CN0398-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
+   -  :dokuwiki:`EVAL-CN0397-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
+   -  :dokuwiki:`EVAL-CN0398-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
    -  :doc:`EVAL-CN0410-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0410>`
    -  ESP8266 Module (comes with EVAL-ADICUP3029)
    -  Internet connected gateway – utilize existing Wi-Fi gateway/router/mobile hotspot
@@ -212,8 +212,8 @@ The hardware part is composed of the shields stacked on top of each other, which
 provide data from the sensors and also control the leds. For more details about
 these CNs you can consult the individual page for each one:
 
--  `CN0398 <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
--  `CN0397 <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0397>`_
+-  :dokuwiki:`CN0398 <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
+-  :dokuwiki:`CN0397 <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
 -  :doc:`CN0410 </solutions/reference-designs/eval-adicup3029/hardware/cn0410>`
 
 The communication layer configures the shields and is responsible for
@@ -249,8 +249,8 @@ The following is a list of items needed in order to replicate this demo.
 -  Boards/Hardware
 
    -  :doc:`EVAL-ADICUP3029 Base Board </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`
-   -  `EVAL-CN0397-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0397>`_
-   -  `EVAL-CN0398-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
+   -  :dokuwiki:`EVAL-CN0397-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
+   -  :dokuwiki:`EVAL-CN0398-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
    -  :doc:`EVAL-CN0410-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0410>`
 
 -  Cables/Power
@@ -354,8 +354,8 @@ The hardware part is composed of the shields stacked on top of each other, which
 provide data from the sensors and also control the leds. For more details about
 these CNs you can consult the individual page for each one:
 
--  `CN0398 <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
--  `CN0397 <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0397>`_
+-  :dokuwiki:`CN0398 <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
+-  :dokuwiki:`CN0397 <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
 -  :doc:`CN0410 </solutions/reference-designs/eval-adicup3029/hardware/cn0410>`
 
 The communication layer configures the shields and is responsible for
@@ -386,12 +386,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 *End of Document*
 

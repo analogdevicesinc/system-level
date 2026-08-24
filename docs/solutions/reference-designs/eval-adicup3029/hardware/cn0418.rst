@@ -228,9 +228,6 @@ Up to four EVAL-CN0418-ARDZ boards can be controlled by a single Arduino or
 EVAL-ADICUP3029 base board by using a simple control scheme. This control scheme
 will control the SYNC, CD and RX signals to avoid a data conflict.
 
-.. image:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0418/cn0418_multiple_connection.png
-   :align: center
-
 More Information and Useful Links
 ---------------------------------
 

@@ -67,7 +67,7 @@ Setting up the Hardware
 Configuring the Software
 ------------------------
 
-For this application you will need to install on your :doc:`IOS </solutions/reference-designs/eval-adicup3029/smart_app/ios_app>` or `Android <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/smart_app/android_app>`_ device one of these apps.
+For this application you will need to install on your :doc:`IOS </solutions/reference-designs/eval-adicup3029/smart_app/ios_app>` or :dokuwiki:`Android <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` device one of these apps.
 
 Outputting Data
 ---------------
@@ -161,12 +161,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~

@@ -1,7 +1,7 @@
 AD7124-8 PMOD EVAL_ADICUP3029 Demo (w/ EVAL-AD7124-8-PMDZ)
 ==========================================================
 
-The **ADuCM3029_demo_ad7124_8PMDZ** project provides a solution to control the :adi:`AD7124-8` ADC on the `EVAL-AD7124-8-PMDZ <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-ad7124-8-pmdz>`_ PMOD using a simple CLI on the **USB**. The demo showcases the flexibility of the AD7124 in choosing inputs, filters and different ranges for the available 16 channels.
+The **ADuCM3029_demo_ad7124_8PMDZ** project provides a solution to control the :adi:`AD7124-8` ADC on the :dokuwiki:`EVAL-AD7124-8-PMDZ <resources/eval/user-guides/circuits-from-the-lab/eval-ad7124-8-pmdz>` PMOD using a simple CLI on the **USB**. The demo showcases the flexibility of the AD7124 in choosing inputs, filters and different ranges for the available 16 channels.
 
 General Description/Overview
 ----------------------------
@@ -252,12 +252,12 @@ The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embed
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~

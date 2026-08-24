@@ -202,7 +202,7 @@ Schematic, PCB Layout, Bill of Materials
 .. admonition:: Download
    :class: download
 
-   `EVAL-CN0415-ARDZ Design & Integration Files <../resources/design_support_package.zip>`_
+   :adi:`EVAL-CN0415-ARDZ Design & Integration Files <media/en/reference-design-documentation/design-integration-files/eval-cn0415-ardz-designsupport.zip>`
 
    -  Schematics
    -  Bill of Materials

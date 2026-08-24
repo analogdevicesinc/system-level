@@ -98,11 +98,15 @@ ADICUP3029 Interface File Downloads
 
    The current ADICUP3029 interface file can be downloaded here:
 
-   `ADICUP3029 Interface File [Hardware Rev_A - December 2016 <../resources/adi_mbed_interface.zip>`_]
+   .. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace with its analog.com designsupport URL and restore the download:
+      :download:`ADICUP3029 Interface File [Hardware Rev_A - December 2016] <../resources/adi_mbed_interface.zip>`
 
    -  Initial version for interfacing with ADuCM3029.
 
-   `ADICUP3029 Interface File [Hardware Rev_B & Rev_C - June 2017 <../resources/adicup3029_maintenance_drive_revc_1_0.zip>`_]
+   .. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace with its analog.com designsupport URL and restore the download:
+      :download:`ADICUP3029 Interface File [Hardware Rev_B & Rev_C - June 2017] <../resources/adicup3029_maintenance_drive_revc_1_0.zip>`
 
    -  Updated drag and drop flash loader, large .BIN bug fix not loading
       properly, and added "ECC" code to program ADuCM3029 user space to match

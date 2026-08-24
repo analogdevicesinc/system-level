@@ -45,13 +45,16 @@ The following is a list of items needed in order to replicate this demo.
 
 -  Software
 
-   -  `Smoke Detector Demo Software for UL-217 Standard (.hex file and copyrights) <../resources/aducm3029_demo_cn0537_hex.zip>`_
-   -  `Smoke Detector Demo Software for EN-14604 Standard (.hex file and copyrights) <../resources/aducm3029_demo_cn0537_en14604.zip>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace each with its analog.com designsupport URL and restore the downloads:
+
+      -  :download:`Smoke Detector Demo Software for UL-217 Standard (.hex file and copyrights) <../resources/aducm3029_demo_cn0537_hex.zip>`
+      -  :download:`Smoke Detector Demo Software for EN-14604 Standard (.hex file and copyrights) <../resources/aducm3029_demo_cn0537_en14604.zip>`
 
 Setting up the Hardware
 -----------------------
 
--  Set up the **EVAL-CN0537-ARDZ** as shown in the `Hardware User Guide <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0537>`_.
+-  Set up the **EVAL-CN0537-ARDZ** as shown in the :dokuwiki:`Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0537>`.
 -  Connect **EVAL-CN0537-ARDZ** board to the **EVAL-ADICUP3029**.
 
 .. image:: ../images/cn0537_arduino.jpg
@@ -82,8 +85,11 @@ the ADICUP3029.
 
    Available .hex files for CN0537:
 
-   -  `Smoke Detector Demo Software for UL-217 Standard (.hex file) <../resources/aducm3029_demo_cn0537_hex.zip>`_
-   -  `Smoke Detector Demo Software for EN-14604 (.hex file) <../resources/aducm3029_demo_cn0537_en14604.zip>`_
+   .. TODO(wiki-migration): files removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace each with its analog.com designsupport URL and restore the downloads:
+
+      -  :download:`Smoke Detector Demo Software for UL-217 Standard (.hex file) <../resources/aducm3029_demo_cn0537_hex.zip>`
+      -  :download:`Smoke Detector Demo Software for EN-14604 (.hex file) <../resources/aducm3029_demo_cn0537_en14604.zip>`
 
 Outputting Data
 ---------------
@@ -231,7 +237,9 @@ standards. You can view the entire report here.
 .. admonition:: Download
    :class: download
 
-   `UL-217 8th Ed. testing and results document <../resources/intertek_test_report_on_eval-cn0537-algo.pdf>`_
+   .. TODO(wiki-migration): file removed from repo (backup: ~/eval-adicup3029-resources-backup/);
+      replace with its analog.com designsupport URL and restore the download:
+      :download:`UL-217 8th Ed. testing and results document <../resources/intertek_test_report_on_eval-cn0537-algo.pdf>`
 
 *End of Document*
 

@@ -1,7 +1,7 @@
 EVAL-ADICUP3029 User Guide
 ==========================
 
-The :adi:`EVAL-ADICUP3029` is an Arduino Uno form factor compatible platform based on the industry leading ultra low power :adi:`ADuCM3029` 32-bit ARM Cortex™-M3 microcontroller. The platform is designed to be a development and prototyping vehicle to get customer ideas from concept to production with a minimal risk and faster time to market. The :adi:`EVAL-ADICUP3029` is designed for IOT (Internet of Things) applications in mind, and therefore comes with on board Wi-Fi and Bluetooth 5.0 capabilities. A free version of CrossCore Embedded Studios (an Eclipse based Analog Devices Interactive Development Environment) is supplied to the customer for debugging and application development. Add-on hardware modules, MCU drivers and software application examples help form a complete ecosystem that customers can leverage into their final product.
+The :adi:`EVAL-ADICUP3029` is an Arduino Uno form factor compatible platform based on the industry leading ultra low power :adi:`ADuCM3029` 32-bit ARM Cortex™-M3 microcontroller. The platform is designed to be a development and prototyping vehicle to get customer ideas from concept to production with a minimal risk and faster time to market. The :adi:`EVAL-ADICUP3029` is designed for IOT (Internet of Things) applications in mind, and therefore comes with on board Wi-Fi and Bluetooth 5.0 capabilities. A free version of CrossCore Embedded Studio (an Eclipse based Analog Devices Interactive Development Environment) is supplied to the customer for debugging and application development. Add-on hardware modules, MCU drivers and software application examples help form a complete ecosystem that customers can leverage into their final product.
 
 .. image:: images/adicup3029_ecosystem_collage.png
    :align: right
@@ -19,31 +19,31 @@ The :adi:`EVAL-ADICUP3029` is an Arduino Uno form factor compatible platform bas
 -  :doc:`Hardware Details </solutions/reference-designs/eval-adicup3029/hardware>`
 
    -  :doc:`EVAL-ADICUP3029 Base Board </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`
-   -  `EVAL-ADXL362-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/adxl362>`_
+   -  :dokuwiki:`EVAL-ADXL362-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>`
    -  :doc:`EVAL-ADXL372-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/adxl372>`
-   -  `EVAL-ADT7420-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/adt7420>`_
-   -  `EVAL-AD5592R-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-ad5592r-pmdz>`_
-   -  `EVAL-AD5593R-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-ad5593r-pmdz>`_
-   -  `EVAL-AD5770R-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-ad5770r-pmdz>`_
-   -  `EVAL-AD7124-8-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-ad7124-8-pmdz>`_
-   -  `EVAL-ADXRS290-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/eval-adxrs290-pmdz>`_
-   -  `EVAL-CN0326-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0326>`_
-   -  `EVAL-CN0357-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0357>`_
-   -  `EVAL-CN0397-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0397>`_
-   -  `EVAL-CN0398-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/hardware/cn0398>`_
+   -  :dokuwiki:`EVAL-ADT7420-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/adt7420>`
+   -  :dokuwiki:`EVAL-AD5592R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5592r-pmdz>`
+   -  :dokuwiki:`EVAL-AD5593R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5593r-pmdz>`
+   -  :dokuwiki:`EVAL-AD5770R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5770r-pmdz>`
+   -  :dokuwiki:`EVAL-AD7124-8-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad7124-8-pmdz>`
+   -  :dokuwiki:`EVAL-ADXRS290-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-adxrs290-pmdz>`
+   -  :dokuwiki:`EVAL-CN0326-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/cn0326>`
+   -  :dokuwiki:`EVAL-CN0357-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0357>`
+   -  :dokuwiki:`EVAL-CN0397-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
+   -  :dokuwiki:`EVAL-CN0398-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
    -  :doc:`EVAL-CN0410-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0410>`
    -  :doc:`EVAL-CN0414-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0414>`
    -  :doc:`EVAL-CN0415-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0415>`
    -  :doc:`EVAL-CN0418-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0418>`
-   -  `EVAL-CN0428-EBZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0428>`_
-   -  `EVAL-CN0429-EBZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0429>`_
-   -  `EVAL-CN0503-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503>`_
-   -  `EVAL-CN0507-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0507>`_
-   -  `EVAL-CN0510-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0510>`_
-   -  `EVAL-CN0531-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0531>`_
-   -  `EVAL-CN0536-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0536>`_
-   -  `EVAL-CN0548-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0548>`_
-   -  `EVAL-CN0552-PMDZ PMOD <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0552>`_
+   -  :dokuwiki:`EVAL-CN0428-EBZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0428>`
+   -  :dokuwiki:`EVAL-CN0429-EBZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0429>`
+   -  :dokuwiki:`EVAL-CN0503-ARDZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0503>`
+   -  :dokuwiki:`EVAL-CN0507-ARDZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0507>`
+   -  :dokuwiki:`EVAL-CN0510-ARDZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0510>`
+   -  :dokuwiki:`EVAL-CN0531-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/cn0531>`
+   -  :dokuwiki:`EVAL-CN0536-ARDZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0536>`
+   -  :dokuwiki:`EVAL-CN0548-ARDZ Shield <resources/eval/user-guides/circuits-from-the-lab/cn0548>`
+   -  :dokuwiki:`EVAL-CN0552-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/cn0552>`
 
 -  :doc:`Software Packs and Board Support Packages </solutions/reference-designs/eval-adicup3029/software>`
 
@@ -78,17 +78,17 @@ The :adi:`EVAL-ADICUP3029` is an Arduino Uno form factor compatible platform bas
    -  :doc:`Robust Solenoid Measurement System Demo (with EVAL-CN0415-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0415>`
    -  :doc:`PLC/DSC Analog Output Module w/HART Demo (with EVAL-CN0418-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0418>`
    -  :doc:`Smart Greenhouse Demo with Cloud Connectivity using Wi-Fi (CN0420) </solutions/reference-designs/eval-adicup3029/reference_designs/smart_greenhouse>`
-   -  `Water Conductivity and pH Measurement Demo (using EVAL-CN0428-EBZ & EVAL-M355-ARDZ-INT) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0428>`_
-   -  `Electrochemical Gas Measurement Demo (using EVAL-CN0429-EBZ & EVAL-M355-ARDZ-INT) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0429>`_
+   -  :dokuwiki:`Water Conductivity and pH Measurement Demo (using EVAL-CN0428-EBZ & EVAL-M355-ARDZ-INT) <resources/eval/user-guides/circuits-from-the-lab/cn0428>`
+   -  :dokuwiki:`Electrochemical Gas Measurement Demo (using EVAL-CN0429-EBZ & EVAL-M355-ARDZ-INT) <resources/eval/user-guides/circuits-from-the-lab/cn0429>`
    -  :doc:`Analog I/O System with HART and Modbus Connectivity for PLC/DCS Applications (CN0435) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_plc_modbus>`
    -  :doc:`Optical Liquid Analysis Measurement Demo (using the EVAL-CN0503-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0503>`
-   -  `2-Port Network Analyzer Software (using the EVAL-CN0507-ARDZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0507>`_
-   -  `Battery Impedance Measurement Demo (using the EVAL-CN0510-ARDZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0510>`_
+   -  :dokuwiki:`2-Port Network Analyzer Software (using the EVAL-CN0507-ARDZ) <resources/eval/user-guides/circuits-from-the-lab/cn0507>`
+   -  :dokuwiki:`Battery Impedance Measurement Demo (using the EVAL-CN0510-ARDZ) <resources/eval/user-guides/circuits-from-the-lab/cn0510>`
    -  :doc:`UL 217 Smoke Detector Demo (using the EVAL-CN0537-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0537>`
    -  :doc:`+/- 5V 20-Bit DC Control Demo (using the EVAL-CN0531-PMDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0531>`
    -  :doc:`Radiation Measurement Demo (using the EVAL-CN0536-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0536>`
-   -  `High Voltage and Current Sense Measurement Demo (using the EVAL-CN0548-ARDZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0548>`_
-   -  `Extended Range Capacitance Measurement Demo (using the EVAL-CN0552-PMDZ) <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0552>`_
+   -  :dokuwiki:`High Voltage and Current Sense Measurement Demo (using the EVAL-CN0548-ARDZ) <resources/eval/user-guides/circuits-from-the-lab/cn0548>`
+   -  :dokuwiki:`Extended Range Capacitance Measurement Demo (using the EVAL-CN0552-PMDZ) <resources/eval/user-guides/circuits-from-the-lab/cn0552>`
 
 -  :doc:`Cases, Enclosures, and 3D Printer Files </solutions/reference-designs/eval-adicup3029/mechanical>`
 -  :doc:`Help and Support </solutions/reference-designs/eval-adicup3029/help_and_support>`
