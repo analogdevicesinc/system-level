@@ -8,7 +8,7 @@ Mixed-Mode Signal Chain Active Learning Module
 Overview
 --------
 
-.. figure:: ADALM-MMSC_top-angle.png
+.. figure:: adalm-mmsc_angle.png
    :align: left
    :width: 800 px
 
