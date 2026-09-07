@@ -124,8 +124,7 @@ Creating the setup
    your serial connection from your PC. You should see some boot messages like
    these ones:
 
-   .. admonition:: Linux BOOT messages
-      :collapsible: closed
+   .. collapsible:: Complete boot log
 
       ::
 

@@ -1,0 +1,427 @@
+.. _adrv9009 quickstart kcu105:
+
+KCU105 Quick Start Guide
+================================================================================
+
+This guide provides some quick instructions on how to setup the
+:adi:`ADRV9009-W/PCBZ <EVAL-ADRV9008-9009>` on:
+
+- :xilinx:`KCU105` on FMC HPC
+
+.. image:: ../../images/kcu105.png
+   :width: 800
+
+Using Linux as software
+--------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+  This carrier only has programming logic (PL) and, thus, a MicroBlaze soft core
+  is necessary to run Linux. As such, the files required for running Linux need
+  to be manually built.
+
+The following files are needed for the system to boot:
+
+- HDL bitstream file: ``system_top.bit``
+- Linux Kernel image: ``simpleImage.strip``
+
+Instructions on how to manually build the boot files from source can be found
+here:
+
+  - :ref:`linux-kernel microblaze`
+  - :external+hdl:ref:`adrv9009` build documentation. More HDL build details at
+    :external+hdl:ref:`build_hdl`
+
+.. important::
+
+  Some projects provide multiple devicetree files. Make sure you select the
+  devicetree that matches your specific use case when building the
+  **simpleImage**.
+
+Required Software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx Vivado and Vitis (downloading Vitis from
+  :xilinx:`here <support/download/index.html/content/xilinx/en/downloadNav/vitis.html>`
+  will include Vivado as well)
+- A UART terminal (Putty/Tera Term/Minicom, etc.) with baud rate 115200 (8N1)
+
+Required Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- :xilinx:`KCU105` FPGA board and its power supply
+- :adi:`ADRV9009-W/PCBZ <EVAL-ADRV9008-9009>` FMC evaluation board
+- (Optional) 2x SMA cable for analog signal loopback
+- (Optional) External clock generator
+- 2x Micro-USB cable (UART and JTAG)
+- (Optional) Ethernet cable
+
+More details as to why you need these, can be found at
+:ref:`adrv9009 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/adrv9009_kcu105_setup.jpeg
+   :width: 800
+
+.. caution::
+
+    This project was tested with **VADJ = 1.8 V**
+
+.. esd-warning::
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Connect the :adi:`ADRV9009-W/PCBZ <EVAL-ADRV9008-9009>` FMC board to the
+   :xilinx:`KCU105` FMC **HPC** socket
+#. Connect USB UART J4 (Micro-USB) to your host PC
+#. Connect USB JTAG J87 (Micro-USB) to your host PC
+#. (Optional) Connect the external clock generator and/or loopback cables
+#. (Optional) Plug-in an Ethernet cable from your router/switch to the Ethernet
+   port on the FPGA board
+#. Plug in the power supply and turn on the power switch on the FPGA board
+#. Program the FPGA using the steps shown :ref:`here <linux-kernel microblaze boot>`.
+#. Observe console output messages on your terminal (use the first ttyUSB or COM
+   port registered)
+
+Booting the System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After turning on the power switch, the following messages should appear on the
+serial console:
+
+.. collapsible:: Complete kernel boot log (Click to expand)
+
+   ::
+
+    Ramdisk addr 0x00000000,
+    Compiled-in FDT at 0x8084a4b8
+    earlycon: uartlite_a0 at MMIO 0x40600000 (options '115200n8')
+    printk: legacy bootconsole [uartlite_a0] enabled
+    cma: Reserved 512 MiB at 0x8fc00000 on node -1
+    Linux version 6.12.0-gb804734d467b (vsts@runnervmybi1p) (microblazeel-xilinx-elf-gcc (crosstool-NG 1.26.0) 13.2.0, GNU ld (crosstool-NG 1.26.0) 2.40) #8 Thu May 28 11:48:29 UTC 2026
+    setup_memory: max_mapnr: 0x7ffff
+    setup_memory: min_low_pfn: 0x80000
+    setup_memory: max_low_pfn: 0xb0000
+    setup_memory: max_pfn: 0xfffff
+    Zone ranges:
+      DMA      [mem 0x0000000080000000-0x00000000afffffff]
+      Normal   empty
+      HighMem  [mem 0x00000000b0000000-0x00000000ffffefff]
+    Movable zone start for each node
+    Early memory node ranges
+      node   0: [mem 0x0000000080000000-0x00000000ffffefff]
+    Initmem setup node 0 [mem 0x0000000080000000-0x00000000ffffefff]
+    setup_cpuinfo: initialising
+    setup_cpuinfo: Using full CPU PVR support
+    wt_msr_noirq
+    pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+    pcpu-alloc: [0] 0
+    Kernel command line: earlycon
+    Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+    Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)
+    Built 1 zonelists, mobility grouping on.  Total pages: 524287
+    mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+    SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+    NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+    irq-xilinx: mismatch in kind-of-intr param
+    irq-xilinx: /amba_pl/interrupt-controller@41200000: num_irq=16, edge=0xffff0470
+    /amba_pl/timer@41c00000: irq=1
+    clocksource: xilinx_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+    xilinx_timer_shutdown
+    xilinx_timer_set_periodic
+    sched_clock: 32 bits at 100MHz, resolution 10ns, wraps every 21474836475ns
+    Console: colour dummy device 80x25
+    printk: legacy console [tty0] enabled
+    printk: legacy bootconsole [uartlite_a0] disabled
+    Ramdisk addr 0x00000000,
+    Compiled-in FDT at 0x8084a4b8
+    earlycon: uartlite_a0 at MMIO 0x40600000 (options '115200n8')
+    printk: legacy bootconsole [uartlite_a0] enabled
+    cma: Reserved 512 MiB at 0x8fc00000 on node -1
+    Linux version 6.12.0-gb804734d467b (vsts@runnervmybi1p) (microblazeel-xilinx-elf-gcc (crosstool-NG 1.26.0) 13.2.0, GNU ld (crosstool-NG 1.26.0) 2.40) #8 Thu May 28 11:48:29 UTC 2026
+    setup_memory: max_mapnr: 0x7ffff
+    setup_memory: min_low_pfn: 0x80000
+    setup_memory: max_low_pfn: 0xb0000
+    setup_memory: max_pfn: 0xfffff
+    Zone ranges:
+      DMA      [mem 0x0000000080000000-0x00000000afffffff]
+      Normal   empty
+      HighMem  [mem 0x00000000b0000000-0x00000000ffffefff]
+    Movable zone start for each node
+    Early memory node ranges
+      node   0: [mem 0x0000000080000000-0x00000000ffffefff]
+    Initmem setup node 0 [mem 0x0000000080000000-0x00000000ffffefff]
+    setup_cpuinfo: initialising
+    setup_cpuinfo: Using full CPU PVR support
+    wt_msr_noirq
+    pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+    pcpu-alloc: [0] 0
+    Kernel command line: earlycon
+    Dentry cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+    Inode-cache hash table entries: 16384 (order: 4, 65536 bytes, linear)
+    Built 1 zonelists, mobility grouping on.  Total pages: 524287
+    mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+    SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+    NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+    irq-xilinx: mismatch in kind-of-intr param
+    irq-xilinx: /amba_pl/interrupt-controller@41200000: num_irq=16, edge=0xffff0470
+    /amba_pl/timer@41c00000: irq=1
+    clocksource: xilinx_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+    xilinx_timer_shutdown
+    xilinx_timer_set_periodic
+    sched_clock: 32 bits at 100MHz, resolution 10ns, wraps every 21474836475ns
+    Console: colour dummy device 80x25
+    printk: legacy console [tty0] enabled
+    printk: legacy bootconsole [uartlite_a0] disabled
+    Calibrating delay loop... 49.35 BogoMIPS (lpj=246784)
+    pid_max: default: 32768 minimum: 301
+    Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+    Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+    Memory: 1533112K/2097148K available (8489K kernel code, 694K rwdata, 7156K rodata, 208K init, 193K bss, 39272K reserved, 524288K cma-reserved, 1310716K highmem)
+    devtmpfs: initialized
+    clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+    futex hash table entries: 256 (order: -1, 3072 bytes, linear)
+    NET: Registered PF_NETLINK/PF_ROUTE protocol family
+    DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+    DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+    pps_core: LinuxPPS API ver. 1 registered
+    pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+    PTP clock support registered
+    jesd204: created con: id=0, topo=0, link=0, /amba_pl/axi-adxcvr-tx@44a80000 <-> /amba_pl/axi-jesd204-tx@44a90000
+    jesd204: created con: id=1, topo=0, link=2, /amba_pl/axi-adxcvr-rx-os@44a50000 <-> /amba_pl/axi-jesd204-rx@44ab0000
+    jesd204: created con: id=2, topo=0, link=1, /amba_pl/axi-adxcvr-rx@44a60000 <-> /amba_pl/axi-jesd204-rx@44aa0000
+    jesd204: created con: id=3, topo=0, link=0, /amba_pl/spi@44a70000/ad9528-1@0 <-> /amba_pl/axi-adxcvr-tx@44a80000
+    jesd204: created con: id=4, topo=0, link=2, /amba_pl/spi@44a70000/ad9528-1@0 <-> /amba_pl/axi-adxcvr-rx-os@44a50000
+    jesd204: created con: id=5, topo=0, link=1, /amba_pl/spi@44a70000/ad9528-1@0 <-> /amba_pl/axi-adxcvr-rx@44a60000
+    jesd204: created con: id=6, topo=0, link=0, /amba_pl/axi-jesd204-tx@44a90000 <-> /amba_pl/axi-adrv9009-tx-hpc@44a04000
+    jesd204: created con: id=7, topo=0, link=1, /amba_pl/axi-jesd204-rx@44aa0000 <-> /amba_pl/spi@44a70000/adrv9009-phy@1
+    jesd204: created con: id=8, topo=0, link=2, /amba_pl/axi-jesd204-rx@44ab0000 <-> /amba_pl/spi@44a70000/adrv9009-phy@1
+    jesd204: created con: id=9, topo=0, link=0, /amba_pl/axi-adrv9009-tx-hpc@44a04000 <-> /amba_pl/spi@44a70000/adrv9009-phy@1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1: JESD204[0:0] transition uninitialized -> initialized
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1: JESD204[0:1] transition uninitialized -> initialized
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1: JESD204[0:2] transition uninitialized -> initialized
+    jesd204: found 9 devices and 1 topologies
+    vgaarb: loaded
+    clocksource: Switched to clocksource xilinx_clocksource
+    NET: Registered PF_INET protocol family
+    IP idents hash table entries: 4096 (order: 3, 32768 bytes, linear)
+    tcp_listen_portaddr_hash hash table entries: 1024 (order: 0, 4096 bytes, linear)
+    Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+    TCP established hash table entries: 2048 (order: 1, 8192 bytes, linear)
+    TCP bind hash table entries: 2048 (order: 2, 16384 bytes, linear)
+    TCP: Hash tables configured (established 2048 bind 2048)
+    UDP hash table entries: 256 (order: 0, 4096 bytes, linear)
+    UDP-Lite hash table entries: 256 (order: 0, 4096 bytes, linear)
+    NET: Registered PF_UNIX/PF_LOCAL protocol family
+    RPC: Registered named UNIX socket transport module.
+    RPC: Registered udp transport module.
+    RPC: Registered tcp transport module.
+    RPC: Registered tcp-with-tls transport module.
+    RPC: Registered tcp NFSv4.1 backchannel transport module.
+    PCI: CLS 0 bytes, default 32
+    workingset: timestamp_bits=30 max_order=19 bucket_order=0
+    Key type cifs.idmap registered
+    jffs2: version 2.2. (NAND) (SUMMARY)  � 2001-2006 Red Hat, Inc.
+    romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+    bounce: pool size: 64 pages
+    io scheduler mq-deadline registered
+    io scheduler kyber registered
+    Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+    40600000.serial: ttyUL0 at MMIO 0x40600000 (irq = 4, base_baud = 0) is a uartlite
+    printk: legacy console [ttyUL0] enabled
+    uartlite 41400000.serial: error -EINVAL: could not read current-speed
+    uartlite 41400000.serial: probe with driver uartlite failed with error -22
+    brd: module loaded
+    xilinx_axienet 40e00000.ethernet: missing/invalid xlnx,addrwidth property, using default
+    i2c_dev: i2c /dev entries driver
+    pca954x 0-0075: supply vdd not found, using dummy regulator
+    i2c i2c-0: Added multiplexed i2c bus 1
+    at24 2-0050: supply vcc not found, using dummy regulator
+    at24 2-0050: 256 byte 24c02 EEPROM, writable, 1 bytes/write
+    i2c i2c-0: Added multiplexed i2c bus 2
+    i2c i2c-0: Added multiplexed i2c bus 3
+    i2c i2c-0: Added multiplexed i2c bus 4
+    pca954x 0-0075: registered 4 multiplexed busses for I2C mux pca9544
+    ad9528 spi0.0: supply vcc not found, using dummy regulator
+    jesd204: /amba_pl/spi@44a70000/ad9528-1@0,jesd204:0,parent=spi0.0: Using as SYSREF provider
+    axi_sysid 45000000.axi-sysid-0: AXI System ID core version (1.01.a) found
+    axi_sysid 45000000.axi-sysid-0: [adrv9009] [RX:M=4 L=2 S=1 TX:M=4 L=4 S=1 RX_OS:M=2 L=2 S=1 DAC_OFFLOAD:TYPE=0 SIZE=1048576] on [kcu105] git branch <main> git <e57851ffcea3d92d821a38c908c909d61db4a492> clean [2026-08-12 13:07:47] UTC
+    Initializing XFRM netlink socket
+    NET: Registered PF_INET6 protocol family
+    Segment Routing with IPv6
+    In-situ OAM (IOAM) with IPv6
+    sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+    NET: Registered PF_PACKET protocol family
+    NET: Registered PF_KEY protocol family
+    Key type dns_resolver registered
+    Key type encrypted registered
+    axi_adxcvr_drv 44a60000.axi-adxcvr-rx: AXI-ADXCVR-RX (17.05.a) using CPLL on GTH3. Number of lanes: 2.
+    axi_adxcvr_drv 44a50000.axi-adxcvr-rx-os: AXI-ADXCVR-RX (17.05.a) using CPLL on GTH3. Number of lanes: 2.
+    axi_adxcvr_drv 44a80000.axi-adxcvr-tx: AXI-ADXCVR-TX (17.05.a) using QPLL on GTH3. Number of lanes: 4.
+    axi-jesd204-rx 44aa0000.axi-jesd204-rx: AXI-JESD204-RX (1.07.a). Encoder 8b10b, width 4/4, lanes 2, jesd204-fsm.
+    axi-jesd204-rx 44ab0000.axi-jesd204-rx: AXI-JESD204-RX (1.07.a). Encoder 8b10b, width 4/4, lanes 2, jesd204-fsm.
+    axi-jesd204-tx 44a90000.axi-jesd204-tx: AXI-JESD204-TX (1.06.a). Encoder 8b10b, width 4/4, lanes 4, jesd204-fsm.
+    adrv9009 spi0.1: adrv9009_probe : enter
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition initialized -> probed
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition initialized -> probed
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition initialized -> probed
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition probed -> initialized
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition probed -> initialized
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition probed -> initialized
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition initialized -> probed
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition initialized -> probed
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition initialized -> probed
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition probed -> idle
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition probed -> idle
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition probed -> idle
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition idle -> device_init
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition idle -> device_init
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition idle -> device_init
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition device_init -> link_init
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition device_init -> link_init
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition device_init -> link_init
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition link_init -> link_supported
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition link_init -> link_supported
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition link_init -> link_supported
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition link_supported -> link_pre_setup
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition link_supported -> link_pre_setup
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition link_supported -> link_pre_setup
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition link_pre_setup -> clk_sync_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition link_pre_setup -> clk_sync_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition link_pre_setup -> clk_sync_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition clk_sync_stage1 -> clk_sync_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition clk_sync_stage1 -> clk_sync_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition clk_sync_stage1 -> clk_sync_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition clk_sync_stage2 -> clk_sync_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition clk_sync_stage2 -> clk_sync_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition clk_sync_stage2 -> clk_sync_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition clk_sync_stage3 -> clk_sync_stage4
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition clk_sync_stage3 -> clk_sync_stage4
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition clk_sync_stage3 -> clk_sync_stage4
+    adrv9009 spi0.1: ADIHAL_resetHw
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition clk_sync_stage4 -> link_setup
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition clk_sync_stage4 -> link_setup
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition clk_sync_stage4 -> link_setup
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition link_setup -> opt_setup_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition link_setup -> opt_setup_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition link_setup -> opt_setup_stage1
+    random: crng init done
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_setup_stage1 -> opt_setup_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_setup_stage1 -> opt_setup_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_setup_stage1 -> opt_setup_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_setup_stage2 -> opt_setup_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_setup_stage2 -> opt_setup_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_setup_stage2 -> opt_setup_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_setup_stage3 -> opt_setup_stage4
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_setup_stage3 -> opt_setup_stage4
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_setup_stage3 -> opt_setup_stage4
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_setup_stage4 -> opt_setup_stage5
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_setup_stage4 -> opt_setup_stage5
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_setup_stage4 -> opt_setup_stage5
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_setup_stage5 -> clocks_enable
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_setup_stage5 -> clocks_enable
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_setup_stage5 -> clocks_enable
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition clocks_enable -> link_enable
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition clocks_enable -> link_enable
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition clocks_enable -> link_enable
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition link_enable -> link_running
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition link_enable -> link_running
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition link_enable -> link_running
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition link_running -> opt_post_setup_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition link_running -> opt_post_setup_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition link_running -> opt_post_setup_stage1
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_post_setup_stage1 -> opt_post_setup_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_post_setup_stage1 -> opt_post_setup_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_post_setup_stage1 -> opt_post_setup_stage2
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_post_setup_stage2 -> opt_post_setup_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_post_setup_stage2 -> opt_post_setup_stage3
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_post_setup_stage2 -> opt_post_setup_stage3
+    adrv9009 spi0.1: adrv9009_info: adrv9009 Rev 192, Firmware 6.2.1 API version: 3.6.2.1 successfully initialized via jesd204-fsm
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:0] transition opt_post_setup_stage3 -> opt_post_running_stage
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:1] transition opt_post_setup_stage3 -> opt_post_running_stage
+    jesd204: /amba_pl/spi@44a70000/adrv9009-phy@1,jesd204:1,parent=spi0.1: JESD204[0:2] transition opt_post_setup_stage3 -> opt_post_running_stage
+    cf_axi_dds 44a04000.axi-adrv9009-tx-hpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.02.b) at 0x44A04000 mapped to 0x5a0fce27, probed DDS AD9371
+    cf_axi_adc 44a00000.axi-adrv9009-rx-hpc: ADI AIM (10.03.) probed ADC ADRV9009 as MASTER
+    clk: Disabling unused clocks
+    Freeing unused kernel image (initmem) memory: 208K
+    This architecture does not have kernel memory protection.
+    Run /init as init process
+      with arguments:
+        /init
+      with environment:
+        HOME=/
+        TERM=linux
+    Starting syslogd: OK
+    Starting klogd: OK
+    Running sysctl: OK
+    Saving 256 bits of creditable seed for next boot
+    Starting network: udhcpc: started, v1.36.1
+    xilinx_axienet 40e00000.ethernet eth0: PHY [axienet-40e00000:07] driver [Marvell 88E1111] (irq=POLL)
+    xilinx_axienet 40e00000.ethernet eth0: configuring for phy/sgmii link mode
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting discover
+    xilinx_axienet 40e00000.ethernet eth0: Link is Up - 1Gbps/Full - flow control off
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting select for 10.48.65.185, server 10.48.65.20
+    udhcpc: lease of 10.48.65.185 obtained from 10.48.65.20, lease time 21600
+    deleting routers
+    adding dns 10.32.51.110
+    adding dns 10.64.53.110
+    Starting dropbear sshd: OK
+    Starting IIO Server Daemon
+
+    Welcome to Buildroot
+    buildroot login:
+
+.. note::
+
+  When prompted for login, use the following credentials:
+
+    - username: **root**
+    - password: **analog**
+
+Useful commands for the serial terminal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The below commands are to be run in the serial terminal connected to the FPGA.
+
+To find out the IP of the FPGA board, run the following command and take the IP
+specified at "eth0 inet":
+
+.. shell::
+
+   $ifconfig
+
+To see the IIO devices detected, run:
+
+.. shell::
+
+    # iio_info | grep :device
+    iio:device0: ad7291
+    iio:device1: ad9528-1
+    iio:device2: adrv9009-phy
+    iio:device3: axi-adrv9009-rx-obs-hpc (buffer capable)
+    iio:device4: axi-adrv9009-tx-hpc (buffer capable)
+    iio:device5: axi-adrv9009-rx-hpc (buffer capable)
+
+To use the :ref:`JESD204 status utility <software jesd-status>`,
+run:
+
+.. shell::
+
+   $jesd_status
+
+To power off the system, run the following command, and wait for the final
+message to be printed, then power off the FPGA board from the switch as well.
+
+.. shell::
+
+   $poweroff

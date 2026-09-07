@@ -14,6 +14,7 @@ Jump to your platform and preferred method:
    Build Zynq <zynq>
    Build ZynqMP <zynqmp>
    Build MicroBlaze <microblaze>
+   Nios2 Linux <nios2>
 
 The :git-linux:`main:/` can also be compiled using Petalinux to be used on Xilinx
 SoC FPGA based platforms.

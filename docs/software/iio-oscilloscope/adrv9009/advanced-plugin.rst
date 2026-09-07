@@ -24,7 +24,7 @@ information about the options provided here.
 
 .. image:: taliseinit_t.png
 
-See more details about :ref:`iio-transceiver adrv9009 customization`.
+See more details about :external+linux:ref:`adrv9009-customization`.
 
 In order for the settings made on these plugin to take affect, the Save Settings
 button must be pressed. It should be noted that the driver then reinitialized
@@ -66,10 +66,10 @@ several seconds to complete.
        [ -- snip -- ]
 
 Simply update the values at
-:ref:`iio-transceiver adrv9009 devicetree`.
+:external+linux:ref:`adrv9009`.
 
-For the No-OS driver the mapping can be found at 
-:ref:`iio-transceiver adrv9009 customization`.
+For the No-OS driver the mapping can be found at
+:external+linux:ref:`adrv9009-customization`.
 
 Screenshots / Descriptions
 --------------------------
