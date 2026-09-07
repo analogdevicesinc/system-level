@@ -77,11 +77,13 @@ cooling of the IC device. Note the power consumption of the IC device is
 dependent on its operation mode with some configurations consuming up to 13 W
 where the IC die temperature can approach or exceed its maximum specified
 operating range of 120 °C. For this reason, it is recommended that this heat
-sink shown in Figure 1 is installed before the evaluation process begins.
+sink shown in :numref:`heat-sink-fan` is installed before the evaluation
+process begins.
 
-.. image:: ../images/ad9081_fansink1.png
-   :alt: Heat Sink with Fan
-   :align: center
+.. figure:: ../images/ad9081_fansink1.png
+   :name: heat-sink-fan
+
+   Heat Sink with Fan
 
 The installation steps are as follows:
 
@@ -92,9 +94,9 @@ The installation steps are as follows:
   passive components within its keep out region).
 - Remove the thin plastic tape to expose the adhesive surface
 
-.. image:: ../images/ad9081_fansink2.png
-   :alt: Removing the plastic tape
-   :align: center
+.. figure:: ../images/ad9081_fansink2.png
+
+   Removing the plastic tape
 
 - Carefully position and center the heat sink on top of the IC package such
   that it also remains clear of the RF baluns.
@@ -108,9 +110,9 @@ screws used to secure the fan to the heatsink are too tight such that the fan
 blades cannot spin freely. Loosening the screws using a standard Phillips
 screwdriver often releases the fan blade allowing it to spin freely.
 
-.. image:: ../images/ad9081_fansink3.png
-   :alt: FanSink™ assembled on the Evaluation Board
-   :align: center
+.. figure:: ../images/ad9081_fansink3.png
+
+   FanSink™ assembled on the Evaluation Board
 
 Additional information on this product called fanSink™ from Advanced Thermal
 Solutions can be found on the vendor's website.
@@ -122,9 +124,9 @@ The following instructions allow the user to setup the MxFE chip in a single
 band 250 MSPS I/Q data rate setup with direct RF sampling. The device is setup
 as shown below:
 
-.. image:: ../images/ad9081_narrowband_setup.png
-   :alt: Setup block diagram of AD9081
-   :align: center
+.. figure:: ../images/ad9081_narrowband_setup.png
+
+   Setup block diagram of AD9081
 
 The evaluation board is setup to use the on-board :adi:`HMC7044` and on-chip
 PLL to provide the DAC and ADC clocks. The :adi:`HMC7044` also provides the
@@ -136,43 +138,50 @@ Configuring the device in ACE
 
 Open ACE and open the AD9081 plugin.
 
-.. image:: ../images/ad9081_1_start.png
-   :alt: ACE Start page with AD9081 plugin
+.. figure:: ../images/ad9081_1_start.png
+
+   ACE Start page with AD9081 plugin
 
 Double click on the AD9081 block to open the chip view.
 
-.. image:: ../images/ad9081_2_board_view.png
-   :alt: Open the Chip View
+.. figure:: ../images/ad9081_2_board_view.png
+
+   Open the Chip View
 
 Configure the device Chip View's Quick Configuration section as shown in the
 figures below. The steps are numbered in sequence.
 
-.. image:: ../images/ad9081_3_chip_setup1.png
-   :alt: Quick configuration steps 1-5
+.. figure:: ../images/ad9081_3_chip_setup1.png
    :align: left
 
-.. image:: ../images/ad9081_4_chip_setup2.png
-   :alt: Quick configuration steps 7-8
+   Quick configuration steps 1-5
+
+.. figure:: ../images/ad9081_4_chip_setup2.png
    :align: right
-   
-.. image:: ../images/ad9081_5_chip_setup3.png
-   :alt: Quick configuration steps 9-10
+
+   Quick configuration steps 7-8
+
+.. figure:: ../images/ad9081_5_chip_setup3.png
    :align: left
 
-.. image:: ../images/ad9081_6_chip_setup4.png
-   :alt: Quick configuration steps 11-12
+   Quick configuration steps 9-10
+
+.. figure:: ../images/ad9081_6_chip_setup4.png
    :align: right
 
-.. image:: ../images/ad9081_7_apply.png
-   :alt: Apply button
-   :align: right
+   Quick configuration steps 11-12
+
+.. figure:: ../images/ad9081_7_apply.png
+
+   Apply button
 
 Allow a few seconds for ACE and the ADS9v2 hardware to setup the AD9081. When
 the chip is configured correctly, the chip view will show a status readout as
 shown below.
 
-.. image:: ../images/ad9081_8_chip_view_after_apply.png
-   :alt: Chip readouts after apply
+.. figure:: ../images/ad9081_8_chip_view_after_apply.png
+
+   Chip readouts after apply
 
 Obtaining an FFT from the ADC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -180,15 +189,17 @@ Obtaining an FFT from the ADC
 Click on "Proceed to Analysis" button to capture an FFT from the ADC. A no
 input FFT is shown below.
 
-.. image:: ../images/ad9081_9_analysis_view.png
-   :alt: FFT output with no input signal
+.. figure:: ../images/ad9081_9_analysis_view.png
+
+   FFT output with no input signal
 
 Clicking on the "Update JESD Status" button in the chip view will output the
 FPGA's JESD204B link status. It will also readout the MxFE chip's junction
 temperature by polling the on-chip TMU
 
-.. image:: ../images/ad9081_10_chip_view_after_fftanalysis_view.png
-   :alt: FPGA JESD204 status and MxFE junction temperature readout
+.. figure:: ../images/ad9081_10_chip_view_after_fftanalysis_view.png
+
+   FPGA JESD204 status and MxFE junction temperature readout
 
 Connect a signal generator to any of the ADC inputs. Set the frequency to a
 3.207GHz CW tone. The NCO is tuned to 3.2GHz. Set the amplitude to 5dBm for
@@ -196,37 +207,42 @@ example. This will need to be adjusted based on cable and other RF losses. In
 the figure below, the signal generator output was set to 9.9dBm to get to
 ~-1.2dBFS fundamental power.
 
-.. image:: ../images/ad9081_11_st_fft_onchippll_3p207ghz_9p9dbm.png
-   :alt: Single Tone FFT with a CW tone at 3.207GHz
+.. figure:: ../images/ad9081_11_st_fft_onchippll_3p207ghz_9p9dbm.png
+
+   Single Tone FFT with a CW tone at 3.207GHz
 
 Setting up DPG Lite to generate a tone out of the DAC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open DPGDownloader Lite. Select a Single Tone waveform.
 
-.. image:: ../images/ad9081_12_dpgl_setup1.png
-   :alt: Selecting a Single Tone in DPG Lite
+.. figure:: ../images/ad9081_12_dpgl_setup1.png
    :width: 200
+
+   Selecting a Single Tone in DPG Lite
 
 Configure the DPG Lite GUI as shown below. The steps necessary for the setup
 are enumerated.
 
-.. image:: ../images/ad9081_13_dpgl_setup2.png
-   :alt: DPG Lite Setup for Single Tone
+.. figure:: ../images/ad9081_13_dpgl_setup2.png
+
+   DPG Lite Setup for Single Tone
 
 After enabling the DAC output by pressing the "Play" button in DPG Lite, use a
 SMA cable to connect DAC0 output to ADC3 input on the AD9081-FMCA-EBZ.
 Capture an FFT in ACE.
 
-.. image:: ../images/ad9081_14_st_fft_3p201ghz_dac0_loop_adc3_0dbfs.png
-   :alt: DAC0 to ADC3 External Loopback
+.. figure:: ../images/ad9081_14_st_fft_3p201ghz_dac0_loop_adc3_0dbfs.png
+
+   DAC0 to ADC3 External Loopback
 
 Below is a screenshot of the ADC FFT with simultaneous capture of all four
 channels. ADC1 is sampling the signal generator output. ADC3 is sampling the
 DAC0 output.
 
-.. image:: ../images/ad9081_15_two_channel_outputs.png
-   :alt: Two channel outputs
+.. figure:: ../images/ad9081_15_two_channel_outputs.png
+
+   Two channel outputs
 
 Setting up MxFE™ in a Wideband mode
 -------------------------------------------------------------------------------
@@ -236,9 +252,9 @@ band 1000MSPS I/Q data rate setup with direct RF sampling. The majority of the
 instructions are similar to the Narrowband use case. The device is setup as
 shown below:
 
-.. image:: ../images/ad9081_wideband_setup_for_wiki.png
-   :alt: Setup block diagram of AD9081
-   :align: center
+.. figure:: ../images/ad9081_wideband_setup_for_wiki.png
+
+   Setup block diagram of AD9081
 
 Configuring the device in ACE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -246,21 +262,23 @@ Configuring the device in ACE
 Only showing the Quick configuration section with the appropriate inputs to
 setup the AD9081 in wideband mode.
 
-.. image:: ../images/ad9081_1_jesd204_setup.png
-   :alt: AD9081 JESD204 quick config setup 1
+.. figure:: ../images/ad9081_1_jesd204_setup.png
    :align: left
 
-.. image:: ../images/ad9081_2_clock_config1.png
-   :alt: AD9081 JESD204 quick config setup 2
+   AD9081 JESD204 quick config setup 1
+
+.. figure:: ../images/ad9081_2_clock_config1.png
    :align: right
 
-.. image:: ../images/ad9081_3_clock_config2.png
-   :alt: AD9081 JESD204 quick config setup 3
-   :align: center
+   AD9081 JESD204 quick config setup 2
 
-.. image:: ../images/ad9081_7_apply.png
-   :alt: Apply button
-   :align: center
+.. figure:: ../images/ad9081_3_clock_config2.png
+
+   AD9081 JESD204 quick config setup 3
+
+.. figure:: ../images/ad9081_7_apply.png
+
+   Apply button
 
 Allow a few seconds for ACE and the ADS9v2 hardware to setup the AD9081.
 
@@ -269,8 +287,9 @@ Setting up DPG Lite to generate a tone out of the DAC
 
 Setup DPG Lite for single tone as shown below.
 
-.. image:: ../images/ad9081_4_dpgl_setup.png
-   :alt: Selecting a Single Tone in DPG Lite
+.. figure:: ../images/ad9081_4_dpgl_setup.png
+
+   Selecting a Single Tone in DPG Lite
 
 Obtaining an FFT from the ADC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -280,8 +299,9 @@ Connect a signal generator to any of the ADC inputs. Set the frequency to a
 
 Click on "Proceed to Analysis" button to capture an FFT from the ADC.
 
-.. image:: ../images/ad9081_5_fft_output.png
-   :alt: FFT output
+.. figure:: ../images/ad9081_5_fft_output.png
+
+   FFT output
 
 Setting up AD9081/AD9988 in a 4T4R Dual-Band setup
 -------------------------------------------------------------------------------
@@ -304,9 +324,10 @@ it is essential to have a good frequency plan. In this example, a DAC sample
 rate (*f*\ :sub:`DAC`) of 4.9152GHz and an ADC sample rate (*f*\ :sub:`ADC`)
 of 2.4576GHz. The frequency plan of the receive path (ADC) is shown below.
 
-.. image:: ../images/ad9081_multiband_frequency_plan.png
-   :alt: Receive (ADC) frequency plan with Bands 1 and 4
+.. figure:: ../images/ad9081_multiband_frequency_plan.png
    :width: 400
+
+   Receive (ADC) frequency plan with Bands 1 and 4
 
 To support the dual band operation, the AD9081/AD9988 will need to be configured
 as shown below. Please note that the :adi:`AD9081-FMCA-EBZ <EVAL-AD9081>` and
@@ -319,8 +340,9 @@ For the example below, the AD9081-FMCA-EBZ was modified to use
 a direct external clock, bypassing the HMC7044 and on-chip PLL. Refer to the
 Evaluation Board User Guide (UG-1829) for more details.
 
-.. image:: ../images/ad9081_mxfe_setup_for_multiband.png
-   :alt: AD9081 / AD9988 Multiband setup details
+.. figure:: ../images/ad9081_mxfe_setup_for_multiband.png
+
+   AD9081 / AD9988 Multiband setup details
 
 ACE setup details for dual-band transceiver operation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -331,31 +353,40 @@ in this example, a direct external clock was used. Please refer to
 :adi:`UG-1829 <media/en/technical-documentation/user-guides/ad9081-fmca-ebz-9082-fmca-ebz-ug-1829.pdf>`
 for details on how to run the evaluation board using an external clock source.
 
-.. image:: ../images/ad9081_quick_config_summary_11.png
-   :alt: Quick configuration summary 1
+.. figure:: ../images/ad9081_quick_config_summary_11.png
+   :width: 200
+   :align: left
+
+   Quick configuration summary 1
+
+.. figure:: ../images/ad9081_quick_config_summary_21.png
+   :width: 200
+   :align: right
+
+   Quick configuration summary 2
+
+.. figure:: ../images/ad9081_quick_config_summary_31.png
+   :width: 200
+   :align: left
+
+   Quick configuration summary 3
+
+.. figure:: ../images/ad9081_quick_config_summary_41.png
    :width: 200
 
-.. image:: ../images/ad9081_quick_config_summary_21.png
-   :alt: Quick configuration summary 2
-   :width: 200
-   
-.. image:: ../images/ad9081_quick_config_summary_31.png
-   :alt: Quick configuration summary 3
-   :width: 200
-   
-.. image:: ../images/ad9081_quick_config_summary_41.png
-   :alt: Quick configuration summary 4
-   :width: 200
+   Quick configuration summary 4
 
-Below is an FFT of the ADC sampling a 1.7325GHZ CW tone
+Below is an FFT of the ADC sampling a 1.7325GHZ CW tone:
 
-.. image:: ../images/ad9081_1p7325ghz.png
-   :alt: ADC sampled output of 1.7325GHz CW tone
+.. figure:: ../images/ad9081_1p7325ghz.png
 
-and the ADC sampling a 1.95GHZ CW tone
+   ADC sampled output of 1.7325GHz CW tone
 
-.. image:: ../images/ad9081_1p95ghz.png
-   :alt: ADC sampled output of 1.95GHz CW tone
+and the ADC sampling a 1.95GHZ CW tone:
+
+.. figure:: ../images/ad9081_1p95ghz.png
+
+   ADC sampled output of 1.95GHz CW tone
 
 Setting up transmitter in DPG Lite dual-band operation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,8 +394,9 @@ Setting up transmitter in DPG Lite dual-band operation
 Below is the spectrum of the DAC output two tones representing the center
 frequencies of the two bands.
 
-.. image:: ../images/ad9081_dac_output_dualband.png
-   :alt: DAC outputs showing the center frequencies of the two bands
+.. figure:: ../images/ad9081_dac_output_dualband.png
+
+   DAC outputs showing the center frequencies of the two bands
 
 A Note on ADC performance
 -------------------------------------------------------------------------------
@@ -375,13 +407,15 @@ example, if the :adi:`AD9082-FMCA-EBZ <EVAL-AD9082>` was setup to run in a
 transceiver mode (with DACs ON), and receive only mode (ADC only), there will
 be a noticeable difference in the ADC's noise performance. See below:
 
-.. image:: ../images/ad9082_2p7ghz_adconlyfft.png
-   :alt: 2.7GHz -1dBFS tone with AD9082 configured as a transceiver
+.. figure:: ../images/ad9082_2p7ghz_adconlyfft.png
    :width: 600
 
-.. image:: ../images/ad9082_2p7ghz_trxmodefft.png
-   :alt: 2.7GHz -1dBFS tone with AD9082 configured in Rx only mode
+   2.7GHz -1dBFS tone with AD9082 configured as a transceiver
+
+.. figure:: ../images/ad9082_2p7ghz_trxmodefft.png
    :width: 600
+
+   2.7GHz -1dBFS tone with AD9082 configured in Rx only mode
 
 AD9081/82 Programmable Filter (PFILT)
 -------------------------------------------------------------------------------
@@ -413,26 +447,21 @@ Click on this link below on GitHub
 and use the green button code as shown below to download the Compensation
 Filter folder under hsx_examples/mxfe_sim/
 
-.. image:: ../images/ad9081_figure2.png
-   :alt: HighSpeedConverterToolBox under GitHub
+.. figure:: ../images/ad9081_figure2.png
 
-Figure 2: HighSpeedConverterToolBox under GitHub
+   HighSpeedConverterToolBox under GitHub
 
 Under the Compensation Filter Folder you should see the following:
 
-.. image:: ../images/ad9081_figure3.png
-   :alt: Compensation Filter Folder view under HighSpeedConverterToolBox
-   :align: center
+.. figure:: ../images/ad9081_figure3.png
 
-Figure 3: Compensation Filter Folder view under HighSpeedConverterToolBox
+   Compensation Filter Folder view under HighSpeedConverterToolBox
 
 This document uses the MxFEADCCompensationFilterDesign_BPF.m MATLAB code.
 
-.. image:: ../images/ad9081_figure4.png
-   :alt: BPF MATLAB code view under MATLAB
-   :align: center
+.. figure:: ../images/ad9081_figure4.png
 
-Figure 4: BPF MATLAB code view under MATLAB
+   BPF MATLAB code view under MATLAB
 
 You can either use the Run on the Editor Tab.Or Run individual sections on the
 Editor Tab.
@@ -445,20 +474,21 @@ similar to the red trace in the figure. This is the filter that is generated.
 It is the one in red which is the magnitude compensation filter. The composite
 response is the one in yellow. This is for 192 tap BPF filter per channel.
 
-.. image:: ../images/ad9081_figure5.png
-   :alt: BPF Compensation Filter Response
+.. figure:: ../images/ad9081_figure5.png
+   :width: 500
+   :name: bpf-comp-filter-response
 
-Figure 5: BPF Compensation Filter Response
+   BPF Compensation Filter Response
 
 This is the output response that we try to replicate on the bench measurements
 using the :adi:`AD9082-FMCB-EBZ <EVAL-AD9082>`. The MATLAB code also generated
 this figure below which defines the target response for the 2 Stop bands and
 Pass bands.
 
-.. image:: ../images/ad9081_figure6.png
-   :alt: Target Responses for the BPF Compensation Filter design|
+.. figure:: ../images/ad9081_figure6.png
+   :width: 500
 
-Figure 6: Target Responses for the BPF Compensation Filter design
+   Target Responses for the BPF Compensation Filter design
 
 When you type on the command window, "xt", you will get the coefficient values
 as shown below: It generates coefficients to load into PFIR on MxFE using the
@@ -468,12 +498,11 @@ MATLAB is in decimal format.
 It needs to be converted to 2's complement and then to Hex Format prior to
 loading it to the PFILT on AD9082-FMC-EBZ hardware using ACE plug-in
 
-.. image:: ../images/ad9081_figure7.png
-   :alt: Coefficient values in Decimal format generated from the MATLAB code for the BPF
-   :align: center
+.. figure:: ../images/ad9081_figure7.png
+   :width: 500
 
-Figure 7: Coefficient values in Decimal format generated from the MATLAB code
-for the BPF
+   Coefficient values in Decimal format generated from the MATLAB code for the
+   BPF
 
 The coefficient /taps are generated from MATLAB. These are in decimal format.
 Prior to loading into ACE, these need to be converted to 2's complement first
@@ -481,11 +510,10 @@ and then to Hex format. Example of how the coefficient file looks like after
 converting into Hex. It is a text file and below is an excerpt from a
 coefficient file for a bandpass, 192 tap filter.
 
-.. image:: ../images/ad9081_figure8.png
-   :alt: Excerpt from a Coefficient file for PFILT loading
-   :align: center
+.. figure:: ../images/ad9081_figure8.png
+   :width: 200
 
-Figure 8: Excerpt from a Coefficient file for PFILT loading
+   Excerpt from a Coefficient file for PFILT loading
 
 In this document we are considering that you have a working set up of the
 :adi:`AD9082-FMCB-EBZ <EVAL-AD9082>` with following instructions from UG-1829
@@ -493,49 +521,41 @@ as listed under the `Required documents`_ section. Once you have a working set
 up of the :adi:`AD9082-FMCB-EBZ <EVAL-AD9082>`, please use the last ADC Full
 Bandwidth condition shown under Table 2 of Page 11 of the UG-1829.
 
-.. image:: ../images/ad9081_figure9.png
-   :align: center
+.. figure:: ../images/ad9081_figure9.png
 
-.. image:: ../images/ad9081_figure9r.png
-   :alt: Board View of selected Full Bandwidth ADC Use Case
-   :align: center
+   Full Bandwidth ADC use case (Table 2, UG-1829)
 
-Figure 9: Board View of selected Full Bandwidth ADC Use Case
+.. figure:: ../images/ad9081_figure9r.png
+
+   Board View of selected Full Bandwidth ADC Use Case
 
 You can check the FFT response of the signal without PFILT:
 
-.. image:: ../images/ad9081_figure10.png
-   :alt: FFT of the signal @0.5GHz to ADC input, without PFILT
-   :align: center
+.. figure:: ../images/ad9081_figure10.png
 
-Figure 10: FFT of the signal @0.5GHz to ADC input, without PFILT
+   FFT of the signal @0.5GHz to ADC input, without PFILT
 
-**How to load the generated coefficients by MATLAB code in the ACE Tool?** 
+**How to load the generated coefficients by MATLAB code in the ACE Tool?**
 
 #. Design Band pass filter in MATLAB PFILT tool to equalize the ADC input:
    For a 192 tap single real mode PFILT: Use the following settings under
    Quick Configuration tool in Chip view for AD9082 board. You get to the chip
    view by click on the highlighted box in green in the figure below
 
-   .. image:: ../images/ad9081_figure11.png
-      :alt: AD9082 Board view under ACE Plug-in
-      :align: center
-   
-   Figure 11: AD9082 Board view under ACE Plug-in
-   
-   .. image:: ../images/ad9081_figure12.png
-      :alt: AD9082 Chip view under ACE Plug-in
-      :align: center
-   
-   Figure 12: AD9082 Chip view under ACE Plug-in
-   
+   .. figure:: ../images/ad9081_figure11.png
+      :name: ad9082-board-view-ace
+
+      AD9082 Board view under ACE Plug-in
+
+   .. figure:: ../images/ad9081_figure12.png
+
+      AD9082 Chip view under ACE Plug-in
+
    **Configuring the Programmable Filter in ACE: 1.Click the programmable filter block in chip as highlighted in the picture below.**
-   
-   .. image:: ../images/ad9081_figure13.png
-      :alt: Programmable Filter Configuration Pop-up Window
-      :align: center
-   
-   Figure 13: Programmable Filter Configuration Pop-up Window
+
+   .. figure:: ../images/ad9081_figure13.png
+
+      Programmable Filter Configuration Pop-up Window
 
 #. The settings shown in the Programmable filter configuration shows for AD9082
    TxFE. As, TxFE only has two ADCs. If it AD9081, under PFILT Quad mode
@@ -551,49 +571,42 @@ Figure 10: FFT of the signal @0.5GHz to ADC input, without PFILT
 #. Once the coefficient file is loaded, click the Configure Filter Block under
    the chip view. Please note that it takes several seconds to complete loading
    the coefficients into the PFILT block.
-   
-   .. image:: ../images/ad9081_figure14.png
-      :alt: Configure PFilter
-      :align: center
-   
-   Figure 14: Configure PFilter
-   
+
+   .. figure:: ../images/ad9081_figure14.png
+
+      Configure PFilter
+
 #. Now proceed to Analysis by click at the "Proceed to Analysis" button at the
    bottom of the chip view page.
 #. Below is the FFT plot at sampling frequency of 3Gsps and input to the ADC is
    0.5GHz.
 
    Showing Channel 0 which I Mode.
-   
-   .. image:: ../images/ad9081_figure15.png
-      :alt: FFT plot at sampling frequency of 3Gsps
-      :align: center
-   
-   Figure 15: FFT plot at sampling frequency of 3Gsps
-   
+
+   .. figure:: ../images/ad9081_figure15.png
+
+      FFT plot at sampling frequency of 3Gsps
+
    This FFT plot correlates to the MATLAB compensation filter response shown in
-   Figure 5.
-   
+   :numref:`bpf-comp-filter-response`.
+
    If you select the Channel 1 which is Q channel and as Q mode is disabled for
    the selected 192 tap single real PFilter configuration. So no signal seen on
    the FFT plot below.
-   
-   .. image:: ../images/ad9081_figure16.png
-      :alt: FFT plot Channel 1 which is Q channel with Q mode Disabled under PFILT Configuration Tool
-      :align: center
-   
-   Figure 16: FFT plot Channel 1 which is Q channel with Q mode Disabled under
-   PFILT Configuration Tool
+
+   .. figure:: ../images/ad9081_figure16.png
+
+      FFT plot Channel 1 which is Q channel with Q mode Disabled under PFILT
+      Configuration Tool
 
 #. Under the configuration window for PFILT, if you select the PFILT Q mode and
    disable the PFILT I mode. Then the FFT plot for Channel 1 will be showing the
    signal transmission as below:
 
-   .. image:: ../images/ad9081_figure17.png
-      :alt: FFT plot Channel 1 which is Q channel with Q mode Enabled under PFILT Configuration Tool.
-      :align: center
-   
-   Figure 17: FFT plot Channel 1 which is Q channel with Q mode Enabled under PFILT Configuration Tool.
+   .. figure:: ../images/ad9081_figure17.png
+
+      FFT plot Channel 1 which is Q channel with Q mode Enabled under PFILT
+      Configuration Tool.
 
 Troubleshooting Tips
 -------------------------------------------------------------------------------
@@ -605,15 +618,16 @@ Evaluation Board is not Functioning Properly
 - After ACE has programmed the FPGA, power is provided to the evaluation board.
   Ensure that the LEDs that denote power is ok, are all lit. See image below.
 
-.. image:: ../images/ad9081_ceboard_power_rail_led.jpg
-   :alt: LEDs denoting power to the various rails on the evaluation board
+.. figure:: ../images/ad9081_ceboard_power_rail_led.jpg
    :width: 200
+
+   LEDs denoting power to the various rails on the evaluation board
 
 - Ensure that the eRPC server has made a successful connection to the
   evaluation board. If the Chip Info reads back a successful UID, this means
   that the connection is successful. Otherwise, the UID will read 0x0 (see
-  Figure 11). If this is the case, power cycle the board, and restart all
-  software.
+  :numref:`ad9082-board-view-ace`). If this is the case, power cycle the board,
+  and restart all software.
 
 ACE is slow to capture data and setup the board
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -631,9 +645,10 @@ characterized by no capture via ACE, or a "configure channel failed" error in
 ACE. In either case, only four of the six LEDs on the FPGA board will be lit
 (see figure below).
 
-.. image:: ../images/ad9081_ads9v2_unsuccessful_capture.jpg
-   :alt: LED status on ADS9-v2EBZ following an unsuccessful data capture
-   :width: 200
+.. figure:: ../images/ad9081_ads9v2_unsuccessful_capture.jpg
+   :width: 300
+
+   LED status on ADS9-v2EBZ following an unsuccessful data capture
 
 If this happens, and the setup is using an external direct clock to the chip,
 ensure that the instrumentation is setup as explained in the evaluation board
@@ -642,9 +657,10 @@ Check the connections to the board to make sure they are snug. If the problem
 persists, open DPG Lite and download a tone. After this step, a successful data
 capture will show all the LEDs lit. See figure below.
 
-.. image:: ../images/ad9081_ads9v2_successful_capture.jpg
-   :alt: LED status on ADS9-v2EBZ following a successful data capture
-   :width: 200
+.. figure:: ../images/ad9081_ads9v2_successful_capture.jpg
+   :width: 300
+
+   LED status on ADS9-v2EBZ following a successful data capture
 
 HMC7044 Configuration Error
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -652,9 +668,11 @@ HMC7044 Configuration Error
 When operating with the on-board clocking and on-chip PLL mode, the user can get
 a "HMC7044 Configuration Error" in the ACE setup.
 
-.. image:: ../images/ad9081_hmc7044_config_error.png
-   :alt: HMC7044 Configuration Error (REFCLK value cannot be supported using a 100MHz Crystal Oscillator)
-   :width: 200
+.. figure:: ../images/ad9081_hmc7044_config_error.png
+   :width: 400
+
+   HMC7044 Configuration Error (REFCLK value cannot be supported using a
+   100MHz Crystal Oscillator)
 
 If this happens, ensure the correct modes are selected to setup the chip. Please
 note that not all modes that are listed in the UG-1578 (from the

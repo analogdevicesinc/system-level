@@ -15,9 +15,11 @@ The full system block diagram is shown below, consisting of four functional
 blocks- the receiver front end, transmitter front end, digitizer, and LO
 generation.
 
-.. image:: ../images/ad9081_2to24_frontend_block_diagram.png
+.. figure:: ../images/ad9081_2to24_frontend_block_diagram.png
    :align: center
    :width: 1000
+
+   2-24GHz RF front end system block diagram
 
 Specifications
 -------------------------------------------------------------------------------
@@ -34,9 +36,11 @@ or functionality targets. Everything from the digitizer sample rates to the
 individual RF components and signal chain filtering can be adjusted to
 facilitate changes in frequency planning or system-level functionality.
 
-.. image:: ../images/ad9081_full_spec_table_r1p01.png
+.. figure:: ../images/ad9081_full_spec_table_r1p01.png
    :align: center
    :width: 800
+
+   Receiver and transmitter specifications
 
 Resources
 -------------------------------------------------------------------------------
@@ -197,14 +201,14 @@ purposes only.
 |                        | :adi:`ADP1765-1`                                                                                                                                             | 2   | Analog Devices Inc. | 1v LDO                                |
 +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+-----+---------------------+---------------------------------------+
 
-| 
+|
 
 .. admonition:: Download
    :class: download
 
    To request the Bill of Materials, please send a request `here <https://support.analog.com/en-US/technical-support/create-case-techsupport/>`_ and include the following info:
 
-   
+
    -  Name
    -  Job Title
    -  Company Name

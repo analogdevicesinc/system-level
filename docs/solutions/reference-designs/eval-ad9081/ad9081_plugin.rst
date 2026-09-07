@@ -23,9 +23,11 @@ by clicking the ``Reload Settings`` button at the bottom of the GUI.
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin.png
    :align: center
    :width: 600
+
+   AD9081 IIO Oscilloscope plugin view
 
 The AD9081 view is divided in three sections:
 
@@ -38,9 +40,11 @@ Receive Chain
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_rx.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_rx.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_rx.png
    :align: center
    :width: 300
+
+   Receive Chain controls
 
 - **ADC Rate(MHz):** Displays the ADC Sample Rate
 - **ADC Nyquist Zone Control:** Selects the Nyquist Zone
@@ -56,9 +60,11 @@ Transmit Chain
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_tx.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_tx.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_tx.png
    :align: center
    :width: 350
+
+   Transmit Chain controls
 
 - **DAC Rate(MHz):** Displays the DAC Sample Rate
 - **TX Main NCO Frequency Control:** Controls the Main NCO Frequency
@@ -78,9 +84,11 @@ Transmit/DDS
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_fpga.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_fpga.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/ad9081_osc_plugin_fpga.png
    :align: center
    :width: 800
+
+   FPGA Settings panel
 
 The plugin provides several options on how the transmitted data is generated.
 
@@ -93,9 +101,11 @@ One CW Tone
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/one_cw_tone.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/one_cw_tone.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/one_cw_tone.png
    :align: right
    :width: 300
+
+   One CW Tone mode
 
 In **One CW Tone** mode one continuous wave (CW) tone will be outputted. The plugin displays the controls to set the Frequency, Amplitude and Phase for just one tone and makes sure that the amplitude of the other tone is set to 0. The resulting signal will be outputted on the Channel I of the DAC and the exact same signal but with a difference in phase of 90 degrees will be outputted on the Channel Q of the DAC.
 
@@ -104,8 +114,10 @@ Two CW Tone
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/two_cw_tones.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/two_cw_tones.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/two_cw_tones.png
    :align: right
+
+   Two CW Tone mode
 
 In **Two CW Tone** mode two continuous wave (CW) tones will be outputted. The plugin displays the controls to set the frequencies F1 and F2, amplitudes A1 and A2, phases P1 and P2 for the two tones. The resulting signal will be outputted on the Channel I of the DAC and the exact same signal but with a difference in phase of 90 degrees will be outputted on the Channel Q of the DAC.
 
@@ -114,8 +126,10 @@ Independent I/Q Control
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/iq_independent.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/iq_independent.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/iq_independent.png
    :align: right
+
+   Independent I/Q Control mode
 
 In **Independent I/Q Control** the plugin displays the controls to set the frequencies, amplitudes and phases for the two tones that will be outputted on channel I and additionally it allows for the two tones that will be outputted on channel Q of the DAC to be configured independently.
 
@@ -130,9 +144,11 @@ DAC Buffer Output
 
 .. TODO: recreate the image from https://wiki.analog.com/_media/resources/tools-software/linux-software/dac_output_buffer_panel.png
 
-.. image:: https://wiki.analog.com/_media/resources/tools-software/linux-software/dac_output_buffer_panel.png
+.. figure:: https://wiki.analog.com/_media/resources/tools-software/linux-software/dac_output_buffer_panel.png
    :align: center
    :width: 500
+
+   DAC Buffer Output panel
 
 The file selector under the **File Selection** section is used to locate and choose the desired data file. Under the **DAC Channels** section the enabled channels will be used to transmit the data stored in the file. To finalize the process, a click on the **Load** button is required.
 
