@@ -74,7 +74,7 @@ While :adi:`EVAL-AD9082` looks like this, with 2x ADCs and 4x DACs:
    2to24ghz-mxfe-rf-front-end
    ad9081
    ad9081_plugin
-   ad9082
+   ad9081_ace
    prerequisites
    quickstart/index
    user-guide
@@ -112,7 +112,7 @@ Table of contents
 
    #. Linux Applications
 
-      #. :ref:`ad9081 iio-oscilloscope`
+      #. :ref:`ad9081 iio-osc-plugin`
 
 #. Design with the AD9081/AD9082
 
@@ -152,7 +152,8 @@ Table of contents
            - :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
            - :external+hdl:ref:`jesd204`
 
-     #. :external+hdl:ref:`HDL reference design <ad9081_fmca_ebz>` which you must use in your FPGA.
+     #. :external+hdl:ref:`HDL reference design <ad9081_fmca_ebz>` which you must use in your FPGA
+     #. :ref:`ad9081 evaluating-using-ace`
 
 #. :adi:`Evaluating the AD9081/AD9082/AD9986/AD9988 Mixed Signal, Front-End RF Transceiver with ACE software <media/en/technical-documentation/user-guides/eval-ad9081-9082-9986-9988-ug-1829.pdf>`
 #. :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`

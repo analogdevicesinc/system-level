@@ -1,6 +1,6 @@
 .. imported from: https://wiki.analog.com/resources/tools-software/linux-software/ad9081_plugin
 
-.. _ad9081 iio-osc-plugin::
+.. _ad9081 iio-osc-plugin:
 
 AD9081 IIO Oscilloscope Plugin
 ===============================================================================

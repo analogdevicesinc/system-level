@@ -1,47 +1,76 @@
-EVALUATING THE AD9082, AD9081, AD9986, AD9988 Mixed-Signal Front-End (MxFE™) RF Transceiver (Evaluation board quick start guide)
-================================================================================================================================
+.. imported from https://wiki.analog.com/resources/eval/ad9082
 
-Preface
-=======
+.. _ad9081 evaluating-using-ace:
 
-This user guide describes additional modes and features available in the :adi:`AD9082 Evaluation Board <AD9082>` , :adi:`AD9081 Evaluation Board <AD9081>`, :adi:`AD9986 Evaluation Board <AD9986>` and :adi:`AD9988 Evaluation Board <AD9988>`. This guide explains the hardware and software setup needed to setup the AD9082, AD9081, AD9986 or AD9988 in the specified mode. The guide explains how a user can use the supplied hardware (AD9081-FMCA-EBZ, AD9082-FMCA-EBZ, AD9988-FMCB-EBZ or AD9986-FMCB-EBZ with ADS9-V2EBZ) and software (ACE) to setup the RF transceiver device in a mode that is not explained in the :adi:`Evaluation Board User Guide <media/en/technical-documentation/user-guides/ad9081-fmca-ebz-9082-fmca-ebz-ug-1829.pdf>`.
+Evaluating MxFE™ using ACE
+===============================================================================
 
-Required Documents
-==================
+This user guide describes additional modes and features available in the
+:adi:`EVAL-AD9082` / :adi:`EVAL-AD9081` / :adi:`EVAL-AD9986` / :adi:`EVAL-AD9988`.
+This guide explains the hardware and software setup needed to setup the
+:adi:`AD9082`, :adi:`AD9081`, :adi:`AD9986` or :adi:`AD9988` in the
+specified mode, as well as how a user can use the supplied hardware with
+:adi:`ADS9-V2EBZ` and software (:adi:`ACE`) to setup the RF transceiver device
+in a mode that is not explained in the
+:adi:`Evaluation Board User Guide <media/en/technical-documentation/user-guides/ad9081-fmca-ebz-9082-fmca-ebz-ug-1829.pdf>`.
 
--  Product Datasheet
+Required documents
+-------------------------------------------------------------------------------
 
-   -  :adi:`AD9081 <media/en/technical-documentation/data-sheets/AD9081.pdf>`
+- Product datasheets:
 
-      -  :adi:`AD9988 <media/en/technical-documentation/data-sheets/AD9988.pdf>`
-      -  :adi:`AD9082 <media/en/technical-documentation/data-sheets/AD9082.pdf>`
-      -  :adi:`AD9986 <media/en/technical-documentation/data-sheets/AD9986.pdf>`
-      -  :adi:`AD9177 <media/en/technical-documentation/data-sheets/AD9177.pdf>`
-      -  :adi:`AD9207 <media/en/technical-documentation/data-sheets/AD9207.pdf>`
-      -  :adi:`AD9209 <media/en/technical-documentation/data-sheets/AD9209.pdf>`
+   - :adi:`AD9081`
+   - :adi:`AD9988`
+   - :adi:`AD9082`
+   - :adi:`AD9986`
+   - :adi:`AD9177`
+   - :adi:`AD9207`
+   - :adi:`AD9209`
 
--  :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
--  :adi:`UG-1829, Evaluation Board User Guide <media/en/technical-documentation/user-guides/ad9081-fmca-ebz-9082-fmca-ebz-ug-1829.pdf>`
+- :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
+- :adi:`UG-1829, Evaluation Board User Guide <media/en/technical-documentation/user-guides/ad9081-fmca-ebz-9082-fmca-ebz-ug-1829.pdf>`
 
-MxFE Evaluation Board Hardware Summary
-======================================
+MxFE evaluation board hardware summary
+-------------------------------------------------------------------------------
 
 The table below shows the various evaluation boards and their details.
 
-+-----------------+--------------------------+------------------------------------+----------------------------+-----------------------+-------------------------------------------+
-| **EVB Part #**  | **Devices Supported**    | **Power Delivery**                 | **Analog Front End Balun** | **Clock Input Balun** | **On-Board Crystal Oscillator Frequency** |
-+=================+==========================+====================================+============================+=======================+===========================================+
-| AD9081-FMCA-EBZ | AD9081 / AD9209 / AD9177 | via FMC connector: uModule and LDO | BALH-0009SMG               | SMP + BAL-0416        | 100MHz                                    |
-+-----------------+--------------------------+------------------------------------+----------------------------+-----------------------+-------------------------------------------+
-| AD9082-FMCA-EBZ | AD9082 / AD9207 / AD9177 | via FMC connector: uModule and LDO | BALH-0009SMG               | SMP + BAL-0416        | 100MHz                                    |
-+-----------------+--------------------------+------------------------------------+----------------------------+-----------------------+-------------------------------------------+
-| AD9988-FMCB-EBZ | AD9988                   | External 12V using ADP5056 and LDO | TCM1-83X / LDB184G6        | SMA + NCR2-123+       | 122.88MHz                                 |
-+-----------------+--------------------------+------------------------------------+----------------------------+-----------------------+-------------------------------------------+
-| AD9986-FMCB-EBZ | AD9986                   | External 12V using ADP5056 and LDO | TCM1-83X / LDB184G6        | SMA + NCR2-123+       | 122.88MHz                                 |
-+-----------------+--------------------------+------------------------------------+----------------------------+-----------------------+-------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   - - EVB Part #
+     - Devices supported
+     - Power delivery
+     - Analog front end balun
+     - Clock input balun
+     - On-board crystal oscillator frequency
+   - - :adi:`AD9081-FMCA-EBZ <EVAL-AD9081>`
+     - :adi:`AD9081` / :adi:`AD9209` / :adi:`AD9177`
+     - via FMC connector: uModule and LDO
+     - BALH-0009SMG
+     - SMP + BAL-0416
+     - 100MHz
+   - - :adi:`AD9082-FMCA-EBZ <EVAL-AD9082>`
+     - :adi:`AD9082` / :adi:`AD9207` / :adi:`AD9177`
+     - via FMC connector: uModule and LDO
+     - BALH-0009SMG
+     - SMP + BAL-0416
+     - 100MHz
+   - - :adi:`AD9988-FMCB-EBZ <EVAL-AD9988>`
+     - :adi:`AD9988`
+     - External 12V using ADP5056 and LDO
+     - TCM1-83X / LDB184G6
+     - SMA + NCR2-123+
+     - 122.88MHz
+   - - :adi:`AD9986-FMCB-EBZ <EVAL-AD9986>`
+     - :adi:`AD9986`
+     - External 12V using ADP5056 and LDO
+     - TCM1-83X / LDB184G6
+     - SMA + NCR2-123+
+     - 122.88MHz
 
 Installation of the Heat Sink with Integrated Fan
-=================================================
+-------------------------------------------------------------------------------
 
 A heat sink with integrated fan is shipped with the evaluation board for active
 cooling of the IC device. Note the power consumption of the IC device is
@@ -50,44 +79,50 @@ where the IC die temperature can approach or exceed its maximum specified
 operating range of 120 °C. For this reason, it is recommended that this heat
 sink shown in Figure 1 is installed before the evaluation process begins.
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/fansink1.png
+.. image:: ../images/ad9081_fansink1.png
    :alt: Heat Sink with Fan
    :align: center
 
 The installation steps are as follows:
 
--  Remove blue frame clip that is attached to assembly by lifting metal tab free from this frame clip (using small tweezer or metal pick). This frame clip is not essential for attachment of the heat sink to the IC device (while noting that the FMCB-EBZ variant does not accept this frame clip due to passive components within its keep out region).
--  Remove the thin plastic tape to expose the adhesive surface
+- Remove blue frame clip that is attached to assembly by lifting metal tab
+  free from this frame clip (using small tweezer or metal pick). This frame
+  clip is not essential for attachment of the heat sink to the IC device (while
+  noting that the FMCB-EBZ variant does not accept this frame clip due to
+  passive components within its keep out region).
+- Remove the thin plastic tape to expose the adhesive surface
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/fansink2.png
+.. image:: ../images/ad9081_fansink2.png
    :alt: Removing the plastic tape
    :align: center
 
--  Carefully position and center the heat sink on top of the IC package such that it also remains clear of the RF baluns.
--  Once positioned correctly, press down on the heat sinks top side for 10 seconds to secure it to the IC package.
--  Connect the power supply cable
+- Carefully position and center the heat sink on top of the IC package such
+  that it also remains clear of the RF baluns.
+- Once positioned correctly, press down on the heat sinks top side for 10
+  seconds to secure it to the IC package.
+- Connect the power supply cable
 
-The fan should start spinning once power is applied to the evaluation board. In
-the unlikely event that it does not spin, it has been found that the two screws
-used to secure the fan to the heatsink are too tight such that the fan blades
-cannot spin freely. Loosening the screws using a standard Phillips screwdriver
-often releases the fan blade allowing it to spin freely.
+The fan should start spinning once power is applied to the evaluation board.
+In the unlikely event that it does not spin, it has been found that the two
+screws used to secure the fan to the heatsink are too tight such that the fan
+blades cannot spin freely. Loosening the screws using a standard Phillips
+screwdriver often releases the fan blade allowing it to spin freely.
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/fansink3.png
+.. image:: ../images/ad9081_fansink3.png
    :alt: FanSink™ assembled on the Evaluation Board
    :align: center
 
 Additional information on this product called fanSink™ from Advanced Thermal
-Solutions can be found on the vendor’s website.
+Solutions can be found on the vendor's website.
 
 Setting up MxFE™ in a Narrowband mode
-=====================================
+-------------------------------------------------------------------------------
 
 The following instructions allow the user to setup the MxFE chip in a single
-band 250MSPS I/Q data rate setup with direct RF sampling. The device is setup as
-shown below:
+band 250 MSPS I/Q data rate setup with direct RF sampling. The device is setup
+as shown below:
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/narrowband_setup_for_wiki.png
+.. image:: ../images/ad9081_narrowband_setup.png
    :alt: Setup block diagram of AD9081
    :align: center
 
@@ -97,28 +132,62 @@ FPGA to setup the SERDES link correctly. Refer to the Evaluation board user
 guide (UG-1829) for more information on the hardware setup.
 
 Configuring the device in ACE
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open ACE and open the AD9081 plugin. |ACE Start page| Double click on the AD9081 block to open the chip view |Open the Chip View| Configure the device Chip View's Quick Configuration section as shown in the figures below. The steps are numbered in sequence. |image1|\ |image2| |image3|\
+Open ACE and open the AD9081 plugin.
 
-|image4|
+.. image:: ../images/ad9081_1_start.png
+   :alt: ACE Start page with AD9081 plugin
 
-Hit Apply
+Double click on the AD9081 block to open the chip view.
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/7_apply.png
+.. image:: ../images/ad9081_2_board_view.png
+   :alt: Open the Chip View
+
+Configure the device Chip View's Quick Configuration section as shown in the
+figures below. The steps are numbered in sequence.
+
+.. image:: ../images/ad9081_3_chip_setup1.png
+   :alt: Quick configuration steps 1-5
+   :align: left
+
+.. image:: ../images/ad9081_4_chip_setup2.png
+   :alt: Quick configuration steps 7-8
+   :align: right
+   
+.. image:: ../images/ad9081_5_chip_setup3.png
+   :alt: Quick configuration steps 9-10
+   :align: left
+
+.. image:: ../images/ad9081_6_chip_setup4.png
+   :alt: Quick configuration steps 11-12
+   :align: right
+
+.. image:: ../images/ad9081_7_apply.png
+   :alt: Apply button
+   :align: right
 
 Allow a few seconds for ACE and the ADS9v2 hardware to setup the AD9081. When
 the chip is configured correctly, the chip view will show a status readout as
 shown below.
 
-|Chip Status readouts|
+.. image:: ../images/ad9081_8_chip_view_after_apply.png
+   :alt: Chip readouts after apply
 
 Obtaining an FFT from the ADC
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click on "Proceed to Analysis" button to capture an FFT from the ADC. A no input FFT is shown below. |FFT output with no input signal| Clicking on the "Update JESD Status" button in the chip view will output the FPGA's JESD204B link status. It will also readout the MxFE chip's junction temperature by polling the on-chip TMU
+Click on "Proceed to Analysis" button to capture an FFT from the ADC. A no
+input FFT is shown below.
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/10_chip_view_after_fftanalysis_view.png
+.. image:: ../images/ad9081_9_analysis_view.png
+   :alt: FFT output with no input signal
+
+Clicking on the "Update JESD Status" button in the chip view will output the
+FPGA's JESD204B link status. It will also readout the MxFE chip's junction
+temperature by polling the on-chip TMU
+
+.. image:: ../images/ad9081_10_chip_view_after_fftanalysis_view.png
    :alt: FPGA JESD204 status and MxFE junction temperature readout
 
 Connect a signal generator to any of the ADC inputs. Set the frequency to a
@@ -127,51 +196,76 @@ example. This will need to be adjusted based on cable and other RF losses. In
 the figure below, the signal generator output was set to 9.9dBm to get to
 ~-1.2dBFS fundamental power.
 
-|Single Tone FFT with a CW tone at 3.207GHz|
+.. image:: ../images/ad9081_11_st_fft_onchippll_3p207ghz_9p9dbm.png
+   :alt: Single Tone FFT with a CW tone at 3.207GHz
 
 Setting up DPG Lite to generate a tone out of the DAC
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open DPGDownloader Lite. Select a Single Tone waveform.
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/12_dpgl_setup1.png
+.. image:: ../images/ad9081_12_dpgl_setup1.png
    :alt: Selecting a Single Tone in DPG Lite
    :width: 200
 
-Configure the DPG Lite GUI as shown below. The steps necessary for the setup are enumerated. |DPG Lite Setup for Single Tone| After enabling the DAC output by pressing the "Play" button in DPG Lite, use a SMA cable to connect DAC0 output to ADC3 input on the AD9081-FMCA-EBZ. Capture an FFT in ACE. |DAC0 to ADC3 External Loopback| Below is a screenshot of the ADC FFT with simultaneous capture of all four channels. ADC1 is sampling the signal generator output. ADC3 is sampling the DAC0 output.
+Configure the DPG Lite GUI as shown below. The steps necessary for the setup
+are enumerated.
 
-|image5|
+.. image:: ../images/ad9081_13_dpgl_setup2.png
+   :alt: DPG Lite Setup for Single Tone
+
+After enabling the DAC output by pressing the "Play" button in DPG Lite, use a
+SMA cable to connect DAC0 output to ADC3 input on the AD9081-FMCA-EBZ.
+Capture an FFT in ACE.
+
+.. image:: ../images/ad9081_14_st_fft_3p201ghz_dac0_loop_adc3_0dbfs.png
+   :alt: DAC0 to ADC3 External Loopback
+
+Below is a screenshot of the ADC FFT with simultaneous capture of all four
+channels. ADC1 is sampling the signal generator output. ADC3 is sampling the
+DAC0 output.
+
+.. image:: ../images/ad9081_15_two_channel_outputs.png
+   :alt: Two channel outputs
 
 Setting up MxFE™ in a Wideband mode
-===================================
+-------------------------------------------------------------------------------
 
 The following instructions allow the user to setup the MxFE chip in a single
 band 1000MSPS I/Q data rate setup with direct RF sampling. The majority of the
 instructions are similar to the Narrowband use case. The device is setup as
 shown below:
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/wideband_setup_for_wiki.png
+.. image:: ../images/ad9081_wideband_setup_for_wiki.png
    :alt: Setup block diagram of AD9081
    :align: center
 
 Configuring the device in ACE
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Only showing the Quick configuration section with the appropriate inputs to
 setup the AD9081 in wideband mode.
 
-|image6|\ |image7|
+.. image:: ../images/ad9081_1_jesd204_setup.png
+   :alt: AD9081 JESD204 quick config setup 1
+   :align: left
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/3_clock_config2.png
+.. image:: ../images/ad9081_2_clock_config1.png
+   :alt: AD9081 JESD204 quick config setup 2
+   :align: right
 
-Hit Apply
+.. image:: ../images/ad9081_3_clock_config2.png
+   :alt: AD9081 JESD204 quick config setup 3
+   :align: center
 
-.. image:: https://wiki.analog.com/_media/resources/eval/mxfe/7_apply.png
+.. image:: ../images/ad9081_7_apply.png
+   :alt: Apply button
+   :align: center
 
 Allow a few seconds for ACE and the ADS9v2 hardware to setup the AD9081.
 
 Setting up DPG Lite to generate a tone out of the DAC
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Setup DPG Lite for single tone as shown below.
 
@@ -179,7 +273,7 @@ Setup DPG Lite for single tone as shown below.
    :alt: Selecting a Single Tone in DPG Lite
 
 Obtaining an FFT from the ADC
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Connect a signal generator to any of the ADC inputs. Set the frequency to a
 3.207GHz CW tone.
@@ -189,7 +283,7 @@ Click on "Proceed to Analysis" button to capture an FFT from the ADC.
 |FFT output|
 
 Setting up AD9081/AD9988 in a 4T4R Dual-Band setup
-==================================================
+-------------------------------------------------------------------------------
 
 The AD9081/AD9988 and AD9082/AD9986 have flexible digital signal processing
 (DSP) that allows it to act as a 4T4R (4 transmit and 4 receive) transceiver for
@@ -223,7 +317,7 @@ Evaluation Board User Guide (UG-1829) for more details.
    :alt: AD9081 / AD9988 Multiband setup details
 
 ACE setup details for dual-band transceiver operation
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Follow the steps below to configure AD9081/AD9988 in the ACE GUI. The Quick configuration setup summary is shown in the screenshots below. Please note that in this example, a direct external clock was used. Please refer to :adi:`UG-1829 <media/en/technical-documentation/user-guides/ad9081-fmca-ebz-9082-fmca-ebz-ug-1829.pdf>` for details on how to run the evaluation board using an external clock source.
 
@@ -240,7 +334,7 @@ and the ADC sampling a 1.95GHZ CW tone
    :alt: ADC sampled output of 1.95GHz CW tone
 
 Setting up transmitter in DPG Lite dual-band operation
-------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Below is the spectrum of the DAC output two tones representing the center
 frequencies of the two bands.
@@ -248,14 +342,14 @@ frequencies of the two bands.
 |DAC outputs showing the center frequencies of the two bands|
 
 A Note on ADC performance
-=========================
+-------------------------------------------------------------------------------
 
 The AD9081/AD9988/AD9082/AD9986 are highly integrated direct RF transceivers. Hence, the performance of the ADC may vary based on the device setup. For example, if the AD9082-FMCA-EBZ was setup to run in a transceiver mode (with DACs ON), and receive only mode (ADC only), there will be a noticeable difference in the ADC's noise performance. See below: |2.7GHz -1dBFS tone with AD9082 configured as a transceiver|\
 
 |2.7GHz -1dBFS tone with AD9082 configured in Rx only mode|
 
 AD9081/82 Programmable Filter (PFILT)
-=====================================
+-------------------------------------------------------------------------------
 
 This section of the user guide talks about how to run the MATLAB code for the
 BPF compensation filter design and use the coefficients generated from it to
@@ -266,7 +360,7 @@ AD9082-FMCA-EBZ with following instructions from UG-1829 as listed under the
 Documents needed section. Please refer to UG-1829 for hardware needed, how to
 load ACE software and the required plug-in for using the AD9082-FMCA-EBZ.
 
-**Where to start PFILT design – to equalize the response using the PFILT. How to download the MATLAB model for PFILT?** For documentation on the MATLAB support refer to this Wiki page: `Hsx Toolbox <https://wiki.analog.com/resources/tools-software/hsx-toolbox>`_ Please download the entire toolbox with the link off the main README: :git-HighSpeedConverterToolbox:`README.md` Then all the helper functions are on path. You can download the toolbox directly within MATLAB through Addon Explorer or grab the source from GitHub. This is documented here: https://wiki.analog.com/resources/tools-software/hsx-toolbox. This MATLAB support is provided through ADI’s High Speed Converter Toolbox. Click on this link below on GitHub `HighSpeedConverterToolbox <https://github.com/analogdevicesinc/HighSpeedConverterToolbox>`_ and use the green button code as shown below to download the Compensation Filter folder under hsx_examples/mxfe_sim/
+**Where to start PFILT design – to equalize the response using the PFILT. How to download the MATLAB model for PFILT?** For documentation on the MATLAB support refer to this Wiki page: `Hsx Toolbox <https://wiki.analog.com/resources/tools-software/hsx-toolbox>`_ Please download the entire toolbox with the link off the main README: :git-HighSpeedConverterToolbox:`README.md` Then all the helper functions are on path. You can download the toolbox directly within MATLAB through Addon Explorer or grab the source from GitHub. This is documented here: https://wiki.analog.com/resources/tools-software/hsx-toolbox. This MATLAB support is provided through ADI's High Speed Converter Toolbox. Click on this link below on GitHub `HighSpeedConverterToolbox <https://github.com/analogdevicesinc/HighSpeedConverterToolbox>`_ and use the green button code as shown below to download the Compensation Filter folder under hsx_examples/mxfe_sim/
 
 |HighSpeedConverterToolBox under GitHub| Figure 2: HighSpeedConverterToolBox under GitHub
 
@@ -314,7 +408,7 @@ as shown below: It generates coefficients to load into PFIR on MxFE using the HW
  AD9082-FMCB-EBZ. The coefficient format generated in MATLAB is in decimal
 format.
 
-It needs to be converted to 2’s complement and then to Hex Format prior to
+It needs to be converted to 2's complement and then to Hex Format prior to
 loading it to the PFILT on AD9082-FMC-EBZ hardware using ACE plug-in
 
 .. image:: https://wiki.analog.com/_media/resources/eval/mxfe/figure7.png
@@ -326,7 +420,7 @@ loading it to the PFILT on AD9082-FMC-EBZ hardware using ACE plug-in
    Figure 7: Coefficient values in Decimal format generated from the MATLAB code for the BPF
 
 The coefficient /taps are generated from MATLAB. These are in decimal format.
-Prior to loading into ACE, these need to be converted to 2’s complement first
+Prior to loading into ACE, these need to be converted to 2's complement first
 and then to Hex format. Example of how the coefficient file looks like after
 converting into Hex. It is a text file and below is an excerpt from a
 coefficient file for a bandpass, 192 tap filter.
@@ -406,7 +500,7 @@ PFILTER Coefficient Load select should be Real I Load or Real Q load.
 
 5.Under select the PFilter coefficient file, load the coefficient file. The
 coefficients needs to be in Hex Format when we upload them in ACE. So we convert
-the coefficients generated from MATLAB from Decimal  2’s complement Hex Format
+the coefficients generated from MATLAB from Decimal  2's complement Hex Format
 before loading into ACE.
 
 6.Once the coefficient file is loaded, click the Configure Filter Block under
@@ -465,19 +559,19 @@ signal transmission as below:
    Figure 17: FFT plot Channel 1 which is Q channel with Q mode Enabled under PFILT Configuration Tool.
 
 Troubleshooting Tips
-====================
+-------------------------------------------------------------------------------
 
 \*\* Evaluation Board is not Functioning Properly \*\*
 
--  Ensure that the evaluation board is properly seated in the FMC connector
--  After ACE has programmed the FPGA, power is provided to the evaluation board.
+- Ensure that the evaluation board is properly seated in the FMC connector
+- After ACE has programmed the FPGA, power is provided to the evaluation board.
    Ensure that the LEDs that denote power is ok, are all lit. See image below.
 
 .. image:: https://wiki.analog.com/_media/resources/eval/mxfe/ceboard_power_rail_led.jpg
    :alt: LEDs denoting power to the various rails on the evaluation board
    :width: 200
 
--  Ensure that the eRPC server has made a successful connection to the
+- Ensure that the eRPC server has made a successful connection to the
    evaluation board. If the Chip Info reads back a successful UID, this means
    that the connection is successful. Otherwise, the UID will read 0x0 (see
    Figure 11). If this is the case, power cycle the board, and restart all
@@ -485,9 +579,9 @@ Troubleshooting Tips
 
 \*\* ACE is slow to capture data and setup the board \*\*
 
--  Ensure that the USB connection between ADS9-v2EBZ board and the PC is done through a USB3.0 cable.
--  Connect the cable to a USB3.0 supported port on the PC
--  Restart all software and hardware
+- Ensure that the USB connection between :adi:`ADS9-V2EBZ` board and the PC is done through a USB3.0 cable.
+- Connect the cable to a USB3.0 supported port on the PC
+- Restart all software and hardware
 
 \*\* Unable to capture data after device is setup \*\*
 
@@ -534,7 +628,7 @@ oscillator and the HMC7044 setup.
 
 \*\* ACE Does Not Auto-Detect the Hardware \*\*
 
-After powering up the ADS9-V2EBZ FPGA board and starting ACE, the hardware will
+After powering up the :adi:`ADS9-V2EBZ` FPGA board and starting ACE, the hardware will
 be auto-detected and the plugin icon should appear in the GUI as shown at the
 top of the "Configuring the device in ACE" section. In the unusual case that the
 hardware is not detected and the plugin icon does not appear, try a different
@@ -542,26 +636,12 @@ USB3 cable before going to the trouble of reinstalling the plugin, or
 reinstalling the whole ACE package.
 
 Automating ACE with MATLAB
-==========================
+-------------------------------------------------------------------------------
 
 User Guide: `ad9xxx_matlab_user_guide.pdf <https://wiki.analog.com/_media/resources/eval/user-guides/ad9xxx_matlab_user_guide.pdf>`_
 
 Code: `ad9xxx_matlab_code.zip <https://wiki.analog.com/_media/resources/eval/user-guides/ad9xxx_matlab_code.zip>`_
 
-.. |ACE Start page| image:: https://wiki.analog.com/_media/resources/eval/mxfe/1_start.png
-.. |Open the Chip View| image:: https://wiki.analog.com/_media/resources/eval/mxfe/2_board_view.png
-.. |image1| image:: https://wiki.analog.com/_media/resources/eval/mxfe/3_chip_setup1.png
-.. |image2| image:: https://wiki.analog.com/_media/resources/eval/mxfe/4_chip_setup2.png
-.. |image3| image:: https://wiki.analog.com/_media/resources/eval/mxfe/5_chip_setup3.png
-.. |image4| image:: https://wiki.analog.com/_media/resources/eval/mxfe/6_chip_setup4.png
-.. |Chip Status readouts| image:: https://wiki.analog.com/_media/resources/eval/mxfe/8_chip_view_after_apply.png
-.. |FFT output with no input signal| image:: https://wiki.analog.com/_media/resources/eval/mxfe/9_analysis_view.png
-.. |Single Tone FFT with a CW tone at 3.207GHz| image:: https://wiki.analog.com/_media/resources/eval/mxfe/11_st_fft_onchippll_3p207ghz_9p9dbm.png
-.. |DPG Lite Setup for Single Tone| image:: https://wiki.analog.com/_media/resources/eval/mxfe/13_dpgl_setup2.png
-.. |DAC0 to ADC3 External Loopback| image:: https://wiki.analog.com/_media/resources/eval/mxfe/14_st_fft_3p201ghz_dac0_loop_adc3_0dbfs.png
-.. |image5| image:: https://wiki.analog.com/_media/resources/eval/mxfe/15_two_channel_outputs.png
-.. |image6| image:: https://wiki.analog.com/_media/resources/eval/mxfe/1_jesd204_setup.png
-.. |image7| image:: https://wiki.analog.com/_media/resources/eval/mxfe/2_clock_config1.png
 .. |FFT output| image:: https://wiki.analog.com/_media/resources/eval/mxfe/5_fft_output.png
 .. |image8| image:: https://wiki.analog.com/_media/resources/eval/mxfe/11.png
    :width: 200
