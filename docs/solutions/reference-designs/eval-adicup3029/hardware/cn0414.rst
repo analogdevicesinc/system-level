@@ -1,0 +1,267 @@
+EVAL-CN0414-ARDZ Shield Overview
+================================
+
+:adi:`CN0414` is an Arduino compatible shield that provides a complete, fully isolated, highly flexible, quad channel analog input system suitable for programmable logic controllers (PLCs) and distributed control system (DCS) applications that require multiple voltage inputs and 4 mA to 20 mA current inputs. Additionally, the 4-20 mA inputs provide HART communication to remote field devices.
+
+The circuit shown below uses :adi:`ad4111`, a low power, low noise, 24-bit, sigma-delta (Σ-Δ) analog-to-digital converter (ADC) that integrates an analog front end (AFE) for fully differential or single-ended rail-to-rail, bipolar, ±10 V voltage inputs, and 0 mA to 20 mA current inputs. The :adi:`AD5700-1` is the industry’s lowest power and smallest footprint HART-compliant modem and is used in conjunction with the current input channels to form a HART-compatible, 4 mA to 20 mA receiver solution. The :adi:`ADG704` multiplexer provides HART connectivity to the multiple current input channels. The :adi:`ADuM5411` and :adi:`ADuM3151` provide digital line and power isolation. The :adi:`ADP2441` 36 V, step-down, dc-to-dc regulator accepts an industrial standard 24 V supply, with wide tolerance on the input voltage and steps it down to 7.5V to be used by the system.
+
+This user guide will discuss how to use the :adi:`EVAL-EVAL-ADICUP3029 <EVAL-ADICUP3029>` and evaluation software to configure and collect data from the :adi:`EVAL-CN0414-ARDZ Evaluation Board <CN0414>` **(CN-0414 Board)**.
+
+.. image:: ../images/cn0414_board.png
+   :align: center
+   :width: 400
+
+Simplified functional block diagram
+-----------------------------------
+
+.. image:: ../images/cn0414_simplified_block_diagram_2.png
+   :align: center
+
+Power Supply Considerations and Configuration (P3)
+--------------------------------------------------
+
+Terminal block **P3** is the power supply input (input range:+9.5V to +36V DC). The EARTH terminal can be connected to an external earth connection, to the GND terminal or left floating if an external earth connection is not used.
+
+================ ========================
+Main power setup P3 terminals description
+================ ========================
+|image1|         |image2|
+================ ========================
+
+Analog Input Connections (P6 and P9)
+------------------------------------
+
+The analog input circuit is designed for group-isolated industrial analog inputs
+and can support voltage and current inputs in the following ranges:
+
+==================== ==================================
+Range                Analog Input Terminals Description
+==================== ==================================
+- **±5 V**
+
+|image3|
+
+- **±10 V**
+- **0 V to 5 V**
+- **0 V to 10 V**
+- **4 mA to 20 mA**
+- **0 mA to 20 mA**
+==================== ==================================
+
+| ===== ADC and HART Chip Select Jumper Configurations (P1 & P2) =====
+
+Single Board
+~~~~~~~~~~~~
+
+If only a single board is used, then connect jumpers P1 and P2 as shown in the
+table below.
+
++------------------------+--------------+-----------------+-------------------------+--------------+------------------+
+| P2 Jumper Connections  |              |                 | P1 Jumper Connections   |              |                  |
++========================+==============+=================+=========================+==============+==================+
+| Position               | Description  | Mode            | Position                | Description  | Mode             |
++------------------------+--------------+-----------------+-------------------------+--------------+------------------+
+| pin 1 & pin 2 |image8| | skip decoder | single |image9| | pin 1 & pin 2 |image10| | skip decoder | single |image11| |
++------------------------+--------------+-----------------+-------------------------+--------------+------------------+
+
+Multiple Boards Stacked
+~~~~~~~~~~~~~~~~~~~~~~~
+
+If more than one board is stacked (up to 4), then each board must be set to a
+different ADC and HART select address. Connect jumpers P1 and P2 as shown in the
+table below, and ensure that the software is configured accordingly. On a given
+board, set the ADC and HART address to the same position. If necessary, the
+software can be changed to address differently the ADC and HART on a given
+board.
+
++-------------------------+----------------+--------------------+-------------------------+----------------+--------------------+
+| P2 Jumper Connections   |                |                    | P1 Jumper Connections   |                |                    |
++=========================+================+====================+=========================+================+====================+
+| Position                | Description    | Mode               | Position                | Description    | Mode               |
++-------------------------+----------------+--------------------+-------------------------+----------------+--------------------+
+| pin 4 & pin 6 |image28| | AIN2:AIN3 = 00 | multiple |image29| | pin 4 & pin 6 |image30| | AIN0:AIN1 = 00 | multiple |image31| |
++-------------------------+----------------+--------------------+-------------------------+----------------+--------------------+
+| pin 3 & pin 5 |image32| | AIN2:AIN3 = 01 | multiple |image33| | pin 3 & pin 5 |image34| | AIN0:AIN1 = 01 | multiple |image35| |
++-------------------------+----------------+--------------------+-------------------------+----------------+--------------------+
+| pin 7 & pin 5 |image36| | AIN2:AIN3 = 10 | multiple |image37| | pin 7 & pin 5 |image38| | AIN0:AIN1 = 10 | multiple |image39| |
++-------------------------+----------------+--------------------+-------------------------+----------------+--------------------+
+| pin 8 & pin 6 |image40| | AIN2:AIN3 = 11 | multiple |image41| | pin 8 & pin 6 |image42| | AIN0:AIN1 = 11 | multiple |image43| |
++-------------------------+----------------+--------------------+-------------------------+----------------+--------------------+
+
+.. image:: ../images/silkscreen_top.png
+   :align: center
+
+EEPROM Address Configurations
+-----------------------------
+
+For multiple boards configuration, it is **mandatory** to set a different EEPROM address for each board. In this way, on software initialization, the system configuration (how many boards, what type and at what address) will be determined.
+
++--------------------------+---------------------+---------------------+-------------+
+| EEPROM address selection |                     |                     |             |
++==========================+=====================+=====================+=============+
+| P10 jumper position      | P11 jumper position | P12 jumper position | Address set |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 3            | pin 2 & pin 3       | pin 2 & pin 3       | 0x50        |
++--------------------------+---------------------+---------------------+-------------+
+|                          |                     |                     |             |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 1            | pin 2 & pin 3       | pin 2 & pin 3       | 0x51        |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 3            | pin 2 & pin 1       | pin 2 & pin 3       | 0x52        |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 1            | pin 2 & pin 1       | pin 2 & pin 3       | 0x53        |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 3            | pin 2 & pin 3       | pin 2 & pin 1       | 0x54        |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 1            | pin 2 & pin 3       | pin 2 & pin 1       | 0x55        |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 3            | pin 2 & pin 1       | pin 2 & pin 1       | 0x56        |
++--------------------------+---------------------+---------------------+-------------+
+| pin 2 & pin 1            | pin 2 & pin 1       | pin 2 & pin 1       | 0x57        |
++--------------------------+---------------------+---------------------+-------------+
+
+EEPROM Configuration for Single or Multiple Boards configuration (JP1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If only a single board is being used, then ensure that JP1 Solder Jumper is
+shorting pins 2 & 3 as shown in the table below. If multiple boards are used,
+short pins 1 & 2.
+
++-------------------------+-----------------------------------------------------------------+
+| JP1 soldering position  |                                                                 |
++=========================+=================================================================+
+| Position                | Description                                                     |
++-------------------------+-----------------------------------------------------------------+
+| pin 2 & pin 3 |image48| | enable write protection (WP) (single board operation) |image49| |
++-------------------------+-----------------------------------------------------------------+
+| (**default**)           |                                                                 |
++-------------------------+-----------------------------------------------------------------+
+| pin 2 & pin 1 |image50| | disable write protection (WP) (multi board operation) |image51| |
++-------------------------+-----------------------------------------------------------------+
+
+.. image:: ../images/silkscreen_bottom.png
+   :align: center
+
+LED Indicators
+--------------
+
+There are two LEDs on the board. The power LED is on as time the board is
+powered. The error LED is off by default.
+
+.. image:: ../images/power_and_error_led.png
+   :align: center
+   :width: 400
+
+More Information and Useful Links
+---------------------------------
+
+-  :git-EVAL-ADICUP3029:`CN0414 Demo Software <projects/ADuCM3029_demo_cn0414>`
+-  :adi:`CN0414 Circuit Note Page <CN0414>`
+-  :adi:`CN0414 Design Support Package <CN0414-DesignSupport>`
+-  :adi:`AD4111 Product Page <AD4111>`
+-  :adi:`AD5700-1 Product Page <AD5700-1>`
+-  :adi:`ADUM5411 Product Page <ADUM5411>`
+-  :adi:`ADUM3151 Product Page <ADUM3151>`
+-  :adi:`ADP2441 Product Page <ADP2441>`
+-  :adi:`ADG704 Product Page <ADG704>`
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   :adi:`EVAL-CN0414-ARDZ Design & Integration Files <cn0414-designsupport>`
+
+   -  Schematics
+   -  PCB Layout
+   -  Bill of Materials
+   -  Allegro Project
+
+Software
+--------
+
+-  :doc:`ADICUP3029 + CN0414 Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0414>`
+-  :doc:`Distributed Control System (DCS) Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_plc_modbus>`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0414-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
+
+*End of Document*
+
+.. |image1| image:: ../images/cn0414_supply.png
+   :width: 400
+
+.. |image2| image:: ../images/cn0414_p3_description.png
+   :width: 250
+
+.. |image3| image:: ../images/cn0414_p6_p9_description.png
+   :width: 250
+
+.. |image4| image:: ../images/hart_selection_single_j.png
+.. |image5| image:: ../images/hart_selection_single.png
+.. |image6| image:: ../images/cs_selection_single_j.png
+.. |image7| image:: ../images/cs_selection_single.png
+.. |image8| image:: ../images/hart_selection_single_j.png
+.. |image9| image:: ../images/hart_selection_single.png
+.. |image10| image:: ../images/cs_selection_single_j.png
+.. |image11| image:: ../images/cs_selection_single.png
+.. |image12| image:: ../images/hart_selection_multi_0_j.png
+.. |image13| image:: ../images/hart_selection_multi_0.png
+.. |image14| image:: ../images/cs_selection_multi_0_j.png
+.. |image15| image:: ../images/cs_selection_multi_0.png
+.. |image16| image:: ../images/hart_selection_multi_1_j.png
+.. |image17| image:: ../images/hart_selection_multi_1.png
+.. |image18| image:: ../images/cs_selection_multi_1_j.png
+.. |image19| image:: ../images/cs_selection_multi_1.png
+.. |image20| image:: ../images/hart_selection_multi_2_j.png
+.. |image21| image:: ../images/hart_selection_multi_2.png
+.. |image22| image:: ../images/cs_selection_multi_2_j.png
+.. |image23| image:: ../images/cs_selection_multi_2.png
+.. |image24| image:: ../images/hart_selection_multi_3_j.png
+.. |image25| image:: ../images/hart_selection_multi_3.png
+.. |image26| image:: ../images/cs_selection_multi_3_j.png
+.. |image27| image:: ../images/cs_selection_multi_3.png
+.. |image28| image:: ../images/hart_selection_multi_0_j.png
+.. |image29| image:: ../images/hart_selection_multi_0.png
+.. |image30| image:: ../images/cs_selection_multi_0_j.png
+.. |image31| image:: ../images/cs_selection_multi_0.png
+.. |image32| image:: ../images/hart_selection_multi_1_j.png
+.. |image33| image:: ../images/hart_selection_multi_1.png
+.. |image34| image:: ../images/cs_selection_multi_1_j.png
+.. |image35| image:: ../images/cs_selection_multi_1.png
+.. |image36| image:: ../images/hart_selection_multi_2_j.png
+.. |image37| image:: ../images/hart_selection_multi_2.png
+.. |image38| image:: ../images/cs_selection_multi_2_j.png
+.. |image39| image:: ../images/cs_selection_multi_2.png
+.. |image40| image:: ../images/hart_selection_multi_3_j.png
+.. |image41| image:: ../images/hart_selection_multi_3.png
+.. |image42| image:: ../images/cs_selection_multi_3_j.png
+.. |image43| image:: ../images/cs_selection_multi_3.png
+.. |image44| image:: ../images/jp1_s.png
+   :width: 60
+
+.. |image45| image:: ../images/jp1_s_d.png
+   :width: 130
+
+.. |image46| image:: ../images/jp1_m.png
+   :width: 60
+
+.. |image47| image:: ../images/jp1_m_d.png
+   :width: 130
+
+.. |image48| image:: ../images/jp1_s.png
+   :width: 60
+
+.. |image49| image:: ../images/jp1_s_d.png
+   :width: 130
+
+.. |image50| image:: ../images/jp1_m.png
+   :width: 60
+
+.. |image51| image:: ../images/jp1_m_d.png
+   :width: 130
