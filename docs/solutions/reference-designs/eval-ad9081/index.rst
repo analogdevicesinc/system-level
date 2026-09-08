@@ -131,8 +131,8 @@ Table of contents
 
    - Hardware in the Loop / How to design your own custom BaseBand
 
-     - :ref:`GNU Radio <software gnuradio>`
-     - :dokuwiki:`Transceiver Toolbox <resources/tools-software/transceiver-toolbox>`
+     - :ref:`software gnuradio`
+     - :ref:`matlab transceiver-toolbox`
 
    - Resources for designing a custom AD9081/AD9082-based platform software
 
@@ -166,7 +166,7 @@ Table of contents
 #. :adi:`Evaluating the AD9081/AD9082/AD9986/AD9988 Mixed Signal, Front-End RF Transceiver with ACE software <media/en/technical-documentation/user-guides/eval-ad9081-9082-9986-9988-ug-1829.pdf>`
 #. :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
 #. :ref:`ad9081 2to24ghz-mxfe-rf-front-end`
-#. :dokuwiki:`Additional documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _ad9081 block-diagram:
