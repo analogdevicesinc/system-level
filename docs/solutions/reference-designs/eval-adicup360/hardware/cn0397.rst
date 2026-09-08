@@ -1,0 +1,89 @@
+EVAL-CN0397-ARDZ Shield
+=======================
+
+:adi:`CN0397` is an Arduino compatible shield that is optimized for smart agriculture utilizing wavelength specific photodiodes. Photosynthetic response of plants vary due to the wavelength and intensity of light received. Photodiodes used in this circuit has peak sensitivities over the wavelengths of interest, red and blue region, and over the green region which is mainly rejected by the leaves of the plant.
+
+The circuit shown below uses :adi:`ad8500`, a low power, precision CMOS op amp with a low input bias current of a typical 1pA which is used in a transimpedance amplifier configuration to convert the current output of the photodiodes into voltage. It also features :adi:`ad7798` a 3-channel, low noise, low power 16-bit ADC that converts the analog voltage into digital data in for the processing of data into light intensity. Gain resistor for each of the channel had been calculated to maximize the full scale of the ADC and additional filtering to remove unwanted signals.
+
+.. image:: ../images/cn0397_v1.png
+
+Connectors and Jumper Configurations
+------------------------------------
+
+Chip Select
+~~~~~~~~~~~
+
+|image1| The chip select is configurable to be routed to 3 general purpose I/O pins of the board, digital pins 8, 9 and 10, allowing multiple boards using SPI communications protocol to be stacked up.\ |image2|
+
+The chip select pin of the AD7798 is routed by CS1 to GPIO pin 10, CS2 to GPIO
+9, and CS3 to GPIO 8, which could be moved by placing the shunt across the
+corresponding CS on connector P1.
+
+The shunt is placed across CS1 by default, however it can be configured to any
+of the 3 chip select on the software.
+
+Sensor Footprint
+~~~~~~~~~~~~~~~~
+
+.. note::
+
+   Two types of photodiodes could be used in EVAL-CN0397-ARDZ, with provisions
+   for two different types of footprints.
+
+   | Provision for S7505-01 Hamamatsu 3 Channel RGB Color Sensor is available on the board. The Everlight photodiodes are installed on the board as default and were used during testing and programming of this boards.
+
+**Recommended Sensors**
+
+-  Everlight Photodiode - COLOR SENSOR 620NM CLS15-22C/L213R/TR8
+-  Everlight Photodiode - COLOR SENSOR 550NM CLS15-22C/L213G/TR8
+-  Everlight Photodiode - COLOR SENSOR 470NM CLS15-22C/L213B/TR8
+-  Hamamatsu Photodiode - 3 CHANNEL RGB COLOR SENSOR S7505-01
+
+Spacers
+~~~~~~~
+
+Spacers that could cater various surface mount and through hole packages are
+available on the board to make some modifications on the board easier.
+
+Resistor spacers RB_SPACER, RG_SPACER and RR_SPACER are the gain resistors for each of the corresponding channels Blue, Green and red.The value can be calculated using R\ :sub:`GAIN`\ =Id\ :sub:`MAX`/V\ :sub:`FS`, where Id\ :sub:`MAX` is the maximum diode current and V\ :sub:`FS` is the full scale voltage.
+
+Capacitor spacers CB_SPACER, CG_SPACER and CR_SPACER are used as filtering for each of the channel and can be calculated as C=1/(2π\*R\ :sub:`GAIN`\ \*fc), where R\ :sub:`GAIN` is the gain resistor for the corresponding channel and fc is the target cut-off frequency for the channel
+
+.. important::
+
+   Provision for a 3 channel RGB Color Sensor from Hamamatsu is available on the
+   board. All the Everlight photodiodes must be removed before replacing it with
+   the Hamamatsu photodiode. Hamamatsu S7505-01 photodiode.
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   :adi:`EVAL-CN0397-ARDZ Design & Integration Files <cn0397-designsupport>`
+   
+   -  Schematics
+   -  PCB Layout
+   -  Bill of Materials
+   -  Allegro Project
+   
+
+Software
+--------
+
+-  :doc:`ADICUP360 + CN0397 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0397>`
+-  `ADICUP360 + ADConnect + CN0397 Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/inventek_thinkworx/demo_cn0397>`_
+-  `ADICUP3029 + CN0397 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0397>`_
+-  `Arduino Uno + CN0397 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0397>`_
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0397-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
+
+.. |image1| image:: ../images/cn0397_chip_select.jpg
+.. |image2| image:: ../images/cs_config.jpg

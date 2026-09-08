@@ -1,0 +1,117 @@
+EVAL-CN0357-ARDZ Shield
+=======================
+
+:adi:`CN0357` single-supply, low noise, portable gas detector circuit using an electrochemical sensor. The Alphasense CO-AX carbon monoxide sensor is used in this example. Electrochemical sensors offer several advantages for instruments that detect or measure the concentration of many toxic gases. Most sensors are gas specific and have usable resolutions under one part per million (ppm) of gas concentration.
+
+The circuit shown in below uses the :adi:`ADA4528-2`, dual auto zero amplifier, which has a maximum offset voltage of 2.5 µV at room temperature and an industry leading 5.6 µV/√Hz of voltage noise density. In addition, the :adi:`AD5270-20 <AD5270>` programmable rheostat is used rather than a fixed transimpedance resistor, allowing for rapid prototyping of different gas sensor systems, without changing the bill of materials. The :adi:`ADR3412` precision, low noise, micropower reference establishes the 1.2 V common-mode, pseudo ground reference voltage with 0.1% accuracy and 8 ppm/°C drift. For applications where measuring fractions of ppm gas concentration is important, using the :adi:`ADA4528-2` and the :adi:`ADR3412` makes the circuit performance suitable for interfacing with a 16-bit ADC, such as the :adi:`AD7790`.
+
+.. image:: ../images/cn0357-01.png
+   :align: center
+   :width: 600
+
+--------------
+
+Connectors and Jumper Configurations
+------------------------------------
+
+.. image:: ../images/cn0357-03.png
+   :align: center
+   :width: 600
+
+Sensor Footprint
+~~~~~~~~~~~~~~~~
+
+.. note::
+
+   | NOTE - Three electrode electrochemical toxic gas sensors can be used with the EVAL-CN0357-ARDZ The footprint can accommodate 3 different sizes of sensors.
+   | The Alphasense CO-AX electrochemical gas sensor was used during testing and programming.
+
+**Recommended PCB Sockets(for Alphasense Sensors)**
+
+-  A Series Sensors - Mill-Max 0364-0-15-15-13-27-10-0
+-  B Series Sensors - Mill-Max 0294-0-15-15-06-27-10-0
+-  D Series Sensors - Mill-Max 0667-0-15-15-30-27-10-0
+
+-  The sensor may be connected to the M1 footprint using the appropriate pin
+   sockets
+
+**Jumper P1 Settings**
+
+-  "0" position - Sensor output connected to ADC(defualt)
+-  "1" position - Sensor output connected to A1 pin of ANALOG header, for
+   connection to external ADCs
+
+Chip Select
+~~~~~~~~~~~
+
+This set of jumpers allows for changing the pin mapping of the AD7790 and
+AD5270 chip select lines to different Arduino digital pins. Place jumper/shunt
+as shown to connect to the corresponding Digital IO pin.
+
+**AD7790 CS Selection**
+
+.. image:: ../images/cn0357-hdr-01.png
+   :align: left
+   :width: 101
+
+- Pin 1 shunted to Pin 2 CS connected to **Digital Pin 10**
+- Pin 3 shunted to Pin 4 CS connected to **Digital Pin 9**
+- Pin 5 shunted to Pin 6 CS connected to **Digital Pin 8**
+
+**AD5270 CS Selection**
+
+.. image:: ../images/cn0357-hdr-02.png
+   :align: left
+   :width: 100
+
+- Pin 1 shunted to Pin 2 CS connected to **Digital Pin 7**
+- Pin 3 shunted to Pin 4 CS connected to **Digital Pin 6**
+- Pin 5 shunted to Pin 6 CS connected to **Digital Pin 5**
+
+--------------
+
+Software
+--------
+
+-  :doc:`ADICUP360 + CN0357 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0357>`
+-  `ADICUP3029 + CN0357 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0357>`_
+-  `Arduino Uno + CN0357 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0357>`_
+
+--------------
+
+Schematic, Bill of Materials, Gerber Files, Layout Files
+--------------------------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   EVAL-CN0357-ARDZ Rev C Files
+
+   
+   -  `Schematic <../resources/eval-cn0357-ardz-cadenceschematic-revc.pdf>`_
+   -  `Layout <../resources/eval-cn0357-ardz-cadencelayout-revc.pdf>`_
+   -  `Bill of Materials <../resources/eval-cn0357-ardz-bom-revc.pdf>`_
+   -  `Cadence Files <../resources/eval-cn0357-ardz-cadencelibrary-revc.zip>`_
+   -  `Gerber Files <../resources/eval-cn0357-ardz-gbr-revc.zip>`_
+   
+   EVAL-CN0357-ARDZ Rev B Files
+   
+   -  `Schematic <../resources/eval-cn0357-ardz-cadenceschematic-revb.pdf>`_
+   -  `Layout <../resources/eval-cn0357-ardz-cadencelayout-revb.pdf>`_
+   -  `Bill of Materials <../resources/eval-cn0357-ardz-bom-revb.pdf>`_
+   -  `Cadence Files <../resources/eval-cn0357-ardz-cadencelibrary-revb.zip>`_
+   -  `Gerber Files <../resources/eval-cn0357-ardz-gbr-revb.zip>`_
+   
+
+--------------
+
+Change Log
+----------
+
+RevB to RevC:
+
+-  Replaced R15,R16,R17,R19 and R20 to headers AD7790_CS and AD5270_CS for CS line selection
+-  Connected ICSP SPI lines MOSI,MISO and SCLK to DIGI1 headers(arduino pins D11,D12 and D13) respectively
+-  No longer need external 7V to 12V wall power supply
+
+   -  Board Powered through 5V pin (Arduino POWER header)

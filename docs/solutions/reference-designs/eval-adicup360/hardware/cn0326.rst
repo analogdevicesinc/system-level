@@ -1,0 +1,77 @@
+Isolated Low Power pH Monitor with Temperature Compensation PMOD
+================================================================
+
+The :adi:`CN0326` is a completely isolated low power pH sensor signal conditioner and digitizer with automatic temperature compensation for high accuracy. The circuit gives 0.5% accurate readings for pH values from 0 to 14 with greater than 14-bits of noise-free code resolution and is suitable for a variety of industrial applications such as chemical, food processing, water, and wastewater analysis. This circuit supports a wide variety of pH sensors that have very high internal resistance that can range from 1 MΩ to several GΩ, and digital signal and power isolation provides immunity to noise and transient voltages often encountered in harsh industrial environments. For general board details and to buy a board please visit the :adi:`EVAL-CN0326-PMDZ` product page.
+
+.. image:: ../images/cn0326-hw-1024.jpg
+   :align: center
+   :width: 300
+
+Hardware Setup
+--------------
+
+The PMOD board is small in size with dimensions approximately 1.4 inch in width
+by 2.4 inches in length. The following are the instructions in using the board.
+
+Power Supply Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using the CN0326 PMOD board, the 3.3V power for the PMOD comes directly from the host board it is connected to. The power from the host is generally capable of providing up to 100 mA at 3.3V, but for complete PMOD power specifications please `click here <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+Sensor Probe Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using the CN0326 PMOD board, a general purpose pH probe with BNC connector can be used for pH measurement. An example of a pH probe that can be used is a product from `Atlas <https://www.atlas-scientific.com/product_pages/probes/ph_probe.html>`_ or from `Hach <https://www.hach.com/radiometer-probes/radiometer-analytical-probes/family?productCategoryId=35547627768>`_. For temperature compensation, an RTD sensor with RCA connector can be used. An example is from `Atlas <https://www.atlas-scientific.com/product_pages/probes/pt1000.html>`_ or from `Omega <http://sea.omega.com/ph/subsection/rtd-elements-with-lead-wires-attached.html>`_. These sensors are required in order to run and capture analog signal from a sample solution and the connections can be seen on the diagram as shown below.
+
+.. image:: ../images/sensor_interface.jpg
+   :align: center
+
+Digital Interface (PMOD)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The PMOD interface is a series of standardized digital interfaces for various digital communication protocols such as SPI, I2C, and UART. These interface types were standardized by Digilent, which is now a division of National Instruments. Complete details on the PMOD specification can be found `here <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The specific interface used for the EVAL-CN0326-PMDZ boards is the extended SPI.
+In general ADI has adopted the extended SPI connector for all PMOD devices which
+have an SPI interface. It provides flexibility to add interrupts, general
+purpose I/O, resets, and other important digitally controlled functions.
+
+============= =================== ========
+P1 Pin Number Pin Function        Mnemonic
+============= =================== ========
+Pin 1         Chip Select         CS_N
+Pin 2         Master Out Slave In DIN
+Pin 3         Master In Slave Out DOUT
+Pin 4         Serial Clock        SCLK
+Pin 5         Digital Ground      DGND
+Pin 6         Digital Power       VDD
+Pin 7         Not Connected       NC
+Pin 8         Not Connected       NC
+Pin 9         RCout               RCOUT
+Pin 10        Not Connected       NC
+Pin 11        Digital Ground      DGND
+Pin 12        Digital Power       VDD
+============= =================== ========
+
+.. important::
+
+   The EVAL-CN0326-PMDZ has RCout pins. This pin is connected to the RCIN pin of a slave isoPower device to allow the ADuM5401 to control the regulation of the slave device. This allows ADUM5401 to provide its PWM signal to another device acting as a master to regulate its self and slave devices. This pins is accesible through the SPI PMOD header. For complete details, please consult the datasheet at :adi:`ADUM5401`.
+
+Software examples
+-----------------
+
+-  :doc:`ADICUP360 + CN0326 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0326>`
+-  `ADICUP3029 + CN0326 Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0326>`_
+
+Schematics, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   -  `Schematics <../resources/eval-cn0326-pmdz-cadenceschematic-reva.pdf>`_ (PDF)
+   -  `Bill of Materials <../images/eval-cn0326-pmdz-bom-reva.xls>`_ (Excel)
+   -  `Layout Gerbers <../resources/eval-cn0326-pmdz-gbr-reva.zip>`_ (ZIP)
+   -  `Assembly Drawing <../resources/eval-cn0326-pmdz-assemblydrawing.pdf>`_ (PDF)
+   

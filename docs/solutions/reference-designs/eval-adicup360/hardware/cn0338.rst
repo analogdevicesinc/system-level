@@ -1,0 +1,72 @@
+EVAL-CN0338-ARDZ Shield
+=======================
+
+The :adi:`EVAL-CN0338-ARDZ shield <cn0338>` is a Non-Dispersive Infrared(NDIR) carbon dioxide detector reference design. Complete with thermopile sensor, lamp, and light tube, this design interfaces directly with the dual 24-bit sigma delta converters on the EVAL-ADICUP360.
+
+.. image:: ../images/cn0338_angle.jpg
+   :width: 500
+
+The :adi:`EVAL-CN0338-ARDZ shield <cn0338>` is optimized for CO2 sensing, but can accurately measure the concentration of a large number of gases by using thermopiles with different optical filters.
+
+:adi:`EVAL-CN0338-ARDZ shield <cn0338>` uses NDIR(Non-Dispersive Infrared) physical sensing technique, it does not chemically react with the target gas or give off any toxic by products when measuring the gas concentration. Stable after long period of storage. With two calibrate method (standard beer-lambert calibration and modified beer-lambert calibration) the measurement range can up to 0% ~ 100%. With the temperature composition algorithm in firmware, the CN0338 eliminated temperature drift from idea gas law.
+
+Connectors and configuration
+----------------------------
+
+The CN0338 firmware use P0.1 and P0.2 port of ADuCM360 as UART communicate port, for detailed description about how to connect P0.1 and P0.2 UART port to USER USB or DEBUG UBS, please reference :doc:`EVAL-ADICUP360 Base Board Hardware </solutions/reference-designs/eval-adicup360/hardware/base_board>`
+
+CN0338 Shield Board
+~~~~~~~~~~~~~~~~~~~
+
+The following is the CN0338 shield board picture (not to scale):
+
+|image1|
+
+-  The lamp is connected through the DS1 connector and is powered by the external wall power supply provided on the EVAL-ADICUP360.
+-  The light tube is made of PVC piping and is located in the large rectangular blocked off section of the EVAL-CN0338-ARDZ, and secured to the board using tie wraps.
+-  J1, J2, J3, and J4 provide electrical and mechanical connector mounts to the
+   SENSOR board. Please see the section below which describes the sensor board
+   in more detail.
+
+CN0338 Sensor Board
+~~~~~~~~~~~~~~~~~~~
+
+The following is the CN0338 sensor board picture (not to scale):
+
+|image2|
+
+-  The sensor board should be mount to the shield board vertically, please plug the sensor board contact wing (lower part of sensor board without solder mask) to slot (at right part of board between J1 and J4) of shield board. Please make sure header J1,J2,J3,J4 at shield board plug into receptacles J4,J3,J2,J1 at sensor board firmly.
+-  The thermopile sensor is located at the reference designator T1, which is at the opposite end of the light tube from where the lamp plugs in.
+-  The sensor output goes directly from the EVAL-CN0338-ARDZ to the on board
+   24-bit sigma deltas of the EVAL-ADICUP360, where the signals are converted
+   and process into the CO2 concentrations.
+
+Schematics, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   :adi:`CN0338 Design and Integration Files <cn0338-designsupport>`
+   
+   -  Schematics
+   -  Layout Files
+   -  Gerber Files
+   -  Assembly Drawing
+   
+
+Software examples
+-----------------
+
+-  :doc:`CN0338 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0338>`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0338-ARDZ?&v=RevA>`_ to receive all these great benefits and more!
+
+.. |image1| image:: ../images/cn0338_pcb_shape.jpg
+.. |image2| image:: ../images/cn0338_sensor_pcb.jpg
