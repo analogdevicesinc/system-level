@@ -5,15 +5,19 @@ User guide
 
 :adi:`EVAL-AD9081` top view:
 
-.. image:: ../images/eval_ad9081_top_view.png
+.. figure:: ../images/eval_ad9081_top_view.png
    :align: center
    :width: 500
+
+   EVAL-AD9081 top view
 
 :adi:`EVAL-AD9082` top view:
 
-.. image:: ../images/eval_ad9082_top_view.png
+.. figure:: ../images/eval_ad9082_top_view.png
    :align: center
    :width: 500
+
+   EVAL-AD9082 top view
 
 The complete user guide of the evaluation board can be found at
 :adi:`AD9081/AD9082 Software Development User Guide, UG-1578 (Rev. A) <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`.

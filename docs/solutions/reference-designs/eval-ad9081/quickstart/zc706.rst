@@ -8,8 +8,10 @@ This guide provides quick instructions on how to setup the
 
 - :xilinx:`ZC706` FMC HPC
 
-.. image:: ../../images/zc706.png
+.. figure:: ../../images/zc706.png
    :width: 900
+
+   ZC706 FPGA board
 
 .. esd-warning::
 
@@ -79,8 +81,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081-fmca-ebz-zc706.png
+.. figure:: ../../images/ad9081-fmca-ebz-zc706.png
    :width: 800
+
+   EVAL-AD9081 on the ZC706 setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
@@ -764,8 +768,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081-fmca-ebz-zc706.png
+.. figure:: ../../images/ad9081-fmca-ebz-zc706.png
    :width: 800
+
+   EVAL-AD9081 on the ZC706 setup
 
 Follow the steps in this order, to avoid damaging the components:
 

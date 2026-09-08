@@ -8,8 +8,10 @@ This guide provides some quick instructions on how to setup the
 
 - :xilinx:`VCK190` FMCP1 (J51) port
 
-.. image:: ../../images/vck190.jpg
+.. figure:: ../../images/vck190.jpg
    :width: 900
+
+   VCK190 FPGA board
 
 .. esd-warning::
 
@@ -84,8 +86,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_vck190_setup.jpg
+.. figure:: ../../images/ad9081_vck190_setup.jpg
    :width: 800
+
+   EVAL-AD9081 on the VCK190 setup
 
 Follow the steps in this order, to avoid damaging the components:
 
@@ -98,14 +102,18 @@ Follow the steps in this order, to avoid damaging the components:
 #. Configure ACAP for SD boot (mode SW1[4:1] switch in the position
    **OFF,OFF,OFF,ON** as seen in the below picture)
 
-   .. image:: ../../images/vck190_sw1.jpg
+   .. figure:: ../../images/vck190_sw1.jpg
       :width: 200
+
+      VCK190 SW1 SD boot mode switch settings
 
 #. Configure System Controller for SD card boot (mode SW11[4:1] switch in the
    position **OFF,OFF,OFF,ON** as seen in the below picture).
 
-   .. image:: ../../images/vck190_sw11.jpg
+   .. figure:: ../../images/vck190_sw11.jpg
       :width: 200
+
+      VCK190 SW11 System Controller SD boot mode switch settings
 
 #. Connect an Ethernet cable to J307 and also to SYSCTL Ethernet port to access
    Board Evaluation & Management Tool (BEAM);
@@ -117,14 +125,20 @@ Follow the steps in this order, to avoid damaging the components:
 #. On the System Controller console, a BEAM Tool Web Address should be assigned.
    Go to this web address to set VADJ_FMC to 1.5V;
 
-   .. image:: beam-home.jpg
+   .. figure:: beam-home.jpg
       :width: 1000
 
-   .. image:: beam-board-settings.jpg
+      BEAM Tool home page
+
+   .. figure:: beam-board-settings.jpg
       :width: 1000
 
-   .. image:: beam-set-vadj.jpg
+      BEAM Tool board settings
+
+   .. figure:: beam-set-vadj.jpg
       :width: 1000
+
+      Setting VADJ_FMC to 1.5V in the BEAM Tool
 
 #. On the ACAP UART interface console, reboot the system. After reboot,
    AD9081 devices should be present.

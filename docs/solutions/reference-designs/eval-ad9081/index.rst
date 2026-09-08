@@ -7,13 +7,17 @@ AD9081 & AD9082
 
 MxFE™ Quad, 16-Bit, 12GSPS RFDAC and Quad, 12-Bit, 4/6 GSPS RFADC.
 
-.. image:: ../images/ad9081.webp
+.. figure:: ../images/ad9081.webp
    :align: left
    :width: 150
 
-.. image:: ../images/ad9082.webp
+   AD9081 MxFE
+
+.. figure:: ../images/ad9082.webp
    :align: left
    :width: 120
+
+   AD9082 MxFE
 
 Overview
 -------------------------------------------------------------------------------
@@ -58,15 +62,19 @@ Applications:
 
 :adi:`EVAL-AD9081` looks like this, with 4x ADCs and 4x DACs:
 
-.. image:: ../images/eval_ad9081.png
+.. figure:: ../images/eval_ad9081.png
    :align: center
    :width: 400
 
+   EVAL-AD9081 evaluation board
+
 While :adi:`EVAL-AD9082` looks like this, with 2x ADCs and 4x DACs:
 
-.. image:: ../images/eval_ad9082.png
+.. figure:: ../images/eval_ad9082.png
    :align: center
    :width: 450
+
+   EVAL-AD9082 evaluation board
 
 .. toctree::
    :hidden:
@@ -166,13 +174,17 @@ Table of contents
 Block diagram
 -------------------------------------------------------------------------------
 
-.. image:: ../images/ad9081_block_diagram.png
+.. figure:: ../images/ad9081_block_diagram.png
    :align: center
    :width: 700
 
-.. image:: ../images/ad9082_block_diagram.png
+   AD9081 block diagram
+
+.. figure:: ../images/ad9082_block_diagram.png
    :align: center
    :width: 700
+
+   AD9082 block diagram
 
 Videos
 -------------------------------------------------------------------------------
