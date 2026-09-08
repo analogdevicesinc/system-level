@@ -1,6 +1,6 @@
-.. _fmcomms2 prerequisites:
+.. _fmcomms4 prerequisites:
 
-Prerequisites for AD9361/AD9364 based boards
+Prerequisites
 ===============================================================================
 
 What you need depends on what you are trying to do. As a minimum, you need to
@@ -9,11 +9,7 @@ start out with:
 Hardware prerequisites
 -------------------------------------------------------------------------------
 
-#. The AD9361/AD9364-based evaluation boards: :adi:`EVAL-AD-FMCOMMS2` /
-   :adi:`EVAL-AD-FMCOMMS3` / :adi:`EVAL-AD-FMCOMMS4`
-
-   To determine which one is best for you, check out the
-   :ref:`introduction <fmcomms2 common introduction>` section.
+#. The AD9364-based evaluation board: :adi:`EVAL-AD-FMCOMMS4`
 
 #. A FPGA carrier platform. Our recommended one can be found
    :ref:`here <fmcomms2/3/4 carriers>`.
