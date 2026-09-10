@@ -1,36 +1,52 @@
 .. _ad_fmcxmwbr1_ebz eval:
 
-AD FMCXMWBR1 EBZ
-=================================================================================================
+AD-FMCXMWBR1-EBZ
+===============================================================================
 
-.. TODO: Add a picture of the chip/board
+.. image:: images/ad-fmcxmwbr1-ebz_top.jpg
+   :align: center
+   :width: 600
 
 Overview
 -------------------------------------------------------------------------------
 
-.. TODO: Describe in max 10 rows the main features and applications.
+The :adi:`AD-FMCXMWBR1-EBZ` is a FMC-compatible level translator and power
+supply board. It provides a direct connection between a compatible
+controller/FPGA device and `X-Microwave <https://www.xmicrowave.com/>`_
+blocks. It is powered from the FMC connector but has the option to add an
+external supply for applications that require higher load currents. This
+increases flexibility and allows for multiple supply voltages with high current
+capability. These can be used to bias the X-MW blocks or other ICs in a
+prototype design, allowing multiple level translated digital communications
+paths between the controller board and the front-end.
 
 Features:
 
-- feature 1
-- feature 2
+-  FMC-compatible form factor
+-  Powered from FMC connector with external supply possibility
+-  Provides level translation and various supply values
+-  Compatible with RaspberryPi X-MW controller
 
 Applications:
 
-- application 1
-- application 2
+-  RF and Microwave designs
+-  Voltage level translation
+-  General-purpose software radios
+-  Radar systems
+-  Point to point communication systems
+-  Multiple input/multiple output (MIMO) radios
+-  Automated test equipment
+
+Videos:
+
+-  `AD-FMCXMWBR1-EBZ Video <https://www.youtube.com/watch?v=3MH8Y6joSeE>`_
 
 .. toctree::
    :hidden:
 
-   ad-fmcxmwbr1-ebz
-   hardware
-   quickstart
-   reference_hdl
-   software
-   software/linux
-   software/linux/zynqmp
-   testing
+   prerequisites
+   user-guide
+   quickstart/index
 
 Recommendations
 -------------------------------------------------------------------------------
