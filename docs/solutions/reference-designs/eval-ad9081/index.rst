@@ -79,13 +79,12 @@ While :adi:`EVAL-AD9082` looks like this, with 2x ADCs and 4x DACs:
 .. toctree::
    :hidden:
 
-   2to24ghz-mxfe-rf-front-end
    ad9081
-   ad9081_plugin
-   ad9081_ace
+   user-guide/index
    prerequisites
    quickstart/index
-   user-guide
+   ad9081_plugin
+   ad9081_ace
 
 Recommendations
 -------------------------------------------------------------------------------
@@ -165,7 +164,7 @@ Table of contents
 
 #. :adi:`Evaluating the AD9081/AD9082/AD9986/AD9988 Mixed Signal, Front-End RF Transceiver with ACE software <media/en/technical-documentation/user-guides/eval-ad9081-9082-9986-9988-ug-1829.pdf>`
 #. :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
-#. :ref:`ad9081 2to24ghz-mxfe-rf-front-end`
+#. :ref:`ad9081 user-guide 2to24ghz-mxfe-rf-front-end`
 #. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 

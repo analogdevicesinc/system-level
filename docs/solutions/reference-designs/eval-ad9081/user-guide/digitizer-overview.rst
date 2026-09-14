@@ -1,6 +1,6 @@
 .. imported from: https://wiki.analog.com/resources/eval/developer-kits/2to24ghz-mxfe-rf-front-end/digitizer-overview
 
-.. _ad9081 2to24ghz-mxfe-rf-front-end digitizer-overview:
+.. _ad9081 user-guide 2to24ghz-mxfe-rf-front-end digitizer-overview:
 
 Digitizer Overview
 ===============================================================================
@@ -12,7 +12,7 @@ bandwidth enable RF sampling up to 8 GHz, providing architectural and
 frequency planning flexibility at the system level. They also have highly
 configurable, on-chip DSP capabilities (DDC/DUC channelizers, NCOs, and
 programmable FIR filters) as well as four DAC channels and two-to-four
-ADCs for use in multi-channel systems. 
+ADCs for use in multi-channel systems.
 
 .. list-table::
    :header-rows: 1
@@ -34,14 +34,13 @@ The ADI Frequency Planning Utility tool was used to determine the optimal
 :adi:`AD9082` ADC sample rate, IF sampling frequency, and IF bandwidth.
 A 6 GSPS ADC rate allows for maximum instantaneous bandwidth (IBW) and complete
 avoidance of HD2 aliasing in-band for a 1GHz signal bandwidth centered at 4.5 GHz
-(2nd Nyquist). The figure below illustrates this. 
+(2nd Nyquist). The figure below illustrates this.
 
-.. figure:: ../images/ad9082_freq_folding_graphic.png
+.. figure:: ../../images/ad9082_freq_folding_graphic.png
    :align: center
    :width: 600
 
    AD9082 frequency folding at a 6 GSPS ADC sample rate
-          
 
 .. important::
 
@@ -54,4 +53,4 @@ avoidance of HD2 aliasing in-band for a 1GHz signal bandwidth centered at 4.5 GH
 The :adi:`ADF4377` integrated PLL/VCO is an ideal choice for generating the
 MxFE sample clock. The :adi:`ADF4377` can generate a clean, low-jitter clock
 from 800 MHz up to 12.8 GHz, and it's differential outputs are capable of
-directly driving the MxFE clock pins.    
+directly driving the MxFE clock pins.

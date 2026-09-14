@@ -3,9 +3,13 @@
 User guide
 ===============================================================================
 
+.. toctree::
+
+   2to24ghz-mxfe-rf-front-end
+
 :adi:`EVAL-AD9081` top view:
 
-.. figure:: ../images/eval_ad9081_top_view.png
+.. figure:: ../../images/eval_ad9081_top_view.png
    :align: center
    :width: 500
 
@@ -13,7 +17,7 @@ User guide
 
 :adi:`EVAL-AD9082` top view:
 
-.. figure:: ../images/eval_ad9082_top_view.png
+.. figure:: ../../images/eval_ad9082_top_view.png
    :align: center
    :width: 500
 
@@ -94,13 +98,13 @@ MATLAB, and others. Two easy examples that can be used with it are:
 
 - :external+pyadi-iio:doc:`PyADI-IIO <index>`
 
-.. include-template:: ../common/using-iio-osc.rst.jinja
+.. include-template:: ../../common/using-iio-osc.rst.jinja
 
    has_linux: true
    has_no_os: true
-   
+
 About the IIO devices
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Main receivers RX1, RX2, RX3, and RX4 are handled by the axi-ad9081-rx-hpc IIO
 device.
@@ -116,4 +120,4 @@ Channels:
   - {``voltage3_i``, ``voltage3_q``}: RX4
 
 
-.. include-template:: ../common/using-scopy.rst.jinja
+.. include-template:: ../../common/using-scopy.rst.jinja

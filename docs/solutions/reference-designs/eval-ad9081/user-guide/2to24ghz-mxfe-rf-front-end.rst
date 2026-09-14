@@ -1,6 +1,6 @@
 .. imported from: https://wiki.analog.com/resources/eval/developer-kits/2to24ghz-mxfe-rf-front-end
 
-.. _ad9081 2to24ghz-mxfe-rf-front-end:
+.. _ad9081 user-guide 2to24ghz-mxfe-rf-front-end:
 
 2-24GHz RF Rx & Tx Front End for MxFE
 ===============================================================================
@@ -15,7 +15,7 @@ The full system block diagram is shown below, consisting of four functional
 blocks- the receiver front end, transmitter front end, digitizer, and LO
 generation.
 
-.. figure:: ../images/ad9081_2to24_frontend_block_diagram.png
+.. figure:: ../../images/ad9081_2to24_frontend_block_diagram.png
    :align: center
    :width: 1000
 
@@ -36,7 +36,7 @@ or functionality targets. Everything from the digitizer sample rates to the
 individual RF components and signal chain filtering can be adjusted to
 facilitate changes in frequency planning or system-level functionality.
 
-.. figure:: ../images/ad9081_full_spec_table_r1p01.png
+.. figure:: ../../images/ad9081_full_spec_table_r1p01.png
    :align: center
    :width: 800
 
@@ -50,12 +50,13 @@ Resources
 .. toctree::
 
    Digitizer overview <digitizer-overview>
-   <rx-overview>
-   <tx-overview>
-   <lo-generation>
-   <layout-mockup>
-   <power-architecture>
-   <sw>
+
+.. <rx-overview>
+.. <tx-overview>
+.. <lo-generation>
+.. <layout-mockup>
+.. <power-architecture>
+.. <sw>
 
 Bill of Materials
 -------------------------------------------------------------------------------
