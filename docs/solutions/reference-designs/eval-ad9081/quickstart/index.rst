@@ -118,11 +118,15 @@ JTAG (no-OS) connections. A few typical setups are shown below.
 ZCU102 + EVAL-AD9081
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../images/ad9081_zcu102_setup.png
+.. figure:: ../../images/ad9081_zcu102_setup.png
    :width: 800
+
+   ZCU102 + EVAL-AD9081 setup
 
 VCK190 + EVAL-AD9081
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../images/ad9081_vck190_setup.jpg
+.. figure:: ../../images/ad9081_vck190_setup.jpg
    :width: 800
+
+   VCK190 + EVAL-AD9081 setup

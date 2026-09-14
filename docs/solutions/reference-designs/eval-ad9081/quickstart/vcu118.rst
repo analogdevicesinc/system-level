@@ -8,8 +8,10 @@ This guide provides quick instructions on how to setup the
 
 - :xilinx:`VCU118` FMC+
 
-.. image:: ../../images/vcu118.png
+.. figure:: ../../images/vcu118.png
    :width: 900
+
+   VCU118 FPGA board
 
 .. esd-warning::
 
@@ -81,8 +83,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_vcu118_setup.png
+.. figure:: ../../images/ad9081_vcu118_setup.png
    :width: 800
+
+   EVAL-AD9081 on the VCU118 setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
@@ -260,8 +264,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_vcu118_setup.png
+.. figure:: ../../images/ad9081_vcu118_setup.png
    :width: 800
+
+   EVAL-AD9081 on the VCU118 setup
 
 Follow the steps in this order, to avoid damaging the components:
 
