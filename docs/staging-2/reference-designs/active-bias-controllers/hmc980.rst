@@ -1,0 +1,918 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/active-bias-controllers/hmc980
+
+.. _active-bias-controllers hmc980:
+
+HMC980 Configuration Calculator
+===============================
+
+This calculator can be used to calculate all of the external component values
+that are required to configure current settings, voltage ranges and alarm levels
+for HMC980
+
+:download:`https://wiki.analog.com/_media/resources/eval/user-guides/active-bias-controllers/hmc980.zip`
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/active-bias-controllers/hmc980_configuration_calculator.png
+   :width: 400px
+
+--------------
+
+Verified Amplifier Designs using the HMC980
+===========================================
+
+.. important::
+
+   :red:`Please note that while these tables are extensive, they are not exhaustive. If a given RF amplifier is not included in this list, that does not mean that it cannot be actively biased using the :adi:`HMC980 <hmc980lp4e>`.
+   Follow the
+   :adi:`HMC980 Datasheet <media/en/technical-documentation/data-sheets/hmc980.pdf>`
+   for design guidelines.`
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/active-bias-controllers/hmc980_schematic_for_calculator.png
+
+   Figure 1: HMC980 Typical Circuit
+
+Gain Blocks & Drivers
+---------------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Part Number
+     - VDD
+     - VDRAIN
+     - R1
+     - ISENSE
+     - S0
+     - S1
+     - R2
+     - R3
+     - VG2
+     - R4
+     - R5
+   * - Units
+     - (V)
+     - (V)
+     - (kΩ)
+     - (mA)
+     - N/A
+     - N/A
+     - (kΩ)
+     - (kΩ)
+     - (V)
+     - (kΩ)
+     - (kΩ)
+   * - HMC-AUH256
+     - 5.83
+     - 5
+     - 511
+     - 295
+     - GND
+     - GND
+     - –
+     - –
+     - –
+     - –
+     - –
+
+LNAs
+----
+
+.. list-table::
+   :header-rows: 1
+
+   * - Part Number
+     - VDD
+     - VDRAIN
+     - R1
+     - ISENSE
+     - S0
+     - S1
+     - R2
+     - R3
+     - VG2
+     - R4
+     - R5
+   * - Units
+     - (V)
+     - (V)
+     - (kΩ)
+     - (mA)
+     - N/A
+     - N/A
+     - (kΩ)
+     - (kΩ)
+     - (V)
+     - (kΩ)
+     - (kΩ)
+   * - HMC-ALH465
+     - 5.08
+     - 5
+     - 4.99
+     - 30
+     - GND
+     - GND
+     - 4.99
+     - 6.19
+     - 1.5
+     - –
+     - –
+   * - HMC-ALH444
+     - 5.15
+     - 5
+     - 2.74
+     - 55
+     - GND
+     - GND
+     - 4.99
+     - 5.9
+     - 1.5
+     - –
+     - –
+   * - HMC490
+     - 5.56
+     - 5
+     - 0.75
+     - 200
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC594
+     - 6.28
+     - 6
+     - 1.5
+     - 100
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC609
+     - 6.48
+     - 6
+     - 0.887
+     - 170
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC753
+     - 5.15
+     - 5
+     - 2.74
+     - 55
+     - GND
+     - GND
+     - 4.99
+     - 5.9
+     - 1.5
+     - –
+     - –
+
+Linear & Power
+--------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Part Number
+     - VDD
+     - VDRAIN
+     - R1
+     - ISENSE
+     - S0
+     - S1
+     - R2
+     - R3
+     - VG2
+     - R4
+     - R5
+   * - Units
+     - (V)
+     - (V)
+     - (kΩ)
+     - (mA)
+     - N/A
+     - N/A
+     - (kΩ)
+     - (kΩ)
+     - (V)
+     - (kΩ)
+     - (kΩ)
+   * - HMC-ABH209
+     - 5.22
+     - 5
+     - 1.87
+     - 80
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-ABH264
+     - 5.34
+     - 5
+     - 1.24
+     - 120
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC442
+     - 5.24
+     - 5
+     - 1.78
+     - 85
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC499
+     - 5.56
+     - 5
+     - 0.75
+     - 200
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-ABH241
+     - 5.62
+     - 5
+     - 6.81
+     - 220
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH403
+     - 5.74
+     - 5
+     - 0.316
+     - 475
+     - VDIG
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH460
+     - 5.77
+     - 5
+     - 0.165
+     - 900
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH462
+     - 6.22
+     - 5
+     - 0.105
+     - 1440
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH473
+     - 5.92
+     - 5
+     - 0.137
+     - 1080
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH478
+     - 5.77
+     - 5
+     - 0.165
+     - 900
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH510
+     - 5.99
+     - 5
+     - 0.232
+     - 640
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH518
+     - 5.81
+     - 5
+     - 0.158
+     - 950
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH596
+     - 5.62
+     - 5
+     - 0.374
+     - 400
+     - VDIG
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC-APH608
+     - 5.81
+     - 5
+     - 0.158
+     - 950
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC486
+     - 7.91
+     - 7
+     - 0.115
+     - 1300
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC487
+     - 7.91
+     - 7
+     - 0.115
+     - 1300
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC489
+     - 7.91
+     - 7
+     - 0.115
+     - 1300
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC498
+     - 5.70
+     - 5
+     - 0.604
+     - 250
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC590
+     - 7.70
+     - 7
+     - 0.182
+     - 820
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC591
+     - 7.94
+     - 7
+     - 0.113
+     - 1340
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC592
+     - 7.64
+     - 7
+     - 0.200
+     - 750
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC608
+     - 5.48
+     - 5
+     - 0.487
+     - 310
+     - VDIG
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC693
+     - 5.68
+     - 5
+     - 0.187
+     - 800
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC756
+     - 7.67
+     - 7
+     - 0.191
+     - 790
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC757
+     - 7.61
+     - 7
+     - 0.383
+     - 395
+     - VDIG
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC863
+     - 6.58
+     - 6
+     - 0.402
+     - 375
+     - VDIG
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC864
+     - 6.64
+     - 6
+     - 0.200
+     - 750
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC906
+     - 6.84
+     - 6
+     - 0.124
+     - 1200
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC943
+     - 6.34
+     - 5.5
+     - 0.124
+     - 1200
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC949
+     - 7.84
+     - 7
+     - 0.124
+     - 1200
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC965
+     - 6.84
+     - 6
+     - 0.124
+     - 1200
+     - VDIG
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC968
+     - 6.77
+     - 6
+     - 0.165
+     - 900
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC969
+     - 6.77
+     - 6
+     - 0.165
+     - 900
+     - GND
+     - VDIG
+     - —
+     - —
+     - —
+     - –
+     - –
+
+Wideband (Distributed)
+----------------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Part Number
+     - VDD
+     - VDRAIN
+     - R1
+     - ISENSE
+     - S0
+     - S1
+     - R2
+     - R3
+     - VG2
+     - R4
+     - R5
+   * - Units
+     - (V)
+     - (V)
+     - (kΩ)
+     - (mA)
+     - N/A
+     - N/A
+     - (kΩ)
+     - (kΩ)
+     - (V)
+     - (kΩ)
+     - (kΩ)
+   * - HMC-AUH232
+     - 5.5
+     - 5
+     - 0.825
+     - 180
+     - GND
+     - GND
+     - 4.99
+     - 5.23
+     - 1.5
+     - –
+     - –
+   * - HMC-AUH249
+     - 5.56
+     - 5
+     - 0.750
+     - 200
+     - GND
+     - GND
+     - 4.99
+     - 5.11
+     - 1.5
+     - –
+     - –
+   * - HMC-AUH312
+     - 8.17
+     - 8
+     - 2.49
+     - 60
+     - GND
+     - GND
+     - 4.99
+     - 2.61
+     - 1.5
+     - –
+     - –
+   * - HMC460
+     - 8.17
+     - 8
+     - 2.49
+     - 60
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC460LC5
+     - 8.21
+     - 8
+     - 2.00
+     - 75
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC463
+     - 5.17
+     - 5
+     - 2.49
+     - 60
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC465
+     - 8.45
+     - 8
+     - 0.931
+     - 160
+     - GND
+     - GND
+     - 4.99
+     - 2.49
+     - 1.5
+     - –
+     - –
+   * - HMC562
+     - 8.22
+     - 8
+     - 1.87
+     - 80
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC633
+     - 5.5
+     - 5
+     - 0.825
+     - 180
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC634
+     - 5.5
+     - 5
+     - 0.825
+     - 180
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC930
+     - 10.49
+     - 10
+     - 0.866
+     - 175
+     - GND
+     - GND
+     - 4.99
+     - 4.22
+     - 3.5
+     - –
+     - –
+   * - HMC459
+     - 8.81
+     - 8
+     - 0.523
+     - 290
+     - GND
+     - GND
+     - 4.99
+     - 4.75
+     - 3
+     - –
+     - –
+   * - HMC464
+     - 8.81
+     - 8
+     - 0.523
+     - 290
+     - GND
+     - GND
+     - 4.99
+     - 4.75
+     - 3
+     - –
+     - –
+   * - HMC559
+     - 10.62
+     - 10
+     - 0.374
+     - 400
+     - VDIG
+     - GND
+     - 4.99
+     - 4.99
+     - 4
+     - –
+     - –
+   * - HMC619
+     - 12.47
+     - 12
+     - 0.499
+     - 300
+     - VDIG
+     - GND
+     - 4.99
+     - 5.11
+     - 5
+     - –
+     - –
+   * - HMC635
+     - 5.78
+     - 5
+     - 0.536
+     - 280
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC637
+     - 12.62
+     - 12
+     - 0.374
+     - 400
+     - VDIG
+     - GND
+     - 4.99
+     - 6.81
+     - 6
+     - –
+     - –
+   * - HMC659
+     - 8.47
+     - 8
+     - 0.499
+     - 300
+     - VDIG
+     - GND
+     - 4.99
+     - 5.23
+     - 3
+     - –
+     - –
+   * - HMC797
+     - 10.62
+     - 10
+     - 0.374
+     - 400
+     - VDIG
+     - GND
+     - 4.99
+     - 4.12
+     - 3.5
+     - –
+     - –
+
+Microwave & Optical Drivers
+---------------------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Part Number
+     - VDD
+     - VDRAIN
+     - R1
+     - ISENSE
+     - S0
+     - S1
+     - R2
+     - R3
+     - VG2
+     - R4
+     - R5
+   * - Units
+     - (V)
+     - (V)
+     - (kΩ)
+     - (mA)
+     - N/A
+     - N/A
+     - (kΩ)
+     - (kΩ)
+     - (V)
+     - (kΩ)
+     - (kΩ)
+   * - HMC870
+     - 7.46
+     - 7
+     - 0.909
+     - 165
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –
+   * - HMC871
+     - 8.21
+     - 8
+     - 2.00
+     - 75
+     - GND
+     - GND
+     - —
+     - —
+     - —
+     - –
+     - –

@@ -1,0 +1,14 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_2014r2
+
+.. _ad-fmcomms2-ebz software linux zynq_2014r2:
+
+NO TITLE
+========
+
+.. warning::
+
+   We are in the process of migrating our documentation to GitHubIO. This page
+   is outdated and the new one can be found at
+   https://analogdevicesinc.github.io/documentation/linux/kernel/zynq.html
+
+.. todo:: .. include: /resources/tools-software/linux-build/generic/zynq.rst

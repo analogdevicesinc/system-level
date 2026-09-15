@@ -1,0 +1,115 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0346
+
+.. _circuits-from-the-lab cn0346:
+
+Relative Humidity Measurement System (CN0346)
+=============================================
+
+Overview
+--------
+
+This circuit provides a contactless, capacitive based, relative humidity (RH)
+measurement solution with 2% relative humidity accuracy from 0% RH to 100% RH
+and replaces bulky hygrometer based methods. This circuit is ideal for
+applications where accurate, temperature controlled, noncontact humidity
+measurements are critical, such as HVAC, telecommunication cabinets, infant
+incubators, and other industrial or medical applications.
+
+General Setup
+-------------
+
+* One :adi:`EVAL-CN0346-SDPZ <CN0346>` Evaluation Board
+* One :adi:`EVAL-SDP-CB1Z <EVAL-SDP-CB1Z>` Evaluation board
+* One :adi:`EVAL-SDP-PMOD <EVAL_SDP-PMOD>` Evaluation board
+* One :adi:`CN0346 Evaluation Software <CN0346>`
+* One USB Type-A plug to USB Mini-B plug cable.
+* Boveda Calibration Packs or other Humidity controlled environment.
+* 6V Power Supply.
+
+Minimum PC/System Requirements
+------------------------------
+
+- One PC with the following
+- Windows XP SP2, Windows Vista or Windows 7 Business/Enterprise/Ultimate
+  editions
+- Intel Pentium processor (x86 compatible), 1GHz or faster
+- 512 MB RAM and 2 GB available hard disk space
+- .NET 3.5 Framework
+
+How to Install the Evaluation Software
+--------------------------------------
+
+#. Extract the files within the file **CN0341 SDP Eval Software.zip** and open
+   the file **setup.exe**. It is recommended that you install the CN0341 SDP
+   Evaluation Software to the default directory path **C:\\Program Files\\Analog
+   Devices\\CN0341\\** and all National Instruments products to **C:\\Program
+   Files\\National Instruments\\**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0341/destination_directory.png
+
+#. Press **``Next``**.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0341/begin_install.png
+
+#. Press **``Next``**.
+#. Upon completion of the installation of the **CN0341 SDP Eval Software**, the
+   installer for the **ADI SDP Drivers** will execute. Follow the on-screen
+   prompts to install the drivers. It is recommended that you close all other
+   applications before clicking ``Next``. This will make it possible to update
+   relevant system files without having to reboot your computer.
+
+#.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0341/sdp_drivers_2.1.1153.6.png
+
+#. Press **``Next``**.
+
+#.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0341/sdp_drivers_location.png
+
+#. It is recommended that you install the drivers to the default directory path
+   **C:\\Program Files\\Analog Devices\\SDP\\Drivers\\**
+#. Press **``Install``** to install the Drivers and complete the installation of
+   all software necessary to evaluate the **EVAL-CN0341-SDPZ**
+
+Opening and Enabling the Evaluation Software
+--------------------------------------------
+
+#. Launch the executable found at **C:\\Program Files\\Analog Devices\\CN0346**
+   and press the **``Connect``** button.
+
+#.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0346/software.jpg
+      :width: 600px
+
+Step by Step Instruction for Calibrating the System
+---------------------------------------------------
+
+#. The following is a step by step guide for calibrating the EVAL-CN0346-SDPZ.
+
+   #. Calibration requires the user to identify and input the maximum and
+      minimum values of humidity and sensor capacitance.
+   #. Place the PCB into a humidity controlled environment and adjust the
+      environment to the desired minimum humidity value.
+   #. Use an external LCR meter to measure the sensor capacitance.
+   #. Place both values into the calibration tab shown below.
+   #. Repeat these steps for the desired maximum humidity value and enter the
+      values into the software.
+   #. Input the calculated CAPDAC value into the box found at the bottom of the
+      Calibration tab.
+
+::
+
+   - {{:resources:eval:user-guides:circuits-from-the-lab:cn0346:software-calibration_tab.jpg?600|}}
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0346-PMDZ?&v=RevA>` to receive all these great
+   benefits and more!

@@ -1,0 +1,16 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/active-bias-controllers/hmc920
+
+.. _active-bias-controllers hmc920:
+
+HMC920 Configuration Calculator
+===============================
+
+This calculator can be used to calculate all of the external component values
+that are required to configure current settings, voltage ranges and alarm levels
+for HMC920
+
+:download:`https://wiki.analog.com/_media/resources/eval/user-guides/active-bias-controllers/hmc920.zip`
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/active-bias-controllers/hmc920_configuration_calculator.png
+   :width: 600px
+

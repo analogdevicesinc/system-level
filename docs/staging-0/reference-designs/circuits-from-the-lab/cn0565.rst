@@ -1,0 +1,380 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0565
+
+.. _circuits-from-the-lab cn0565:
+
+EVAL-CN0565-ARDZ User Guide
+===========================
+
+| .. important::
+
+   We are in the process of migrating our documentation to GitHubIO. This page is outdated and the new one can be found at:
+   | https://analogdevicesinc.github.io/documentation/solutions/reference-designs/eval-cn0565-ardz/index.html
+
+Overview
+--------
+
+The :adi:`EVAL-CN0565-ARDZ` is an electrical impedance tomography (EIT)
+measurement system for characterizing and computing interior impedance of
+surfaces. The platform allows a conductivity map to be reconstructed using
+several repeating measurements from electrodes placed at different locations. It
+supports impedance measurement setups with up to 24 electrodes. The design uses
+a pair 8x12 analog crosspoint switches, which enables the excitation signal to
+be applied to one pair of electrodes at a time. The implementation of crosspoint
+switches allows the circuit to maximize the impedance measurements, which
+consequently improves the resolution of the constructed images.
+
+The design also features a complete power and signal isolation to the host
+controller, which can be used as reference for bioimpedance applications.
+
+The board comes in an Arduino-compatible form factor and includes an
+industry-standard software interface, allowing easy integration to end-user
+systems as well to connect up to external development platforms such as the
+:adi:`EVAL-ADICUP3029`.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/eval-cn0565-ardz.jpg
+   :width: 600px
+
+Simplified Block Diagram
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/cn0565_block_diagram-1.png
+   :width: 800px
+
+   <fc>Figure 2. EVAL-CN0565-ARDZ Simplified Block Diagram</fc>
+
+Features
+--------
+
+- supports 24 impedance input, arbitrarily assignable to quadrupole impedance
+  measurement channels
+- supports impedance measurement setups with up to 24 electrode pairs
+- accepts measurement frequency range from 0.015 Hz up to 200 kHz
+- provides measurement ground that is fully isolated from host computer, with
+  0.47 µF isolation capacitance
+
+--------------
+
+Hardware Configuration
+----------------------
+
+Connectors and Jumpers
+~~~~~~~~~~~~~~~~~~~~~~
+
+- P7 (Chip Select Mapping) - leave this at default for the provided firmware
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/p7_connection.png
+   :width: 700px
+
+   <fc>Figure 3. EVAL-CN0565-ARDZ P7 Pin Location</fc>
+
+- P1 (DUT Connections) - shows the pin mapping diagram
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/p1_connection.png
+   :width: 800px
+
+   <fc>Figure 4. EVAL-CN0565-ARDZ P1 Pin Location</fc>
+
+--------------
+
+System Setup
+------------
+
+Documents Needed
+~~~~~~~~~~~~~~~~
+
+- :adi:`CN0565 Circuit Note <CN0565>`
+
+Demo Requirements
+^^^^^^^^^^^^^^^^^
+
+- Hardware
+
+  - :adi:`EVAL-CN0565-ARDZ`
+  - :adi:`EVAL-ADICUP3029`
+  - Host PC
+  - Micro-USB Cable
+
+- Software
+
+::
+
+   * {{ :resources:eval:user-guides:circuits-from-the-lab:cn0565_hex.zip |CN0565 Embedded Firmware}}
+
+::
+
+   * [[repo>libiio/releases|Libiio]] (necessary library)
+   * [[https://www.python.org/downloads | Python 3]] (to run the example
+     scripts)
+
+Hardware Setup
+~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/windows_hardware_bring-up_test.png
+   :width: 3000px
+
+   <fc>Figure 5. EVAL-CN0565-ARDZ Test Setup</fc>
+
+Getting Started
+^^^^^^^^^^^^^^^
+
+**Follow below steps to set up the hardware for testing:**
+
+#. Check visually if Pins 1 and 2 on the P7 of EVAL-CN0565-ARDZ are shorted by
+   default.
+#. Connect the EVAL-CN0565-ARDZ (via male header pins) to the EVAL-ADICUP3029
+   (via female header pins). Ensure that the header pins between the two boards
+   fit properly together.
+#. Connect the EVAL-ADICUP3029 to the host PC using a micro-USB cable. The DS2
+   LED in the EVAL-CN565-ARDZ should turn green, this indicates power.
+#. Upload the CN0565 firmware to the EVAL-ADICUP3029 by copying the prebuilt
+   .HEX file directly into the DAPLINK drive.
+#. Drag and drop the CN0565.HEX file to the DAPLINK. The DAPLINK will
+   automatically disconnect and connect again, this indicates successful
+   uploading.
+
+.. tip::
+
+   Ensure that the DAPLINK is visible in the file explorer, this indicates a
+   proper connection between the EVAL-ADICUP3029 and the host PC.
+
+--------------
+
+Software Setup
+~~~~~~~~~~~~~~
+
+Python Installation Guide
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Assumes a fresh installation of all required software
+
+#. Download `Python Latest Version <https://www.python.org/downloads/>`__.
+   Choose the latest available version depending on the operating system.
+#. Run installer as Administrator. During installation, check **``Add Python
+   version to PATH``** before clicking **``Install Now``**
+#. To check if the download is successful, go to command prompt and type the
+   command line below: <code> python –version </code>
+
+Installing Libiio
+^^^^^^^^^^^^^^^^^
+
+Libiio is a library that has been developed by Analog Devices to ease the
+development of software interfacing Linux
+:dokuwiki:`Industrial I/O (IIO) </software/linux/docs/iio/iio>` devices.
+
+#. Download and install the latest release of libIIO .. admonition:: Download
+
+   :git-libiio:`Libiio Latest Release <releases+>`
+
+#. Install the libIIO bindings through pip <code> pip install pylibiio </code>
+#. Install the PyADI-IIO through pip <code> pip install pyadi-iio </code>
+
+   #. If you need to update/overwrite your PyADI-IIO through pip, use the
+      command below: <code> pip install -U pyadi-iio </code>
+
+Uploading the HEX File
+^^^^^^^^^^^^^^^^^^^^^^
+
+In order to use the EVAL-CN0565-ARDZ with the EVAL-ADICUP3029, you must upload
+the CN0565 HEX file. The procedure is as follows:
+
+#. Open the file explorer in the Host PC (Windows)
+
+#. Open the folder where the CN0565.HEX file is located. If you don"t have the
+   HEX file, download this file:
+   :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565_hex.zip`
+
+#. Launch another file explorer, and then open the DAPLINK folder.
+#. Drag and drop the CN0565.HEX file into the DAPLINK folder. The window will
+   automatically close and temporarily disconnect the EVAL-ADICUP3029, and then
+   reconnect again. This is an indication that the HEX file is properly
+   installed.
+
+Installing Software Requirements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Clone the example firmware from GitHub
+  `EVAL-CN0565-ARDZ Python Scripts <https://github.com/mc-so/pyadi-iio/tree/dev/cn0565-test/examples/cn0565>`__.
+  This includes the .txt file that contains the required modules and libraries
+  to run the example scripts.
+- In Windows, open a command terminal. Point the current working directory to
+  the cloned pyadi-iio repository by changing the directory using this command:
+  <code> cd <folder address> </code>
+- Navigate inside the pyadi-iio folder and install the following requirements
+  using these commands: <code> pip install -r requirements.txt </code> <code>
+  pip install -r requirements_dev.txt </code> <code> pip install -r
+  requirements_doc.txt </code> <code> pip install -r requirements_prod_test.txt
+  </code>
+- To test the source as a standalone module, enter this command: <code> pip
+  install -e . </code>
+- After installing the required modules and libraries, launch the device manager
+  and check for the active COM port where the board is connected. In the
+  pyadi-iio folder > examples > cn0565, this is where the script is saved.
+  Change the COM port in the script.
+- To run the test script, copy the address where the script is saved then enter
+  this command: <code> cd <folder address> </code> <code> python <file name>.py
+  </code>
+
+.. note::
+
+   Check the active port where the board is connected in your device manager.
+
+   - cn0565_example.py edit on line 122
+   - cn0565_example_single.py edit on line 24
+
+--------------
+
+Python Example Scripts
+~~~~~~~~~~~~~~~~~~~~~~
+
+Two sample scripts have been created to execute EIT measurements in the
+EVAL-CN0565-ARDZ. The **Specific Electrode Pair script** allows the user to
+measure the impedance on a specific electrode pair, whereas the **Electrode
+Tomography script** examines the impedance of the entire test board across all
+electrodes.
+
+Using the Specific Electrode Pair Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Open the command terminal and direct the current working directory to where
+  the example script is saved.
+- Run the script by entering this command: <code> python
+  cn0565_example_single.py 0 1 1 0 </code>
+
+Prompting these commands in the terminal will give you the **Amplitude,
+Frequency and Baud Rate**, **Electrode Pair, Rectangular and Polar Form
+Impedance**, and the **Real and Imaginary Impedance** for the specific electrode
+pair.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/example_single.png
+   :width: 3000px
+
+.. note::
+
+   The numbers 0, 1, 1, 0 indicate the electrode positions for Force Leads: F+,
+   F-, and Sense Leads: S+, and S-
+
+Using the Electrode Tomography Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Open the command terminal and direct the current working directory to where
+  the example script is saved.
+- Run the script by entering this command: <code> python cn0565_example.py
+  </code>
+
+Prompting these commands in the terminal will give you the **Amplitude,
+Frequency and Baud Rate**, **Electrode Pair, Rectangular and Polar form
+impedance**. Then, the **Electrode Pair** followed by the **Rectangular and
+Polar Form Impedance** and the **Real and Imaginary Impedance** for each
+electrode pair that is being measured will display.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/example.png
+   :width: 3000px
+
+After running the sample script, the program will prompt a question whether you
+like to generate a csv file that contains the raw data.
+
+Enter this command if you want to generate a .csv file: <code> Y </code> .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/y_n.png
+   :width: 3000px
+
+  Enter this command if you don"t need to generate a .csv file: <code> N </code> .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/n_y.png
+     :width: 3000px
+
+.. note::
+
+   All python scripts used in performing this test are uploaded in the git
+   repository. You may access the repository using this link:
+   :git-pyadi-iio:`EVAL-CN0565-ARDZ Python Scripts <tree/main/examples/cn0565+>`
+
+--------------
+
+CN0565 Graphical User Interface (GUI) Test Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Connect the EVAL-CN0565-ARDZ to the EVAL-ADICUP3029 via the Arduino headers.
+#. Connect to the EVAL-ADICUP3029 to the host PC via a micro-USB cable.
+
+- The DS2 in the EVAL-CN0565-ARDZ must turn green to indicate power.
+
+#. Upload the CN0565 demo firmware to the EVAL-ADICUP3029 by copying the
+   pre-built .HEX file directly into the DAPLINK drive (see the ADICUP3029 User
+   Guide).
+
+- Make sure that the DAPLINK is visible in the file explorer, indicating a
+  proper connection between the two boards.
+- Drag and drop the CN0565.HEX file to the DAPLINK. The DAPLINK will
+  automatically disconnect and connect again, which indicates successful
+  uploading.
+
+#. Open the command prompt in the Host PC (Windows).
+#. Assuming all requirements have been installed, open a command terminal and
+   direct to the current working directory to where the example script is saved
+   by entering **cd <folder address>**.
+#. Prompt the CN0565 Realtime EIT GUI by entering this command: **main.py**
+#. Select the type of dataset, type of image reconstruction, number of
+   electrodes, and set the frequency.
+#. Once all the parameters are set, connect the board to the GUI by selecting
+   **Active Comport**, and then click **Connect**. When the board is already
+   connected, the image will automatically display.
+
+.. note::
+
+   Disconnecting the board is necessary to run the GUI for another set of
+   measurement. Once disconnected, proceed to Step 6.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0565/imaging.png
+   :width: 600px
+
+   <fc>Figure 6. Results Displayed in the CN0565 GUI</fc>
+
+--------------
+
+Resources
+~~~~~~~~~
+
+- :adi:`CN0565 Product Page <CN0565>`
+- :adi:`EVAL-ADICUP3029 Product Page <EVAL-ADICUP3029>`
+- :adi:`AD5940 Product Page <AD5940>`
+- :adi:`ADG2128 Product Page <ADG2128>`
+- :adi:`ADuM5020 Product Page <ADUM5020>`
+- :adi:`ADM7150 Product Page <ADM7150>`
+- :adi:`ADM8829 Product Page <ADM8829>`
+- :adi:`ADuM3151 Product Page <ADUM3151>`
+
+.. admonition:: Download
+
+   - GitHub link for the Python sample script:
+     :git-pyadi-iio:`EVAL-CN0565-ARDZ Python Scripts <tree/main/examples/cn0565+>`
+
+Design and Integration Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. admonition:: Download
+
+   :adi:`EVAL-CN0565-ARDZ Design & Integration Files <CN0565-DesignSupport>`
+
+   - Schematic
+   - PCB Layout
+   - Bill of Materials
+   - Allegro Project
+
+Registration
+^^^^^^^^^^^^
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0565-ARDZ?&v=RevA>` to receive all these great
+   benefits and more!
+
+Help and Support
+^^^^^^^^^^^^^^^^
+
+For questions and more information about this product, connect with us through
+the Analog Devices Engineer Zone.
+
+.. note::
+
+   :ez:`EngineerZone Support Community <reference-designs>`
+
+*End of Document*

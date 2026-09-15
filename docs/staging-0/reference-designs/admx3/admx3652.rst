@@ -1,0 +1,309 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/admx3/admx3652
+
+.. _admx3 admx3652:
+
+EVAL-ADMX3652Z, 6 ½-digit ±20V Dual channel Digital Voltmeter User Guide
+========================================================================
+
+Features
+--------
+
+- 90 days accuracy: up to 17ppm of reading at 2V range
+- Manual and auto range selection, auto zero function
+- Power sequence monitor & input protection
+- UART communication interface, SCPI protocol
+- 5V power supply
+
+Package Contents
+~~~~~~~~~~~~~~~~
+
+- EVAL-ADMX3652Z Evaluation board
+
+Additional Equipment Needed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- EVAL-ADMX3652Z-INT interface board
+- PC running Windows 7 or newer
+- Male USB A to Male USB B Cable
+- Voltmeter test leads
+
+Software Needed
+~~~~~~~~~~~~~~~
+
+- ADMX3652 Evaluation GUI
+
+General Description
+-------------------
+
+The EVAL-ADMX3652Z is a 6 ½ digit ±20V dual channel digital voltage meter.
+Selection within the 3 measurement ranges can be done manually, or through the
+auto range function. With EVAL-ADMX3652"s small form factor, it can be easily
+integrated into a system, or can also serve as a benchtop voltmeter when
+connected with the EVAL-ADMX3652Z-INT, an interface board that enables the
+EVAL-ADMX3652Z be used with an intuitive GUI for evaluation. This interface
+communicates from the EVAL-ADMX3652Z via USB to UART with a Windows PC and has 2
+voltage measurement channels using banana jack connectors.
+
+DC Accuracy Specifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Table 1. DC Voltage ± (% of reading + % of range)\ :sup:`1`
+
+.. list-table::
+   :header-rows: 1
+
+   * - Range\ :sup:`2`
+     - Resolution
+     - 24Hr\ :sup:`3` (T\ :sub:`CAL` ±1°C)
+     - 90 days (T\ :sub:`CAL` ±5°C)
+     - Temperature coefficient/°C\ :sup:`4`
+   * - 200mV
+     - 200nV
+     - 0.0017+0.0017
+     - 0.0098+0.0040
+     - 0.0005+0.0005
+   * - 2V
+     - 2uV
+     - 0.0005+0.0002
+     - 0.0017+0.0008
+     - 0.0001+0.0001
+   * - 20V
+     - 20uV
+     - 0.0006+0.0001
+     - 0.0012+0.0004
+     - 0.0005+0.0001
+
+#. Specifications are for 60-minute warm up, aperture time of 100NPLC, and
+   auto-zero.
+#. 10% overrange on all ranges.
+#. Relative to calibration standards.
+#. Add this for each °C outside T\ :sub:`CAL` ±5°C.
+
+Quick Start Guide
+-----------------
+
+The EVAL-ADMX3652Z Evaluation board directly ties its 5V input to the power rail of the EVAL-ADMX3652Z-INT interface board, which eliminates the need for external power supply in the system. To setup for evaluation, use the following sequence::
+
+#. Mount the EVAL-ADMX3652Z firmly together with the EVAL-ADMX3652Z-INT Interface Board
+#. Connect the voltage measurement test leads to the Interface Board
+#. Connect the Interface board to the host Windows PC thru a USB A to USB B cable
+#. Download and install the FTDI Driver and ADMX3652Z Evaluation GUI
+#. Launch the GUI
+
+Evaluation Setup
+----------------
+
+Evaluation Board Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/dvm.png
+   :width: 600px
+
+   Figure 1. EVAL-ADMX3652Z
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/interface_board_redblack.png
+   :width: 400px
+
+   Figure 2. EVAL-ADMX3652Z-INT
+
+Hardware Setup
+~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/dvm_setup.png
+   :width: 600px
+
+   Figure 3. ADMX3652Z Hardware Setup
+
+Figure 3 illustrates the evaluation system components. To use the system properly, make sure to firmly mount the EVAL-ADMX3652Z to the EVAL-ADMX3652Z-INT board. Next, connect the interface board to the host PC through a USB A to USB B cable. Connect the voltmeter test leads to the banana jack connectors on the interface board, and apply an input stimulus to one or both the interface board measurement channels. Both channels 1 and 2 have a dedicated measurement display on the Software GUI, and contains functions the user can adjust depending on the measurement needs.
+
+Software Setup
+~~~~~~~~~~~~~~
+
+Getting Started
+^^^^^^^^^^^^^^^
+
+From the EVAL-ADMX3652Z webpage the Software pack is available for download. Inside the downloadable zip file should contain 2 installers, the CDM212364 driver and the ADMX3652Z installer. Figure 4 shows the required files for the GUI to be extracted and installed.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/gui_installers.png
+   :width: 400px
+
+   Figure 4. ADMX3652Z GUI Driver and Installer
+
+Software Installation Procedures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Installing the Software Driver
+''''''''''''''''''''''''''''''
+
+After downloading the files, double-click on the CDM212364 Driver. Run the installer and it will prompt you to extract the driver package, then launch the installer. See Figure 5 for reference.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/driver_1_2.png
+   :width: 800px
+
+   Figure 5. Extract the package then Install
+
+Next, the License Agreement would appear. Tick ``I accept this agreement`` then click ``Next``. The driver package will then be extracted and installed to your host PC. After it completes the process, click ``Finish``. See Figure 6 for reference.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/driver_3_4.png
+   :width: 800px
+
+   Figure 6. Accept License Agreement then click Finish
+
+This completes the installation of the driver, which will enable the EVAL-ADMX3652Z setup to be automatically detected whenever connected to the host PC.
+
+Installing the ADMX3652Z GUI
+''''''''''''''''''''''''''''
+
+After downloading the Software pack from the ADMX3652Z webpage, double-click on the ADMX3652Z installer. Run the installer and tick the ``I accept the agreement`` then click Next. Refer to figure 7.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/installer_1_2.png
+   :width: 800px
+
+   Figure 7. Run the Installer then Accept License Agreement
+
+Next, select a location where the ADMX3652Z GUI would be installed, then click Finish. Refer to Figure 8.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/installer_3_4.png
+   :width: 800px
+
+   Figure 8. Select Installation location then click Finish
+
+The software installation is now complete and the ADMX3652 Evaluation GUI is now ready for use.
+
+Software Operation
+~~~~~~~~~~~~~~~~~~
+
+Figure 9 shows the default setup of the ADMX3652Z GUI after installation and startup.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/gui.png
+   :width: 1400px
+
+   Figure 9. ADMX3652Z Evaluation GUI in Light Mode(left) and Dark Mode(right)
+
+To start using the GUI, click ``Connect``. It will prompt the port selection dialog and will automatically detect the serial port that ADMX3652Z will be using. Click ``Confirm``. Refer to Figure 10.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/connect_comport.png
+   :width: 400px
+
+   Figure 10. Serial Port Confirmation
+
+.. note::
+
+   Note: There is around 5s loading time for the software to be ready to measure.
+
+Interface Functions
+~~~~~~~~~~~~~~~~~~~
+
+The different functions found within the GUI are the following:
+
+Connect / Disconnect Button
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/connect_disconnect.png
+   :width: 400px
+
+The Connect button changes to Disconnect button when the user has properly established connection with the device. Use this button to disconnect the communication of the GUI with the device. Once disconnected, settings will be disabled and cannot be changed.
+
+Reset Button
+^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/reset.png
+   :width: 100px
+
+If connected, use reset button to change the settings to default and send a signal to the board to reset the EVAL-ADMX3652Z to its default factory settings. Once reset, loading screen willappear (same as the first run) and settings will be disabled.
+
+Power Line Frequency Selection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/plf.png
+   :width: 250px
+
+Set the Power Line frequency depending on standard AC line frequency used where user is located.
+
+.. note::
+
+   Note: Power Line Frequency = 50Hz is set as the default.
+
+Light / Dark Mode
+^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/darklight.png
+   :width: 300px
+
+Set the user interface"s appearance based on user"s preference.
+
+Voltage Display
+^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/display.png
+   :width: 400px
+
+Measurement within the +/- 20V range is shown, and above the 10% tolerance of any measurement range, the OVERLOAD display is shown.
+
+Status Bar
+^^^^^^^^^^
+
+| The status bar displays the status of the GUI, whether it is connected or disconnected. During measurement, it shows the measurement done in one or both the channels.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/logwindow.png
+   :width: 600px
+
+The measurements displayed in the status bar are also logged into a logs.txt file and can be found on the location where the ADMX3652Z software is installed.
+
+Channel Measurement Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following measurement configurations are separately available for both channels 1 and 2 of the EVAL-ADMX3652Z. These settings can be configured differently and independently based on user"s measurement needs.
+
+Range Selection
+^^^^^^^^^^^^^^^
+
+The measurement range for EVAL-ADMX3652Z can be set manually, or can be used with the Auto range function.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/range.png
+   :width: 250px
+
+Three ranges are available to be set manually: 0.2V, 2.0V or 20V.
+
+.. note::
+
+   Note: Measurement range = 2.0V is set as the default.
+
+Aperture / NPLC
+^^^^^^^^^^^^^^^
+
+| Aperture time is the period of time used for reading the input signal. Larger aperture times means better resolution. Select short aperture times for faster measurement speed. The unit used for specifying aperture time with the EVAL-ADMX3652Z is in number of power line cycles (NPLC).
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/aperture.png
+   :width: 250px
+
+Aperture time can be set and selected either 0.05, 0.1, 0.25, 0.5, 1, 10, or 100.
+
+.. note::
+
+   Note: Aperture = 10 is set as the default.
+
+Single Button
+^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/single.png
+   :width: 100px
+
+Use single button to do a single measurement. It will also act as stop button if measurement is set as continuously running.
+
+Run / Stop Button
+^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/admx3/runstop.png
+   :width: 200px
+
+Use the Run button to continuously measure voltage. It will change to Stop button when continuously running.
+
+.. note::
+
+   Note: CH1 set on Run button while CH2 set on Stop button are set as the default.
+
+EVAL-ADMX3652Z Support
+----------------------
+
+Calibration reports are available upon request for EVAL-ADMX3652Z, and technical support for hardware and software concerns can be sent to the following e-mail address: admx3652-support@analog.com.

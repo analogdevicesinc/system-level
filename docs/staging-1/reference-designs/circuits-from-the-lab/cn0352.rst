@@ -1,0 +1,660 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0352
+
+.. _circuits-from-the-lab cn0352:
+
+CN-0352 Software User Guide
+===========================
+
+Overview
+--------
+
+:adi:`CN-0352 <CN0352>` is a cost effective, multi-channel battery testing
+reference system designed for signle-cell Li-ion battery with open circuit
+voltage(OCV) between 3.5V to 4.4V.
+
+It can handle charging-discharging cycle with CC(Constant Current), CV(Constant
+Voltage) charging mode with configurable termination control. During testing,
+the battery information including voltage, current and temperature are gathered,
+then sent and storted on PC through RS485 communication bus.
+
+Each :adi:`CN-0352 <CN0352>` battery testing module could handle 8-channel
+Li-ion battery cell. With RS485 commumication bus, the testing channels could be
+extended upto more than hundred channels. The limitation is the communication
+bandwidth of RS485.
+
+.. important::
+
+   DISCLAIMER
+
+   THIS EVALUATION SYSTEM INTERFACES TO LITHIUM ION BATTERIES WHICH CAN BE
+   DAMAGED, CATCH ON FIRE, OR EXPLODE IF OVERCHARGED, OVER-DISCHARGED, OR
+   SUBJECTED TO SOURCE OR SINK CURRENTS THAT EXCEED THE BATTERY MANUFACTURER"S
+   SPECIFICATIONS. TAKE ALL NECESSARY STEPS TO PROTECT USERS DURING OPERATION.
+   ADI MAKES NO GUARANTEES TO THE SAFETT AND TAKES NO RESPONSIBILITY TO ANY
+   POTENTIAL SAFETY HAZARD DURING DEMONSTRATION.
+
+Required Equipment
+------------------
+
+- EVAL-CN0352-EB1Z evaluation system.
+- 5 V, 5 A or higher dc power supply or wall wart(The power for battery charging
+  of all channels is from this Power Supply).
+- PC or laptop with USB Port.
+
+  - Windows XP Service Pack 2 (32-bit)
+  - USB type A Port
+  - Processor rated at 1GHz or faster
+  - 512 MB RAM and 500 MB available hard disk space
+
+- USB to RS485 adapter supporting baud rate of 115200 bps.
+- CN0352 evaluation software (see link provided in CN0352 User Guide).
+- Li-ion battery cells (For safety consideration during demostration, using the
+  Li-ion battery with integrated protection circuit is highly recommended)
+- Battery holder board in order to connect battery to EVAL-CN0352-EB1Z
+  evaluation system.
+
+Evaluation System Setup
+-----------------------
+
+EVAL-CN0352-EB1Z Module Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The EVAl-CN0352-EB1Z, battery test system in Figure below is composed of
+multiple I/O boards (EVAL-CN0352-EB1Z_IO) for handling the charging and
+discharging process, an MCU board (EVAL-CN0352-EB1Z_MCU) for battery data
+acquisition, testing, monitoring,and temperature management, and a backplane
+base board (EVAL-CN0352-EB1Z_BAS) that provides the signal interconnections
+between the MCU board and the multiple I/O boards.
+
+The picture below shows all 3 type of boards and give each connector a serial
+number for better understanding. See the tables below with detais of the
+connectors and jumpers on each board.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_connector2.png
+   :width: 500px
+
+.. note::
+
+   See the **red dots** on the picture. Each dot indicate the 1st pin location
+   on the connector.
+
+   the Pin1-to-Pin1 hookup must always be done during EVAL-CN0352-EB1Z module
+   setup process.
+
+External Connectors
+^^^^^^^^^^^^^^^^^^^
+
+External Connectors are used to connect with external power supply, FAN,
+batterys and temperature sensors. It is important to connect them correctly by
+know the pin definition on each of them. See the table below for this
+information.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Connector NO.
+     - Pin No.
+     - Pin Name
+     - Function
+     - Note
+   * - 1. Power Input Connector
+     - 1
+     - +5V
+     - 5V DC Power Input
+     - Two Pins for High Current
+   * -
+     - 2
+     - +5V
+     - 5V DC Power Input
+     -
+   * -
+     - 3
+     - GND
+     - Ground
+     - Two Pins for High Current
+   * -
+     - 4
+     - GND
+     - Ground
+     -
+   * - 2. RS485 Interface Connector
+     - 1
+     - D-
+     - Data +
+     -
+   * -
+     - 2
+     - D+
+     - Data -
+     -
+   * -
+     - 3
+     - GND
+     - Ground
+     -
+   * - 3. Battery Connector
+     - 1
+     - B-
+     - Power Path to Battery Cathode
+     - 4 wire Kelvin Connection
+   * -
+     - 2
+     - S-
+     - Sensing path to Battery Cathode
+     -
+   * -
+     - 3
+     - S+
+     - Sensing path to Battery Anode
+     -
+   * -
+     - 4
+     - B+
+     - Power Path to Battery Anode
+     -
+   * - 4. Temperature Sensor Connector
+     - 1
+     - T1
+     - Temperature Sensor Pin1
+     - Thermisor10k by 2 wire Connection
+   * -
+     - 2
+     - T2
+     - Temperature Sensor Pin2
+     -
+   * - 5. Reset Push Button
+     - x
+     - x
+     - x
+     - Push to reset whole system
+   * - 6. PWM FAN Connector 1
+     - 1
+     - FAN GND
+     - FAN GND
+     -
+   * -
+     - 2
+     - FAN Power
+     - FAN Power,Connect to FAN
+     -
+   * -
+     - 3
+     - Speed FB
+     - FAN Speed feedback input
+     -
+   * -
+     - 4
+     - PWM Control
+     - FAN Speed PWM Control Output
+     -
+   * - 7. PWM FAN Connector 2
+     - 1
+     - FAN GND
+     - FAN GND
+     -
+   * -
+     - 2
+     - FAN Power
+     - FAN Power,Connect to FAN
+     -
+   * -
+     - 3
+     - Speed FB
+     - FAN Speed feedback input
+     -
+   * -
+     - 4
+     - PWM Control
+     - FAN Speed PWM Control Output
+     -
+   * - 8. FAN Power Connector
+     - 1
+     - FAN Power
+     - FAN Power,Connect to 12V DC Supply
+     -
+   * -
+     - 2
+     - FAN GND
+     - FAN Power,Connect to GND of 12V Supply
+     -
+
+Internal Connectors
+^^^^^^^^^^^^^^^^^^^
+
+It is necessary to have one BAS board, one MCU board and at least one I/O Board
+to setup the demo system. The Internal Connectors are used for EVAL-CN0352-EB1Z
+module setup. MCU and I/O board need to be plugged into the connectors on BAS
+board correctly.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Connector NO.
+     - Function
+     - Note
+   * - 9.
+     - Hookup with MCU Board
+     - Marked with JP2 on BAS board. See schematics for pin definition.
+   * - 10.
+     - Hookup with I\\O Board
+     - Marked with P1~P8. See schematics for pin definition.
+   * - 11.
+     - Hookup with I\\O Board
+     - Marked with S1~S8. See schematics for pin definition.
+   * - 12.
+     - Hookup with BAS Board
+     - Marked with J4 on MCU board. See schematics for pin definition.
+   * - 13.
+     - Hookup with BAS Board
+     - Marked with CNP. See schematics for pin definition.
+   * - 14.
+     - Hookup with BAS Board
+     - Marked with CNS. See schematics for pin definition.
+
+Jumpers
+^^^^^^^
+
+There are some jumpers on each board with different function listed below. See
+the table as a summary for the function and suggested configurations.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Jumper NO.
+     - Configuration
+     - Function
+     - Note
+     -
+   * - 15. RS485 Termination Jumper
+     - On
+     - 120 Ω Termination Turned on.
+     -
+     -
+   * -
+     - **Off**
+     - 120 Ω Termination Turned off.
+     - Default Configuration
+     -
+   * - 16. LK1 to LK3 on MCU Board
+     - **On**
+     - Provide Power for MCU
+     - Always put on for correct operation
+     -
+   * - 17. J3 on MCU Board
+     - x
+     - JTAG interface for MCU Debug
+     -
+     -
+   * - 18. JP2,JP3 on I\\O Board
+     - **Both On**
+     - Connect to Battery by 4 wire Kelvin Connection
+     - Recommended
+     -
+   * -
+     - Both Off
+     - Connect to Battery by 2 wire Connection
+     - Have lead error
+     -
+
+Boards Hooking Up
+^^^^^^^^^^^^^^^^^
+
+The picture below shows the way to hook up the BAS, I\\Os and MCU boards
+together. It is necessary to have at least one I/O board to make system working
+correctly.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/eval-cn0352-eb1z_hookingup.jpg
+   :width: 500px
+
+EVAL-CN0352-EB1Z Demo System Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Connect 5V DC Power Supply to **PWR** connector on BAS Board;
+#. Connect USB to RS485 adapter to **COM** connector on BAS Board;[1]
+#. Connect the FAN to **FAN1**, **FAN2** and **FPWR** connectors on BAS
+   Board;[2]
+#. Connect the Battery to **CN1** connector on I\\O board;[3-6]
+#. Connect the Thermistor 10k sensor to **CN2** on I\\O board.[7]
+
+See the picture below showing the whole CN0352 demo system.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_demo_system1.jpg
+   :width: 500px
+
+.. note::
+
+   - [1] Verify the pin definition of USB to RS485 Apapter used for
+     communication and do a connect connection.
+   - [2] Verify the pin definition of the FAN used for cooling and do a connect
+     connection. Need to find a way to fix the FAN close to the Headsink on I\\O
+     board for better cooling performance. The way shown in this user guide is
+     just for demostration and customer need to guarantee the final cooling
+     performance in your own system.
+   - [3] It is very dangerous to if connecting the battery with I/O board
+     reversely.
+   - [4] Using a battery with protection circuit integrated is highly
+     recommended for demonstration.
+   - [5] 4-wire Kelvin connection is recommended.
+   - [6] There is no battery holding board in CN0352 package. Customer need to
+     prepare the battery holding board for a good connection
+   - [7] The default RT table if for ERTJZEG103JA , the Thermistor 10k NTC from
+     Panisonic. If using different sensor, the RT table need to be modified to
+     fit the new sensor.
+
+--------------
+
+CN0352 Evaluation Software
+--------------------------
+
+Software Instllation
+~~~~~~~~~~~~~~~~~~~~
+
+There is a CN0352 Design Support CD in the CN0352 CftL package. Insert the CD in
+to your CD ROM driver and located the installation file under the location CD
+ROM..\\CN0352 Installer\\\ **setup.exe**. Double Click the **setup.exe** and
+follow the installation wizard to install the evaluation software and drivers on
+your PC.
+
+If you see the picture below, then click **finish** to complete the software
+installation.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_esw_installation.png
+   :width: 500px
+
+*Italic Text*
+
+Software Function Introduction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Double click the CN0352.exe, then the interface of CN0352 evaluation software
+shows up.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_01_main_configuraion.png
+   :width: 500px
+
+The evaluation board would send related command frame down to one or more
+EVAL-CN0352-EB1Z demos one the same RS485 bus regards to the button been clicked
+by customer. Then the EVAL-CN0352-EB1Z addressed will do related operations and
+may or may not send back feedback data.
+
+System Operation Tab
+^^^^^^^^^^^^^^^^^^^^
+
+- Battery Scan : Do the Scan after clicked to get the ID informaiton of all the
+  available demos that share the RS485 bus and channel ID of I\\O boards on each
+  of the demos. This is the first operation to do.
+- Update Config : Click this button to make current configuration shown on the
+  software interface to become effective to all the demos on the RS485 bus.
+- Start Test : Click to start the test process. The testing process is a fix
+  times of charging-discharging cycle with configured status and termination
+  conditions. The information during testing would be gathered and stored on PC
+  memory.
+- Stop Test : Click to stop the test.
+- Save Data : Click to save the data that already gathered on PC. The data would
+  be processed to wirte into a xls file with specific format that could be
+  re-imported into the software for analysis.
+- Import Data : Click to import the data file that had been saved by the
+  software before.
+- Exit : Click to exit the software.
+
+Channel Switching Tab
+^^^^^^^^^^^^^^^^^^^^^
+
+There are **Battery Status** and **Test Procedure** blocks are both refreshing
+to show the latest battery status that the software just received from
+EVAL-CN0352-EB1Z. The switching **Channel Switching** tab is used to switch to
+any of the available battery channel that customer want to look at.
+
+-
+
+ .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/leftest.png
+
+    : Click to switch to the 1st Battery available.
+
+-
+
+ .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/left.png
+
+    : Click to switch to the previous Battery available.
+
+-
+
+ .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/digital_id.png
+
+    : Switch to the expected battery channel by input the battery index.
+
+-
+
+ .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/Right.png
+
+    : Click to switch to the next Battery available.
+
+-
+
+ .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/Rightest.png
+
+    : Click to switch to the last Battery available.
+
+Main Tab
+^^^^^^^^
+
+Configuration Tab
+'''''''''''''''''
+
+For easy to do the operation and see the result, the **Configuration** block and
+**Battery Status**, **Test Procedule** on the same tab.
+
+Configuration
+
+* *Communication*
+
+  * COM: Select the right COM Port on your PC that stand for the USB to RS485 adapter.
+  * Baudrate: Select the COM Port Baudrate. 115200 is recommended.
+
+* *Testing Configuration*
+
+  * *Charging Configuration*
+
+* *Input Current Limitation*: The maximum current that going into the VIN
+  pin of :adi:`ADP5065`. See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  for more details.
+* *Trickle Vlotage Threshold*: The charging voltage thershold of trickle
+  charge mode. Trickle Charging is a charging mode of :adi`ADP5065` with small
+  charging current to reset the battery pack protection circuit and lift the
+  voltage to safe level for fast charging. See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  for more details.
+* *Trickle Current Threshold*: The charging current of trickle charge mode.
+  See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  Datasheet}} for more details.
+* *Fast Charge Current*: The configurable charing current during constant
+  current charging stage of :adi:`ADP5065`. See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  for more details.
+* *Charge Termination Voltage*: The termination voltage of constant current
+  fast charging mode of :adi:`ADP5065`. See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  for more details.
+* *Charge Termination Current*: The termination charging current of
+  constant voltage charging mode of :adi:`ADP5065`. See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  for more details.
+
+* *Discharging Configuration*: The maximum current that going into the VIN
+  pin of :adi:`ADP5065. See
+  :adi:`ADP5065 <media/en/technical-documentation/data-sheets/ADP5065.pdf>`
+  for more details.
+
+  * *Step*: Discharging stage with configurable discharging current and
+    termination voltage.
+  * *Current*: Constant current of discharging stage.
+  * *Voltage*: Termination voltage of discharging stage.
+
+**Battery Status**
+
+* *Battery Info*: Battery Informaiotn
+
+  * *Battery NO.*: Battery Serial Number. NO.1 is the 1st Channel on the
+    EVAL-CN0352-EB1Z with minimum Module ID. The value is from 0 to 2039.
+  * *Module ID*: The Module ID that have the current active battery
+    channel. The value is from 1 to 255.
+  * *Channel*: The channel number of current active battery channel. The
+    value is from 0 to 7.
+
+**Test Procedule**
+
+There are 7 status during the testing. The current status will be highlighted.
+
+- *IDLE*: Idle status.
+- *Trickle*: Trickle charging status.
+- *Fast CC*: Constant Current Fast Charging Status.
+- *Fast CV*: Constant Voltage Fast Charging Status.
+- *Discharge Step*: Three stages for discharging process.
+- *Cycles*: Shows the number of how many charging-to-discharging cycles that
+  have been completed.
+- *Test Complete*: If the number of Cycles that has completed is equal to the
+  number set in Test Cycles in the configuration block, then the whole test is
+  completed.
+
+Battery Plots
+'''''''''''''
+
+Battery Plots showns all the battery information since the testing started. All
+the information are shown on the plot.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_esw_batteryplot.png
+   :width: 500px
+
+- Voltage & Current Plot : This plot shows the Voltage and Current information
+  of active battery channel.
+- Capacity & Temperature Plot : This plot shows the Capacity and Temperature
+  Informaiotn of active battery channel.
+
+::
+
+   *Capacity: Calculated by software on PC by the equation: Capacity = Σ(T*I*Δt). T: temperature, I: Charging or discharging current, t: sample period for this active channel.
+
+Battery Summary
+'''''''''''''''
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_esw_batterysummary.png
+   :width: 500px
+
+The **Battery Summary** tab listed all latest informations of each battery on
+one row. It is very convenient to see the any battery interested without
+switching the channel.
+
+Module ID Programmer
+''''''''''''''''''''
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_esw_batteryidprog.png
+   :width: 500px
+
+Before doing the test, each EVAL-CN0352-EB1Z sharing the same RS485 bus need to
+have a unique ID. This ID is a 8-bit ID. The Default ID for the EVAL-CN0352-EB1Z
+is 0xFF. If there are multiple modules sharing the same RS485, than each Module
+need to have a different ID. This **Module ID Programmer** is the tools for
+assigning the ID.
+
+- Module ID : Input a ID number that is different with all the ID that has been
+  assigned to other modules. The Value of Module ID will increast 1
+  automatically after you click the Program button and program process is
+  succeeded.
+- Program : Click this button will program the module connected to RS485 bus.
+  Only one module could be connected to RS485 bus during ID programming process.
+- LED : This Square LED will indicate the status of ID programming process.
+- Green Color: Program Successfully
+- Red Color: Program Failed.
+
+--------------
+
+Simple Testing Example
+----------------------
+
+EVAL-CN0352-EB1Z Module Power On Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. EVAL-CN0352-EB1Z Module Setup. *See Evaluation System Setup* section for more
+   details.
+#. EVAL-CN0352-EB1Z Battery Testing Demo System Setup. See *Evaluation System
+   Setup* section for more details.
+#. Before Powering on the EVAL-CN0352-EB1Z Modules, break all the connection
+   between batteries and I\\O boards. It is not suggested to connect the battery
+   to un-powered EVAL-CN0352-EB1Z module.
+#. Plug the USB to RS485 adapter into your PC and check to make sure that the
+   adapter is working well and record the COM port number.
+#. Power On All the available EVAL-CN0352-EB1Z modules
+#. Connect batteries that you want to test to I/O boards.
+
+Software Evaluation
+~~~~~~~~~~~~~~~~~~~
+
+Communication Setup
+^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_esw_com_steps.png
+   :width: 500px
+
+#. Open the CN0352 Evaluation software by click the CN0352.exe. This program can
+   be found on desktop or Start Menu\\All Programs\\Analog Devices\\CN0352.exe
+#. Click the **COM** drop down menu to selec the COM port that stand for your
+   USB to RS485 adapter.
+#. Click the **Baudrate** drop down menu to select 11520.
+
+IO Programm
+^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_esw_idprogsteps.png
+   :width: 500px
+
+#. Click the **Module ID Programmer** page.
+#. If there are multiple modules, Assign a different ID to each Module.If there
+   is only one EVAL-CN0352-EB1Z module, then you could program the module ID to
+   0x01 to get a quicker scaning process
+#. Input 0x01 into *Module ID* test box.
+#. Click *Program* button and see the LED turned on with green color.
+
+Battery Testing
+^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0352/cn0352_eswdemosteps1.png
+   :width: 500px
+
+#. Click **Configuration** Tab
+#. Click **Battery Scan** button to scan all the available battery channels on
+   RS485 bus.
+#. Click **Start Test** button to start batter testing with default
+   configuration value. See the information of active battery in **Battery
+   Status** & **Test Procedure** blocks.
+#. Click **Stop Test** button to stop current testing.
+#. Click Any of the test boxes or drop down menuses to change configurations
+   during charging or discharging process.
+#. Click **Update Config** button to download the updated configurations to the
+   module.
+#. do Step 3 to start testing
+#. Click **Channel Switching** buttons to switch to other battery.
+
+.. note::
+
+   - Click Battery Scan button, switch to Battery Summary tab. It shold listed
+     all the battery channels available on RS485 bus. if not, click the Stop
+     button and click Run button.
+   - This CN0352 evaluation software on PC is designed with simple testing and
+     just for demonstration. The operation failure may happen during testing.
+   - The EVAL-CN0352-EB1Z firmware in C code is designed with simple test and
+     just for demonstration. The operation failure may happen during testing.
+
+--------------
+
+.. important::
+
+   DISCLAIMER
+
+   THIS EVALUATION SYSTEM INTERFACES TO LITHIUM ION BATTERIES WHICH CAN BE
+   DAMAGED, CATCH ON FIRE, OR EXPLODE IF OVERCHARGED, OVER-DISCHARGED, OR
+   SUBJECTED TO SOURCE OR SINK CURRENTS THAT EXCEED THE BATTERY MANUFACTURER"S
+   SPECIFICATIONS. TAKE ALL NECESSARY STEPS TO PROTECT USERS DURING OPERATION.
+   ADI MAKES NO GUARANTEES TO THE SAFETT AND TAKES NO RESPONSIBILITY TO ANY
+   POTENTIAL SAFETY HAZARD DURING DEMONSTRATION.

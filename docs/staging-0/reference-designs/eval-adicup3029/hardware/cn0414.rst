@@ -1,0 +1,423 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/hardware/cn0414
+
+.. _eval-adicup3029 hardware cn0414:
+
+EVAL-CN0414-ARDZ Shield Overview
+================================
+
+:adi:`CN0414` is an Arduino compatible shield that provides a complete, fully
+isolated, highly flexible, quad channel analog input system suitable for
+programmable logic controllers (PLCs) and distributed control system (DCS)
+applications that require multiple voltage inputs and 4 mA to 20 mA current
+inputs. Additionally, the 4-20 mA inputs provide HART communication to remote
+field devices.
+
+The circuit shown below uses :adi:`AD4111`, a low power, low noise, 24-bit,
+sigma-delta (Σ-Δ) analog-to-digital converter (ADC) that integrates an analog
+front end (AFE) for fully differential or single-ended rail-to-rail, bipolar,
+±10 V voltage inputs, and 0 mA to 20 mA current inputs. The :adi:`AD5700-1` is
+the industry"s lowest power and smallest footprint HART-compliant modem and is
+used in conjunction with the current input channels to form a HART-compatible, 4
+mA to 20 mA receiver solution. The :adi:`ADG704` multiplexer provides HART
+connectivity to the multiple current input channels. The :adi:`ADuM5411` and
+:adi:`ADuM3151` provide digital line and power isolation. The :adi:`ADP2441` 36
+V, step-down, dc-to-dc regulator accepts an industrial standard 24 V supply,
+with wide tolerance on the input voltage and steps it down to 7.5V to be used by
+the system.
+
+This user guide will discuss how to use the
+:adi:`EVAL-EVAL-ADICUP3029 <EVAL-ADICUP3029>` and evaluation software to
+configure and collect data from the
+:adi:`EVAL-CN0414-ARDZ Evaluation Board <CN0414>` **(CN-0414 Board)**.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cn0414_board.png
+   :width: 400px
+
+Simplified functional block diagram
+-----------------------------------
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cn0414_simplified_block_diagram_2.png
+
+Power Supply Considerations and Configuration (P3)
+--------------------------------------------------
+
+Terminal block **P3** is the power supply input (input range:+9.5V to +36V DC).
+The EARTH terminal can be connected to an external earth connection, to the GND
+terminal or left floating if an external earth connection is not used.
+
+Main power setup
+^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cn0414_supply.png
+   :width: 400px
+
+   CN0414 Power Supply
+
+P3 terminals description
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cn0414_p3_description.png
+   :width: 250px
+
+   P3 Terminals Description
+
+Analog Input Connections (P6 and P9)
+------------------------------------
+
+The analog input circuit is designed for group-isolated industrial analog inputs
+and can support voltage and current inputs in the following ranges:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Range
+     - Analog Input Terminals Description
+     -
+   * - **\*±5 V**
+     -
+
+      .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cn0414_p6_p9_description.png
+         :width: 250px
+
+     -
+   * - **\*±10 V**
+     -
+     -
+   * - **\*0 V to 5 V**
+     -
+     -
+   * - **\*0 V to 10 V**
+     -
+     -
+   * - **\*4 mA to 20 mA**
+     -
+     -
+   * - **\*0 mA to 20 mA**
+     -
+     -
+
+ADC and HART Chip Select Jumper Configurations (P1 & P2)
+--------------------------------------------------------
+
+Single Board
+^^^^^^^^^^^^
+
+If only a single board is used, then connect jumpers P1 and P2 as shown below.
+
+**P2 Jumper Connections (HART Selection)**
+
+Position: pin 1 & pin 2
+
+Description: skip decoder
+
+Mode: single
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_single_j.png
+
+   HART Selection Single - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_single.png
+
+   HART Selection Single
+
+**P1 Jumper Connections (CS Selection)**
+
+Position: pin 1 & pin 2
+
+Description: skip decoder
+
+Mode: single
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_single_j.png
+
+   CS Selection Single - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_single.png
+
+   CS Selection Single
+
+Multiple Boards Stacked
+^^^^^^^^^^^^^^^^^^^^^^^
+
+If more than one board is stacked (up to 4), then each board must be set to a
+different ADC and HART select address. Connect jumpers P1 and P2 as shown below,
+and ensure that the software is configured accordingly. On a given board, set
+the ADC and HART address to the same position. If necessary, the software can be
+changed to address differently the ADC and HART on a given board.
+
+Address 00 Configuration
+"""""""""""""""""""""""""
+
+**P2 (HART): pin 4 & pin 6 - AIN2:AIN3 = 00 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_0_j.png
+
+   HART Selection Multi 0 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_0.png
+
+   HART Selection Multi 0
+
+**P1 (CS): pin 4 & pin 6 - AIN0:AIN1 = 00 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_0_j.png
+
+   CS Selection Multi 0 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_0.png
+
+   CS Selection Multi 0
+
+Address 01 Configuration
+"""""""""""""""""""""""""
+
+**P2 (HART): pin 3 & pin 5 - AIN2:AIN3 = 01 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_1_j.png
+
+   HART Selection Multi 1 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_1.png
+
+   HART Selection Multi 1
+
+**P1 (CS): pin 3 & pin 5 - AIN0:AIN1 = 01 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_1_j.png
+
+   CS Selection Multi 1 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_1.png
+
+   CS Selection Multi 1
+
+Address 10 Configuration
+"""""""""""""""""""""""""
+
+**P2 (HART): pin 7 & pin 5 - AIN2:AIN3 = 10 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_2_j.png
+
+   HART Selection Multi 2 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_2.png
+
+   HART Selection Multi 2
+
+**P1 (CS): pin 7 & pin 5 - AIN0:AIN1 = 10 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_2_j.png
+
+   CS Selection Multi 2 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_2.png
+
+   CS Selection Multi 2
+
+Address 11 Configuration
+"""""""""""""""""""""""""
+
+**P2 (HART): pin 8 & pin 6 - AIN2:AIN3 = 11 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_3_j.png
+
+   HART Selection Multi 3 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/hart_selection_multi_3.png
+
+   HART Selection Multi 3
+
+**P1 (CS): pin 8 & pin 6 - AIN0:AIN1 = 11 - multiple**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_3_j.png
+
+   CS Selection Multi 3 - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/cs_selection_multi_3.png
+
+   CS Selection Multi 3
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/silkscreen_top.png
+
+EEPROM Address Configurations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For multiple boards configuration, it is **mandatory** to set a different EEPROM
+address for each board. In this way, on software initialization, the system
+configuration (how many boards, what type and at what address) will be
+determined.
+
+.. list-table::
+   :header-rows: 1
+
+   * - P10 jumper position
+     - P11 jumper position
+     - P12 jumper position
+     - Address set
+   * - pin 2 & pin 3
+     - pin 2 & pin 3
+     - pin 2 & pin 3
+     - 0x50 (**default**)
+   * - pin 2 & pin 1
+     - pin 2 & pin 3
+     - pin 2 & pin 3
+     - 0x51
+   * - pin 2 & pin 3
+     - pin 2 & pin 1
+     - pin 2 & pin 3
+     - 0x52
+   * - pin 2 & pin 1
+     - pin 2 & pin 1
+     - pin 2 & pin 3
+     - 0x53
+   * - pin 2 & pin 3
+     - pin 2 & pin 3
+     - pin 2 & pin 1
+     - 0x54
+   * - pin 2 & pin 1
+     - pin 2 & pin 3
+     - pin 2 & pin 1
+     - 0x55
+   * - pin 2 & pin 3
+     - pin 2 & pin 1
+     - pin 2 & pin 1
+     - 0x56
+   * - pin 2 & pin 1
+     - pin 2 & pin 1
+     - pin 2 & pin 1
+     - 0x57
+
+**EEPROM Address Configuration Diagrams:**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x50.png
+   :width: 140px
+
+   Address 0x50 (default)
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x51.png
+   :width: 140px
+
+   Address 0x51
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x52.png
+   :width: 140px
+
+   Address 0x52
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x53.png
+   :width: 140px
+
+   Address 0x53
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x54.png
+   :width: 140px
+
+   Address 0x54
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x55.png
+   :width: 140px
+
+   Address 0x55
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x56.png
+   :width: 140px
+
+   Address 0x56
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/0x57.png
+   :width: 140px
+
+   Address 0x57
+
+EEPROM Configuration for Single or Multiple Boards configuration (JP1)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+If only a single board is being used, then ensure that JP1 Solder Jumper is
+shorting pins 2 & 3 as shown below. If multiple boards are used,
+short pins 1 & 2.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Position
+     - Description
+   * - pin 2 & pin 3 (**default**)
+     - enable write protection (WP) (single board operation)
+   * - pin 2 & pin 1
+     - disable write protection (WP) (multi board operation)
+
+**JP1 Soldering Position Diagrams:**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/jp1_s.png
+   :width: 60px
+
+   JP1 Single Board - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/jp1_s_d.png
+   :width: 130px
+
+   JP1 Single Board - Diagram
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/jp1_m.png
+   :width: 60px
+
+   JP1 Multi Board - Jumper
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/jp1_m_d.png
+   :width: 130px
+
+   JP1 Multi Board - Diagram
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/silkscreen_bottom.png
+
+LED Indicators
+--------------
+
+There are two LEDs on the board. The power LED is on as time the board is
+powered. The error LED is off by default.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup3029/hardware/power_and_error_led.png
+   :width: 400px
+
+More Information and Useful Links
+---------------------------------
+
+- :git-EVAL-ADICUP3029:`CN0414 Demo Software <projects/ADuCM3029_demo_cn0414+>`
+- :adi:`CN0414 Circuit Note Page <CN0414>`
+- :adi:`CN0414 Design Support Package <CN0414-DesignSupport>`
+- :adi:`AD4111 Product Page <AD4111>`
+- :adi:`AD5700-1 Product Page <AD5700-1>`
+- :adi:`ADUM5411 Product Page <ADUM5411>`
+- :adi:`ADUM3151 Product Page <ADUM3151>`
+- :adi:`ADP2441 Product Page <ADP2441>`
+- :adi:`ADG704 Product Page <ADG704>`
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+
+   :adi:`EVAL-CN0414-ARDZ Design & Integration Files <cn0414-designsupport>`
+
+   - Schematics
+   - PCB Layout
+   - Bill of Materials
+   - Allegro Project
+
+Software
+--------
+
+- :dokuwiki:`ADICUP3029 + CN0414 Demo </resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0414>`
+- :dokuwiki:`Distributed Control System (DCS) Demo </resources/eval/user-guides/eval-adicup3029/reference_designs/demo_plc_modbus>`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0414-ARDZ?&v=RevB>` to receive all these great
+   benefits and more!
+
+

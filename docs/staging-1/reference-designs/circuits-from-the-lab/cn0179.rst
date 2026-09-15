@@ -1,0 +1,202 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0179
+
+.. _circuits-from-the-lab cn0179:
+
+CN-0179 Software User Guide
+===========================
+
+OVERVIEW
+--------
+
+The circuit is a 4 mA-to-20 mA current loop transmitter for communication
+between a process control system and its actuator. Besides being cost effective,
+this circuit offers the industry"s low power solution. The 4 mA-to-20 mA current
+loop has been used extensively in programmable logic controllers (PLCs) and
+distributed control systems (DCS"s), with digital or analog inputs and outputs.
+Current loop interfaces are usually preferred because they offer the most cost
+effective approach to long distance noise immune data transmission. The
+combination of low power :adi:`AD8657` dual op amp, :adi:`AD5641` DAC, and
+:adi:`ADR02` reference allows more power budget for higher power devices, such
+as microcontrollers and digital isolators. The circuit output is 0 mA to 20 mA
+of current. The 4 mA to 20 mA range is usually mapped to represent the input
+control range from the DAC or micro-controller, while the output current range
+of 0 mA to 4 mA is often used to diagnose fault conditions.
+
+--------------
+
+GENERAL SETUP
+-------------
+
+- :adi:`EVAL-CN0179-PMDZ` Evaluation Board
+- :adi:`EVAL-SDP-CB1Z` Evaluation Board
+- :adi:`SDP-PMD-IB1Z` Evaluation Board
+- :dokuwiki:`CN0179 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0179>`
+
+  - (supplied with provided CD in kit)
+
+- USB Type-A plug to USB Mini-B plug cable
+- Agilent E36311A dual dc power supply or equivalent
+- Agilent 3458A multimeter or equivalent
+- +6V ``Wall Wart``
+
+--------------
+
+MINIMUM PC/SYSTEM REQUIREMENTS
+------------------------------
+
+- One PC with the following
+- Windows XP SP2, Windows Vista or Windows 7 Business/Enterprise/Ultimate
+  editions
+- Intel Pentium processor (x86 compatible), 1GHz or faster
+- 512 MB RAM and 2 GB available hard disk space
+- .NET 3.5 Framework
+
+--------------
+
+HOW TO INSTALL THE EVALUATION SOFTWARE
+--------------------------------------
+
+#. Extract the file **CN0179 Eval Software.zip** and open the file
+   **setup.exe**.
+
+   .. tip::
+
+      It is recommended that you install the
+      `CN0179 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0179/>`
+      to the default directory path
+      **C:\\Program Files\\Analog Devices\\CN0179\\**
+      and all National Instruments products to
+      **C:\\Program Files\\National Instruments\\**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-1.png
+
+#. Click **Next** to view the installation review page
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-2.png
+
+#. Click **Next** to start the installation
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-3.png
+
+#. Upon completion of the installation of the **CN0179 Evaluation Software**,
+   the installer for the **ADI SDP Drivers** will execute.
+   .. tip::
+
+      It is recommended that you close all other applications before clicking
+      **``Next``**. This will make it possible to update relevant system files
+      without having to reboot your computer.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-4.png
+
+#. Press **``Next``** to set the installation location for the **SDP Drivers**.
+
+   .. tip::
+
+      It is recommended that you install the drivers to the default directory path
+      **C:\\Program Files\\Analog Devices\\SDP\\Drivers**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-sdp_installer-1.png
+
+#. Press **``Next``** to install the **SDP Drivers** and complete the
+   installation of all software. Click **``Finish``** when done.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-sdp_installer-2.png
+
+PROCEDURES FOR CONNECTING THE HARDWARE
+--------------------------------------
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179-hardware.png
+
+#. Connect the 120-pin connector of the :adi:`SDP-PMD-IB1Z` circuit board to the
+   connector marked :adi:``CON A`` on the `EVAL-SDP-CB1Z <EVAL-SDP-CB1Z>`
+   evaluation (SDP) board. Nylon hardware should be used to firmly secure the
+   two boards, using the holes provided at the ends of the 120-pin connectors.
+#. Place shunt to header JP1 to give +3.3V voltage out as seen in the label
+   found in :adi:`SDP-PMD-IB1Z`.
+#. Connect the 12-pin right angle male pin header of :adi:`EVAL-CN0179-PMDZ` to
+   the 12-pin right angle female pin header of :adi:`SDP-PMD-IB1Z`.
+#. Connect the current meter in series with the Iout terminal block of the
+   :adi:`EVAL-CN0179-PMDZ`
+#. Connect DC Power Supply (+18V/GND) to the Power connector P1.
+#. Plug the mini end of the USB cable into connector J1 of the
+   :adi:`EVAL-SDP-CB1Z` and connect the other end of the USB cable into the
+   Laptop or PC.
+#. Plug in the wall wart and connect it to connector J1 of the
+   :adi:`SDP-PMD-IB1Z`.
+#. Place shunt to Header J1 to measure the voltage across the load on the Iout
+   terminal block. No shunt means current measurement.
+
+--------------
+
+OPENING AND ENABLING THE EVALUATION SOFTWARE
+--------------------------------------------
+
+#. Launch the executable found at C:\\Program Files\\Analog Devices\\CN0179 and
+   press the ``Connect`` button.
+#. After pressing the ``Connect`` button, a prompt will appear informing the
+   user if the SDP is already connected.
+#. Choose between two Operating Mode:
+
+- Normal Operation - DAC has normal current consumption of 100uA maximum. In
+  this mode, DAC is able to start gathering data from the system and all the
+  buttons found in the System Controls will be enabled.
+- Power Down Mode - The DAC"s current consumption falls to typically 0.5uA.DAC
+  is tristated and cannot be able to acquire data from the system. (Note: DAC
+  register are unaffected when in power down mode).
+
+USING THE EVALUATION SOFTWARE
+-----------------------------
+
+There are two ways to select the input control on the DAC; one is for setting
+the Output Current while the other is for setting the DAC CODE.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-sofware-description.png
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-sofware-description-0.png
+
+Descriptions:
+-------------
+
+#. **Enter Hex Code** – This control allows to Enter a value from 0x000 to
+   0x3FF.
+#. **Iout** – This indicator shows the calculated Output Current depending on
+   the input Code.
+#. **Data Bits** – Binary equivalent of the Code loaded to the :adi:`AD5641`
+   DAC.
+#. **VDAC** – This indicator shows the calculated DAC output Voltage depending
+   on the input code.
+#. **Enter Output Current** – This control allows to Enter a value from 0 to 20.
+#. **Data Code** – This indicator shows the Hex Code equivalent of the value
+   loaded to the :adi:`AD5641` DAC.
+#. **Write DAC** – When this button is pressed, the values/codes entered will
+   send to the :adi:`AD5641` DAC via SPI.
+#. **System Status String Indicator** - This indicator displays a message to the
+   user detailing the current state of the software.
+#. **System Status LED Indicator** - This indicator displays the current state
+   of the software in the form of an LED.
+   There are three status LED colors:
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-busy.png
+
+      Busy
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-inactive.png
+
+      Inactive
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0179/cn0179-software-error.png
+
+      Error
+
+#. **SDP Board Information** - provides details on the firmware version of the
+   Blackfin used by the SDP board.
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0179-PMDZ?&v=Rev B>` to receive all these great
+   benefits and more!

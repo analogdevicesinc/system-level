@@ -1,0 +1,210 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0371
+
+.. _circuits-from-the-lab cn0371:
+
+CN-0371 Software User Guide
+===========================
+
+Overview
+--------
+
+:adi:`CN-0371 <CN0371>` is a complete linear variable differential transformer
+(LVDT) signal conditioning circuit that can accurately measure linear position
+or linear displacement from a mechanical reference. Synchronous demodulation in
+the analog domain is used to extract the position information and provides
+immunity to external noise. A 24-bit sigma-delta ADC digitizes the position
+output for high accuracy. LVDTs utilize electromagnetic coupling between the
+movable core and the coil assembly. This contactless (and therefore
+frictionless) operation is a primary reason why they are widely used in
+aerospace, process controls, robotics, nuclear, chemical plants, hydraulics,
+power turbines, and other applications where operating environments can be
+hostile and long life and high reliability are required. The entire circuit,
+including the LVDT excitation signal, consumes only 10 mW of power. The circuit
+excitation frequency and output data rates are SPI programmable. The system has
+a programmable bandwidth versus dynamic range trade-off. It supports bandwidths
+of over 1 kHz, and at a bandwidth of 20 Hz, the circuit has a dynamic range of
+100 dB, making it ideal for precision industrial position and gauging
+applications. This circuit note discusses the design steps needed to optimize
+the circuit shown in Figure 1 for a specific bandwidth including noise analysis
+and component selection considerations.
+
+This user guide will discuss how to use the evaluation software to collect data
+from the :adi:`EVAL-CN0371-SDPZ` Evaluation Board **(CN-0371 Board)**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-simplified_schematic.png
+   :width: 800px
+
+Required Equipment
+------------------
+
+- :adi:`EVAL-SDP-CB1Z` Controller Board ( SDP-B Board )
+- :adi:`EVAL-CN0371-SDPZ <CN0371>` Evaluation Board ( CN-0371 Board )
+- :adi:`EVAL-CFTL-LVDT <CN0371>` Linear Variable Differential Transformer
+  (Measurement Specialties, Inc. E-100 Economy Series LVDT)
+- :dokuwiki:`CN-0371 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0371/>`
+- PC with the following *Minimum Requirements*
+
+  - Windows XP Service Pack 2 (32-bit)
+  - USB type A Port
+  - Processor rated at 1GHz or faster
+  - 512 MB RAM and 500 MB available hard disk space
+
+- USB type A to USB type mini-B cable
+
+General Setup
+-------------
+
+- The :adi:`EVAL-CN0371-SDPZ` (CN-0371 Board) connects to the
+  :adi:`EVAL-SDP-CB1Z` (SDP-B Board) via the 120-Pin connector
+- The :adi:`EVAL-CFTL-6V-PWRZ` (+6V DC Power Supply) powers the
+  :adi:`EVAL-CN0371-SDPZ <CN0371>` (CN-0371 Board) via the DC barrel jack
+- The :adi:`EVAL-CFTL-LVDT <CN0371>` (LVDT) connects to the
+  :adi:`EVAL-CN0371-SDPZ <CN0371>` (CN-0371 Board) via the 6-pin header at J3 .
+
+|
+| .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-test_setup.png
+   :width: 600px
+
+--------------
+
+Installing the Software
+-----------------------
+
+#. Extract the file **CN0371 Eval Software.zip** and open the file
+   **setup.exe**.
+
+   .. tip::
+
+      It is recommended that you install the
+      :dokuwiki:`CN-0371 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0371/>`
+      to the default directory path
+      **C:\\Program Files\\Analog Devices\\CN0371\\**
+      and all National Instruments products to
+      **C:\\Program Files\\National Instruments\\**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/CN0371/CN0371-install1.png
+      :width: 600px
+
+#. Click **Next** to view the installation review page
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/CN0371/CN0371-install2.png
+      :width: 600px
+
+#. Click **Next** to start the installation
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/CN0371/CN0371-install3.png
+      :width: 600px
+
+#. Upon completion of the installation of the **CN-0371 Evaluation Software**,
+   the installer for the **ADI SDP Drivers** will execute.
+   .. tip::
+
+      It is recommended that you close all other applications before clicking
+      **``Next``**. This will make it possible to update relevant system files
+      without having to reboot your computer.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/CN0371/CN0371-install4.png
+      :width: 600px
+
+#. Press **``Next``** to set the installation location for the **SDP Drivers**.
+
+   .. tip::
+
+      It is recommended that you install the drivers to the default directory path
+      **C:\\Program Files\\Analog Devices\\SDP\\Drivers**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/CN0371/CN0371-install5.png
+      :width: 600px
+
+#. Press **``Next``** to install the **SDP Drivers** and complete the
+   installation of all software. Click **``Finish``** when done.
+
+Connecting the Hardware
+-----------------------
+
+#. Connect the :adi:`EVAL-CFTL-LVDT <CN0371>` **(LVDT)** to **J3** of the
+   :adi:`EVAL-CN0371-SDPZ` **(CN-0371 Board)** as depicted below.
+
+   .. tip::
+
+      If a different LVDT is used other than the E-100 LVDT from Measurement
+      Specialties, Inc the wiring schematic will be different!
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-wiring_schematic.png
+      :width: 600px
+
+#. Connect **P3** of the :adi:`EVAL-CN0371-SDPZ` **(CN-0371 Board)** to **CON
+   A** of the :adi:`EVAL-SDP-CB1Z` **(SDP-B Board)**
+
+#. Connect the USB cable to **J1** of the :adi:`EVAL-SDP-CB1Z` **(SDP-B Board)**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-hardware1.jpg
+      :width: 600px
+
+--------------
+
+Using the Evaluation Software
+-----------------------------
+
+Linearity and Calibration Tabs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-software1.png
+   :width: 800px
+
+::
+
+   -**Displacement Display**
+   * The upper left hand corner shows the current measurement displacement in terms of voltage (V) and distance in millimeters (MM). In order to get accurate measurements, the system should be calibrated as described below.
+   -**Calibration Tab**
+   * The system can be calibrated using a two point calibration.
+   * The core should be placed at the maximum displacement. The displacement should then be entered in the Distance field. Then the Set new MAX button should be clicked.
+   * The core should next be placed at the minimum displacement. The displacement should then be entered in the Distance field. Then the Set new MIN button should be clicked.
+   * This completes the calibration.
+   -**Linearity Table**
+   * The table can be filled out, and linearity automatically calculated as follows:
+   * The core should be set to a known position. That position should be entered in the Distance (MM) field. The Get new data point button should be clicked. This creates a new entry in the Linearity table. The linearity is calculated and the data point is added to the Linearity plot.
+   * Additional data points can be added in a similar manner. The data points do not need to be linearly spaced or taken in a particular order.
+   -**Error Calculation**
+   * The linearity error is calculated based on the distance from an ideal straight line between the two calibration points taken.
+
+--------------
+
+Live Measurement and Noise Data Tabs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-software2.png
+   :width: 800px
+
+::
+
+   -**Live Measurement Chart**
+   * The Live measurement chart shows the last 200 ADC readings taken. The data shown is displayed in volts (left side vertical axis) and millimeters (right side vertical axis) based on the most recent calibration.
+   -**Noise Data Tab**
+   * Noise Data in volts (RMS), volts (p-p), ENOBs (RMS) and ENOBs (p-p) are displayed. The volts are calculated based on the 3.3V ADC reference. ENOB measurements are based on full-scale voltage in the settings tab.
+
+--------------
+
+Live Measurement and Settings Tabs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0371/cn0371-software3.png
+   :width: 800px
+
+::
+
+   -**Settings Tab**
+   * Full-Scale Range entry enables users to scale the voltage used for the ENOBs calculations in the Noise Data tab.
+   * Measure I/Q buttons allow selecting either the Phase 0 or Phase 90 setting on the ADA2200
+   * Data Rate Divider sets the AD7192 output data rate. This value can be set from 1 to 1023.
+   * Output Data rate is the calculated ADC data rate. It is equal to 4800/(Data Rate Divider).
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0371-SDPZ?&v=RevB>` to receive all these great
+   benefits and more!

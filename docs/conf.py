@@ -92,3 +92,35 @@ linkcheck_request_headers = {
 linkcheck_ignore = [
     r'https://www.digikey.com/',
 ]
+
+# -- Custom roles -------------------------------------------------------------
+
+def reg_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    """
+    Custom role for hardware registration links.
+    Usage: :reg:`Register <EVAL-CN0511-RPIZ?&v=RevD>`
+    Expands to: https://my.analog.com/en/app/registration/hardware/EVAL-CN0511-RPIZ?&v=RevD
+    """
+    from docutils import nodes
+    from docutils.parsers.rst import roles
+
+    # Parse the text to extract link text and target
+    parts = text.split('<')
+    if len(parts) == 2:
+        link_text = parts[0].strip()
+        target = parts[1].rstrip('>')
+    else:
+        # If no explicit link text, use the target as text
+        link_text = text
+        target = text
+
+    # Build the full URL
+    url = f'https://my.analog.com/en/app/registration/hardware/{target}'
+
+    # Create a reference node
+    node = nodes.reference(rawtext, link_text, refuri=url, **options)
+    return [node], []
+
+def setup(app):
+    """Setup function to register custom roles."""
+    app.add_role('reg', reg_role)

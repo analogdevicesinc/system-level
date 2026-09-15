@@ -1,0 +1,119 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0423
+
+.. _circuits-from-the-lab cn0423:
+
+CN0423 AD5758 EMC Robust User Guide
+===================================
+
+Overview
+--------
+
+The :adi:`CN0423` demonstrates a proven and tested electromagnetic compatibility
+(EMC) solution for process control and factory automation with dynamic power
+control and HART compatibility. The IEC61000-4-x set of standards cover
+evaluating immunity of electrical and electronic equipment at a system level.
+The solution was tested and characterized to ensure that the circuit performance
+was not affected by radiated RF or conducted RF disturbances, and has sufficient
+immunity against electrostatic discharge (ESD), electrical fast transients
+(EFT), and surge. The solution was also tested for CISPR 11, in which its
+radiated emissions fell well below the Class A limits.
+
+Hardware Connections
+--------------------
+
+The following sections will describe the hardware in more detail, as well as
+explain the different connections and how to use them.
+
+- P1 for JTAG/SWD debug
+- P2 for field side power
+- P3 for USB Mini-B connection
+- P4 for load connection
+- P14 for system side power
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0423/emc board.jpg
+
+To evaluate the full function of CN0423, you need following equipment:
+EVAL-AD5758EMC evaluation board Power Supply A PC with Microsoft Windows 7 or
+later OS and USB 2.0 or faster USB port A USB mini B cable To reprogram or debug
+CN0423, you need following extra equipment J-link debug cable or equivalent
+JTAG/SWD debug cable
+
+EVAL-AD5758EMC link options
+
+.. list-table::
+
+   * - **Link**
+     - **Function**
+     - **Default Position**
+   * - JP25
+     - Add text here
+     - A
+   * - JP26
+     - Add text here
+     - B
+   * - JP2
+     - Connects the SPI signals from the microcontroller to the ADUM141D
+     - Inserted
+   * - JP4
+     - Connects the LDAC, RESET, FAULT and PWRGD signals from the
+       microcontroller to the ADUM141D
+     - Inserted
+   * - JP3
+     - Connects the SPI signals from the ADUM141D device to the AD5758
+     - Inserted
+   * - JP5
+     - Connects the LDAC, RESET, FAULT and PWRGD signals from the ADUM141D
+       device to the AD5758
+     - Inserted
+
+Usage Instructions
+------------------
+
+The EVAL-CN0423 can work off either two separate 24V supplies, or a single 24V
+supply.
+
+The EVAL-CN0423 can be run by either being connected to a PC or in standalone
+mode.
+
+The graphic user interface (GUI) on the PC is used to configure the operational
+parametres such as DAC output range, output code, and ADC sequencing. The GUI
+displays the fault flag map and plots the reading from the AD5758 on-chip
+diagnostic ADC nodes.
+
+Once the operational parametres are programmed in the on-board flash memory, the
+board can be disconnected from the PC or controller board while the software
+remains operational. The operation is as simple as powering up the board and
+pushing the "RUN" or "STOP" button on the EVAL-CN0423 board.
+
+"BOOT" and "RESET" button can be used to download firmware to the microprocessor
+through the serial port.
+
+How to download firmware to the CN0423
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You an download the firmware to the CN0423 through P1 the JTAG connector or a
+CrossCore Serial Flash Programmer. When using the JTAG, you need plug in an
+emulator to P1 and download the hex file to the on-board microprocessor.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0423/download.png
+   :width: 400px
+
+When using the Serial Flash programmer, you should plug a USB cable in the P3 on
+the CN0423 board to a PC, then download the hex file with CrossCore Serial Flash
+Programmer
+
+Software Structure
+~~~~~~~~~~~~~~~~~~
+
+Schematic, Bill of Materials, Gerber Files, Source Code
+-------------------------------------------------------
+
+.. admonition:: Download
+
+   :adi:`EVAL-AD5758EMCZ Design & Integration Files <CN0423-DesignSupport>`
+
+   - Schematic
+   - Bill of Materials
+   - Gerber Files
+   - Software Source Code link
+   - EMC Testing Results

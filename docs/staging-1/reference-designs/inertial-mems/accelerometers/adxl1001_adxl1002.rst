@@ -1,0 +1,29 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/inertial-mems/accelerometers/adxl1001_adxl1002
+
+.. _inertial-mems accelerometers adxl1001_adxl1002:
+
+ADXL1001 and ADXL1002 Breakout Board documentation:
+===================================================
+
+//:adi:`User Guide for the ADXL1001 and ADXL1002 Breakout Boards <media/en/technical-documentation/user-guides/EVAL-ADXL1001Z-1002Z-UG-1121.pdf>`
+
+— ADXL1001 Breakout board files —
+
+//
+:download:`https://wiki.analog.com/_media/mems/ADXL1001Z Eval Board Rev 2 - Schematic.pdf`
+
+//
+:download:`https://wiki.analog.com/_media/mems/ADXL1001Z Eval Board Rev 2 - Layout.pdf`
+
+— ADXL1002 Breakout board files —
+
+//
+:download:`https://wiki.analog.com/_media/mems/ADXL1002Z Eval Board Rev 2 - Schematic.pdf`
+
+//
+:download:`https://wiki.analog.com/_media/mems/ADXL1002Z Eval Board Rev 2 - Layout.pdf`
+
+IMPORTANT APPLICATION NOTE ABOUT PROPER EVALUATION TECHNIQUES
+
+//
+:download:`https://wiki.analog.com/_media/mems/Reference document on achieving best noise performance with ADXL1002.pdf`

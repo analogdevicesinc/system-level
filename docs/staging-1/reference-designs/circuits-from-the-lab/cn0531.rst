@@ -1,0 +1,158 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0531
+
+.. _circuits-from-the-lab cn0531:
+
+EVAL-CN0531-PMDZ Overview
+=========================
+
+:adi:`EVAL-CN0531-PMDZ <CN0531>` is a minimalist 1 ppm, 20-Bit, ±1 LSB INL, DAC
+SPI Pmod board suitable for medical instrumentation, test and measurement
+equipment, industrial control or high end scientific and aerospace
+instrumentation. This module is designed as a low-cost alternative to the
+fully-featured :adi:`AD5791` evaluation board. Multiple voltage references and
+power options are available to adapt this module depending on the application.
+With this module, the user is capable to use the onboard positive voltage
+reference or to connect external references. It is also possible to connect an
+external buffer if the onboard buffer doesn"t suit the application.
+:adi:`EVAL-CN0531-PMDZ <CN0531>` can also be powered internal or external,
+depending on the needs. Also, additional control signals can be connected to the
+digital interface to control this module easily.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0531_top.jpg
+   :width: 600px
+
+Functional block diagram
+------------------------
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0531_functional_block_diagram.jpg
+
+About the AD5791
+----------------
+
+The :adi:`AD5791` is a single 20-bit, unbuffered voltage-output
+digital-to-analog converter (DAC) that operates from a bipolar supply of up to
+33 V. The :adi:`AD5791` accepts a positive reference input in the range 5 V to
+VDD − 2.5 V and a negative reference input in the range VSS + 2.5 V to 0 V. The
+:adi:`AD5791` offers a relative accuracy specification of ±1 LSB max, and
+operation is guaranteed monotonic with a ±1 LSB differential nonlinearity (DNL)
+maximum specification. The device uses a versatile 3-wire serial interface that
+operates at clock rates up to 35 MHz and that is compatible with standard serial
+peripheral interface (SPI), QSPI™, MICROWIRE™, and DSP interface standards. The
+device incorporates a power-on reset circuit that ensures the DAC output powers
+up to 0 V and in a known output impedance state and remains in this state until
+a valid write to the device takes place. The device provides an output clamp
+feature that places the output in a defined load state.
+
+Connectors and Configuration
+----------------------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0531_bottom.jpg
+          :width: 600px
+
+     -
+     -
+   * - Supply options
+     -
+     -
+   * - Solder Jumper
+     - Default Position
+     - Description and default connection
+   * - P6
+     - Shorted
+     - Internal 3.3 V (connected at IOVDD and P1 pin 2)
+   * - P7
+     - Shorted
+     - External 3.3 V (supply connected at P1 pin 3)
+   * - P8
+     - Open
+     - External voltage supply (disconnected)
+   * - P11
+     - Shorted
+     - External VDD supply (connected at P1 pin 6)
+   * - P12
+     - Shorted
+     - External VSS supply (connected at P1 pin 5)
+   * - Voltage reference options
+     -
+     -
+   * - Solder Jumper
+     - Default Position
+     - Description and default connection
+   * - P9
+     - Shorted
+     - Positive reference (connected at onboard 5 V
+   * -
+     -
+     - external reference and P4 pin 1)
+   * - P10
+     - Shorted
+     - Negative reference (connected to GND and P4 pin 1)
+   * - Digital interface options
+     -
+     -
+   * - Solder Jumper
+     - Default Position
+     - Description and default connection
+   * - P14
+     - Open
+     - LDAC connection (disconnected)
+   * - P15
+     - Open
+     - CLR connection (disconnected)
+   * - P16
+     - Open
+     - RESET connection (disconnected)
+   * - Digital interface options
+     -
+     -
+   * - Solder Jumper
+     - Default Position
+     - Description and default connection
+   * - P13
+     - Shorted
+     - Output buffer (connected at onboard buffer)
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+
+   `CN0531 Design and Integration Files <https://www.analog.com/cn0531-DesignSupport>`__
+
+   - Schematics
+   - Bill of Materials
+   - Gerber Files
+   - Assembly Drawings
+   - Allegro Board File
+
+Additional Information and Useful Links
+---------------------------------------
+
+- :adi:`AD5791 Product Page <AD5791>`
+- :dokuwiki:`AD5791 Quick Start Guide </resources/quick-start/ad5791>`
+- :adi:`AD8675 Product Page <AD8675>`
+- :adi:`AD8676 Product Page <AD8676>`
+- :adi:`LTC6655 Product Page <LTC6655>`
+- :adi:`LT3042 Product Page <LT3042>`
+- :adi:`LT3093 Product Page <LT3093>`
+- :adi:`LT3471 Product Page <LT3471>`
+
+Reference Demos & Software
+--------------------------
+
+- :dokuwiki:`ADICUP3029 + EVAL-CN0531-PMDZ Demo </resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0531>`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0531-PMDZ?&v=RevB>` to receive all these great
+   benefits and more!
+
+

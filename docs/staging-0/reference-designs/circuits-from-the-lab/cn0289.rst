@@ -1,0 +1,186 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0289
+
+.. _circuits-from-the-lab cn0289:
+
+CN0289 Flexible, 4 mA-to-20 mA, Loop-Powered Pressure Sensor Transmitter with Voltage or Current Drive
+======================================================================================================
+
+OVERVIEW
+--------
+
+The circuit is a robust and flexible 2 wire loop-powered current transmitter
+that converts the differential voltage output from a pressure sensor to a 4
+mA-to-20 mA current output. The design is optimized for a wide variety of bridge
+based voltage or current driven pressure sensors, utilizes only four active
+devices, and has a total unadjusted error of less than 1%. The loop supply
+voltage can range from 12 V to 36 V. The input of the circuit is protected for
+ESD and voltages beyond the supply rail, making it ideal for loop powered
+industrial applications.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289-hw-1024.jpg
+   :width: 300px
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_system_diagram.png
+
+--------------
+
+DEMO REQUIREMENTS
+-----------------
+
+- :adi:`EVAL-CN0289-EB1Z` circuit evaluation board
+- +7V to +24V power supply or equivalent power supply
+- Agilent 3458A or equivalent Current meter
+- Differential Pressure sensor or Equivalent Dual channel DC Signal Source
+
+--------------
+
+HARDWARE SETUP
+--------------
+
+Power Supply
+~~~~~~~~~~~~
+
+- From +7V to +24V supply can be used to J2 for proper operation of the
+  evaluation board
+
+.. important::
+
+   In order for the circuit to operate properly, the supply voltage, must be
+   greater than 7 V in order to provide sufficient headroom.
+
+Input Signal
+~~~~~~~~~~~~
+
+Using Actual Sensor
+^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_sensor_interface.png
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_sensor_interface_table.png
+   :width: 400px
+
+#. A differential output bridge type sensor should be attached to a 4 channel
+   screw terminal block (J1) labeled with SUPPLYSNS on the PCB.
+#. A differential sensor gauge like from
+   `NXP <http://www.nxp.com/products/sensors/pressure-sensors:DRSNSPRSSR>`__ can
+   be used for evaluation.
+
+.. note::
+
+   - Vsense is where the analog voltage output of the sensor is being taken for
+     measurement. Pin polarity should be take into account.
+   - V/Iforce is the sensor excitation or is being supplied either from current
+     or voltage source.
+
+.. important::
+
+   Pin polarity for Vsense and for V/Iforce should be take into consideration
+   since it varies from manufacturer.
+
+Using Simulated Input Sensor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following configuration can be used to simulate the sensor characteristic
+for evaluation pusposes.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/functional_block_diagram.png
+   :width: 500px
+
+#. A dual power supply can be used to generate a common-mode voltage of 2.5 V
+   from Vout1 and a 0 mV to 100 mV differential input voltage from Vout2 shown
+   in the block diagram for test setup.
+#. A 3 kΩ at R_bridge simulates the bridge type sensor impedance.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_r6.png
+   :width: 200px
+
+.. note::
+
+   For lower than 5 kΩ bridge resistance, the drive voltage can be decreased
+   down to 5 V using a buffer configuration by removing resistor R6.
+
+Sensor Drive
+~~~~~~~~~~~~
+
+- The circuit can be switched to the current or voltage drive configuration by
+  moving S1 to the position labeled on the PCB.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_switch.png
+
+Voltage Drive Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- In the voltage drive mode with VDRIVE = 10 V, the supply voltage VLOOP or
+  system supply must be greater than 10.2 V
+
+Current Drive Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- In the current drive mode, the supply voltage VLOOP or system supply must be
+  greater than 11.2 V in order to maintain sufficient headroom.
+
+.. note::
+
+   Current drive configuration can be used for four-wire ohm circuit
+   configuration where in the main advantage of this configuration is that the
+   voltage is measured directly across the load cell, neglecting the load effect
+   of the lead wires for long distance measurements.
+
+.. important::
+
+   Both for voltage and current drive mode, the minimum loop supply voltage is
+   dependent on the configuration of the drive circuit for the bridge.
+
+Output Measurements
+~~~~~~~~~~~~~~~~~~~
+
+The output of the system can be measured in two ways, either through direct
+output current measurement or voltage output through the series resistor.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_measurements.png
+
+Voltage Measurement
+^^^^^^^^^^^^^^^^^^^
+
+- Voltage output measurement is done across a series 250ohms resistor that is be
+  placed in series with the negative terminal of the power supply and the system
+  ground loop
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/cn0289_onboard_load.png
+   :width: 150px
+
+Current Measurement
+^^^^^^^^^^^^^^^^^^^
+
+- Current output measurement is done by connecting the positive terminal of the
+  current meter at the system ground loop (negative terminal of J2) and the
+  negative terminal of the meter connected to the negative terminal of the power
+  supply.
+
+.. note::
+
+   The system has an onboard resistor load (R7) of 250ohms that can be
+   de-soldered to replace with a desired resistor load value
+
+--------------
+
+SCHEMATICS, PCB LAYOUT, BILL OF MATERIALS
+-----------------------------------------
+
+.. admonition:: Download
+
+   - :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/eval-cn0289-eb1z-cadenceschematic-reva.pdf`
+   - :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/eval-cn0289-eb1z-bom-reva.xls`
+   - :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/eval-cn0289-eb1z-gbr-reva.zip`
+   - :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0289/eval-cn0289-eb1z-assemblydrawing-reva.pdf`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0289-EB1Z?&v=RevB>` to receive all these great
+   benefits and more!
+

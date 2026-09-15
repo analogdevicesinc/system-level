@@ -1,0 +1,351 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/ad-fmcdaq3-ebz/quickstart/kcu105
+
+.. _ad-fmcdaq3-ebz quickstart kcu105:
+
+AD-FMCDAQ3-EBZ Kintex UltraScale KCU105 Quick Start Guide
+=========================================================
+
+This guide provides some quick instructions (still takes awhile to download, and
+set things up) on how to setup the AD-FMCDAQ3-EBZ on :xilinx:`KCU105 <KCU105>`.
+
+Prerequisites
+-------------
+
+Required Hardware
+~~~~~~~~~~~~~~~~~
+
+- :xilinx:`Xilinx KCU105 <KCU105>` Rev 1.0 or later board
+-
+  :adi:`AD-FMCDAQ3-EBZ <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/eval-fmcdaq3-ebz.html>`
+  FMC board
+- Ethernet cable
+- 2 x Micro-USB cables
+
+Required Software
+~~~~~~~~~~~~~~~~~
+
+- You need a Host PC (Windows or Linux)
+- A UART terminal (Putty/Tera Term/Minicom, etc.), Baud rate 115200 (8N1)
+- Xilinx Vivado 2019.1 or later - Xilinx Software Commandline Tool(XCST)
+- Bitfile and Linux ELF image
+- IIO Scope
+  `Download <https://github.com/analogdevicesinc/iio-oscilloscope/releases>`__
+
+.. tip::
+
+   :dokuwiki:`Pre-built Images for KCU105. </resources/tools-software/linux-drivers/platforms/microblaze_loading>`
+
+Setting up the hardware (KCU105)
+--------------------------------
+
+You will need to:
+
+::
+
+   -Get the [[xilinx>KCU105 | Xilinx KCU105]] board
+
+   {{ resources:eval:user-guides:ad-fmcdaq3-ebz:quickstart:kcu105_daq3.jpg?500 }}
+
+::
+
+   -Connect the AD-FMCDAQ3-EBZ FMC board to the FPGA carrier **FMC1** HPC socket
+   (**J22**)
+   -Connect USB UART J4 (Micro USB) and USB JTAG J87 (Micro USB) to your host PC
+   -Make sure you have pin 6 of SW15 on 0 and pin 5 on 0 to be able to use the
+   board with JTAG (see
+   [[xilinx>support/documents/boards_and_kits/kcu105/ug917-kcu105-eval-bd.pdf|UG917 - KCU105 Board User Guide]] > FPGA Configuration section)
+   -Plug the Power Supply into 12V Power input connector (J15)
+   -Turn it on
+
+.. todo:: .. include: /wiki/common.rst
+
+   :start-after: .. start-esd-warning
+   :end-before: .. end-esd-warning
+
+Programming the FPGA
+--------------------
+
+There are two ways of loading the design.
+
+One is using the XCST command line, and the second method is to run the Tcl
+script which takes care of loading the bit file and the Linux image.
+
+If **no target** is shown, then check the following:
+
+#. Check if your cable is connected to JTAG and is a data cable and not just a
+   power-giving cable
+#. Check if you have the cable drivers installed. To do so, run this script with
+   *Administrator* rights C:\\Xilinx\\Vivado\\\
+   *your_version*\\data\\xicom\\cable_drivers\\nt64\\\ ``install_drivers.cmd``
+   and then check the log created in the same folder
+   ``install_drivers_wrapper.log``. If everything is successful here (no
+   errors), then you"re good to go. More details can be found
+   `here in this thread <https://support.xilinx.com/s/question/0D52E00006hpN92SAE/trouble-with-cable-drivers-vivado-20201?language=en_US#:~:text=Right%20click%20on%20%22install_digilent.exe%22%20and%20%22Run%20as%20administrator%22.%20Make%20sure%20at%20this%20point%20that%20the%20cable%20is%20DISCONNECTED%20from%20the%20machine.%C2%A0>`__
+   and
+   `here in this Xilinx article <https://support.xilinx.com/s/article/1013230?language=en_US>`__.
+
+1. Loading the design using XSCT command line
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In Windows, run the XSCT terminal as **Administrator** from start menu → Xilinx
+Design Tools → Xilinx Software Command Line Tool → Run as Administrator.
+
+::
+
+   xsct% cd /to/path/where/you/have/the/files
+
+   xsct% connect
+   tcfchan#1
+
+   xsct% fpga -f system_top.bit
+   100%   10MB   1.7MB/s  00:06
+
+   xsct% targets
+     1* xcku040
+        2  MicroBlaze Debug Module at USER2
+           3  MicroBlaze #0 (Running)
+        4  Legacy Debug Hub
+
+   xsct% target 3
+
+   xsct% targets
+     1  xcku040
+        2  MicroBlaze Debug Module at USER2
+           3* MicroBlaze #0 (Running)
+        4  Legacy Debug Hub
+
+   xsct% dow simpleImage.kcu105_fmcdaq3
+   Downloading Program -- C:/Users/PPop/Downloads/2018_r1_kcu105_fmcdaq3/simpleImage.kcu105_fmcdaq3
+           section, .text: 0x80000000 - 0x803e38e7
+           section, __fdt_blob: 0x803e38e8 - 0x803eb8e7
+           section, .rodata: 0x803ec000 - 0x8053363f
+           section, .builtin_fw: 0x80533640 - 0x80533663
+           section, __ksymtab: 0x80533664 - 0x805392c3
+           section, __ksymtab_gpl: 0x805392c4 - 0x8053d873
+           section, __ksymtab_strings: 0x8053d874 - 0x80554ea9
+           section, __param: 0x80554eac - 0x80555383
+           section, __modver: 0x80555384 - 0x80555fff
+           section, __ex_table: 0x80556000 - 0x80557687
+           section, .notes: 0x80557688 - 0x805576ab
+           section, .sdata2: 0x805576ac - 0x80557fff
+           section, .data: 0x80558000 - 0x8057bd1f
+           section, .init.text: 0x8057c000 - 0x8059caab
+           section, .init.data: 0x8059cac0 - 0x8059eabf
+           section, .init.ivt: 0x8059eac0 - 0x8059eae7
+           section, .init.setup: 0x8059eae8 - 0x8059ee2f
+           section, .initcall.init: 0x8059ee30 - 0x8059f213
+           section, .con_initcall.init: 0x8059f214 - 0x8059f21b
+           section, .init.ramfs: 0x8059f21c - 0x808b30c3
+           section, .bss: 0x808b4000 - 0x808cd29b
+   100%    8MB   0.2MB/s  00:42
+   Setting PC to Program Start Address 0x80000000
+   Successfully downloaded C:/Users/PPop/Downloads/2018_r1_kcu105_fmcdaq3/simpleImage.kcu105_fmcdaq3
+   xsct% Info: MicroBlaze #0 (target 3) Stopped at 0x0 (Stop)
+
+   xsct% con
+   Info: MicroBlaze #0 (target 3) Running
+
+   xsct% disconnect
+   xsct% Info: tcfchan#1 closed
+
+2. Loading the design using tcl script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Run Vivado TCL Shell from Windows start menu → Xilinx Design Suite → Vivado →
+Vivado TCL Shell. (In Linux, source the settings.sh file first)
+
+::
+
+   ****** Vivado v2021.1 (64-bit)
+     **** SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+     **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+       ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+   Vivado% cd /to/path/where/you/have/the/files
+   Vivado% xsct run.tcl
+
+   ****** Xilinx hw_server v2021.1
+     **** Build date : Jun 10 2021 at 20:17:23
+       ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+   INFO: hw_server application started
+   INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+   Vivado%
+
+.. tip::
+
+   In case of using older releases of VIVADO **xsct run.tcl** command is
+   replaced by **xmd -tcl run.tcl**
+
+Remote IIO Oscilloscope
+~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   -Plug your ethernet cable into the RJ45 ethernet connector (J21)
+   -Observe kernel and serial console messages on your UART terminal
+   * You will see two COM ports in application. Choose the COM port that says " //Welcome to Buildroot// " and asks for a "//buildroot login//" (user) and then a password
+
+.. list-table::
+   :header-rows: 1
+
+   * - user
+     - password
+   * - root
+     - analog
+
+::
+
+   Ramdisk addr 0x00000000,
+   Compiled-in FDT at 803e38e8
+   Linux version 4.9.0-g87beab60b2b9 (dragos@debian) (gcc version 5.2.0 (crosstool-NG 1.20.0) ) #162 Tue May 8 1                                                                                                                                1:53:50 EEST 2018
+   setup_cpuinfo: initialising
+   setup_cpuinfo: Using full CPU PVR support
+   wt_msr_noirq
+   setup_memory: max_mapnr: 0x30000
+   setup_memory: min_low_pfn: 0x80000
+   setup_memory: max_low_pfn: 0xb0000
+   setup_memory: max_pfn: 0xb0000
+   Zone ranges:
+     DMA      [mem 0x0000000080000000-0x00000000afffffff]
+     Normal   empty
+   Movable zone start for each node
+   Early memory node ranges
+     node   0: [mem 0x0000000080000000-0x00000000ffffefff]
+   Initmem setup node 0 [mem 0x0000000080000000-0x00000000ffffefff]
+   On node 0 totalpages: 196608
+   free_area_init_node: node 0, pgdat 8057b3e0, node_mem_map 808d5000
+     DMA zone: 1536 pages used for memmap
+     DMA zone: 0 pages reserved
+     DMA zone: 196608 pages, LIFO batch:31
+   pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+   pcpu-alloc: [0] 0
+   Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 195072
+   Kernel command line: console=ttyUL0,115200
+   PID hash table entries: 4096 (order: 2, 16384 bytes)
+   Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+   Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+   Memory: 769632K/786432K available (3982K kernel code, 143K rwdata, 1448K rodata, 3292K init, 100K bss, 16800K                                                                                                                                 reserved, 0K cma-reserved)
+   Kernel virtual memory layout:
+     * 0xffffe000..0xfffff000  : fixmap
+     * 0xffffe000..0xffffe000  : early ioremap
+     * 0xb0000000..0xffffe000  : vmalloc & ioremap
+   NR_IRQS:128
+   /amba_pl/interrupt-controller@41200000: num_irq=16, edge=0x410
+   /amba_pl/timer@41c00000: irq=1
+   clocksource: xilinx_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+   xilinx_timer_shutdown
+   xilinx_timer_set_periodic
+   sched_clock: 32 bits at 100MHz, resolution 10ns, wraps every 21474836475ns
+   Calibrating delay loop... 49.35 BogoMIPS (lpj=246784)
+   pid_max: default: 32768 minimum: 301
+   Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+   Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+   devtmpfs: initialized
+   clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+   NET: Registered protocol family 16
+   clocksource: Switched to clocksource xilinx_clocksource
+   NET: Registered protocol family 2
+   TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+   TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+   TCP: Hash tables configured (established 8192 bind 8192)
+   UDP hash table entries: 512 (order: 1, 8192 bytes)
+   UDP-Lite hash table entries: 512 (order: 1, 8192 bytes)
+   NET: Registered protocol family 1
+   RPC: Registered named UNIX socket transport module.
+   RPC: Registered udp transport module.
+   RPC: Registered tcp transport module.
+   RPC: Registered tcp NFSv4.1 backchannel transport module.
+   random: fast init done
+   Skipping unavailable RESET gpio -2 (reset)
+   futex hash table entries: 256 (order: -1, 3072 bytes)
+   workingset: timestamp_bits=30 max_order=18 bucket_order=0
+   jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+   Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+   io scheduler noop registered
+   io scheduler deadline registered
+   io scheduler cfq registered (default)
+   Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+   40600000.serial: ttyUL0 at MMIO 0x40600000 (irq = 5, base_baud = 0) is a uartlite
+   console [ttyUL0] enabled
+   brd: module loaded
+   Xilinx SystemACE device driver, major=254
+   libphy: Fixed MDIO Bus: probed
+   xilinx_axienet 40e00000.ethernet: TX_CSUM 2
+   xilinx_axienet 40e00000.ethernet: RX_CSUM 2
+   libphy: Xilinx Axi Ethernet MDIO: probed
+   i2c /dev entries driver
+   i2c i2c-0: Added multiplexed i2c bus 1
+   at24 2-0050: 256 byte 24c02 EEPROM, writable, 1 bytes/write
+   i2c i2c-0: Added multiplexed i2c bus 2
+   i2c i2c-0: Added multiplexed i2c bus 3
+   i2c i2c-0: Added multiplexed i2c bus 4
+   pca954x 0-0075: registered 4 multiplexed busses for I2C mux pca9544
+   spi0.0 supply vcc not found, using dummy regulator
+   axi_adxcvr 44a50000.axi-ad9680-adxcvr: cpll: fb_div_N1=5
+   cpll: fb_div_N2=2
+   cpll: refclk_div=1
+   axi_adxcvr 44a50000.axi-ad9680-adxcvr: cpll: fb_div_N1=5
+   cpll: fb_div_N2=2
+   cpll: refclk_div=1
+   axi_adxcvr 44a50000.axi-ad9680-adxcvr: AXI-ADXCVR-RX (16.01.a) using GTH3 at 0x44A50000 mapped to 0xb0190000.                                                                                                                                 Number of lanes: 4.
+   axi_adxcvr 44a60000.axi-ad9152-adxcvr: qpll: fb_div=20, qpll: refclk_div=1
+   axi_adxcvr 44a60000.axi-ad9152-adxcvr: qpll: fb_div=20, qpll: refclk_div=1
+   axi_adxcvr 44a60000.axi-ad9152-adxcvr: AXI-ADXCVR-TX (16.01.a) using GTH3 at 0x44A60000 mapped to 0xb01b0000.                                                                                                                                 Number of lanes: 4.
+   NET: Registered protocol family 17
+   ad9680 spi0.2: AD9680 PLL LOCKED
+   cf_axi_adc 44a10000.axi-ad9680-hpc: ADI AIM (10.00.b) at 0x44A10000 mapped to 0xb01f0000, probed ADC AD9680 a                                                                                                                                s MASTER
+   cf_axi_dds 44a04000.axi-ad9152-hpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.00.b) at 0x44A04000 mapped to 0xb                                                                                                                                0210000, probed DDS AD9152
+   Freeing unused kernel memory: 3292K (8057c000 - 808b3000)
+   This architecture does not have kernel memory protection.
+   Starting logging: OK
+   Initializing random number generator... done.
+   Starting network: OK
+   Starting network...
+   udhcpc: started, v1.25.0
+   net eth0: Promiscuous mode disabled.
+   net eth0: Promiscuous mode disabled.
+   udhcpc: sending discover
+   xilinx_axienet 40e00000.ethernet eth0: Link is Down
+   xilinx_axienet 40e00000.ethernet eth0: Link is Up - 1Gbps/Full - flow control off
+   udhcpc: sending discover
+   udhcpc: sending discover
+   udhcpc: sending select for 10.48.65.107
+   udhcpc: lease of 10.48.65.107 obtained, lease time 21600
+   deleting routers
+   adding dns 10.32.51.110
+   adding dns 10.64.53.110
+   Starting dropbear sshd: OK
+   Starting IIO Server Daemon
+
+   Welcome to Buildroot
+   buildroot login: root
+   Password:
+
+Run **ifconfig** command in your UART terminal and get IP of the board .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/ad-fmcdaq3-ebz/quickstart/KCU105_console_ifconfig.png
+   :width: 600px
+
+::
+
+   # ifconfig
+
+   eth0      Link encap:Ethernet  HWaddr 00:0A:35:00:00:01
+             inet addr:your_board_ip  Bcast:        Mask:255.255.255.0
+             UP BROADCAST RUNNING  MTU:1500  Metric:1
+             RX packets:135 errors:0 dropped:0 overruns:0 frame:0
+             TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+             collisions:0 txqueuelen:1000
+             RX bytes:19104 (18.6 KiB)  TX bytes:1026 (1.0 KiB)
+   #
+
+Open IIO Oscilloscope application and type **ip:**\ board_ip in the URI tab .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/ad-fmcdaq3-ebz/quickstart/iio_scope_board_ip-kcu105.png
+
+You should see two screens:
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/ad-fmcdaq3-ebz/quickstart/print_daq3_iio_osc_zcu102.png
+   :width: 1000px
+
+More Information
+----------------
+
+- :dokuwiki:`AD-FMCDAQ3-EBZ User Guide </resources/eval/user-guides/ad-fmcdaq3-ebz>`
+- :dokuwiki:`AD-FMCDAQ3-EBZ HDL Reference Design </resources/eval/user-guides/ad-fmcdaq3-ebz/reference_hdl>`

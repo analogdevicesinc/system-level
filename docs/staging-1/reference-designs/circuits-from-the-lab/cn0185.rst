@@ -1,0 +1,106 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0185
+
+.. _circuits-from-the-lab cn0185:
+
+EVAL-CN0185-EB1Z Overview
+=========================
+
+:adi:`CN0185` is a complete low cost implementation of an analog-to-analog
+isolator. The circuit provides isolation of 2500 V rms (1 minute per UL 1577).
+
+The circuit is based on the :adi:`AD7400A` , a second-order, sigma-delta (Σ-Δ)
+modulator with a digitally isolated 1-bit data stream output. The isolated
+analog signal is recovered with a fourth-order active filter based on the dual,
+low noise, rail-to-rail :adi:`AD8646` op amp. With the :adi:`ADuM5000` as the
+power supply for the isolated side, the two sides are completely isolated and
+use only one power supply for the system. The circuit has 0.05% linearity and
+benefits from the noise shaping provided by the modulator of the :adi:`AD7400A`
+and the analog filter. The applications of the circuit include motor control and
+shunt current monitoring, and the circuit is also a good alternative to
+isolation systems based on optoisolators.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0185-hw-1024.jpg
+
+Equipment Needed (Equivalents Can be Substituted)
+-------------------------------------------------
+
+- EVAL-CN0185-EB1Z Board
+- A multifunction calibrator (dc source), Fluke 5700A
+- A digital multimeter, Agilent 3458A, 8.5 digits
+- A spectrum analyzer, Agilent 4396B
+- A function generator, Agilent 33250A
+- Oscilloscope
+- A power supply, +6 V
+
+General Setup
+-------------
+
+- Connect the +6V power supply to the CN0185 power terminal J4
+- Connect DC source or Function generator to VIN+ and VIN-
+- Connect digital multimeter / spectrum analyzer or oscilloscope to output
+  terminal
+
+Test Setup Functional Block Diagram
+-----------------------------------
+
+DC Input Voltage Measurements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/dc.png
+
+Frequency Response Measurements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/freqres.png
+
+| .. note::
+
+   Signal Generator Settings:
+   | Output Waveform: Sinewave
+   | Amplitude: ±20mV (40mVp-p)
+   | DC Offset: 0
+
+Connectors and Jumper Configurations
+------------------------------------
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0185connectors.png
+
+- Connect the +6V power supply to this screw terminal (J4)
+- Connect the GND terminal of the +6V power supply to this screw terminal (J4)
+- Connect the positive analog input signal to this SMB connector (J1)
+- Connect the negative analog input signal to this SMB connector (J2)
+- LK2 jumper Pins 1 and 2 provides the connection of the positive analog input
+  signal to the AD7400 and pins 2 and 3 puts the input to ground
+- LK1 jumper Pins 1 and 2 provides the connection of the negative analog input
+  signal to the AD7400 and pins 2 and 3 puts the input to ground
+- Connect the Digital multimeter if measuring dc input and Spectrum
+  analyzer/oscilloscope if measuring frequency response to this SMB connector
+  (J3)
+
+.. note::
+
+   The output is available through the J3 SMB connector or test point OUT
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+
+   :adi:`EVAL-CN0185-EBZ Design & Integration Files <media/en/reference-design-documentation/design-integration-files/CN0185-DesignSupport.zip>`
+
+   - Schematics
+   - PCB Layout
+   - Bill of Materials
+   - PADS project
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0185-EB1Z?&v=Rev B>` to receive all these great
+   benefits and more!
+
+// End of document //

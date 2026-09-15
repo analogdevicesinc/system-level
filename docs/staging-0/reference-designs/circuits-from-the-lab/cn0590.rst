@@ -1,0 +1,123 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0590
+
+.. _circuits-from-the-lab cn0590:
+
+CN0590 User Guide
+=================
+
+Overview
+--------
+
+The CN0590 is a plug and play USB 2.0 high speed isolator that can be used with
+any modern type-C device supporting USB 2 connectivity. The CN0590 supports
+fully compatible power and signal isolation up to 2.5 W and 480 Mbps,
+respectively as mandated by the USB 2 standard.
+
+The system is rated up to 2.5 kVrms isolation voltage per UL1577 and features a
+system creepage and clearance of 3.1 mm limited by the ADuM3070 device. This
+system is suitable for functional isolation or basic and reinforced 300 Vrms CAT
+II isolation applications according to IEC61010 and IEC62368 standard in many
+industrial, energy, and instrumentation applications.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0590/eval-cn0590-ebz_angle.jpg
+   :width: 600px
+
+Simplified Block Diagram
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0590/cn0590_simplified_block_diagram.png
+   :width: 1000px
+
+--------------
+
+Components
+----------
+
+USB Host Plug (P1)
+~~~~~~~~~~~~~~~~~~
+
+The USB host controller must be connected to the USB-C connector (P1).
+
+USB Peripheral Port (P6)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The USB peripheral must be connected to the USB-C connector (P6).
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0590/cn0590_board_image.png
+   :width: 800px
+
+--------------
+
+Setup and Test
+--------------
+
+Equipment Needed
+~~~~~~~~~~~~~~~~
+
+- EVAL-CN0590-EBZ evaluation board
+- Host PC (must support High-Speed USB 2.0)
+- USB flash drive (must support High-Speed USB 2.0)
+- USB Type C cable (must support both power and data signaling)
+- Type C male to Type A female adapter
+
+To test the USB 2.0 functionality of the EVAL-CN0590-EBZ, follow below steps:
+
+1. Using the type C to type A adapter, connect the USB flash drive to **P6** of
+   EVAL-CN0590-EBZ.
+
+2. Connect the type C USB cable to **P1** of the EVAL-CN0590-EBZ and then the
+   other end of the cable to the computer USB port. Wait for the USB flash drive
+   to be detected on the computer.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0590/high_speed_data_transfer_test_setup.png
+   :width: 1000px
+
+.. note::
+
+   *Figure 1: High Speed Data Transfer Test Setup*
+
+3. Validate the speed of the USB flash drive using a USB device tree viewer.
+   Figure 2 shows an example device tree of a high-speed USB device.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0590/high-speed_device_connection_speed.png
+   :width: 2000px
+
+.. note::
+
+   *Figure 2: Example USB Device Tree Viewer Screen for a High-Speed USB Device*
+
+--------------
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+
+   :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0590/cn0590-designsupport.zip`
+
+   - Schematics
+   - PCB Layout
+   - Bill of Materials
+   - Allegro Project
+
+Useful Links
+------------
+
+- :adi:`CN0590 Circuit Note Page <CN0590>`
+- :adi:`ADuM3166 Product Page <ADuM3166>`
+- :adi:`MAX77958 Product Page <MAX77958>`
+- :adi:`MAX20333 Product Page <MAX20333>`
+- :adi:`ADuM1252 Product Page <ADuM1252>`
+- :adi:`MAX14606 Product Page <MAX14606>`
+
+Hardware Registration
+---------------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0590-EBZ?&v=RevA>` to receive all these great benefits
+   and more!
+
+

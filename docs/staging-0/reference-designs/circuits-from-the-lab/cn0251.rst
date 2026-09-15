@@ -1,0 +1,280 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0251
+
+.. _circuits-from-the-lab cn0251:
+
+CN-0251 Software User Guide
+===========================
+
+Overview
+--------
+
+:adi:`CN-0251 <CN0251>` is a flexible signal conditioning circuit for processing
+signals of wide dynamic range, varying from several mV p-p to 20 V p-p. The
+circuit provides the necessary conditioning and level shifting and achieves the
+dynamic range using the internal programmable gain amplifier (PGA) of the high
+resolution analog-to-digital converter (ADC).
+
+A ±10 V full-scale signal is very typical in process control and industrial
+automation applications; however, in some situations, the signal can be as small
+as several mV. Attenuation and level shifting is necessary to process a ±10 V
+signal with modern low voltage ADCs. However, amplification is needed for small
+signals to make use of the dynamic range of the ADC. Therefore, a circuit with a
+programmable gain function is desirable when the input signal varies over a wide
+range.
+
+In addition, small signals may have large common-mode voltage swings; therefore,
+high common-mode rejection (CMR) is required. In some applications, where the
+source impedance is large, high impedance is also necessary for the analog
+front-end input circuit.
+
+This user guide will discuss how to use the evaluation software to collect data
+from the :adi:`EVAL-CN0251-SDPZ` Evaluation Board **(CN-0251 Board)**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-simplified_schematic.png
+
+Required Equipment
+------------------
+
+- :adi:`EVAL-SDP-CB1Z` Controller Board ( SDP-B Board )
+- :adi:`EVAL-CN0251-SDPZ` Evaluation Board ( CN-0251 Board )
+- +6V Power Supply
+- ±15V Dual Power Supply
+- :dokuwiki:`CN-0251 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0251/>`
+- :adi:`ADALM2000 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/ADALM2000.html>`
+- :external+scopy:doc:`index`
+
+   - :download:`https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/siggen.zip`
+
+- PC with the following *Minimum Requirements*
+
+  - Windows XP Service Pack 2 (32-bit)
+  - 2xUSB Type A Port
+  - Processor rated at 1GHz or faster
+  - 512 MB RAM and 500 MB available hard disk space
+
+- USB Type A to USB Mini-B cable
+- USB Type A to USB Micro-B cable
+
+General Setup
+-------------
+
+- The :adi:`EVAL-CN0251-SDPZ` (CN-0251 Board) connects to the
+  :adi:`EVAL-SDP-CB1Z` (SDP-B Board) via the 120-Pin connector at J5 .
+- The +6V Power Supply powers the :adi:`EVAL-CN0251-SDPZ <EVAL-CN0288-SDPZ>`
+  (CN-0251 Board) via the screw terminals at J3 .
+- The ±15V Dual Power supply powers the :adi:`EVAL-CN0251-SDPZ` (CN-0251 Board)
+  via the screw terminals at J4 .
+- The :adi:`EVAL-SDP-CB1Z` (SDP-B Board) connects to the PC via the USB Type A
+  to USB Mini-B cable.
+- The
+  :adi:`ADALM2000 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/ADALM2000.html>`
+  connects to the PC via the USB Type-A to USB Micro-B cable.
+
+- The
+  :adi:`ADALM2000 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/ADALM2000.html>`
+  connects to the :adi:`EVAL-CN0251-SDPZ` (CN-0251 Board) via the screw
+  terminals at J1 .
+
+  .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-test_setup.png
+
+--------------
+
+Connecting the Hardware
+-----------------------
+
+#. Ensure the jumpers are populated on the :adi:`EVAL-CN0251-SDPZ` **(CN-0251
+   Board)** as depicted in the figure below.
+
+- JP1 and JP2 configure the analog inputs for single-ended or differential
+  inputs
+
+- JP3 and JP4 configure the gain of the :adi:`AD8475` to be 0.4x or 0.8x
+
+  .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-jumpers.png
+
+#. Connect the
+   :adi:`ADALM2000 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/ADALM2000.html#eb-overview>`
+   to the :adi:`EVAL-CN0251-SDPZ` **(CN-0251 Board)** as depicted in the figures
+   below.
+
+- The waveform outputs should be connected to J1:2 (IN1-) and J1:3 (IN2+) of the
+  CN-0251 Board .
+
+- The
+  :adi:`ADALM2000 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/ADALM2000.html#eb-overview>`
+  ground should be connected to AGND of the CN-0251 Board .
+
+  .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-discovery.png
+
+#. Connect the +6V Power Supply to the screw terminal at **J3**.
+#. Connect the ±15V Power Supply to the screw terminal at **J4**.
+#. Connect the **SDP-B Board** to the **CN-0251 Board**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-discovery_board.png
+
+--------------
+
+Getting Started with ADALM2000 and Scopy
+----------------------------------------
+
+#. Use the USB Type-A to USB Micro-B cable to connect the
+   :adi:`ADALM2000 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/ADALM2000.html#eb-overview>`
+   to the PC. A detailed guide on how to start ADALM2000 and install
+   :external+scopy:doc:`index` can be found
+   :dokuwiki:`here </university/tools/m2k/users>`.
+
+#. Upon connecting the ADALM2000 to Scopy, load the project file named
+   *SigGen.ini* then click on the **Signal Generator** tab on the left pane.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/scopy.png
+      :width: 600px
+
+#. Click the **Run button**.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/run.png
+      :width: 80px
+
+--------------
+
+Using the Evaluation Software
+-----------------------------
+
+Software Control and Indicator Descriptions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-software.png
+
+**Connect/Reconnect Button**
+When this button is pressed, the SDP-B Board makes a USB connection to the
+CN-0288 Board.  A connection to the SDP-B Board must be made to use the
+software.
+
+**Capture Data Button**
+When this button is pressed, the SDP-B Board will collect conversion data and
+present the acquisitions in the chart.
+
+**Save Data Button**
+When this button is pressed, the software will save the data collected to a tab
+delimited ASCII spreadsheet file.
+
+**Control Tabs**
+
+- *Data* - Clicking this tab brings the data collection chart to the front.
+- *Analysis* - Clicking this tab brings the data analysis histogram to the
+  front.
+- *Configure System* - Clicking this tab brings the system configuration
+  control to the front.
+- *SDP Board Information* - Clicking this tab brings the SDP Board Information
+  indicators to the front.
+
+**Input Channel Drop-Down Menu**
+Clicking this drop-down menu selects the channel to capture data from.
+
+**Input Range Drop-Down Menu**
+Clicking this drop-down menu selects the analog input voltage range for the
+channel selected by the Input Range Drop-Down Menu .
+
+
+**AD8475 Gain Indicator**:
+This indicator displays the gain setting required from the :adi:`AD8475`.
+
+.. important::
+
+   Jumpers JP3 and JP4 on the :adi:`EVAL-CN0251-SDPZ` (CN-0251 Board) must be
+   populated to reflect the value displayed by this indicator
+
+**AD7192 Gain Indicator**:
+This indicator displays the gain currently programmed into the
+:adi:`AD7192 <AD7192>`.
+
+**Samples to Capture Control**:
+This numerical control sets the number of samples to capture once the
+Capture Data Button is pressed.
+
+**Display Unit Drop-Down Menu**:
+Clicking this drop-down menu allows you to select chart y-axis units to
+display.
+
+**Chart Controls**:
+These controls allow the user to zoom-in, zoom-out, and pan through the
+data collected.
+
+**System Status String Indicator**:
+This indicator displays a message to the user detailing the current state
+of the software.
+
+Establishing a USB Connection Link
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Follow the instructions to properly install the software and connect the
+   hardware as described in the previous sections.
+#. Open the file named **CN0251.exe** in the installation directory.
+
+   .. note::
+
+      If the software was installed to the default location it will be found at
+      **C:\\Program Files\\Analog Devices\\CN0251\\CN0251.exe**
+
+#. Click the **Connect/Reconnect Button**. A window with a progress bar will
+   load.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-software-wait.png
+
+#. Upon success, the **System Status String Indicator** will display *Ready to
+   Capture Data*
+
+Capturing Data
+~~~~~~~~~~~~~~
+
+#. **Establish a USB Connection Link**.
+#. Click the **Input Channel Drop-Down Menu** to select the channel to convert
+
+#. Click the **Input Range Drop-Down Menu** to select the range of the analog
+   input voltage.
+
+   .. important::
+
+      Changing this control will change the **AD8475 Gain Indicator**. Please
+      ensure that **JP3** and **JP4** on the :adi:`EVAL-CN0251-SDPZ` **(CN-0251
+      Board)** are populated to reflect the gain displayed by the **AD8475 Gain
+      Indicator**.
+
+#. Input the number of samples to capture into the **Samples to Capture
+   Control**
+
+#. Click the **Capture Data Button** and wait until acquisition is complete.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0251/cn0251-capture-wait.png
+
+--------------
+
+Changing the Display Units
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click the **Display Unit Drop-Down Menu** to select the units to display.
+
+Saving Data to a Spreadsheet File
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. **Establish a USB Connection Link**.
+#. **Capture Data**.
+#. Click the **Save Data Button**.
+#. Browse to the directory location where the spreadsheet file is to be saved.
+#. Name the file.
+#. Click the **OK Button**.
+
+| .. note::
+
+   | The software saves the spreadsheet file as ASCII text with columns separated by tabs.
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0251-SDPZ?&v=Rev A>` to receive all these great
+   benefits and more!
+
+// End of document //

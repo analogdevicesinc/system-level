@@ -1,0 +1,658 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0235
+
+.. _circuits-from-the-lab cn0235:
+
+CN-0235 Software User Guide
+===========================
+
+EVAL-CN0235-EB1Z Overview
+-------------------------
+
+:adi:`CN0235` is a Fully Isolated Lithium Ion Battery Monitoring System. Lithium
+ion (Li-Ion) battery stacks contain a large number of individual cells that must
+be monitored correctly in order to enhance the battery efficiency, prolong the
+battery life, and ensure safety.
+
+The 6-channel :adi:`AD7280A` devices act as the primary monitor providing
+accurate voltage measurement data to the System Demonstration Platform (SDP-B)
+evaluation board, and the 6-channel :adi:`AD8280` devices act as the secondary
+monitor and protection system. Both devices can operate from a single wide
+supply range of 8V to 30 V and operate over the industrial temperature range of
+−40°C to +105°C
+
+The :adi:`AD7280A`\ contains an internal ±3 ppm reference that allows a cell
+voltage measurement accuracy of ±1.6 mV. The ADC resolution is 12 bits and
+allows conversion of up to 48 cells within 7 μs. It also has cell balancing
+interface outputs designed to control external FET transistors to allow
+discharging of individual cells and forcing all the cells in the stack to have
+identical voltages.
+
+The :adi:`AD8280` functions independently of the primary monitor and provides
+alarm functions indicating out of tolerance conditions. It contains its own
+reference and LDO, both of which are powered completely from the battery cell
+stack. The reference, in conjunction with external resistor dividers, is used to
+establish trip points for the over/undervoltages. Each cell channel contains
+programmable deglitching (D/G) circuitry to avoid alarming from transient input
+levels.
+
+Required Equipment
+~~~~~~~~~~~~~~~~~~
+
+- :adi:`EVAL-CN0235-SDPZ` Evaluation Board
+- :adi:`EVAL-SDP-CB1Z` Evaluation Board
+- :dokuwiki:`CN0235 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0235>`
+
+  - (supplied with provided CD in kit)
+
+- USB Type-A plug to USB Mini-B plug cable
+- +6V ``Wall Wart``
+- PC with minimum requirement:
+
+  - Windows XP SP2, Windows Vista or Windows 7 Business/Enterprise/Ultimate
+    editions
+  - Intel Pentium processor (x86 compatible), 1GHz or faster
+  - 512 MB RAM and 2 GB available hard disk space
+  - .NET 3.5 Framework
+
+General Setup
+~~~~~~~~~~~~~
+
+- The :adi:`EVAL-CN0235-SDPZ <CN0235>` (CN0235 Board) connects to the
+  :adi:`EVAL-SDP-CB1Z` (SDP-B board)
+- The :adi:`EVAL-CN0235-SDPZ <CN0235>` (CN0235 Board) is powered by a +6V Wall
+  wart via the DC barrel jack.
+- The :adi:`EVAL-SDP-CB1Z` (SDP-B board) connects to the PC via the USB-cable.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_general_setup.png
+
+   Figure 1: CN0235 general setup
+
+#. **SDP USB connection** – Connect to PC through USB Type A to mini-USB.
+#. **Jumper Configuration** – Sets AD8280 and AD7280A configuration. Jumper
+   configuration setting is explained further on the next section.
+
+#. **VIN0 to VIN6** – Lithium Ion battery stacks input. This connector is used
+   when only one device is required.
+
+   .. note::
+
+      Please see
+      http://www.analog.com/media/en/technical-documentation/data-sheets/AD7280A.pdf
+      page 17 and page 22 for proper battery connection for different number of cells.
+
+#. **VIN7 to VIN12** – Lithium Ion battery stacks input. This connector is used
+   when two devices are required for the application.
+
+   .. note::
+
+      http://www.analog.com/media/en/technical-documentation/data-sheets/AD7280A.pdf
+      page 18 for proper battery cell connection using two devices.
+
+#. **Power Supply** – The board may be powered up using a +6V wall-wart
+   connected to the barrel jack or using an external power supply configured to
+   +6V.
+#. **SPI breakout pins** – These are the breakout pins of the digital lines
+   coming from the SDP board to AD7280A devices.
+
+Jumper Configuration
+~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+
+   * - Jumper
+     - Description
+     - Configuration
+     -
+   * -
+     - AD8280 Jumper configurations
+
+       .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_jumper_config.png
+          :width: 200px
+
+     -
+     -
+   * - NPTC
+     - Selects NTC or PTC thermistor for AD8280"s VTx inputs
+     - HIGH: PTC thermistor
+       LOW: NTC thermistor
+     -
+   * - ALARMSEL
+     - Selects three separate alarms or one shared alarm for AD8280.
+     - HIGH: Three separate alarms are selected
+       LOW: One shared alarm is selected
+     -
+   * - DGT0
+       DGT1
+       DGT2
+     - Sets the deglitch time for AD8280 for the transient immunity at cell
+       inputs.
+     - Deglitch time may be set from 0s to 10s. Refer to `AD8280 datasheet page 20 table 7 <http://http://www.analog.com/media/en/technical-documentation/data-sheets/AD8280.pdf>`__
+     -
+   * - SEL0
+       SEL1
+     - Sets the number of cells to be monitored for AD8280
+     - The number of cells to be monitored may be set to three, four, five or six. Refer to `AD8280 datasheet page 19 table 5 <http://http://www.analog.com/media/en/technical-documentation/data-sheets/AD8280.pdf>`__
+     -
+   * -
+     - AD7280A Auxiliary ADC inputs
+       configures the temperature measurement circuit
+       see
+
+       .. figure:: http://www.analog.com/media/en/technical-documentation/data-sheets/AD7280A.pdf
+
+          for more details
+
+     -
+     -
+   * - J31 : J36
+     - Sets the bottom AD7280A Aux inputs
+     - required temperature measurement
+     -
+   * - J20 : J29
+     - Sets the top AD7280A Aux inputs
+     - required temperature measurement
+     -
+   * - J30 and J12
+     - AD7280A"s Vreg and ground male headers
+     - leave it open
+     -
+
+HOW TO INSTALL THE EVALUATION SOFTWARE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Extract the file **CN0235 Eval Software.zip** and open the file
+   **setup.exe**.
+
+   .. tip::
+
+      It is recommended that you install the
+      `CN0235 Evaluation Software <ftp://ftp.analog.com/pub/cftl/CN0235/>`__
+      to the default directory path
+      **C:\\Program Files\\Analog Devices\\CN0235\\**
+      and all National Instruments products to
+      **C:\\Program Files\\National Instruments\\**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235-software-1.png
+
+#. Click **Next** to view the installation review page
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235-software-2.png
+
+#. Click **Next** to start the installation
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235-software-3.png
+
+#. Upon completion of the installation of the **CN0235 Evaluation Software**,
+   the installer for the **ADI SDP Drivers** will execute.
+
+   .. tip::
+
+      It is recommended that you close all other applications before clicking
+      **Next**. This will make it possible to update relevant system files
+      without having to reboot your computer.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235-software-4.png
+
+#. Press **``Next``** to set the installation location for the **SDP Drivers**.
+
+   .. tip::
+
+      It is recommended that you install the drivers to the default directory path
+      **C:\\Program Files\\Analog Devices\\SDP\\Drivers**
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235-sdp_installer-1.png
+
+#. Press **``Next``** to install the **SDP Drivers** and complete the
+   installation of all software. Click **``Finish``** when done.
+
+   .. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235-sdp_installer-2.png
+
+Connecting the Hardware
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_hardware.jpg
+
+***Step 1**. Connect the :adi:`EVAL-CN0235-SDPZ` to
+:adi:`EVAL-SDP-CB1Z <en/system-demonstration-platform/evaluation/index.html>`
+(SDP Board) through the 120-pin SMD connector. Nylon hardware should be used to
+firmly secure the two boards, using the holes provided at the ends of the
+120-pin connectors.
+***Step 2**. Do the jumper setting correctly based on desired setting for
+evaluation based on the jumper configuration provided on
+:dokuwiki:`Jumper Configuration section <resources/eval/user-guides/circuits-from-the-lab/cn0179#jumper_configuration>`.
+***Step 3**. Plug the mini-USB side of the cable into the mini-USB connector J1
+on :adi:`SDP Board <en/system-demonstration-platform/evaluation/index.html>` and
+leave the other side of the cable(USB Type A) floated.
+***Step 4**. Connect the battery stack on J1 and J2 based on the number of
+cells configured by the jumper SEL0 and SEL1. Refer to the jumper configuration
+on :dokuwiki:`General Setup <section/resources/eval/user-guides/circuits-from-the-lab/cn0179#general_setup>`.
+***Step 5**. Plug in the wallwart and connect it to the barrel jack connector
+of the :adi:`EVAL-CN0235-SDPZ`.
+***Step 6**. Connect the USB-Type-A side of the USB cable to the PC.
+
+USING THE EVALUATION SOFTWARE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Software Front Panel
+^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_sw_frontpanel.png
+
+#. **Connect to SDP-B Board Button**
+
+   - When this button is pressed, the SDP-B Board makes a USB connection to the
+     :adi:`CN0235 <EVAL-CN0235-SDPZ>`\ Board. A connection to the SDP-B Board must
+     be made to use the software.
+
+#. **Device Selector**
+
+   - Selects the number of device to be activated.
+
+#. **Enable Real Time ADC Reads**
+
+   - When this button is checked, continuous data acquisition by the ADC will
+     start.
+
+#. **Read ADC**
+
+   - When this button is clicked, a single capture read will be performed by the
+     ADC.
+
+#. **Software Reset**
+
+   - When this button is clicked, all the configuration changes on the evaluation
+     software will be revert back to its default state.
+
+#. **Hardware PD**
+
+   - Clicking this button will put :adi:`AD7280A` in to Full Power-Down mode,
+     meaning, both the analog and digital circuitry of the :adi:`AD7280A` will be
+     shut down, this in turn will only require 5uA maximum current. This button
+     will also disable :adi:`AD8280`.
+
+#. **Software PD**
+
+   - Clicking this button will put :adi:`AD7280A` in to Software Power-Down mode
+     which requires only 3.8 mA maximum current. This button will also disable
+     :adi:`AD8280`.
+
+#. **Software/Hardware PU**
+
+   - Clicking this button will power up the :adi:`AD7280A <ad7280A>` when it"s
+     coming from a software power down or hardware power down mode. This button
+     will not enable the :adi:`AD8280 <AD8280>`.
+
+   - **Enable/Disable AD8280**
+     This button allows the user to enable or disable the secondary battery
+     monitoring and protection system.
+
+   - **Self-Test AD8280**
+     Executes the self test feature of AD8280.
+
+   - **Save Data to File**
+     This button will execute a save data command to record the Voltage and
+     Temperature reading of both devices in codes and volts format. The file may
+     be saved as .txt or .xls.
+
+   - **Control Tabs**
+     *Voltage(Codes)/Voltage(Volts)*: Clicking either of these tabs brings out
+     the voltage reading on each device's channel in front. These tabs shows the
+     reading in either Codes or voltage format.
+
+     - *Temperature(Codes)/Temperature(Volts)*: Clicking either of these tabs
+       brings out the temperature reading in front. These tabs shows the reading in
+       either Codes or voltage format.
+       *Configure AD7280A*: Clicking this tab will bring the AD7280A
+       configurations in front.
+
+     - *Advanced*: Clicking this tab will bring out the advanced control for the
+       device in front.
+
+     - *SDP Firmware Release Info* Clicking this tab will bring out the firmware
+       information currently installed in the PC.
+
+   - **AD7280A Configuration**
+     All control tabs will be explained with more detail on the next section.
+
+   - **Warning indicators**
+     * *AD7280 Alert*: This is the primary monitor"s alert indicator. When the
+     voltage or temperature reading exceeded the user defined thresholds from the
+     AD7280A configuration, this LED will light up.
+     * *Under Voltage*: This is one of the secondary monitor"s alert indicator.
+     When the voltage or temperature reading exceeded the user defined floor
+     threshold, this LED will light up.
+     * *Over Voltage*: This is one of the secondary monitor"s alert indicator.
+     When the voltage or temperature reading exceeded the user defined ceiling
+     threshold, this LED will light up.
+
+--------------
+
+Voltage(codes) tab
+^^^^^^^^^^^^^^^^^^
+
+The voltage (code format) tab features two types of display namely the tanks and
+graph display:
+
+**Tank Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_voltagecodes_tank_display.png
+
+The tank display provides the ADC code equivalent of the reading in bar-like
+comparison for each channel. This type of display provides the latest reading of
+the Lithium ion battery cells.
+
+**Graph Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_voltagecodes_graph_display.png
+
+The graphical display tab provides the user with more features or options for
+the reading analysis.
+
+#. **Codes vs Sample graph**
+
+- This plot provides the user with the behavior of each cells in a form of a
+  line chart. This will enable the user to picture out the current behavior of
+  the each lithium ion"s cell with time.
+
+#. **Latest channel code value**
+
+- Similar with the tank display, this is the latest reading of the Lithium ion
+  battery cells by the AD7280A.
+
+#. **Plot navigator**
+
+- This allows the user to see the history of the battery reading.
+
+#. **Additional graph functions**
+
+- The three additional acts as a pointer, plot view modifier and manual plot
+  navigator respectively.
+
+A right-click on the graph will give the user additional plot and data control
+features.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_graph_display_rightclick.png
+
+--------------
+
+Voltage(Volts) tab
+^^^^^^^^^^^^^^^^^^
+
+The voltage (volts format) tab features two types of display namely the tanks
+and graph display:
+
+**Tank Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_voltagevolts_tank_display.png
+
+The tank display provides the ADC voltage equivalent of the reading in bar-like
+comparison for each channel. This type of display provides the latest reading of
+the Lithium ion battery cells.
+
+**Graph Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_voltagevolts_graph_display.png
+
+The graphical display tab provides the user with more features or options for
+the measurement analysis.
+
+#. **Codes vs Sample graph**
+
+- This plot provides the user with the behavior of each cells in a form of a
+  line chart. This will enable the user to picture out the current behavior of
+  the each lithium ion"s cell with time.
+
+#. **Latest channel code value**
+
+- Similar with the tank display, this is the latest reading of the Lithium ion
+  battery cells by the AD7280A.
+
+#. **Plot navigator**
+
+- This allows the user to see the history of the battery reading.
+
+#. **Additional graph functions**
+
+- The three additional acts as a pointer, plot view modifier and manual plot
+  navigator respectively.
+
+A right-click on the graph will give the user additional plot and data control
+features.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_graph_display_rightclick.png
+
+--------------
+
+Temperature(codes) tab
+^^^^^^^^^^^^^^^^^^^^^^
+
+The Temperature (codes format) tab features two types of display namely the
+tanks and graph display:
+
+**Tank Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_tempcodes_tank_display.png
+
+The tank display provides the ADC code temperature reading of the thermistor in
+bar-like comparison for each channel. This type of display provides the latest
+reading of the Lithium ion battery cells.
+
+**Graph Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_tempcodes_graph_display.png
+
+The graphical display tab provides the user with more features or options for
+the reading analysis.
+
+#. **Codes vs Sample graph**
+
+- This plot provides the user with the behavior of each cells in a form of a
+  line chart. This will enable the user to picture out the current behavior of
+  the each lithium ion"s cell with time.
+
+#. **Latest channel code value**
+
+- Similar with the tank display, this is the latest reading of the Lithium ion
+  battery cells by the AD7280A.
+
+#. **Plot navigator**
+
+- This allows the user to see the history of the battery reading.
+
+#. **Additional graph functions**
+
+- The three additional functions act as a pointer, plot view modifier and manual
+  plot navigator respectively.
+
+A right-click on the graph will give the user additional plot and data control
+features.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_graph_display_rightclick.png
+
+--------------
+
+Temperature(Volts) tab
+^^^^^^^^^^^^^^^^^^^^^^
+
+The temperature (volts format) tab features two types of display namely the
+tanks and graph display:
+
+**Tank Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_tempvolts_tank_display.png
+
+The tank display provides the ADC voltage equivalent of the thermistor reading
+in bar-like comparison for each channel. This type of display provides the
+latest reading of the Lithium ion battery cells.
+
+**Graph Display**
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_tempvolts_graph_display.png
+
+The graphical display tab provides the user with more features or options for
+the measurement analysis.
+
+#. **Codes vs Sample graph**
+
+- This plot provides the user with the behavior of each cells in a form of a
+  line chart. This will enable the user to picture out the current behavior of
+  the each lithium ion"s cell with time.
+
+#. **Latest channel code value**
+
+- Similar with the tank display, this is the latest reading of the Lithium ion
+  battery cells by the AD7280A.
+
+#. **Plot navigator**
+
+- This allows the user to see the history of the battery reading.
+
+#. **Additional graph functions**
+
+- The three additional acts as a pointer, plot view modifier and manual plot
+  navigator respectively.
+
+A right-click on the graph will give the user additional plot and data control
+features.
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_graph_display_rightclick.png
+
+--------------
+
+Configure AD7280A tab
+^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_config_ad7280a.png
+
+#. **Force Update**
+
+- This button updates the AD7280A configuration.
+
+#. **Voltage and Temperature Thresholds**
+
+- Sets the desired ceiling and floor value for voltage and temperature, these
+  values will determine when the warning indicators will turn on.
+
+#. **Conversion Averaging**
+
+- Sets the AD7280"s conversion averaging feature where the acquisition and
+  conversion of each cell input is repeated before the results are read back
+  through SPI interface.
+
+#. **Acquisition Time**
+
+- Sets the time required to acquire an input signal. The acquisition time is
+  calculated using the following formula: tACQ = 10 x ((Rsource + R) x C).
+  where:
+- R = 300 ohm, the resistance seen by the track and hold amplifier looking at
+  the input.
+- C = 15pF, the sampling capacitance.
+- Rsource = any extra source impedance on the analog input between external
+  capacitors and the input pins.
+- See
+
+ .. figure:: http://www.analog.com/media/en/technical-documentation/data-sheets/AD7280A.pdf
+
+    for more details.
+
+#. **Self-Test AD7280A**
+
+- This button initiates the self-test conversion of AD7280A, this feature allows
+  the ADC and reference buffer"s operation to be verified.
+  .. tip::
+
+     NOTE: The self-test conversion result varies between
+       *Code 970* and *Code 990*.
+
+#. **Cell Balance Outputs**
+
+- Sets the cell balance output of AD7280A to drive the gate of external
+  transistors providing 0V or 5V output with respect to the absolute amplitude
+  of the negative terminal of the battery cell that is being balanced.
+
+#. **Cell Balance Timers**
+
+- Sets the on-time of each Cell Balance output. The timer may be set from 0
+  minutes to 36.9 minutes with a 71.5second resolution. See
+
+ .. figure:: http://www.analog.com/media/en/technical-documentation/data-sheets/AD7280A.pdf
+
+    for additional details and example configurations of the Cell balance timer.
+
+#. **Thermistor Term Resistor**
+
+- Sets if the thermistor termination pin *AUXterm* will be used to terminate the
+  thermistor inputs for each auxiliary ADC input of the AD7280A.
+  .. note::
+
+     NOTE: Due to settling time requirements, the thermistor termination resistor option should only be used when the acquisition time of :adi:`AD7280A` is set to the highest value which is 1.6us
+
+--------------
+
+Advanced tab
+^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_advanced.png
+
+The advanced tab allows the user to read/write to the :adi:`AD7280A`\ "s
+registers.
+
+.. tip::
+
+   It is recommended to read the
+   `AD7280A datasheet <http://www.analog.com/media/en/technical-documentation/data-sheets/AD7280A.pdf>`__,
+   `AD8280 datasheet <http://www.analog.com/media/en/technical-documentation/data-sheets/AD8280.pdf>`__,
+   and :adi:`CN0235` and clearly understand the meaning and effect of the
+   configuration before writing a new value in the AD7280A"s register.
+
+|
+
+#. **Dev0 and Dev1 Register Address**
+
+- This the list of the register address of :adi:`AD7280A` and its current
+  content or configuration.
+
+#. **Read Register**
+
+- This button updates the register address array of both devices.
+
+#. **Write Register**
+
+- Use this function to write a new value to a certain register of
+  :adi:`AD7280A`.
+
+--------------
+
+SDP Firmware Release info
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: https://wiki.analog.com/_media/resources/eval/user-guides/circuits-from-the-lab/cn0235/cn0235_firmware_info.png
+
+Provides the SDP board firmware currently in use
+
+--------------
+
+Schematic, PCB Layout, Bill of Materials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. admonition:: Download
+
+   :adi:`EVAL-CN0235-SDPZ Design & Integration Files <CN0235-DesignSupport>`
+
+   - Schematics
+   - PCB Layout
+   - Bill of Materials
+   - PADS project
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest
+   videos, and more when you register your hardware.
+   :reg:`Register <EVAL-CN0235-SDPZ?&v=Rev A>` to receive all these great
+   benefits and more!
+
+// End of document
