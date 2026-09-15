@@ -9,8 +9,6 @@ Required Hardware
 **Development Kits**
 
 - :adi:`AD-GMSLCAMRPI-ADP# GMSL EV Kit Adapter Board <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/ad-gmslcamrpi-adp.html>`
-- :adi:`MAX96724 GMSL Deserializer Evaluation Kit <en/products/max96724.html>`
-- :adi:`MAX96717 GMSL Serializer Evaluation Kit <en/products/max96717.html>` or *GMSL camera*
 - `Raspberry Pi 4 Model B <https://www.raspberrypi.com/products/raspberry-pi-4-model-b>`__ *(2GB of RAM or more preferred)* or `Raspberry Pi 5 <https://www.raspberrypi.com/products/raspberry-pi-5>`__ *(2GB of RAM or more preferred)*
 
 **Supported Image Sensors & Cameras**
@@ -51,11 +49,23 @@ Board Modifications
 Using the procedure to :dokuwiki:`Set CFG Pin Levels <products/gmsl/gui/tools/set_cfg_pin_levels>`, configure the SerDes
 pair as follows:
 
-======== ============================= ==============================
-**Pin**   **MAX96717**                  **MAX96724**
-CFG0      **0** – I2C, ROR, 0x80        **0** – I2C, 0x4E
-CFG1      **7** – Coax, 6 Gbps, Pixel   **0** – Coax, GMSL2, 6Gbps
-======== ============================= ==============================
+**Serializer CFG Pins**
+
+======== ============================= ============================= =============================
+**Pin**   **MAX96717**                  **MAX9295A**                   **MAX96793**
+CFG0      **0** – I2C, ROR, 0x80        **0** – I2C, 0x80              **2** – I2C, XTAL, 0x80
+CFG1      **7** – Coax, 6 Gbps, Pixel   **0** – Coax, 6 Gbps, GMSL2    **7** – CX, 6 Gbps, Pixel   
+======== ============================= ============================= =============================
+
+
+**Deserializer CFG Pins**
+
+======== ============================= ============================= ============================= ============================= =============================
+**Pin**   **MAX96724**                  **MAX96716**                   **MAX96714**                   **MAX96712**                **MAX96792**
+CFG0      **0** – I2C, 0x4E             **1** – I2C, 0x54              **2** – I2C, 0x98              **0** – I2C, 0x52           **2** – I2C, 0x54
+CFG1      **0** – Coax, 6 Gbps, GMSL    **7** – Coax, 6 Gbps, Pixel    **7** – CX, 6 Gbps, Pixel      **0** – CXTP, GMSL1/2       **5** – CX, 12Gbps, Tunnel
+======== ============================= ============================= ============================= ============================= =============================
+
 
 .. important::
 
@@ -64,19 +74,34 @@ CFG1      **7** – Coax, 6 Gbps, Pixel   **0** – Coax, GMSL2, 6Gbps
 For more information about the default CFG configuration of each evaluation
 board, please visit the respective datasheet documentation:
 
-- :adi:`MAX96717EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96717ev.pdf>`
-- :adi:`MAX96724EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96724-bak-evk-max96724r-bak-evk.pdf>`
+.. grid::
+   :widths: 50% 50%
 
-**GMSL Deserializer Evaluation Kit**
+   .. container::
+
+      - :adi:`MAX96717EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96717ev.pdf>`
+      - :adi:`MAX9295AEVKIT Data Sheet <media/en/technical-documentation/data-sheets/max9295devkit.pdf>`
+      - :adi:`MAX96793EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96717ev.pdf>`
+
+   .. container::
+
+      - :adi:`MAX96724EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96724-bak-evk-max96724r-bak-evk.pdf>`
+      - :adi:`MAX96714EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96714evkit.pdf>`
+      - :adi:`MAX96716EVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96716evkit.pdf>`
+      - :adi:`MAX96792AEVKIT Data Sheet <media/en/technical-documentation/data-sheets/max96716evkit.pdf>`
+
+**GMSL Deserializer Evaluation Kit - MAX96724**
 
 - Slide the **SW5** switches to the ON position to enable I2C communication over the CSI bus
-- Remove the **J18** and **J19** jumpers to allow the RPi to become the Main host controller for the I2C lines
-- Make sure the **J3** is set as default **2-3** position to enable POC
 
   .. figure:: gmsl_deserializer_sw5.jpg
      :width: 200 px
 
      SW5 Switch for Enabling I2C
+
+- Remove the **J18** and **J19** jumpers to allow the RPi to become the Main host controller for the I2C lines
+- Make sure the **J3** is set as default **2-3** position to enable POC
+
 
 - Bridge **R88** - provides VDDIO to the adapter
 
@@ -85,7 +110,7 @@ board, please visit the respective datasheet documentation:
 
      R88 for VDDIO Provision
 
-**GMSL Serializer Evaluation Kit**
+**GMSL Serializer Evaluation Kit - MAX96717**
 
 - Place a jumper on the **J10** connector to enable power over the coaxial cable
 
@@ -95,7 +120,7 @@ board, please visit the respective datasheet documentation:
      J10 for Power over Coax
 
 - Bridge **R70** - provides 12V to the adapter
-- Bridge **R80** - connects MFP2 to the adapter for IMX219
+- Bridge **R80** - connects MFP2 to the adapter for camera module (**IMX219**)
 - Bridge **R66** - provides VDDIO to the adapter
 
   .. figure:: serializer_mods_samtec_res.png
@@ -103,14 +128,31 @@ board, please visit the respective datasheet documentation:
 
      Serializer Resistors
 
+.. important::
+
+   - The board modifications shown above (switches, jumpers and resistor bridges) are specific to the **MAX96724** and **MAX96717** evaluation kits.
+   - If using a different SerDes evaluation board, refer to the table below for the correct resistors and consult the board's schematic for the equivalent switch and jumper settings.
+
+**Required Resistor Bridges**
+
+============================== ========================= ===================== ========================
+**Serializers**                **12V to Adapter**        **MFP2 to Adapter**   **VDDIO to Adapter**
+MAX96717/MAX96793/MAX9295A       R70                      R80                   R66
+\
+**Deserializers**               **12V to Adapter**        \                    **VDDIO to Adapter**  
+MAX96724                         R88                      \                     R98
+MAX96716                         R79                      \                     R75
+MAX96714                         R98                      \                     R94
+MAX96712                         R9                       \                     R1
+MAX96792                         R79                      \                     R75
+============================== ========================= ===================== ========================
+
 **AD-GMSLCAMRPI-ADP# Adapter**
+
+**Serializer Adapter**
 
 - Configure the switch **S2** on the GMSL Serializer adapter for CAM1 on
   connector **P9**
-- Configure the switch **S1** on the GMSL Deserializer adapter for CAM2 on
-  connector **P6** and slide switch **S3** towards connector **P6**
-
-**Serializer Adapter**
 
 .. figure:: serializer_interposer_cfg.png
    :width: 300 px
@@ -118,6 +160,9 @@ board, please visit the respective datasheet documentation:
    Serializer Adapter Camera Switches
 
 **Deserializer Adapter**
+
+- Configure the switch **S1** on the GMSL Deserializer adapter for CAM2 on
+  connector **P6** and slide switch **S3** towards connector **P6**
 
 .. figure:: deserializer_interposer_cfg.png
    :width: 300 px
