@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 1200 1010" width="100%" style="max-width: 1180px; height: auto;">
+  <defs>
+    <marker id="linux-stack-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="10" y="10" width="1180" height="990" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="600" y="38" class="adi-title" text-anchor="middle">libiio end-to-end architecture</text>
+  <text x="600" y="58" class="adi-subtitle" text-anchor="middle">Detailed software / HDL / hardware stack from FPGA fabric to a remote client</text>
+
+  <!-- ===================== Sub-panel: Host (Xilinx Zynq) ===================== -->
+  <rect x="40" y="80" width="740" height="780" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="60" y="105" class="adi-section-label">DUT · / Xilinx Zynq 7000 / Xilinx Zynq UltraScale+ / Versal carrier</text>
+  <text x="60" y="121" class="adi-panel-sublabel">Linux on the embedded ARM with ADI HDL in the FPGA fabric</text>
+
+  <!-- ADI DataX scope: libiio + kernel + FPGA fabric IP (NOT user apps, NOT eval board) -->
+  <rect x="55" y="225" width="710" height="430" rx="10" class="adi-datax-band"/>
+  <text x="76" y="440" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 76 440)">ADI DataX™</text>
+
+  <!-- Linux user space layer -->
+  <rect x="90" y="135" width="645" height="208" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="412" y="156" class="box-text" text-anchor="middle">Linux user space</text>
+
+  <rect x="110" y="165" width="170" height="44" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="195" y="184" class="box-desc" text-anchor="middle" font-weight="bold">libiio C client</text>
+  <text x="195" y="200" class="box-desc" text-anchor="middle">iio_info, iio_readdev</text>
+
+  <rect x="290" y="165" width="170" height="44" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="375" y="184" class="box-desc" text-anchor="middle" font-weight="bold">libiio Python client</text>
+  <text x="375" y="200" class="box-desc" text-anchor="middle">pyadi-iio, scripts</text>
+
+  <rect x="555" y="165" width="170" height="44" rx="5" fill="var(--adi-fill-info)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="640" y="184" class="box-desc" text-anchor="middle" font-weight="bold">IIOD daemon</text>
+  <text x="640" y="200" class="box-desc" text-anchor="middle">re-exports via TCP / USB / serial</text>
+
+  <!-- Arrows from user-space layer down into libiio -->
+  <line x1="185" y1="209" x2="185" y2="240" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+  <line x1="375" y1="209" x2="375" y2="240" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+  <line x1="640" y1="209" x2="640" y2="240" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+
+  <!-- libiio on Linux -->
+  <rect x="100" y="240" width="625" height="100" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="412" y="262" class="box-text" text-anchor="middle">libiio on Linux</text>
+  <text x="412" y="278" class="box-desc" text-anchor="middle">platform-independent C API + bindings</text>
+
+  <rect x="120" y="288" width="180" height="42" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="210" y="306" class="box-desc" text-anchor="middle" font-weight="bold">usb: backend</text>
+  <text x="210" y="320" class="box-desc" text-anchor="middle">via libUSB</text>
+
+  <rect x="320" y="288" width="180" height="42" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="410" y="306" class="box-desc" text-anchor="middle" font-weight="bold">local: backend</text>
+  <text x="410" y="320" class="box-desc" text-anchor="middle">via /dev/iio* + sysfs</text>
+
+  <rect x="520" y="288" width="185" height="42" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="612" y="306" class="box-desc" text-anchor="middle" font-weight="bold">ip: backend</text>
+  <text x="612" y="320" class="box-desc" text-anchor="middle">to remote iiod</text>
+
+  <!-- sysfs / dev label -->
+  <text x="421" y="356" class="arrow-label" text-anchor="middle">/sys/bus/iio · /dev/iio:device0</text>
+
+  <line x1="412" y1="340" x2="412" y2="370" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+
+  <!-- Linux kernel -->
+  <rect x="100" y="370" width="625" height="170" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="412" y="392" class="box-text" text-anchor="middle">Linux kernel</text>
+  <text x="412" y="408" class="box-desc" text-anchor="middle">ADI IIO subsystem on the ARM cores</text>
+
+  <!-- AD9081 IIO driver header -->
+  <rect x="230" y="418" width="365" height="32" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="412" y="438" class="box-desc" text-anchor="middle" font-weight="bold">IIO Driver — AD9081 API</text>
+
+  <!-- Sub-driver row -->
+  <rect x="120" y="460" width="90" height="40" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="165" y="479" class="box-desc" text-anchor="middle" font-weight="bold">USB</text>
+  <text x="165" y="492" class="box-desc" text-anchor="middle">driver</text>
+
+  <rect x="216" y="460" width="90" height="40" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="261" y="479" class="box-desc" text-anchor="middle" font-weight="bold">Clock</text>
+  <text x="261" y="492" class="box-desc" text-anchor="middle">driver</text>
+
+  <rect x="312" y="460" width="90" height="40" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="357" y="479" class="box-desc" text-anchor="middle" font-weight="bold">SPI</text>
+  <text x="357" y="492" class="box-desc" text-anchor="middle">driver</text>
+
+  <rect x="408" y="460" width="90" height="40" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="453" y="479" class="box-desc" text-anchor="middle" font-weight="bold">DMA</text>
+  <text x="453" y="492" class="box-desc" text-anchor="middle">driver</text>
+
+  <rect x="504" y="460" width="100" height="40" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="554" y="479" class="box-desc" text-anchor="middle" font-weight="bold">JESD204</text>
+  <text x="554" y="492" class="box-desc" text-anchor="middle">driver</text>
+
+  <rect x="610" y="460" width="100" height="40" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="660" y="479" class="box-desc" text-anchor="middle" font-weight="bold">Network</text>
+  <text x="660" y="492" class="box-desc" text-anchor="middle">driver</text>
+
+  <!-- Frameworks strip -->
+  <rect x="120" y="505" width="290" height="28" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="265" y="523" class="box-desc" text-anchor="middle" font-weight="bold">Clock framework</text>
+
+  <rect x="420" y="505" width="290" height="28" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="565" y="523" class="box-desc" text-anchor="middle" font-weight="bold">DMA framework</text>
+
+  <line x1="412" y1="540" x2="412" y2="570" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+
+  <!-- FPGA fabric IP -->
+  <rect x="100" y="570" width="625" height="80" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="412" y="591" class="box-text" text-anchor="middle">FPGA fabric IP</text>
+
+  <rect x="120" y="603" width="105" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="172" y="624" class="box-desc" text-anchor="middle" font-weight="bold">USB</text>
+
+  <rect x="235" y="603" width="105" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="287" y="624" class="box-desc" text-anchor="middle" font-weight="bold">SPI</text>
+
+  <rect x="350" y="603" width="105" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="402" y="624" class="box-desc" text-anchor="middle" font-weight="bold">DMA</text>
+
+  <rect x="465" y="603" width="120" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="525" y="624" class="box-desc" text-anchor="middle" font-weight="bold">JESD204 IP</text>
+
+  <rect x="595" y="603" width="110" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="650" y="624" class="box-desc" text-anchor="middle" font-weight="bold">1G MAC</text>
+
+  <line x1="415" y1="650" x2="415" y2="680" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+  <text x="369" y="670" class="arrow-label">JESD204 / SPI / GPIO</text>
+
+  <!-- AD9081 eval board -->
+  <rect x="100" y="680" width="625" height="120" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="412" y="700" class="box-text" text-anchor="middle">AD9081 evaluation board</text>
+  <text x="412" y="716" class="box-desc" text-anchor="middle">Signal chain — outside DataX scope</text>
+
+  <rect x="180" y="730" width="180" height="55" rx="8" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="270" y="752" class="box-desc" text-anchor="middle" font-weight="bold">HMC7044</text>
+  <text x="270" y="768" class="box-desc" text-anchor="middle">clock generator</text>
+
+  <rect x="465" y="730" width="180" height="55" rx="8" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="555" y="752" class="box-desc" text-anchor="middle" font-weight="bold">AD9081</text>
+  <text x="555" y="768" class="box-desc" text-anchor="middle">MxFE transceiver</text>
+
+  <line x1="360" y1="757" x2="465" y2="757" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+  <text x="412" y="751" class="arrow-label" text-anchor="middle">clocks</text>
+
+  <!-- Host footer note -->
+  <text x="412" y="830" class="note-text" text-anchor="middle">IIOD exposes the local IIO context for discovery, command, and control</text>
+  <text x="412" y="847" class="note-text" text-anchor="middle">over TCP / IP, with USB and serial transports also available.</text>
+
+  <!-- ===================== Sub-panel: Remote host ===================== -->
+  <rect x="800" y="80" width="380" height="530" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="820" y="105" class="adi-section-label">Remote host</text>
+  <text x="820" y="121" class="adi-panel-sublabel">Linux · Windows · macOS · Raspberry-Pi</text>
+
+  <!-- ADI DataX scope on remote: libiio + libUSB -->
+  <rect x="815" y="335" width="350" height="220" rx="10" class="adi-datax-band"/>
+  <text x="836" y="455" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 836 455)">ADI DataX™</text>
+
+  <!-- Custom application -->
+  <rect x="820" y="140" width="340" height="180" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="990" y="161" class="box-text" text-anchor="middle">Custom application</text>
+  <text x="990" y="177" class="box-desc" text-anchor="middle">Anything that can speak libiio</text>
+
+  <!-- Two-column grid: bold label (left) + value (left-aligned, offset) -->
+  <text x="840" y="207" class="box-desc" font-weight="bold">IIO-aware</text>
+  <text x="915" y="207" class="box-desc">IIO Utils · Scopy · IIO Scope · ACE</text>
+
+  <text x="840" y="229" class="box-desc" font-weight="bold">SDR</text>
+  <text x="915" y="229" class="box-desc">SDR Console · SDR# · SDRAngel · GNU Radio</text>
+
+  <text x="840" y="251" class="box-desc" font-weight="bold">Browsers</text>
+  <text x="915" y="251" class="box-desc">Chromium · JavaScript</text>
+
+  <text x="840" y="273" class="box-desc" font-weight="bold">Languages</text>
+  <text x="915" y="273" class="box-desc">Python · MATLAB · C / C++ · C# · Rust</text>
+
+  <text x="990" y="304" class="box-desc" text-anchor="middle" font-style="italic">Examples — anything linking against libiio works</text>
+
+  <line x1="990" y1="320" x2="990" y2="345" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+
+  <!-- libiio on remote -->
+  <rect x="840" y="345" width="310" height="120" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="995" y="367" class="box-text" text-anchor="middle">libiio on remote</text>
+  <text x="995" y="383" class="box-desc" text-anchor="middle">same API as on the host</text>
+
+  <rect x="860" y="395" width="130" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="925" y="416" class="box-desc" text-anchor="middle" font-weight="bold">usb: backend</text>
+  <text x="925" y="430" class="box-desc" text-anchor="middle">via libUSB</text>
+
+  <rect x="1000" y="395" width="130" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="1065" y="416" class="box-desc" text-anchor="middle" font-weight="bold">ip: backend</text>
+  <text x="1065" y="430" class="box-desc" text-anchor="middle">to remote iiod</text>
+
+  <line x1="925" y1="465" x2="925" y2="490" class="arrow" marker-end="url(#linux-stack-arrowhead)"/>
+
+  <!-- libUSB -->
+  <rect x="840" y="490" width="310" height="55" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="995" y="513" class="box-text" text-anchor="middle">libUSB</text>
+  <text x="995" y="529" class="box-desc" text-anchor="middle">cross-platform USB transport</text>
+
+  <!-- Remote footer note -->
+  <text x="995" y="572" class="note-text" text-anchor="middle">Remote functions reach the host over</text>
+  <text x="995" y="589" class="note-text" text-anchor="middle">TCP / IP, USB 2/3, serial, Bluetooth, or PCIe.</text>
+
+  <!-- ===================== Network link (dashed) ===================== -->
+  <path d="M 840 419 C 760 419, 770 308, 705 308"
+        class="arrow" stroke-dasharray="6,5" fill="none"
+        marker-end="url(#linux-stack-arrowhead)"/>
+  <text x="755" y="352" class="arrow-label accent-text" text-anchor="middle">Standard discoverable IIO</text>
+  <text x="755" y="367" class="arrow-label" text-anchor="middle">command + control over TCP / IP</text>
+
+  <!-- Bottom legend -->
+  <text x="600" y="910" class="note-text" text-anchor="middle">User-space client applications (lavender) and the AD9081 evaluation board (peach) sit outside the DataX scope.</text>
+  <text x="600" y="927" class="note-text" text-anchor="middle">Everything in the blue band — libiio, iiod, the ADI IIO kernel driver, and the FPGA fabric IP — ships with ADI DataX.</text>
+  <text x="600" y="958" class="adi-panel-sublabel" text-anchor="middle">Adapted from docs/overview/images/linux_stack.png</text>
+</svg>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 900 640" width="100%" style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="wlinos-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+    <marker id="wlinos-accent-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="accent-arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="10" y="10" width="880" height="620" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="450" y="35" class="adi-title" text-anchor="middle">Technology Stack Transition: Linux to no-OS</text>
+
+  <!-- Phase labels -->
+  <text x="225" y="65" class="adi-section-label" text-anchor="middle">PROTOTYPING PHASE</text>
+  <text x="675" y="65" class="adi-section-label" text-anchor="middle">DEPLOYMENT PHASE</text>
+
+  <!-- Shared Hardware Layer -->
+  <rect x="100" y="80" width="700" height="50" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="450" y="102" class="box-text" text-anchor="middle">Shared Hardware (AD9081, ADRV9009, etc.)</text>
+  <text x="450" y="118" class="box-desc" text-anchor="middle">Same device, same evaluation board, same FPGA carrier</text>
+
+  <!-- Vertical divider (top stack only) -->
+  <line x1="450" y1="150" x2="450" y2="370" stroke="var(--adi-panel-stroke)" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <!-- Linux Side (Left) -->
+  <rect x="100" y="150" width="320" height="80" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="260" y="175" class="box-text" text-anchor="middle">Linux + IIO Drivers</text>
+  <text x="260" y="195" class="box-desc" text-anchor="middle">Full OS with kernel drivers</text>
+  <text x="260" y="212" class="box-desc" text-anchor="middle">IIO subsystem, sysfs, device tree</text>
+
+  <rect x="100" y="245" width="320" height="60" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="260" y="268" class="box-text" text-anchor="middle">libiio + pyadi-iio</text>
+  <text x="260" y="288" class="box-desc" text-anchor="middle">High-level APIs, remote access, tools</text>
+
+  <rect x="100" y="320" width="320" height="50" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="260" y="343" class="box-text" text-anchor="middle">MATLAB / Python / Scopy</text>
+  <text x="260" y="363" class="box-desc" text-anchor="middle">Rich application ecosystem</text>
+
+  <!-- no-OS Side (Right) -->
+  <rect x="480" y="150" width="320" height="80" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="640" y="175" class="box-text" text-anchor="middle">no-OS Bare-Metal</text>
+  <text x="640" y="195" class="box-desc" text-anchor="middle">Direct hardware access</text>
+  <text x="640" y="212" class="box-desc" text-anchor="middle">no-OS drivers + platform layer</text>
+
+  <rect x="480" y="245" width="320" height="60" rx="8" class="box" fill="var(--adi-fill-note-warm)"/>
+  <text x="640" y="268" class="box-text" text-anchor="middle">Custom Application Code</text>
+  <text x="640" y="288" class="box-desc" text-anchor="middle">Optimized for specific use case</text>
+
+  <rect x="480" y="320" width="320" height="50" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="640" y="343" class="box-text" text-anchor="middle">Deployed Embedded System</text>
+  <text x="640" y="363" class="box-desc" text-anchor="middle">Production-ready firmware</text>
+
+  <!-- Transition Arrow -->
+  <path d="M 420 260 C 440 260, 445 260, 460 260" class="accent-arrow" marker-end="url(#wlinos-accent-arrowhead)"/>
+  <text x="450" y="240" class="arrow-label accent-text" text-anchor="middle">Transition</text>
+
+  <!-- Section divider between stack and trade-offs -->
+  <line x1="40"  y1="405" x2="395" y2="405" stroke="var(--adi-panel-stroke)" stroke-width="1.25"/>
+  <line x1="505" y1="405" x2="860" y2="405" stroke="var(--adi-panel-stroke)" stroke-width="1.25"/>
+  <text x="450" y="409" class="adi-panel-label" text-anchor="middle">Trade-offs</text>
+
+  <!-- Vertical divider (bottom comparison) -->
+  <line x1="450" y1="440" x2="450" y2="615" stroke="var(--adi-panel-stroke)" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <!-- Linux Strengths -->
+  <rect x="100" y="445" width="320" height="90" rx="8" class="box" fill="var(--adi-fill-good)"/>
+  <text x="115" y="465" class="box-text">Strengths</text>
+  <text x="115" y="482" class="box-desc good-text">+ Faster prototyping and validation</text>
+  <text x="115" y="496" class="box-desc good-text">+ Rich debugging tools (iio_info, oscilloscope)</text>
+  <text x="115" y="510" class="box-desc good-text">+ Direct MATLAB/Python connectivity</text>
+  <text x="115" y="524" class="box-desc good-text">+ More guardrails and error checking</text>
+
+  <!-- Linux Weaknesses -->
+  <rect x="100" y="545" width="320" height="75" rx="8" class="box" fill="var(--adi-fill-warn)"/>
+  <text x="115" y="565" class="box-text">Weaknesses</text>
+  <text x="115" y="582" class="box-desc warn-text">- Higher resource usage (RAM, CPU)</text>
+  <text x="115" y="596" class="box-desc warn-text">- Non-deterministic timing (OS jitter)</text>
+  <text x="115" y="610" class="box-desc warn-text">- Longer boot time, more complexity</text>
+
+  <!-- no-OS Strengths -->
+  <rect x="480" y="445" width="320" height="90" rx="8" class="box" fill="var(--adi-fill-good)"/>
+  <text x="495" y="465" class="box-text">Strengths</text>
+  <text x="495" y="482" class="box-desc good-text">+ Minimal footprint, instant boot</text>
+  <text x="495" y="496" class="box-desc good-text">+ Deterministic real-time performance</text>
+  <text x="495" y="510" class="box-desc good-text">+ Lower power consumption</text>
+  <text x="495" y="524" class="box-desc good-text">+ Production-ready, deployable</text>
+
+  <!-- no-OS Weaknesses -->
+  <rect x="480" y="545" width="320" height="75" rx="8" class="box" fill="var(--adi-fill-warn)"/>
+  <text x="495" y="565" class="box-text">Weaknesses</text>
+  <text x="495" y="582" class="box-desc warn-text">- Steeper learning curve</text>
+  <text x="495" y="596" class="box-desc warn-text">- Limited debugging tools</text>
+  <text x="495" y="610" class="box-desc warn-text">- Manual integration with host tools</text>
+
+  <!-- Arrows from hardware to both stacks -->
+  <line x1="260" y1="130" x2="260" y2="150" class="arrow" marker-end="url(#wlinos-arrowhead)"/>
+  <line x1="640" y1="130" x2="640" y2="150" class="arrow" marker-end="url(#wlinos-arrowhead)"/>
+
+  <!-- Internal arrows -->
+  <line x1="260" y1="230" x2="260" y2="245" class="arrow" marker-end="url(#wlinos-arrowhead)"/>
+  <line x1="260" y1="305" x2="260" y2="320" class="arrow" marker-end="url(#wlinos-arrowhead)"/>
+  <line x1="640" y1="230" x2="640" y2="245" class="arrow" marker-end="url(#wlinos-arrowhead)"/>
+  <line x1="640" y1="305" x2="640" y2="320" class="arrow" marker-end="url(#wlinos-arrowhead)"/>
+</svg>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 800 700" width="100%" style="max-width: 90%; height: auto;">
+  <defs>
+    <marker id="archlayers-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" class="adi-title" text-anchor="middle">ADI DataX — Technology Stack</text>
+
+  <!-- Panel -->
+  <rect x="20" y="55" width="760" height="620" rx="14" class="adi-panel"/>
+  <text x="44" y="85" class="adi-panel-label">Layered architecture</text>
+  <text x="44" y="103" class="adi-panel-sublabel">Seven layers from silicon to user applications</text>
+
+  <!-- ADI DataX scope: wraps Layers 3-6 (HDL/Firmware, Drivers, Libraries, Bindings) -->
+  <rect x="60" y="195" width="680" height="310" rx="10" class="adi-datax-band"/>
+  <text x="86" y="350" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 86 350)">ADI DataX™</text>
+
+  <!-- Layer 7: Applications -->
+  <rect x="100" y="130" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="120" y="155" class="box-text">Layer 7: Applications</text>
+  <text x="120" y="175" class="box-desc">Scopy • IIO Oscilloscope • MATLAB • Kuiper Linux • Custom Apps</text>
+
+  <line x1="400" y1="195" x2="400" y2="205" class="arrow" marker-end="url(#archlayers-arrowhead)"/>
+
+  <!-- Layer 6: Language Bindings -->
+  <rect x="100" y="205" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="120" y="230" class="box-text">Layer 6: Ecosystem Bindings</text>
+  <text x="120" y="250" class="box-desc">pyadi-iio (Python) • MATLAB Toolboxes • C/C++ APIs • ROS • GNURadio • Nvidia Holoscan</text>
+
+  <line x1="400" y1="270" x2="400" y2="280" class="arrow" marker-end="url(#archlayers-arrowhead)"/>
+
+  <!-- Layer 5: Libraries -->
+  <rect x="100" y="280" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="120" y="305" class="box-text">Layer 5: Libraries</text>
+  <text x="120" y="325" class="box-desc">libiio (local, USB, network, serial) • libm2k</text>
+
+  <line x1="400" y1="345" x2="400" y2="355" class="arrow" marker-end="url(#archlayers-arrowhead)"/>
+
+  <!-- Layer 4: Drivers -->
+  <rect x="100" y="355" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="120" y="380" class="box-text">Layer 4: Drivers</text>
+  <text x="120" y="400" class="box-desc">Linux IIO Drivers • Zephyr Drivers • no-OS Drivers</text>
+
+  <line x1="400" y1="420" x2="400" y2="430" class="arrow" marker-end="url(#archlayers-arrowhead)"/>
+
+  <!-- Layer 3: HDL/Firmware -->
+  <rect x="100" y="430" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="120" y="455" class="box-text">Layer 3: HDL / Firmware</text>
+  <text x="120" y="475" class="box-desc">FPGA Reference Designs • IP Cores (JESD204, SPI Engine) • no-OS Firmware</text>
+
+  <line x1="400" y1="495" x2="400" y2="505" class="arrow" marker-end="url(#archlayers-arrowhead)"/>
+
+  <!-- Layer 2: Hardware Interface -->
+  <rect x="100" y="505" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="120" y="530" class="box-text">Layer 2: Hardware Interface</text>
+  <text x="120" y="550" class="box-desc">FPGA (Zynq, ZynqMP) • Processors (Raspberry Pi) • MCUs (STM32, MAX32)</text>
+
+  <line x1="400" y1="570" x2="400" y2="580" class="arrow" marker-end="url(#archlayers-arrowhead)"/>
+
+  <!-- Layer 1: Hardware -->
+  <rect x="100" y="580" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="120" y="605" class="box-text">Layer 1: Hardware</text>
+  <text x="120" y="625" class="box-desc">ADI Devices: ADCs, DACs, Transceivers, Sensors, IMUs, PLLs, DDS</text>
+</svg>

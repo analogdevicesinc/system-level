@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 800 540" width="100%" style="max-width: 680px; height: auto;">
+  <defs>
+    <marker id="ecointro-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="20" y="20" width="760" height="500" rx="14" class="adi-panel"/>
+  <text x="44" y="52" class="adi-panel-label">Stack overview</text>
+  <text x="44" y="70" class="adi-panel-sublabel">From signal chain to application — DataX is the software in the middle</text>
+
+  <!-- ADI DataX scope: wraps the software components (HDL+Firmware and Drivers+Libraries) -->
+  <rect x="80" y="185" width="640" height="200" rx="10" class="adi-datax-band"/>
+  <text x="106" y="285" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 106 285)">ADI DataX™</text>
+
+  <!-- Hardware -->
+  <rect x="120" y="100" width="560" height="68" rx="10" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="400" y="128" class="box-text" text-anchor="middle">ADI Hardware</text>
+  <text x="400" y="148" class="box-desc" text-anchor="middle">ADCs, DACs, Transceivers, Sensors, Signal Chain Components</text>
+
+  <line x1="400" y1="180" x2="400" y2="196" class="arrow" marker-end="url(#ecointro-arrowhead)"/>
+  <circle cx="400" cy="180" r="3" class="dot"/>
+
+  <!-- HDL and Firmware -->
+  <rect x="120" y="200" width="560" height="68" rx="10" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="400" y="228" class="box-text" text-anchor="middle">HDL and Firmware</text>
+  <text x="400" y="248" class="box-desc" text-anchor="middle">FPGA Reference Designs, IP Cores, Bare-Metal Drivers</text>
+
+  <line x1="400" y1="280" x2="400" y2="296" class="arrow" marker-end="url(#ecointro-arrowhead)"/>
+  <circle cx="400" cy="280" r="3" class="dot"/>
+
+  <!-- Drivers and Libraries -->
+  <rect x="120" y="300" width="560" height="68" rx="10" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="400" y="328" class="box-text" text-anchor="middle">Drivers and Libraries</text>
+  <text x="400" y="348" class="box-desc" text-anchor="middle">Linux IIO Drivers, libiio, Hardware Abstraction</text>
+
+  <line x1="400" y1="380" x2="400" y2="396" class="arrow" marker-end="url(#ecointro-arrowhead)"/>
+  <circle cx="400" cy="380" r="3" class="dot"/>
+
+  <!-- Applications -->
+  <rect x="120" y="400" width="560" height="68" rx="10" class="box" fill="var(--adi-fill-app)"/>
+  <text x="400" y="428" class="box-text" text-anchor="middle">Applications and Tools</text>
+  <text x="400" y="448" class="box-desc" text-anchor="middle">Python, MATLAB, Scopy, IIO Oscilloscope, Custom Applications</text>
+</svg>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 1200 1010" width="100%" style="max-width: 1180px; height: auto;">
+  <defs>
+    <marker id="noos-linux-stack-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="10" y="10" width="1180" height="990" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="600" y="38" class="adi-title" text-anchor="middle">no-OS in Linux user space — end-to-end architecture</text>
+  <text x="600" y="58" class="adi-subtitle" text-anchor="middle">no-OS drivers run as a user-space process and are exposed by TinyIIOD over the network</text>
+
+  <!-- ===================== Sub-panel: Host (Xilinx carrier) ===================== -->
+  <rect x="40" y="80" width="740" height="780" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="60" y="105" class="adi-section-label">DUT · / Xilinx Zynq 7000 / Xilinx Zynq UltraScale+ / Versal carrier</text>
+  <text x="60" y="121" class="adi-panel-sublabel">Same hardware as the Linux-IIO variant — only the software stack on the carrier changes</text>
+
+  <!-- ADI DataX scope: TinyIIOD + no-OS drivers + kernel substrate + FPGA fabric IP -->
+  <rect x="55" y="135" width="710" height="520" rx="10" class="adi-datax-band"/>
+  <text x="76" y="395" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 76 395)">ADI DataX™</text>
+
+  <!-- Linux user space layer (big — contains TinyIIOD + the entire no-OS driver stack) -->
+  <rect x="90" y="145" width="645" height="280" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="412" y="167" class="box-text" text-anchor="middle">Linux user space</text>
+  <text x="412" y="183" class="box-desc" text-anchor="middle">no-OS code links against a Linux platform HAL and runs as a normal process</text>
+
+  <!-- TinyIIOD -->
+  <rect x="290" y="195" width="245" height="50" rx="5" fill="var(--adi-fill-info)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="412" y="216" class="box-desc" text-anchor="middle" font-weight="bold">TinyIIOD</text>
+  <text x="412" y="232" class="box-desc" text-anchor="middle">re-exports the no-OS context over TCP / IP</text>
+
+  <line x1="412" y1="245" x2="412" y2="263" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+
+  <!-- no-OS drivers container -->
+  <rect x="110" y="263" width="605" height="152" rx="6" fill="var(--adi-fill-drv)" stroke="var(--adi-box-stroke)" stroke-width="1.25"/>
+  <text x="412" y="282" class="box-text" text-anchor="middle">no-OS drivers</text>
+  <text x="412" y="297" class="box-desc" text-anchor="middle">Source-compatible with the Linux IIO drivers — one library, two homes</text>
+
+  <!-- Device-API row -->
+  <rect x="130" y="308" width="170" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="215" y="329" class="box-desc" text-anchor="middle" font-weight="bold">HMC7044 driver</text>
+
+  <rect x="305" y="308" width="120" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="365" y="329" class="box-desc" text-anchor="middle" font-weight="bold">Data driver</text>
+
+  <rect x="430" y="308" width="265" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="562" y="329" class="box-desc" text-anchor="middle" font-weight="bold">AD9081 API</text>
+
+  <!-- HAL note -->
+  <text x="412" y="361" class="box-desc" text-anchor="middle" font-style="italic">platform HAL — Linux build of no-OS</text>
+
+  <!-- HAL wrapper row -->
+  <rect x="130" y="369" width="90" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="175" y="390" class="box-desc" text-anchor="middle" font-weight="bold">Linux GPIO</text>
+
+  <rect x="226" y="369" width="90" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="271" y="390" class="box-desc" text-anchor="middle" font-weight="bold">Linux SPI</text>
+
+  <rect x="322" y="369" width="90" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="367" y="390" class="box-desc" text-anchor="middle" font-weight="bold">Linux UIO</text>
+
+  <rect x="418" y="369" width="90" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="463" y="390" class="box-desc" text-anchor="middle" font-weight="bold">Linux DMA</text>
+
+  <rect x="514" y="369" width="90" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="559" y="390" class="box-desc" text-anchor="middle" font-weight="bold">Linux Clock</text>
+
+  <rect x="610" y="369" width="90" height="34" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="655" y="390" class="box-desc" text-anchor="middle" font-weight="bold">JESD204</text>
+
+  <line x1="412" y1="425" x2="412" y2="450" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+  <text x="373" y="442" class="arrow-label">syscalls · /dev/uio*</text>
+
+  <!-- Linux kernel (thin — no IIO drivers loaded) -->
+  <rect x="100" y="450" width="625" height="100" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="412" y="471" class="box-text" text-anchor="middle">Linux kernel</text>
+  <text x="412" y="487" class="box-desc" text-anchor="middle">No IIO drivers loaded — kernel is just the syscall and UIO substrate</text>
+
+  <rect x="155" y="500" width="150" height="38" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="230" y="519" class="box-desc" text-anchor="middle" font-weight="bold">SPI driver</text>
+  <text x="230" y="532" class="box-desc" text-anchor="middle">spidev</text>
+
+  <rect x="335" y="500" width="160" height="38" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="415" y="519" class="box-desc" text-anchor="middle" font-weight="bold">UIO subsystem</text>
+  <text x="415" y="532" class="box-desc" text-anchor="middle">/dev/uio*</text>
+
+  <rect x="525" y="500" width="150" height="38" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="600" y="519" class="box-desc" text-anchor="middle" font-weight="bold">Network driver</text>
+  <text x="600" y="532" class="box-desc" text-anchor="middle">/dev/eth0</text>
+
+  <line x1="412" y1="550" x2="412" y2="572" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+
+  <!-- FPGA fabric IP -->
+  <rect x="100" y="572" width="625" height="80" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="412" y="593" class="box-text" text-anchor="middle">FPGA fabric IP</text>
+
+  <rect x="135" y="605" width="105" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="187" y="626" class="box-desc" text-anchor="middle" font-weight="bold">SPI</text>
+
+  <rect x="250" y="605" width="105" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="302" y="626" class="box-desc" text-anchor="middle" font-weight="bold">DMA</text>
+
+  <rect x="365" y="605" width="120" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="425" y="626" class="box-desc" text-anchor="middle" font-weight="bold">JESD204 IP</text>
+
+  <rect x="495" y="605" width="110" height="35" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="550" y="626" class="box-desc" text-anchor="middle" font-weight="bold">1G MAC</text>
+
+  <line x1="415" y1="652" x2="415" y2="682" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+  <text x="369" y="672" class="arrow-label">JESD204 / SPI / GPIO</text>
+
+  <!-- AD9081 eval board -->
+  <rect x="100" y="682" width="625" height="120" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="412" y="702" class="box-text" text-anchor="middle">AD9081 evaluation board</text>
+  <text x="412" y="718" class="box-desc" text-anchor="middle">Signal chain — outside DataX scope</text>
+
+  <rect x="180" y="732" width="180" height="55" rx="8" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="270" y="754" class="box-desc" text-anchor="middle" font-weight="bold">HMC7044</text>
+  <text x="270" y="770" class="box-desc" text-anchor="middle">clock generator</text>
+
+  <rect x="465" y="732" width="180" height="55" rx="8" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="555" y="754" class="box-desc" text-anchor="middle" font-weight="bold">AD9081</text>
+  <text x="555" y="770" class="box-desc" text-anchor="middle">MxFE transceiver</text>
+
+  <line x1="360" y1="759" x2="465" y2="759" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+  <text x="412" y="753" class="arrow-label" text-anchor="middle">clocks</text>
+
+  <!-- Host footer note -->
+  <text x="412" y="830" class="note-text" text-anchor="middle">TinyIIOD exposes the no-OS context for discovery, command, and control</text>
+  <text x="412" y="847" class="note-text" text-anchor="middle">over TCP / IP — clients use the same libiio API as the Linux-IIO variant.</text>
+
+  <!-- ===================== Sub-panel: Remote host ===================== -->
+  <rect x="800" y="80" width="380" height="530" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="820" y="105" class="adi-section-label">Remote host</text>
+  <text x="820" y="121" class="adi-panel-sublabel">Linux · Windows · macOS · Raspberry-Pi</text>
+
+  <!-- ADI DataX scope on remote: libiio + libUSB -->
+  <rect x="815" y="335" width="350" height="220" rx="10" class="adi-datax-band"/>
+  <text x="836" y="455" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 836 455)">ADI DataX™</text>
+
+  <!-- Custom application -->
+  <rect x="820" y="140" width="340" height="180" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="990" y="161" class="box-text" text-anchor="middle">Custom application</text>
+  <text x="990" y="177" class="box-desc" text-anchor="middle">Anything that can speak libiio</text>
+
+  <text x="840" y="207" class="box-desc" font-weight="bold">IIO-aware</text>
+  <text x="915" y="207" class="box-desc">IIO Utils · Scopy · IIO Scope · ACE</text>
+
+  <text x="840" y="229" class="box-desc" font-weight="bold">SDR</text>
+  <text x="915" y="229" class="box-desc">SDR Console · SDR# · SDRAngel · GNU Radio</text>
+
+  <text x="840" y="251" class="box-desc" font-weight="bold">Browsers</text>
+  <text x="915" y="251" class="box-desc">Chromium · JavaScript</text>
+
+  <text x="840" y="273" class="box-desc" font-weight="bold">Languages</text>
+  <text x="915" y="273" class="box-desc">Python · MATLAB · C / C++ · C# · Rust</text>
+
+  <text x="990" y="304" class="box-desc" text-anchor="middle" font-style="italic">Same client code as the Linux-IIO variant — only the URI changes</text>
+
+  <line x1="990" y1="320" x2="990" y2="345" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+
+  <!-- libiio on remote -->
+  <rect x="840" y="345" width="310" height="120" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="995" y="367" class="box-text" text-anchor="middle">libiio on remote</text>
+  <text x="995" y="383" class="box-desc" text-anchor="middle">ip: backend talks to TinyIIOD on the carrier</text>
+
+  <rect x="860" y="395" width="130" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="925" y="416" class="box-desc" text-anchor="middle" font-weight="bold">usb: backend</text>
+  <text x="925" y="430" class="box-desc" text-anchor="middle">via libUSB</text>
+
+  <rect x="1000" y="395" width="130" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="1065" y="416" class="box-desc" text-anchor="middle" font-weight="bold">ip: backend</text>
+  <text x="1065" y="430" class="box-desc" text-anchor="middle">to TinyIIOD</text>
+
+  <line x1="925" y1="465" x2="925" y2="490" class="arrow" marker-end="url(#noos-linux-stack-arrowhead)"/>
+
+  <!-- libUSB -->
+  <rect x="840" y="490" width="310" height="55" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="995" y="513" class="box-text" text-anchor="middle">libUSB</text>
+  <text x="995" y="529" class="box-desc" text-anchor="middle">cross-platform USB transport</text>
+
+  <!-- Remote footer note -->
+  <text x="995" y="572" class="note-text" text-anchor="middle">Remote functions reach the host over</text>
+  <text x="995" y="589" class="note-text" text-anchor="middle">TCP / IP, USB 2/3, serial, Bluetooth, or PCIe.</text>
+
+  <!-- ===================== Network link (dashed) — remote libiio ip: -> host TinyIIOD ===================== -->
+  <path d="M 840 419 C 720 419, 700 220, 540 220"
+        class="arrow" stroke-dasharray="6,5" fill="none"
+        marker-end="url(#noos-linux-stack-arrowhead)"/>
+  <text x="700" y="283" class="arrow-label accent-text" text-anchor="middle">Standard discoverable IIO</text>
+  <text x="700" y="298" class="arrow-label" text-anchor="middle">command + control over TCP / IP</text>
+
+  <!-- Bottom legend -->
+  <text x="600" y="910" class="note-text" text-anchor="middle">User-space client applications (lavender) and the AD9081 evaluation board (peach) sit outside the DataX scope.</text>
+  <text x="600" y="927" class="note-text" text-anchor="middle">Everything in the blue band — TinyIIOD, no-OS drivers, the kernel UIO substrate, and the FPGA fabric IP — ships with ADI DataX.</text>
+  <text x="600" y="958" class="adi-panel-sublabel" text-anchor="middle">Adapted from docs/overview/images/noos_linux_stack.png</text>
+</svg>

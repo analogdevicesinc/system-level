@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 900 730" width="100%" style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="wremote-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="10" y="10" width="880" height="710" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="450" y="35" class="adi-title" text-anchor="middle">Workflow 4: Remote Multi-Device Setup via IIOD</text>
+
+  <!-- Column headings -->
+  <text x="245" y="62" class="adi-section-label" text-anchor="middle">Target 1: FPGA + High-Speed ADC</text>
+  <text x="655" y="62" class="adi-section-label" text-anchor="middle">Target 2: RPi + Precision ADC</text>
+
+  <!-- Layer labels -->
+  <text x="20" y="115" class="layer-label">Layer 1</text>
+  <text x="20" y="215" class="layer-label">Layer 2</text>
+  <text x="20" y="325" class="layer-label">Layer 3</text>
+  <text x="20" y="405" class="layer-label">Layer 4</text>
+  <text x="20" y="595" class="layer-label">Layers</text>
+  <text x="20" y="608" class="layer-label">5-7</text>
+
+  <!-- TARGET 1 (left column) -->
+  <rect x="80" y="73" width="370" height="75" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="265" y="95" class="box-text" text-anchor="middle">AD9081 MxFE Evaluation Board</text>
+  <text x="265" y="112" class="box-desc" text-anchor="middle">4 ADC + 4 DAC channels (GSPS)</text>
+  <text x="265" y="128" class="box-desc" text-anchor="middle">JESD204B/C interface to Zynq</text>
+
+  <line x1="265" y1="148" x2="265" y2="165" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <rect x="80" y="165" width="370" height="80" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="265" y="187" class="box-text" text-anchor="middle">Zynq UltraScale+ MPSoC</text>
+  <text x="265" y="205" class="box-desc" text-anchor="middle">ARM Cortex-A53 + FPGA fabric</text>
+  <text x="265" y="222" class="box-desc" text-anchor="middle">Running Linux + Kuiper (or custom)</text>
+
+  <line x1="265" y1="245" x2="265" y2="265" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <rect x="80" y="265" width="370" height="65" rx="8" class="box" fill="var(--adi-fill-note)"/>
+  <text x="265" y="287" class="box-text" text-anchor="middle">HDL Reference Design</text>
+  <text x="265" y="304" class="box-desc" text-anchor="middle">JESD204, AXI DMA, SPI Engine</text>
+  <text x="265" y="320" class="box-desc" text-anchor="middle">Programmed into FPGA fabric</text>
+
+  <line x1="265" y1="330" x2="265" y2="350" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <rect x="80" y="350" width="370" height="85" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="265" y="373" class="box-text" text-anchor="middle">Linux IIO Driver + IIOD Server</text>
+  <text x="265" y="391" class="box-desc" text-anchor="middle">axi-ad9081 driver exposes IIO devices</text>
+  <text x="265" y="408" class="box-desc" text-anchor="middle">iiod listens on TCP :30431</text>
+  <text x="265" y="425" class="box-desc" text-anchor="middle">iio_info -u ip:192.168.1.10</text>
+
+  <!-- TARGET 2 (right column) -->
+  <rect x="490" y="73" width="370" height="75" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="675" y="95" class="box-text" text-anchor="middle">AD4080 Precision ADC Shield</text>
+  <text x="675" y="112" class="box-desc" text-anchor="middle">40 MSPS SAR ADC (ARDZ form factor)</text>
+  <text x="675" y="128" class="box-desc" text-anchor="middle">SPI interface to Raspberry Pi</text>
+
+  <line x1="675" y1="148" x2="675" y2="165" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <rect x="490" y="165" width="370" height="80" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="675" y="187" class="box-text" text-anchor="middle">Raspberry Pi 4</text>
+  <text x="675" y="205" class="box-desc" text-anchor="middle">ARM Cortex-A72 (4 cores)</text>
+  <text x="675" y="222" class="box-desc" text-anchor="middle">Running Kuiper Linux</text>
+
+  <line x1="675" y1="245" x2="675" y2="265" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <rect x="490" y="265" width="370" height="65" rx="8" class="box" fill="var(--adi-fill-muted)"/>
+  <text x="675" y="290" class="box-text" text-anchor="middle">HDL / Firmware</text>
+  <text x="675" y="310" class="box-desc" text-anchor="middle">Not applicable — direct SPI from CPU</text>
+
+  <line x1="675" y1="330" x2="675" y2="350" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <rect x="490" y="350" width="370" height="85" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="675" y="373" class="box-text" text-anchor="middle">Linux IIO Driver + IIOD Server</text>
+  <text x="675" y="391" class="box-desc" text-anchor="middle">ad4080 driver exposes IIO device</text>
+  <text x="675" y="408" class="box-desc" text-anchor="middle">iiod listens on TCP :30431</text>
+  <text x="675" y="425" class="box-desc" text-anchor="middle">iio_info -u ip:192.168.1.20</text>
+
+  <!-- Network bar -->
+  <rect x="80" y="450" width="780" height="45" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="470" y="468" class="box-text" text-anchor="middle">Ethernet Network</text>
+  <text x="470" y="485" class="box-desc" text-anchor="middle">TCP/IP • IIOD protocol on port 30431 • Both targets accessible from host PC</text>
+
+  <line x1="265" y1="435" x2="265" y2="450" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+  <line x1="675" y1="435" x2="675" y2="450" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <line x1="470" y1="495" x2="470" y2="515" class="arrow" marker-end="url(#wremote-arrowhead)"/>
+
+  <!-- Host PC (Layers 5-7) -->
+  <rect x="80" y="515" width="780" height="170" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="470" y="538" class="box-text" text-anchor="middle">Host PC — Layers 5–7</text>
+
+  <text x="100" y="560" class="box-desc" font-weight="bold">Layer 5 — libiio (ip: backend):</text>
+  <text x="120" y="575" class="box-desc">Connects to remote IIOD servers using ip: URI — no local IIO hardware required</text>
+
+  <text x="100" y="597" class="box-desc" font-weight="bold">Layer 6 — pyadi-iio (identical API to local):</text>
+  <text x="120" y="612" class="box-desc">sdr = adi.ad9081(uri="ip:192.168.1.10")   # Zynq target</text>
+  <text x="120" y="627" class="box-desc">adc = adi.ad4080(uri="ip:192.168.1.20")   # RPi target</text>
+  <text x="120" y="642" class="box-desc">sdr_data = sdr.rx()    adc_data = adc.rx()   # Same API as local</text>
+
+  <text x="660" y="575" class="box-desc" font-weight="bold">Layer 7 — Apps:</text>
+  <text x="680" y="590" class="box-desc">• Python / MATLAB</text>
+  <text x="680" y="605" class="box-desc">• Jupyter notebooks</text>
+  <text x="680" y="620" class="box-desc">• Scopy (remote)</text>
+  <text x="680" y="635" class="box-desc">• GNU Radio</text>
+
+  <!-- Bottom note -->
+  <text x="470" y="703" class="note-text" text-anchor="middle">Any Workflow 1–3 target running Linux + IIOD becomes remotely accessible via ip: backend — application code is identical to local access, just change the URI string</text>
+</svg>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TEMPLATE: two side-by-side sub-panels with a dashed cross-section arrow.
+  Examples in the repo: docs/overview/libiio-architecture.svg,
+                        docs/overview/workflow-linux-noos.svg.
+
+  To customise:
+    1. Replace `two-column-template` in the marker ids with a unique stem.
+    2. Resize each sub-panel to fit its content. The left and right panels
+       are independent — left can be tall (full stack), right can be short
+       (a smaller branch).
+    3. Sub-panels use the .box class with fill="var(--adi-fill-blank)" to
+       look like cards on the cream outer panel.
+    4. The cross-section arrow uses class="arrow" with stroke-dasharray for
+       a dashed style. Adjust the M / C path to land where you need it.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     class="adi-figure no-background"
+     viewBox="0 0 900 540"
+     width="100%"
+     style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="two-column-template-arrowhead"
+            markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="10" y="10" width="880" height="520" rx="14" class="adi-panel"/>
+  <text x="450" y="38" class="adi-title" text-anchor="middle">Diagram title</text>
+  <text x="450" y="58" class="adi-subtitle" text-anchor="middle">One-line subtitle</text>
+
+  <!-- Left sub-panel -->
+  <rect x="40" y="90" width="420" height="425" rx="10" class="box"
+        fill="var(--adi-fill-blank)"/>
+  <text x="60" y="115" class="adi-section-label">Left column label</text>
+
+  <rect x="80" y="135" width="340" height="48" rx="8" class="box"
+        fill="var(--adi-fill-info)"/>
+  <text x="250" y="156" class="box-text" text-anchor="middle">Top item</text>
+  <text x="250" y="172" class="box-desc" text-anchor="middle">Short description</text>
+
+  <line x1="250" y1="183" x2="250" y2="200" class="arrow"
+        marker-end="url(#two-column-template-arrowhead)"/>
+
+  <rect x="80" y="200" width="340" height="92" rx="8" class="box"
+        fill="var(--adi-fill-drv)"/>
+  <text x="250" y="222" class="box-text" text-anchor="middle">Middle item</text>
+  <text x="250" y="248" class="box-desc" text-anchor="middle">Two lines of context fit here</text>
+  <text x="250" y="266" class="box-desc" text-anchor="middle">when the box is taller</text>
+
+  <line x1="250" y1="292" x2="250" y2="310" class="arrow"
+        marker-end="url(#two-column-template-arrowhead)"/>
+
+  <rect x="80" y="310" width="340" height="48" rx="8" class="box"
+        fill="var(--adi-fill-mcu)"/>
+  <text x="250" y="331" class="box-text" text-anchor="middle">Lower item</text>
+
+  <line x1="250" y1="358" x2="250" y2="376" class="arrow"
+        marker-end="url(#two-column-template-arrowhead)"/>
+
+  <rect x="80" y="376" width="340" height="48" rx="8" class="box"
+        fill="var(--adi-fill-hw)"/>
+  <text x="250" y="397" class="box-text" text-anchor="middle">Bottom item (hardware)</text>
+
+  <text x="250" y="455" class="note-text" text-anchor="middle">
+    Optional footer note for the left column.
+  </text>
+
+  <!-- Right sub-panel -->
+  <rect x="490" y="90" width="370" height="245" rx="10" class="box"
+        fill="var(--adi-fill-blank)"/>
+  <text x="510" y="115" class="adi-section-label">Right column label</text>
+  <text x="510" y="131" class="adi-panel-sublabel">Subtitle for the right column</text>
+
+  <rect x="530" y="150" width="290" height="55" rx="8" class="box"
+        fill="var(--adi-fill-app)"/>
+  <text x="675" y="172" class="box-text" text-anchor="middle">Top item</text>
+  <text x="675" y="190" class="box-desc" text-anchor="middle">Short description</text>
+
+  <line x1="675" y1="205" x2="675" y2="225" class="arrow"
+        marker-end="url(#two-column-template-arrowhead)"/>
+
+  <rect x="530" y="225" width="290" height="92" rx="8" class="box"
+        fill="var(--adi-fill-drv)"/>
+  <text x="675" y="247" class="box-text" text-anchor="middle">Bottom item</text>
+  <text x="675" y="278" class="box-desc" text-anchor="middle">Two lines of detail</text>
+
+  <text x="675" y="367" class="note-text" text-anchor="middle">
+    Optional footer note for the right column.
+  </text>
+
+  <!-- Dashed cross-section arrow connecting the two columns -->
+  <path d="M 530 270 C 480 270, 470 159, 420 159"
+        class="arrow" stroke-dasharray="6,5" fill="none"
+        marker-end="url(#two-column-template-arrowhead)"/>
+  <text x="475" y="220" class="arrow-label accent-text" text-anchor="middle">Connection name</text>
+  <text x="475" y="235" class="arrow-label" text-anchor="middle">protocol / transport</text>
+</svg>

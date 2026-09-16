@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 800 560" width="100%" style="max-width: 760px; height: auto;">
+  <defs>
+    <marker id="datax-stack-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" class="adi-title" text-anchor="middle">ADI DataX™ Architecture Stack</text>
+
+  <!-- Panel -->
+  <rect x="20" y="55" width="760" height="480" rx="14" class="adi-panel"/>
+  <text x="44" y="85" class="adi-panel-label">System Architecture</text>
+  <text x="44" y="103" class="adi-panel-sublabel">Software and hardware layers connecting applications to signal chains</text>
+
+  <!-- ADI DataX scope: wraps Layers 2-4 (HAL, Drivers, Application API) -->
+  <rect x="60" y="195" width="680" height="235" rx="10" class="adi-datax-band"/>
+  <text x="86" y="312" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 86 312)">ADI DataX™</text>
+
+  <!-- Layer 5: Application -->
+  <rect x="100" y="130" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="120" y="155" class="box-text">Application</text>
+  <text x="120" y="175" class="box-desc">Your custom code and algorithms (C, C++, Python, MATLAB, ROS 2, GNU Radio)</text>
+
+  <!-- Arrow 4 -> 5 -->
+  <line x1="400" y1="205" x2="400" y2="195" class="arrow" marker-end="url(#datax-stack-arrowhead)"/>
+
+  <!-- Layer 4: Application API -->
+  <rect x="100" y="205" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="120" y="230" class="box-text">Application API</text>
+  <text x="120" y="250" class="box-desc">libiio library &amp; bindings (pyadi-iio, MATLAB) • Standardized C API</text>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="400" y1="280" x2="400" y2="270" class="arrow" marker-end="url(#datax-stack-arrowhead)"/>
+
+  <!-- Layer 3: ADI Device Drivers -->
+  <rect x="100" y="280" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="120" y="305" class="box-text">ADI Device Drivers</text>
+  <text x="120" y="325" class="box-desc">1,500+ Linux IIO drivers • 600+ Zephyr and bare-metal no-OS drivers</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="400" y1="355" x2="400" y2="345" class="arrow" marker-end="url(#datax-stack-arrowhead)"/>
+
+  <!-- Layer 2: Hardware Abstraction Layer -->
+  <rect x="100" y="355" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="120" y="380" class="box-text">Hardware Abstraction Layer</text>
+  <text x="120" y="400" class="box-desc">FPGA IP cores (JESD204, SPI Engine) • Linux sysfs • Zephyr Device APIs</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="400" y1="430" x2="400" y2="420" class="arrow" marker-end="url(#datax-stack-arrowhead)"/>
+
+  <!-- Layer 1: Physical World -->
+  <rect x="100" y="430" width="600" height="65" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="120" y="455" class="box-text">Physical World</text>
+  <text x="120" y="475" class="box-desc">ADI analog and mixed-signal components (ADCs, DACs, transceivers) • Processors &amp; FPGAs</text>
+</svg>

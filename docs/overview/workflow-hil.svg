@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 900 660" width="100%" style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="whil-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+    <marker id="whil-arrowhead-start" markerWidth="8" markerHeight="8" refX="1" refY="3" orient="auto">
+      <polygon points="8 0, 0 3, 8 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="10" y="10" width="880" height="640" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="450" y="35" class="adi-title" text-anchor="middle">Workflow 5: Hardware-in-the-Loop Testing with ADALM2000</text>
+
+  <!-- Column headings -->
+  <text x="220" y="65" class="adi-section-label" text-anchor="middle">ADALM2000 (Test Instrument)</text>
+  <text x="660" y="65" class="adi-section-label" text-anchor="middle">Device Under Test (DUT)</text>
+
+  <!-- Layer labels -->
+  <text x="20" y="125" class="layer-label">Layer 1</text>
+  <text x="20" y="295" class="layer-label">Layer 2</text>
+  <text x="20" y="375" class="layer-label">Layer 4</text>
+  <text x="20" y="480" class="layer-label">Layer 5</text>
+  <text x="20" y="565" class="layer-label">Layers</text>
+  <text x="20" y="578" class="layer-label">6-7</text>
+
+  <!-- ADALM2000 (left) -->
+  <rect x="80" y="78" width="320" height="180" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="240" y="100" class="box-text" text-anchor="middle">ADALM2000 (M2k)</text>
+  <text x="240" y="118" class="box-desc" text-anchor="middle">USB multi-function instrument:</text>
+  <text x="100" y="136" class="box-desc">• 2-ch oscilloscope (±25V, 100 MSPS)</text>
+  <text x="100" y="152" class="box-desc">• 2-ch waveform generator (±5V, 150 MSPS)</text>
+  <text x="100" y="168" class="box-desc">• Adjustable power supplies (±5V)</text>
+  <text x="100" y="184" class="box-desc">• 16-ch logic analyzer (100 MSPS)</text>
+  <text x="100" y="200" class="box-desc">• Voltmeter and impedance analyzer</text>
+  <text x="240" y="220" class="box-desc" text-anchor="middle">Connects to DUT via probes / wiring</text>
+  <text x="240" y="238" class="box-desc" text-anchor="middle">Connects to host PC via USB</text>
+
+  <!-- DUT (right) -->
+  <rect x="500" y="78" width="320" height="180" rx="8" class="box" fill="var(--adi-fill-hw-alt)"/>
+  <text x="660" y="100" class="box-text" text-anchor="middle">Device Under Test (DUT)</text>
+  <text x="660" y="118" class="box-desc" text-anchor="middle">Any ADI evaluation board or custom circuit:</text>
+  <text x="520" y="136" class="box-desc">• ADI evaluation board (ARDZ, custom PCB)</text>
+  <text x="520" y="152" class="box-desc">• Analog signal inputs / outputs</text>
+  <text x="520" y="168" class="box-desc">• Power rails supplied by M2k or bench PSU</text>
+  <text x="520" y="184" class="box-desc">• Digital I/O for triggering / control</text>
+  <text x="520" y="200" class="box-desc">• No software stack required on DUT itself</text>
+  <text x="660" y="220" class="box-desc" text-anchor="middle">(DUT may be any ADI part under evaluation)</text>
+
+  <!-- Bidirectional probe connection between M2k and DUT -->
+  <line x1="400" y1="178" x2="500" y2="178" class="arrow" marker-end="url(#whil-arrowhead)" marker-start="url(#whil-arrowhead-start)"/>
+  <text x="450" y="168" class="arrow-label" text-anchor="middle">Probes / Wiring</text>
+  <text x="450" y="190" class="arrow-label" text-anchor="middle">Stimulus → / ← Measurement</text>
+
+  <!-- Vertical arrow (M2k column) -->
+  <line x1="240" y1="258" x2="240" y2="278" class="arrow" marker-end="url(#whil-arrowhead)"/>
+
+  <!-- Layer 2: USB Connection -->
+  <rect x="80" y="278" width="320" height="60" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="240" y="300" class="box-text" text-anchor="middle">Host PC via USB 2.0</text>
+  <text x="240" y="318" class="box-desc" text-anchor="middle">ADALM2000 enumerates as usb: context</text>
+  <text x="240" y="334" class="box-desc" text-anchor="middle">No FPGA or MCU firmware needed</text>
+
+  <line x1="240" y1="338" x2="240" y2="358" class="arrow" marker-end="url(#whil-arrowhead)"/>
+
+  <!-- Layer 4: M2k IIO Context -->
+  <rect x="80" y="358" width="320" height="65" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="240" y="380" class="box-text" text-anchor="middle">m2k IIO Context (usb: backend)</text>
+  <text x="240" y="398" class="box-desc" text-anchor="middle">libiio exposes ADALM2000 as IIO device</text>
+  <text x="240" y="414" class="box-desc" text-anchor="middle">libm2k wraps context with instrument APIs</text>
+
+  <line x1="240" y1="423" x2="240" y2="443" class="arrow" marker-end="url(#whil-arrowhead)"/>
+
+  <!-- Layer 5: libm2k -->
+  <rect x="80" y="443" width="320" height="65" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="240" y="465" class="box-text" text-anchor="middle">libm2k</text>
+  <text x="240" y="483" class="box-desc" text-anchor="middle">Hardware abstraction for ADALM2000</text>
+  <text x="240" y="500" class="box-desc" text-anchor="middle">AnalogIn · AnalogOut · PowerSupply · Logic</text>
+
+  <line x1="240" y1="508" x2="240" y2="528" class="arrow" marker-end="url(#whil-arrowhead)"/>
+
+  <!-- Layers 6-7: Python + pytest -->
+  <rect x="80" y="528" width="780" height="105" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="470" y="550" class="box-text" text-anchor="middle">Layers 6–7: Test Script and Automation Framework</text>
+
+  <text x="100" y="572" class="box-desc" font-weight="bold">Layer 6 — libm2k Python bindings:</text>
+  <text x="120" y="587" class="box-desc">ctx = libm2k.m2kOpen("usb:")    ain = ctx.getAnalogIn()    ps = ctx.getPowerSupply()</text>
+  <text x="120" y="602" class="box-desc">ps.pushChannel(0, 5.0)    samples = ain.getSamples(1024)    assert threshold(samples)</text>
+
+  <text x="700" y="575" class="box-desc" font-weight="bold">Layer 7 — Apps:</text>
+  <text x="720" y="590" class="box-desc">• pytest / unittest</text>
+  <text x="720" y="605" class="box-desc">• Scopy (GUI mode)</text>
+  <text x="720" y="620" class="box-desc">• Jupyter Lab</text>
+</svg>

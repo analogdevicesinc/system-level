@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 1000 820" width="100%" style="max-width: 980px; height: auto;">
+  <defs>
+    <marker id="ecodep-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+    <marker id="ecodep-arrowhead-start" markerWidth="8" markerHeight="8" refX="1" refY="3" orient="auto">
+      <polygon points="8 0, 0 3, 8 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="10" y="10" width="980" height="800" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="500" y="40" class="adi-title" text-anchor="middle">ADI DataX — Component Interdependencies</text>
+  <text x="500" y="60" class="adi-subtitle" text-anchor="middle">How HDL, no-OS, Linux, and Host Tools Work Together</text>
+
+  <!-- HDL Common Core (Center Top) -->
+  <rect x="350" y="90" width="300" height="100" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="500" y="120" class="box-text" text-anchor="middle">HDL Repository</text>
+  <text x="500" y="140" class="box-desc" text-anchor="middle">Common FPGA Design Foundation</text>
+  <text x="370" y="160" class="box-desc">• Reference designs (projects/)</text>
+  <text x="370" y="175" class="box-desc">• IP cores (JESD204, SPI Engine, DMA)</text>
+
+  <!-- Note box (top-left) -->
+  <rect x="50" y="110" width="250" height="60" rx="8" class="box" fill="var(--adi-fill-note)"/>
+  <text x="175" y="130" class="box-text" text-anchor="middle">Key Insight</text>
+  <text x="175" y="150" class="box-desc" text-anchor="middle">HDL is the common foundation</text>
+  <text x="175" y="165" class="box-desc" text-anchor="middle">for both FPGA (Linux) and MCU</text>
+
+  <!-- Left Branch: no-OS Path -->
+  <rect x="50" y="260" width="350" height="120" rx="8" class="box" fill="var(--adi-fill-note-warm)"/>
+  <text x="225" y="290" class="box-text" text-anchor="middle">no-OS Firmware (Microcontroller)</text>
+  <text x="225" y="310" class="box-desc" text-anchor="middle">Runs on ARM Cortex-M (STM32, MAX32, etc.)</text>
+  <text x="70" y="332" class="box-desc" font-weight="bold">Uses HDL for:</text>
+  <text x="90" y="347" class="box-desc">• SPI Engine driver patterns</text>
+  <text x="90" y="362" class="box-desc">• Device initialization sequences</text>
+  <text x="250" y="332" class="box-desc" font-weight="bold">Provides:</text>
+  <text x="270" y="347" class="box-desc">• TinyIIO server</text>
+  <text x="270" y="362" class="box-desc">• Bare-metal drivers</text>
+
+  <!-- Right Branch: Linux Path -->
+  <rect x="600" y="260" width="350" height="120" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="775" y="290" class="box-text" text-anchor="middle">Linux Kernel (FPGA/SBC)</text>
+  <text x="775" y="310" class="box-desc" text-anchor="middle">Runs on Zynq/ZynqMP/Raspberry Pi</text>
+  <text x="620" y="332" class="box-desc" font-weight="bold">Uses HDL for:</text>
+  <text x="640" y="347" class="box-desc">• AXI memory maps</text>
+  <text x="640" y="362" class="box-desc">• Devicetree generation</text>
+  <text x="800" y="332" class="box-desc" font-weight="bold">Provides:</text>
+  <text x="820" y="347" class="box-desc">• IIO kernel drivers</text>
+  <text x="820" y="362" class="box-desc">• DMA buffers</text>
+
+  <!-- Arrows from HDL to no-OS and Linux -->
+  <line x1="450" y1="190" x2="225" y2="260" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+  <text x="320" y="220" class="arrow-label">Shares design patterns</text>
+  <text x="320" y="235" class="arrow-label">&amp; initialization code</text>
+
+  <line x1="550" y1="190" x2="775" y2="260" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+  <text x="630" y="220" class="arrow-label">Generates devicetree</text>
+  <text x="630" y="235" class="arrow-label">&amp; AXI addresses</text>
+
+  <!-- Host PC Section -->
+  <rect x="200" y="460" width="600" height="80" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="500" y="490" class="box-text" text-anchor="middle">Host PC Development Environment</text>
+  <text x="500" y="510" class="box-desc" text-anchor="middle">Windows / Linux / macOS</text>
+  <text x="220" y="530" class="box-desc">• Python • MATLAB • C/C++ • Web browsers • IDEs</text>
+
+  <!-- libiio Bridge Layer -->
+  <rect x="300" y="570" width="400" height="60" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="500" y="595" class="box-text" text-anchor="middle">libiio (Hardware Abstraction)</text>
+  <text x="500" y="615" class="box-desc" text-anchor="middle">Unified API supporting multiple backends: local, usb, ip, serial</text>
+
+  <!-- Arrows from no-OS and Linux to Host PC -->
+  <line x1="225" y1="380" x2="350" y2="460" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+  <text x="250" y="415" class="arrow-label">serial: backend</text>
+  <text x="250" y="430" class="arrow-label">(USB/UART)</text>
+
+  <line x1="775" y1="380" x2="650" y2="460" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+  <text x="680" y="415" class="arrow-label">local:/ip: backend</text>
+  <text x="680" y="430" class="arrow-label">(direct or network)</text>
+
+  <line x1="500" y1="540" x2="500" y2="570" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+
+  <!-- Host Tools (Bottom) -->
+  <rect x="80" y="660" width="180" height="110" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="170" y="685" class="box-text" text-anchor="middle">Python Tools</text>
+  <text x="100" y="705" class="box-desc">• pyadi-iio</text>
+  <text x="100" y="720" class="box-desc">• Jupyter notebooks</text>
+  <text x="100" y="735" class="box-desc">• Custom scripts</text>
+  <text x="100" y="750" class="box-desc">• Data analysis</text>
+
+  <rect x="290" y="660" width="180" height="110" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="380" y="685" class="box-text" text-anchor="middle">GUI Applications</text>
+  <text x="310" y="705" class="box-desc">• Scopy</text>
+  <text x="310" y="720" class="box-desc">• IIO Oscilloscope</text>
+  <text x="310" y="735" class="box-desc">• Custom GUIs</text>
+  <text x="310" y="750" class="box-desc">• Web dashboards</text>
+
+  <rect x="500" y="660" width="180" height="110" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="590" y="685" class="box-text" text-anchor="middle">MATLAB/Simulink</text>
+  <text x="520" y="705" class="box-desc">• Transceiver Toolbox</text>
+  <text x="520" y="720" class="box-desc">• HSX Toolbox</text>
+  <text x="520" y="735" class="box-desc">• Algorithm dev</text>
+  <text x="520" y="750" class="box-desc">• HIL simulation</text>
+
+  <rect x="710" y="660" width="180" height="110" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="800" y="685" class="box-text" text-anchor="middle">Build Tools</text>
+  <text x="730" y="705" class="box-desc">• Vivado/Quartus</text>
+  <text x="730" y="720" class="box-desc">• GCC toolchains</text>
+  <text x="730" y="735" class="box-desc">• STM32CubeIDE</text>
+  <text x="730" y="750" class="box-desc">• Kernel builds</text>
+
+  <line x1="400" y1="630" x2="170" y2="660" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+  <line x1="450" y1="630" x2="380" y2="660" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+  <line x1="550" y1="630" x2="590" y2="660" class="arrow" marker-end="url(#ecodep-arrowhead)"/>
+
+  <!-- Bidirectional dashed arrow between HDL and Build Tools -->
+  <line x1="650" y1="140" x2="800" y2="660" class="arrow" stroke-dasharray="5,5"/>
+  <text x="700" y="390" class="arrow-label">Built using</text>
+</svg>

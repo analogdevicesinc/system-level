@@ -63,6 +63,10 @@ interref_repos = [
 
 html_theme = 'cosmic'
 html_favicon = path.join("sources", "icon.svg")
+html_theme_options = {
+    "light_logo": "datax-logo-light.svg",
+    "dark_logo": "datax-logo-dark.svg",
+}
 numfig = True
 numfig_per_doc = True
 

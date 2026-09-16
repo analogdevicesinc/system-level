@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TEMPLATE: multi-track convergence — two horizontal "tracks" of cards
+  feeding into a single highlighted integration row at the bottom.
+  Example in the repo: docs/overview/versioning-tracks.svg.
+
+  To customise:
+    1. Replace `convergence-template` in the marker id with a unique stem.
+    2. Change the number / width of cards in each track row.
+    3. Reroute the dashed converging arrows to land on the integration card.
+    4. The integration row uses fill="var(--adi-fill-good)" by default to
+       differentiate it from the upper tracks. Pick a different variable
+       if green doesn't fit your scope.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     class="adi-figure no-background"
+     viewBox="0 0 900 600"
+     width="100%"
+     style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="convergence-template-arrowhead"
+            markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="10" y="10" width="880" height="580" rx="14" class="adi-panel"/>
+  <text x="450" y="38" class="adi-title" text-anchor="middle">Diagram title</text>
+  <text x="450" y="58" class="adi-subtitle" text-anchor="middle">Tracks converging into one integration point</text>
+
+  <!-- Track A sub-panel -->
+  <rect x="40" y="85" width="820" height="150" rx="10" class="box"
+        fill="var(--adi-fill-blank)"/>
+  <text x="60" y="110" class="adi-section-label">Track A · group label</text>
+  <text x="60" y="127" class="adi-panel-sublabel">Tagline for what this track has in common</text>
+
+  <rect x="80" y="140" width="240" height="80" rx="8" class="box"
+        fill="var(--adi-fill-mcu)"/>
+  <text x="200" y="163" class="box-text" text-anchor="middle">Item A1</text>
+  <text x="200" y="183" class="box-desc" text-anchor="middle">Short description</text>
+  <text x="200" y="200" class="box-desc" text-anchor="middle">cadence</text>
+  <text x="200" y="214" class="box-desc" text-anchor="middle" font-weight="bold">version</text>
+
+  <rect x="330" y="140" width="240" height="80" rx="8" class="box"
+        fill="var(--adi-fill-drv)"/>
+  <text x="450" y="163" class="box-text" text-anchor="middle">Item A2</text>
+  <text x="450" y="183" class="box-desc" text-anchor="middle">Short description</text>
+  <text x="450" y="200" class="box-desc" text-anchor="middle">cadence</text>
+  <text x="450" y="214" class="box-desc" text-anchor="middle" font-weight="bold">version</text>
+
+  <rect x="580" y="140" width="240" height="80" rx="8" class="box"
+        fill="var(--adi-fill-hdl)"/>
+  <text x="700" y="163" class="box-text" text-anchor="middle">Item A3</text>
+  <text x="700" y="183" class="box-desc" text-anchor="middle">Short description</text>
+  <text x="700" y="200" class="box-desc" text-anchor="middle">cadence</text>
+  <text x="700" y="214" class="box-desc" text-anchor="middle" font-weight="bold">version</text>
+
+  <!-- Track B sub-panel -->
+  <rect x="40" y="255" width="820" height="130" rx="10" class="box"
+        fill="var(--adi-fill-blank)"/>
+  <text x="60" y="280" class="adi-section-label">Track B · group label</text>
+  <text x="60" y="297" class="adi-panel-sublabel">Tagline for what this track has in common</text>
+
+  <rect x="170" y="305" width="270" height="65" rx="8" class="box"
+        fill="var(--adi-fill-info)"/>
+  <text x="305" y="328" class="box-text" text-anchor="middle">Item B1</text>
+  <text x="305" y="346" class="box-desc" text-anchor="middle">cadence</text>
+  <text x="305" y="362" class="box-desc" text-anchor="middle" font-weight="bold">version</text>
+
+  <rect x="460" y="305" width="270" height="65" rx="8" class="box"
+        fill="var(--adi-fill-app)"/>
+  <text x="595" y="328" class="box-text" text-anchor="middle">Item B2</text>
+  <text x="595" y="346" class="box-desc" text-anchor="middle">cadence</text>
+  <text x="595" y="362" class="box-desc" text-anchor="middle" font-weight="bold">version</text>
+
+  <!-- Dashed converging arrows from each card down to the integration row -->
+  <line x1="200" y1="220" x2="320" y2="425" class="arrow" stroke-dasharray="4,4"
+        marker-end="url(#convergence-template-arrowhead)"/>
+  <line x1="450" y1="220" x2="450" y2="425" class="arrow" stroke-dasharray="4,4"
+        marker-end="url(#convergence-template-arrowhead)"/>
+  <line x1="700" y1="220" x2="580" y2="425" class="arrow" stroke-dasharray="4,4"
+        marker-end="url(#convergence-template-arrowhead)"/>
+  <line x1="305" y1="370" x2="380" y2="425" class="arrow" stroke-dasharray="4,4"
+        marker-end="url(#convergence-template-arrowhead)"/>
+  <line x1="595" y1="370" x2="520" y2="425" class="arrow" stroke-dasharray="4,4"
+        marker-end="url(#convergence-template-arrowhead)"/>
+
+  <text x="450" y="412" class="arrow-label" text-anchor="middle">verb describing the convergence</text>
+
+  <!-- Integration sub-panel (highlighted) -->
+  <rect x="40" y="430" width="820" height="145" rx="10" class="box"
+        fill="var(--adi-fill-good)"/>
+  <text x="60" y="455" class="adi-section-label">Integration · name</text>
+  <text x="60" y="472" class="adi-panel-sublabel">A single artefact that pins one tested combination above</text>
+
+  <rect x="80" y="485" width="740" height="75" rx="8" class="box"
+        fill="var(--adi-fill-blank)"/>
+  <text x="450" y="507" class="box-text" text-anchor="middle">Integration release name</text>
+  <text x="450" y="527" class="box-desc" text-anchor="middle">Item A1 vX · Item A2 vY · Item A3 vZ · Item B1 vP · Item B2 vQ</text>
+  <text x="450" y="547" class="box-desc" text-anchor="middle" font-style="italic">Bundled versions documented in each release's notes.</text>
+</svg>

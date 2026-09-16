@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TEMPLATE: vertical stack of boxes joined by arrows.
+  Examples in the repo: docs/ecosystem-intro.svg, docs/overview/architecture-layers.svg.
+
+  To customise:
+    1. Replace `stack-template` in the marker id with a unique stem (the
+       diagram's filename without .svg). Update marker-end="url(#...)" to match.
+    2. Adjust viewBox height to the number of boxes you need.
+       Each box here is 68 px tall, with a 32 px gap between rows for the arrow.
+    3. Replace placeholder titles, descriptions, and fill colours.
+       Use --adi-fill-hw / --mcu / --hdl / --drv / --app / --info / --note
+       (see references/css-classes.md for what each one means).
+    4. Optional: wrap the DataX-scoped subset in an .adi-datax-band rect
+       placed BEFORE the relevant boxes in source order so it sits behind them.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     class="adi-figure no-background"
+     viewBox="0 0 800 540"
+     width="100%"
+     style="max-width: 680px; height: auto;">
+  <defs>
+    <marker id="stack-template-arrowhead"
+            markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="20" y="20" width="760" height="500" rx="14" class="adi-panel"/>
+  <text x="44" y="52" class="adi-panel-label">Diagram title</text>
+  <text x="44" y="70" class="adi-panel-sublabel">One-line subtitle</text>
+
+  <!-- Box 1 -->
+  <rect x="120" y="100" width="560" height="68" rx="10" class="box"
+        fill="var(--adi-fill-hw)"/>
+  <text x="400" y="128" class="box-text" text-anchor="middle">Layer / box 1</text>
+  <text x="400" y="148" class="box-desc" text-anchor="middle">Short description, 1 line</text>
+
+  <line x1="400" y1="180" x2="400" y2="196" class="arrow"
+        marker-end="url(#stack-template-arrowhead)"/>
+  <circle cx="400" cy="180" r="3" class="dot"/>
+
+  <!-- Box 2 -->
+  <rect x="120" y="200" width="560" height="68" rx="10" class="box"
+        fill="var(--adi-fill-hdl)"/>
+  <text x="400" y="228" class="box-text" text-anchor="middle">Layer / box 2</text>
+  <text x="400" y="248" class="box-desc" text-anchor="middle">Short description, 1 line</text>
+
+  <line x1="400" y1="280" x2="400" y2="296" class="arrow"
+        marker-end="url(#stack-template-arrowhead)"/>
+  <circle cx="400" cy="280" r="3" class="dot"/>
+
+  <!-- Box 3 -->
+  <rect x="120" y="300" width="560" height="68" rx="10" class="box"
+        fill="var(--adi-fill-drv)"/>
+  <text x="400" y="328" class="box-text" text-anchor="middle">Layer / box 3</text>
+  <text x="400" y="348" class="box-desc" text-anchor="middle">Short description, 1 line</text>
+
+  <line x1="400" y1="380" x2="400" y2="396" class="arrow"
+        marker-end="url(#stack-template-arrowhead)"/>
+  <circle cx="400" cy="380" r="3" class="dot"/>
+
+  <!-- Box 4 -->
+  <rect x="120" y="400" width="560" height="68" rx="10" class="box"
+        fill="var(--adi-fill-app)"/>
+  <text x="400" y="428" class="box-text" text-anchor="middle">Layer / box 4</text>
+  <text x="400" y="448" class="box-desc" text-anchor="middle">Short description, 1 line</text>
+</svg>

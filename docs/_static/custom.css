@@ -13,3 +13,265 @@
     border: 1px solid #ddd;
     padding: 0.5em;
 }
+
+/* ============================================================
+   adi-figure: shared palette + theming for inlined SVG diagrams.
+   Apply to the root <svg> via class="adi-figure no-background".
+   The no-background class also bypasses the cosmic theme's
+   default white-background-on-svg-in-dark-mode rule.
+   ============================================================ */
+
+.svg svg.adi-figure {
+    /* Typography & Rendering optimization */
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    shape-rendering: geometricPrecision;
+    text-rendering: optimizeLegibility;
+
+    /* Surfaces - Linked to Cosmic Theme for native integration */
+    --adi-panel-bg:      var(--bg-color2, #f8f8f8);
+    --adi-panel-stroke:  var(--bg-color3, #e5e7eb);
+    --adi-panel-label:   var(--text-color2, #555555);
+    --adi-box-stroke:    rgba(33, 40, 54, 0.08); /* clean translucent border */
+    --adi-dot-fill:      var(--bg-color1, #ffffff);
+
+    /* Text - Enhanced readability and contrast */
+    --adi-text-strong:   var(--text-color1, #212836);
+    --adi-text:          var(--text-color1, #212836);
+    --adi-text-muted:    var(--text-color2, #555555);
+
+    /* Arrows / accents */
+    --adi-arrow:         #94a3b8; /* clean slate gray */
+    --adi-accent:        var(--accent-color, #0067b9);
+    --adi-good-text:     #166534; /* high-contrast dark green text */
+    --adi-warn-text:     #991b1b; /* high-contrast dark red text */
+
+    /* Modern Soft Pastels (High relative luminance for 4.5:1+ contrast) */
+    --adi-fill-hw:       #ffd6bc;  /* peach */
+    --adi-fill-hw-alt:   #dcfce7;  /* mint */
+    --adi-fill-mcu:      #fef08a;  /* warm yellow */
+    --adi-fill-hdl:      #bbf7d0;  /* light green */
+    --adi-fill-drv:      #dbeafe;  /* sky blue */
+    --adi-fill-app:      #f3e8ff;  /* soft lavender */
+    --adi-fill-app-alt:  #ffe4e6;  /* soft rose */
+    --adi-fill-info:     #e0f2fe;  /* cyan-blue */
+    --adi-fill-note:     #fef3c7;  /* amber note */
+    --adi-fill-note-warm:#ffedd5;  /* orange note */
+    --adi-fill-good:     #dcfce7;  /* strengths */
+    --adi-fill-warn:     #fee2e2;  /* warnings */
+    --adi-fill-muted:    #f1f5f9;  /* neutral */
+    --adi-fill-blank:    #ffffff;
+
+    /* DataX scope band — wraps the components covered by ADI DataX */
+    --adi-datax-bg:      rgba(0, 103, 185, 0.04); /* very soft brand tint */
+    --adi-datax-stroke:  rgba(0, 103, 185, 0.25);
+    --adi-datax-label:   var(--accent-color, #0067b9);
+}
+
+.svg svg.adi-figure .adi-datax-band {
+    fill: var(--adi-datax-bg);
+    stroke: var(--adi-datax-stroke);
+    stroke-width: 1.5;
+    stroke-dasharray: 4,4;
+}
+.svg svg.adi-figure .adi-datax-label {
+    font-family: Barlow, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--adi-datax-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.svg svg.adi-figure .adi-panel {
+    fill: var(--adi-panel-bg);
+    stroke: var(--adi-panel-stroke);
+    stroke-width: 1px;
+}
+.svg svg.adi-figure .adi-panel-label {
+    font-family: Barlow, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    fill: var(--adi-panel-label);
+    letter-spacing: 0.02em;
+}
+.svg svg.adi-figure .adi-panel-sublabel {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    fill: var(--adi-panel-label);
+    opacity: 0.85;
+}
+.svg svg.adi-figure .adi-title {
+    font-family: Barlow, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    fill: var(--adi-text-strong);
+}
+.svg svg.adi-figure .adi-subtitle {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    fill: var(--adi-text-muted);
+}
+.svg svg.adi-figure .adi-section-label,
+.svg svg.adi-figure .layer-label,
+.svg svg.adi-figure .section-label {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    fill: var(--adi-text-muted);
+    letter-spacing: 0.02em;
+}
+.svg svg.adi-figure .box {
+    stroke: var(--adi-box-stroke);
+    stroke-width: 1px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.04));
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+.svg svg.adi-figure .box:hover {
+    filter: drop-shadow(0 4px 6px rgba(33, 40, 54, 0.08));
+    transform: translateY(-1px);
+}
+.svg svg.adi-figure .box-text {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--adi-text-strong);
+}
+.svg svg.adi-figure .box-desc {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    fill: var(--adi-text-muted);
+}
+.svg svg.adi-figure .arrow {
+    stroke: var(--adi-arrow);
+    stroke-width: 1.5px;
+    fill: none;
+}
+.svg svg.adi-figure .arrow-label,
+.svg svg.adi-figure .arrow-text {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 10px;
+    fill: var(--adi-text-muted);
+    font-style: italic;
+}
+.svg svg.adi-figure .accent-arrow {
+    stroke: var(--adi-accent);
+    stroke-width: 1.75px;
+    fill: none;
+}
+.svg svg.adi-figure .accent-text { fill: var(--adi-accent); }
+.svg svg.adi-figure .good-text   { fill: var(--adi-good-text); }
+.svg svg.adi-figure .warn-text   { fill: var(--adi-warn-text); }
+.svg svg.adi-figure .note-text {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    fill: var(--adi-text-muted);
+    font-style: italic;
+}
+.svg svg.adi-figure .dot {
+    fill: var(--adi-dot-fill);
+    stroke: var(--adi-arrow);
+    stroke-width: 1.5px;
+}
+.svg svg.adi-figure .arrowhead-fill { fill: var(--adi-arrow); }
+.svg svg.adi-figure .accent-arrowhead-fill { fill: var(--adi-accent); }
+
+/* ----- Dark theme overrides (explicit body.dark class) ----- */
+body.dark .svg svg.adi-figure {
+    --adi-panel-bg:      var(--bg-color2, #293038);
+    --adi-panel-stroke:  var(--bg-color3, #3a424b);
+    --adi-panel-label:   var(--text-color2, #ccc);
+    --adi-box-stroke:    rgba(255, 255, 255, 0.08);
+    --adi-dot-fill:      var(--bg-color1, #101820);
+    --adi-text-strong:   var(--text-color1, #e5e5e5);
+    --adi-text:          var(--text-color1, #e5e5e5);
+    --adi-text-muted:    var(--text-color2, #ccc);
+    --adi-arrow:         #64748b;
+    --adi-accent:        var(--accent-color, #92befc);
+    --adi-good-text:     #86efac;
+    --adi-warn-text:     #fca5a5;
+    --adi-fill-hw:       #4c2c1e;
+    --adi-fill-hw-alt:   #1a3325;
+    --adi-fill-mcu:      #4b3b1d;
+    --adi-fill-hdl:      #1d3e2d;
+    --adi-fill-drv:      #1d3151;
+    --adi-fill-app:      #351f47;
+    --adi-fill-app-alt:  #4a1e1e;
+    --adi-fill-info:     #1e3547;
+    --adi-fill-note:     #3f351a;
+    --adi-fill-note-warm:#4a2c12;
+    --adi-fill-good:     #14351b;
+    --adi-fill-warn:     #3c1e1e;
+    --adi-fill-muted:    #1e293b;
+    --adi-fill-blank:    #181e24;
+    --adi-datax-bg:      rgba(146, 190, 252, 0.06);
+    --adi-datax-stroke:  rgba(146, 190, 252, 0.3);
+    --adi-datax-label:   #92befc;
+}
+
+/* ----- Dark theme overrides (OS preference, no explicit body class) ----- */
+@media (prefers-color-scheme: dark) {
+    body:not(.light) .svg svg.adi-figure {
+        --adi-panel-bg:      var(--bg-color2, #293038);
+        --adi-panel-stroke:  var(--bg-color3, #3a424b);
+        --adi-panel-label:   var(--text-color2, #ccc);
+        --adi-box-stroke:    rgba(255, 255, 255, 0.08);
+        --adi-dot-fill:      var(--bg-color1, #101820);
+        --adi-text-strong:   var(--text-color1, #e5e5e5);
+        --adi-text:          var(--text-color1, #e5e5e5);
+        --adi-text-muted:    var(--text-color2, #ccc);
+        --adi-arrow:         #64748b;
+        --adi-accent:        var(--accent-color, #92befc);
+        --adi-good-text:     #86efac;
+        --adi-warn-text:     #fca5a5;
+        --adi-fill-hw:       #4c2c1e;
+        --adi-fill-hw-alt:   #1a3325;
+        --adi-fill-mcu:      #4b3b1d;
+        --adi-fill-hdl:      #1d3e2d;
+        --adi-fill-drv:      #1d3151;
+        --adi-fill-app:      #351f47;
+        --adi-fill-app-alt:  #4a1e1e;
+        --adi-fill-info:     #1e3547;
+        --adi-fill-note:     #3f351a;
+        --adi-fill-note-warm:#4a2c12;
+        --adi-fill-good:     #14351b;
+        --adi-fill-warn:     #3c1e1e;
+        --adi-fill-muted:    #1e293b;
+        --adi-fill-blank:    #181e24;
+        --adi-datax-bg:      rgba(146, 190, 252, 0.06);
+        --adi-datax-stroke:  rgba(146, 190, 252, 0.3);
+        --adi-datax-label:   #92befc;
+    }
+}
+
+/* ============================================================
+   Sidebar Brand Logo styles
+   ============================================================ */
+
+/* Sidebar logo override to make it visible and clean */
+.sphinxsidebar #logo {
+    display: block !important;
+    margin: 1.5rem 1.25rem 0.5rem 1.25rem;
+    text-align: center;
+}
+.sphinxsidebar #logo img {
+    max-width: 90%;
+    height: auto;
+    max-height: 3.5rem;
+    display: inline-block;
+}
+
+/* Ensure light/dark mode logo toggle works robustly */
+body:not(.dark) .sphinxsidebar #logo img.only-dark {
+    display: none !important;
+}
+body.dark .sphinxsidebar #logo img.only-light {
+    display: none !important;
+}
+@media (prefers-color-scheme: dark) {
+    body:not(.light) .sphinxsidebar #logo img.only-light {
+        display: none !important;
+    }
+    body:not(.light) .sphinxsidebar #logo img.only-dark {
+        display: inline-block !important;
+    }
+}

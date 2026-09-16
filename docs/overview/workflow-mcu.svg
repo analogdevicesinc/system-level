@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 900 620" width="100%" style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="wmcu-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="10" y="10" width="880" height="600" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="450" y="35" class="adi-title" text-anchor="middle">Workflow 2: Microcontroller + Precision ADC</text>
+
+  <!-- Layer labels -->
+  <text x="30" y="100" class="layer-label">Layer 1</text>
+  <text x="30" y="180" class="layer-label">Layer 2</text>
+  <text x="30" y="290" class="layer-label">Layer 3</text>
+  <text x="30" y="425" class="layer-label">Layers</text>
+  <text x="30" y="440" class="layer-label">5-7</text>
+
+  <!-- Layer 1: AD4080 Hardware -->
+  <rect x="100" y="75" width="700" height="60" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="450" y="100" class="box-text" text-anchor="middle">AD4080 40 MSPS Precision SAR ADC</text>
+  <text x="450" y="120" class="box-desc" text-anchor="middle">EVAL-AD4080-ARDZ (Arduino Shield) • SINC5+Comp filters • 16-bit resolution</text>
+
+  <line x1="450" y1="135" x2="450" y2="155" class="arrow" marker-end="url(#wmcu-arrowhead)"/>
+  <text x="470" y="148" class="arrow-label">SPI (up to 80 MHz)</text>
+
+  <!-- Layer 2: STM32 MCU and Host PC -->
+  <rect x="100" y="155" width="320" height="100" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="260" y="180" class="box-text" text-anchor="middle">STM32H563ZI Microcontroller</text>
+  <text x="260" y="200" class="box-desc" text-anchor="middle">ST Nucleo-H563ZI Dev Board</text>
+  <text x="120" y="222" class="box-desc">• ARM Cortex-M33 @ 250 MHz</text>
+  <text x="120" y="237" class="box-desc">• 2 MB Flash, 640 KB RAM</text>
+  <text x="120" y="252" class="box-desc">• USB 2.0 HS device</text>
+
+  <rect x="480" y="155" width="320" height="100" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="640" y="180" class="box-text" text-anchor="middle">Host PC / Raspberry Pi</text>
+  <text x="640" y="200" class="box-desc" text-anchor="middle">Runs libiio + Applications</text>
+  <text x="500" y="222" class="box-desc">• Python environment</text>
+  <text x="500" y="237" class="box-desc">• MATLAB (optional)</text>
+  <text x="500" y="252" class="box-desc">• Scopy GUI</text>
+
+  <!-- Arrow between MCU and PC -->
+  <line x1="420" y1="205" x2="480" y2="205" class="arrow" marker-end="url(#wmcu-arrowhead)"/>
+  <text x="432" y="195" class="arrow-label">USB/Serial</text>
+  <text x="422" y="220" class="arrow-label">(Virtual COM Port)</text>
+
+  <!-- Layer 3: no-OS Firmware -->
+  <rect x="100" y="275" width="320" height="100" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="260" y="300" class="box-text" text-anchor="middle">no-OS Firmware</text>
+  <text x="260" y="320" class="box-desc" text-anchor="middle">Bare-metal code running on STM32</text>
+  <text x="120" y="342" class="box-desc">• AD4080 device driver (SPI control)</text>
+  <text x="120" y="357" class="box-desc">• DMA circular buffers</text>
+  <text x="120" y="372" class="box-desc">• TinyIIO server on USB CDC</text>
+
+  <line x1="260" y1="275" x2="260" y2="255" class="arrow" stroke-dasharray="5,5"/>
+
+  <!-- Note about Layer 4 -->
+  <rect x="480" y="295" width="320" height="60" rx="8" class="box" fill="var(--adi-fill-note)"/>
+  <text x="640" y="317" class="box-text" text-anchor="middle">Layer 4 Skipped!</text>
+  <text x="640" y="335" class="box-desc" text-anchor="middle">No Linux drivers needed. TinyIIO</text>
+  <text x="640" y="350" class="box-desc" text-anchor="middle">talks directly to libiio via serial.</text>
+
+  <!-- Layers 5-7: Software Stack on Host -->
+  <rect x="480" y="395" width="320" height="180" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="640" y="420" class="box-text" text-anchor="middle">Software Stack (Host PC)</text>
+
+  <text x="500" y="445" class="box-desc" font-weight="bold">Layer 5 - libiio:</text>
+  <text x="520" y="460" class="box-desc">serial: backend to STM32</text>
+  <text x="520" y="475" class="box-desc">serial:/dev/ttyACM0,230400,8n1</text>
+
+  <text x="500" y="497" class="box-desc" font-weight="bold">Layer 6 - pyadi-iio:</text>
+  <text x="520" y="512" class="box-desc">adc = adi.ad4080(uri="serial:...")</text>
+  <text x="520" y="527" class="box-desc">data = adc.rx()</text>
+
+  <text x="500" y="549" class="box-desc" font-weight="bold">Layer 7 - Applications:</text>
+  <text x="520" y="564" class="box-desc">• Scopy • Python scripts • MATLAB</text>
+
+  <!-- Arrow from firmware to host -->
+  <line x1="420" y1="325" x2="480" y2="415" class="arrow" marker-end="url(#wmcu-arrowhead)"/>
+  <text x="420" y="365" class="arrow-label">TinyIIO Protocol</text>
+
+  <!-- Arrow within host stack -->
+  <line x1="640" y1="355" x2="640" y2="395" class="arrow" marker-end="url(#wmcu-arrowhead)"/>
+
+  <!-- Bottom note -->
+  <text x="450" y="600" class="note-text" text-anchor="middle">Low Power &amp; Low Cost: battery operation • $50–200 BOM • standalone deployment • real-time deterministic timing</text>
+</svg>

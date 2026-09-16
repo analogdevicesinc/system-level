@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 900 600" width="100%" style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="ver-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="10" y="10" width="880" height="580" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="450" y="38" class="adi-title" text-anchor="middle">Release tracks across ADI DataX</text>
+  <text x="450" y="58" class="adi-subtitle" text-anchor="middle">Three independent versioning patterns; one integration point</text>
+
+  <!-- ===================== Sub-panel A: Tied to AMD tools ===================== -->
+  <rect x="40" y="85" width="820" height="150" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="60" y="110" class="adi-section-label">Track A · synchronized release names (e.g. 2024_r2)</text>
+  <text x="60" y="127" class="adi-panel-sublabel">Tied to AMD Vivado / Vitis cadence — HDL, Linux, and no-OS share tag names</text>
+
+  <rect x="80" y="140" width="240" height="80" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="200" y="163" class="box-text" text-anchor="middle">HDL</text>
+  <text x="200" y="183" class="box-desc" text-anchor="middle">FPGA reference designs &amp; IP</text>
+  <text x="200" y="200" class="box-desc" text-anchor="middle">bi-annual</text>
+  <text x="200" y="214" class="box-desc" text-anchor="middle" font-weight="bold">hdl_2024_r2</text>
+
+  <rect x="330" y="140" width="240" height="80" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="450" y="163" class="box-text" text-anchor="middle">Linux kernel</text>
+  <text x="450" y="183" class="box-desc" text-anchor="middle">Mainline + ADI patches</text>
+  <text x="450" y="200" class="box-desc" text-anchor="middle">tracks LTS</text>
+  <text x="450" y="214" class="box-desc" text-anchor="middle" font-weight="bold">6.1.75-adi-…</text>
+
+  <rect x="580" y="140" width="240" height="80" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="700" y="163" class="box-text" text-anchor="middle">no-OS</text>
+  <text x="700" y="183" class="box-desc" text-anchor="middle">Bare-metal firmware</text>
+  <text x="700" y="200" class="box-desc" text-anchor="middle">quarterly, synced with HDL</text>
+  <text x="700" y="214" class="box-desc" text-anchor="middle" font-weight="bold">2024_r2</text>
+
+  <!-- ===================== Sub-panel B: Independent semver ===================== -->
+  <rect x="40" y="255" width="820" height="130" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="60" y="280" class="adi-section-label">Track B · independent semantic versioning</text>
+  <text x="60" y="297" class="adi-panel-sublabel">Released on their own cadence; do not match HDL/Linux/no-OS tag names</text>
+
+  <rect x="170" y="305" width="270" height="65" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="305" y="328" class="box-text" text-anchor="middle">libiio</text>
+  <text x="305" y="346" class="box-desc" text-anchor="middle">2–3 releases / year</text>
+  <text x="305" y="362" class="box-desc" text-anchor="middle" font-weight="bold">v0.26</text>
+
+  <rect x="460" y="305" width="270" height="65" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="595" y="328" class="box-text" text-anchor="middle">pyadi-iio</text>
+  <text x="595" y="346" class="box-desc" text-anchor="middle">monthly–quarterly (PyPI)</text>
+  <text x="595" y="362" class="box-desc" text-anchor="middle" font-weight="bold">v0.0.17</text>
+
+  <!-- Converging arrows down to integration sub-panel -->
+  <line x1="200" y1="220" x2="320" y2="425" class="arrow" stroke-dasharray="4,4" marker-end="url(#ver-arrowhead)"/>
+  <line x1="450" y1="220" x2="450" y2="425" class="arrow" stroke-dasharray="4,4" marker-end="url(#ver-arrowhead)"/>
+  <line x1="700" y1="220" x2="580" y2="425" class="arrow" stroke-dasharray="4,4" marker-end="url(#ver-arrowhead)"/>
+  <line x1="305" y1="370" x2="380" y2="425" class="arrow" stroke-dasharray="4,4" marker-end="url(#ver-arrowhead)"/>
+  <line x1="595" y1="370" x2="520" y2="425" class="arrow" stroke-dasharray="4,4" marker-end="url(#ver-arrowhead)"/>
+
+  <text x="450" y="412" class="arrow-label" text-anchor="middle">pinned, tested, and bundled into</text>
+
+  <!-- ===================== Sub-panel C: Kuiper integration ===================== -->
+  <rect x="40" y="430" width="820" height="145" rx="10" class="box" fill="var(--adi-fill-good)"/>
+  <text x="60" y="455" class="adi-section-label">Integration · Kuiper Linux (bi-annual)</text>
+  <text x="60" y="472" class="adi-panel-sublabel">A single image that pins one tested combination of every component above</text>
+
+  <rect x="80" y="485" width="740" height="75" rx="8" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="450" y="507" class="box-text" text-anchor="middle">Kuiper Linux 2024_r1</text>
+  <text x="450" y="527" class="box-desc" text-anchor="middle">HDL 2024_r2 · Linux 6.1.75-adi · no-OS 2024_r2 · libiio v0.26 · pyadi-iio v0.0.17 · Scopy + tools</text>
+  <text x="450" y="547" class="box-desc" text-anchor="middle" font-style="italic">Exact bundled versions are listed in each Kuiper release notes.</text>
+</svg>

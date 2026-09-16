@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 1000 720" width="100%" style="max-width: 980px; height: auto;">
+  <defs>
+    <marker id="hdlshared-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="10" y="10" width="980" height="700" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="500" y="40" class="adi-title" text-anchor="middle">How HDL Supports Both Linux and no-OS</text>
+  <text x="500" y="60" class="adi-subtitle" text-anchor="middle">Shared IP cores and design patterns across FPGA and microcontroller implementations</text>
+
+  <!-- HDL Repository at top -->
+  <rect x="300" y="90" width="400" height="140" rx="8" class="box" fill="var(--adi-fill-hdl)"/>
+  <text x="500" y="120" class="box-text" text-anchor="middle" style="font-size: 15px;">HDL Repository (analogdevicesinc/hdl)</text>
+
+  <text x="320" y="150" class="box-desc" font-weight="bold">Shared Components:</text>
+  <text x="340" y="170" class="box-desc">• SPI Engine IP core (library/spi_engine/)</text>
+  <text x="340" y="185" class="box-desc">• Device interface modules (library/*/ad*.v)</text>
+  <text x="340" y="200" class="box-desc">• Register maps and initialization sequences</text>
+  <text x="340" y="215" class="box-desc">• Timing specifications and constraints</text>
+
+  <!-- LEFT: FPGA/Linux Path -->
+  <rect x="50" y="290" width="400" height="180" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="250" y="320" class="box-text" text-anchor="middle" style="font-size: 14px;">FPGA Implementation (Zynq/ZynqMP)</text>
+
+  <text x="70" y="345" class="box-desc" font-weight="bold">HDL Usage:</text>
+  <text x="90" y="365" class="box-desc">✓ Synthesizes IP cores into FPGA fabric</text>
+  <text x="90" y="380" class="box-desc">✓ Creates AXI memory-mapped interfaces</text>
+  <text x="90" y="395" class="box-desc">✓ Generates devicetree bindings</text>
+  <text x="90" y="410" class="box-desc">✓ Implements DMA controllers</text>
+
+  <text x="70" y="435" class="box-desc" font-weight="bold">Result:</text>
+  <text x="90" y="455" class="box-desc">Linux IIO drivers control hardware via AXI registers</text>
+
+  <!-- RIGHT: MCU/no-OS Path -->
+  <rect x="550" y="290" width="400" height="180" rx="8" class="box" fill="var(--adi-fill-note-warm)"/>
+  <text x="750" y="320" class="box-text" text-anchor="middle" style="font-size: 14px;">Microcontroller Implementation (STM32/MAX32)</text>
+
+  <text x="570" y="345" class="box-desc" font-weight="bold">HDL Usage:</text>
+  <text x="590" y="365" class="box-desc">✓ References register maps and sequences</text>
+  <text x="590" y="380" class="box-desc">✓ Adapts SPI Engine timing to software SPI</text>
+  <text x="590" y="395" class="box-desc">✓ Uses same initialization procedures</text>
+  <text x="590" y="410" class="box-desc">✓ Mirrors FPGA interface behavior</text>
+
+  <text x="570" y="435" class="box-desc" font-weight="bold">Result:</text>
+  <text x="590" y="455" class="box-desc">no-OS drivers control hardware via GPIO/SPI</text>
+
+  <!-- Arrows from HDL -->
+  <line x1="400" y1="230" x2="250" y2="290" class="arrow" marker-end="url(#hdlshared-arrowhead)"/>
+  <text x="280" y="255" class="arrow-label">Synthesized into FPGA</text>
+
+  <line x1="600" y1="230" x2="750" y2="290" class="arrow" marker-end="url(#hdlshared-arrowhead)"/>
+  <text x="640" y="255" class="arrow-label">Referenced by software drivers</text>
+
+  <!-- Example: SPI Engine -->
+  <rect x="100" y="510" width="350" height="160" rx="8" class="box" fill="var(--adi-fill-good)"/>
+  <text x="275" y="535" class="box-text" text-anchor="middle">Example: SPI Engine IP Core</text>
+
+  <text x="120" y="560" class="box-desc" font-weight="bold">In HDL (FPGA):</text>
+  <text x="140" y="580" class="box-desc">• Dedicated SPI controller in fabric (library/spi_engine/)</text>
+  <text x="140" y="595" class="box-desc">• Offload engine for continuous transfers</text>
+  <text x="140" y="610" class="box-desc">• DMA integration for high throughput</text>
+  <text x="140" y="625" class="box-desc">• Operates at 100+ MHz SPI clock</text>
+
+  <text x="120" y="645" class="box-desc" font-weight="bold">In no-OS (MCU):</text>
+  <text x="140" y="660" class="box-desc">• Software emulates timing patterns from HDL</text>
+
+  <!-- Example: Register Maps -->
+  <rect x="550" y="510" width="350" height="160" rx="8" class="box" fill="var(--adi-fill-app-alt)"/>
+  <text x="725" y="535" class="box-text" text-anchor="middle">Example: Device Register Maps</text>
+
+  <text x="570" y="560" class="box-desc" font-weight="bold">Defined in HDL:</text>
+  <text x="590" y="580" class="box-desc">• AD9081 register addresses (0x0000-0xFFFF)</text>
+  <text x="590" y="595" class="box-desc">• Bit field definitions and reset values</text>
+  <text x="590" y="610" class="box-desc">• Initialization sequence: write reg[0x42]=0x01...</text>
+
+  <text x="570" y="630" class="box-desc" font-weight="bold">Used by Both:</text>
+  <text x="590" y="645" class="box-desc">• Linux driver: axi-ad9081.c reads from HDL docs</text>
+  <text x="590" y="660" class="box-desc">• no-OS driver: ad9081.c uses identical register map</text>
+
+  <line x1="250" y1="470" x2="275" y2="510" class="arrow" stroke-dasharray="5,5"/>
+  <line x1="750" y1="470" x2="725" y2="510" class="arrow" stroke-dasharray="5,5"/>
+
+  <!-- Bottom note -->
+  <text x="500" y="700" class="note-text" text-anchor="middle">Single source of truth in HDL ensures consistent behavior between FPGA and MCU implementations</text>
+</svg>

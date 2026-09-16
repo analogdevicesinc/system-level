@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="adi-figure no-background" viewBox="0 0 900 540" width="100%" style="max-width: 880px; height: auto;">
+  <defs>
+    <marker id="libiio-arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" class="arrowhead-fill" />
+    </marker>
+  </defs>
+
+  <!-- Outer panel -->
+  <rect x="10" y="10" width="880" height="520" rx="14" class="adi-panel"/>
+
+  <!-- Title -->
+  <text x="450" y="38" class="adi-title" text-anchor="middle">libiio architecture</text>
+  <text x="450" y="58" class="adi-subtitle" text-anchor="middle">Single API across local, USB, network, and serial transports</text>
+
+  <!-- ===================== Sub-panel: Hardware host ===================== -->
+  <rect x="40" y="90" width="420" height="425" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="60" y="115" class="adi-section-label">Hardware host (Linux)</text>
+
+  <!-- ADI DataX scope: IIOD daemon + libiio + Linux kernel (NOT IIO devices) -->
+  <rect x="50" y="125" width="385" height="245" rx="8" class="adi-datax-band"/>
+  <text x="70" y="247" class="adi-datax-label" text-anchor="middle" transform="rotate(-90 70 247)">ADI DataX™</text>
+
+  <!-- IIOD daemon -->
+  <rect x="80" y="135" width="340" height="48" rx="8" class="box" fill="var(--adi-fill-info)"/>
+  <text x="250" y="156" class="box-text" text-anchor="middle">IIOD daemon</text>
+  <text x="250" y="172" class="box-desc" text-anchor="middle">Exposes local devices over TCP / USB / serial</text>
+
+  <line x1="250" y1="183" x2="250" y2="200" class="arrow" marker-end="url(#libiio-arrowhead)"/>
+
+  <!-- libiio with backends -->
+  <rect x="80" y="200" width="340" height="92" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="250" y="222" class="box-text" text-anchor="middle">libiio</text>
+
+  <rect x="95"  y="232" width="76" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="133" y="253" class="box-desc" text-anchor="middle" font-weight="bold">local:</text>
+  <text x="133" y="268" class="box-desc" text-anchor="middle">backend</text>
+
+  <rect x="177" y="232" width="76" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="215" y="253" class="box-desc" text-anchor="middle" font-weight="bold">ip:</text>
+  <text x="215" y="268" class="box-desc" text-anchor="middle">backend</text>
+
+  <rect x="259" y="232" width="76" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="297" y="253" class="box-desc" text-anchor="middle" font-weight="bold">usb:</text>
+  <text x="297" y="268" class="box-desc" text-anchor="middle">backend</text>
+
+  <rect x="341" y="232" width="76" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="379" y="253" class="box-desc" text-anchor="middle" font-weight="bold">serial:</text>
+  <text x="379" y="268" class="box-desc" text-anchor="middle">backend</text>
+
+  <line x1="250" y1="292" x2="250" y2="310" class="arrow" marker-end="url(#libiio-arrowhead)"/>
+
+  <!-- Linux kernel -->
+  <rect x="80" y="310" width="340" height="48" rx="8" class="box" fill="var(--adi-fill-mcu)"/>
+  <text x="250" y="331" class="box-text" text-anchor="middle">Linux kernel</text>
+  <text x="250" y="347" class="box-desc" text-anchor="middle">IIO subsystem · sysfs · char devices</text>
+
+  <line x1="250" y1="358" x2="250" y2="376" class="arrow" marker-end="url(#libiio-arrowhead)"/>
+
+  <!-- IIO devices -->
+  <rect x="80" y="376" width="340" height="48" rx="8" class="box" fill="var(--adi-fill-hw)"/>
+  <text x="250" y="397" class="box-text" text-anchor="middle">IIO devices</text>
+  <text x="250" y="413" class="box-desc" text-anchor="middle">ADCs · DACs · transceivers · sensors</text>
+
+  <!-- TinyIIO note -->
+  <text x="250" y="455" class="note-text" text-anchor="middle">On a microcontroller, the same role is played by</text>
+  <text x="250" y="470" class="note-text" text-anchor="middle">TinyIIO server + bare-metal (no-OS) drivers</text>
+
+  <!-- ===================== Sub-panel: Remote client ===================== -->
+  <rect x="490" y="90" width="370" height="245" rx="10" class="box" fill="var(--adi-fill-blank)"/>
+  <text x="510" y="115" class="adi-section-label">Remote client</text>
+  <text x="510" y="131" class="adi-panel-sublabel">Linux · Windows · macOS</text>
+
+  <!-- ADI DataX scope: libiio (NOT the client application) -->
+  <rect x="515" y="215" width="320" height="110" rx="8" class="adi-datax-band"/>
+
+  <!-- Client app -->
+  <rect x="530" y="150" width="290" height="55" rx="8" class="box" fill="var(--adi-fill-app)"/>
+  <text x="675" y="172" class="box-text" text-anchor="middle">Client application</text>
+  <text x="675" y="190" class="box-desc" text-anchor="middle">Scopy · pyadi-iio · MATLAB · custom code</text>
+
+  <line x1="675" y1="205" x2="675" y2="225" class="arrow" marker-end="url(#libiio-arrowhead)"/>
+
+  <!-- libiio (network backend only) -->
+  <rect x="530" y="225" width="290" height="92" rx="8" class="box" fill="var(--adi-fill-drv)"/>
+  <text x="675" y="247" class="box-text" text-anchor="middle">libiio</text>
+
+  <rect x="600" y="257" width="150" height="48" rx="5" fill="var(--adi-fill-blank)" stroke="var(--adi-box-stroke)" stroke-width="1"/>
+  <text x="675" y="278" class="box-desc" text-anchor="middle" font-weight="bold">ip: backend</text>
+  <text x="675" y="293" class="box-desc" text-anchor="middle">(also usb: / serial:)</text>
+
+  <!-- Identical-API note under remote client -->
+  <text x="675" y="367" class="note-text" text-anchor="middle">Identical application code on either side —</text>
+  <text x="675" y="382" class="note-text" text-anchor="middle">change only the URI string passed to libiio.</text>
+
+  <!-- ===================== Network link (dashed) ===================== -->
+  <path d="M 530 270 C 480 270, 470 159, 420 159"
+        class="arrow" stroke-dasharray="6,5" fill="none"
+        marker-end="url(#libiio-arrowhead)"/>
+  <text x="475" y="220" class="arrow-label accent-text" text-anchor="middle">Network link</text>
+  <text x="475" y="235" class="arrow-label" text-anchor="middle">TCP / USB /</text>
+  <text x="475" y="245" class="arrow-label" text-anchor="middle">Serial</text>
+</svg>
