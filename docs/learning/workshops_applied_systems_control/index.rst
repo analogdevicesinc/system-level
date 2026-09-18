@@ -176,8 +176,8 @@ Common control strategies
    heating systems.
 
 
-**Introduction to PWM control**
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Introduction to PWM control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: pwm.png
    :width: 500
@@ -252,7 +252,7 @@ PID control is widely used in various applications, including:
   conveyor systems, fans, and pumps.
 
 - Position control: Controlling the position of mechanical systems, such as
-  robotic arms and CNC machines
+  robotic arms and CNC machines.
 
 .. image:: pid_2.jpg
    :width: 550
@@ -298,7 +298,13 @@ It includes:
       AD-SWIOT1L-SL Board Design
 
 
-**Kit contents**
+Hands-on activity
+~~~~~~~~~~~~~~~~~
+
+Pre-requisites
+^^^^^^^^^^^^^^
+
+Your workshop kit should contain the following items:
 
 | 1 x 10BASE-T1L TO USB adapter board
 | 1 x Profibus cable for single pair Ethernet (SPE) Connectivity
@@ -306,7 +312,7 @@ It includes:
 | 1 x cable connector for external 24V power supply
 | 1 x cable connector for channels connectivity
 | 1 x Raspberry Pi 5
-| 1 x Raspberry Pi 5 Type-C power supply 
+| 1 x Raspberry Pi 5 Type-C power supply
 
 .. figure:: kit.png
    :alt: AD-SWIOT1L-SL kit contents
@@ -315,92 +321,227 @@ It includes:
 
    AD-SWIOT1L-SL kit contents
 
-
-Hands-on activity
-~~~~~~~~~~~~~~~~~~~~~
-
-Participants will engage in hands-on activities to apply the theoretical
-concepts learned. The activities will include:
+Hardware Connections
+""""""""""""""""""""
 
 #. Power on the Raspberry Pi 5 board using a Type-C power supply and boot it.
 
 #. Power the AD-SWIOT1L-SL board by plugging in the power supply.
 
-#. Connect the USB to T1L media converter to your Raspberry 5 board using a 
-   micro-USB cable. 
-   
-#. Connect the USB to T1L media converter to the AD-SWIOT1L-SL
-   board using the PROFIBUS cable. After a short time, both link status LEDs(on the media converter and
-   the board) should be on.
+#. Connect the USB to T1L media converter to your Raspberry Pi 5 board using a
+   micro-USB cable.
 
-#. Connect the Raspberry Pi 5 to a display using a HDMI to Micro-HDMI cable, and
-   connect a keyboard and mouse to the USB ports.
+#. Connect the USB to T1L media converter to the AD-SWIOT1L-SL board using the
+   PROFIBUS cable. After a short time, both link status LEDs (on the media
+   converter and the board) should be on.
+
+#. Connect the Raspberry Pi 5 to a display using a HDMI to Micro-HDMI cable,
+   and connect a keyboard and mouse to the USB ports.
 
 In the end, your setup should look like this:
 
-   .. image:: system_setup.jpg
-      :alt: System setup with Raspberry Pi 5 and AD-SWIOT1L-SL boards connected
-      :width: 600
-      :align: center
+.. figure:: system_setup.jpg
+   :alt: System setup with Raspberry Pi 5 and AD-SWIOT1L-SL boards connected
+   :width: 600
+   :align: center
 
    System setup with Raspberry Pi 5 and AD-SWIOT1L-SL boards connected
 
-#. Testing the board connectivity
+Kuiper Image Setup
+""""""""""""""""""
 
-    - Open a terminal and run the command: ``ping 192.168.97.40`` This command
-      will rule out the host (RPi 5) network configuration issues.
-    - If the ping command is not successful run ``sudo ip route add
-      192.168.97.40 dev eth0`` to add a route to the board's IP address.
+Set up the environment on a Raspberry Pi 5 (or other system running
+Linux Ubuntu or Debian).
 
-   .. image:: ping.png
-      :alt: Ping command output
-      :width: 500
-      :align: center
+#. Go to the workshops repository (ask a colleague for a link pointing to it, if you
+   were not already provided one!) and download the *datax-workshops-applied-systems-control*
+   artifact from the latest workflow run found in the Actions tab of the repository.
 
-#. Clone the workshop repository: ``git clone https://github.com/constmonica/pyadi-iio``
+#. Write the image to an SD card by following the
+   :external+kuiper:ref:`Writing the Image to an SD Card
+   <use-kuiper-image>` guide. Put the SD card in your Raspberry Pi.
 
-#. Navigate to the cloned repository: ``cd pyadi-iio``
+#. Copy the workshop package artifact from your computer to the Raspberry Pi 5.
+   You may use the *scp* command (just ensure that you are on the same network)
+   or any other method of your choice.
 
-#. Checkout the workshop branch: ``git checkout swiot``
+.. admonition:: Note
 
-#. Go to the examples directory: ``cd examples/workshop``
+   The artifact is a zip file named *datax-workshops-applied-systems-control.zip*.
 
-   .. image:: code1.jpg
-      :alt: Channel configuration code
-      :width: 600
-      :align: center
-   
-   
-   .. figure:: system.jpg
-      :alt: System setup
-      :width: 600
-      :align: center
-   
-      System setup
+.. admonition:: Note
+
+   From now on, all steps will be done on your Raspberry Pi 5.
+
+#. Run the following commands, needed for the Visual Studio Code installation,
+   if you wish to use it for editing the code. If you prefer to use another editor,
+   such as Thonny, Nano, or Vim, you can skip this step:
+
+   .. code-block:: bash
+
+      sudo apt-get install -y gpg
+      curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /tmp/microsoft.gpg
+      sudo install -D -o root -g root -m 644 /tmp/microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+      rm /tmp/microsoft.gpg
+      echo "deb [arch=amd64,arm64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" \
+         | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+
+#. Run the following commands to update the package list:
+
+   .. code-block:: bash
+
+      sudo apt-get update
+
+#. Unzip the artifact:
+
+   .. note:: These steps assume your artifact was copied to ``/home/analog``.
+
+   .. code-block:: bash
+
+      unzip ~/datax-workshops-applied-systems-control.zip
+
+#. Install the Debian package:
+
+   .. code-block:: bash
+
+      sudo apt install ./datax-workshops-applied-systems-control.deb
+
+#. Run the setup script to configure the environment:
+
+   .. code-block:: bash
+
+      datax-workshops-applied-systems-control-setup
+
+#. Reboot the Raspberry Pi so the new USB/serial group membership takes effect.
+
+#. After rebooting, run the setup script to prepare your environment:
+
+   .. code-block:: bash
+
+      ~/Desktop/datax-workshops/applied-systems-control/setup.sh
+
+Testing the Board Connectivity
+""""""""""""""""""""""""""""""
+
+#. Open a terminal and run the command: ``ping 192.168.97.40``. This will
+   rule out the host (RPi 5) network configuration issues.
+
+#. If the ping command is not successful, run ``sudo ip route add
+   192.168.97.40 dev eth0`` to add a route to the board's IP address.
+
+.. image:: ping.png
+   :alt: Ping command output
+   :width: 500
+   :align: center
+
+Exercises
+^^^^^^^^^
+
+Open a terminal and navigate to the workshop examples directory:
+
+.. code-block:: bash
+
+   cd ~/Desktop/datax-workshops/applied-systems-control/examples/workshop
+
+.. image:: code1.jpg
+   :alt: Channel configuration code
+   :width: 600
+   :align: center
+
+.. figure:: system.jpg
+   :alt: System setup
+   :width: 600
+   :align: center
+
+   System setup
 
 
-**Exercise 1: Power the RGB LED red, green and blue**
+.. admonition:: Note
 
-    - Open file exercise_2.py
-    - Use the connector with the RGB LED and plug it into the board.
-    - Write a for loop to power the LED red, green, and blue in sequence.
-    - Run your code and observe the colors change ``python3 exercise_2.py`` 
+   You may choose to edit and run exercises using different methods and IDEs.
 
-**Exercise 2: Adjust the brightness of an LED using a potentiometer**
+   **Using Visual Studio Code:** open the exercise in the IDE by running:
 
-    - Use the connector with a potentiometer and LED and plug it into the board.
-    - Open file exercise_3.py
-    - Assign the value of the potentiometer to the ADC channel
-    - Run your code.The LED brightness change as you adjust the potentiometer.
-      ``python3 exercise_3.py``
+   .. code-block:: bash
 
-**Exercise 3: PID control loop of temperature using a PWM-controlled fan**
+      code <exercise_name>.py
 
-    - Use the connector with a fan and plug it into the board.
-    - Run the pid_control.py script and see how the PWM signal and speed adjust
-      based on temperature. ``python3 pid_control.py``
-    - Make the ``pwm_output`` variable an input from the user and see how the
-      duty cycle affects fan speed.
+   To run the code, use the terminal inside VS Code:
+
+   .. code-block:: bash
+
+      python3 <exercise_name>.py
+
+   **Using Thonny:** open the exercise in the IDE by running:
+
+   .. code-block:: bash
+
+      thonny <exercise_name>.py
+
+   To run the code, click the green **Run** button.
+
+   **Using the terminal directly:**
+
+   .. code-block:: bash
+
+      python3 <exercise_name>.py
+
+Exercise 1: Power the RGB LED red, green and blue
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+- Use the connector labeled **1** (with the RGB LED) and plug it into the board.
+- Open file **exercise_2.py**.
+- Write a for loop to power the LED red, green, and blue in sequence.
+- Run your code and observe the colors change.
+
+.. hint::
+
+   The DAC channel raw values range from 0 to 8191 (``AD74413R_DAC_MAX_CODE - 1``).
+   The 13-bit DAC resolution of the AD74413R gives 2\ :sup:`13` = 8192 possible
+   values (0 to 8191). Using 8192 directly causes an overflow, so use
+   ``AD74413R_DAC_MAX_CODE - 1`` for the maximum value.
+
+   You can use ``time.sleep()`` to add a delay between color changes. Not sure
+   whether it takes seconds or milliseconds? Check the
+   `official Python documentation <https://docs.python.org/3/library/time.html#time.sleep>`_
+   to find out!
+
+Exercise 2: Adjust the brightness of an LED using a potentiometer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+- Use the connector labeled **1** (with a potentiometer and LED) and plug it into the board.
+- Open file **exercise_3.py**.
+- Assign the value of the potentiometer to the ADC channel.
+- Run your code. The LED brightness should change as you adjust the potentiometer.
+
+Exercise 3: PID control loop of temperature using a PWM-controlled fan
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+- Use the connector labeled **2** (with a fan) and plug it into the board.
+
+.. important::
+
+   Place the fan directly above the on-board temperature sensor. The PID loop
+   adjusts the fan's duty cycle based on the temperature reading — if the fan
+   is not blowing air onto the sensor, the temperature will keep rising and
+   the fan will just spin faster without the control loop having any effect.
+
+- Run the **pid_control.py** script and see how the PWM signal and speed adjust
+  based on temperature.
+- Make the ``pwm_output`` variable an input from the user and see how the
+  duty cycle affects fan speed.
+
+.. hint::
+
+   Look for the following lines in the code:
+
+   .. code-block:: python
+
+      # Get the PID-adjusted PWM duty cycle based on the temperature
+      pwm_output = pid_control(current_temperature)
+
+   Replace the ``pid_control()`` call with Python's ``input()`` function to
+   get the duty cycle value from the user instead.
 
 
 Workshop Takeaways
