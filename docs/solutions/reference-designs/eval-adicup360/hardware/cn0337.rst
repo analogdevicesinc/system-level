@@ -1,0 +1,86 @@
+EVAL-CN0337-PMDZ PMOD
+=====================
+
+The :adi:`CN0337` is a 2-Bit, 300 kSPS, Single-Supply, Fully Isolated RTD Temperature Measurement System with 3-Wire Compensation. The input stage of the circuit is an RTD signal conditioning circuit using a compensated 3-wire connection to the RTD. The circuit translates the RTD input resistance range (100 Ω to 212.05 Ω for a 0°C to 300°C temperature range) into voltage levels compatible with the input range of the ADC (0 V to 2.5 V). CN0337 provides robust and complete solution for Temperature to digital conversion with isolation, for measurements where, standard RTD sensors are used. The design solution is optimized for high precision and low-cost measurement, using only three active devices, and has a total unadjusted temperature error of less than 0.039%FSR/°C. The total error after room temperature calibration is less than ±0.024%FSR/°C, making it ideal for a wide variety of industrial temperature measurements.
+
+.. image:: ../images/cn0337-hw-1024.jpg
+   :width: 650
+
+Hardware Setup
+--------------
+
+The figure below shows how to properly connect EVAL-CN0337-PMDZ to :adi:`EVAL-ADICUP360`.
+
+|image1|
+
+Sensor Interface
+~~~~~~~~~~~~~~~~
+
+CN0337 processes the output of a Pt100 RTD and includes an innovative circuit for a lead-wire compensation using a standard 3-wire connection. In using other temperature sensors such as Pt200, Pt500, Pt1000, Pt2000, the calculation of gain, output offset, and resistor values is shown in :adi:`CN0337 Circuit Note <media/en/reference-design-documentation/reference-designs/CN0337.pdf>`. The guide on how to use the two-point calibration can be found at the software demo :doc:`page </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0337>`.
+
+.. important::
+
+   Pin 1 and Pin 2 of J2 terminal block must be connected to similar RTD
+   terminals. The label on the board can also be used as a guide.
+
+.. image:: ../images/cn0337-hw-1024_2.jpg
+   :alt: cn0337-hw-1024_2.jpg
+   :align: center
+
+Power Supply Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using the EVAL-CN0337-PMDZ PMOD board, the 3.3V power for the PMOD comes directly from the host board it is connected to. The power from the host is generally capable of providing up to 100 mA at 3.3V, but for complete PMOD power specifications can be found at `Digilent Pmod Interface Specification <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The fastest way to tell if the EVAL-CN0337-PMDZ board is powered is by seeing if
+diode D1 is illuminated.
+
+.. image:: ../images/cn0337-hw-1024_1.jpg
+   :align: center
+
+Digital Interface (PMOD)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The PMOD interface is a series of standardized digital interfaces for various digital communication protocols such as SPI, I2C, and UART. These interface types were standardized by Digilent, which is now a division of National Instruments. Complete details on the PMOD specification can be found at `Digilent Pmod Interface Specification <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The specific interface used for the EVAL-CN0337-PMDZ boards is the extended SPI.
+In general ADI has adopted the extended SPI connector for all PMOD devices which
+have an SPI interface. It provides flexibility to add interrupts, general
+purpose I/O, resets, and other important digitally controlled functions.
+
+========== =================== ========
+Pin Number Pin Function        Mnemonic
+========== =================== ========
+J1.1       Chip Select         CS
+J1.2       No Connect          NC
+J1.3       Master In Slave Out MISO
+J1.4       Serial Clock        SCLK
+J1.5       Digital Ground      DGND
+J1.6       Digital Power       VDD
+J1.7       No Connect          NC
+J1.8       Not Connected       NC
+J1.9       Convert Start       CONVST
+J1.10      No Connect          NC
+J1.11      Digital Ground      DGND
+J1.12      Digital Power       VDD
+========== =================== ========
+
+Software examples
+-----------------
+
+-  :doc:`ADICUP360 + CN0337 </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0337>`
+
+Schematics, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   -  `Schematics <https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/hardware/cn0337/EVAL-CN0337-PMDZ-Altium%20DesignerSchematic-Rev0.pdf>`_ (PDF)
+   -  `Layout Gerbers <https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/hardware/cn0337/EVAL-CN0337-PMDZ-GBR-Rev0.zip>`_ (ZIP)
+   -  `Bill of Materials <https://wiki.analog.com/_media/resources/eval/user-guides/eval-adicup360/hardware/cn0337/EVAL-CN0337-PMDZ-BOM-Rev0.xls>`_ (Excel)
+   
+
+.. |image1| image:: ../images/cn0337_demo_1.png
+   :width: 650

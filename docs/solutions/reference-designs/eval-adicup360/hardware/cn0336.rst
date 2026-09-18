@@ -1,0 +1,85 @@
+EVAL-CN0336-PMDZ PMOD
+=====================
+
+The :adi:`CN0336` is a completely isolated 12-bit, 300 kSPS data acquisition system that provides robust and complete solution for 4 mA-to-20 mA current to digital conversion with isolation, for sensors with standard 4-20 mA output. The CN0336 circuit consists of an input current-to-voltage converter, a level shifting circuit, an ADC stage and an output isolation stage. The 4 mA to 20 mA input signals is converted into voltage levels compatible with the input range of the ADC (0 V - 2.5 V). The 12-bits ADC value is received via SPI interface of the :adi:`EVAL-ADICUP360` board. The design solution is optimized for high precision and low-cost measurement, using only three active devices, and has a total unadjusted error of less than 0.1% of full scale range. The total error after room temperature calibration is ±0.06% FSR over a ±10°C temperature change, making it ideal for a wide variety of industrial measurements.
+
+.. image:: ../images/cn0336-hw-1024.jpg
+   :width: 640
+
+Hardware Setup
+--------------
+
+The figure below shows how to properly connect EVAL-CN0336-PMDZ to
+EVAL-ADICUP360.
+
+.. image:: ../images/cn0336_demo_1_hw.png
+   :width: 640
+
+Input Interface
+~~~~~~~~~~~~~~~
+
+The circuit consists of an input current-to-voltage converter, a level shifting circuit, an ADC stage, and an output isolation stage. The system can process 4 to 20 mA input signals by connecting the positive terminal to Pin 1 and the ground terminal to Pin 2 of J2 terminal block. A diode is connected to provide protection against an accidental reverse connection of the input current source. The calculation of gain and resistor values can be found in :adi:`CN0336 Circuit Note <media/en/reference-design-documentation/reference-designs/CN0336.pdf>`. The guide on how to use the two-point calibration can be found at the software demo :doc:`page </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0336>`.
+
+.. note::
+
+   The labels on the board can also be used as a guide
+
+.. image:: ../images/cn0336-hw-1024_2.jpg
+   :align: center
+   :width: 150
+
+Power Supply Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using the EVAL-CN0336-PMDZ PMOD board, the 3.3V power for the PMOD comes directly from the host board it is connected to. The power from the host is generally capable of providing up to 100 mA at 3.3V, but for complete PMOD power specifications can be found at `Digilent Pmod Interface Specification <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The fastest way to tell if the EVAL-CN0336-PMDZ board is powered is by seeing if
+diode D2 is illuminated.
+
+.. image:: ../images/cn0336-hw-1024_1.jpg
+   :align: center
+   :width: 400
+
+Digital Interface (PMOD)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The PMOD interface is a series of standardized digital interfaces for various digital communication protocols such as SPI, I2C, and UART. These interface types were standardized by Digilent, which is now a division of National Instruments. Complete details on the PMOD specification can be found at `Digilent Pmod Interface Specification <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The specific interface used for the EVAL-CN0336-PMDZ boards is the extended SPI.
+In general ADI has adopted the extended SPI connector for all PMOD devices which
+have an SPI interface. It provides flexibility to add interrupts, general
+purpose I/O, resets, and other important digitally controlled functions.
+
+========== =================== ========
+Pin Number Pin Function        Mnemonic
+========== =================== ========
+J1.1       Chip Select         CS
+J1.2       No Connect          NC
+J1.3       Master In Slave Out MISO
+J1.4       Serial Clock        SCLK
+J1.5       Digital Ground      DGND
+J1.6       Digital Power       VDD
+J1.7       No Connect          NC
+J1.8       Not Connected       NC
+J1.9       Convert Start       CONVST
+J1.10      No Connect          NC
+J1.11      Digital Ground      DGND
+J1.12      Digital Power       VDD
+========== =================== ========
+
+Software examples
+-----------------
+
+-  :doc:`ADICUP360 + CN0336 </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0336>`
+
+Schematics, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   -  `Schematics <../resources/eval-cn0336-pmdz-altium_designerschematic-rev0.pdf>`_ (PDF)
+   -  `Layout Gerbers <../resources/eval-cn0336-pmdz-gbr-rev0.zip>`_ (ZIP)
+   -  `Bill of Materials <../images/eval-cn0336-pmdz-bom-rev0.xls>`_ (Excel)
+   

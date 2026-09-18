@@ -1,0 +1,123 @@
+EVAL-CN0395-ARDZ Shield
+=======================
+
+The circuit below is an arduino compatible, single supply 16-bit volatile organic compound detector using a metal oxide sensor. It uses :adi:`ADN8810` to precisely control the current running through the sensor to get to within the 1% voltage accuracy needed for the heating element of the sensor.
+
+.. image:: ../images/cn395_00_1024.gif
+   :align: center
+
+:adi:`CN0395` measures indoor air quality by utilizing a Metal Oxide Sensor to detect gases composed of volatile organic compounds. The sensor is composed of a heating resistor and a sensing resistor. When the sense resistor is heated its value changes as a function of the concentrations of different gasses.
+
+|image1|
+
+Connectors and Jumper Configurations
+------------------------------------
+
+{{ :resources:eval:user-guides:eval-adicup360:hardware:cn0395:jumper_config.jpg
+\|\
+
+|image2|
+
+Headers
+~~~~~~~
+
+P1
+^^
+
+The current output DAC, :adi:`ADN8810`, has an output voltage compliance that needs to be met to maintain a linear current output. This can be done by putting a jumper on position 2 and 3 which attaches the ENCOMP pin of the part to ground for output voltages up to 2V.
+
+For higher output voltages that 2V, tie the ENCOMP pin to +5V to maintain the
+output stability of the part.
+
+P2
+^^
+
+P2 header selects the current path from the current output DAC, :adi:`ADN8810`. It is populated across RH+ by default.
+
+========== ================ =====
+Silkscreen Current Path     Pins
+========== ================ =====
+RCAL1      71.5Ω            1 & 2
+RCAL1      10.0Ω            3 & 4
+RH+        Heating Resistor 5 & 6
+========== ================ =====
+
+Sensor
+~~~~~~
+
+:adi:`CN0395` has the `TGS8100 <http://www.figarosensor.com/products/entry/tgs8100.html>`_ on board as default. Using a different set of sensors require a recalculation and replacement of the sense resistors that sets the full scale current for the device. Provision for alphasense sensors or with similar footprint is available and a screw terminal is also in place for any other types of sensors.
+
+.. important::
+
+   The calculation for the sense resistor and placement of the correct sense
+   resistors are crucial to proper operation of the board to not violate
+   absolute maximum ratings of the sensors
+
+**Recommended Sensors**
+
+-  `TGS8100 <http://www.figarosensor.com/products/entry/tgs8100.html>`_
+-  `VOC-MF1 <http://www.alphasense.com/index.php/products/metal-oxide-sensors-2/>`_
+
+If you are using a different sensor, you will need to wire in the appropriate
+signals into the board via the screw terminal (P8). This also means that you
+will have to remove the TGS8100 sensor that comes on the board by default. Below
+is a table of how to use P8 to input other sensors.
+
+P8
+^^
+
+=============== ========== ================================
+Silkscreen Name Pin Number Description
+=============== ========== ================================
+RH+             Pin 1      Postive Pin of Heating Resistor
+AGND            Pin 2      Negative Pin of Heating Resistor
+RS+             Pin 3      Postive Pin of Sensing Resistor
+AGND            Pin 4      Negative Pin of Sensing Resistor
+=============== ========== ================================
+
+Spacers
+~~~~~~~
+
+Spacers that could cater various surface mount and through hole packages are
+available on the board to make some modifications on the board easier.
+
+Resistor spacers, R17_SPACER and R19_SPACER, are used to hold the sense resistors to select the maximum output current of the :adi:`ADN8810`. Changing these maximum output current of the :adi:`ADN8810` allows the board to cater multiple types of sensor that use up to 300mA of current for measurements.
+
+Sense resistors (RSN) can be calculated by using the formula below:
+
+RSN= 4.096/(10\* Full Scale Current)
+
+Button
+~~~~~~
+
+Pressing push button S2 allows the user to do a hard reset of the temperature and humidity sensor `SHT30 <https://www.sensirion.com/fileadmin/user_upload/customers/sensirion/Dokumente/2_Humidity_Sensors/Sensirion_Humidity_Sensors_SHT3x_Datasheet_digital.pdf>`_.
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   :adi:`EVAL-CN0395-ARDZ Design & Integration Files <cn0395-designsupport>`
+   
+   -  Schematics
+   -  PCB Layout
+   -  Bill of Materials
+   -  Allegro Project
+   
+
+Software
+--------
+
+-  :doc:`CN0395 ADICUP360 Demo Documentation </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0395>`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0395-ARDZ?&v=RevA>`_ to receive all these great benefits and more!
+
+.. |image1| image:: ../images/eval-cn0395-ardz.jpg
+.. |image2| image:: ../images/cn0397_chip_select.jpg

@@ -1,0 +1,102 @@
+EVAL-CN0394-ARDZ Shield
+=======================
+
+Overview
+--------
+
+The :adi:`EVAL-CN0394-ARDZ shield <cn0394>` is a single supply, multi channel thermocouple temperature meter. The CN0394 uses :adi:`aducm360` Low Power, Precision Analog Microcontroller with Dual Sigma-Delta ADCs, ARM Cortex-M3 as integrated solution for multi channel thermocouple temperature measurement with RTD cold junction compensation. The CN0394 support :adi:`EVAL-ADICUP360` Arduino compatible form factor development board.
+
+.. image:: ../images/cn0394_front.jpg
+   :align: center
+
+Equipment
+---------
+
+-  EVAL-CN0394-ARDZ Circuit Evaluation Board
+-  :adi:`EVAL-ADICUP360` Development Board
+-  Any combination of B, E, J, K, N, R, S, T type thermocouples (total of 4)
+-  PC with Microsoft Windows 7 64-bit or later and USB 2.0 port or higher
+-  Serial terminal software
+
+   -  Such as Putty or Tera Term
+
+General Setup
+-------------
+
+-  Connect the EVAL-CN0394-ARDZ to EVAL-ADICUP360 board
+-  Connect 4 thermocouples to EVAL-CN0394-ARDZ **P1~P4**, marked on PCB with **CH0~CH3**
+-  Connect the EVAL-ADICUP360 **USER** USB port to PC with USB cable
+
+Connectors and Configurations
+-----------------------------
+
+Thermocouple Connectors
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Each of the four(4) channels uses an Omega style connector for the
+thermocouples, which makes it easier to plug in and out different thermocouple
+types. Type U was selected so that all the channels on the board (P1 - P4) would
+be universal and interchangeable.
+
+There is an RTD beneath the copper tabs of each connector which is used to
+measure the cold junction temperature. So no external cold junction measurement
+is needed with this board.
+
+Analog Sensor Inputs
+~~~~~~~~~~~~~~~~~~~~
+
+The analog outputs of each thermocouple channel and each RTD channel are
+connected directly to connector P6. Each of these analog voltages is passed
+directly to the ADuCM360 on the EVAL-ADICUP360 board. And is processed using the
+24-bit sigma-deltas which are integrated into that IC.
+
+================== ==================
+P6 Pin Connections Sensor/Channel
+================== ==================
+Pin 1              Thermocouple+ (P1)
+Pin 2              Thermocouple+ (P2)
+Pin 3              Thermocouple+ (P3)
+Pin 4              Thermocouple+ (P4)
+Pin 5              RTD Output (R1)
+Pin 6              RTD Output (R2)
+Pin 7              RTD Output (R3)
+Pin 8              RTD Output (R4)
+================== ==================
+
+================== =======================
+P7 Pin Connections Sensor/Channel
+================== =======================
+Pin 1              RTD Common
+Pin 4              Thermocouple Common (-)
+Pin 7              Voltage Reference
+================== =======================
+
+Schematic, PCB Layout, Bill of Materials
+----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   EVAL-CN0394-ARDZ Design & Integration Files
+   
+   -  `Schematics <../resources/02-042719-01-a-1.pdf>`_
+   -  `PCB Layout <../resources/art.zip>`_
+   -  `Bill of Materials <../resources/bom.zip>`_
+   -  `Allegro Project <../resources/20-042719-01a.zip>`_
+   
+
+Software
+--------
+
+-  :doc:`CN0394 ADICUP360 Demo Documentation </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0394>`
+-  ADuCM360 Example Code
+
+   -  :git-EVAL-ADICUP360:`CN0394 Demo <projects/ADuCM360_demo_cn0394>`
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0394-ARDZ?&v=RevA>`_ to receive all these great benefits and more!

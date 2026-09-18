@@ -1,0 +1,139 @@
+ADT7420 Digital Temperature PMOD
+================================
+
+The :adi:`ADT7420` is a high accuracy digital temperature sensor offering breakthrough performance over a wide industrial range. It contains an internal band gap reference, a temperature sensor, and a 16-bit ADC to monitor and digitize the temperature to 0.0078°C resolution. The ADC resolution, by default, is set to 13 bits (0.0625°C). The ADC resolution is a user programmable mode that can be changed through the serial interface.
+
+The ADT7420 is guaranteed to operate over supply voltages from 2.7 V to 5.5 V.
+Operating at 3.3 V, the average supply current is typically 210 μA. The ADT7420
+has a shutdown mode that powers down the device and offers a shutdown current of
+typically 2.0 μA at 3.3 V. The ADT7420 is rated for operation over the −40°C to
++150°C temperature range.
+
+Pin A0 and Pin A1 are available for address selection, giving the ADT7420 four possible I2C addresses. The CT pin is an open-drain output that becomes active when the temperature exceeds a programmable critical temperature limit. The INT pin is also an open-drain output that becomes active when the temperature exceeds a programmable limit. The INT pin and CT pin can operate in comparator and interrupt event modes. For general board details and to buy a board, please visit the :adi:`EVAL-ADT7420-PMDZ` product page.
+
+.. image:: ../images/eval-adt7420-pmdz.png
+   :align: center
+   :width: 350
+
+Hardware Setup
+--------------
+
+The PMOD board is small in size with dimensions approximately 1 inch in width by
+1 inch in length. There are a few options on the hardware I'd like to point out
+for you, in order to use the board.
+
+Power Supply Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using the ADT7420 PMOD board, the 3.3V power for the PMOD comes directly from the host board it is connected to. The power from the host is generally capable of providing up to 100 mA at 3.3V, but for complete PMOD power specifications please `click here <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The fastest way to tell if the EVAL-ADT7420-PMDZ board is powered is by seeing
+if the LED on board is illuminated. The LED can be found here on the board.
+
+|image1|
+
+Digital Interface (PMOD)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The PMOD interface is a series of standardized digital interfaces for various digital communication protocols such as SPI, I2C, and UART. These interface types were standardized by Digilent, which is now a division of National Instruments. Complete details on the PMOD specification can be found `here <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+
+The specific interface used for the EVAL-ADT7420-PMDZ boards is the extended
+I2C. In general, ADI has adopted the extended I2C connector for all PMOD devices
+which have an I2C interface. It provides flexibility to add/daisy chain multiple
+I2C devices onto the same bus.
+
+============= ============== ========
+P1 Pin Number Pin Function   Mnemonic
+============= ============== ========
+Pin 1         Serial Clock   SCL
+Pin 2         Serial Clock   SCL
+Pin 3         Serial Data    SDA
+Pin 4         Serial Data    SDA
+Pin 5         Digital Ground DGND
+Pin 6         Digital Ground DGND
+Pin 7         Digital Power  VDD
+Pin 8         Digital Power  VDD
+============= ============== ========
+
+Jumper Configuration and Solder Links
+-------------------------------------
+
+The EVAL-ADT7420-PMDZ has some optional modes of operation to increase
+flexibility when using multiple EVAL-ADT7420-PMDZ boards in a single system and
+to help alert the Over/under/critical temperature readings. Each configuration
+is explained below.
+
+ADT7420 I2C Address Selection Pins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ADT7420 can have up to 4 unique I2C device addresses, depending on the logic
+level of pins A1 and A0. The default configuration for the EVAL-ADT7420-PMDZ is
+for A1 and A0 to be tied low, so the default I2C address is 0x48.
+
+|image2|
+
+If you decide to change the I2C address, then you will need to switch the
+position of the JP1 and JP2 solder links using the following table.
+
++--------------------------+--------------------------+----------------+----------------+-------------------------+
+| JP1 Solder link Position | JP2 Solder link Position | A1 Logic Level | A0 Logic Level | I2C Device Address(Hex) |
++==========================+==========================+================+================+=========================+
+| Pins 2 & 3 Shorted       | Pins 2 & 3 Shorted       | Low            | Low            | 0x48                    |
++--------------------------+--------------------------+----------------+----------------+-------------------------+
+| Pins 2 & 3 Shorted       | Pins 1 & 2 Shorted       | Low            | High           | 0x49                    |
++--------------------------+--------------------------+----------------+----------------+-------------------------+
+| Pins 1 & 2 Shorted       | Pins 2 & 3 Shorted       | High           | Low            | 0x4A                    |
++--------------------------+--------------------------+----------------+----------------+-------------------------+
+| Pins 1 & 2 Shorted       | Pins 1 & 2 Shorted       | High           | High           | 0x4B                    |
++--------------------------+--------------------------+----------------+----------------+-------------------------+
+
+ADT7420 Over/Under & Critical Temperature Alerts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ADT7420 has the capability of monitoring temperature and alerting users of
+Over/Under temperature conditions, as well as Critical temperature events.
+Access to these pins and functions are provided via the INT and CT connections
+on the board.
+
+|image3|
+
+The temperatures are software configurable, and all you need to do is monitor
+the INT (for Over/Under temp conditions) or CT (for Critical temp events) with
+respect to GND.
+
+Software Examples
+-----------------
+
+-  :doc:`ADICUP360 + ADT7420 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_adt7420>`
+-  `ADICUP3029 + ADT7420 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_adt7420>`_
+
+Schematics, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   :adi:`EVAL-ADT7420-PMDZ Design & Integration Files <media/en/evaluation-documentation/evaluation-design-files/eval-adt7420-pmdz-designsupport.zip>`
+
+   
+   -  Schematic
+   -  PCB Layout
+   -  Bill of Materials
+   -  Allegro Project
+   
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-ADT7420-PMDZ?&v=Rev A>`_ to receive all these great benefits and more!
+
+.. |image1| image:: ../images/adt7420_power_led.png
+   :width: 300
+
+.. |image2| image:: ../images/adt7420_i2c_layout.png
+   :width: 300
+
+.. |image3| image:: ../images/adt7420_int_ct_layout.png
+   :width: 300
