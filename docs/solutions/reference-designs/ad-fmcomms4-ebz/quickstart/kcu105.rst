@@ -1,10 +1,10 @@
-.. _fmcomms2 quickstart kcu105:
+.. _fmcomms4 quickstart kcu105:
 
 KCU105 Quickstart
 ===============================================================================
 
 This guide provides quick instructions on how to set up the
-:adi:`AD-FMCOMMS2-EBZ` on:
+:adi:`AD-FMCOMMS4-EBZ` on:
 
 - :xilinx:`KCU105` on FMC LPC
 
@@ -53,15 +53,14 @@ Required hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - :xilinx:`KCU105` FPGA board and its power supply
-- :adi:`AD-FMCOMMS2-EBZ` / :adi:`AD-FMCOMMS3-EBZ` / :adi:`AD-FMCOMMS4-EBZ` FMC
-  evaluation board
+- :adi:`AD-FMCOMMS4-EBZ` FMC evaluation board
 - Micro-USB cable (JTAG)
 - Micro-USB cable (UART)
 - (Optional) 2x SMA cable for analog signal loopback
 - (Optional) Ethernet cable for remote IIO access
 
 More details as to why you need these, can be found at
-:ref:`fmcomms2 prerequisites`.
+:ref:`fmcomms4 prerequisites`.
 
 Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,7 +68,7 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../images/fmcomms2_kcu105_linux.jpeg
+.. image:: ../images/fmcomms4_kcu105.jpeg
    :width: 900
 
 .. esd-warning::
@@ -79,7 +78,7 @@ and the DAC channels on the evaluation board, using SMA cables.
 
 Follow the steps in this order, to avoid damaging the components:
 
-#. Connect the :adi:`AD-FMCOMMS2-EBZ` FMC board to the
+#. Connect the :adi:`AD-FMCOMMS4-EBZ` FMC board to the
    :xilinx:`KCU105` FMC **LPC** socket
 #. Connect USB UART J4 (Micro-USB) to your host PC
 #. Connect USB JTAG J87 (Micro-USB) to your host PC
@@ -106,11 +105,11 @@ Make sure a UART terminal is open at 115200, 8N1 before issuing
    ::
 
       Ramdisk addr 0x00000000,
-      Compiled-in FDT at 0x80855010
+      Compiled-in FDT at 0x80854fe0
       earlycon: uartlite_a0 at MMIO 0x40600000 (options '115200n8')
       printk: legacy bootconsole [uartlite_a0] enabled
       cma: Reserved 512 MiB at 0x8fc00000 on node -1
-      Linux version 6.12.0-27269-g3b20cea56504 (ehadarau@romlx6) (microblazeel-amd-linux-gcc.real (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #6 Wed Apr 22 14:31:04 EEST 2026
+      Linux version 6.12.0-27342-gc37b1d7e85e3 (ehadarau@romlx6) (microblazeel-amd-linux-gcc.real (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 Fri May 22 15:18:47 EEST 2026
       setup_memory: max_mapnr: 0x7ffff
       setup_memory: min_low_pfn: 0x80000
       setup_memory: max_low_pfn: 0xb0000
@@ -146,11 +145,11 @@ Make sure a UART terminal is open at 115200, 8N1 before issuing
       printk: legacy console [tty0] enabled
       printk: legacy bootconsole [uartlite_a0] disabled
       Ramdisk addr 0x00000000,
-      Compiled-in FDT at 0x80855010
+      Compiled-in FDT at 0x80854fe0
       earlycon: uartlite_a0 at MMIO 0x40600000 (options '115200n8')
       printk: legacy bootconsole [uartlite_a0] enabled
       cma: Reserved 512 MiB at 0x8fc00000 on node -1
-      Linux version 6.12.0-27269-g3b20cea56504 (ehadarau@romlx6) (microblazeel-amd-linux-gcc.real (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #6 Wed Apr 22 14:31:04 EEST 2026
+      Linux version 6.12.0-27342-gc37b1d7e85e3 (ehadarau@romlx6) (microblazeel-amd-linux-gcc.real (GCC) 13.3.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 Fri May 22 15:18:47 EEST 2026
       setup_memory: max_mapnr: 0x7ffff
       setup_memory: min_low_pfn: 0x80000
       setup_memory: max_low_pfn: 0xb0000
@@ -189,7 +188,7 @@ Make sure a UART terminal is open at 115200, 8N1 before issuing
       pid_max: default: 32768 minimum: 301
       Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
       Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
-      Memory: 1533240K/2097148K available (8532K kernel code, 698K rwdata, 7156K rodata, 209K init, 193K bss, 39144K reserved, 524288K cma-reserved, 1310716K highmem)
+      Memory: 1533248K/2097148K available (8531K kernel code, 694K rwdata, 7156K rodata, 209K init, 193K bss, 39136K reserved, 524288K cma-reserved, 1310716K highmem)
       devtmpfs: initialized
       clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
       futex hash table entries: 256 (order: -1, 3072 bytes, linear)
@@ -242,11 +241,11 @@ Make sure a UART terminal is open at 115200, 8N1 before issuing
       i2c i2c-0: Added multiplexed i2c bus 3
       i2c i2c-0: Added multiplexed i2c bus 4
       pca954x 0-0075: registered 4 multiplexed busses for I2C mux pca9544
-      ad9361 spi0.0: ad9361_probe : enter (ad9361)
+      ad9361 spi0.0: ad9361_probe : enter (ad9364)
       ad9361 spi0.0: ad9361_probe : AD936x Rev 0 successfully initialized
-      cf_axi_dds 79024000.cf-ad9361-dds-core-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.02.b) at 0x79024000 mapped to 0x(ptrval), probed DDS AD9361
+      cf_axi_dds 79024000.cf-ad9361-dds-core-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.02.b) at 0x79024000 mapped to 0x(ptrval), probed DDS AD9364
       axi_sysid 45000000.axi-sysid-0: AXI System ID core version (1.01.a) found
-      axi_sysid 45000000.axi-sysid-0: [fmcomms2] on [kcu105] git branch <main> git <64ecc11376a4614abac8f8bcf5b2fa31a8a21218> clean [2026-02-05 12:16:16] UTC
+      axi_sysid 45000000.axi-sysid-0: [fmcomms2] on [kcu105] git branch <main> git <5b6a3af7bcb6c253739fa68b4b3e026808e0a93d> clean [2026-05-20 15:41:58] UTC
       Initializing XFRM netlink socket
       NET: Registered PF_INET6 protocol family
       Segment Routing with IPv6
@@ -256,7 +255,7 @@ Make sure a UART terminal is open at 115200, 8N1 before issuing
       NET: Registered PF_KEY protocol family
       Key type dns_resolver registered
       Key type encrypted registered
-      cf_axi_adc 79020000.cf-ad9361-lpc: ADI AIM (10.03.) probed ADC AD9361 as MASTER
+      cf_axi_adc 79020000.cf-ad9361-lpc: ADI AIM (10.03.) probed ADC AD9364 as MASTER
       clk: Disabling unused clocks
       Freeing unused kernel image (initmem) memory: 208K
       This architecture does not have kernel memory protection.
@@ -276,13 +275,12 @@ Make sure a UART terminal is open at 115200, 8N1 before issuing
       xilinx_axienet 40e00000.ethernet eth0: configuring for phy/sgmii link mode
       udhcpc: sending discover
       udhcpc: sending discover
-      xilinx_axienet 40e00000.ethernet eth0: Link is Up - 1Gbps/Full - flow control off
       udhcpc: sending discover
-      udhcpc: sending select for 10.48.65.126
-      udhcpc: lease of 10.48.65.126 obtained, lease time 21600
-      deleting routers
-      adding dns 10.32.51.110
-      adding dns 10.64.53.110
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: sending discover
+      udhcpc: no lease, failing
       Starting dropbear sshd: OK
       Starting IIO Server Daemon
 
@@ -329,3 +327,66 @@ To disconnect XSDB when done:
    :show-user:
 
    xsdb% disconnect
+
+Using no-OS as software
+--------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following files are needed for the system to boot:
+
+- HDL boot file: ``system_top.xsa``
+- no-OS project: :git-no-os:`projects/ad9361`
+
+Instructions on how to build the boot files from source can be found here:
+
+- :external+hdl:ref:`fmcomms2`. More HDL build details at
+  :external+hdl:ref:`build_hdl`
+- :external+no-OS:doc:`projects/rf-transceiver/ad9361`. More no-OS build
+  details at :external+no-OS:doc:`build_guide`
+
+Required Software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx Vivado and Vitis (downloading Vitis from
+  :xilinx:`here <support/download/index.html/content/xilinx/en/downloadNav/vitis.html>`
+  will include Vivado as well)
+- An UART terminal (Putty/Tera Term/Minicom, etc.), Baud rate 115200 (8N1)
+
+Required Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx :xilinx:`KCU105` FPGA board and its power supply
+- :adi:`AD-FMCOMMS4-EBZ` FMC evaluation board
+- 2x Micro-USB cables, one for UART and one for JTAG
+- 2x SMA cable or Antenna
+
+More details as to why you need these, can be found at
+:ref:`fmcomms4 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/fmcomms4_kcu105.jpeg
+   :width: 800
+
+.. esd-warning::
+
+In the following example, we will make a physical loopback between the ADC
+and the DAC channels on the evaluation board, using SMA cables.
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Connect the :adi:`AD-FMCOMMS4-EBZ` FMC board to the
+   :xilinx:`KCU105` FMC **LPC** socket
+#. Connect USB UART J4 (Micro-USB) to your host PC
+#. Connect USB JTAG J87 (Micro-USB) to your host PC
+#. Plug in the power supply and turn on the power switch on the FPGA board
+#. Build and run the project using the steps shown
+   :external+no-OS:doc:`here <projects/rf-transceiver/ad9361>`.
+#. Observe console output messages on your terminal (use the first ttyUSB or
+   COM port registered)
