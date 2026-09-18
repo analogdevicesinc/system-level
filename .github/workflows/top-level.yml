@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - test
   pull_request:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       if: ${{ github.event_name == 'push' }}
       with:
         path: docs/_build
-        key: docs-build-push-main
+        key: docs-build-push-test
 
     - name: Install pip packages
       run: |
