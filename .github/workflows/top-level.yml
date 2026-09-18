@@ -12,6 +12,15 @@ jobs:
 
     steps:
     - uses: analogdevicesinc/doctools/checkout@action
+    - name: Restore mtimes
+      run: python3 .github/scripts/restore-mtimes.py
+
+    - uses: actions/cache@v6
+      if: ${{ github.event_name == 'push' }}
+      with:
+        path: docs/_build
+        key: docs-build-push-main
+
     - name: Install pip packages
       run: |
         python3 -m venv venv
