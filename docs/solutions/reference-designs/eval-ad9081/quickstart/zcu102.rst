@@ -8,8 +8,10 @@ This guide provides quick instructions on how to setup the
 
 - :xilinx:`ZCU102` FMC HPC0
 
-.. image:: ../../images/zcu102.jpg
+.. figure:: ../../images/zcu102.jpg
    :width: 900
+
+   ZCU102 FPGA board
 
 .. esd-warning::
 
@@ -79,8 +81,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_zcu102_setup.png
+.. figure:: ../../images/ad9081_zcu102_setup.png
    :width: 800
+
+   EVAL-AD9081 on the ZCU102 setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.
@@ -94,8 +98,10 @@ Follow the steps in this order, to avoid damaging the components:
 #. Configure :xilinx:`ZCU102` for SD card boot mode (mode SW6[4:1] switch in
    the position **OFF,OFF,OFF,ON** as seen in the below picture)
 
-   .. image:: ../../images/zcu102_1p0_bootmode.jpg
+   .. figure:: ../../images/zcu102_1p0_bootmode.jpg
     :width: 400
+
+    ZCU102 SD card boot mode switch settings
 
 #. Plug-in an Ethernet cable from your router/switch to the Ethernet port on
    the FPGA board
@@ -1074,8 +1080,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_zcu102_setup.png
+.. figure:: ../../images/ad9081_zcu102_setup.png
    :width: 800
+
+   EVAL-AD9081 on the ZCU102 setup
 
 Follow the steps in this order, to avoid damaging the components:
 

@@ -9,8 +9,10 @@ This guide provides quick instructions on how to setup the
 - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
   (Rev. C or later) on FMCA
 
-.. image:: ../../images/a10soc.jpg
+.. figure:: ../../images/a10soc.jpg
    :width: 900
+
+   Arria 10 SoC development kit
 
 .. esd-warning::
 
@@ -132,8 +134,10 @@ These resistors can be found on the backside of the A10SoC, underneath the
 FMCA connector (J29). The following picture shows the required configuration
 to be compatible with the :adi:`EVAL-AD9081`.
 
-.. image:: ../../images/a10soc_fmc_rework.jpg
+.. figure:: ../../images/a10soc_fmc_rework.jpg
    :width: 400
+
+   A10SoC FMCA connector resistor rework
 
 Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,8 +145,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../images/ad9081_a10soc_setup.jpg
+.. figure:: ../../images/ad9081_a10soc_setup.jpg
    :width: 800
+
+   EVAL-AD9081 on the Arria 10 SoC setup
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.

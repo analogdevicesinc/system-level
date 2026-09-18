@@ -1,0 +1,713 @@
+#!/usr/bin/env python3
+"""
+Fix RST build errors across landing page branches.
+
+Handles: malformed grid tables, unexpected indentation, undefined substitutions,
+anonymous hyperlink mismatch, title overline/underline mismatch, duplicate
+substitution definitions, bullet list blank lines, bogus toctree paths.
+"""
+
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+
+def git(*args, check=True):
+    r = subprocess.run(["git", *args], capture_output=True, text=True, check=False)
+    if r.returncode != 0 and check:
+        print(f"  git error: {r.stderr.strip()}")
+    return r
+
+
+def fix_simple_tables(content: str) -> str:
+    """Fix simple RST tables where column widths don't match data."""
+    lines = content.split('\n')
+    result = []
+    i = 0
+    while i < len(lines):
+        # Detect simple table: line of ===== ===== (no + signs)
+        m = re.match(r'^(\s*)(=+(?:\s+=+)+)\s*$', lines[i])
+        if m:
+            indent = m.group(1)
+            # Collect the whole simple table
+            table_start = i
+            table_lines = [lines[i]]
+            j = i + 1
+            while j < len(lines):
+                if re.match(r'^\s*=+(?:\s+=+)*\s*$', lines[j]):
+                    table_lines.append(lines[j])
+                    if len([l for l in table_lines if re.match(r'^\s*=+', l)]) >= 3:
+                        j += 1
+                        break
+                    j += 1
+                elif lines[j].strip() == '' and j + 1 < len(lines) and re.match(r'^\s*=+', lines[j + 1]):
+                    table_lines.append(lines[j])
+                    j += 1
+                elif lines[j].strip():
+                    table_lines.append(lines[j])
+                    j += 1
+                else:
+                    break
+
+            # Parse columns from separator
+            sep_line = table_lines[0].lstrip()
+            col_widths = [len(c) for c in sep_line.split()]
+
+            # Calculate max width needed from data rows
+            for tl in table_lines:
+                if re.match(r'^\s*=+', tl):
+                    continue
+                stripped = tl[len(indent):]
+                # Split data into columns based on current col positions
+                pos = 0
+                for c in range(len(col_widths)):
+                    if c < len(col_widths) - 1:
+                        # Find content end (next column start based on separators)
+                        sep_pos = sum(col_widths[:c+1]) + c + 1  # +1 for space
+                        cell = stripped[pos:sep_pos].rstrip()
+                        col_widths[c] = max(col_widths[c], len(cell))
+                        pos = sep_pos
+                    else:
+                        cell = stripped[pos:].strip()
+                        col_widths[c] = max(col_widths[c], len(cell))
+
+            # Rebuild table
+            new_sep = indent + ' '.join('=' * w for w in col_widths)
+            for tl in table_lines:
+                if re.match(r'^\s*=+', tl):
+                    result.append(new_sep)
+                else:
+                    result.append(tl)
+            i = j
+        else:
+            result.append(lines[i])
+            i += 1
+    return '\n'.join(result)
+
+
+def fix_grid_tables(content: str) -> str:
+    """Rebuild all grid tables so separator widths match data row widths."""
+    lines = content.split('\n')
+    result = []
+    i = 0
+    while i < len(lines):
+        # Detect grid table start: line of +---+---+ (possibly indented)
+        if re.match(r'^\s*\+[-=+]+\+\s*$', lines[i]):
+            table_lines = [lines[i]]
+            j = i + 1
+            while j < len(lines):
+                table_lines.append(lines[j])
+                if re.match(r'^\s*\+[-=+]+\+\s*$', lines[j]):
+                    # Check if next line continues the table
+                    if j + 1 < len(lines) and (
+                        re.match(r'^\s*\|', lines[j + 1]) or
+                        re.match(r'^\s*\+[-=+]+\+\s*$', lines[j + 1])
+                    ):
+                        j += 1
+                        continue
+                    else:
+                        j += 1
+                        break
+                elif re.match(r'^\s*\|', lines[j]):
+                    j += 1
+                    continue
+                else:
+                    # Not a table line — the table ended at j-1
+                    table_lines.pop()  # remove non-table line
+                    break
+            else:
+                j = len(lines)
+
+            fixed_table = rebuild_grid_table(table_lines)
+            if fixed_table is not None:
+                result.extend(fixed_table)
+            else:
+                result.extend(table_lines)
+            i = j
+            if j < len(lines) and not re.match(r'^\s*\+[-=+]+\+\s*$', lines[j - 1]):
+                # We popped the last line, so process it next
+                continue
+        else:
+            result.append(lines[i])
+            i += 1
+
+    return '\n'.join(result)
+
+
+def rebuild_grid_table(table_lines: list[str]) -> list[str] | None:
+    """Parse grid table and rebuild with consistent column widths."""
+    # Find column positions from separator lines
+    sep_lines = [l for l in table_lines if re.match(r'^\s*\+[-=+]+\+\s*$', l)]
+    if not sep_lines:
+        return None
+
+    # Detect indentation from first separator
+    first_sep = sep_lines[0]
+    indent = len(first_sep) - len(first_sep.lstrip())
+    indent_str = first_sep[:indent]
+
+    # Use the first separator (stripped) to determine number of columns
+    first_sep_stripped = first_sep.strip()
+    col_positions = [m.start() for m in re.finditer(r'\+', first_sep_stripped)]
+    if len(col_positions) < 2:
+        return None
+    n_cols = len(col_positions) - 1
+
+    # Calculate max width needed for each column from ALL rows (data + sep)
+    col_widths = [0] * n_cols
+    for line in table_lines:
+        if re.match(r'^\s*\|', line):
+            # Data row — extract cell contents
+            cells = extract_cells(line.strip(), n_cols)
+            if cells and len(cells) == n_cols:
+                for c, cell in enumerate(cells):
+                    col_widths[c] = max(col_widths[c], len(cell))
+
+    # Ensure minimum width of 3
+    col_widths = [max(w, 3) for w in col_widths]
+
+    # Rebuild table
+    rebuilt = []
+    for line in table_lines:
+        if re.match(r'^\s*\+[-=+]+\+\s*$', line):
+            # Separator line
+            char = '=' if '=' in line else '-'
+            parts = ['+']
+            for w in col_widths:
+                parts.append(char * (w + 2))
+                parts.append('+')
+            rebuilt.append(indent_str + ''.join(parts))
+        elif re.match(r'^\s*\|', line):
+            # Data row
+            cells = extract_cells(line.strip(), n_cols)
+            if cells and len(cells) == n_cols:
+                parts = ['|']
+                for c, cell in enumerate(cells):
+                    parts.append(' ' + cell.ljust(col_widths[c]) + ' ')
+                    parts.append('|')
+                rebuilt.append(indent_str + ''.join(parts))
+            else:
+                rebuilt.append(line)  # Can't parse, keep as-is
+        else:
+            rebuilt.append(line)
+
+    return rebuilt
+
+
+def extract_cells(line: str, expected_cols: int) -> list[str] | None:
+    """Extract cell contents from a grid table data row."""
+    if not line.startswith('|'):
+        return None
+    # Split by | but be careful with RST links containing |
+    # Use a simple approach: split from the right edge
+    cells = []
+    rest = line[1:]  # skip leading |
+    for _ in range(expected_cols):
+        # Find the next | that's a cell boundary (not inside a link)
+        idx = find_cell_boundary(rest)
+        if idx < 0:
+            return None
+        cells.append(rest[:idx].strip())
+        rest = rest[idx + 1:]
+    return cells
+
+
+def find_cell_boundary(text: str) -> int:
+    """Find the next | that serves as a cell boundary."""
+    depth = 0
+    for i, ch in enumerate(text):
+        if ch == '`':
+            depth = 1 - depth  # toggle
+        elif ch == '|' and depth == 0:
+            return i
+    return -1
+
+
+def fix_title_mismatch(content: str) -> str:
+    """Fix title overline/underline length mismatches."""
+    lines = content.split('\n')
+    result = []
+    underline_chars = set('=-~^"\'`_+#*')
+    i = 0
+    while i < len(lines):
+        # Check for overline + title + underline pattern
+        if (i + 2 < len(lines) and
+            lines[i].strip() and
+            len(set(lines[i].strip())) == 1 and
+            lines[i].strip()[0] in underline_chars and
+            lines[i + 1].strip() and
+            lines[i + 2].strip() and
+            len(set(lines[i + 2].strip())) == 1 and
+            lines[i + 2].strip()[0] in underline_chars):
+            # Overline + title + underline
+            title = lines[i + 1].rstrip()
+            char = lines[i].strip()[0]
+            needed = max(len(title), 4)
+            result.append(char * needed)
+            result.append(title)
+            result.append(char * needed)
+            i += 3
+            # Skip duplicate underlines
+            while i < len(lines) and lines[i].strip() and len(set(lines[i].strip())) == 1 and lines[i].strip()[0] in underline_chars:
+                i += 1
+            continue
+        # Check for title + underline (no overline)
+        if (i + 1 < len(lines) and
+            lines[i].strip() and
+            lines[i + 1].strip() and
+            len(set(lines[i + 1].strip())) == 1 and
+            lines[i + 1].strip()[0] in underline_chars):
+            title = lines[i].rstrip()
+            char = lines[i + 1].strip()[0]
+            needed = max(len(title), 4)
+            underline = char * needed
+            if lines[i + 1].strip() != underline:
+                result.append(title)
+                result.append(underline)
+                i += 2
+                continue
+        result.append(lines[i])
+        i += 1
+    return '\n'.join(result)
+
+
+def fix_duplicate_substitutions(content: str) -> str:
+    """Fix duplicate substitution definition names by adding unique suffixes."""
+    lines = content.split('\n')
+    seen = {}  # name -> count
+    result = []
+    subst_re = re.compile(r'^(\s*\.\. \|)([^|]+)(\| image::.*)')
+    for line in lines:
+        m = subst_re.match(line)
+        if m:
+            prefix, name, suffix = m.group(1), m.group(2), m.group(3)
+            if name in seen:
+                seen[name] += 1
+                new_name = f"{name}_{seen[name]}"
+                result.append(f"{prefix}{new_name}{suffix}")
+            else:
+                seen[name] = 0
+                result.append(line)
+        else:
+            result.append(line)
+    return '\n'.join(result)
+
+
+def fix_undefined_substitution(content: str) -> str:
+    """Convert surviving DokuWiki image syntax to RST or remove it."""
+    # Pattern: |*{{:path:image.jpg?300|| or |{{:path:image.jpg?300|text}}|
+    # Also handles: |*{{:resources:wechat_image_20210401114013.jpg?300||
+    content = re.sub(
+        r'\|\*?\{\{:?[^}]*\}\}\|?',
+        '',
+        content,
+    )
+    # Also fix patterns like: |*{{:path:image?param|
+    content = re.sub(
+        r'\|\*?\{\{:?[^|}\n]+\|?',
+        '',
+        content,
+    )
+    # Fix patterns with {variables} in math-like expressions
+    # e.g., |counts = ADC value } {RS = 6e-3} ...|
+    content = re.sub(
+        r'\|[^|\n]*\} \{[^|\n]*\|',
+        '',
+        content,
+    )
+    return content
+
+
+def fix_bullet_list_blank_line(content: str) -> str:
+    """Add blank lines where bullet lists end without one."""
+    lines = content.split('\n')
+    result = []
+    for i, line in enumerate(lines):
+        result.append(line)
+        # If current line is in a list and next line is unindented non-list
+        if (re.match(r'^(\s+)[-*]', line) and
+            i + 1 < len(lines) and
+            lines[i + 1].strip() and
+            not re.match(r'^\s', lines[i + 1]) and
+            not re.match(r'^[-*+]', lines[i + 1])):
+            result.append('')
+    return '\n'.join(result)
+
+
+def fix_anonymous_hyperlinks(content: str) -> str:
+    """Convert anonymous hyperlinks (__) to named (_) where mismatched."""
+    # Count anonymous refs and targets
+    refs = len(re.findall(r'`[^`]+`__', content))
+    targets = len(re.findall(r'\.\. __:', content)) + len(re.findall(r'__ https?://', content))
+    if refs > 0 and targets == 0:
+        # All anonymous refs but no targets — convert to named
+        content = re.sub(r'(`[^`]+`(?:<[^>]+>)?)__', r'\1_', content)
+    return content
+
+
+def fix_inline_markup(content: str) -> str:
+    """Fix inline markup issues (unmatched ** or * strings)."""
+    lines = content.split('\n')
+    result = []
+    for line in lines:
+        # Fix unmatched ** (bold) — escape with backslash
+        if '**' in line:
+            count = line.count('**')
+            if count % 2 == 1:
+                # Odd count — escape the last unmatched **
+                line = line.replace('**', r'\*\*', 1)
+        # Fix unmatched * (italic) not part of **
+        # This is tricky, skip for now — most cases are ** issues
+        result.append(line)
+    return '\n'.join(result)
+
+
+def fix_unexpected_indentation(content: str, error_lines: list[int]) -> str:
+    """Add blank lines before unexpectedly indented blocks."""
+    lines = content.split('\n')
+    # Insert blank lines before the error lines (0-indexed)
+    offset = 0
+    for line_no in sorted(error_lines):
+        idx = line_no - 1 + offset  # Convert 1-indexed to 0-indexed
+        if 0 < idx < len(lines):
+            # Check if preceding line isn't already blank
+            if lines[idx - 1].strip():
+                lines.insert(idx, '')
+                offset += 1
+    return '\n'.join(lines)
+
+
+def process_branch(branch: str, project: str, fixes: list[dict],
+                   repo_root: Path, docs_dir: Path, dry_run: bool) -> bool:
+    """Apply fixes to a single branch."""
+    print(f"\n{'='*60}")
+    print(f"Fixing: {branch} ({project})")
+
+    r = git("-C", str(repo_root), "checkout", branch)
+    if r.returncode != 0:
+        print(f"  ERROR: Can't checkout {branch}")
+        return False
+
+    changed_files = []
+    for fix in fixes:
+        fpath = docs_dir / fix['file']
+        if not fpath.exists():
+            print(f"  WARNING: File not found: {fix['file']}")
+            continue
+
+        content = fpath.read_text()
+        original = content
+
+        if fix['type'] == 'malformed_table':
+            content = fix_grid_tables(content)
+            content = fix_simple_tables(content)
+        elif fix['type'] == 'title_mismatch':
+            content = fix_title_mismatch(content)
+        elif fix['type'] == 'unexpected_indentation':
+            content = fix_unexpected_indentation(content, fix.get('lines', []))
+        elif fix['type'] == 'undefined_substitution':
+            content = fix_undefined_substitution(content)
+        elif fix['type'] == 'anonymous_hyperlink':
+            content = fix_anonymous_hyperlinks(content)
+        elif fix['type'] == 'duplicate_substitution':
+            content = fix_duplicate_substitutions(content)
+        elif fix['type'] == 'bullet_list':
+            content = fix_bullet_list_blank_line(content)
+        elif fix['type'] == 'add_title':
+            title = fix.get('title', 'Untitled')
+            underline = '=' * len(title)
+            content = f"{title}\n{underline}\n\n{content}"
+        elif fix['type'] == 'fix_inline_markup':
+            content = fix_inline_markup(content)
+        elif fix['type'] == 'move_file':
+            # Special: move file to new path
+            old_path = docs_dir / fix['old_file']
+            new_path = docs_dir / fix['new_file']
+            if old_path.exists():
+                if dry_run:
+                    print(f"  [DRY] Would move: {fix['old_file']} → {fix['new_file']}")
+                    changed_files.append(str(new_path.relative_to(repo_root)))
+                else:
+                    new_path.parent.mkdir(parents=True, exist_ok=True)
+                    import shutil
+                    shutil.move(str(old_path), str(new_path))
+                    # Clean up empty dirs
+                    try:
+                        for p in [old_path.parent] + list(old_path.parents):
+                            if p == docs_dir:
+                                break
+                            p.rmdir()
+                    except OSError:
+                        pass
+                    changed_files.append(str(new_path.relative_to(repo_root)))
+                    git("-C", str(repo_root), "add", str(old_path.relative_to(repo_root)))
+                    print(f"  Moved: {fix['old_file']} → {fix['new_file']}")
+            continue
+        elif fix['type'] == 'rewrite_toctree':
+            content = fix.get('new_content', content)
+
+        if content != original:
+            changed_files.append(str(fpath.relative_to(repo_root)))
+            if dry_run:
+                print(f"  [DRY] Would fix: {fix['file']} ({fix['type']})")
+            else:
+                fpath.write_text(content)
+                print(f"  Fixed: {fix['file']} ({fix['type']})")
+        else:
+            print(f"  No change: {fix['file']} ({fix['type']})")
+
+    if not changed_files:
+        print("  No changes needed")
+        return False
+
+    if dry_run:
+        print(f"  [DRY] Would fix {len(changed_files)} files total")
+        return True
+
+    # Stage, commit, push
+    for f in changed_files:
+        git("-C", str(repo_root), "add", f)
+    git("-C", str(repo_root), "commit", "-m",
+        f"fix: resolve RST build warnings in {project}\n\n"
+        f"Fix {len(changed_files)} files with RST formatting issues\n"
+        f"(malformed tables, indentation, substitutions, etc.)")
+    git("-C", str(repo_root), "push", "origin", branch)
+    print(f"  Committed and pushed {len(changed_files)} fixes")
+    return True
+
+
+# Error database: (branch, project, file, error_type, optional_lines)
+FIXES = [
+    # PR 236: Undefined substitution
+    ("wiki_migration/ad4130-8_landing", "ad4130-8", [
+        {"file": "solutions/reference-designs/ad4130-8/ad4130-8.rst",
+         "type": "undefined_substitution"},
+    ]),
+    # PR 237: Anonymous hyperlink mismatch
+    ("wiki_migration/ad4134_landing", "ad4134", [
+        {"file": "solutions/reference-designs/ad4134/hdl.rst",
+         "type": "anonymous_hyperlink"},
+    ]),
+    # PR 248: Malformed tables
+    ("wiki_migration/ad7606x-fmc_landing", "ad7606x-fmc", [
+        {"file": "solutions/reference-designs/ad7606x-fmc/hdl.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 255: Malformed table
+    ("wiki_migration/ad-fmcadc3-ebz_landing", "ad-fmcadc3-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcadc3-ebz/quickstart.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 256: Malformed table
+    ("wiki_migration/ad-fmcadc4-ebz_landing", "ad-fmcadc4-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcadc4-ebz/quickstart.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 258: Malformed table
+    ("wiki_migration/ad-fmcadc7-ebz_landing", "ad-fmcadc7-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcadc7-ebz/quickstart.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 261: Undefined substitution
+    ("wiki_migration/ad-fmcmotcon1-ebz_landing", "ad-fmcmotcon1-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcmotcon1-ebz/hardware/signal_chain.rst",
+         "type": "undefined_substitution"},
+    ]),
+    # PR 263: Malformed table
+    ("wiki_migration/ad-fmcomms1-ebz_landing", "ad-fmcomms1-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcomms1-ebz/hardware.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 265: Malformed table
+    ("wiki_migration/ad-fmcomms6-ebz_landing", "ad-fmcomms6-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcomms6-ebz/hardware.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 266: Malformed table
+    ("wiki_migration/ad-fmcxmwbr1-ebz_landing", "ad-fmcxmwbr1-ebz", [
+        {"file": "solutions/reference-designs/ad-fmcxmwbr1-ebz/software/linux/zynqmp.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 267: Malformed tables
+    ("wiki_migration/ad-freqcvt1-ebz_landing", "ad-freqcvt1-ebz", [
+        {"file": "solutions/reference-designs/ad-freqcvt1-ebz/hardware/card_specification.rst",
+         "type": "malformed_table"},
+        {"file": "solutions/reference-designs/ad-freqcvt1-ebz/hdl.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 272: Malformed tables
+    ("wiki_migration/ad-pzsdr2400tdd-eb_landing", "ad-pzsdr2400tdd-eb", [
+        {"file": "solutions/reference-designs/ad-pzsdr2400tdd-eb/reference_hdl.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 275: Malformed tables
+    ("wiki_migration/adrv9002_landing", "adrv9002", [
+        {"file": "solutions/reference-designs/adrv9002/axi_adrv9002.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 276: Malformed table
+    ("wiki_migration/adrv936x_landing", "adrv936x", [
+        {"file": "solutions/reference-designs/adrv936x/introduction.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 285: Unexpected indentation
+    ("wiki_migration/dc2903a_landing", "dc2903a", [
+        {"file": "solutions/reference-designs/dc2903a/no-os-setup.rst",
+         "type": "unexpected_indentation",
+         "lines": [716, 1348, 1980, 3532, 4164]},
+    ]),
+    # PR 293: Malformed table
+    ("wiki_migration/eval-adbms2950-basic_landing", "eval-adbms2950-basic", [
+        {"file": "solutions/reference-designs/eval-adbms2950-basic/eval-adbms2950-basic.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 295: Bullet list ends without blank line
+    ("wiki_migration/eval-ade9000shieldz_landing", "eval-ade9000shieldz", [
+        {"file": "solutions/reference-designs/eval-ade9000shieldz/sensor_node/demo.rst",
+         "type": "unexpected_indentation",
+         "lines": [95]},
+    ]),
+    # PR 298: Title mismatch + malformed tables
+    ("wiki_migration/eval-adicup3029_landing", "eval-adicup3029", [
+        {"file": "solutions/reference-designs/eval-adicup3029/reference_designs/demo_plc_modbus.rst",
+         "type": "title_mismatch"},
+        {"file": "solutions/reference-designs/eval-adicup3029/reference_designs/demo_plc_modbus.rst",
+         "type": "malformed_table"},
+        {"file": "solutions/reference-designs/eval-adicup3029/hardware/adicup3029.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 299: Malformed table
+    ("wiki_migration/eval-adicup360_landing", "eval-adicup360", [
+        {"file": "solutions/reference-designs/eval-adicup360/mechanical.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 301: Malformed table
+    ("wiki_migration/eval-adsd3100-nxz_landing", "eval-adsd3100-nxz", [
+        {"file": "solutions/reference-designs/eval-adsd3100-nxz/eval-adsd3100-nxz.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 303: Unexpected indentation
+    ("wiki_migration/eval-adtf3175d-nxz_landing", "eval-adtf3175d-nxz", [
+        {"file": "solutions/reference-designs/eval-adtf3175d-nxz/eval-adtf3175d-nxz.rst",
+         "type": "unexpected_indentation",
+         "lines": [146]},
+    ]),
+    # PR 304: Malformed table
+    ("wiki_migration/eval-adtf3175-nxz_landing", "eval-adtf3175-nxz", [
+        {"file": "solutions/reference-designs/eval-adtf3175-nxz/eval-adtf3175-nxz.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 311: Unexpected indentation
+    ("wiki_migration/eval-ltc4306_landing", "eval-ltc4306", [
+        {"file": "solutions/reference-designs/eval-ltc4306/no-os-setup.rst",
+         "type": "unexpected_indentation",
+         "lines": [729, 1361, 1993, 3545, 4177]},
+    ]),
+    # PR 312: Unexpected indentation
+    ("wiki_migration/ev-cog-ad3029lz_landing", "ev-cog-ad3029lz", [
+        {"file": "solutions/reference-designs/ev-cog-ad3029lz/quickstart.rst",
+         "type": "unexpected_indentation",
+         "lines": [88]},
+    ]),
+    # PR 317: Unexpected indentation
+    ("wiki_migration/iio_demo_landing", "iio_demo", [
+        {"file": "solutions/reference-designs/iio_demo/no-os-setup.rst",
+         "type": "unexpected_indentation",
+         "lines": [730, 1362, 1994, 3546, 4178]},
+    ]),
+    # PR 318: Duplicate substitution
+    ("wiki_migration/inertial-mems_landing", "inertial-mems", [
+        {"file": "solutions/reference-designs/inertial-mems/imu/isensor_evaluation_tool_selection_guide.rst",
+         "type": "duplicate_substitution"},
+    ]),
+    # PR 320: Unexpected indentation + malformed table
+    ("wiki_migration/longrangewirelessradio_landing", "longrangewirelessradio", [
+        {"file": "solutions/reference-designs/longrangewirelessradio/software.rst",
+         "type": "unexpected_indentation",
+         "lines": [29, 36]},
+        {"file": "solutions/reference-designs/longrangewirelessradio/software.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 321: Unexpected indentation
+    ("wiki_migration/max11205pmb1_landing", "max11205pmb1", [
+        {"file": "solutions/reference-designs/max11205pmb1/no-os-setup.rst",
+         "type": "unexpected_indentation",
+         "lines": [714, 1346, 1978, 3530, 4162]},
+    ]),
+    # PR 324: Duplicate substitution + unexpected indentation
+    ("wiki_migration/pzsdr_landing", "pzsdr", [
+        {"file": "solutions/reference-designs/pzsdr/carriers/packrf/testing.rst",
+         "type": "duplicate_substitution"},
+        {"file": "solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions.rst",
+         "type": "unexpected_indentation",
+         "lines": [75]},
+        {"file": "solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/features.rst",
+         "type": "unexpected_indentation",
+         "lines": [463, 470]},
+    ]),
+    # PR 325: Malformed table
+    ("wiki_migration/quadmxfe_landing", "quadmxfe", [
+        {"file": "solutions/reference-designs/quadmxfe/quick-start.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 330: Malformed tables
+    ("wiki_migration/x-band-platform_landing", "x-band-platform", [
+        {"file": "solutions/reference-designs/x-band-platform/software.rst",
+         "type": "malformed_table"},
+    ]),
+    # PR 270: Bogus file path + toctree
+    ("wiki_migration/admx_landing", "admx", [
+        {"file": "solutions/reference-designs/admx/admx6001resources/eval/user-guides/admx/admx6001_analog_devices_wiki.rst",
+         "type": "move_file",
+         "old_file": "solutions/reference-designs/admx/admx6001resources/eval/user-guides/admx/admx6001_analog_devices_wiki.rst",
+         "new_file": "solutions/reference-designs/admx/admx6001_analog_devices_wiki.rst"},
+        {"file": "solutions/reference-designs/admx/index.rst",
+         "type": "rewrite_toctree",
+         "new_content": "ADMX\n====\n\n.. toctree::\n   :titlesonly:\n\n   admx100x\n   admx5001\n   admx6001\n   admx6001_analog_devices_wiki\n   eval-admx2001ebz\n   eval-admx2001ebz/spi-interface\n"},
+    ]),
+    # PR 315: No title in RST
+    ("wiki_migration/ev-cog-ad4050w_landing", "ev-cog-ad4050w", [
+        {"file": "solutions/reference-designs/ev-cog-ad4050w/example_project.rst",
+         "type": "add_title",
+         "title": "Example Project"},
+    ]),
+    # PR 328: Inline markup issues
+    ("wiki_migration/stingray_landing", "stingray", [
+        {"file": "solutions/reference-designs/stingray/userguide.rst",
+         "type": "fix_inline_markup"},
+    ]),
+]
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--branches", nargs="+", help="Only fix these branches")
+    args = parser.parse_args()
+
+    script_dir = Path(__file__).resolve().parent
+    repo_root = script_dir.parent
+    docs_dir = repo_root / "docs"
+
+    orig_branch = git("-C", str(repo_root), "rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+
+    success = 0
+    for branch, project, fixes in FIXES:
+        if args.branches and branch not in args.branches and project not in args.branches:
+            continue
+        try:
+            if process_branch(branch, project, fixes, repo_root, docs_dir, args.dry_run):
+                success += 1
+        except Exception as e:
+            print(f"  ERROR: {e}")
+            import traceback
+            traceback.print_exc()
+
+    git("-C", str(repo_root), "checkout", orig_branch, check=False)
+    print(f"\nDone: {success} branches fixed")
+
+
+if __name__ == "__main__":
+    main()
