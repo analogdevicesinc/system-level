@@ -7,7 +7,7 @@ ADRV9009 & ADRV9008
 
 Integrated Dual RF Tx, Rx, and Observation Rx.
 
-.. image:: adrv9009-bc.jpg
+.. image:: images/adrv9009-bc.jpg
    :align: left
    :width: 150
 
@@ -19,16 +19,15 @@ While the complete chip level design package can be found on
 information on the card and how to use it, the design package that surrounds it,
 and the software which can make it work can be found here.
 
-.. image:: adrv9009-PCB.jpg
+.. image:: images/adrv9009-PCB.jpg
    :align: center
 
 .. toctree::
    :hidden:
 
+   basic-iq-datafiles
    prerequisites
    quickstart/index
-   basic-iq-datafiles
-   production-testing/production-testing
 
 Table of Contents
 -------------------------------------------------------------------------------
@@ -40,9 +39,13 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
 #. Use the board to better understand the ADRV9009/ADRV9008-1/ADRV9008-2
 
    #. :ref:`What you need to get started <adrv9009 prerequisites>`
-   #. :ref:`Quick Start Guides <adrv9009 quickstart>`
+   #. :ref:`Quick Start Guides <adrv9009 quickstart>`:
 
-      #. :ref:`Linux on ZCU102 <adrv9009 quickstart zynqmp>`
+      #. :ref:`On ZCU102 <adrv9009 quickstart zcu102>`
+      #. :ref:`On ZC706 <adrv9009 quickstart zc706>`
+      #. :ref:`On KCU105 <adrv9009 quickstart kcu105>`
+      #. :ref:`On Arria 10 GX <adrv9009 quickstart a10gx>`
+      #. :ref:`On Arria 10 SoC <adrv9009 quickstart a10soc>`
       #. Configure an SD Card with :external+kuiper:doc:`Kuiper <index>`
 
    #. Linux Applications
@@ -53,12 +56,12 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
             (:ref:`iio-oscilloscope adrv9009 plugin`,
             :ref:`iio-oscilloscope adrv9009 advanced-plugin`)
 
-      #. :dokuwiki:`FRU EEPROM Utility <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/applications/fru_dump>`
+      #. :ref:`FRU EEPROM Utility <software fru-dump-tool>`
 
    #. Push custom data into/out of the ADRV9009/ADRV9008
 
       #. :doc:`Basic Data files and formats <basic-iq-datafiles>`
-      #. :dokuwiki:`Stream data into/out of MATLAB <resources/tools-software/transceiver-toolbox>`
+      #. :ref:`Stream data into/out of MATLAB <matlab transceiver-toolbox>`
       #. :ref:`Python Interfaces <pyadi-iio>`
 
 #. Design with the ADRV9009/ADRV9008
@@ -73,16 +76,16 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
    #. Hardware in the Loop / How to design your own custom baseband
 
       #. :ref:`GNU Radio <software gnuradio>`
-      #. :dokuwiki:`Transceiver Toolbox <resources/tools-software/transceiver-toolbox>`
+      #. :ref:`Transceiver Toolbox <matlab transceiver-toolbox>`
 
    #. Design a custom ADRV9009/ADRV9008 based platform
 
       #. Linux software
 
-         #. :ref:`ADRV9009/ADRV9008 Linux Device Driver <iio-transceiver adrv9009>`
+         #. :external+linux:ref:`ADRV9009/ADRV9008 Linux Device Driver <adrv9009>`
 
-            #. :ref:`ADRV9009/ADRV9008 Device Driver Customization <iio-transceiver adrv9009 customization>`
-            #. :dokuwiki:`Customizing the devicetree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+            #. :external+linux:ref:`ADRV9009/ADRV9008 Device Driver Customization <adrv9009-customization>`
+            #. :ref:`Customizing the devicetree on the target <linux-kernel zynq-tips-tricks>`
 
          #. :external+linux:ref:`jesd204-fsm-framework`
          #. :external+linux:ref:`ad9528`
@@ -90,33 +93,37 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
          #. :external+linux:ref:`axi-dmac`
          #. :external+linux:ref:`axi_jesd204_tx`
 
-            #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
 
          #. :external+linux:ref:`axi_jesd204_rx`
 
-            #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
 
          #. :external+linux:ref:`axi_adxcvr`
 
-            #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
 
          #. :external+linux:ref:`axi-adc-hdl`
          #. :external+linux:ref:`axi-dac-dds-hdl`
 
-      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
-      #. :dokuwiki:`ADRV9009/ADRV9008 No-OS System Level Design Setup <resources/eval/user-guides/adrv9009/no-os-setup>`
-      #. :dokuwiki:`HDL Reference Design <resources/eval/user-guides/adrv9009/reference_hdl>` which you must use in your FPGA.
-      #. :dokuwiki:`HDL Targeting From MATLAB and Simulink <resources/tools-software/transceiver-toolbox>`
+      #. :ref:`Changing the VCXO frequency and updating the default RF Transceiver Profile <software vcxo-profiles>`
+      #. :external+no-OS:doc:`ADRV9009/ADRV9008 No-OS System Level Design Setup <projects/rf-transceiver/adrv9009>`
+      #. :external+hdl:ref:`adrv9009` which you must use in your FPGA.
+      #. :ref:`HDL Targeting From MATLAB and Simulink <matlab transceiver-toolbox>`
 
-#. :dokuwiki:`Additional Documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :ref:`Additional Documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
+
+..
+   TODO: Add reference to ADRV9009-ZU11EG JESD parametrization page when ported
+   Wiki source: https://wiki.analog.com/resources/eval/user-guides/adrv9009-config
 
 .. _adrv9009 blockdiagram:
 
 Block diagram
 -------------
 
-.. image:: blockdiagram.png
+.. image:: images/blockdiagram.png
 
 Videos
 -------------------------------------------------------------------------------
@@ -141,6 +148,11 @@ MathWorks Webinars
 
 #. :mw:`Modelling and Simulating Analog Devices’ RF Transceivers with MATLAB and SimRF <videos/modelling-and-simulating-analog-devices-rf-transceivers-with-matlab-and-simrf-89934.html>`
 #. :mw:`Getting Started with Software-Defined Radio using MATLAB and Simulink <videos/getting-started-with-software-defined-radio-using-matlab-and-simulink-108646.html>`
+
+Unboxing guide
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ez:`Detailed unboxing guide <cfs-file/__key/communityserver-discussions-components-files/703/AD9371-and-ADRV9009-setup-with-ZCU102-or-ZC706-April2019.pdf>`
 
 Warning
 -------------------------------------------------------------------------------

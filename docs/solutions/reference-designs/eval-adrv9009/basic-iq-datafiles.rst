@@ -6,7 +6,7 @@ Basic IQ Datafiles
 DDS Mode - DAC Buffer Output allows loading of Matlab MAT, Binary and ASCII TEXT
 sample files.
 
-.. image:: adrv9009_dac_data.png
+.. image:: images/adrv9009_dac_data.png
    :width: 600px
 
 Example files
@@ -22,8 +22,8 @@ Example files
    - - 10.txt
      - text file
      - any
-     - basic IQ imbalance test waveform. The frequency that you will see will
-       be determined by the sample rate.
+     - basic IQ imbalance test waveform. The frequency that you will see will be
+       determined by the sample rate.
    - - 11.txt
      - text file
      - any
@@ -37,22 +37,22 @@ Example files
      - MATLAB file
      - 7.68MSPS
      - Created via
-       :dokuwiki:`resources/tools-software/linux-software/libiio/clients/lte_example`
+       :ref:`lte_example <fmcomms2 software lte-example>`
    - - LTE10.mat
      - MATLAB file
      - 15.36MSPS
      - Created via
-       :dokuwiki:`resources/tools-software/linux-software/libiio/clients/lte_example`
+       :ref:`lte_example <fmcomms2 software lte-example>`
    - - LTE15.mat
      - MATLAB file
      - 23.04MSPS
      - Created via
-       :dokuwiki:`resources/tools-software/linux-software/libiio/clients/lte_example`
+       :ref:`lte_example <fmcomms2 software lte-example>`
    - - LTE20.mat
      - MATLAB file
      - 30.72MSPS
      - Created via
-       :dokuwiki:`resources/tools-software/linux-software/libiio/clients/lte_example`
+       :ref:`lte_example <fmcomms2 software lte-example>`
    - - sinewave_0.3.mat
      - MATLAB file
      - any
@@ -62,9 +62,9 @@ Example files
    - - sinewave_0.3_2ch.mat
      - MATLAB file
      - any
-     - A sine wave with the amplitude of 0.3 for two I & Q channels. This
-       should be scaled to 30% of full scale. Separate data will be sent on
-       channel 1 and 2.
+     - A sine wave with the amplitude of 0.3 for two I & Q channels. This should
+       be scaled to 30% of full scale. Separate data will be sent on channel 1
+       and 2.
    - - sinewave_0.6.mat
      - MATLAB file
      - any
@@ -74,9 +74,9 @@ Example files
    - - sinewave_0.6_2ch.mat
      - MATLAB file
      - any
-     - A sine wave with the amplitude of 0.6 for two I & Q channels. This
-       should be scaled to 60% of full scale. Separate data will be sent on
-       channel 1 and 2.
+     - A sine wave with the amplitude of 0.6 for two I & Q channels. This should
+       be scaled to 60% of full scale. Separate data will be sent on channel 1
+       and 2.
    - - sinewave_0.9.mat
      - MATLAB file
      - any
@@ -86,9 +86,9 @@ Example files
    - - sinewave_0.9_2ch.mat
      - MATLAB file
      - any
-     - A sine wave with the amplitude of 0.9 for two I & Q channels. This
-       should be scaled to 90% of full scale. Separate data will be sent on
-       channel 1 and 2.
+     - A sine wave with the amplitude of 0.9 for two I & Q channels. This should
+       be scaled to 90% of full scale. Separate data will be sent on channel 1
+       and 2.
 
 .. important::
 
@@ -105,7 +105,7 @@ MATLAB format
 -------------
 
 The ``./osc`` application uses the
-`MAT File I/O Library <http://sourceforge.net/projects/matio/>`__
+`MAT File I/O Library <http://sourceforge.net/projects/matio/>`_
 to be able to read
 :mw:`MATLAB <products/matlab>` files into the system.
 
@@ -270,6 +270,11 @@ Sample C code Application
 
 Compiling the Sample Application
 --------------------------------
+
+.. note::
+
+   ``do_iq.c`` refers to the sample C code application listed above. Save it
+   as ``do_iq.c`` before compiling.
 
 .. shell::
 
