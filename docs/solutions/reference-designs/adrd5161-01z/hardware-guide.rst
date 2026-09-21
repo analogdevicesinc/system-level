@@ -49,7 +49,9 @@ Recommended Battery Pack
 ------------------------
 
 - Any Li-ion or Li-polymer battery pack with 3 series cells (any number of cells in parallel). When using different battery packs, adjust the charging and discharging parameters described in the battery cell datasheet.
-- Recommended battery cells: Panasonic NCR18650GA (Li-ion); The default software configuration after boot is for 3 series, 2 parallel Panasonic NCR18650GA Li-ion batteries
+- Recommended battery cells: Panasonic NCR18650GA (Li-ion); The default software configuration after boot is for 3 series, 2 parallel Panasonic NCR18650GA Li-ion batteries.
+- If you want to use different batteries, the on-board fuel gauge chip MAX17320 needs to be properly configured. Please consult the Battery Configuration Guide.
+
 
 Output Power
 ------------
