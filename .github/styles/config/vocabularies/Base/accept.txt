@@ -11,6 +11,8 @@
 (?i)gsps
 (?i)hdl
 (?i)iio
+(?i)iio_attr
+(?i)iio_info
 (?i)iiod
 (?i)javascript
 (?i)jtag
@@ -34,6 +36,7 @@
 (?i)pwm(s)?
 (?i)pypi
 (?i)rpi
+(?i)sdr
 (?i)sdk
 (?i)syncb
 (?i)syncronization
@@ -83,7 +86,6 @@ JLink
 Kirkstone
 LED(s)?
 LTspice
-MATLAB
 MCS
 MicroBlaze
 Olimex
@@ -243,7 +245,7 @@ Yocto
 [Mm]akefiles
 [Mm]anagemement
 [Mm]anjaro
-[Mm]atlab
+(?i)matlab
 [Mm]atplotlib
 [Mm]aximum
 [Mm]bed
@@ -530,6 +532,7 @@ guickstart
 guiconfig
 hal
 hardcoded
+hardwaregain
 hdl
 hexa
 hostname
@@ -634,7 +637,7 @@ photodiodes
 pidof
 pincontrol
 pipelining
-pluto
+[Pp]luto
 poweroff
 powerup
 ppb
@@ -651,7 +654,7 @@ ptr
 pulldown
 pullup
 pullups
-pwr
+(?i)pwr
 pypi
 qconfig
 ramfs
