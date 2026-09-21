@@ -1,56 +1,64 @@
-AD-FMCMOTCON2-EBZ Linux on Zynq Quick Start Guide
-=================================================
+.. _ad_fmcmotcon2_ebz zedboard_quickstart:
 
-This guide provides some quick instructions (still takes awhile to download, and
-set things up) on how to setup the AD-FMCMOTCON2-EBZ on either:
+Linux on ZedBoard Quick Start Guide
+===============================================================================
 
--  `ZED Board <http://zedboard.org/product/zedboard>`_, Rev C or later
+This guide provides instructions on how to set up the AD-FMCMOTCON2-EBZ on
+the `ZedBoard <https://digilent.com/shop/zedboard-zynq-7000-arm-fpga-soc-development-board>`_
+(Rev C or later).
 
 Requirements
-------------
+-------------------------------------------------------------------------------
 
--  You need a Host PC (Windows or Linux).
--  You need a SD card writer connected to above PC (Supported USB SD readers/writers are OK).
--  USB keyboard/mouse for the Zynq Device
--  HDMI Display (monitor or TV)
+- A host PC (Windows or Linux)
+- An SD card writer connected to the host PC (USB SD readers/writers are OK)
+- USB keyboard and mouse for the ZedBoard
+- HDMI display (monitor or TV)
 
 Creating the SD Card
---------------------
+-------------------------------------------------------------------------------
 
 :external+kuiper:doc:`Create SD Image for Zynq Boards <index>`
 
-Connecting the hardware together
---------------------------------
+Connecting the hardware
+-------------------------------------------------------------------------------
 
-Instruction regarding the hardware connection can be found at: :doc:`Hardware connection user guide ZED board </solutions/reference-designs/ad-fmcmotcon2-ebz/quickstart/lv_setup_guide>`
+Hardware connection instructions can be found in the
+:ref:`Hardware Setup <ad_fmcmotcon2_ebz hardware-setup>` section.
 
 Booting the SD Card
--------------------
+-------------------------------------------------------------------------------
 
--  ignore your PC, and now interact on the USB mouse/keyboard on the Zynq device
--  You should see one screen:
+- Interact with the ZedBoard using the USB mouse and keyboard
+- You should see the IIO Scope tool on the display:
 
-   -  IIO Scope tool:
+.. figure:: ../images/iio_scope.jpg
+   :alt: IIO Oscilloscope on ZedBoard
+   :align: center
+   :width: 200
 
-   |image1|
+   IIO Oscilloscope on ZedBoard
 
-   -  Learn more about the `IIO Scope <https://wiki.analog.com/resources/tools-software/linux-software/iio_oscilloscope>`_.
+- Learn more about :ref:`iio-oscilloscope`.
+- You can interact with the GUI either over the network or with the HDMI
+  monitor and USB keyboard/mouse.
 
--  You are now done with booting from the SD card. You can interact with the GUI
-   either over the network, or with the HDMI monitor/USB keyboard mouse.
+Using IIO Oscilloscope
+-------------------------------------------------------------------------------
 
-Using IIO SCOPE for AD-FMCMOTCON2-EBZ
--------------------------------------
-
-:doc:`Software user guide </solutions/reference-designs/ad-fmcmotcon2-ebz/software/iio_scope>`
+See the :ref:`IIO Oscilloscope section <ad_fmcmotcon2_ebz iio-scope>` in
+the user guide for details on monitoring and controlling the
+AD-FMCMOTCON2-EBZ.
 
 .. important::
 
-   Even thought this is Linux, this is a persistent file system. Care should be taken not to corrupt the file system -- please shut down things, don't just turn off the power switch. Depending on your monitor, the standard power off could be hiding. You can do this from the terminal as well with: ``sudo shutdown -h now``
+   This Linux installation uses a persistent file system. Do not corrupt the
+   file system by turning off power abruptly — always shut down properly.
+   You can shut down from the terminal with: ``sudo shutdown -h now``
 
-   |image2|
-
-.. |image1| image:: ../images/iio_scope.png
-   :width: 200
-.. |image2| image:: ../images/shutdown.png
+.. figure:: ../images/shutdown.jpg
+   :alt: Shutdown dialog
+   :align: center
    :width: 300
+
+   Shutdown dialog
