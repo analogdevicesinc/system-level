@@ -639,7 +639,7 @@ Manifest
 ========
 
 The ``manifest.json`` file is the entry point for a template and defines the
-content rendered on the node's device page. It contains two arrays, ``custom``
+content rendered on the node's page. It contains two arrays, ``custom``
 and ``components``, which are processed in order and rendered as they appear in
 the manifest.
 
@@ -679,7 +679,7 @@ the manifest.
      ]
    }
 
-Each ``custom`` and ``component`` entry is rendered within a card on the device
+Each ``custom`` and ``component`` entry is rendered within a card on the node
 page. The ``card`` object controls the card's title, subtitle, and user
 interface behavior.
 
