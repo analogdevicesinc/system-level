@@ -17,55 +17,28 @@ Contents
 -------------------------------------------------------------------------------
 
 .. toctree::
-   :caption: Product Categories
-   :maxdepth: 2
-   :glob:
-
-   products/*/index
-
-.. toctree::
-   :caption: Kuiper & Linux Kernel
-   :maxdepth: 2
-   :glob:
-
-   linux/*/index
-
-.. toctree::
-   :caption: Software
-   :maxdepth: 1
-   :glob:
-
-   software/*/index
-   software/shell_scripts
-   software/fru_dump
-   software/fru_dump_tool
-   software/gnuradio
-
-.. toctree::
-   :caption: Devices
-   :maxdepth: 2
-   :glob:
-
-   tools/*/index
-
-.. toctree::
    :caption: Apps & Solutions
    :maxdepth: 4
    :glob:
 
-   solutions/*/index
+   solutions/reference-designs/index
+   products/index
+   ADC Platforms <solutions/platforms/index>
 
 .. toctree::
-   :caption: University Program
-   :maxdepth: 4
+   :caption: Firmware & Software
+   :maxdepth: 1
+   :glob:
 
-   university/index
+   linux/*/index
+   software/index
 
 .. toctree::
    :caption: Learning
    :maxdepth: 4
 
    learning/index
+   university/index
 
 .. toctree::
    :caption: Contributing and Guidelines

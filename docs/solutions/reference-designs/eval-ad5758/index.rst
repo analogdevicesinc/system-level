@@ -66,7 +66,7 @@ its own dedicated section.
    prerequisites
    quickstart/index
    spi
-   Demonstration_Platform/index
+   demonstration-platform/index
 
 Recommendations
 -------------------------------------------------------------------------------
