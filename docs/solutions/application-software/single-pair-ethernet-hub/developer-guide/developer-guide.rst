@@ -17,7 +17,7 @@ communication protocol between the SPE Hub and embedded MQTT clients.
 The SPE Hub includes both a local MQTT broker and a local MQTT client. The
 broker, implemented with Aedes, runs on the host PC and accepts connections from
 embedded nodes. The local client then connects to that broker as a standard MQTT
-client with the client ID host and subscribes to host topics.
+client with the client ID ``host`` and subscribes to host topics.
 
 .. list-table::
    :header-rows: 1
@@ -748,8 +748,9 @@ Sanitization
 ------------
 
 Template content is sanitized before rendering to prevent script injection and
-cross-site scripting (XSS) attacks. Only the HTML elements listed below are permitted; any other markup is stripped from the output. The following
-HTML tags are supported within templates:
+cross-site scripting (XSS) attacks. Only the HTML elements listed below are
+permitted; any other markup is stripped from the output. The following HTML
+tags are supported within templates:
 
 .. list-table::
    :header-rows: 1
