@@ -1,4 +1,4 @@
-.. _user-guide:
+.. _single-pair-ethernet-hub user-guide:
 
 ############
  User Guide
@@ -22,7 +22,7 @@ daisy-chain, point-to-point, and switched network topologies.
 
    network-topologies/network-topologies
 
-.. _configuration:
+.. _single-pair-ethernet-hub user-guide configuration:
 
 **********************
  Network Configuration

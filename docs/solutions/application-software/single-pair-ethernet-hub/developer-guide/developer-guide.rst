@@ -1,4 +1,4 @@
-.. _developer-guide:
+.. _single-pair-ethernet-hub developer-guide:
 
 #################
  Developer Guide
@@ -8,7 +8,7 @@ The Developer Guide provides the information required to develop, extend, and
 integrate applications with SPE Hub. This document defines the MQTT-based
 communication protocol between the SPE Hub and embedded MQTT clients.
 
-.. _mqtt-client:
+.. _single-pair-ethernet-hub developer-guide mqtt-client:
 
 ******************************
  Local MQTT Broker and Client
@@ -594,7 +594,7 @@ Local Topic: ``192.168.1.100/led``
       -  ``number``
       -  Command. 0 = OFF, 1 = ON, 2 = TOGGLE.
 
-.. _templates:
+.. _single-pair-ethernet-hub developer-guide templates:
 
 ***********
  Templates

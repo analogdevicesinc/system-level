@@ -1,4 +1,4 @@
-.. _index:
+.. _single-pair-ethernet-hub:
 
 ################################
  Single Pair Ethernet Hub
@@ -11,15 +11,15 @@ applications through real-time device monitoring and control.
 This documentation is organised into two parts so that each audience can quickly
 find what they need:
 
-#. The :ref:`user-guide` is intended for users evaluating and operating SPE
-   devices using an evaluation kit with the SPE Hub. It explains how to configure
-   network connectivity and use the application's features to discover, monitor,
-   and control connected devices.
+#. The :ref:`single-pair-ethernet-hub user-guide` is intended for users
+   evaluating and operating SPE devices using an evaluation kit with the SPE
+   Hub. It explains how to configure network connectivity and use the
+   application's features to discover, monitor, and control connected devices.
 
-#. The :ref:`developer-guide` is intended for developers creating
-   proof-of-concept applications that work with the SPE Hub. It defines the
-   communication protocol that embedded devices must implement to be discovered,
-   monitored, and controlled by the application.
+#. The :ref:`single-pair-ethernet-hub developer-guide` is intended for
+   developers creating proof-of-concept applications that work with the SPE
+   Hub. It defines the communication protocol that embedded devices must
+   implement to be discovered, monitored, and controlled by the application.
 
 .. toctree::
    :maxdepth: 1

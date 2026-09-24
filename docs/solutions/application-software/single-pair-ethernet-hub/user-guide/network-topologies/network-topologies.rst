@@ -1,4 +1,4 @@
-.. _topologies:
+.. _single-pair-ethernet-hub user-guide network-topologies:
 
 ####################
  Network Topologies
