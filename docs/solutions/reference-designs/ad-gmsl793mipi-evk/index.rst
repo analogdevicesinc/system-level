@@ -40,7 +40,7 @@ Features
 - MAX96793-based MIPI CSI-2 to GMSL3/GMSL2 serializer
 - 12Gbps GMSL3 forward link, backward compatible with 6Gbps/3Gbps
   GMSL2
-- Single MIPI CSI-2 input with support for up to 4 D-PHY lanes at
+- Single MIPI CSI-2 input with support for up to 2 D-PHY lanes at
   2.5Gbps/lane
 - Single GMSL output over 50Ω coax
 - 187.5Mbps bidirectional control channel with I²C and GPIO support
