@@ -7,13 +7,17 @@ AD9081 & AD9082
 
 MxFE™ Quad, 16-Bit, 12GSPS RFDAC and Quad, 12-Bit, 4/6 GSPS RFADC.
 
-.. image:: ../images/ad9081.webp
+.. figure:: ../images/ad9081.webp
    :align: left
    :width: 150
 
-.. image:: ../images/ad9082.webp
+   AD9081 MxFE
+
+.. figure:: ../images/ad9082.webp
    :align: left
    :width: 120
+
+   AD9082 MxFE
 
 Overview
 -------------------------------------------------------------------------------
@@ -58,22 +62,29 @@ Applications:
 
 :adi:`EVAL-AD9081` looks like this, with 4x ADCs and 4x DACs:
 
-.. image:: ../images/eval_ad9081.png
+.. figure:: ../images/eval_ad9081.png
    :align: center
    :width: 400
 
+   EVAL-AD9081 evaluation board
+
 While :adi:`EVAL-AD9082` looks like this, with 2x ADCs and 4x DACs:
 
-.. image:: ../images/eval_ad9082.png
+.. figure:: ../images/eval_ad9082.png
    :align: center
    :width: 450
+
+   EVAL-AD9082 evaluation board
 
 .. toctree::
    :hidden:
 
-   user-guide
+   ad9081
+   user-guide/index
    prerequisites
    quickstart/index
+   ad9081_plugin
+   ad9081_ace
 
 Recommendations
 -------------------------------------------------------------------------------
@@ -108,7 +119,7 @@ Table of contents
 
    #. Linux Applications
 
-      #. :ref:`iio-oscilloscope`
+      #. :ref:`ad9081 iio-osc-plugin`
 
 #. Design with the AD9081/AD9082
 
@@ -119,8 +130,8 @@ Table of contents
 
    - Hardware in the Loop / How to design your own custom BaseBand
 
-     - :ref:`GNU Radio <software gnuradio>`
-     - :dokuwiki:`Transceiver Toolbox <resources/tools-software/transceiver-toolbox>`
+     - :ref:`software gnuradio`
+     - :ref:`matlab transceiver-toolbox`
 
    - Resources for designing a custom AD9081/AD9082-based platform software
 
@@ -148,11 +159,13 @@ Table of contents
            - :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
            - :external+hdl:ref:`jesd204`
 
-     #. :external+hdl:ref:`HDL reference design <ad9081_fmca_ebz>` which you must use in your FPGA.
+     #. :external+hdl:ref:`HDL reference design <ad9081_fmca_ebz>` which you must use in your FPGA
+     #. :ref:`ad9081 evaluating-using-ace`
 
 #. :adi:`Evaluating the AD9081/AD9082/AD9986/AD9988 Mixed Signal, Front-End RF Transceiver with ACE software <media/en/technical-documentation/user-guides/eval-ad9081-9082-9986-9988-ug-1829.pdf>`
 #. :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
-#. :dokuwiki:`Additional documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :ref:`ad9081 user-guide 2to24ghz-mxfe-rf-front-end`
+#. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _ad9081 block-diagram:
@@ -160,13 +173,17 @@ Table of contents
 Block diagram
 -------------------------------------------------------------------------------
 
-.. image:: ../images/ad9081_block_diagram.png
+.. figure:: ../images/ad9081_block_diagram.png
    :align: center
    :width: 700
 
-.. image:: ../images/ad9082_block_diagram.png
+   AD9081 block diagram
+
+.. figure:: ../images/ad9082_block_diagram.png
    :align: center
    :width: 700
+
+   AD9082 block diagram
 
 Videos
 -------------------------------------------------------------------------------
