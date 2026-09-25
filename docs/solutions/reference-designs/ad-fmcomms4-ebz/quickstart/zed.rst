@@ -1,10 +1,10 @@
-.. _fmcomms2 quickstart zed:
+.. _fmcomms4 quickstart zed:
 
 ZED Quickstart
 ===============================================================================
 
 This guide provides quick instructions on how to setup the
-:adi:`AD-FMCOMMS2-EBZ` or :adi:`AD-FMCOMMS3-EBZ` or :adi:`AD-FMCOMMS4-EBZ` on:
+:adi:`AD-FMCOMMS4-EBZ` on:
 
 - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   FMC LPC
@@ -63,15 +63,14 @@ Required Hardware
 
 - AMD Xilinx `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   FPGA board and its power supply (12V)
-- :adi:`AD-FMCOMMS2-EBZ` / :adi:`AD-FMCOMMS3-EBZ` / :adi:`AD-FMCOMMS4-EBZ` FMC
-  evaluation board
+- :adi:`AD-FMCOMMS4-EBZ` FMC evaluation board
 - 2x SMA cable orAntenna
 - Micro-USB cable (UART)
 - LAN cable (Ethernet)
 - (Optional) USB keyboard & mouse and a HDMI compatible monitor (Full HD only)
 
 More details as to why you need these can be found at
-:ref:`fmcomms2 prerequisites`.
+:ref:`fmcomms4 prerequisites`.
 
 Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,10 +78,10 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-AD-FMCOMMS2-EBZ/ZED
+AD-FMCOMMS4-EBZ/ZED
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. image:: ../images/fmcomms2_zed_linux.jpeg
+.. image:: ../images/fmcomms4_zed_linux.jpeg
    :width: 800
 
 .. esd-warning::
@@ -95,7 +94,7 @@ Follow the steps in this order, to avoid damaging the components:
 #. Get the `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
 #. Configure ZedBoard for SD BOOT:
 
-    .. image:: ../images/zed_sdcard_jumpers.jpg
+    .. image:: ../../fmcomms2/images/zed_sdcard_jumpers.jpg
         :width: 800
 
     The BOOT switches (JP7-JP11) and the MIO0 jumper (JP6) must be set for
@@ -107,7 +106,7 @@ Follow the steps in this order, to avoid damaging the components:
 #. Insert the SD card into the SD Card Interface Connector (J12)
 #. Connect your signal generator to the analog inputs of the evaluation board
    using the appropriate jumper wires or SMB connectors.
-#. Plug the :adi:`AD-FMCOMMS2-EBZ` into the FMC LPC Connector (J1)
+#. Plug the :adi:`AD-FMCOMMS4-EBZ` into the FMC LPC Connector (J1)
 #. Plug the Power Supply into 12V Power input connector (J20) (DO NOT turn the
    device on).
 #. Plug-in an Ethernet cable from your router/switch to the Ethernet port on
@@ -444,3 +443,100 @@ To reboot the system, run:
    power off could be hiding. You can do this from the terminal as well with
    :code:`sudo shutdown -h now` or the above-mentioned command for powering
    off.
+
+Using no-OS as software
+--------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following files are needed for the system to boot:
+
+- HDL boot file: ``system_top.xsa``
+- no-OS project: :git-no-os:`projects/ad9361`
+
+Instructions on how to build the boot files from source can be found here:
+
+- :external+hdl:ref:`fmcomms2`. More HDL build details at
+  :external+hdl:ref:`build_hdl`
+- :external+no-OS:doc:`projects/rf-transceiver/ad9361`. More no-OS build
+  details at :external+no-OS:doc:`build_guide`
+
+Required Software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx Vivado and Vitis (downloading Vitis from
+  :xilinx:`here <support/download/index.html/content/xilinx/en/downloadNav/vitis.html>`
+  will include Vivado as well)
+- An UART terminal (Putty/Tera Term/Minicom, etc.), Baud rate 115200 (8N1)
+
+Required Hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
+  FPGA board and its power supply (12V)
+- :adi:`AD-FMCOMMS4-EBZ` FMC evaluation board
+- 2x Micro-USB cables, one for UART and one for JTAG
+- 2x SMA cable for analog signal loopback
+
+More details as to why you need these, can be found at
+:ref:`fmcomms4 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../images/fmcomms4_zed_no_os.jpeg
+   :width: 800
+
+.. esd-warning::
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Get the `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
+#. Configure ZedBoard for JTAG boot:
+
+    .. image:: ../images/zed_jtag_jumpers.jpg
+        :width: 800
+
+    The BOOT switches (JP7–JP11) and the MIO0 jumper (JP6) must be set for JTAG
+    boot mode. VADJ must be set to 3.3V, as specified in the HDL project's
+    README at :external+hdl:ref:`fmcomms2`.
+    Optionally, to use USB peripheral devices with the ZedBoard, install
+    jumpers JP2 and JP3.
+
+#. Plug the Power Supply into 12V Power input connector (J20) (DO NOT turn the
+   device on)
+#. Plug the :adi:`AD-FMCOMMS4-EBZ` into the FMC LPC Connector (J1)
+#. Connect the UART port of ZedBoard (J14) to a PC via MicroUSB
+#. Connect the PROG port of ZedBoard (J17) to a PC via MicroUSB
+#. Build and run the project using the steps shown
+   :external+no-OS:doc:`here <projects/rf-transceiver/ad9361>`.
+#. Observe console output messages on your terminal (use the first ttyUSB or
+   COM port registered)
+
+Console output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following is what is printed in the serial console, after you have
+connected to the proper ttyUSB or COM port:
+
+.. collapsible:: Complete boot log
+
+   ::
+
+      cf-ad9361-lpc: Successfully initialized (61439514 Hz)
+      ad9361_init : AD936x Rev 2 successfully initialized
+      cf-ad9361-dds-core-lpc: Successfully initialized (61439514 Hz)
+      DMA_EXAMPLE: address=0x13d800 samples=65536 channels=2 bits=16
+      [fmcomms2] on [zed] git branRunning IIOD server...
+      If successful, you may connect an IIO client application by:
+      1. Disconnecting the serial terminal you use to view this message.
+      2. Connecting the IIO client application using the serial backend configured as shown:
+         Baudrate: 115200
+         Data size: 8 bits
+         Parity: none
+         Stop bits: 1
+         Flow control: none
