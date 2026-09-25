@@ -230,30 +230,30 @@ In windows, you can run the ``XSCT`` or ``XSDB`` terminal from start menu → Xi
 
    This specifies a system console
 
-   
-   ::
-   
 
-   
+   ::
+
+
+
       xsct% source run.vcu118_quad_ad9081_204c_txmode_11_rxmode_4_revc.tcl
       attempting to launch hw_server
-   
+
        * Xilinx hw_server v2018.2
         *** Build date : Jun 14 2018-20:42:52
           ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-   
+
       INFO: hw_server application started
       INFO: Use Ctrl-C to exit hw_server application
-   
+
       * Xilinx hw_server v2018.2
         *** Build date : Jun 14 2018-20:42:52
           ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-   
+
       INFO: hw_server application started
       INFO: Use Ctrl-C to exit hw_server application
-   
+
       INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
-   
+
       100%   42MB   1.7MB/s  00:25
       Downloading Program -- C:/Users/cfrick/Desktop/quadmxfe_matlab_code/FPGA_image/Quad_MxFE_for_VCU118_2021-04-28/simpleImage.vcu118_quad_ad9081_204c_txmode_11_rxmode_4_revc.strip
               section, .text: 0x80000000 - 0x805229df
@@ -521,11 +521,11 @@ When the system starts it tries to acquire an IP using the DHCP protocol. In cas
 
    This specifies any shell prompt running on the target
 
-   
-   ::
-   
 
-   
+   ::
+
+
+
       # ifconfig
       eth0      Link encap:Ethernet  HWaddr 00:0A:35:00:00:00
                 inet addr:10.44.3.93  Bcast:10.44.3.255  Mask:255.255.255.0
@@ -534,7 +534,7 @@ When the system starts it tries to acquire an IP using the DHCP protocol. In cas
                 TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
                 collisions:0 txqueuelen:1000
                 RX bytes:31911 (31.1 KiB)  TX bytes:684 (684.0 B)
-   
+
       #
 
 Check JESD204 Link Status
@@ -557,11 +557,11 @@ Serial terminal
 
    This specifies any shell prompt running on the target
 
-   
-   ::
-   
 
-   
+   ::
+
+
+
       #resize
       #jesd_status -s
 
@@ -572,11 +572,11 @@ SSH Terminal
 
    This specifies any shell prompt running on a remote PC
 
-   
-   ::
-   
 
-   
+   ::
+
+
+
       dave@hal9000:~$ slogin root@10.44.3.93
       The authenticity of host '10.44.3.93 (10.44.3.93)' can't be established.
       ECDSA key fingerprint is SHA256:0AcYkl+45GBw+Fg5/oxbrh5No1UYXgkpNoLSYlrEjqs.
@@ -628,19 +628,19 @@ The names of the iio devices can be obtained using ``iio_attr`` command.
 
    This specifies a system console
 
-   
-   ::
-   
 
-   
+   ::
+
+
+
       C:\Users\dave>iio_attr -u ip:10.44.3.56 -i -c axi-ad9081-rx-3 voltage0_i main_nco_frequency 1200000000
-   
+
       dev 'axi-ad9081-rx-3', channel 'voltage0_i' (input), attr 'main_nco_frequency', value '1000000000'
-   
+
       wrote 11 bytes to main_nco_frequency
-   
+
       dev 'axi-ad9081-rx-3', channel 'voltage0_i' (input), attr 'main_nco_frequency', value '1200000000'
-   
+
       C:\Users\dave>
 
 Further information
@@ -666,35 +666,49 @@ Software architecture overview
    All programmable devices on the Quad MxFE platform are abstracted by IIO
    devices.
 
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| IIO Device   | Device Name     | Driver Documentation                                                                                                                           |
-+==============+=================+================================================================================================================================================+
-| iio:device0  | hmc425a         | :external+linux:ref:`HMC425A Digital Step Attenuator Linux Driver <hmc425a>`                       |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device1  | adf4371-0       | :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`                             |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device2  | adf4371-1       | :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`                             |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device3  | adf4371-2       | :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`                             |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device4  | adf4371-3       | :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`                             |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device5  | hmc7043         | :external+linux:ref:`HMC7044 Clock Jitter Attenuator with JESD204B Linux Driver <hmc7044>`                |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device6  | axi-ad9081-rx-0 | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`                                                  |
-|              |                 | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`                                              |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device7  | axi-ad9081-rx-1 | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`                                                  |
-|              |                 | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`                                              |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device8  | axi-ad9081-rx-2 | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`                                                  |
-|              |                 | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`                                              |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device9  | axi-ad9081-tx-3 | :external+linux:ref:`AXI DAC HDL Linux Driver <axi-dac-dds-hdl>`                                          |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| iio:device10 | axi-ad9081-rx-3 | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`                                                  |
-|              |                 | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`                                              |
-+--------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+
+   * - IIO Device
+     - Device Name
+     - Driver Documentation
+   * - iio:device0
+     - hmc425a
+     - :external+linux:ref:`HMC425A Digital Step Attenuator Linux Driver <hmc425a>`
+   * - iio:device1
+     - adf4371-0
+     - :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`
+   * - iio:device2
+     - adf4371-1
+     - :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`
+   * - iio:device3
+     - adf4371-2
+     - :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`
+   * - iio:device4
+     - adf4371-3
+     - :external+linux:ref:`ADF4371 IIO Wideband Synthesizer Linux Driver <adf4371>`
+   * - iio:device5
+     - hmc7043
+     - :external+linux:ref:`HMC7044 Clock Jitter Attenuator with JESD204B Linux Driver <hmc7044>`
+   * - iio:device6
+     - axi-ad9081-rx-0
+     - | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`
+       | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`
+   * - iio:device7
+     - axi-ad9081-rx-1
+     - | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`
+       | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`
+   * - iio:device8
+     - axi-ad9081-rx-2
+     - | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`
+       | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`
+   * - iio:device9
+     - axi-ad9081-tx-3
+     - :external+linux:ref:`AXI DAC HDL Linux Driver <axi-dac-dds-hdl>`
+   * - iio:device10
+     - axi-ad9081-rx-3
+     - | :external+linux:ref:`AD9081 MxFE Linux Driver <ad9081>`
+       | :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`
 
 All these drivers feature a runtime API which can be controlled using :ref:`IIO Oscilloscope <iio-oscilloscope>`, :ref:`libiio`, etc. However some configuration is static and done inside the device tree. For Microblaze projects (:xilinx:`VCU118`) the device tree is build into the kernel image. Please see instructions on Building custom kernel and devicetree images here:
 
@@ -809,9 +823,9 @@ Instructions and Overview
 
    Note: In Frequency Domain view channels can be only enabled pairwise (I+Q).
 
-   
+
    And not more that 2 frequency plots can be enabled in the same window.
-   
+
    However multiple (independent) plot windows can be opened.
 
 The plugin window
@@ -881,9 +895,3 @@ Linux Image build instructions
 
 For step-by-step instructions on how to build a Microblaze Linux kernel image,
 see :ref:`linux-kernel microblaze`.
-
-
-
---------------
-
-:ref:`Back To Quad-MxFE Main Page <quadmxfe>`

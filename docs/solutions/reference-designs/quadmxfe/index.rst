@@ -1,6 +1,6 @@
 .. _quadmxfe:
 
-ADQUADMXFE1EBZ
+AD-QUADMXFE1-EBZ
 ===============================================================================
 
 Quad-MxFE System Development Platform: Four :adi:`AD9081` MxFE™ Direct RF

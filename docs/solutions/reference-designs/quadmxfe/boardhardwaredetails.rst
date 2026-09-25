@@ -6,21 +6,41 @@ Quad-MxFE Board Hardware Details
 Transmit Path
 -------------
 
-The 16x transmit front-ends are all on the bottom of the board and contain identical components. The Tx front-end is comprised of a balun for differential to single-ended transitioning, a filter, and an :adi:`HMC8411` RF amplifier to serve as a modest gain stage for any downstream peripherals. The transmit signals are launched off the board via an MMCX connector.
+The 16x transmit front-ends are all on the bottom of the board and contain
+identical components. The Tx front-end is comprised of a balun for differential
+to single-ended transitioning, a filter, and an :adi:`HMC8411` RF amplifier to
+serve as a modest gain stage for any downstream peripherals. The transmit
+signals are launched off the board via an MMCX connector.
 
-Within the digital domain, the transmit path receives a data stream from the JESD204b/c interface and then has the option to traverse through 8x fine or 4x coarse digital up-converters (DUCs) prior to reaching the DAC for waveform synthesis. Use of these DUCs is described in :adi:`UG-1578 <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`.
+Within the digital domain, the transmit path receives a data stream from the
+JESD204b/c interface and then has the option to traverse through 8x fine or 4x
+coarse digital up-converters (DUCs) prior to reaching the DAC for waveform
+synthesis. Use of these DUCs is described in
+:adi:`UG-1578 <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`.
 
 .. image:: images/quadmxfe_txsignalchainblockdiagram.png
    :width: 1000
 
---------------
-
 Receive Path
 ------------
 
-The ADC front-end paths are all on the top of the platform and contain identical devices for all 16x RF input channels. These channels are comprised of filtering, two :adi:`HMC8411` gain stages, gain control via a digital step attenuator (either the :adi:`HMC425A` for rev. A/B or :adi:`HMC540S` for rev. C), and a balun for single-ended to differential transitioning. Filtering can be swapped with footprint-compatible filters to access different Nyquist zones. The received signal is launched onto the board via an MMCX connector.
+The ADC front-end paths are all on the top of the platform and contain identical
+devices for all 16x RF input channels. These channels are comprised of
+filtering, two :adi:`HMC8411` gain stages, gain control via a digital step
+attenuator (either the :adi:`HMC425A` for rev. A/B or :adi:`HMC540S` for rev.
+C), and a balun for single-ended to differential transitioning. Filtering can be
+swapped with footprint-compatible filters to access different Nyquist zones. The
+received signal is launched onto the board via an MMCX connector.
 
-Once digitized via the ADC, the input signal can then be routed through the digital down converters (DDCs) of the :adi:`AD9081` or :adi:`AD9082` to reduce the data rate sampled by the ADCs and/or to frequency translate the data using either the fine or coarse numerically-controlled oscillators (NCOs). Use of these DDCs is described in :adi:`UG-1578 <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`. Additionally, on-silicon programmable finite-impulse response filters (FIRs) can be used to achieve broadband equalization across the channels. The data then is sent over the JESD204b/c digital interface to the baseband processor (BBP).
+Once digitized via the ADC, the input signal can then be routed through the
+digital down converters (DDCs) of the :adi:`AD9081` or :adi:`AD9082` to reduce
+the data rate sampled by the ADCs and/or to frequency translate the data using
+either the fine or coarse numerically-controlled oscillators (NCOs). Use of
+these DDCs is described in :adi:`UG-1578
+<media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`.
+Additionally, on-silicon programmable finite-impulse response filters (FIRs) can
+be used to achieve broadband equalization across the channels. The data then is
+sent over the JESD204b/c digital interface to the baseband processor (BBP).
 
 .. image:: images/quadmxfe_rxsignalchainblockdiagram.png
    :width: 1000
@@ -28,12 +48,18 @@ Once digitized via the ADC, the input signal can then be routed through the digi
 DSA Gain Control
 ~~~~~~~~~~~~~~~~
 
-Rev. A/B of the Quad-MxFE Platform uses the :adi:`HMC425A` as the receiver DSA for gain control. Rev. C of the Quad-MxFE Platform uses the :adi:`HMC540S` instead to provide a wider frequency coverage at the sacrifice of attenuation resolution. The DSA control is provided from both within ADI :ref:`IIO Oscilloscope <iio-oscilloscope>` and via MATLAB control. The same DSA attenuation value is set for all ADC front-ends. Within ADI :ref:`IIO Oscilloscope <iio-oscilloscope>`, the DSA value can be modified on the left side of the 'AD9081-3' tab as shown below. If using MATLAB to control the DSA value, then use the ``rx.ExternalAttenuation`` property.
+Rev. A/B of the Quad-MxFE Platform uses the :adi:`HMC425A` as the receiver DSA
+for gain control. Rev. C of the Quad-MxFE Platform uses the :adi:`HMC540S`
+instead to provide a wider frequency coverage at the sacrifice of attenuation
+resolution. The DSA control is provided from both within ADI
+:ref:`IIO Oscilloscope <iio-oscilloscope>` and via MATLAB control. The same DSA
+attenuation value is set for all ADC front-ends. Within ADI
+:ref:`IIO Oscilloscope <iio-oscilloscope>`, the DSA value can be modified on the
+left side of the 'AD9081-3' tab as shown below. If using MATLAB to control the
+DSA value, then use the ``rx.ExternalAttenuation`` property.
 
 .. image:: images/quadmxfe_dsasettinglocation.png
    :width: 900
-
---------------
 
 Clocking Architecture
 ---------------------
@@ -53,7 +79,14 @@ generation tree for Rev. C of the Quad-MxFE Platform is shown below.
    :align: center
    :width: 600
 
-The quality of the clock directly impacts AC performance of the on-board data converters. Ensure that the external clock path remains clean of any power supply noise and select the phase noise and spur characteristics of the clock source to meet the target application requirements. To verify PLL lock, there is a blue LED connected to a lock detection output from each :adi:`ADF4371` PLL synthesizer. A lit LED indicates that the PLL synthesizer associated with that channel has locked. The table below shows the mapping between the blue LEDs and MxFE channels.
+The quality of the clock directly impacts AC performance of the on-board data
+converters. Ensure that the external clock path remains clean of any power
+supply noise and select the phase noise and spur characteristics of the clock
+source to meet the target application requirements. To verify PLL lock, there is
+a blue LED connected to a lock detection output from each :adi:`ADF4371` PLL
+synthesizer. A lit LED indicates that the PLL synthesizer associated with that
+channel has locked. The table below shows the mapping between the blue LEDs and
+MxFE channels.
 
 Clock LEDs
 ~~~~~~~~~~
@@ -94,7 +127,13 @@ below lists the modifications required for direct clocking each channel.
 Using MxFE On-Chip PLL
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The :adi:`AD9081` and :adi:`AD9082` have on-chip PLLs to allow the user to inject a lower-frequency clock into the IC and then have this on-chip PLL generate the higher-frequency sample clock needed for the DACs/ADCs. Beginning with rev. C of the Quad-MxFE Platform, this capability is exposed with the use of differential :adi:`HMC7043` outputs serving as this low-frequency clock source. To enable this capability, the user should perform the following default BOM platform modifications:
+The :adi:`AD9081` and :adi:`AD9082` have on-chip PLLs to allow the user to
+inject a lower-frequency clock into the IC and then have this on-chip PLL
+generate the higher-frequency sample clock needed for the DACs/ADCs. Beginning
+with rev. C of the Quad-MxFE Platform, this capability is exposed with the use
+of differential :adi:`HMC7043` outputs serving as this low-frequency clock
+source. To enable this capability, the user should perform the following default
+BOM platform modifications:
 
 +-------------------------------------------------------+----------------------------------------------+
 | On-Chip MxFE PLL Clocking Modifications (Rev. C Only) |                                              |
@@ -114,14 +153,15 @@ SYSREF Distribution
 ~~~~~~~~~~~~~~~~~~~
 
 Rev. A/B of the board does not implement length-matched SYSREFs. A goal of the
-platform's multi-chip synchronization (MCS) effort was to prove successful
-MCS functionality with non length-matched SYSREFs. MCS has been
-demonstrated on rev. A/B boards.
+platform's multi-chip synchronization (MCS) effort was to prove successful MCS
+functionality with non length-matched SYSREFs. MCS has been demonstrated on rev.
+A/B boards.
 
 However, rev. C implements length-matched SYSREFs in an attempt to simplify
 software support going forward.
 
-A greater detail of the SYSREF distribution is shown in the `FPGA Clocks`_ section.
+A greater detail of the SYSREF distribution is shown in the `FPGA Clocks`_
+section.
 
 LVPECL to LVDS (One-Shot/N-Shot SYSREF vs. Continuous SYSREF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,7 +169,11 @@ LVPECL to LVDS (One-Shot/N-Shot SYSREF vs. Continuous SYSREF)
 The Quad-MxFE Platform operates by default in continuous SYSREF mode for rev.
 A/B of the system.
 
-If desired, the :adi:`HMC7043` can be operated in one-shot or N-shot SYSREF mode if using the :adi:`HMC7043` in LVPECL output. However, the :adi:`AD9081` devices require a LVDS input for its SYSREF. As such, an on-board LVPECL to LVDS transition is provided beginning with rev. C of the platform. This transition from LVPECL to LVDS is shown below.
+If desired, the :adi:`HMC7043` can be operated in one-shot or N-shot SYSREF mode
+if using the :adi:`HMC7043` in LVPECL output. However, the :adi:`AD9081` devices
+require a LVDS input for its SYSREF. As such, an on-board LVPECL to LVDS
+transition is provided beginning with rev. C of the platform. This transition
+from LVPECL to LVDS is shown below.
 
 .. image:: images/quadmxfe_lvpecltolvds.png
    :alt: quadmxfe_lvpecltolvds.png
@@ -143,14 +187,18 @@ FPGA Clocks
 
    The following pertains to the Rev B of the board
 
-For the Quad MxFE Rev B boards, there are a number of reference clocks that are routed back to the FPGA. In the Rev B design, there are a total of 5 clocks from the :adi:`HMC7043` that are routed back to FPGA via the FMC+ adapter. The simple overview can be seen here:
+For the Quad MxFE Rev B boards, there are a number of reference clocks that are
+routed back to the FPGA. In the Rev B design, there are a total of 5 clocks from
+the :adi:`HMC7043` that are routed back to FPGA via the FMC+ adapter. The simple
+overview can be seen here:
 
 .. image:: images/rev_b_hmc7043_overview.png
    :alt: rev_b_hmc7043_overview.png
    :align: center
    :width: 400
 
-Each of the reference clocks out of the :adi:`HMC7043` shares the same architecture:
+Each of the reference clocks out of the :adi:`HMC7043` shares the same
+architecture:
 
 .. image:: images/rev_b_ref_clk_circuits.png
    :align: center
@@ -187,13 +235,18 @@ Quad # Quad Bank MGTREFCLK0       MGTREFCLK1
 
    The following pertains to the Rev C of the board
 
-On the Rev C boards, the total number of reference clocks was cut down to 3. These are the FPGA REFCLK, FPGA JTX JESD and FPGA JRX JESD clocks from CLKOUT0/2/4 respectively. The :adi:`HMC7043` also routes a number of SYSREF signals and other lower frequency clocks back to the FPGA as seen here:
+On the Rev C boards, the total number of reference clocks was cut down to 3.
+These are the FPGA REFCLK, FPGA JTX JESD and FPGA JRX JESD clocks from
+CLKOUT0/2/4 respectively. The :adi:`HMC7043` also routes a number of SYSREF
+signals and other lower frequency clocks back to the FPGA as seen here:
 
 .. image:: images/rev_c_hmc7043_overview.png
    :align: center
    :width: 400
 
-Unlike in Rev B of the board, the three reference clocks to the FPGA have different circuits outside the :adi:`HMC7043`. The difference is the U.FL connectors which are not present on the FPGA JTX and JRX reference clocks:
+Unlike in Rev B of the board, the three reference clocks to the FPGA have
+different circuits outside the :adi:`HMC7043`. The difference is the U.FL
+connectors which are not present on the FPGA JTX and JRX reference clocks:
 
 .. image:: images/rev_c_ref_clk_circuits.png
    :align: center
@@ -224,12 +277,12 @@ Quad # Quad Bank MGTREFCLK0  MGTREFCLK1
 126    X0Y7      N/C          HMC7043 CLKOUT0
 ====== ========= =========== ================
 
---------------
-
 Digital Interface
 -----------------
 
-The Quad-MxFE Platform supports both JESD204b and JESD204c links. However, only four of the eight :adi:`AD9081` SERDES lanes are routed on the board to the FMC+ connector, for a total of 16 SERDES lanes used in the system.
+The Quad-MxFE Platform supports both JESD204b and JESD204c links. However, only
+four of the eight :adi:`AD9081` SERDES lanes are routed on the board to the FMC+
+connector, for a total of 16 SERDES lanes used in the system.
 
 JESD204 Link Establishment References
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -238,13 +291,17 @@ JESD204 Link Establishment References
 -  :external+hdl:ref:`JESD204 Interface Framework <jesd204>`
 -  :external+hdl:ref:`JESD204B/C Link Receive Peripheral <axi_jesd204_rx>`
 -  :external+hdl:ref:`JESD204B/C Link Transmit Peripheral <axi_jesd204_tx>`
--  :external+hdl:ref:`ADC JESD204B/C Transport Peripheral <ad_ip_jesd204_tpl_adc>`
--  :external+hdl:ref:`DAC JESD204B/C Transport Peripheral <ad_ip_jesd204_tpl_dac>`
+-  :external+hdl:ref:`ADC JESD204B/C Transport Peripheral
+   <ad_ip_jesd204_tpl_adc>`
+-  :external+hdl:ref:`DAC JESD204B/C Transport Peripheral
+   <ad_ip_jesd204_tpl_dac>`
 
 FMC+ Pinout
 ~~~~~~~~~~~
 
-The following zip archive contains two excel spreadsheets that show the pinout of the Rev B and Rev C boards: `fmc_pinout_vcu118_quadmxfe_revb_revc.zip <resources/fmc_pinout_vcu118_quadmxfe_revb_revc.zip>`_
+.. The following zip archive contains two excel spreadsheets that show the pinout
+.. of the Rev B and Rev C boards: `fmc_pinout_vcu118_quadmxfe_revb_revc.zip
+.. <resources/fmc_pinout_vcu118_quadmxfe_revb_revc.zip>`_
 
 .. important::
 
@@ -255,8 +312,6 @@ The following zip archive contains two excel spreadsheets that show the pinout o
 .. important::
 
    The following pinout applies to Rev C Boards
-
---------------
 
 .. image:: images/revc_pinout.png
    :alt: Rev C Pinout Screenshot from Excel Sheet
@@ -274,7 +329,12 @@ Control Interfaces
 SPI (MxFE, ADF4371, HMC7043)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :adi:`AD9081` SPI interface is a 4-wire SPI by default, however the part can be run in a 3-wire interface if desired. There is a separate SPI bus for each of the :adi:`AD9081`\ s to allow for parallel operation if desired, but the FPGA currently supports sequential operation. The :adi:`HMC7043` and :adi:`ADF4371` are both wired for 3-wire SPI only. The :adi:`ADF4371`\ s share a common SPI bus with 4 CS lines. The :adi:`HMC7043` has a separate dedicated SPI bus as well.
+The :adi:`AD9081` SPI interface is a 4-wire SPI by default, however the part can
+be run in a 3-wire interface if desired. There is a separate SPI bus for each of
+the :adi:`AD9081`\ s to allow for parallel operation if desired, but the FPGA
+currently supports sequential operation. The :adi:`HMC7043` and :adi:`ADF4371`
+are both wired for 3-wire SPI only. The :adi:`ADF4371`\ s share a common SPI bus
+with 4 CS lines. The :adi:`HMC7043` has a separate dedicated SPI bus as well.
 
 I2C (EEPROM, Voltage/Current Monitoring)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -287,9 +347,8 @@ also queried by the VCU118 upon startup to determine the required VADJ level for
 the FMC+ VADJ. In the case the EEPROM is not programmed, the VADJ is
 automatically set to 1.8V.
 
-On Rev C boards, the :adi:`ADM1177` is used as a power monitor to measure the total current draw and voltage of the board.
-
---------------
+On Rev C boards, the :adi:`ADM1177` is used as a power monitor to measure the
+total current draw and voltage of the board.
 
 Power Supplies
 --------------
@@ -301,7 +360,7 @@ The pinout is shown in the table below. Note that a 5A reverse polarity
 protection Schottky diode is connected between ground and +12V.
 
 .. image:: images/labeled_conn.png
-   :align: right
+   :align: center
    :width: 300
 
 Power Connector Pinout
@@ -334,11 +393,21 @@ further separated based on their corresponding MxFE channel.
 Power Distribution
 ~~~~~~~~~~~~~~~~~~
 
-A single 12V input is applied to the P1 connector, with a current rating greater than 8.8A. All voltages needed for the board are then derived from this source. Two :adi:`LTM4633`\ s, with downstream LDOs, help to provide the 1V rails for each MxFE. An :adi:`LTM8053` helps to derive the 2V rails needed for each MxFE. The remaining 5V and 3.3V rails are ultimately derived from either an :adi:`LTM8053` or an :adi:`LTM8063`, again with the aid of downstream LDOs.
+A single 12V input is applied to the P1 connector, with a current rating greater
+than 8.8A. All voltages needed for the board are then derived from this source.
+Two :adi:`LTM4633`\ s, with downstream LDOs, help to provide the 1V rails for
+each MxFE. An :adi:`LTM8053` helps to derive the 2V rails needed for each MxFE.
+The remaining 5V and 3.3V rails are ultimately derived from either an
+:adi:`LTM8053` or an :adi:`LTM8063`, again with the aid of downstream LDOs.
 
-A ``1.8V_VADJ`` signal is also received by the Quad-MxFE Platform from the FPGA evaluation board and is used to power level translators and the ``DVDD1P8`` net on each MxFE to enable SPI communication.
+A ``1.8V_VADJ`` signal is also received by the Quad-MxFE Platform from the FPGA
+evaluation board and is used to power level translators and the ``DVDD1P8`` net
+on each MxFE to enable SPI communication.
 
-Additionally, a 3.3V Power Good ``PG_C2M`` signal is also received from the FPGA evaluation board (ie. the 'carrier') and is used to light the DS1 green LED and power the Quad-MxFE Platform (ie. the 'mezzanine') EEPROM to indicate proper operation and connectivity when connected to the FPGA board.
+Additionally, a 3.3V Power Good ``PG_C2M`` signal is also received from the FPGA
+evaluation board (ie. the 'carrier') and is used to light the DS1 green LED and
+power the Quad-MxFE Platform (ie. the 'mezzanine') EEPROM to indicate proper
+operation and connectivity when connected to the FPGA board.
 
 .. image:: images/quadmxfe_powerblockdiagram.png
    :alt: quadmxfe_powerblockdiagram.png
@@ -374,16 +443,32 @@ DS11  LTM4633 ``PGOOD12`` 1V AND 1.3V Output Good (MxFE2/3)
 Current/Voltage Monitoring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Beginning with Rev. C of the Quad-MxFE Platform, current and voltage monitoring is available via an :adi:`ADM1177` I2C interface. Additionally, a 10A current limit threshold is set for the board and a voltage input threshold of greater than 10.4V is enabled.
+Beginning with Rev. C of the Quad-MxFE Platform, current and voltage monitoring
+is available via an :adi:`ADM1177` I2C interface. Additionally, a 10A current
+limit threshold is set for the board and a voltage input threshold of greater
+than 10.4V is enabled.
 
 LDO Bypass
 ~~~~~~~~~~
 
-Beginning with Rev. B of the Quad-MxFE Platform, the user is able to rotate ferrites prior to the LDOs on the board to investigate the system performance in which only the silent switcher :adi:`μModules® <en/products/power-management/umodule-regulators.html>` are powering the downstream devices. Use this power distribution with caution, as this does require that the user also reprograms the μModule® output voltages using the external resistors near that part. The user can then determine if a power distribution system in which no LDOs are present fulfill the desired PSRR requirements for their design.
+Beginning with Rev. B of the Quad-MxFE Platform, the user is able to rotate
+ferrites prior to the LDOs on the board to investigate the system performance in
+which only the silent switcher :adi:`μModules®
+<en/products/power-management/umodule-regulators.html>` are powering the
+downstream devices. Use this power distribution with caution, as this does
+require that the user also reprograms the μModule® output voltages using the
+external resistors near that part. The user can then determine if a power
+distribution system in which no LDOs are present fulfill the desired PSRR
+requirements for their design.
 
 |quadmxfe_ferriterotateschematic.png|
 
-As an example for one LDO, notice that E14 and E15 share a common pad. E14 is normally populated, whereas E15 is set as 'Do Not Install' (DNI) by default. Also note that E15 is placed between the ``1V_OUT`` and ``1P3V_IN`` nets. The user can rotate the normally populated E14 to a position instead using E15, then modify the upstream μModule® voltage to output 1V instead of 1.3V, and then monitor a new power distribution topology.
+As an example for one LDO, notice that E14 and E15 share a common pad. E14 is
+normally populated, whereas E15 is set as 'Do Not Install' (DNI) by default.
+Also note that E15 is placed between the ``1V_OUT`` and ``1P3V_IN`` nets. The
+user can rotate the normally populated E14 to a position instead using E15, then
+modify the upstream μModule® voltage to output 1V instead of 1.3V, and then
+monitor a new power distribution topology.
 
 Switch
 ~~~~~~
@@ -391,8 +476,6 @@ Switch
 Beginning with Rev. C of the Quad-MxFE Platform, a 12V power switch was
 installed to allow the platform to be plugged in to a wall or bench supply, but
 still switch power to the system.
-
---------------
 
 Thermal Considerations
 ----------------------
@@ -410,13 +493,16 @@ near each AD9081 to power a heat sink and fan assembly which is mounted directly
 to each MxFE. This helps to prevent thermal runaway and provides higher system
 stability.
 
-To install these fan/heat sink assemblies, follow these instructions **prior to the board's first-time use**. A picture is below to identify the components:
+To install these fan/heat sink assemblies, follow these instructions **prior to
+the board's first-time use**. A picture is below to identify the components:
 
 -  Remove the two screws (#5) from the shipped assembly
 -  Place the blue clip (#3) around the bottom of the MxFE
--  Peel the self stick/thermal compound adhesive/sticker (#2) off the bottom of the heat sink (#1)
+-  Peel the self stick/thermal compound adhesive/sticker (#2) off the bottom of
+   the heat sink (#1)
 -  Place the heat sink (#1) on the MxFE
--  Slide the clip (#4) over the heat sink (#1) until the heat sink (#1) latches onto the blue clips
+-  Slide the clip (#4) over the heat sink (#1) until the heat sink (#1) latches
+   onto the blue clips
 -  Attach the fan (#5) with the two screws (#5)
 -  Plug in the 2-pin power wires from the fan (#5) into the nearest 2-pin header
    on the Quad-MxFE Platform
@@ -426,8 +512,6 @@ To install these fan/heat sink assemblies, follow these instructions **prior to 
 
 .. image:: images/adquadmxfe1ebztop-web.gif
    :align: center
-
---------------
 
 Schematic
 ---------
@@ -451,7 +535,8 @@ the previous view.
 -  16x Tx Channels
 -  Rx Analog Input Frequency Range: 2.7-3.7GHz
 -  Tx Analog Output Frequency Range: Up to 4GHz
--  `Schematic for ADQUADMXFE1EBZ <resources/qmxfe_02-057438-02-d.pdf>`_
+
+.. -  `Schematic for ADQUADMXFE1EBZ <resources/qmxfe_02-057438-02-d.pdf>`_
 
 **ADQUADMXFE2EBZ**
 
@@ -460,7 +545,8 @@ the previous view.
 -  16x Tx Channels
 -  Rx Analog Input Frequency Range: Up to ~1.8GHz
 -  Tx Analog Output Frequency Range: Up to 5.8GHz
--  `Schematic for ADQUADMXFE2EBZ <resources/qmxfe_02-057438-03-d.pdf>`_
+
+.. -  `Schematic for ADQUADMXFE2EBZ <resources/qmxfe_02-057438-03-d.pdf>`_
 
 **ADQUADMXFE3EBZ**
 
@@ -469,7 +555,8 @@ the previous view.
 -  16x Tx Channels
 -  Rx Analog Input Frequency Range: ~3.1 to 5.8GHz
 -  Tx Analog Output Frequency Range: Up to 5.8GHz
--  `Schematic for ADQUADMXFE3EBZ <resources/qmxfe_02-057438-04-d.pdf>`_
+
+.. -  `Schematic for ADQUADMXFE3EBZ <resources/qmxfe_02-057438-04-d.pdf>`_
 
 **Below is the ADQUADMXFE2EBZ variant:** |image1|
 
@@ -507,9 +594,12 @@ A few highlights of the board layout include:
 Description of FPGA Builds
 --------------------------
 
-A full listing of the supported modes is located on the bottom half of this section here on software: :ref:`Build descriptions and Download Link <quadmxfe quick-start>`. The build files should be downloaded from this section and unzipped to your desktop in a folder named QuadMxFE. The Xilinx Command Line Tool or MALTAB load VCU118 code function can be used to program the FPGA and Putty can be used to view the output of the Linux image's boot.
-
-:ref:`Back To Quad-MxFE Main Page <quadmxfe user-guide>`
+A full listing of the supported modes is located on the bottom half of this
+section here on software: :ref:`Build descriptions and Download Link <quadmxfe
+quick-start>`. The build files should be downloaded from this section and
+unzipped to your desktop in a folder named QuadMxFE. The Xilinx Command Line
+Tool or MALTAB load VCU118 code function can be used to program the FPGA and
+Putty can be used to view the output of the Linux image's boot.
 
 .. |Rev B Pinout Screenshot from Excel Sheet| image:: images/rev_b_pinout.png
 .. |quadmxfe_ferriterotateschematic.png| image:: images/quadmxfe_ferriterotateschematic.png
