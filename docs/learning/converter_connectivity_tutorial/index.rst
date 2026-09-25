@@ -418,7 +418,7 @@ setting the onboard LED to the "heartbeat" function, this makes it easy to see
 if the board is running or shut down, even if you don't have a display
 connected. The other line turns GPIO21 into a hardware shutdown function, also
 very useful if you are operating the board without a displayg
-| If you want to make it easy to revert back to some other overlay, comment out
+If you want to make it easy to revert back to some other overlay, comment out
 the original line with a pound sign / hashtag:
 
 ::

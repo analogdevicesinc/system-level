@@ -1,0 +1,150 @@
+EVAL-CN0398-ARDZ Shield Overview
+================================
+
+:adi:`CN0398` is a single supply, low power, high precision complete solution for soil moisture and pH measurements, including temperature compensation. The circuit is optimized for use with capacitive soil moisture sensors that are insensitive to water salinity and do not corrode over time. The circuit also measures soil pH and that function is suitable in a variety of applications.
+
+The system is divided into three independent measurement front ends: pH, soil moisture, and temperature. After signal conditioning, the three channels share an :adi:`ad7124-8`, 24-bit sigma-delta (Σ-Δ) ADC. The :adi:`ad7124-8`, is a low power, low noise, completely integrated analog front end for high precision measurement applications. The device contains a low noise, 24-bit Σ-Δ analog-to-digital converter (ADC), and can be configured to have 8 differential inputs or 15 single-ended or pseudo-differential inputs. The on-chip gain stage ensures that signals of small amplitude can be interfaced directly to the ADC. The :adi:`ad7124-8` uses the :adi:`adr3433`,a low cost, low power, high precision CMOS voltage reference, featuring ±0.1% initial accuracy, low operating current, and low output noise. The :adi:`adr3433` provides both the 3.3 V reference and also the AVDD supply to the :adi:`ad7124-8`. The :adi:`ADP7118-2.5 <adp7118>` is a CMOS, low dropout (LDO) linear regulator which provides the power supply for the moisture sensor. The input to the :adi:`ADP7118-2.5 <adp7118>` is selectable via the jumper P10 as either 5 V or 7 V to 12 V coming from the Arduino-compatible platform board. The output of the :adi:`ADP7118-2.5 <adp7118>` is also selectable as 3.3 V or 5 V using the jumper on P8. The circuit uses the :adi:`ada4661-2`, precision op amp to buffer the high impedance pH probe output and to drive the ADC. The :adi:`ada4661-2` is a dual, precision, rail-to-rail input/output amplifier optimized for low power, high bandwidth, and wide operating supply voltage range.
+
+.. image:: ../images/updated_board_photo.png
+
+Equipment
+---------
+
+-  EVAL-CN0398-ARDZ Evaluation Board
+-  EVAL-ADICUP360 Base Board
+-  PC with a USB port and Windows 7 (32-bit) or higher
+-  Serial Terminal Software (Putty/TeraTerm or similar)
+-  7 V to 12 V/1 A dc power supply, or equivalent 7 V to 12 V/1 A bench supply
+-  3-wire moisture sensor
+-  pH sensor
+-  PT100 RTD
+
+General Setup
+-------------
+
+-  The EVAL-CN0398-ARDZ (:adi:`CN0398` Shield board) connects to EVAL-ADICUP360 base board
+-  Power the system through the EVAL-ADICUP360 using external wall wart (7V-12V)
+-  Connect the system to the PC using USB cable
+-  Connect the sensors to the dedicated connectors
+
+Test Setup Functional Block Diagram
+-----------------------------------
+
+|image1|
+
+Connectors and Jumper Configurations
+-------------------------------------
+
+Chip Select
+-----------
+
+.. image:: ../images/cn0398_board.png
+   :align: left
+
+|image2|
+
+The chip select is configurable to be routed to 3 general purpose I/O pins of
+the board, digital pins 8, 9 and 10, allowing multiple boards using SPI
+communications protocol to be stacked up. As default, shunt is placed across
+pins 1 and 2 of connector P5 of EVAL-CN0398-ARDZ shield board which associates
+to the used of GPIO pin 10 of EVAL-ADICUP360.
+
+Moisture Sensor Connector (P2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image3|
+
+.. note::
+
+   Any 3-wire moisture sensor with a supply voltage of 3.3V or 5V, with an output voltage of 0-3V can be used with the EVAL-CN0398-ARDZ. The Vegetronix `VH400 <http://www.vegetronix.com/Products/VH400/>`_ and Decagon Devices `EC-5 <https://www.decagon.com/en/soils/volumetric-water-content-sensors/ec-5-lowest-cost-vwc/>`_ moisture sensor was used during testing.
+
+Moisture Sensor Power Supply Jumper Selection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the moisture sensor requires a 5V power supply place the jumper as seen on
+the image below
+
+|image4|
+
+.. note::
+
+   VH400 moisture sensor was evaluated in this configuration
+
+If the moisture sensor requires a 3.3V power supply, place the jumper as seen on
+the image below
+
+|image5|
+
+.. note::
+
+   EC5 moisture sensor was evaluated in this configuration. The two jumper
+   selection P8 and P10 should always change together
+
+RTD Connector (P1)
+------------------
+
+|image6|
+
+Possible RTD Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image7| |image8| |image9|
+
+.. note::
+
+   3-wire PT100 RTD was used during evaluation, Excitation currents are set to
+   500uA. For the 4-wire configuration, Do not connect the RSENSE(+) wire.
+
+pH Probe Connector (J1)
+-----------------------
+
+The EVAL-CN0398-ARDZ shield board comes with a BNC connector J1 for pH sensors
+as shown on the image below
+
+|image10|
+
+The output of the pH sensor is bipolar and gives a maximum signal of ±414 mV
+at 25°C. The :adi:`ad7124-8` operates from a single power supply therefore the pH probe should be biased above ground so that it is within the acceptable common-mode range of the :adi:`ad7124-8`. One of the integrated features of the :adi:`ad7124-8` is its internal bias voltage generator that sets the common mode voltage of a channel to AVDD/2, or 1.65 V. This bias voltage from the ADC is applied to the pH probe shield and sets the output of the sensor 1.65 V ±414 mV at 25°C. For information about pH calibration, visit :adi:`CN0398` Circuit Note.
+
+.. note::
+
+   `Atlas Scientific <http://www.atlas-scientific.com/product_pages/probes/ph_probe.html>`_ pH probe was used during evaluation
+
+Schematic, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   :adi:`EVAL-CN0398-ARDZ Design & Integration Files <cn0398-designsupport>`
+   
+   -  Schematics
+   -  PCB Layout
+   -  Bill of Materials
+   -  Allegro Project
+   
+
+Software
+--------
+
+-  :doc:`ADICUP360 + CN0398 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0398>`
+-  `ADICUP3029 + CN0398 Wi-Fi Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0398>`_
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0398-ARDZ?&v=RevC>`_ to receive all these great benefits and more!
+
+.. |image1| image:: ../images/blockdiagram.png
+.. |image2| image:: ../images/cs_jumper.png
+.. |image3| image:: ../images/moisture2.png
+.. |image4| image:: ../images/7vin.png
+.. |image5| image:: ../images/5vin.png
+.. |image6| image:: ../images/rtd_connector.png
+.. |image7| image:: ../images/2-wire.png
+.. |image8| image:: ../images/3-wire.png
+.. |image9| image:: ../images/4-wire.png
+.. |image10| image:: ../images/phprobe.png

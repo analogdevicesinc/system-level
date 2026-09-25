@@ -1,0 +1,161 @@
+EVAL-CN0396-ARDZ Shield - Hardware User Guide
+=============================================
+
+:adi:`CN0396` is single-supply, low noise, portable gas detector, using a 4-electrode electrochemical sensor, for simultaneous detection of two distinct gases. The Alphasense COH-A2 sensor, which detects carbon monoxide(CO) and hydrogen sulfide(H2S), is used in this example. Electrochemical sensors offer several advantages for instruments that detect or measure the concentration of many toxic gases. Most sensors are gas specific and have usable resolutions under one part per million (ppm) of gas concentration.
+
+The circuit shown in below uses the :adi:`ADA4528-2`, dual auto zero amplifier, which has a maximum offset voltage of 2.5 µV at room temperature and an industry leading 5.6 µV/√Hz of voltage noise density. In addition, the :adi:`AD5270-20 <AD5270>` programmable rheostat is used rather than a fixed transimpedance resistor, allowing for rapid prototyping of different gas sensor systems, without changing the bill of materials. The :adi:`ADR3412` precision, low noise, micropower reference establishes the 1.2 V common-mode, pseudo ground reference voltage with 0.1% accuracy and 8 ppm/°C drift. For applications where measuring fractions of ppm gas concentration is important, using the :adi:`ADA4528-2` and the :adi:`ADR3412` makes the circuit performance suitable for interfacing with a 16-bit ADC, such as the :adi:`AD7790`.
+
+An ADT7310 16-Bit Digital SPI Temperature Sensor is also included in the circuit
+to allow for monitoring of environmental temp. This allows for correction of the
+temperature effects on the sensor.
+
+The EVAL-CN0396-ARDZ Shield is designed to be compatible with the Arduino R3
+shield form factor. It is compatible with either 5V or 3.3V processor boards.
+
+.. image:: ../images/cn0396_board_wiki.png
+   :align: center
+   :width: 600
+
+--------------
+
+Equipment Needed
+----------------
+
+**Hardware**
+
+-  EVAL-CN0396-ARDZ Circuit Evaluation Board
+-  EVAL-ADICUP360 Development Board / Arduino R3 compatible processor Board
+-  Power supply: 6 V or 6 V wall wart (not needed if plugged into the PC via USB)
+-  4-Electrode Electrochemical Gas Sensor (CO-H2S sensor is provided with the evaluation board)
+-  Environmental chamber
+-  Calibration Gases
+-  Precision Current Sources (alternative to actual sensor and gases)
+
+**Software - using ADICUP360**
+
+-  PC with a USB port and Windows 7 (32-bit) or higher
+-  ADICUP360 Eclipse IDE
+-  CN0396 Demo Software
+-  Serial Terminal Software (Putty/TeraTerm or similar)
+
+--------------
+
+Hardware Setup
+--------------
+
+-  Connect the EVAL-CN0396-ARDZ board to the microprocessor boards using mating headers POWER, ANALOG, DIGI0, DIGI1 and ICSP
+-  Connect your 4-Electrode Electrochemical Gas Sensor to socket M1
+-  The EVAL-CN0396-ARDZ board is powered by the POWER header when using an
+   Arduino form factor compatible processor board. Ensure that 5V(ANALOG - Pin
+   5), IOREF(ANALOG - Pin 2) and GND(ANALOG - Pin 6/7) pins are connected.
+
+--------------
+
+Connectors, Sensors, and Configurations
+-----------------------------------------
+
+.. image:: ../images/cn0396_board_label_wiki.png
+   :align: center
+   :width: 600
+
+--------------
+
+Gas Sensors
+-----------
+
+The evaluation board comes packaged with an Alphasense COH-A2 sensor. Sockets
+are already provided for easy installation of the sensor.
+
+Pin Compatible Sensors:
+
+-  `Alphasense COH-A2 <https://www.alphasense.com/WEB1213/wp-content/uploads/2019/09/CO-H2S.pdf>`_
+-  `Alphasense SOH-A2 <https://www.alphasense.com/WEB1213/wp-content/uploads/2017/03/SO2-H2S.pdf>`_
+-  DD-Scientific GS+4DT
+
+**Sensor Socket Connection**
+
+.. image:: ../images/sensorsocket.png
+   :width: 200
+
+======== =======================================================
+Pin Name Description
+======== =======================================================
+WE1      Working Electrode (CO gas electrode for COH-A2 sensor)
+CE       Counter Electrode
+WE2      Working Electrode (H2S gas electrode for COH-A2 sensor)
+RE       Reference Electrode
+======== =======================================================
+
+.. tip::
+
+   Note: Not all sensors provided in this list have been tested with the
+   EVAL-CN0396-ARDZ. Using different sensors may require modifications to the
+   Software and/or the Hardware.
+
+--------------
+
+Chip Select
+-----------
+
+There are three(3) headers on the board allow for selection of the digital pin
+to be used as the Chip Select (CS) signal for the AD7798, AD5270 and ADT7310 SPI
+digital communications.
+
+-  **AD7798_CS** - selects either Arduino Pin D9 or D10 as CS for AD7798 ADC.
+
+====================== ===========
+AD7798_CS Connections  Arduino Pin
+====================== ===========
+Jumper Pin 1 and Pin 2 D10
+Jumper Pin 2 and Pin 3 D9
+====================== ===========
+
+-  **AD5270_CS** - selects either Arduino Pin D5 or D6 as CS for AD5270 Digital Rheostat
+
+====================== ===========
+AD5270_CS Connections  Arduino Pin
+====================== ===========
+Jumper Pin 1 and Pin 2 D6
+Jumper Pin 2 and Pin 3 D5
+====================== ===========
+
+-  **ADT7310_CS** - selects either Arduino Pin D3 or D4 as CS for ADT7310 Digital Temp Sensor
+
+====================== ===========
+ADT7310_CS Connections Arduino Pin
+====================== ===========
+Jumper Pin 1 and Pin 2 D4
+Jumper Pin 2 and Pin 3 D3
+====================== ===========
+
+--------------
+
+Schematic, PCB Layout, Bill of Materials
+-----------------------------------------
+
+.. admonition:: Download
+   :class: download
+
+   
+   :adi:`EVAL-CN0396-ARDZ Design & Integration Files <cn0396-designsupport>`
+   
+   -  Schematics
+   -  PCB Layout
+   -  Bill of Materials
+   -  Allegro Project
+   
+
+--------------
+
+Software
+--------
+
+-  :doc:`ADICUP360 + CN0396 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0396>`
+-  `Arduino Uno + CN0396 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0396>`_
+
+Registration
+------------
+
+.. tip::
+
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0396-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
