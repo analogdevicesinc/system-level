@@ -22,7 +22,7 @@ If you want to go play with ``/sys/bus/iio/devices/....`` and manipulate the
 devices behind the back of the GUI, it's still possible to see the settings
 by clicking the ``Reload Settings`` button at the bottom of the GUI.
 
-.. figure:: ../images/ad9081_osc_plugin.jpg
+.. figure:: images/ad9081_osc_plugin.jpg
    :align: center
    :width: 600
 
@@ -37,7 +37,7 @@ The AD9081 view is divided in three sections:
 Receive Chain
 -------------------------------------------------------------------------------
 
-.. figure:: ../images/ad9081_osc_plugin_rx.jpg
+.. figure:: images/ad9081_osc_plugin_rx.jpg
    :align: center
    :width: 300
 
@@ -55,7 +55,7 @@ Read more at :external+linux:doc:`drivers/iio-trx-rf/ad9081`.
 Transmit Chain
 -------------------------------------------------------------------------------
 
-.. figure:: ../images/ad9081_osc_plugin_tx.jpg
+.. figure:: images/ad9081_osc_plugin_tx.jpg
    :align: center
    :width: 350
 
@@ -91,7 +91,7 @@ the **DDS Mode**:
 One CW Tone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../images/ad9081_one_cw_tone.jpg
+.. figure:: images/ad9081_one_cw_tone.jpg
    :align: center
    :width: 700
 
@@ -107,7 +107,7 @@ outputted on the Channel Q of the DAC.
 Two CW Tone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../images/ad9081_two_cw_tones.jpg
+.. figure:: images/ad9081_two_cw_tones.jpg
    :align: right
 
    Two CW Tone mode
@@ -121,7 +121,7 @@ difference in phase of 90 degrees will be outputted on the Channel Q of the DAC.
 Independent I/Q Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../images/ad9081_iq_independent.jpg
+.. figure:: images/ad9081_iq_independent.jpg
    :align: right
 
    Independent I/Q Control mode
@@ -140,7 +140,7 @@ outputted on channel Q of the DAC to be configured independently.
 DAC Buffer Output
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../images/ad9081_dac_output_buffer_panel.jpg
+.. figure:: images/ad9081_dac_output_buffer_panel.jpg
    :align: center
    :width: 500
 
@@ -197,7 +197,7 @@ Screenshots
 Time domain view
 ```````````````````````````````````````````````````````````````````````````````
 
-.. figure:: ../images/ad9081_osc_time.png
+.. figure:: images/ad9081_osc_time.png
    :align: center
    :width: 500
 
@@ -206,13 +206,13 @@ Time domain view
 Frequency domain view
 ```````````````````````````````````````````````````````````````````````````````
 
-.. figure:: ../images/ad9081_osc_fft.png
+.. figure:: images/ad9081_osc_fft.png
    :align: center
    :width: 500
 
    AD9081 frequency domain view
 
-.. figure:: ../images/ad9081_osc_tone_fft.png
+.. figure:: images/ad9081_osc_tone_fft.png
    :align: center
    :width: 500
 

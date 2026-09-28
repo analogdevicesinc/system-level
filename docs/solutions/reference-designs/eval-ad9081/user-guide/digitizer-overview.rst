@@ -36,7 +36,7 @@ A 6 GSPS ADC rate allows for maximum instantaneous bandwidth (IBW) and complete
 avoidance of HD2 aliasing in-band for a 1GHz signal bandwidth centered at 4.5 GHz
 (2nd Nyquist). The figure below illustrates this.
 
-.. figure:: ../../images/ad9082_freq_folding_graphic.png
+.. figure:: ../images/ad9082_freq_folding_graphic.png
    :align: center
    :width: 600
 

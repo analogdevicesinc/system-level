@@ -9,7 +9,7 @@ User guide
 
 :adi:`EVAL-AD9081` top view:
 
-.. figure:: ../../images/eval_ad9081_top_view.png
+.. figure:: ../images/eval_ad9081_top_view.png
    :align: center
    :width: 500
 
@@ -17,7 +17,7 @@ User guide
 
 :adi:`EVAL-AD9082` top view:
 
-.. figure:: ../../images/eval_ad9082_top_view.png
+.. figure:: ../images/eval_ad9082_top_view.png
    :align: center
    :width: 500
 
@@ -35,7 +35,7 @@ Hardware configuration
 .. warning::
 
    When using
-   :intel:`A10SoC <content/www/us/en/products/details/fpga/development-kits/arria/10-sx.html>`
+   :intel:`A10SoC <content/www/us/en/products/details/fpga/arria/10.html>`
    in your setup, the following reworks are required **on the evaluation
    board**:
 
@@ -48,20 +48,20 @@ Hardware configuration
      and populate R2M**
 
    For the carrier,
-   :intel:`A10SoC <content/www/us/en/products/details/fpga/development-kits/arria/10-sx.html>`,
+   :intel:`A10SoC <content/www/us/en/products/details/fpga/arria/10.html>`,
    the following reworks are mandatory:
    :ref:`FMC Pin Connection Configuration <ad9081 quickstart a10soc_changes>`
 
 .. warning::
 
    For
-   :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
+   `Agilex 7 SoC (FM87) <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
    setups, the following reworks are required on the evaluation board:
 
    - C39B, C40B: 50 ohm
 
    For the carrier
-   :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`,
+   `Agilex 7 SoC (FM87) <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__,
    the following reworks are required:
 
    - R1433, R1434: 50 ohm

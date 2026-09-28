@@ -86,7 +86,7 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../images/ad9081_vck190_setup.jpg
+.. figure:: ../images/ad9081_vck190_setup.jpg
    :width: 800
 
    EVAL-AD9081 on the VCK190 setup
@@ -125,17 +125,17 @@ Follow the steps in this order, to avoid damaging the components:
 #. On the System Controller console, a BEAM Tool Web Address should be assigned.
    Go to this web address to set VADJ_FMC to 1.5V;
 
-   .. figure:: beam-home.jpg
+   .. figure:: ../images/beam-home.jpg
       :width: 1000
 
       BEAM Tool home page
 
-   .. figure:: beam-board-settings.jpg
+   .. figure:: ../images/beam-board-settings.jpg
       :width: 1000
 
       BEAM Tool board settings
 
-   .. figure:: beam-set-vadj.jpg
+   .. figure:: ../images/beam-set-vadj.jpg
       :width: 1000
 
       Setting VADJ_FMC to 1.5V in the BEAM Tool
@@ -870,7 +870,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the `JESD204 status utility <https://developer.analog.com/docs/system-level/software/jesd/jesd_status/>`_,
 run:
 
 .. shell::

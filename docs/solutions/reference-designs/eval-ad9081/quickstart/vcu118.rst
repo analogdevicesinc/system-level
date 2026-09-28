@@ -83,7 +83,7 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../images/ad9081_vcu118_setup.png
+.. figure:: ../images/ad9081_vcu118_setup.png
    :width: 800
 
    EVAL-AD9081 on the VCU118 setup
@@ -151,7 +151,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the `JESD204 status utility <https://developer.analog.com/docs/system-level/software/jesd/jesd_status/>`_,
 run:
 
 .. shell::
@@ -264,7 +264,7 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../images/ad9081_vcu118_setup.png
+.. figure:: ../images/ad9081_vcu118_setup.png
    :width: 800
 
    EVAL-AD9081 on the VCU118 setup

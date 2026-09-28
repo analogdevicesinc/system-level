@@ -64,12 +64,9 @@ can build them manually:
 - Instructions on how to choose the boot files from the SD card can be found in
   the **Platform-Specific Manual Steps** section from here:
   :external+kuiper:ref:`hardware-configuration`.
-- Instructions on how to manually build the boot files from source can be found
-  here:
-
-   - :dokuwiki:`Building the Intel SoC-FPGA kernel and devicetrees from source <resources/tools-software/linux-build/generic/socfpga>`
-   - :external+hdl:ref:`ad9081_fmca_ebz` build documentation. More HDL build
-     details at :external+hdl:ref:`build_hdl`.
+- Instructions on how to manually build the HDL from source can be found in the
+  :external+hdl:ref:`ad9081_fmca_ebz` build documentation. More HDL build
+  details at :external+hdl:ref:`build_hdl`.
 
 .. important::
 
@@ -145,7 +142,7 @@ Testing
 Creating the setup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../images/ad9081_a10soc_setup.jpg
+.. figure:: ../images/ad9081_a10soc_setup.jpg
    :width: 800
 
    EVAL-AD9081 on the Arria 10 SoC setup
@@ -670,7 +667,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the `JESD204 status utility <https://developer.analog.com/docs/system-level/software/jesd/jesd_status/>`_,
 run:
 
 .. shell::
