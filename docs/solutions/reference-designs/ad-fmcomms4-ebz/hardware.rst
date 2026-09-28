@@ -38,7 +38,7 @@ damage the part.
 Picture and Main components
 ---------------------------
 
-.. image:: images/fmcomms2_locations.png
+.. image:: ../fmcomms2/images/fmcomms2_locations.png
    :width: 600
 
 Layers
@@ -94,5 +94,5 @@ Design Cross Section
 |               | SURFACE    | AIR      |                 | 0                     | 1                   | 0            |        |             |
 +---------------+------------+----------+-----------------+-----------------------+---------------------+--------------+--------+-------------+
 
-.. image:: images/fmcomms2c_layers.png
+.. image:: ../fmcomms2/images/fmcomms2c_layers.png
    :width: 600

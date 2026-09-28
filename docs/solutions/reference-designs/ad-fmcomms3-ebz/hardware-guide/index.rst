@@ -15,7 +15,7 @@ part.
 Picture and Main components
 ---------------------------
 
-.. figure:: fmcomms2_locations.png
+.. figure:: ../../fmcomms2/images/fmcomms2_locations.png
    :align: center
    :height: 500px
    :width: 500px
@@ -39,12 +39,12 @@ violates, and is **not** designed to be a form/fit/function board.
 - The FMC height specification on the top side of the board is violated
   to put some 90 degree SMA connectors.
 
- .. figure:: fmcomms2c_bottom_layout.png
+ .. figure:: ../../fmcomms2/images/fmcomms2c_bottom_layout.png
     :align: center
     :height: 500px
     :width: 500px
 
- .. figure:: fmcomms2c_top_layout.png
+ .. figure:: ../../fmcomms2/images/fmcomms2c_top_layout.png
     :align: center
     :height: 500px
     :width: 500px
@@ -57,7 +57,7 @@ beyond the edge of the board) is 73.3mm x 69mm. This is under the FMC
 specifications of 84mm x 69mm). The mounting holes are not compliant
 with the FMC standard, and are shown below.
 
- .. figure:: fmcomms2c_dimensions.png
+ .. figure:: ../../fmcomms2/images/fmcomms2c_dimensions.png
     :align: center
     :height: 500px
     :width: 500px
@@ -116,5 +116,5 @@ Design Cross Section
 |          | SURFACE    | AIR      |           | 0            | 1          | 0       |        |       |
 +----------+------------+----------+-----------+--------------+------------+---------+--------+-------+
 
- .. figure:: fmcomms2c_layers.png
+ .. figure:: ../../fmcomms2/images/fmcomms2c_layers.png
     :align: center
