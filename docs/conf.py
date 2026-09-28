@@ -1,8 +1,6 @@
 # -- Import setup -------------------------------------------------------------
 
 from os import path
-import sys
-sys.path.insert(0, path.abspath(path.dirname(__file__)))
 
 # -- Project information -----------------------------------------------------
 
@@ -18,7 +16,6 @@ extensions = [
     "adi_doctools",
     "sphinxcontrib.mermaid",
     "myst_parser",
-    "ext.legalese",
 ]
 
 needs_extensions = {
@@ -36,6 +33,10 @@ html_static_path = ['_static']
 
 html_css_files = [
     'custom.css',
+]
+
+html_js_files = [
+    'legalese.js',
 ]
 
 # -- Custom extensions configuration ------------------------------------------
