@@ -33,18 +33,18 @@ Network Connection
 
 The Network Connection page is displayed when SPE Hub is launched. This page
 serves as the entry point to the application and is used to select the network
-adapter required for device discovery and communication. SPE Hub starts a local
+adapter required for node discovery and communication. SPE Hub starts a local
 MQTT broker and client bound to the IPv4 address of the selected network
 adapter. The broker accepts MQTT connections on the standard unsecured port
 (1883).
 
-An IPv4 address uniquely identifies a device on the network. SPE Hub requires
+An IPv4 address uniquely identifies a node on the network. SPE Hub requires
 the host PC and all embedded MQTT clients to be configured with unique IPv4
-addresses. This allows devices to be uniquely addressed on the network, enabling
+addresses. This allows nodes to be uniquely addressed on the network, enabling
 reliable routing of MQTT traffic between clients and the broker.
 
 The subnet mask defines which portion of an IPv4 address identifies the network
-and which portion identifies an individual device. With a subnet mask of
+and which portion identifies an individual node. With a subnet mask of
 ``255.255.255.0``, addresses sharing the first three octets belong to the same
 subnet. For example, ``192.168.1.10``, ``192.168.1.20``, and ``192.168.1.50``
 are all members of the ``192.168.1.0/24`` subnet and can communicate directly
@@ -91,10 +91,14 @@ method:
 Firewall Configuration
 ----------------------
 
+When SPE Hub is started for the first time, Windows Defender Firewall may
+display a security alert requesting network access permissions. Selecting
+allow access creates a program-based firewall rule for the application.
+
 To accept inbound MQTT connections from embedded clients, Windows Defender
 Firewall may need to be configured to allow TCP traffic on port 1883. Port 1883
 is the standard port for unsecured MQTT and is used by the SPE Hub local MQTT
-broker service to accept connections from devices on the network.
+broker service to accept connections from nodes on the network.
 
 A new inbound rule can be created using the Windows Defender Firewall with
 Advanced Security console. The following steps create a rule that permits
@@ -162,18 +166,18 @@ viewed over periods of 10 minutes, 1 hour, 6 hours, 12 hours, or 24 hours. The
 y-axis can be operated in either Automatic or Manual mode, with manual controls
 available for configuring the display range and scale step size. Individual node
 traces can be shown or hidden using the legend controls, allowing users to focus
-on specific devices or compare behavior across multiple nodes. The chart
+on a specific node or compare behavior across multiple nodes. The chart
 provides a real-time view of temperature activity across the network, enabling
 users to monitor sensor behavior, identify missing telemetry, detect node
-communication issues, and compare measurements between connected devices.
+communication issues, and compare measurements between connected nodes.
 
 Network Table
 -------------
 
 The Network Table provides an operational view of the deployed network, listing
-all discovered devices and their current state. Each entry includes a set of
+all discovered nodes and their current state. Each entry includes a set of
 actions that allow users to interact directly with a node. These controls
-support both device identification and network administration, enabling users to
+support both node identification and network administration, enabling users to
 activate an onboard LED for physical identification or to kick a client from the
 MQTT network.
 
@@ -234,7 +238,7 @@ queue. Transactions that encounter validation errors are dropped.
 
 .. note::
 
-   For ADIN1140 and similar devices, the address field is formed by
+   ADIN1140 and similar devices, the address field is formed by
    concatenating the MMS and register address. For example, ``0x010037``
    corresponds to MMS ``0x01`` and Address ``0x0037``.
 
@@ -247,8 +251,7 @@ MQTT Control
 
 The MQTT Control component provides a centralized interface for MQTT messaging
 within SPE Hub. It supports manual message publication, periodic message
-transmission, and monitoring of publish activity through a configurable message
-catalog.
+transmission, and monitoring of publish activity.
 
 The publish component provides generic MQTT message transmission capabilities
 within SPE Hub. It allows users to send predefined MQTT messages directly from
@@ -269,10 +272,10 @@ in the Publish Activity panel, providing a history of message publication.
 Node Navigation
 ===============
 
-The left sidebar serves as a navigator for all discovered nodes. Devices are
+The left sidebar serves as a navigator for all discovered nodes. Nodes are
 grouped by evaluation board type, support search-based filtering, and provide
 status indicators for quick identification of active and inactive nodes.
-Selecting a node opens its dedicated device page, which is rendered using a
+Selecting a node opens its dedicated page, which is rendered using a
 board-specific template.
 
 Node Template

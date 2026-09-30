@@ -10,7 +10,7 @@ network nodes and the SPE Hub. The sample topologies are not exhaustive but
 represent common evaluation setups. The evaluation kits currently supported:
 
 - :adi:`EVAL-ADIN1140D1Z`
-- :adi:`EVAL-ADIN1100EBZ`
+- :adi:`EVAL-ADIN1140EBZ`
 
 *******************
  Sample Topology 1
