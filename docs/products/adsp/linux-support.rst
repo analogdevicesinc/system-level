@@ -97,23 +97,13 @@ for the the Commits link with the newest version and at least one Release.
 ADI repositories
 ^^^^^^^^^^^^^^^^
 
-For Yocto support see ``lxndsp-adi-meta`` below.
+For Yocto support see :ref:`adsp linux-support yocto` below.
 
 - :git-adsp-ldr:`+`
     - :git-adsp-ldr:`v1.0.0 <releases/tag/v1.0.0+>`
       :git-adsp-ldr:`v1.0.1 <releases/tag/v1.0.1+>`
       :git-adsp-ldr:`v1.0.2 <releases/tag/v1.0.2+>`
       :git-adsp-ldr:`v1.0.3 <releases/tag/v1.0.3+>`
-- :git-lnxdsp-adi-meta:`+`
-    - Kirkstone:
-      :git-lnxdsp-adi-meta:`Release v3.0.0 <releases/tag/3.0.0-rel+>`
-      :git-lnxdsp-adi-meta:`Release v3.1.0 <releases/tag/3.1.0-rel+>`
-      :git-lnxdsp-adi-meta:`Release v3.1.1 <releases/tag/3.1.1-rel+>`
-      :git-lnxdsp-adi-meta:`Release v3.1.2 <releases/tag/3.1.2-rel+>`
-    - Scarthgap:
-      :git-lnxdsp-adi-meta:`Release v5.0.0 <releases/tag/5.0.0-rel+>`
-      :git-lnxdsp-adi-meta:`Release v5.0.1 <releases/tag/5.0.1-rel+>`
-      :git-lnxdsp-adi-meta:`Release v5.1.0 <releases/tag/5.1.0-rel+>`
 - :git-lnxdsp-repo-manifest:`+`
 - :git-br2-external:`+`
     - v2025.05:
@@ -127,3 +117,68 @@ For Yocto support see ``lxndsp-adi-meta`` below.
     - :git-rpmsg-examples:`v1.0.0 <releases/tag/v1.0.0+>`
 - :git-rpmsg-utils:`+`
     - :git-rpmsg-utils:`v1.0.0 <releases/tag/v1.0.0+>`
+
+.. _adsp linux-support yocto:
+
+Yocto
+~~~~~
+
+:git-lnxdsp-adi-meta:`+`
+  - Kirkstone:
+    :git-lnxdsp-adi-meta:`Release v3.0.0 <releases/tag/3.0.0-rel+>`
+    :git-lnxdsp-adi-meta:`Release v3.1.0 <releases/tag/3.1.0-rel+>`
+    :git-lnxdsp-adi-meta:`Release v3.1.1 <releases/tag/3.1.1-rel+>`
+    :git-lnxdsp-adi-meta:`Release v3.1.2 <releases/tag/3.1.2-rel+>`
+  - Scarthgap:
+    :git-lnxdsp-adi-meta:`Release v5.0.0 <releases/tag/5.0.0-rel+>`
+    :git-lnxdsp-adi-meta:`Release v5.0.1 <releases/tag/5.0.1-rel+>`
+    :git-lnxdsp-adi-meta:`Release v5.1.0 <releases/tag/5.1.0-rel+>`
+
+For every official Yocto release, Poky defines the oldest and newest default supported
+kernel versions. Newer versions of the kernel may be supported with recipe 
+modifications or a separate recipe. The meta-adi layer defines it own linux
+kernel recipe with its own version.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Release
+     - ADSP Yocto Release
+     - Oldest kernel
+     - Newest kernel (Poky)
+     - Newest kernel (ADSP)
+   * - v3.0.0
+     - Kirkstone (4.0)
+     - 3.2.0, 3.14 (aarch64)
+     - 5.15
+     - 5.15
+   * - v3.1.0
+     - Kirkstone (4.0)
+     - 3.2.0, 3.14 (aarch64)
+     - 5.15
+     - 5.15
+   * - v3.1.1
+     - Kirkstone (4.0)
+     - 3.2.0, 3.14 (aarch64)
+     - 5.15
+     - 5.15
+   * - v3.1.2
+     - Kirkstone (4.0)
+     - 3.2.0, 3.14 (aarch64)
+     - 5.15
+     - 5.15
+   * - v5.0.0
+     - Scarthgap (5.0)
+     - 5.15
+     - 6.6
+     - 6.12
+   * - v5.0.1
+     - Scarthgap (5.0)
+     - 5.15
+     - 6.6
+     - 6.12
+   * - v5.1.0
+     - Scarthgap (5.0)
+     - 5.15
+     - 6.6
+     - 6.18
