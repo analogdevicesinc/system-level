@@ -8,8 +8,8 @@ description: "Precision SAR ADC Evaluation and Integration Guide"
 # Dirs and files to include
 # First level is repository name
 include:
-  - documentation/solutions/reference-designs/ad4062-ardz
-  - documentation/software/libiio/cli.rst
+  - system-level/solutions/reference-designs/ad4062-ardz
+  - system-level/software/libiio/cli.rst
   - no-OS/drivers/adc/ad405x.rst
   - no-OS/projects/adc/ad405x.rst
   - linux/iio/ad4062.rst
@@ -27,7 +27,7 @@ entry-point:
       - custom-pages/intro.rst
   - caption: Evaluation Board
     files:
-      - documentation/solutions/reference-designs/ad4062-ardz/index.rst
+      - system-level/solutions/reference-designs/ad4062-ardz/index.rst
   - caption: no-OS Firmware
     files:
       - no-OS/projects/adc/ad405x.rst
@@ -40,7 +40,7 @@ entry-point:
       - hdl/projects/ad4062_ardz/index.rst
   - caption: Software Tools
     files:
-      - documentation/software/libiio/cli.rst
+      - system-level/software/libiio/cli.rst
 
 # Per repository configuration
 # extra: do steps that require extra software (e.g. vendor sdk)

@@ -24,7 +24,7 @@ In this lab, adjust the guard and training (reference) cells, based on our obser
 :width: 300px
 ```
 
-1. Download {git-documentation}`CFAR_RADAR_Waterfall_ChirpSync.py <docs/solutions/platforms/phaser/labs/resources/python/CFAR_RADAR_Waterfall_ChirpSync.py>` and {git-documentation}`target_detection_dbfs.py <docs/solutions/platforms/phaser/labs/resources/python/target_detection_dbfs.py>`
+1. Download {git-system-level}`CFAR_RADAR_Waterfall_ChirpSync.py <docs/solutions/platforms/phaser/labs/resources/python/CFAR_RADAR_Waterfall_ChirpSync.py>` and {git-system-level}`target_detection_dbfs.py <docs/solutions/platforms/phaser/labs/resources/python/target_detection_dbfs.py>`
 2. Open "CFAR_RADAR_Waterfall_ChirpSync.py” and click Run
 3. Click “Plot CFAR Threshold”, but don’t click “Apply CFAR Threshold”
 4. Adjust “CFAR Bias”, “Num Guard Cells”, and “Num Ref Cells” so that the red line is below the target peak, but above the clutter peaks 

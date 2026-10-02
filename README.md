@@ -3,7 +3,7 @@
 The System Level Documentation is the top documentation for Hardware, Projects, and some Linux documentation;
 it also has the ability to aggregate every other documentation into a single monolithic output/website.
 
-See the deployed docs output at the [System Level Documentation](https://analogdevicesinc.github.io/documentation/) index.
+See the deployed docs output at the [System Level Documentation](https://analogdevicesinc.github.io/system-level/) index.
 
 > [!WARNING]
 > This repository contains a massive amount of data!
@@ -17,11 +17,11 @@ To not download all large files at the HEAD commit, use `--skip-smudge` and let 
 
 ```
 sudo apt install git-lfs -y
-GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/analogdevicesinc/documentation \
+GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/analogdevicesinc/system-level \
     --origin public \
     --depth 10 \
-    -- documentation
-cd documentation
+    -- system-level
+cd system-level
 git lfs install --local --force --skip-smudge
 ```
 

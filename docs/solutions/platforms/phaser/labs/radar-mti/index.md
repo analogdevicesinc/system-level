@@ -31,7 +31,7 @@ Of course a down side to MTI is that when the drone is stationary, you wouldn't 
 
 1. Download a saved IQ data file of the Phaser [recording a drone's flight](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbGUxYUdpN0R1VW9GRTluUDB2VUQ2dTVjbVFfQXxBQ3Jtc0tuVVV5RU1SYmZFanlwOXhUUVBTTnN0YUltU1h0SFZXaS1yVFg3czEtVXg1LW1lWm42VF9lTDVnSjJpVWlVU1FkQjl5UzNUWW1hbUxRQWNrWFM4bnhjNVE2MkZnc19uNUlPZU5BMVdNS24xYVVzWGhWZw&q=https%3A%2F%2Fez.analog.com%2Fadieducation%2Funiversity-program%2Fm%2Ffile-uploads&v=M1eXeqN1c-I)  
 
-2. Open the file, {git-documentation}`Range_Doppler_Plot.py <docs/solutions/platforms/phaser/labs/resources/python/Range_Doppler_Plot.py>`
+2. Open the file, {git-system-level}`Range_Doppler_Plot.py <docs/solutions/platforms/phaser/labs/resources/python/Range_Doppler_Plot.py>`
 
 3. Change “mti_filter” to True and click "Run"
 

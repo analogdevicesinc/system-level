@@ -29,7 +29,7 @@ You’ll also see a list of “one-bit-adc-dac” channels.  These are GPIOs (ge
 
 ## A Simple Python Beam Steering Program for Phaser
 
-Now let’s look at a simple Python script, and see how IIO makes use of the device tree to control the hardware. You can find an example of beam steering in Python {git-documentation}`beamsteer.py <docs/solutions/platforms/phaser/labs/resources/python/beamsteer.py>`.  Open up “beamsteer.py” and you’ll notice that we map each element of Phaser’s receive array to a specific channel on the two ADAR1000s.  Here’s what that looks like: 
+Now let’s look at a simple Python script, and see how IIO makes use of the device tree to control the hardware. You can find an example of beam steering in Python {git-system-level}`beamsteer.py <docs/solutions/platforms/phaser/labs/resources/python/beamsteer.py>`.  Open up “beamsteer.py” and you’ll notice that we map each element of Phaser’s receive array to a specific channel on the two ADAR1000s.  Here’s what that looks like: 
 
 ```{image} 4.png
 :width: 700px

@@ -4,9 +4,9 @@ Forking and publishing
 ======================
 
 The steps below are a walk-through to contribute to
-:git-documentation:`this </>` repository,
+:git-system-level:`this </>` repository,
 It ensures that GitHub Actions and GitHub Pages are enabled, so you can run
-continuous integration and see the pages live at *<your_user>.github.io/documentation*,
+continuous integration and see the pages live at *<your_user>.github.io/system-level*,
 and `git-lfs <https://git-lfs.com/>`__ artifacts are properly synced.
 To learn about git LFS and use it as a pro, read :ref:`git-lfs`.
 
@@ -53,17 +53,17 @@ Clone the repository
 
 .. shell::
 
-   $ git clone https://github.com/analogdevicesinc/documentation \
+   $ git clone https://github.com/analogdevicesinc/system-level \
          --origin public \
          --depth 10 \
-         -- documentation
-   $ cd documentation
+         -- system-level
+   $ cd system-level
 
 Create and checkout a branch
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ git checkout -b <your_branch>
 
 .. _forking-publishing fork:
@@ -71,9 +71,9 @@ Create and checkout a branch
 Fork
 ~~~~
 
-Fork the *analogdevicesinc/documentation* repo on your account.
+Fork the *analogdevicesinc/system-level* repo on your account.
 
-**Enable the workflows** on the forked repo at *github.com/<your_user>/documentation/actions*
+**Enable the workflows** on the forked repo at *github.com/<your_user>/system-level/actions*
 by clicking the :green:`green button` "I understand my workflows, go ahead and enable them".
 
 .. caution::
@@ -98,10 +98,10 @@ Clone the repository:
 
 .. shell::
 
-   $ git clone https://github.com/<your_user>/documentation \
+   $ git clone https://github.com/<your_user>/system-level \
          --origin public \
-         --depth 10 -- documentation
-   $ cd documentation
+         --depth 10 -- system-level
+   $ cd system-level
 
 
 Fetch the large files from *analogdevicesinc* that you are working on and push
@@ -109,7 +109,7 @@ to your copy the large files binaries (and vice versa):
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ git lfs pull public -I file_basename
    $ git lfs push private --all
 
@@ -128,7 +128,7 @@ fail with:
      The deployment was rejected or didn't satisfy other protection rules.
 
 To allow these deployments, open your fork's
-``https://github.com/<USER>/documentation/settings/environments`` page and
+``https://github.com/<USER>/system-level/settings/environments`` page and
 select the ``github-pages`` environment. Under **Deployment branches and
 tags**, ensure the list includes:
 
@@ -159,10 +159,10 @@ Clone mainland:
 
 .. shell::
 
-   $ git clone https://github.com/analogdevicesinc/documentation \
+   $ git clone https://github.com/analogdevicesinc/system-level \
         --origin public \
-        --depth 10 -- documentation
-   $ cd documentation
+        --depth 10 -- system-level
+   $ cd system-level
 
 Setup both origins, for example, call *analogdevicesinc* ``public`` and your
 copy ``private`` at the *.git/config*, similar to:
@@ -175,10 +175,10 @@ copy ``private`` at the *.git/config*, similar to:
    	bare = false
    	logallrefupdates = true
    [remote "public"]
-   	url = https://github.com/analogdevicesinc/documentation.git
+   	url = https://github.com/analogdevicesinc/system-level.git
    	fetch = +refs/heads/*:refs/remotes/public/*
    [remote "private"]
-   	url = https://github.com/<your_user>/documentation.git
+   	url = https://github.com/<your_user>/system-level.git
    	fetch = +refs/heads/*:refs/remotes/private/*
    [branch "main"]
         # Set your private copy as upstream
@@ -190,7 +190,7 @@ Push the working branch to your copy.
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $git push private main:main
 
 Fetch the large files from *analogdevicesinc* that you are working on and push
@@ -198,7 +198,7 @@ to your copy the large files binaries (and vice-versa):
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ git lfs pull public -I file_basename
    $ git lfs push private --all
 
@@ -227,14 +227,14 @@ clone and build the doc for the first time (working directory: repo root):
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ python -m venv ./venv
 
 :green:`Activate the virtual env`:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ source ./venv/scripts/activate
 
 Ensure pip is up-to-date:
@@ -249,14 +249,14 @@ Install the requirements:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ (cd docs ; pip install -r requirements.txt --upgrade)
 
 Launch the doc editing server using :external+doctools:ref:`serve`:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ (cd docs ; adoc serve)
 
 The server will fetch on demand the git LFS resource (smudge step) from the
@@ -267,7 +267,7 @@ smudge step was skipped, the images and other binary files will be missing.
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ (cd docs ; make html)
 
 .. _forking-publishing github-codespaces:
@@ -278,7 +278,7 @@ GitHub Codespace
 Instead of working locally, you can use a cloud virtual machine with
 GitHub Codespaces.
 
-GitHub Codespaces uses the :git-documentation:`.devcontainer.json` file to
+GitHub Codespaces uses the :git-system-level:`.devcontainer.json` file to
 initialize a container in the cloud.
 This container is pre-configured with all the tools required to build the
 documentation, including the live preview daemon :external+doctools:ref:`serve`,
@@ -292,7 +292,7 @@ or Overleaf.
    | Be sure to understand GitHub's billing policies and your account free quota.
 
 To use GitHub Codespaces, navigate to the
-:git-documentation:`GitHub GUI for this repository <+>` and click
+:git-system-level:`GitHub GUI for this repository <+>` and click
 *Code > Codespaces > Create codespace on main*.
 
 This will open a new tab and set up the virtual environment.
@@ -326,7 +326,7 @@ Create a new folder and file matching the entry from last step:
 
 .. shell::
 
-   ~/documentation/docs
+   ~/system-level/docs
    $ mkdir my_topic; touch my_topic/index.rst
 
 Edit *my_topic/index.rst*, adding a title and some content.
@@ -349,10 +349,10 @@ The CI (.github/workflows/top-level.yml) builds the doc and pushes to the
 
 .. tip::
 
-   You can see the runs at github.com/<your_user>/documentation/actions.
+   You can see the runs at github.com/<your_user>/system-level/actions.
 
 Enable GitHub Pages to have the public website
-configure GitHub Pages at *github.com/<your_user>/documentation/settings/pages*:
+configure GitHub Pages at *github.com/<your_user>/system-level/settings/pages*:
 
 * Set Source as "deploy from branch"
 * Set the branch as "gh-pages"
@@ -364,14 +364,14 @@ Resuming work at a later time
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ source ./venv/scripts/activate
 
 Ensure the tools are up to data from time to time with:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ (cd docs ; pip install -r requirements.txt --upgrade)
 
 Edit, build, commit, push as usual.
@@ -411,18 +411,18 @@ the repository) with:
 
 .. shell::
 
-   $ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/analogdevicesinc/documentation \
+   $ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/analogdevicesinc/system-level \
         --origin public \
         --depth 10 \
-        -- documentation
-   $ cd documentation
+        -- system-level
+   $ cd system-level
    $ git lfs install --local --force --skip-smudge
 
 With ``--skip-smudge`` active, you can fetch the artifact with:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $git lfs pull -I path/to/my_file.png
    # Checking size
    $ls -l path/to/my_file.png
@@ -433,7 +433,7 @@ And revert to its pointer state:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $rm path/to/my_file.png ; git restore -- $_
    # Checking pointer
    $cat path/to/my_file.png
@@ -452,7 +452,7 @@ In the following subsections are common issues and on what to do in each situati
 Files that should have been pointers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Git lfs simply follows the rules on the :git-documentation:`.gitattributes` file.
+Git lfs simply follows the rules on the :git-system-level:`.gitattributes` file.
 And some times you may encounter during clone and pull:
 
 .. shell::
@@ -506,20 +506,20 @@ If you use SSH, set the lfs url to:
 
 .. shell::
 
-   $ git config lfs.url "ssh://git@github.com/analogdevicesinc/documentation.git"
+   $ git config lfs.url "ssh://git@github.com/analogdevicesinc/system-level.git"
 
 If you use HTTPS, set:
 
 .. shell::
 
-   $ git config lfs.url "https://github.com/analogdevicesinc/documentation.git/info/lfs"
+   $ git config lfs.url "https://github.com/analogdevicesinc/system-level.git/info/lfs"
 
 If using a fork, change `analogdevicesinc` to your username.
 
 Checking out branches and commits
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Git LFS simply follows the rules on the :git-documentation:`.gitattributes` file.
+Git LFS simply follows the rules on the :git-system-level:`.gitattributes` file.
 And sometimes you may encounter during checkout:
 
 .. shell::
@@ -551,7 +551,7 @@ LFS:
 
    $ git push contributor
     error: Authentication error: Authentication required: You must have push access to verify locks
-    error: failed to push some refs to 'https://github.com/<contributor>/documentation.git'
+    error: failed to push some refs to 'https://github.com/<contributor>/system-level.git'
 
 If you **didn't** touch any LFS files, you can just skip the verification:
 
@@ -560,7 +560,7 @@ If you **didn't** touch any LFS files, you can just skip the verification:
    $ git push contributor --no-verify
     Writing objects: 100% (8/8), 1.08 KiB | 1.08 MiB/s, done.
     Total 8 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
-    To https://github.com/contributor/documentation.git
+    To https://github.com/contributor/system-level.git
        21s72b2..1b31311  branch-name -> branch-name
 
 But if you did add **new** or **modified** LFS artifacts, the push will fail:
@@ -574,7 +574,7 @@ But if you did add **new** or **modified** LFS artifacts, the push will fail:
     remote: error: GH008: Your push referenced at least 1 unknown Git LFS object:
     remote:     9b439f0ad3b1e8e965955487b72e84045e85fb844392890c7d34ba45b3430c1e
     remote: Try to push them with 'git lfs push --all'.
-    To https://github.com/<contributor>/documentation.git
+    To https://github.com/<contributor>/system-level.git
 
 
 As a reviewer, this gets on the way and there is no straightforward
@@ -605,5 +605,5 @@ disable lfs, work, push, and enable again:
    $ git push contributor --no-verify --force
     Writing objects: 100% (4/4), 768 bytes | 768.00 KiB/s, done.
     Total 16 (delta 10), reused 0 (delta 0), pack-reused 0 (from 0)
-    To https://github.com/contributor/documentation.git
+    To https://github.com/contributor/system-level.git
        21s72b2..1b31311  branch-name -> branch-name

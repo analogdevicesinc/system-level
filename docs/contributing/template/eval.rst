@@ -6,7 +6,7 @@ from the hardware overview, features, kit contents, hardware, user guides,
 developer guides, and source code.
 
 A top-level template is available at
-:git-documentation:`docs/solutions/reference-designs/template/_index.rst`
+:git-system-level:`docs/solutions/reference-designs/template/_index.rst`
 (:ref:`rendered <template eval>`).
 Please pay attention to the comments only visible on the source code,
 and remove them as you follow the template.
@@ -93,8 +93,8 @@ for the evaluation board, such as using Doctools'
    description: "Evaluating the AD4050/AD4052 Compact, Low Power, 12-Bit/16-Bit, 2 MSPS Easy Drive SAR ADCs"
 
    include:
-     - documentation/eval/user-guide/adc/ad4052-ardz
-     - documentation/linux/drivers/iio-adc/ad4052
+     - system-level/eval/user-guide/adc/ad4052-ardz
+     - system-level/linux/drivers/iio-adc/ad4052
      - hdl/projects/ad4052_ardz
      - no-OS/drivers/ad405x.rst
      - no-OS/projects/ad405x.rst
@@ -102,13 +102,13 @@ for the evaluation board, such as using Doctools'
    entry-point:
      - caption:
        files:
-         - documentation/eval/user-guide/adc/ad4052-ardz/index.rst
+         - system-level/eval/user-guide/adc/ad4052-ardz/index.rst
      - caption: HDL Design
        files:
          - hdl/projects/ad4052_ardz/index.rst
      - caption: Linux IIO Driver
        files:
-         - documentation/linux/drivers/iio-adc/ad4052/index.rst
+         - system-level/linux/drivers/iio-adc/ad4052/index.rst
      - caption: no-OS Driver&Project
        files:
          - no-OS/projects/ad405x.rst

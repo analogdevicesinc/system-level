@@ -65,7 +65,7 @@ In this lab, we will transmit a frequency ramped waveform from Phaser and then r
 :width: 350px
 ```
 
-3. Open a Python IDE (Thonny, Idle, Spyder, etc) and run this {git-documentation}`FMCW_RADAR_Waterfall.py <docs/solutions/platforms/phaser/labs/resources/python/FMCW_RADAR_Waterfall.py>`.
+3. Open a Python IDE (Thonny, Idle, Spyder, etc) and run this {git-system-level}`FMCW_RADAR_Waterfall.py <docs/solutions/platforms/phaser/labs/resources/python/FMCW_RADAR_Waterfall.py>`.
    * The top right graph is the FFT of the beat frequency.  The x-axis is frequency, by default.  But can be toggled to range by clicking the “Toggle Range” checkbox
    * The bottom right graph is running plot of that FFT graph, over time.  Commonly called a “waterfall” plot or spectrogram.  The amplitude of the FFT bins is represented by white.  The higher the amplitude, the brighter the white.  
   
