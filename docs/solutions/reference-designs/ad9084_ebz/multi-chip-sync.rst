@@ -299,6 +299,156 @@ Register Summary
      - `MANUAL_TRIGGER`
      - Write 1 to pulse software trigger across CDC to `device_clk`
 
+Building the HDL Project with the AXI Trigger Core
+-------------------------------------------------------------------------------
+
+To deploy Multi-Chip Synchronization on the VCU118 carrier, the `axi_adf4030`
+trigger IP core must be packaged and integrated into the `ad9084_ebz_vcu118` HDL
+block design before synthesizing the bitstream.
+
+Prerequisites & Toolchain Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **AMD/Xilinx Vivado ML Enterprise Edition**: Vivado 2025.1 (or the version
+   matching your current ADI HDL release).
+2. **Toolchain Environment Configuration**:
+   Source the Vivado environment setup script to add `vivado` and related tools
+   to your path:
+
+   .. shell::
+      :show-user:
+
+      $source /opt/Xilinx/Vivado/2025.1/settings64.sh
+
+3. **Clone the ADI HDL Repository**:
+
+   .. shell::
+      :show-user:
+
+      $git clone https://github.com/analogdevicesinc/hdl.git
+      $cd hdl
+      $git checkout main
+
+Packaging the `axi_adf4030` IP Core
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Analog Devices manages HDL IP cores as reusable modules located under the
+`library/` directory. Each IP core contains an `<ip_name>_ip.tcl` packaging
+script that generates the IP metadata (`component.xml`) required by Vivado IP
+Integrator.
+
+To build and package the `axi_adf4030` core:
+
+.. shell::
+   :show-user:
+
+   $cd library/axi_adf4030
+   $make
+
+During this step, Vivado runs in batch mode to:
+
+1. Analyze and package the SystemVerilog sources (`axi_adf4030.sv`,
+   `bsync_generator.sv`, `trigger_channel.sv`, `trigger_bsync_stretcher.sv`,
+   `axi_adf4030_regmap.sv`).
+2. Set configuration generics:
+   - `FPGA_FAMILY = 0` (selects `IOBUFDS_DCIEN` for UltraScale+ on VCU118).
+   - `CHANNEL_COUNT = 4` (configurable from 1 to 8).
+   - `TRIGGER_STRETCH = 1` (enables latching stretcher for asynchronous inputs).
+3. Generate CDC timing constraints from the template `axi_adf4030_constr.ttcl`.
+4. Produce the packaged Vivado IP repository in `library/axi_adf4030/`.
+
+Integrating the Trigger Core into the VCU118 Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Declare Library Dependency**:
+   Verify that `axi_adf4030` is listed as a required library dependency in
+   `projects/ad9084_ebz/vcu118/Makefile`:
+
+   .. code-block:: makefile
+
+      REQUIRED_LIBRARIES += axi_adf4030
+
+2. **Block Design Instantiation (`system_bd.tcl`)**:
+   In the project's block design script, instantiate the `axi_adf4030` core,
+   connect its AXI4-Lite control interface, wire clock and reset nets, and map
+   the phase-aligned trigger channels to the JESD204 and DMA subsystems:
+
+   .. code-block:: tcl
+
+      # Instantiate the AXI ADF4030 Trigger IP core
+      ad_ip_instance axi_adf4030 axi_adf4030_0 [list \
+        FPGA_FAMILY 0 \
+        CHANNEL_COUNT 4 \
+        TRIGGER_STRETCH 1 \
+      ]
+
+      # Map AXI4-Lite control interface on MicroBlaze interconnect
+      ad_cpu_interconnect 0x44A00000 axi_adf4030_0/s_axi
+
+      # Connect AXI bus clock and high-speed device clock
+      ad_connect sys_cpu_clk axi_adf4030_0/s_axi_aclk
+      ad_connect sys_cpu_resetn axi_adf4030_0/s_axi_aresetn
+      ad_connect device_clk axi_adf4030_0/device_clk
+      ad_connect rstn axi_adf4030_0/rstn
+
+      # Connect External Differential BSYNC Ports (IOBUFDS_DCIEN)
+      create_bd_port -dir IO bsync_p
+      create_bd_port -dir IO bsync_n
+      ad_connect bsync_p axi_adf4030_0/bsync_p
+      ad_connect bsync_n axi_adf4030_0/bsync_n
+
+      # Route Aligned Trigger Channels to FPGA Subsystems
+      # Channel 0 -> JESD204 RX SYSREF / LMFC alignment
+      ad_connect axi_adf4030_0/trig_channel_0 axi_jesd204_rx/sysref
+      # Channel 1 -> JESD204 TX SYSREF / LMFC alignment
+      ad_connect axi_adf4030_0/trig_channel_1 axi_jesd204_tx/sysref
+      # Channel 2 -> AXI TDD Engine / Fast Frequency Hopping Phase Reset
+      ad_connect axi_adf4030_0/trig_channel_2 axi_tdd_0/sync_in
+      # Channel 3 -> AXI DMAC Synchronous Capture Trigger
+      ad_connect axi_adf4030_0/trig_channel_3 axi_dmac_0/sync
+
+3. **Physical Constraints (`system_constr.xdc`)**:
+   Assign the differential BSYNC pins to dedicated FMC+ or SMA differential I/O
+   pins on the VCU118 Virtex UltraScale+ High-Performance (HP) bank with LVDS
+   signaling and internal termination:
+
+   .. code-block:: tcl
+
+      # Differential BSYNC IOBUFDS_DCIEN Pin Constraints (Bank 64 HP)
+      set_property -dict {PACKAGE_PIN AU22 IOSTANDARD LVDS} [get_ports bsync_p]
+      set_property -dict {PACKAGE_PIN AU23 IOSTANDARD LVDS} [get_ports bsync_n]
+
+Building the Complete VCU118 Bitstream
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once the project is configured, run `make` from the project directory. The ADI
+HDL build system will automatically check and build any missing library IP cores
+(including `axi_adf4030`, `axi_adxcvr`, `axi_jesd204_rx`, `axi_jesd204_tx`),
+generate the block design, run synthesis, place-and-route, and generate the
+programming bitstream:
+
+.. shell::
+   :show-user:
+
+   $cd projects/ad9084_ebz/vcu118
+   $make
+     Building axi_adf4030 ... OK
+     Building axi_adxcvr ... OK
+     Building axi_jesd204_rx ... OK
+     Building axi_jesd204_tx ... OK
+     Building ad9084_ebz_vcu118 [/home/analog/hdl/projects/ad9084_ebz/vcu118/ad9084_ebz_vcu118_vivado.log] ... OK
+
+Build Artifacts:
+
+- **FPGA Bitstream**:
+  `projects/ad9084_ebz/vcu118/ad9084_ebz_vcu118.runs/impl_1/system_top.bit`
+- **Hardware Handoff File (XSA)**:
+  `projects/ad9084_ebz/vcu118/ad9084_ebz_vcu118.sdk/system_top.xsa`
+
+The resulting `.bit` file is used to program the VCU118 FPGA via JTAG/XSCT, and
+the `.xsa` file contains the hardware specification used to build the Linux
+device tree with `pyadi-dt` or XSCT.
+
 Multi-Chip Synchronization Theory of Operation
 -------------------------------------------------------------------------------
 
