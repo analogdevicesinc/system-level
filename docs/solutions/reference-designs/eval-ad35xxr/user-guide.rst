@@ -41,25 +41,25 @@ solution. Two DC/DC converters (LT8336, LTC7149) generate ±16 V from the
 regulate ±12 V for the transimpedance amplifiers, while ADM7170 and LT3045
 supply the AD3552R analog (5 V) and digital (1.8 V) rails.
 
-Schematic, PCB layout, and bill of materials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. list-table::
-   :widths: 60 40
-   :header-rows: 1
-
-   * - Description
-     - Download
-   * - EVAL-AD3552RFMC1Z Schematic
-     - :dokuwiki:`PDF <_media/resources/eval/eval-ad3552rfmc1z.pdf>`
-   * - EVAL-AD3552RFMC2Z Schematic
-     - :dokuwiki:`PDF <_media/resources/eval/eval-ad3552rfmc2z.pdf>`
-   * - EVAL-AD3552RFMCxZ Gerber Files
-     - :dokuwiki:`ZIP <_media/resources/eval/eval_ad3552rfmcxz_gerber_files.zip>`
-   * - EVAL-AD3552RFMC1Z Bill of Materials
-     - :dokuwiki:`XLSX <_media/resources/eval/eval-ad3552rfmc1z.xlsx>`
-   * - EVAL-AD3552RFMC2Z Bill of Materials
-     - :dokuwiki:`XLSX <_media/resources/eval/eval-ad3552rfmc2z.xlsx>`
+.. Schematic, PCB layout, and bill of materials
+.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+..
+.. .. list-table::
+..    :widths: 60 40
+..    :header-rows: 1
+..
+..    * - Description
+..      - Download
+..    * - EVAL-AD3552RFMC1Z Schematic
+..      - :dokuwiki:`PDF <_media/resources/eval/eval-ad3552rfmc1z.pdf>`
+..    * - EVAL-AD3552RFMC2Z Schematic
+..      - :dokuwiki:`PDF <_media/resources/eval/eval-ad3552rfmc2z.pdf>`
+..    * - EVAL-AD3552RFMCxZ Gerber Files
+..      - :dokuwiki:`ZIP <_media/resources/eval/eval_ad3552rfmcxz_gerber_files.zip>`
+..    * - EVAL-AD3552RFMC1Z Bill of Materials
+..      - :dokuwiki:`XLSX <_media/resources/eval/eval-ad3552rfmc1z.xlsx>`
+..    * - EVAL-AD3552RFMC2Z Bill of Materials
+..      - :dokuwiki:`XLSX <_media/resources/eval/eval-ad3552rfmc2z.xlsx>`
 
 Software guide
 -------------------------------------------------------------------------------
@@ -704,23 +704,271 @@ before powering on.
    * - Right (−2.5 V/7.5 V)
      - −2.5 V to 7.5 V output range
 
+**External power supply connector P3 (AD3542R)**
+
+The AD3542R board accepts different voltage ranges on P3 than the AD3552R:
+
+.. list-table:: P3 external power supply connector pin assignment
+   :widths: 10 20 70
+   :header-rows: 1
+
+   * - Pin
+     - Signal
+     - Description
+   * - 1
+     - EXT_PVDD
+     - External positive supply for TIA. 4.7 V to 10.6 V ± 5%.
+   * - 2
+     - EXT_PVSS
+     - External negative supply for TIA. 0 V down to PVDD − 10.6 V ± 5%.
+   * - 3
+     - EXT_VDD
+     - External analog supply for AD3542R. 5 V ± 5%.
+   * - 4
+     - EXT_DVDD
+     - External digital supply for AD3542R. 1.8 V ± 5%.
+   * - 5
+     - EXT_VLOGIC
+     - External digital I/O supply for AD3542R. 1.1 V to 1.9 V.
+   * - 6
+     - GND
+     - Ground.
+
+**Link options (AD3542R)**
+
+.. list-table:: Link options
+   :widths: 12 12 64 12
+   :header-rows: 1
+
+   * - Link
+     - Silkscreen
+     - Description
+     - Default
+   * - J_FB0
+     - FB0
+     - Selects TIA gain for channel 0. x1 or x2 when inserted; must match the selected output range (see output range table below).
+     - x1
+   * - J_FB1
+     - FB1
+     - Selects TIA gain for channel 1. x1 or x2 when inserted; must match the selected output range (see output range table below).
+     - x1
+   * - J_OUT0
+     - J_OUT0
+     - Bridges DAC channel 0 output to the VOUT0 SMB connector via matching network (R4, L5, R28, C15). Remove to measure directly on TP2.
+     - Inserted
+   * - J_OUT1
+     - J_OUT1
+     - Bridges DAC channel 1 output to the VOUT1 SMB connector via matching network (R5, L6, R29, C16). Remove to measure directly on TP3.
+     - Inserted
+   * - J_REF
+     - J_REF
+     - Connects on-board ADR4525 reference to AD3542R. Remove if providing an external reference on J1 or if using the internal reference output.
+     - Inserted
+   * - J_PVDD
+     - PVDD
+     - Selects positive TIA supply. REG = on-board LDO; EXT = connector P3.
+     - REG
+   * - J_PVSS
+     - PVSS
+     - Selects negative TIA supply. REG = on-board LDO; EXT = connector P3; GND = ground.
+     - REG
+   * - J_VDD
+     - VDD
+     - Selects analog supply for AD3542R. REG = 5 V on-board LDO; EXT = connector P3.
+     - REG
+   * - J_DVDD
+     - DVDD
+     - Selects digital supply for AD3542R. 1V8 REG = on-board LDO; FPGA = SDP-H1 FPGA IO supply; EXT = connector P3.
+     - 1V8 REG
+   * - J_VIO
+     - VLOGIC
+     - Selects IO supply for AD3542R. 1V8 REG = on-board LDO; FPGA = SDP-H1 FPGA IO supply; EXT = connector P3.
+     - 1V8 REG
+   * - S1
+     - S1
+     - Three-position switch selecting PVDD/PVSS combination for the TIA (see S1 table above).
+     - Left (±5 V)
+
 **Output connectors (AD3542R only)**
 
 - J-OUT0 - connects channel 0 to the VOUT0 SMB connector. Remove
   to measure directly on TP2.
 - J-OUT1 - same for channel 1 / VOUT1 / TP3.
 
-**Schematic, PCB layout, and bill of materials (AD3542R)**
+**On-board connectors (AD3542R)**
 
-.. list-table::
-   :widths: 60 40
+.. list-table:: Connector list
+   :widths: 12 15 15 58
    :header-rows: 1
 
-   * - Description
-     - Download
-   * - EVAL-AD3542RFMCZ Schematic
-     - :dokuwiki:`PDF <_media/resources/eval/user-guides/dac/eval-ad3542r/02_050892d_top.pdf>`
-   * - EVAL-AD3542RFMCZ Gerber Files
-     - :dokuwiki:`ZIP <_media/resources/eval/user-guides/dac/eval-ad3542r/09-050892-01c.zip>`
-   * - EVAL-AD3542RFMCZ Bill of Materials
-     - :dokuwiki:`XLSX <_media/resources/eval/user-guides/dac/eval-ad3542r/05-050892-01-d.xlsx>`
+   * - Connector
+     - Silkscreen
+     - Signal
+     - Function
+   * - J1
+     - VREF
+     - VREF
+     - Reference voltage input/output. Provide an external reference or monitor the ADR4525 or AD3542R internal reference.
+   * - J2
+     - CLOCK
+     - CLOCK_FMC
+     - External clock reference for the FPGA SPI pattern generator. 1.8 V amplitude.
+   * - J3
+     - SYNC
+     - SYNC_EVENTS
+     - External trigger for waveform generation synchronisation. 1.8 V amplitude.
+   * - VOUT0
+     - VOUT0
+     - VOUT0_C
+     - Voltage output of DAC channel 0 (via J_OUT0 matching network).
+   * - VOUT1
+     - VOUT1
+     - VOUT1_C
+     - Voltage output of DAC channel 1 (via J_OUT1 matching network).
+   * - P1
+     - P1
+     - —
+     - FMC connector carrying digital signals between the evaluation board and SDP-H1.
+   * - P3
+     - P3
+     - —
+     - External supply connector. Pin assignment in P3 table above.
+   * - P5
+     - P5
+     - —
+     - Auxiliary digital signal connector for use with a controller other than SDP-H1. 20-pin header; not assembled by default (holes serve as test points).
+
+**Test points (AD3542R)**
+
+Only TP4 has the test ring assembled.
+
+.. list-table:: Test points
+   :widths: 15 20 65
+   :header-rows: 1
+
+   * - Test point
+     - Signal
+     - Description
+   * - TP1
+     - VREF
+     - Reference voltage (internal, on-board, or external).
+   * - TP2
+     - VOUT0
+     - Voltage output of DAC channel 0.
+   * - TP3
+     - VOUT1
+     - Voltage output of DAC channel 1.
+   * - TP4
+     - GND
+     - Ground.
+   * - TP7
+     - GPIO_9
+     - Synchronisation signal from FPGA for development purposes.
+   * - TP8
+     - SYNC_EVENT
+     - External trigger for waveform generation.
+
+**Output range, TIA gain and S1 settings (AD3542R)**
+
+The AD3542R output range requires a matching TIA gain and S1 switch
+position. Measured zero-scale (V\ :sub:`ZS`) and full-scale (V\ :sub:`FS`)
+voltages are shown below.
+
+.. list-table:: Output range table
+   :widths: 20 18 15 12 17 18
+   :header-rows: 1
+
+   * - CHx_OUTPUT_RANGE_SEL
+     - Output range
+     - TIA gain
+     - S1
+     - V\ :sub:`ZS` (V)
+     - V\ :sub:`FS` (V)
+   * - 000
+     - 2.5 V
+     - ×1
+     - Any
+     - −0.198
+     - 2.697
+   * - 001
+     - 5 V
+     - ×1
+     - Any
+     - −0.077
+     - 5.076
+   * - 010
+     - 10 V
+     - ×2
+     - Middle
+     - −0.163
+     - 10.163
+   * - 011
+     - ±5 V
+     - ×2
+     - Left
+     - −5.163
+     - 5.166
+   * - 100
+     - −2.5 V to 7.5 V
+     - ×2
+     - Right
+     - −2.666
+     - 7.662
+
+**DAC output monitoring (AD3542R)**
+
+The EVAL-AD3542R supports four output measurement configurations:
+
+- **High-impedance probe on TP2/TP3** — suitable for quick checks and
+  slew rate measurement.
+- **Coaxial cable, oscilloscope in high impedance** — 47 Ω resistors at
+  R4/R5 attenuate reflections. Use in AC mode to measure output noise
+  density. Accurate for settling-time measurements with dynamic signals.
+- **Coaxial cable, oscilloscope in 50 Ω** — requires a matching pad
+  (e.g. R4/R5 = 976 Ω, R28/R29 = 52.3 Ω, C15/C16 = 0 Ω). Signal is
+  attenuated by 19.55× (25.8 dB). Best for settling-time accuracy; not
+  suitable for noise measurements due to the attenuation.
+- **Coaxial cable, medium-impedance load (500 Ω)** — series-terminate at
+  47 Ω (R4/R5); terminate the receiver at 500 Ω. 1 μH inductors at L5/L6
+  minimise DC loss. Add a snubber on R28/R29, C15/C16 to reduce overshoot
+  from the inductors.
+
+.. note::
+
+   Square waves may appear to have a slow drift on the flat top/bottom on
+   many oscilloscopes due to overdrive recovery in the front end. Use the
+   50 Ω matching pad configuration to reduce the signal span and avoid
+   this effect.
+
+**ACE plugin update rates (AD3542R)**
+
+The AD3542R achieves lower maximum update rates than the AD3552R:
+
+.. list-table:: AD3542R waveform update rates
+   :header-rows: 1
+
+   * -
+     - Fast mode (16-bit)
+     - Precision mode (24-bit)
+   * - Dual channel
+     - 6.25 MUPS
+     - 4.16 MUPS
+   * - Single channel / Simultaneous
+     - 12.5 MUPS
+     - 8.33 MUPS
+
+.. **Schematic, PCB layout, and bill of materials (AD3542R)**
+..
+.. .. list-table::
+..    :widths: 60 40
+..    :header-rows: 1
+..
+..    * - Description
+..      - Download
+..    * - EVAL-AD3542RFMCZ Schematic
+..      - :dokuwiki:`PDF <_media/resources/eval/user-guides/dac/eval-ad3542r/02_050892d_top.pdf>`
+..    * - EVAL-AD3542RFMCZ Gerber Files
+..      - :dokuwiki:`ZIP <_media/resources/eval/user-guides/dac/eval-ad3542r/09-050892-01c.zip>`
+..    * - EVAL-AD3542RFMCZ Bill of Materials
+..      - :dokuwiki:`XLSX <_media/resources/eval/user-guides/dac/eval-ad3542r/05-050892-01-d.xlsx>`
+
