@@ -21,7 +21,7 @@ Both of these examples give very small frequency shifts given the speed at which
 ## CW Radar Lab Instructions
 
 This lab will use:
-* The python example: {git-documentation}`CW_RADAR_Waterfall.py <docs/solutions/platforms/phaser/labs/resources/python/CW_RADAR_Waterfall.py>`
+* The python example: {git-system-level}`CW_RADAR_Waterfall.py <docs/solutions/platforms/phaser/labs/resources/python/CW_RADAR_Waterfall.py>`
 * A variable speed fan to simulate the velocity of a moving target
 
 ```{image} cw_setup.svg

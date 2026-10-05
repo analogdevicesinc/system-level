@@ -188,7 +188,7 @@ You can download and apply all patches in one go with
 
 .. shell::
 
-   $ apply-patches --repo=documentation 123456789
+   $ apply-patches --repo=system-level 123456789
 
 One liner to install:
 

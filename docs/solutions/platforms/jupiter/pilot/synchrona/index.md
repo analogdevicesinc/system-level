@@ -30,7 +30,7 @@ Synchrona plays a vital part in the Jupiter MCS pilot, accurately syncing two Ju
 ```{clear-content}
 ```
 ## Synchrona Block Diagram
-<!--Block Diagram from:  https://analogdevicesinc.github.io/documentation/solutions/reference-designs/ad-synchrona14-ebz/index.html-->
+<!--Block Diagram from:  https://analogdevicesinc.github.io/system-level/solutions/reference-designs/ad-synchrona14-ebz/index.html-->
 <!-- <img src="synchrona-block-diagram.png" width = "700"> -->
 
 ```{image} resources/synchrona-block-diagram.png

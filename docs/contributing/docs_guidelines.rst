@@ -4,7 +4,7 @@ Documentation guidelines
 ========================
 
 This documentation is built with `Sphinx <https://www.sphinx-doc.org>`_ and
-all source code is available at the path :git-documentation:`docs`.
+all source code is available at the path :git-system-level:`docs`.
 
 To contribute to it, first read :ref:`forking-publishing`,
 read the guidelines
@@ -13,7 +13,7 @@ additional guidelines below)
 and also :ref:`creating-new-pages`.
 
 When you are satisfied with your contribution, open a pull request with the
-changes to :git-documentation:`this repository </>`.
+changes to :git-system-level:`this repository </>`.
 
 Templates
 ---------

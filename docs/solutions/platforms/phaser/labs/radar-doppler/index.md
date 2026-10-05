@@ -33,7 +33,7 @@ If we then take a 2D FFT of that matrix of slow time and fast time, we will gene
 
 ## Lab Instructions
 
-1. Open the file, {git-documentation}`Range_Doppler_Plot.py <docs/solutions/platforms/phaser/labs/resources/python/Range_Doppler_Plot.py>` and click RUN
+1. Open the file, {git-system-level}`Range_Doppler_Plot.py <docs/solutions/platforms/phaser/labs/resources/python/Range_Doppler_Plot.py>` and click RUN
 
 ```{image} 5.svg
 :width: 600px

@@ -828,8 +828,8 @@
    <text x="1843.8999" y="353.67999" fill="#0067b9" font-family="sans-serif" font-size="16px" stroke-width="3" text-align="center" text-anchor="middle" style="line-height:1;text-decoration-color:#000000" xml:space="preserve"><tspan x="1843.8999" y="353.67999" style="line-height:1"/><tspan x="1843.8999" y="369.67999" style="line-height:1">analogdevicesinc/linux/actions/workflows</tspan><tspan x="1843.8999" y="385.67999" style="line-height:1"/></text>
   </a>
  </a>
- <a transform="translate(-1359.6 137.83)" fill="#0067b9" xlink:href="https://github.com/analogdevicesinc/documentation/actions/workflows/llm.yml">
-  <text x="1873.2422" y="392" fill="#0067b9" font-family="sans-serif" font-size="16px" stroke-width="3" text-align="center" text-anchor="middle" style="line-height:1;text-decoration-color:#000000" xml:space="preserve"><tspan x="1873.2422" y="392" style="line-height:1">analogdevicesinc/documentation/actions/workflows</tspan><tspan x="1873.2422" y="408" style="line-height:1"/></text>
+ <a transform="translate(-1359.6 137.83)" fill="#0067b9" xlink:href="https://github.com/analogdevicesinc/system-level/actions/workflows/llm.yml">
+  <text x="1873.2422" y="392" fill="#0067b9" font-family="sans-serif" font-size="16px" stroke-width="3" text-align="center" text-anchor="middle" style="line-height:1;text-decoration-color:#000000" xml:space="preserve"><tspan x="1873.2422" y="392" style="line-height:1">analogdevicesinc/system-level/actions/workflows</tspan><tspan x="1873.2422" y="408" style="line-height:1"/></text>
  </a>
  <g font-family="sans-serif">
   <text fill="#000000" font-size="16px" text-align="center" style="line-height:1;shape-inside:url(#rect326);text-decoration-color:#000000;white-space:pre" xml:space="preserve"/>

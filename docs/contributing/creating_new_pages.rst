@@ -12,7 +12,7 @@ Then, proceed with :ref:`creating-new-pages adding-content`.
 Documentation structure
 -----------------------
 
-:git-documentation:`This </>` repository hosts any type of content that is not
+:git-system-level:`This </>` repository hosts any type of content that is not
 version controlled with a particular source code, or in other words,
 "don't deserve their own repository".
 
@@ -29,7 +29,7 @@ To create each "volume", two
 `toctrees <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`__
 replicate the structure of the context top level.
 
-For example, while in :git-documentation:`docs/index.rst#L24`
+For example, while in :git-system-level:`docs/index.rst#L24`
 we have:
 
 .. code:: rst
@@ -42,7 +42,7 @@ we have:
 
       linux/*/index
 
-At the specific context toctree (:git-documentation:`docs/linux/index.rst#L9`)
+At the specific context toctree (:git-system-level:`docs/linux/index.rst#L9`)
 we have:
 
 .. code:: rst
@@ -86,7 +86,7 @@ To add to this doc, we only need to append to *docs/index.rst* as:
 
       my-repo/*/index
 
-And copy ``my-repo/docs`` as ``documentation/docs/my-repo`` (mostly).
+And copy ``my-repo/docs`` as ``system-level/docs/my-repo`` (mostly).
 
 .. _creating-new-pages template:
 
@@ -151,8 +151,8 @@ files for your content:
 .. shell::
    :no-path:
 
-   $cd ~/documentation/docs ; pwd
-    ~/documentation/docs
+   $cd ~/system-level/docs ; pwd
+    ~/system-level/docs
    $mkdir my_topic
    # Add "My Topic" to the main index
    $vi index.rst
@@ -170,7 +170,7 @@ Build the doc and see the changes:
 
 .. shell::
 
-   ~/documentation
+   ~/system-level
    $ adoc serve --once
 
 Sphinx only rebuilds modified files, so subsequent builds are faster.
@@ -184,7 +184,7 @@ If you encounter issues with the current build, try cleaning the cache with
 
    .. shell::
 
-      ~/documentation/docs
+      ~/system-level/docs
       # Include only learning/**/* and solutions/**/*
       $ adoc serve --once --sparse learning solutions
 
@@ -201,7 +201,7 @@ in check.
 It also recommends setting ``--skip-smudge`` globally and let :external+doctools:ref:`serve`
 manage them for you.
 
-When adding images and other binary files, if the extension matches the :git-documentation:`.gitattributes`
+When adding images and other binary files, if the extension matches the :git-system-level:`.gitattributes`
 file, git lfs will automatically create a symbolic link and upload to the remote with
 ``git lfs push public --all``.
 
@@ -209,7 +209,7 @@ Please remember that repository write permission is required for pushing git lfs
 so if you are working on a fork, push them to your fork, and a reviewer can fetch and push to public/origin
 accordingly.
 
-Finally, if you are adding a binary type not in the :git-documentation:`.gitattributes` file, please add it
+Finally, if you are adding a binary type not in the :git-system-level:`.gitattributes` file, please add it
 to it also, this way we can keep the repository lean and efficient long-term.
 
 .. _importing-dokuwiki:
@@ -246,7 +246,7 @@ to import pages and deprecated content with:
 
 .. shell::
 
-   ~/documentation/docs
+   ~/system-level/docs
    $grep --exclude-dir=_build -rnw :dokuwiki:
     software/libiio/internals.rst:58:like :dokuwiki:`GNU Radio ...
     software/libiio/index.rst:270::dokuwiki:`here <resources/t ...
