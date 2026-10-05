@@ -50,3 +50,13 @@ MATLAB, and others. Two easy examples that can be used with it are:
 
 - :ref:`iio-oscilloscope`
 - :external+pyadi-iio:doc:`index`
+
+Multi-Chip Synchronization (MCS)
+-------------------------------------------------------------------------------
+
+For synchronized multi-channel architectures utilizing multiple EVAL-AD9084
+boards with parent ADF4030 clock distribution, refer to:
+
+- :ref:`ad9084-multi-chip-sync` — Complete reference design for setting up
+  multi-chip synchronization with 2x AD9084+VCU118 and parent ADF4030.
+

@@ -5,6 +5,7 @@
 
    system-level:
      - User guide <.>
+     - Multi-Chip Synchronization <multi-chip-sync>
 
    hdl:
      - HDL Project (ad9084_ardz) <projects/ad9084_ebz/index>
@@ -125,6 +126,7 @@ Table of Contents
 
 #. Design with the AD9084
 
+   #. :ref:`ad9084-multi-chip-sync` - setting up multi-chip synchronization (MCS) with 2x AD9084+VCU118 and parent ADF4030
    #. :ref:`ad9084 block-diagram`
 
       #. :adi:`AD9084 Product page <AD9084>`
@@ -170,6 +172,7 @@ Pre-requisites and quickstart
    user-guide
    prerequisites
    quickstart/index
+   multi-chip-sync
 
 .. _ad9084 block-diagram:
 
