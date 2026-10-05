@@ -390,3 +390,27 @@ Follow the steps in this order, to avoid damaging the components:
    :external+no-OS:doc:`here <projects/rf-transceiver/ad9361>`.
 #. Observe console output messages on your terminal (use the first ttyUSB or
    COM port registered)
+
+Console output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following is what is printed in the serial console, after you have connected
+to the proper ttyUSB or COM port:
+
+.. collapsible:: Complete boot log
+
+   ::
+
+      cf-ad9361-lpc: Successfully initialized (61439514 Hz)
+      ad9361_init : AD936x Rev 2 successfully initialized
+      cf-ad9361-dds-core-lpc: Successfully initialized (61439514 Hz)
+      DMA_EXAMPLE: address=0x8004c000 samples=65536 channels=2 bits=16
+      Running IIOD server...
+      If successful, you may connect an IIO client application by:
+      1. Disconnecting the serial terminal you use to view this message.
+      2. Connecting the IIO client application using the serial backend configured as shown:
+         Baudrate: 115200
+         Data size: 8 bits
+         Parity: none
+         Stop bits: 1
+         Flow control: none
