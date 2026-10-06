@@ -569,10 +569,10 @@ Description of FPGA Builds
 A full listing of the supported modes is located on the bottom half of this
 section here on software:
 :ref:`Build descriptions and Download Link <quadmxfe quickstart vcu118>`.
-The build files should be downloaded from this section and unzipped to your
-desktop in a folder named QuadMxFE. The Xilinx Command Line Tool or MALTAB load
-VCU118 code function can be used to program the FPGA and Putty can be used to
-view the output of the Linux image's boot.
+The build files should be built and placed on your desktop in a folder named
+QuadMxFE. The Xilinx Command Line Tool or MATLAB load VCU118 code function can
+be used to program the FPGA and Putty can be used to view the output of the
+Linux image's boot.
 
 .. |Rev B Pinout Screenshot from Excel Sheet| image:: images/rev_b_pinout.png
 .. |quadmxfe_ferriterotateschematic.png| image:: images/quadmxfe_ferriterotateschematic.png
