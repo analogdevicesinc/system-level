@@ -65,7 +65,7 @@ the device clock pins of each MxFE®.
    :width: 1200
 
 One-Shot Sync
-=============
+-------------
 
 The one-shot sync feature first requires that the user defines the JESD link
 parameters (such as M, N’, L, etc.) and then configures the synchronization
@@ -87,7 +87,7 @@ are contained within an application programming interface (API) provided for the
 :adi:`AD9081`.
 
 NCO Master-Slave Sync
-=====================
+---------------------
 
 The NCO master-slave sync feature first assigns one of the :adi:`AD9081` within
 the subarray to act as a ‘master’ chip, as shown in the above figure. All other
@@ -110,7 +110,7 @@ master-slave sync algorithm. As with the one-shot sync, these NCO master-slave
 sync subtasks are contained within API functions for user ease-of-use.
 
 PLL Synthesizer Phase Adjustments
-=================================
+---------------------------------
 
 The :adi:`ADF4371` PLL synthesizers allow for relative sample clock phase
 adjustments injected into each digitizer IC. Thermal drift, and the resulting
@@ -150,6 +150,6 @@ used for each DAC in the system.
    :width: 800
 
 Publications
-============
+------------
 
 :adi:`Power-Up Phase Determinism Using Multichip Synchronization Features in Integrated Wideband DACs and ADCs <en/technical-articles/power-up-phase-determinism-using-multichip-synchronization.html>`

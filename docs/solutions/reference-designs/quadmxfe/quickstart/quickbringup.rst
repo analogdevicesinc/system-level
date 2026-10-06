@@ -136,8 +136,8 @@ This section assumes the following:
 #. 2x micro USB cables have been connected to PC and VCU118 for JTAG and Serial
 #. All required software programs have been installed. See here for full list:
    :ref:`Prerequisites <quadmxfe prerequisites>`
-#. All FPGA images/script files have been downloaded and unzipped to a folder on
-   the Desktop called QuadMxFE
+#. All FPGA images/script files have been built and placed in a folder on the
+   Desktop called QuadMxFE
 #. 500MHz ~0dBm source has been attached to Quad MxFE central clock input SMA
 #. 12V power bricks (>8A for Quad MxFE and >5A for VCU118) have been connected
    to boards

@@ -14,32 +14,22 @@ Quad-MxFE platform
 
 #. The :adi:`AD9081`-based evaluation board:
    :adi:`ADQUADMXFE1EBZ <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/Quad-MxFE.html>`
-
 #. An FPGA carrier platform: :xilinx:`VCU118`. See :ref:`supported carriers
    <quadmxfe quickstart carriers>`.
-
 #. 12V, 9A+ wall supply and power cable (included in the kit)
-
 #. FMC+ Extender (included in the kit)
-
 #. 2x 6" MMCX-to-MMCX cables (included in the kit)
-
 #. 3x Board Standoffs (included in the kit)
-
 #. Fan/heat sinks (included in the kit) — **install prior to first use** per
    :ref:`Fan Installation Directions <quadmxfe boardhardwaredetails>`
-
 #. 500 MHz reference oscillator or waveform generator (~0 dBm)
-
 #. 2x USB Micro cables (UART + JTAG)
-
 #. Ethernet cable
 
    *NOTE: do not use the Ethernet cable that comes with the VCU118 board. It is
    a crossover cable and will not work with the platform*
 
 #. 50 Ohm SMA cables — as needed
-
 #. (Optional) USB to Ethernet dongle for direct connection
 
 With Calibration Board (ADQUADMXFE-CAL)
