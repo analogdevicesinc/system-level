@@ -7,432 +7,352 @@ RTOS Support: Zephyr
 
    This is a work in progress.
 
+The previous sections ran the curve tracer two ways on the MAX32666FTHR: as a
+**tinyiiod server** driven by a script on the PC, and as a **standalone no-OS
+application** that does all of the work on the board. In this section we do
+both again, this time on `Zephyr <https://zephyrproject.org/>`__, an
+open-source real-time operating system that already knows about the
+ADALM-LSMSPG and the MAX32666FTHR.
 
+Two variants are covered:
 
-The MATLAB example above used the MAX32666FTHR as a **tinyiiod server**, exposing
-the ADALM-LSMSPG devices over serial for a host script to drive. In this section
-we go a step further: the curve tracer application itself now runs **on the
-MAX32666FTHR**, written against `Zephyr <https://zephyrproject.org/>`__ — a
-small, portable real-time OS. The PC becomes a passive terminal that only
-displays results.
+- **Variant A** builds a small Zephyr application that runs the curve tracer
+  on the FTHR. You start a sweep by typing ``curvetrace`` in the Zephyr shell,
+  and the results are printed as an ASCII-art plot on the serial console.
+- **Variant B** builds the Zephyr IIO server, which exposes the AD5592r,
+  AD5593r and LM75 as IIO devices over USB serial. The same
+  ``ad5592r_curve_tracer.py`` pyadi-iio script used on the Raspberry Pi then
+  drives the sweep from the PC.
 
 .. note::
 
-   This exercise demonstrates using Zephyr as a fully embedded alternative to
-   Linux or bare-metal no-OS. Zephyr provides drivers for the shield's chips,
-   a POSIX-like shell over UART for interactive debugging, and a build system
-   that treats the ADALM-LSMSPG as a first-class device — no external host,
-   no IIO daemon, no Python or MATLAB.
-
-.. note::
-
-   The examples below target the **MAX32666FTHR**. The same steps apply to
-   the MAX32655FTHR (and any other Feather-form-factor Zephyr board) — swap
-   the ``-b max32666fthr/max32666/cpu0`` build target for the equivalent
-   board qualifier of your Feather.
+   Nothing in this section needs board-specific code. The ADALM-LSMSPG is an
+   official Zephyr shield (``adi_lsmspg``), so the AD5592r, AD5593r and LM75
+   drivers, the SPI and I2C buses and the pin assignments all come from the
+   Zephyr tree. The applications only refer to the shield's devices by name.
 
 Hardware Prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^
 
-- **ADALM-LSMSPG** shield
+In addition to the ADALM-LSMSPG board, you will need:
+
 - **MAX32666FTHR** Feather development board
-- **MAX32625PICO** DAPLink debug adapter (comes with the FTHR kit)
-- Two Micro USB cables — one for the FTHR (power), one for the DAPLink
-  (SWD + serial bridge)
+- **MAX32625PICO** DAPLink debug adapter (supplied with the MAX32666FTHR)
+- Two Micro USB cables: one for the MAX32666FTHR, one for the MAX32625PICO
 
 Software Prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^
 
-- **Analog Devices CodeFusion Studio (CFS)** 2.2.0 or later — ships an
-  integrated Zephyr 4.3.0 tree, the Zephyr SDK toolchain, and the ADI HAL
-  for the MAX32 family. Download from
-  `developer.analog.com <https://developer.analog.com/tools/codefusion-studio/>`__.
-- A serial terminal — **PuTTY**, `Tera Term <https://ttssh2.osdn.jp/>`__,
-  or the built-in serial monitor of VS Code.
-- (Optional) The full upstream Zephyr checkout via ``west init`` — for
-  users not on CFS.
+For both variants:
+
+- A Zephyr development environment: Python 3, ``west`` and the Zephyr SDK.
+  Follow the
+  `Zephyr Getting Started Guide <https://docs.zephyrproject.org/latest/develop/getting_started/index.html>`__
+  up to (but not including) the step that downloads the Zephyr source; the
+  workspace is created in Step 1 below.
+- A serial terminal, such as **PuTTY** or the serial monitor of VS Code.
+
+For Variant B only:
+
+- **libiio v1** on the PC, from the
+  `libiio v1.0.0 release <https://github.com/analogdevicesinc/libiio/releases/tag/v1.0.0>`__
+  (on Windows, unzip ``Windows.zip`` and add the folder that contains
+  ``libiio1.dll``, ``iio_info.exe`` and ``iio_attr.exe`` to your ``PATH``).
+
+  .. important::
+
+     The Zephyr IIO server speaks the libiio v1 protocol. libiio v0.x tools
+     and libraries (for example an older ``iio_info`` installed with IIO
+     Oscilloscope) cannot connect to it.
+
+- The **libiio v1 Python bindings**. The ``pylibiio`` package on PyPI is
+  still v0.25, so install the bindings from the libiio source instead:
+
+  .. code-block:: bash
+
+     git clone https://github.com/analogdevicesinc/libiio.git
+     pip install ./libiio/bindings/python
+
+- **pyadi-iio** and **matplotlib**:
+
+  .. code-block:: bash
+
+     pip install pyadi-iio matplotlib
 
 Architecture Overview
 ^^^^^^^^^^^^^^^^^^^^^
 
-Unlike the tinyiiod approach, there is no host script and no IIO daemon.
-Zephyr, the curve tracer logic, and the AD5592R / LM75 drivers all live in
-a single firmware image running on the MAX32666FTHR:
+**Variant A** runs everything on the FTHR. The PC only displays the shell:
 
 ::
 
-   ┌────────────────┐    USB Serial    ┌───────────────────────────┐
+   ┌────────────────┐  DAPLink serial  ┌───────────────────────────┐
    │  PC (PuTTY)    │ ◄──────────────► │      MAX32666FTHR         │
    │                │    115200 8N1    │        (Zephyr)           │
-   │  read-only     │                  │                           │
-   │  terminal      │                  │  Zephyr shell + main()    │
-   └────────────────┘                  │  ┌────────────────────┐   │
-                                       │  │  ad5592 curvetrace │   │
-                                       │  └──────────┬─────────┘   │
-                                       │             │             │
-                                       │        Zephyr AD559X MFD  │
-                                       │             │             │
-                                       │      SPI ◄──┴──►  AD5592R │
-                                       │      I2C ◄──────►  AD5593R│
-                                       │      I2C ◄──────►  LM75   │
+   │  types         │                  │                           │
+   │  "curvetrace"  │                  │  shell ── curve tracer    │
+   └────────────────┘                  │              │            │
+                                       │      Zephyr DAC / ADC API │
+                                       │              │            │
+                                       │      SPI ◄───┴──► AD5592r │
                                        └───────────────────────────┘
 
-The **DAPLink** (MAX32625PICO) plays two roles at once: it programs the
-FTHR over SWD, *and* it bridges the FTHR's UART1 to the PC as a USB CDC
-serial port. That single COM port is where both flashing feedback and the
-Zephyr shell prompt appear.
-
-Step 1: Create the Zephyr Project
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-From within CodeFusion Studio, generate a new project targeting
-``max32666fthr / max32666 / cpu0``. Start from the **Blinky** template — it
-gives us a working baseline (an LED that toggles) before we add anything.
-The generated directory tree looks like:
+**Variant B** runs the Zephyr IIO server on the FTHR, and the curve tracer
+script on the PC, exactly like the tinyiiod example:
 
 ::
 
-   MAX32666_LSMSPG_Zephyr/
-   └── m4-0/
-       ├── CMakeLists.txt
-       ├── prj.conf
-       ├── boards/
-       │   └── max32666fthr_max32666_cpu0.overlay
-       └── src/
-           └── main.c
+   ┌────────────────┐  FTHR USB serial ┌───────────────────────────┐
+   │  PC (Python)   │ ◄──────────────► │      MAX32666FTHR         │
+   │                │   libiio (v1)    │        (Zephyr)           │
+   │  ad5592r_      │                  │                           │
+   │  curve_tracer  │                  │   IIO server (iiod)       │
+   │  .py           │                  │   AD5592r ◄── SPI         │
+   └────────────────┘                  │   AD5593r ◄── I2C         │
+                                       │   LM75    ◄── I2C         │
+                                       └───────────────────────────┘
 
-The Blinky template targets the FTHR's on-board RGB LED via the standard
-Zephyr ``led0`` alias — no shield references yet.
+The two variants use different serial ports. The **MAX32625PICO** (DAPLink)
+programs the FTHR and also bridges the FTHR's console UART to the PC; this is
+where the Zephyr shell appears in Variant A. In Variant B, the IIO server uses
+a second serial port that the **FTHR's own USB connector** provides.
 
-Step 2: Configure the Drivers (``prj.conf``)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 1: Create the Zephyr Workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Zephyr uses a Kconfig-based build. The board's ``defconfig`` already
-enables serial console, GPIO, and ``printk``; the ``adi_lsmspg`` shield
-already ``select``\ s the SPI, I²C, and MFD subsystems in its
-``Kconfig.shield``. On top of those defaults we only need to opt in to
-the interactive shell and the AD559X chip driver:
-
-.. code-block:: none
-
-   # Interactive shell over the console UART
-   CONFIG_SHELL=y
-   CONFIG_DEVICE_SHELL=y
-   CONFIG_I2C_SHELL=y
-
-   # AD5592R / AD5593R chip driver
-   CONFIG_MFD_AD559X=y
-
-Step 3: The Curve Tracer Application
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The curve tracer is exposed as a Zephyr **shell command** — ``ad5592
-curvetrace`` — rather than running automatically at boot. This makes the
-firmware into an interactive instrument: you can poke the DAC, read the
-ADC, and rerun a sweep on demand from PuTTY.
-
-The C code mirrors the Python and MATLAB versions exactly:
-
-1. Sweep ``Vbase`` (CH0 DAC) from 499 mV to 2499 mV in 500 mV steps.
-2. For each base voltage, sweep ``Vcollector`` (CH2 DAC) from 0 to 2450 mV
-   in 50 mV steps.
-3. At each point, read back ``Vcdrive_meas`` (CH2 ADC) and ``Vcsense``
-   (CH1 ADC), compute ``Ic = (Vcdrive_meas − Vcsense) / Rsense``, and
-   print one CSV-friendly line over UART.
-
-.. collapsible:: main.c — Zephyr curve tracer with shell integration (click to expand)
-
-   .. code-block:: c
-
-      /*
-       * AD5592R NPN BJT curve tracer on the ADALM-LSMSPG shield.
-       * Runs as a Zephyr shell command over the MAX32666FTHR's DAPLink
-       * USB-serial console. Uses the AD559X multi-function driver's
-       * raw write/read API to talk to the chip.
-       *
-       *   ad5592 init          One-time setup: enable ref + DAC pin mode.
-       *   ad5592 dac  <ch> <c> Write 12-bit DAC code (0..4095).
-       *   ad5592 adc  <ch>     Read one ADC channel.
-       *   ad5592 curvetrace    Run the NPN BJT curve trace.
-       *
-       * SPDX-License-Identifier: Apache-2.0
-       */
-
-      #include <zephyr/kernel.h>
-      #include <zephyr/device.h>
-      #include <zephyr/drivers/gpio.h>
-      #include <zephyr/drivers/mfd/ad559x.h>
-      #include <zephyr/shell/shell.h>
-      #include <zephyr/sys/byteorder.h>
-      #include <stdlib.h>
-
-      #define VREF_MV   2500
-      #define FS_CODE   4095U
-
-      /* AD5592R 16-bit DAC write: [1 | ch[2:0] | data[11:0]] */
-      #define AD559X_DAC_WR_MSB   BIT(15)
-      #define AD559X_DAC_CH_SHIFT 12
-
-      /* Curve tracer circuit parameters (ADALM-LSMSPG NPN) */
-      #define CT_RSENSE_OHM   47
-      #define CT_RBASE_KOHM   47
-      #define CT_VBE_MV       700
-      #define CT_VB_START_MV  499
-      #define CT_VB_STOP_MV   2500
-      #define CT_VB_STEP_MV   500
-      #define CT_VC_START_MV  0
-      #define CT_VC_STOP_MV   2500
-      #define CT_VC_STEP_MV   50
-
-      #define LED0_NODE DT_ALIAS(led0)
-      static const struct gpio_dt_spec led =
-              GPIO_DT_SPEC_GET(LED0_NODE, gpios);
-
-      static const struct device *const mfd =
-              DEVICE_DT_GET(DT_PARENT(DT_NODELABEL(ad5592_dac)));
-
-      static uint16_t dac_mask;
-      static uint16_t adc_mask;
-      static bool chip_initialized;
-
-      static int ad5592_dac_write(uint8_t ch, uint16_t value)
-      {
-          uint16_t msg = sys_cpu_to_be16(AD559X_DAC_WR_MSB |
-                              ((uint16_t)ch << AD559X_DAC_CH_SHIFT) |
-                              (value & 0x0FFF));
-          return mfd_ad559x_write_raw(mfd,
-                                      (uint8_t *)&msg, sizeof(msg));
-      }
-
-      static int ad5592_adc_read(uint8_t ch, uint16_t *out)
-      {
-          uint16_t raw = 0;
-          int ret = mfd_ad559x_read_reg(mfd, AD559X_REG_SEQ_ADC,
-                                        BIT(ch), &raw);
-          if (ret) return ret;
-          *out = raw & 0x0FFF;
-          return 0;
-      }
-
-      static int cmd_init(const struct shell *sh,
-                          size_t argc, char **argv)
-      {
-          int ret;
-          ret = mfd_ad559x_write_reg(mfd, AD559X_REG_PD_REF_CTRL,
-                                     AD559X_EN_REF);
-          if (ret) return ret;
-          dac_mask = 0xFF;
-          adc_mask = 0;
-          ret = mfd_ad559x_write_reg(mfd, AD559X_REG_LDAC_EN,
-                                     dac_mask);
-          if (ret) return ret;
-          chip_initialized = true;
-          shell_print(sh, "AD5592R initialized");
-          return 0;
-      }
-
-      static int cmd_curvetrace(const struct shell *sh,
-                                size_t argc, char **argv)
-      {
-          if (!chip_initialized) {
-              shell_error(sh, "run 'ad5592 init' first");
-              return -EINVAL;
-          }
-          adc_mask |= BIT(1) | BIT(2);
-          mfd_ad559x_write_reg(mfd, AD559X_REG_ADC_CONFIG, adc_mask);
-
-          shell_print(sh, "");
-          shell_print(sh,
-              "=== NPN Curve Tracer (Rsense=%dR Rbase=%dk) ===",
-              CT_RSENSE_OHM, CT_RBASE_KOHM);
-
-          for (int vb = CT_VB_START_MV; vb < CT_VB_STOP_MV;
-               vb += CT_VB_STEP_MV) {
-              uint32_t vb_c = ((uint32_t)vb * FS_CODE) / VREF_MV;
-              ad5592_dac_write(0, vb_c);
-              k_msleep(50);
-
-              int ib_ua = (vb > CT_VBE_MV) ?
-                          (vb - CT_VBE_MV) / CT_RBASE_KOHM : 0;
-              shell_print(sh,
-                  "\n-- Vb=%d mV, Ib~%d uA --", vb, ib_ua);
-              shell_print(sh,
-                  "Vc_drive, Vc_actual, Ic (mV, mV, uA)");
-
-              for (int vc = CT_VC_START_MV; vc < CT_VC_STOP_MV;
-                   vc += CT_VC_STEP_MV) {
-                  uint32_t vc_c = ((uint32_t)vc * FS_CODE) / VREF_MV;
-                  ad5592_dac_write(2, vc_c);
-                  k_msleep(10);
-
-                  uint16_t vc_drive = 0, vc_sense = 0;
-                  ad5592_adc_read(2, &vc_drive);
-                  ad5592_adc_read(1, &vc_sense);
-
-                  int vc_drv_mv = (vc_drive * VREF_MV) / FS_CODE;
-                  int vc_sns_mv = (vc_sense * VREF_MV) / FS_CODE;
-                  int ic_ua = ((vc_drv_mv - vc_sns_mv) * 1000) /
-                              CT_RSENSE_OHM;
-
-                  shell_print(sh, "%d, %d, %d",
-                              vc, vc_sns_mv, ic_ua);
-              }
-          }
-          ad5592_dac_write(0, 0);
-          ad5592_dac_write(2, 0);
-          shell_print(sh, "\n=== done ===");
-          return 0;
-      }
-
-      SHELL_STATIC_SUBCMD_SET_CREATE(ad5592_cmds,
-          SHELL_CMD_ARG(init,       NULL, "Init AD5592R",
-                        cmd_init, 1, 0),
-          SHELL_CMD_ARG(curvetrace, NULL, "Run NPN curve trace",
-                        cmd_curvetrace, 1, 0),
-          SHELL_SUBCMD_SET_END
-      );
-      SHELL_CMD_REGISTER(ad5592, &ad5592_cmds,
-                         "AD5592R shell commands", NULL);
-
-      int main(void)
-      {
-          gpio_pin_configure_dt(&led, GPIO_OUTPUT_INACTIVE);
-          while (1) {
-              gpio_pin_toggle_dt(&led);
-              k_msleep(500);
-          }
-      }
-
-A few notes about the code:
-
-- ``main()`` only blinks the LED as a "firmware alive" heartbeat. All
-  real work happens in shell commands, which the Zephyr shell subsystem
-  runs on its own kernel thread.
-- ``SHELL_CMD_REGISTER`` is Zephyr's macro for exposing a function as a
-  top-level shell command. ``SHELL_STATIC_SUBCMD_SET_CREATE`` groups
-  subcommands under a single command name (``ad5592``).
-- The AD559X driver's ``mfd_ad559x_write_raw`` / ``mfd_ad559x_read_reg``
-  functions handle SPI framing and chip-select for us. There is no
-  direct SPI code in the application.
-- Output is CSV-shaped so you can copy the PuTTY buffer straight into
-  a spreadsheet for plotting.
-
-Step 4: Attach the Shield to the Build
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Zephyr ships an official shield definition for the ADALM-LSMSPG. To pull
-its devicetree overlay into the build, pass ``--shield adi_lsmspg`` (as
-a CMake variable ``-DSHIELD=adi_lsmspg``) to ``west build``. This binds
-the AD5592R to the Feather SPI header and the AD5593R + LM75 to the
-Feather I²C header automatically — no manual overlay edits required.
-
-.. note::
-
-   The shield definition lives at
-   ``<zephyr>/boards/shields/adi_lsmspg/``. Refer to the
-   `upstream Zephyr documentation
-   <https://docs.zephyrproject.org/latest/boards/shields/adi_lsmspg/doc/index.html>`__
-   for its full description.
-
-Step 5: Build and Flash
-^^^^^^^^^^^^^^^^^^^^^^^
-
-From the project directory:
+The libiio repository includes a ``west`` manifest that pulls a Zephyr tree
+together with the libiio Zephyr module, which provides the IIO server used in
+Variant B. Create a workspace from it:
 
 .. code-block:: bash
 
-   west build -p always -b max32666fthr/max32666/cpu0 . -- -DSHIELD=adi_lsmspg
-   west flash
+   mkdir lsmspg-zephyr
+   cd lsmspg-zephyr
+   west init -m https://github.com/analogdevicesinc/libiio --mr main .
+   west update
+   pip install -r zephyr/scripts/requirements.txt
 
-``west flash`` uses OpenOCD via the DAPLink to program the FTHR. If your
-CFS install prefers drag-and-drop instead, the ``build/zephyr/zephyr.hex``
-file can be dragged onto the DAPLink mass-storage drive that appears in
-Explorer.
+The workspace contains ``zephyr/`` (the Zephyr tree, including the
+``adi_lsmspg`` shield and the curve tracer sample) and ``libiio/`` (the
+libiio Zephyr module and the IIO server sample). Run the ``west build``
+commands below from the workspace root.
 
-Step 6: Open the Serial Terminal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2: Connect the Hardware
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Identify the COM port assigned to the DAPLink (Windows: **Device Manager
-→ Ports (COM & LPT)** — look for the "USB Serial Device" entry that
-appears when the DAPLink is plugged in). Open it in PuTTY at
-**115200 8N1** with no flow control.
+1. Mount the MAX32666FTHR onto the ADALM-LSMSPG board using the Feather
+   headers **P1** (16-pin) and **P28** (12-pin), with the Feather's
+   components facing downward.
 
-Press the **reset** button on the FTHR. You should see:
+2. Connect the MAX32625PICO to the FTHR's 10-pin SWD header.
 
-.. code-block:: none
+3. Connect both the MAX32625PICO and the MAX32666FTHR to the PC with the
+   Micro USB cables. A ``DAPLINK`` drive appears on the PC.
 
-   *** Booting Zephyr OS build v4.3.0 ***
+Step 3a: Curve Tracer on the FTHR (Variant A)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   uart:~$
+The curve tracer is a Zephyr sample in
+``zephyr/samples/shields/adi_lsmspg/curve_tracer``. The sample selects the
+``adi_lsmspg`` shield in its ``CMakeLists.txt``, so you only pass the board:
 
-The ``uart:~$`` prompt is Zephyr's interactive shell. From here you can
-type ``help`` for a list of built-in commands, ``device list`` to see
-every device the kernel is aware of, or ``i2c scan i2c0@4001d000`` to
-confirm the shield's I²C chips are alive.
+.. code-block:: bash
 
-Step 7: Run the Curve Trace
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   west build -p always -b max32666fthr/max32666/cpu0 zephyr/samples/shields/adi_lsmspg/curve_tracer
 
-At the shell prompt:
+To program the FTHR, drag and drop ``build/zephyr/zephyr.hex`` onto the
+``DAPLINK`` drive. The drive ejects itself when programming is done.
 
-.. code-block:: none
+The application follows the same steps as the Python and no-OS versions:
 
-   uart:~$ ad5592 init
-   AD5592R initialized
-   uart:~$ ad5592 curvetrace
+1. Sweep the base drive (``CH0``, DAC) from 499 mV to 2499 mV in 500 mV
+   steps.
+2. For each base voltage, sweep the collector drive (``CH2``, DAC) from 0 to
+   2450 mV in 50 mV steps.
+3. At each point, read the collector drive (``CH2``, ADC) and collector sense
+   (``CH1``, ADC), and compute the collector current from the voltage drop
+   across the sense resistor.
+4. Print each point, then the ASCII-art plot.
 
-   === NPN Curve Tracer (Rsense=47R Rbase=47k) ===
+The four channels are described in the sample's ``app.overlay``, and the code
+uses the standard Zephyr DAC and ADC APIs, so there is no SPI or register-level
+code in the application:
 
-   -- Vb=499 mV, Ib~0 uA --
-   Vc_drive, Vc_actual, Ic (mV, mV, uA)
-   0, 1, -21
-   50, 49, 21
-   ...
-   -- Vb=999 mV, Ib~6 uA --
-   ...
-   === done ===
+.. code-block:: dts
 
-Highlight the CSV block in PuTTY (Ctrl+A then right-click to copy on
-most terminals) and paste it into a spreadsheet or the Python plotting
-snippet from the Raspberry Pi section to render the I–V family.
-
-Comparison: MATLAB (tinyiiod) vs. Zephyr
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 35 35
-
-   * -
-     - **MATLAB + tinyiiod**
-     - **Zephyr on FTHR**
-   * - OS on the FTHR
-     - no-OS (tinyiiod firmware)
-     - Zephyr RTOS
-   * - Where the sweep runs
-     - MATLAB on the PC
-     - On the FTHR itself
-   * - Host role
-     - Active — issues every I/O
-     - Passive — displays a shell
-   * - Framework used
-     - libiio + PrecisionToolbox
-     - Zephyr device drivers
-   * - Connection to devices
-     - IIO over USB serial
-     - Direct SPI / I²C on the FTHR
-   * - Latency per point
-     - ~ms (subprocess or in-proc)
-     - ~microseconds (direct SPI)
-   * - Extending the app
-     - Edit MATLAB, rerun
-     - Rebuild + reflash firmware
+   / {
+   	zephyr,user {
+   		io-channels = <&ad5592_dac 0>, <&ad5592_dac 2>,
+   			      <&ad5592_adc 1>, <&ad5592_adc 2>;
+   		io-channel-names = "vb_drive", "vc_drive",
+   				   "vc_sense", "vc_drive_meas";
+   	};
+   };
 
 .. note::
 
-   Zephyr trades the host-side flexibility of tinyiiod for **latency,
-   portability, and self-containedness**. A Zephyr firmware works with
-   only a serial terminal on the host — no libiio, no MATLAB, no Python.
-   That makes it a natural stepping-stone toward a *fully embedded*
-   product where the FTHR eventually drives a local display or wireless
-   link instead of a PC terminal.
+   The sample uses the resistor values from the ADALM-LSMSPG schematic:
+   49.9 Ohm for the collector sense resistor and 49.9 kOhm for the base
+   resistor. The no-OS, pyadi-iio and MATLAB examples use 47 Ohm and
+   47 kOhm, so their collector currents read about 6% higher for the same
+   transistor. Both values can be changed with
+   ``CONFIG_CURVE_TRACER_RSENSE_MOHM`` and ``CONFIG_CURVE_TRACER_RBASE_OHM``.
+
+Step 3b: Curve Tracer from Python (Variant B)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Build the IIO server sample from the libiio module. The ``iiod-cdc-acm``
+snippet runs the server on the FTHR's USB port, and the second shield,
+``iio_adi_lsmspg``, maps the shield's channels to IIO devices:
+
+.. code-block:: bash
+
+   west build -p always -b max32666fthr/max32666/cpu0 libiio/zephyr/samples/iiod -S iiod-cdc-acm -- -DSHIELD="adi_lsmspg;iio_adi_lsmspg" -DCONFIG_SENSOR=y -DCONFIG_ADC=y -DCONFIG_DAC=y
+
+Drag and drop ``build/zephyr/zephyr.hex`` onto the ``DAPLINK`` drive, as in
+Step 3a.
+
+.. note::
+
+   ``west flash`` can program the FTHR through the DAPLink as well, but it
+   uses OpenOCD with the ``max32665.cfg`` target file, which the Zephyr SDK's
+   OpenOCD does not include. Use the OpenOCD from the
+   `ADI OpenOCD fork <https://github.com/analogdevicesinc/openocd>`__ if you
+   prefer ``west flash`` to drag and drop.
+
+After a reset, the FTHR's USB connector enumerates as a new serial port. On
+Windows it is listed in **Device Manager** under **Ports (COM & LPT)** as a
+"USB Serial Device". It is a different port from the DAPLink one; its USB
+vendor ID is ``2FE3``.
+
+Verify the IIO context, replacing ``COM7`` with your port:
+
+.. code-block:: bash
+
+   iio_info -u serial:COM7,115200,8n1n
+
+You should see three IIO devices:
+
+- ``ad5592r``: 8-channel ADC/DAC over SPI (used for the NPN curve tracer)
+- ``ad5593r``: 8-channel ADC/DAC over I2C
+- ``lm75``: temperature sensor
+
+The ``ad5592r`` device shows channels ``voltage0`` (input and output),
+``voltage1`` (input) and ``voltage2`` (input and output), with a ``scale``
+of ``0.610351`` mV/LSB. These are the names that pyadi-iio's ``adi.ad5592r``
+class expects, so the Raspberry Pi script runs unchanged.
+
+.. important::
+
+   On Windows, the libiio v1 Python bindings fail on ``import iio`` (and so
+   on ``import adi``) with ``TypeError: argument of type 'NoneType' is not
+   iterable``, because they look for the C library with
+   ``find_library("c")``, which returns ``None`` on Windows. Until this is
+   fixed in libiio, add these lines at the top of
+   ``ad5592r_curve_tracer.py``, before ``import adi``:
+
+   .. code-block:: python
+
+      import ctypes.util
+      _find_library = ctypes.util.find_library
+      ctypes.util.find_library = lambda name: (_find_library(name) or "ucrtbase") if name == "c" else _find_library(name)
+
+   Linux and macOS are not affected.
+
+Step 4: Run the Curve Tracer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Variant A (Step 3a):**
+
+Open the DAPLink serial port in your terminal at **115200 8N1**, with no
+flow control, and press the **reset** button on the FTHR. Nothing runs at
+boot; the application prints a banner and waits at the Zephyr shell prompt.
+Type ``curvetrace`` to run one sweep:
+
+.. code-block:: none
+
+   *** Booting Zephyr OS build <version> ***
+   ADALM-LSMSPG AD5592R curve tracer on max32666fthr/max32666/cpu0
+   Type 'curvetrace' to run a trace
+
+   uart:~$ curvetrace
+
+   ========== AD5592R (SPI) NPN Curve Tracer ==========
+   Vref: 2500 mV, Scale: 0.6104 mV/LSB, Rsense: 49.9 ohm, Rbase: 49900 ohm
+
+   Starting sweep...
+   Base Drive: 0.4987 V, -4.035 uA
+     coll voltage: 0.0012 V  coll current: 0.0000 mA
+     coll voltage: 0.0488 V  coll current: 0.0122 mA
+     ...
+
+The sweep takes about 3.4 seconds and ends with the ASCII-art plot, as shown in
+:numref:`fig-zephyr-curvetrace-console`. Type ``curvetrace`` again to repeat
+it.
+
+.. _fig-zephyr-curvetrace-console:
+
+.. figure:: curvetrace_console.png
+   :width: 500px
+   :align: center
+
+   Curve tracer output on the Zephyr console (Variant A)
+
+**Variant B (Step 3b):**
+
+Run the same script as on the Raspberry Pi, with the FTHR's USB serial port
+as the URI:
+
+.. code-block:: bash
+
+   python ad5592r_curve_tracer.py -u serial:COM7,115200,8n1n
+
+The script prints each base drive and collector point, then opens the
+matplotlib figure in :numref:`fig-zephyr-pyadi-curve-tracer`. The sweep takes
+about 14 seconds, since every DAC write and ADC read is a separate IIO request
+over the serial link.
+
+.. _fig-zephyr-pyadi-curve-tracer:
+
+.. figure:: pyadi_curve_tracer.png
+   :width: 500px
+   :align: center
+
+   Curve tracer plot from pyadi-iio, Zephyr IIO server (Variant B)
+
+Comparison: no-OS vs. Zephyr
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :header-rows: 1
+   :widths: 28 36 36
+
+   * -
+     - **no-OS (MAX32666FTHR)**
+     - **Zephyr (MAX32666FTHR)**
+   * - IIO server
+     - tinyiiod firmware from the no-OS release
+     - ``libiio/zephyr/samples/iiod``, built for the ``adi_lsmspg`` shield
+   * - Standalone curve tracer
+     - ``curvetrace_example`` from the no-OS release
+     - ``samples/shields/adi_lsmspg/curve_tracer``
+   * - How the hardware is described
+     - Init parameters in the project's C code
+     - Devicetree (the ``adi_lsmspg`` shield and ``app.overlay``)
+   * - Device access in the application
+     - no-OS AD5592R driver API
+     - Standard Zephyr DAC and ADC APIs
+   * - Starting a standalone sweep
+     - Runs at reset
+     - ``curvetrace`` shell command
+   * - Host connection for the IIO server
+     - USB serial, libiio
+     - USB serial, libiio v1
+
+.. note::
+
+   The PC side does not change between the no-OS tinyiiod server and the
+   Zephyr IIO server: the same pyadi-iio script talks to both. The firmware
+   side moves from a dedicated bare-metal project to an RTOS with a shell,
+   a devicetree description of the hardware and drivers that work on any
+   Zephyr board with a Feather header.
