@@ -182,3 +182,8 @@ kernel recipe with its own version.
      - 5.15
      - 6.6
      - 6.18
+   * - v6.0.0 (In Development)
+     - Wrynose (6.0)
+     - 5.15
+     - 6.18
+     - 6.18
