@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640">
+  <defs>
+    <style>
+      .box { stroke: #333; stroke-width: 2; }
+      .box-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; }
+      .box-desc { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .arrow { stroke: #666; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font-family: Arial, sans-serif; font-size: 10px; fill: #444; font-style: italic; }
+      .layer-label { font-family: Arial, sans-serif; font-size: 11px; fill: #888; font-weight: bold; }
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #444; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="25" class="title-text" text-anchor="middle">Workflow 5: Hardware-in-the-Loop Testing with ADALM2000</text>
+
+  <!-- Column headings -->
+  <text x="185" y="50" class="section-title" text-anchor="middle">ADALM2000 (Test Instrument)</text>
+  <text x="585" y="50" class="section-title" text-anchor="middle">Device Under Test (DUT)</text>
+
+  <!-- Layer labels -->
+  <text x="5" y="105" class="layer-label">Layer 1</text>
+  <text x="5" y="275" class="layer-label">Layer 2</text>
+  <text x="5" y="355" class="layer-label">Layer 4</text>
+  <text x="5" y="460" class="layer-label">Layer 5</text>
+  <text x="5" y="545" class="layer-label">Layers</text>
+  <text x="5" y="558" class="layer-label">6-7</text>
+
+  <!-- === ADALM2000 (left, x: 60-380) === -->
+
+  <!-- Layer 1: ADALM2000 Hardware -->
+  <rect x="60" y="58" width="320" height="180" rx="5" class="box" fill="#d7ccc8"/>
+  <text x="220" y="80" class="box-text" text-anchor="middle">ADALM2000 (M2k)</text>
+  <text x="220" y="98" class="box-desc" text-anchor="middle">USB multi-function instrument:</text>
+  <text x="80" y="116" class="box-desc">• 2-ch oscilloscope (±25V, 100 MSPS)</text>
+  <text x="80" y="132" class="box-desc">• 2-ch waveform generator (±5V, 150 MSPS)</text>
+  <text x="80" y="148" class="box-desc">• Adjustable power supplies (±5V)</text>
+  <text x="80" y="164" class="box-desc">• 16-ch logic analyzer (100 MSPS)</text>
+  <text x="80" y="180" class="box-desc">• Voltmeter and impedance analyzer</text>
+  <text x="220" y="200" class="box-desc" text-anchor="middle">Connects to DUT via probes / wiring</text>
+  <text x="220" y="218" class="box-desc" text-anchor="middle">Connects to host PC via USB</text>
+
+  <!-- === DUT (right, x: 520-840) === -->
+
+  <!-- Layer 1: DUT -->
+  <rect x="520" y="58" width="320" height="180" rx="5" class="box" fill="#dcedc8"/>
+  <text x="680" y="80" class="box-text" text-anchor="middle">Device Under Test (DUT)</text>
+  <text x="680" y="98" class="box-desc" text-anchor="middle">Any ADI evaluation board or custom circuit:</text>
+  <text x="540" y="116" class="box-desc">• ADI evaluation board (ARDZ, custom PCB)</text>
+  <text x="540" y="132" class="box-desc">• Analog signal inputs / outputs</text>
+  <text x="540" y="148" class="box-desc">• Power rails supplied by M2k or bench PSU</text>
+  <text x="540" y="164" class="box-desc">• Digital I/O for triggering / control</text>
+  <text x="540" y="180" class="box-desc">• No software stack required on DUT itself</text>
+  <text x="680" y="200" class="box-desc" text-anchor="middle">(DUT may be any ADI part under evaluation)</text>
+
+  <!-- Bidirectional probe connection between M2k and DUT -->
+  <line x1="380" y1="158" x2="520" y2="158" style="stroke: #c62828; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); marker-start: url(#arrowhead);"/>
+  <text x="450" y="148" class="arrow-label" text-anchor="middle">Probes / Wiring</text>
+  <text x="450" y="170" class="arrow-label" text-anchor="middle">Stimulus → / ← Measurement</text>
+
+  <!-- Vertical arrows (M2k column) -->
+  <line x1="220" y1="238" x2="220" y2="258" class="arrow"/>
+
+  <!-- Layer 2: USB Connection -->
+  <rect x="60" y="258" width="320" height="60" rx="5" class="box" fill="#ffe0b2"/>
+  <text x="220" y="280" class="box-text" text-anchor="middle">Host PC via USB 2.0</text>
+  <text x="220" y="298" class="box-desc" text-anchor="middle">ADALM2000 enumerates as usb: context</text>
+  <text x="220" y="314" class="box-desc" text-anchor="middle">No FPGA or MCU firmware needed</text>
+
+  <!-- Arrow down -->
+  <line x1="220" y1="318" x2="220" y2="338" class="arrow"/>
+
+  <!-- Layer 4: M2k IIO Context -->
+  <rect x="60" y="338" width="320" height="65" rx="5" class="box" fill="#bbdefb"/>
+  <text x="220" y="360" class="box-text" text-anchor="middle">m2k IIO Context (usb: backend)</text>
+  <text x="220" y="378" class="box-desc" text-anchor="middle">libiio exposes ADALM2000 as IIO device</text>
+  <text x="220" y="394" class="box-desc" text-anchor="middle">libm2k wraps context with instrument APIs</text>
+
+  <!-- Arrow down -->
+  <line x1="220" y1="403" x2="220" y2="423" class="arrow"/>
+
+  <!-- Layer 5: libm2k -->
+  <rect x="60" y="423" width="320" height="65" rx="5" class="box" fill="#e1f5fe"/>
+  <text x="220" y="445" class="box-text" text-anchor="middle">libm2k</text>
+  <text x="220" y="463" class="box-desc" text-anchor="middle">Hardware abstraction for ADALM2000</text>
+  <text x="220" y="480" class="box-desc" text-anchor="middle">AnalogIn · AnalogOut · PowerSupply · Logic</text>
+
+  <!-- Arrow down -->
+  <line x1="220" y1="488" x2="220" y2="508" class="arrow"/>
+
+  <!-- Layers 6-7: Python + pytest -->
+  <rect x="60" y="508" width="780" height="105" rx="5" class="box" fill="#f3e5f5"/>
+  <text x="450" y="530" class="box-text" text-anchor="middle">Layers 6–7: Test Script and Automation Framework</text>
+
+  <text x="80" y="552" class="box-desc" font-weight="bold">Layer 6 — libm2k Python bindings:</text>
+  <text x="100" y="567" class="box-desc">ctx = libm2k.m2kOpen("usb:")    ain = ctx.getAnalogIn()    ps = ctx.getPowerSupply()</text>
+  <text x="100" y="582" class="box-desc">ps.pushChannel(0, 5.0)    samples = ain.getSamples(1024)    assert threshold(samples)</text>
+
+  <text x="680" y="555" class="box-desc" font-weight="bold">Layer 7 — Apps:</text>
+  <text x="700" y="570" class="box-desc">• pytest / unittest</text>
+  <text x="700" y="585" class="box-desc">• Scopy (GUI mode)</text>
+  <text x="700" y="600" class="box-desc">• Jupyter Lab</text>
+
+  <!-- Bottom note -->
+  <text x="450" y="625" style="font-family: Arial, sans-serif; font-size: 11px; fill: #666;" text-anchor="middle">libm2k uses libiio internally — ADALM2000 can also be accessed via pyadi-iio for mixed instrument + IIO workflows</text>
+</svg>

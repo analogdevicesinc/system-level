@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 710">
+  <defs>
+    <style>
+      .box { stroke: #333; stroke-width: 2; }
+      .box-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; }
+      .box-desc { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .arrow { stroke: #666; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font-family: Arial, sans-serif; font-size: 10px; fill: #444; font-style: italic; }
+      .layer-label { font-family: Arial, sans-serif; font-size: 11px; fill: #888; font-weight: bold; }
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #444; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="25" class="title-text" text-anchor="middle">Workflow 4: Remote Multi-Device Setup via IIOD</text>
+
+  <!-- Column headings -->
+  <text x="225" y="50" class="section-title" text-anchor="middle">Target 1: FPGA + High-Speed ADC</text>
+  <text x="675" y="50" class="section-title" text-anchor="middle">Target 2: RPi + Precision ADC</text>
+
+  <!-- Layer labels (left margin) -->
+  <text x="5" y="100" class="layer-label">Layer 1</text>
+  <text x="5" y="200" class="layer-label">Layer 2</text>
+  <text x="5" y="310" class="layer-label">Layer 3</text>
+  <text x="5" y="390" class="layer-label">Layer 4</text>
+  <text x="5" y="580" class="layer-label">Layers</text>
+  <text x="5" y="595" class="layer-label">5-7</text>
+
+  <!-- === TARGET 1 (left column: x 60–430) === -->
+
+  <!-- Layer 1: AD9081 Hardware -->
+  <rect x="60" y="58" width="370" height="75" rx="5" class="box" fill="#d7ccc8"/>
+  <text x="245" y="80" class="box-text" text-anchor="middle">AD9081 MxFE Evaluation Board</text>
+  <text x="245" y="97" class="box-desc" text-anchor="middle">4 ADC + 4 DAC channels (GSPS)</text>
+  <text x="245" y="113" class="box-desc" text-anchor="middle">JESD204B/C interface to Zynq</text>
+
+  <!-- Arrow -->
+  <line x1="245" y1="133" x2="245" y2="150" class="arrow"/>
+
+  <!-- Layer 2: Zynq + Linux -->
+  <rect x="60" y="150" width="370" height="80" rx="5" class="box" fill="#ffe0b2"/>
+  <text x="245" y="172" class="box-text" text-anchor="middle">Zynq UltraScale+ MPSoC</text>
+  <text x="245" y="190" class="box-desc" text-anchor="middle">ARM Cortex-A53 + FPGA fabric</text>
+  <text x="245" y="207" class="box-desc" text-anchor="middle">Running Linux + Kuiper (or custom)</text>
+
+  <!-- Arrow -->
+  <line x1="245" y1="230" x2="245" y2="250" class="arrow"/>
+
+  <!-- Layer 3: HDL -->
+  <rect x="60" y="250" width="370" height="65" rx="5" class="box" fill="#fff9c4"/>
+  <text x="245" y="272" class="box-text" text-anchor="middle">HDL Reference Design</text>
+  <text x="245" y="289" class="box-desc" text-anchor="middle">JESD204, AXI DMA, SPI Engine</text>
+  <text x="245" y="305" class="box-desc" text-anchor="middle">Programmed into FPGA fabric</text>
+
+  <!-- Arrow -->
+  <line x1="245" y1="315" x2="245" y2="335" class="arrow"/>
+
+  <!-- Layer 4: Linux IIO Driver + IIOD -->
+  <rect x="60" y="335" width="370" height="85" rx="5" class="box" fill="#bbdefb"/>
+  <text x="245" y="358" class="box-text" text-anchor="middle">Linux IIO Driver + IIOD Server</text>
+  <text x="245" y="376" class="box-desc" text-anchor="middle">axi-ad9081 driver exposes IIO devices</text>
+  <text x="245" y="393" class="box-desc" text-anchor="middle">iiod listens on TCP :30431</text>
+  <text x="245" y="410" class="box-desc" text-anchor="middle">iio_info -u ip:192.168.1.10</text>
+
+  <!-- === TARGET 2 (right column: x 470–840) === -->
+
+  <!-- Layer 1: AD4080 Hardware -->
+  <rect x="470" y="58" width="370" height="75" rx="5" class="box" fill="#d7ccc8"/>
+  <text x="655" y="80" class="box-text" text-anchor="middle">AD4080 Precision ADC Shield</text>
+  <text x="655" y="97" class="box-desc" text-anchor="middle">40 MSPS SAR ADC (ARDZ form factor)</text>
+  <text x="655" y="113" class="box-desc" text-anchor="middle">SPI interface to Raspberry Pi</text>
+
+  <!-- Arrow -->
+  <line x1="655" y1="133" x2="655" y2="150" class="arrow"/>
+
+  <!-- Layer 2: Raspberry Pi + Kuiper -->
+  <rect x="470" y="150" width="370" height="80" rx="5" class="box" fill="#ffe0b2"/>
+  <text x="655" y="172" class="box-text" text-anchor="middle">Raspberry Pi 4</text>
+  <text x="655" y="190" class="box-desc" text-anchor="middle">ARM Cortex-A72 (4 cores)</text>
+  <text x="655" y="207" class="box-desc" text-anchor="middle">Running Kuiper Linux</text>
+
+  <!-- Arrow -->
+  <line x1="655" y1="230" x2="655" y2="250" class="arrow"/>
+
+  <!-- Layer 3: N/A -->
+  <rect x="470" y="250" width="370" height="65" rx="5" class="box" fill="#f5f5f5"/>
+  <text x="655" y="275" class="box-text" text-anchor="middle">HDL / Firmware</text>
+  <text x="655" y="295" class="box-desc" text-anchor="middle">Not applicable — direct SPI from CPU</text>
+
+  <!-- Arrow -->
+  <line x1="655" y1="315" x2="655" y2="335" class="arrow"/>
+
+  <!-- Layer 4: Linux IIO Driver + IIOD -->
+  <rect x="470" y="335" width="370" height="85" rx="5" class="box" fill="#bbdefb"/>
+  <text x="655" y="358" class="box-text" text-anchor="middle">Linux IIO Driver + IIOD Server</text>
+  <text x="655" y="376" class="box-desc" text-anchor="middle">ad4080 driver exposes IIO device</text>
+  <text x="655" y="393" class="box-desc" text-anchor="middle">iiod listens on TCP :30431</text>
+  <text x="655" y="410" class="box-desc" text-anchor="middle">iio_info -u ip:192.168.1.20</text>
+
+  <!-- === NETWORK BAR === -->
+  <rect x="60" y="435" width="780" height="45" rx="5" class="box" fill="#e8eaf6"/>
+  <text x="450" y="453" class="box-text" text-anchor="middle">Ethernet Network</text>
+  <text x="450" y="470" class="box-desc" text-anchor="middle">TCP/IP • IIOD protocol on port 30431 • Both targets accessible from host PC</text>
+
+  <!-- Arrows from targets to network -->
+  <line x1="245" y1="420" x2="245" y2="435" class="arrow"/>
+  <line x1="655" y1="420" x2="655" y2="435" class="arrow"/>
+
+  <!-- Arrow from network to host PC -->
+  <line x1="450" y1="480" x2="450" y2="500" class="arrow"/>
+
+  <!-- === HOST PC (Layers 5-7) === -->
+  <rect x="60" y="500" width="780" height="170" rx="5" class="box" fill="#f3e5f5"/>
+  <text x="450" y="523" class="box-text" text-anchor="middle">Host PC — Layers 5–7</text>
+
+  <!-- Layer 5 -->
+  <text x="80" y="545" class="box-desc" font-weight="bold">Layer 5 — libiio (ip: backend):</text>
+  <text x="100" y="560" class="box-desc">Connects to remote IIOD servers using ip: URI — no local IIO hardware required</text>
+
+  <!-- Layer 6 -->
+  <text x="80" y="582" class="box-desc" font-weight="bold">Layer 6 — pyadi-iio (identical API to local):</text>
+  <text x="100" y="597" class="box-desc">sdr = adi.ad9081(uri="ip:192.168.1.10")   # Zynq target</text>
+  <text x="100" y="612" class="box-desc">adc = adi.ad4080(uri="ip:192.168.1.20")   # RPi target</text>
+  <text x="100" y="627" class="box-desc">sdr_data = sdr.rx()    adc_data = adc.rx()   # Same API as local</text>
+
+  <!-- Layer 7 -->
+  <text x="640" y="560" class="box-desc" font-weight="bold">Layer 7 — Apps:</text>
+  <text x="660" y="575" class="box-desc">• Python / MATLAB</text>
+  <text x="660" y="590" class="box-desc">• Jupyter notebooks</text>
+  <text x="660" y="605" class="box-desc">• Scopy (remote)</text>
+  <text x="660" y="620" class="box-desc">• GNU Radio</text>
+
+  <!-- Bottom note -->
+  <text x="450" y="688" style="font-family: Arial, sans-serif; font-size: 11px; fill: #666;" text-anchor="middle">Any Workflow 1–3 target running Linux + IIOD becomes remotely accessible via ip: backend</text>
+  <text x="450" y="703" style="font-family: Arial, sans-serif; font-size: 11px; fill: #666;" text-anchor="middle">Application code is identical to local access — just change the URI string</text>
+</svg>
