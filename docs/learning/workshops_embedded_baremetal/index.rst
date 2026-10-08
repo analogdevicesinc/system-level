@@ -77,7 +77,7 @@ What ADI tried to do back then was to write an ADI driver for an ADI part,
 provided that we were selling the evaluation board with ADI part on it.
 The communication driver would be specific for each microcontroller or system
 board we would use: Maxim, Microchip, STM, etc.
-The structure was consisted mainly of buffers instantiations and function calls.
+The structure consisted mainly of buffers instantiations and function calls.
 The users would have to fill-in the code with their specific functions.
 
 The initial approach had two targets:
@@ -139,7 +139,7 @@ the driver, as well as communication interface specific sequences and timings.
 - Contains minimum init() and remove() functions -  take as parameter the
   specific init_param structure
 
-- Puts the devide into the desired state
+- Puts the device into the desired state
 - Allocates memory
 - Provides the descriptor for being called in other driver function calls, the remove functions frees the resources allocated by the init()
 
@@ -191,7 +191,7 @@ No-OS Projects
 ~~~~~~~~~~~~~~
 
 A project is basically an application that can be built, run and debugged on
-hardware
+hardware.
 
 Specifications:
 
@@ -298,13 +298,16 @@ Materials
 Pre-requisites
 ~~~~~~~~~~~~~~
 
-The workshop environment can be set up using one of two methods. Choose the
+The workshop environment can be set up using one of three methods. Choose the
 option that best fits your situation:
 
 - **Option 1: Pre-built Kuiper Image** - Recommended for live workshops and
   quick setup. Everything is pre-installed and ready to use.
 - **Option 2: Manual Setup** - For self-paced learning on your own Linux
   machine or when you want to understand the full setup process.
+- **Option 3: Debian packaging** - Recommended for live workshops and people 
+   who want to learn about this subject without dealing with setup steps. 
+   Everything is installed automatically and it's quick to set up.
 
 Option 1: Pre-built Kuiper Image
 ++++++++++++++++++++++++++++++++
@@ -355,12 +358,86 @@ The setup creates the following directory structure:
        └── projects/
            └── workshop/
 
+Option 3: Debian packaging
+++++++++++++++++++++++++++
+
+Set up the environment automatically on a Raspberry Pi 5 (or other system running
+Linux Ubuntu or Debian). This option is useful for a headache-free setup.
+
+#. Go to the workshops repository (ask a colleague for a link pointing to it, if you
+   were not already provided one!) and download the *datax-workshops-embedded-baremetal*
+   artifact from the latest workflow run found in the Actions tab of the repository.
+
+#. Write the image to an SD card by following the
+   :external+kuiper:ref:`Writing the Image to an SD Card
+   <use-kuiper-image>` guide. Put the SD card in your Raspberry Pi.
+
+#. Copy the workshop package artifact from your computer to the Raspberry Pi 5.
+   You may use the *scp* command (just ensure that you are on the same network)
+   or any other method of your choice.
+
+.. admonition:: Note
+
+   The artifact is a zip file named *datax-workshops-embedded-baremetal.zip*.
+
+.. admonition:: Note
+
+   From now on, all steps will be done on your Raspberry Pi 5.
+
+#. Run the following
+   commands, needed for the Visual Studio Code installation:
+
+   .. code-block:: bash
+
+      sudo apt-get install -y gpg
+      curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /tmp/microsoft.gpg
+      sudo install -D -o root -g root -m 644 /tmp/microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+      rm /tmp/microsoft.gpg
+      echo "deb [arch=amd64,arm64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" \
+         | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+
+#. Run the following commands to update the package list:
+
+   .. code-block:: bash
+
+      sudo apt-get update
+
+#. Unzip the artifact:
+
+   .. note:: These steps assume your artifact was copied to ``/home/analog``.
+
+   .. code-block:: bash
+
+      unzip ~/datax-workshops-embedded-baremetal.zip
+
+#. Install the Debian package:
+
+   .. code-block:: bash
+
+      sudo apt install ./datax-workshops-embedded-baremetal/datax-workshops-embedded-baremetal.deb
+
+#. Run the setup script to configure the environment:
+
+   .. code-block:: bash
+
+      datax-workshops-embedded-baremetal-setup
+
+#. Log out and back in once after setup so the new USB/serial group membership takes effect.
+   Then load the workshop environment from inside the workspace folder:
+
+   .. code-block:: bash
+
+      cd ~/Desktop/datax-workshops/embedded-baremetal
+      source env.sh
+
 .. _environment-configuration:
 
 Environment Configuration
 +++++++++++++++++++++++++
 
-After completing either setup option, configure the environment variables:
+After completing Option 1 or Option 2, configure the environment variables
+by running the commands below.
+This step is not necessary for Option 3, as the environment is already configured.
 
 .. code-block:: bash
 
@@ -380,11 +457,19 @@ This first example demonstrates basic UART communication. The firmware prints
 "Hello World" messages to the serial console, confirming that the development
 environment is correctly configured.
 
-Open a terminal and navigate to the workshop project directory:
+Open a terminal and navigate to the workshop project directory.
+
+If you set up the environment using Option 1 or Option 2, run:
 
 .. code-block:: bash
 
    cd ~/workshop_baremetal/no-OS/projects/workshop
+
+If you set up the environment using Option 3, run:
+
+.. code-block:: bash
+
+   cd ~/Desktop/datax-workshops/embedded-baremetal/no-OS/projects/workshop
 
 Clean any previous build artifacts and build the first example:
 
@@ -463,6 +548,12 @@ Connect the EVAL-ADXL355-PMDZ to MAX78000FTHR using the information below:
 
 Make sure all 6 wires from the pin correspondence table are connected.
 
+.. figure:: images/baremetal.png
+   :align: center
+   :width: 600
+
+   System setup with MAX78000FTHR, EVAL-ADXL355-PMDZ and Raspberry Pi 5
+
 You may now plug in the MAX78000FTHR into one of the workstation's USB ports
 using the USB cable.
 
@@ -507,9 +598,17 @@ You need to modify example_2.c and then reset, rebuild and reload the program
 onto the board. The recommended way to do this is to open the no-OS folder using
 your favorite editor and search for example_2.c file.
 
+If you set up the environment using Option 1 or Option 2, run:
+
 .. code-block:: bash
 
    code ~/workshop_baremetal/no-OS
+
+If you set up the environment using Option 3, run:
+
+.. code-block:: bash
+
+   code ~/Desktop/datax-workshops/embedded-baremetal/no-OS
 
 Example 3: Raw-to-readable conversion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -549,9 +648,17 @@ You need to modify example_3.c and then reset, rebuild and reload the program
 onto the board. The recommended way to do this is to open the no-OS folder using
 your favorite editor and search for example_3.c file.
 
+If you set up the environment using Option 1 or Option 2, run:
+
 .. code-block:: bash
 
    code ~/workshop_baremetal/no-OS
+
+If you set up the environment using Option 3, run:
+
+.. code-block:: bash
+
+   code ~/Desktop/datax-workshops/embedded-baremetal/no-OS
 
 The formula for the temperature:
 
@@ -632,8 +739,10 @@ components on a circuit by physically tilting the accelerometer.
 
 Close the terminal running picocom.
 
-Make sure you are in the ``~/workshop_baremetal/no-OS/projects/workshop``
-directory and reset the workspace:
+Make sure you are in the workshop project directory
+(``~/workshop_baremetal/no-OS/projects/workshop`` for Option 1 or Option 2,
+``~/Desktop/datax-workshops/embedded-baremetal/no-OS/projects/workshop`` for
+Option 3) and reset the workspace:
 
 .. code-block:: bash
 
@@ -651,11 +760,24 @@ Program the board:
 
    make EXAMPLE=iio_example run
 
-Change the directory and run the game:
+Change the directory and run the game.
+
+If you set up the environment using Option 1 or Option 2, run:
 
 .. code-block:: bash
 
    cd ~/workshop_baremetal/play
+
+If you set up the environment using Option 3, run:
+
+.. code-block:: bash
+
+   cd ~/Desktop/datax-workshops/embedded-baremetal/play
+
+Then run:
+
+.. code-block:: bash
+
    python3 play.py
 
 Notice the graphical interface:
