@@ -136,7 +136,7 @@ Building the kernel with the default device tree
    :show-user:
 
    $cd linux
-   $make adi_mb_defconfig
+   $make adi_mb_apollo_defconfig
    #
    # configuration written to .config
    #
