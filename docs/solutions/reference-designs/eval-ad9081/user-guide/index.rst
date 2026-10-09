@@ -3,17 +3,25 @@
 User guide
 ===============================================================================
 
+.. toctree::
+
+   2to24ghz-mxfe-rf-front-end
+
 :adi:`EVAL-AD9081` top view:
 
-.. image:: ../images/eval_ad9081_top_view.png
+.. figure:: ../images/eval_ad9081_top_view.png
    :align: center
    :width: 500
+
+   EVAL-AD9081 top view
 
 :adi:`EVAL-AD9082` top view:
 
-.. image:: ../images/eval_ad9082_top_view.png
+.. figure:: ../images/eval_ad9082_top_view.png
    :align: center
    :width: 500
+
+   EVAL-AD9082 top view
 
 The complete user guide of the evaluation board can be found at
 :adi:`AD9081/AD9082 Software Development User Guide, UG-1578 (Rev. A) <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`.
@@ -27,7 +35,7 @@ Hardware configuration
 .. warning::
 
    When using
-   :intel:`A10SoC <content/www/us/en/products/details/fpga/development-kits/arria/10-sx.html>`
+   :intel:`A10SoC <content/www/us/en/products/details/fpga/arria/10.html>`
    in your setup, the following reworks are required **on the evaluation
    board**:
 
@@ -40,20 +48,20 @@ Hardware configuration
      and populate R2M**
 
    For the carrier,
-   :intel:`A10SoC <content/www/us/en/products/details/fpga/development-kits/arria/10-sx.html>`,
+   :intel:`A10SoC <content/www/us/en/products/details/fpga/arria/10.html>`,
    the following reworks are mandatory:
    :ref:`FMC Pin Connection Configuration <ad9081 quickstart a10soc_changes>`
 
 .. warning::
 
    For
-   :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
+   `Agilex 7 SoC (FM87) <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
    setups, the following reworks are required on the evaluation board:
 
    - C39B, C40B: 50 ohm
 
    For the carrier
-   :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`,
+   `Agilex 7 SoC (FM87) <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__,
    the following reworks are required:
 
    - R1433, R1434: 50 ohm
@@ -90,13 +98,13 @@ MATLAB, and others. Two easy examples that can be used with it are:
 
 - :external+pyadi-iio:doc:`PyADI-IIO <index>`
 
-.. include-template:: ../common/using-iio-osc.rst.jinja
+.. include-template:: ../../common/using-iio-osc.rst.jinja
 
    has_linux: true
    has_no_os: true
-   
+
 About the IIO devices
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Main receivers RX1, RX2, RX3, and RX4 are handled by the axi-ad9081-rx-hpc IIO
 device.
@@ -112,4 +120,4 @@ Channels:
   - {``voltage3_i``, ``voltage3_q``}: RX4
 
 
-.. include-template:: ../common/using-scopy.rst.jinja
+.. include-template:: ../../common/using-scopy.rst.jinja

@@ -7,13 +7,17 @@ AD9081 & AD9082
 
 MxFE™ Quad, 16-Bit, 12GSPS RFDAC and Quad, 12-Bit, 4/6 GSPS RFADC.
 
-.. image:: ../images/ad9081.webp
+.. figure:: images/ad9081.webp
    :align: left
    :width: 150
 
-.. image:: ../images/ad9082.webp
+   AD9081 MxFE
+
+.. figure:: images/ad9082.webp
    :align: left
    :width: 120
+
+   AD9082 MxFE
 
 Overview
 -------------------------------------------------------------------------------
@@ -23,8 +27,9 @@ front end (MxFE®), highly integrated device with four 16-bit, 12 GSPS maximum
 sample rate, RF DAC cores, and four 12-bit, 4 GSPS rate, RF ADC cores.
 The :adi:`AD9081` model is 4D4AC, supporting 4 DACs and 4 ADCs.
 
-The :adi:`AD9081` / :adi:`AD9082` are well suited for applications requiring both
-wideband ADCs and DACs to process signal(s) that have wide instantaneous bandwidth.
+The :adi:`AD9081` / :adi:`AD9082` are well suited for applications requiring
+both wideband ADCs and DACs to process signal(s) that have wide instantaneous
+bandwidth.
 The device features 8 transmit and 8 receive lanes that support
 24.75 Gbps/lane JESD204C or 15.5 Gbps/lane JESD204B standards. The device
 also has an on-chip clock multiplier, and a digital signal processing (DSP)
@@ -58,22 +63,29 @@ Applications:
 
 :adi:`EVAL-AD9081` looks like this, with 4x ADCs and 4x DACs:
 
-.. image:: ../images/eval_ad9081.png
+.. figure:: images/eval_ad9081.png
    :align: center
    :width: 400
 
+   EVAL-AD9081 evaluation board
+
 While :adi:`EVAL-AD9082` looks like this, with 2x ADCs and 4x DACs:
 
-.. image:: ../images/eval_ad9082.png
+.. figure:: images/eval_ad9082.png
    :align: center
    :width: 450
+
+   EVAL-AD9082 evaluation board
 
 .. toctree::
    :hidden:
 
-   user-guide
+   user-guide/index
    prerequisites
    quickstart/index
+   ad9081_plugin
+   ad9081_ace
+   radar
 
 Recommendations
 -------------------------------------------------------------------------------
@@ -108,7 +120,7 @@ Table of contents
 
    #. Linux Applications
 
-      #. :ref:`iio-oscilloscope`
+      #. :ref:`ad9081 iio-osc-plugin`
 
 #. Design with the AD9081/AD9082
 
@@ -119,8 +131,8 @@ Table of contents
 
    - Hardware in the Loop / How to design your own custom BaseBand
 
-     - :ref:`GNU Radio <software gnuradio>`
-     - :dokuwiki:`Transceiver Toolbox <resources/tools-software/transceiver-toolbox>`
+     - :ref:`software gnuradio`
+     - :ref:`matlab transceiver-toolbox`
 
    - Resources for designing a custom AD9081/AD9082-based platform software
 
@@ -138,21 +150,23 @@ Table of contents
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - `Customizing the device tree on the target <https://developer.analog.com/docs/system-level/linux/kernel/zynq_tips_tricks/>`_
 
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
            - :external+linux:ref:`hmc7044`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
-           - :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+           - `JESD204 status utility <https://developer.analog.com/docs/system-level/software/jesd/jesd_status/>`_
+           - `JESD204 Eye Scan <https://developer.analog.com/docs/system-level/software/jesd/jesd_eye_scan/>`_
            - :external+hdl:ref:`jesd204`
 
-     #. :external+hdl:ref:`HDL reference design <ad9081_fmca_ebz>` which you must use in your FPGA.
+     #. :external+hdl:ref:`HDL reference design <ad9081_fmca_ebz>` which you must use in your FPGA
+     #. :ref:`ad9081 evaluating-using-ace`
 
 #. :adi:`Evaluating the AD9081/AD9082/AD9986/AD9988 Mixed Signal, Front-End RF Transceiver with ACE software <media/en/technical-documentation/user-guides/eval-ad9081-9082-9986-9988-ug-1829.pdf>`
 #. :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
-#. :dokuwiki:`Additional documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :ref:`ad9081 user-guide 2to24ghz-mxfe-rf-front-end`
+#. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _ad9081 block-diagram:
@@ -160,13 +174,17 @@ Table of contents
 Block diagram
 -------------------------------------------------------------------------------
 
-.. image:: ../images/ad9081_block_diagram.png
+.. figure:: images/ad9081_block_diagram.png
    :align: center
    :width: 700
 
-.. image:: ../images/ad9082_block_diagram.png
+   AD9081 block diagram
+
+.. figure:: images/ad9082_block_diagram.png
    :align: center
    :width: 700
+
+   AD9082 block diagram
 
 Videos
 -------------------------------------------------------------------------------

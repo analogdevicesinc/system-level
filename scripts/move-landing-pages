@@ -1,0 +1,883 @@
+#!/usr/bin/env python3
+"""
+move-landing-pages — Move wiki-migration landing pages to reference-designs/.
+
+Reads a CSV of (project_name, wiki_url) rows, and for each project:
+  1. Collects the landing RST + subfolder from wiki-migration/
+  2. Creates a branch from main
+  3. Writes files to solutions/reference-designs/{project}/
+  4. Updates :doc: links, includes, images, and binary artifacts
+  5. Localizes images (exclusive vs shared) and resources
+  6. Commits
+
+Usage:
+  ./scripts/move-landing-pages landing.csv [--dry-run] [--projects P1 P2 ...] [--verbose]
+"""
+
+import argparse
+import csv
+import re
+import shutil
+import subprocess
+import sys
+import urllib.parse
+from pathlib import Path
+
+# Import table fixers from the conversion script
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "scripts"))
+from importlib import import_module as _im
+_convert = _im("04_convert_to_rst")
+fix_grid_tables = _convert.fix_grid_tables
+fix_simple_tables = _convert.fix_simple_tables
+
+
+# ---------------------------------------------------------------------------
+# Git helpers (from migrate-pages)
+# ---------------------------------------------------------------------------
+
+def find_repo_root(path: Path) -> Path | None:
+    """Walk upward from path looking for .git/ directory."""
+    p = path.resolve()
+    for parent in [p] + list(p.parents):
+        if (parent / ".git").exists():
+            return parent
+    return None
+
+
+def git_in(repo_root: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
+    """Run git command in a specific repo. Prints stderr on failure."""
+    result = subprocess.run(
+        ["git", "-C", str(repo_root), *args],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0 and check:
+        print(f"  ERROR: git {' '.join(args)}")
+        if result.stderr.strip():
+            print(f"    {result.stderr.strip()}")
+        sys.exit(1)
+    return result
+
+
+def current_branch(repo_root: Path) -> str:
+    r = git_in(repo_root, "rev-parse", "--abbrev-ref", "HEAD")
+    return r.stdout.strip()
+
+
+def branch_exists(repo_root: Path, branch: str) -> bool:
+    r = git_in(repo_root, "rev-parse", "--verify", branch, check=False)
+    return r.returncode == 0
+
+
+def resolve_base(repo_root: Path, base: str) -> str:
+    """Resolve base branch, falling back to origin/<base>."""
+    if branch_exists(repo_root, base):
+        return base
+    remote = f"origin/{base}"
+    if branch_exists(repo_root, remote):
+        return remote
+    print(f"  ERROR: Base branch '{base}' not found")
+    sys.exit(1)
+
+
+# ---------------------------------------------------------------------------
+# Regex patterns
+# ---------------------------------------------------------------------------
+
+# :doc:`Text </wiki-migration/path>` or :doc:`/wiki-migration/path`
+DOC_REF_RE = re.compile(
+    r':doc:`'
+    r'(?:'
+    r'(?P<text>[^`<]*)<(?P<path1>[^`>]+)>'  # Text <path> form (greedy text)
+    r'|'
+    r'(?P<path2>[^`<>]+)'                    # bare path form (no angle brackets)
+    r')'
+    r'`'
+)
+
+# .. include:: relative/path
+INCLUDE_RE = re.compile(r'^(?P<indent>\s*)\.\. include:: (?P<path>.+)$', re.MULTILINE)
+
+# .. image:: https://wiki.analog.com/_media/...
+WIKI_IMAGE_RE = re.compile(
+    r'^(?P<indent>\s*)\.\. image:: https://wiki\.analog\.com/_media/(?P<path>\S+)',
+    re.MULTILINE,
+)
+
+# |subst| image definitions with wiki URLs
+SUBST_IMAGE_RE = re.compile(
+    r'^(?P<indent>\s*)\.\. \|(?P<name>[^|]+)\| image:: https://wiki\.analog\.com/_media/(?P<path>\S+)',
+    re.MULTILINE,
+)
+
+# Binary artifact URLs in links: `text <https://wiki.analog.com/_media/path.zip>`_
+BINARY_LINK_RE = re.compile(
+    r'`(?P<text>[^`<]+?)\s*<https://wiki\.analog\.com/_media/(?P<path>[^>]+\.(?:zip|exe|pdf|tar\.gz|tgz|gz|bz2|xz|rar|7z|msi|deb|rpm|bin|img|iso))>`_',
+    re.IGNORECASE,
+)
+
+# General _media URL extraction (excludes RST syntax chars)
+IMAGE_URL_RE = re.compile(r'https://wiki\.analog\.com/_media/([^\s>`\'"<]+)')
+
+BINARY_EXTS = {
+    '.zip', '.exe', '.pdf', '.tar.gz', '.tgz', '.gz', '.bz2', '.xz',
+    '.rar', '.7z', '.msi', '.deb', '.rpm', '.bin', '.img', '.iso',
+}
+
+
+# ---------------------------------------------------------------------------
+# CSV parsing
+# ---------------------------------------------------------------------------
+
+def parse_csv(csv_path: Path) -> list[tuple[str, str]]:
+    """Parse landing.csv → list of (project_name, wiki_path)."""
+    rows = []
+    with open(csv_path) as f:
+        reader = csv.reader(f)
+        header = next(reader)  # skip header
+        for row in reader:
+            if not row or not row[0].strip():
+                continue
+            project = row[0].strip()
+            url = row[1].strip()
+            # Strip wiki base to get wiki_path
+            wiki_path = url.replace("https://wiki.analog.com/", "")
+            rows.append((project, wiki_path))
+    return rows
+
+
+# ---------------------------------------------------------------------------
+# File collection
+# ---------------------------------------------------------------------------
+
+def collect_files(docs_dir: Path, wiki_path: str, stub: bool = False) -> dict[Path, str]:
+    """
+    Collect landing RST + all subpage RSTs from wiki-migration/.
+
+    Returns {absolute_path: content} for all files to move.
+    When stub=True, landing RST is optional (subfolder-only projects).
+    """
+    files = {}
+    wm_dir = docs_dir / "wiki-migration"
+
+    # Landing page
+    landing = wm_dir / f"{wiki_path}.rst"
+    if landing.exists():
+        files[landing] = landing.read_text()
+    elif not stub:
+        print(f"  WARNING: Landing page not found: {landing}")
+        return files
+
+    # Subfolder
+    subfolder = wm_dir / wiki_path
+    if subfolder.is_dir():
+        for rst in sorted(subfolder.rglob("*.rst")):
+            files[rst] = rst.read_text()
+
+    return files
+
+
+def build_moved_set(docs_dir: Path, collected: dict[Path, str]) -> set[str]:
+    """
+    Build set of doc paths (e.g. "wiki-migration/resources/eval/...")
+    for all collected files — used to check if a :doc: target is a moved sibling.
+    """
+    moved = set()
+    for p in collected:
+        rel = p.relative_to(docs_dir)
+        # Strip .rst suffix for doc path
+        doc = str(rel.with_suffix(""))
+        moved.add(doc)
+    return moved
+
+
+# ---------------------------------------------------------------------------
+# Path mapping
+# ---------------------------------------------------------------------------
+
+def source_to_dest(src_path: Path, docs_dir: Path, wiki_path: str,
+                   project: str, stub: bool = False) -> Path:
+    """
+    Map a source wiki-migration path to its destination under reference-designs/.
+
+    Landing page → reference-designs/{project}/index.rst (or keeps name if stub)
+    Subpages    → reference-designs/{project}/{relative}.rst
+    """
+    wm_dir = docs_dir / "wiki-migration"
+    landing = wm_dir / f"{wiki_path}.rst"
+
+    if src_path == landing:
+        if stub:
+            return docs_dir / "solutions" / "reference-designs" / project / landing.name
+        return docs_dir / "solutions" / "reference-designs" / project / "index.rst"
+
+    # Subpage: preserve structure relative to the wiki_path folder
+    rel = src_path.relative_to(wm_dir / wiki_path)
+    return docs_dir / "solutions" / "reference-designs" / project / rel
+
+
+def doc_path_remap(doc_ref: str, moved_set: set[str], wiki_path: str,
+                   project: str, stub: bool = False) -> str | None:
+    """
+    Given a :doc: reference (absolute, like /wiki-migration/resources/...),
+    return the new reference path if it's a moved sibling, else None.
+    """
+    # Strip leading /
+    clean = doc_ref.lstrip("/")
+
+    if clean in moved_set:
+        # It's a moved page — compute new path
+        wm_prefix = f"wiki-migration/{wiki_path}"
+        if clean == f"wiki-migration/{wiki_path}":
+            if stub:
+                basename = wiki_path.split("/")[-1]
+                return f"/solutions/reference-designs/{project}/{basename}"
+            # Landing page → index
+            return f"/solutions/reference-designs/{project}/index"
+        elif clean.startswith(wm_prefix + "/"):
+            # Subpage
+            suffix = clean[len(wm_prefix) + 1:]
+            return f"/solutions/reference-designs/{project}/{suffix}"
+
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Link updates
+# ---------------------------------------------------------------------------
+
+def update_doc_refs(content: str, moved_set: set[str], wiki_path: str,
+                    project: str, verbose: bool = False,
+                    stub: bool = False) -> str:
+    """
+    Update :doc: references:
+    - Moved siblings → new path under reference-designs/
+    - Non-moved pages → external wiki.analog.com link
+    """
+    def replace_doc(m):
+        text = (m.group("text") or "").strip()
+        path = m.group("path1") or m.group("path2")
+        path = path.strip()
+
+        new_path = doc_path_remap(path, moved_set, wiki_path, project, stub)
+
+        if new_path is not None:
+            # Moved sibling — update path
+            if text:
+                return f":doc:`{text} <{new_path}>`"
+            else:
+                return f":doc:`{new_path}`"
+        else:
+            # Non-moved — convert to external link
+            # Strip /wiki-migration/ prefix to get wiki path
+            wiki_ref = path.lstrip("/")
+            if wiki_ref.startswith("wiki-migration/"):
+                wiki_ref = wiki_ref[len("wiki-migration/"):]
+            display = text if text else wiki_ref.split("/")[-1]
+            url = f"https://wiki.analog.com/{wiki_ref}"
+            if verbose:
+                print(f"    :doc: → external: {path} → {url}")
+            return f"`{display} <{url}>`_"
+
+    return DOC_REF_RE.sub(replace_doc, content)
+
+
+def update_includes(content: str, rst_path: Path, docs_dir: Path,
+                    moved_set: set[str], wiki_path: str, project: str,
+                    dest_path: Path, verbose: bool = False) -> str:
+    """
+    Update .. include:: directives:
+    - If target is a moved sibling → update relative path
+    - If target is non-moved → replace with .. note:: + link
+    """
+    def replace_include(m):
+        indent = m.group("indent")
+        inc_path = m.group("path")
+
+        # Resolve the include target relative to the source RST
+        resolved = (rst_path.parent / inc_path).resolve()
+
+        # Check if it's under docs/ and in moved_set
+        try:
+            rel_to_docs = resolved.relative_to(docs_dir)
+            doc_key = str(rel_to_docs.with_suffix(""))
+        except ValueError:
+            doc_key = None
+
+        if doc_key and doc_key in moved_set:
+            # Moved sibling — compute new relative path from dest
+            dest_resolved = source_to_dest(resolved, docs_dir, wiki_path, project)
+            new_rel = Path(dest_resolved).relative_to(dest_path.parent,
+                                                       walk_up=True) if hasattr(Path, 'relative_to') else None
+            # Use os.path.relpath for compatibility
+            import os
+            new_rel = os.path.relpath(dest_resolved, dest_path.parent)
+            return f"{indent}.. include:: {new_rel}"
+        else:
+            # Non-moved — replace with note + link
+            # Try to derive wiki path from the resolved include target
+            try:
+                rel = resolved.relative_to(docs_dir / "wiki-migration")
+                wiki_ref = str(rel.with_suffix(""))
+            except ValueError:
+                wiki_ref = inc_path
+            url = f"https://wiki.analog.com/{wiki_ref}"
+            # Use a readable title from the path
+            title = wiki_ref.split("/")[-1].replace("_", " ").replace("-", " ").title()
+            if verbose:
+                print(f"    include → note: {inc_path} → {url}")
+            note = f"{indent}.. note::\n{indent}   See `{title} <{url}>`_."
+            return note
+
+    return INCLUDE_RE.sub(replace_include, content)
+
+
+# ---------------------------------------------------------------------------
+# Image localization
+# ---------------------------------------------------------------------------
+
+def collect_image_urls(files: dict[Path, str]) -> set[str]:
+    """Extract all wiki.analog.com/_media/ image paths from RST content."""
+    urls = set()
+    for content in files.values():
+        for m in IMAGE_URL_RE.finditer(content):
+            media_path = m.group(1)
+            # Skip binary artifacts (handled separately)
+            if any(media_path.lower().endswith(ext) for ext in BINARY_EXTS):
+                continue
+            urls.add(media_path)
+    return urls
+
+
+def collect_binary_urls(files: dict[Path, str]) -> set[str]:
+    """Extract all wiki.analog.com/_media/ binary artifact paths."""
+    urls = set()
+    for content in files.values():
+        for m in IMAGE_URL_RE.finditer(content):
+            media_path = m.group(1)
+            if any(media_path.lower().endswith(ext) for ext in BINARY_EXTS):
+                urls.add(media_path)
+    return urls
+
+
+def check_image_shared(media_path: str, docs_dir: Path, wiki_mig_dir: Path) -> bool:
+    """
+    Check if an image URL is referenced by RSTs outside wiki-migration/.
+
+    Returns True if shared (referenced elsewhere), False if exclusive.
+    """
+    url_pattern = f"wiki.analog.com/_media/{re.escape(media_path)}"
+    # Search only .rst files, exclude build artifacts
+    result = subprocess.run(
+        ["grep", "-rl", "--include=*.rst", url_pattern, str(docs_dir)],
+        capture_output=True, text=True, check=False,
+    )
+    if result.returncode != 0:
+        return False
+
+    build_dir = docs_dir / "_build"
+    for line in result.stdout.strip().splitlines():
+        p = Path(line)
+        # Skip build artifacts
+        try:
+            p.relative_to(build_dir)
+            continue
+        except ValueError:
+            pass
+        # Skip wiki-migration files
+        try:
+            p.relative_to(wiki_mig_dir)
+        except ValueError:
+            # Found reference outside wiki-migration/
+            return True
+    return False
+
+
+def localize_images(files: dict[Path, str], dest_map: dict[Path, Path],
+                    media_dir: Path, docs_dir: Path, project: str,
+                    dry_run: bool, verbose: bool) -> tuple[dict[Path, str], list[tuple[Path, Path]]]:
+    """
+    Localize wiki image URLs to local paths.
+
+    Returns updated file contents and list of (src, dest) copies to make.
+    """
+    image_urls = collect_image_urls(files)
+    wiki_mig_dir = docs_dir / "wiki-migration"
+    copies = []
+    # media_path → local relative path (from project root)
+    url_to_local: dict[str, str] = {}
+
+    ref_designs_dir = docs_dir / "solutions" / "reference-designs"
+    project_dir = ref_designs_dir / project
+
+    for media_path in sorted(image_urls):
+        # URL-decode the media path for filesystem lookup
+        decoded = urllib.parse.unquote(media_path)
+        local_media = media_dir / decoded
+        if not local_media.is_file():
+            if verbose:
+                print(f"    Image not found locally: {media_path}")
+            continue
+
+        filename = local_media.name
+        shared = check_image_shared(media_path, docs_dir, wiki_mig_dir)
+
+        if shared:
+            dest = ref_designs_dir / "images" / filename
+            # Relative from project subdir files: ../images/filename
+            url_to_local[media_path] = ("shared", filename)
+        else:
+            dest = project_dir / "images" / filename
+            url_to_local[media_path] = ("exclusive", filename)
+
+        copies.append((local_media, dest))
+        if verbose:
+            kind = "shared" if shared else "exclusive"
+            print(f"    Image: {media_path} → {kind}: {dest.relative_to(docs_dir)}")
+
+    # Update content
+    updated = {}
+    for src_path, content in files.items():
+        dest_path = dest_map[src_path]
+        new_content = content
+        for media_path, (kind, filename) in url_to_local.items():
+            full_url = f"https://wiki.analog.com/_media/{media_path}"
+            if full_url not in new_content:
+                continue
+            # Compute relative path from this RST to the images dir
+            if kind == "shared":
+                images_dir = ref_designs_dir / "images"
+            else:
+                images_dir = project_dir / "images"
+
+            import os
+            rel = os.path.relpath(images_dir / filename, dest_path.parent)
+            new_content = new_content.replace(full_url, rel)
+
+        updated[src_path] = new_content
+
+    return updated, copies
+
+
+def localize_binaries(files: dict[Path, str], dest_map: dict[Path, Path],
+                      media_dir: Path, docs_dir: Path, project: str,
+                      dry_run: bool, verbose: bool) -> tuple[dict[Path, str], list[tuple[Path, Path]]]:
+    """
+    Localize binary artifact URLs to local paths.
+    Same exclusive/shared logic as images but uses resources/ instead of images/.
+    """
+    binary_urls = collect_binary_urls(files)
+    wiki_mig_dir = docs_dir / "wiki-migration"
+    copies = []
+    url_to_local: dict[str, tuple[str, str]] = {}
+
+    ref_designs_dir = docs_dir / "solutions" / "reference-designs"
+    project_dir = ref_designs_dir / project
+
+    for media_path in sorted(binary_urls):
+        decoded = urllib.parse.unquote(media_path)
+        local_media = media_dir / decoded
+        if not local_media.is_file():
+            if verbose:
+                print(f"    Binary not found locally: {media_path}")
+            continue
+
+        filename = local_media.name
+        shared = check_image_shared(media_path, docs_dir, wiki_mig_dir)
+
+        if shared:
+            dest = ref_designs_dir / "resources" / filename
+            url_to_local[media_path] = ("shared", filename)
+        else:
+            dest = project_dir / "resources" / filename
+            url_to_local[media_path] = ("exclusive", filename)
+
+        copies.append((local_media, dest))
+        if verbose:
+            kind = "shared" if shared else "exclusive"
+            print(f"    Binary: {media_path} → {kind}: {dest.relative_to(docs_dir)}")
+
+    # Update content
+    updated = {}
+    for src_path, content in files.items():
+        dest_path = dest_map[src_path]
+        new_content = content
+        for media_path, (kind, filename) in url_to_local.items():
+            full_url = f"https://wiki.analog.com/_media/{media_path}"
+            if full_url not in new_content:
+                continue
+            if kind == "shared":
+                resources_dir = ref_designs_dir / "resources"
+            else:
+                resources_dir = project_dir / "resources"
+
+            import os
+            rel = os.path.relpath(resources_dir / filename, dest_path.parent)
+            new_content = new_content.replace(full_url, rel)
+
+        updated[src_path] = new_content
+
+    return updated, copies
+
+
+# ---------------------------------------------------------------------------
+# Stub index generation
+# ---------------------------------------------------------------------------
+
+def extract_title(content: str, dir_name: str) -> str:
+    """Extract the first RST heading from content, or generate from dir_name."""
+    lines = content.split('\n')
+    underline_chars = set('=-~^"\'`_+#*')
+    for i in range(len(lines)):
+        line = lines[i].rstrip()
+        if not line:
+            continue
+        # Check if next line is an underline
+        if i + 1 < len(lines):
+            next_line = lines[i + 1].rstrip()
+            if (next_line and len(set(next_line)) == 1 and
+                    next_line[0] in underline_chars and
+                    len(next_line) >= len(line)):
+                return line
+        # Check if this line is an overline (title is next line)
+        if (len(set(line)) == 1 and line[0] in underline_chars and
+                i + 1 < len(lines) and lines[i + 1].strip()):
+            return lines[i + 1].strip()
+    # Fallback: uppercase dir_name with underscores → hyphens
+    return dir_name.upper().replace('_', '-')
+
+
+def generate_stub_index(title: str, page_names: list[str]) -> str:
+    """Generate a minimal index.rst with a toctree listing all sub-pages."""
+    underline = '=' * len(title)
+    toctree_entries = '\n'.join(f'   {name}' for name in page_names)
+    return f"""{title}
+{underline}
+
+.. toctree::
+   :titlesonly:
+
+{toctree_entries}
+"""
+
+
+# ---------------------------------------------------------------------------
+# Main per-project workflow
+# ---------------------------------------------------------------------------
+
+def process_project(project: str, wiki_path: str, repo_root: Path,
+                    docs_dir: Path, media_dir: Path,
+                    dry_run: bool, verbose: bool,
+                    stub: bool = False) -> bool:
+    """Process a single project. Returns True on success."""
+    print(f"\n{'='*60}")
+    print(f"Project: {project}")
+    print(f"  wiki_path: {wiki_path}")
+
+    ref_designs = docs_dir / "solutions" / "reference-designs"
+    dest_dir = ref_designs / project
+
+    # Step 1: Skip check — does dest exist on main?
+    # Check if the directory exists in the main branch
+    r = git_in(repo_root, "ls-tree", "--name-only",
+               resolve_base(repo_root, "main"),
+               f"docs/solutions/reference-designs/{project}/",
+               check=False)
+    if r.returncode == 0 and r.stdout.strip():
+        print(f"  SKIP: {project}/ already exists on main")
+        return False
+
+    # Step 2: Check if branch already exists
+    branch_name = f"wiki_migration/{project}_landing"
+    if branch_exists(repo_root, branch_name):
+        print(f"  SKIP: Branch {branch_name} already exists")
+        return False
+
+    # Step 3: Collect files (on wiki-migration branch)
+    orig_branch = current_branch(repo_root)
+    if orig_branch != "wiki-migration":
+        git_in(repo_root, "checkout", "wiki-migration")
+
+    collected = collect_files(docs_dir, wiki_path, stub)
+    if not collected:
+        print(f"  SKIP: No files found for {wiki_path}")
+        if current_branch(repo_root) != orig_branch:
+            git_in(repo_root, "checkout", orig_branch)
+        return False
+
+    print(f"  Collected {len(collected)} files")
+
+    # Build moved set and destination map
+    moved_set = build_moved_set(docs_dir, collected)
+    dest_map: dict[Path, Path] = {}
+    for src_path in collected:
+        dest_map[src_path] = source_to_dest(src_path, docs_dir, wiki_path, project, stub)
+
+    if verbose:
+        print(f"  Moved set ({len(moved_set)} pages):")
+        for p in sorted(moved_set):
+            print(f"    {p}")
+
+    if dry_run:
+        print(f"\n  [DRY RUN] Would create branch: {branch_name}")
+        print(f"  [DRY RUN] File mapping:")
+        for src, dst in sorted(dest_map.items()):
+            print(f"    {src.relative_to(docs_dir)} → {dst.relative_to(docs_dir)}")
+
+        # Still process links to show what would change
+        for src_path, content in collected.items():
+            dest_path = dest_map[src_path]
+            updated = update_doc_refs(content, moved_set, wiki_path, project, verbose, stub)
+            updated = update_includes(updated, src_path, docs_dir, moved_set,
+                                      wiki_path, project, dest_path, verbose)
+
+        # Show image localization preview
+        image_urls = collect_image_urls(collected)
+        binary_urls = collect_binary_urls(collected)
+        print(f"  [DRY RUN] Images to localize: {len(image_urls)}")
+        print(f"  [DRY RUN] Binaries to localize: {len(binary_urls)}")
+        if verbose:
+            for url in sorted(image_urls):
+                decoded = urllib.parse.unquote(url)
+                local = media_dir / decoded
+                exists = "✓" if local.exists() else "✗"
+                print(f"    [{exists}] {url}")
+            for url in sorted(binary_urls):
+                decoded = urllib.parse.unquote(url)
+                local = media_dir / decoded
+                exists = "✓" if local.exists() else "✗"
+                print(f"    [{exists}] {url}")
+        if stub:
+            print(f"  [DRY RUN] Would generate stub index.rst")
+
+        return True
+
+    # Step 4: Create branch from main
+    resolved_main = resolve_base(repo_root, "main")
+    git_in(repo_root, "checkout", "-b", branch_name, resolved_main)
+    print(f"  Created branch: {branch_name}")
+
+    # Step 5: Update links in all moved RSTs
+    updated_files = {}
+    for src_path, content in collected.items():
+        dest_path = dest_map[src_path]
+        updated = update_doc_refs(content, moved_set, wiki_path, project, verbose, stub)
+        updated = update_includes(updated, src_path, docs_dir, moved_set,
+                                  wiki_path, project, dest_path, verbose)
+        updated_files[src_path] = updated
+
+    # Step 6: Localize images
+    updated_files, image_copies = localize_images(
+        updated_files, dest_map, media_dir, docs_dir, project, dry_run, verbose
+    )
+
+    # Step 7: Localize binaries
+    updated_files, binary_copies = localize_binaries(
+        updated_files, dest_map, media_dir, docs_dir, project, dry_run, verbose
+    )
+
+    # Step 7b: Re-fix table alignment after link/image updates
+    # Link conversion widens cell content (e.g. :doc: → external URL),
+    # so tables need realignment after all content modifications.
+    for src_path in list(updated_files):
+        updated_files[src_path] = fix_grid_tables(updated_files[src_path])
+        updated_files[src_path] = fix_simple_tables(updated_files[src_path])
+
+    # Step 8: Write files
+    for src_path, content in updated_files.items():
+        dest_path = dest_map[src_path]
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
+        dest_path.write_text(content)
+        if verbose:
+            print(f"  Wrote: {dest_path.relative_to(docs_dir)}")
+
+    # Copy images
+    for src, dst in image_copies:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        if verbose:
+            print(f"  Copied image: {dst.relative_to(docs_dir)}")
+
+    # Copy binaries
+    for src, dst in binary_copies:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        if verbose:
+            print(f"  Copied binary: {dst.relative_to(docs_dir)}")
+
+    print(f"  Wrote {len(updated_files)} RSTs, "
+          f"{len(image_copies)} images, {len(binary_copies)} binaries")
+
+    # Step 8b: Generate stub index if needed
+    if stub:
+        wm_dir = docs_dir / "wiki-migration"
+        landing = wm_dir / f"{wiki_path}.rst"
+        if landing in collected:
+            title = extract_title(collected[landing], project)
+        else:
+            title = project.upper().replace('_', '-')
+
+        # Build toctree entries
+        page_names = []
+        landing_name = None
+        for src_path in collected:
+            dest_path = dest_map[src_path]
+            rel = dest_path.relative_to(dest_dir)
+            name = str(rel.with_suffix(''))
+            if src_path == landing:
+                landing_name = name
+            else:
+                page_names.append(name)
+        page_names.sort()
+        if landing_name:
+            page_names.insert(0, landing_name)
+
+        stub_content = generate_stub_index(title, page_names)
+        index_path = dest_dir / "index.rst"
+        index_path.parent.mkdir(parents=True, exist_ok=True)
+        index_path.write_text(stub_content)
+        print(f"  Generated stub index.rst with {len(page_names)} toctree entries")
+
+    # Step 8c: Append hidden toctree to index.rst (non-stub mode)
+    # The landing page was renamed to index.rst but has no toctree,
+    # so sub-pages are orphaned (toc.not_included warnings).
+    if not stub:
+        index_path = dest_dir / "index.rst"
+        if index_path.exists():
+            page_names = []
+            for src_path in collected:
+                dest_path = dest_map[src_path]
+                if dest_path != index_path:
+                    rel = dest_path.relative_to(dest_dir)
+                    page_names.append(str(rel.with_suffix('')))
+            if page_names:
+                page_names.sort()
+                toctree = "\n\n.. toctree::\n   :hidden:\n\n"
+                toctree += "\n".join(f"   {name}" for name in page_names) + "\n"
+                content = index_path.read_text()
+                index_path.write_text(content + toctree)
+                print(f"  Appended hidden toctree with {len(page_names)} entries to index.rst")
+
+    # Step 9: Stage and commit
+    git_in(repo_root, "add", f"docs/solutions/reference-designs/{project}/")
+    # Also add shared images/resources if any were created
+    shared_img = ref_designs / "images"
+    shared_res = ref_designs / "resources"
+    if shared_img.exists():
+        git_in(repo_root, "add", str(shared_img.relative_to(repo_root)))
+    if shared_res.exists():
+        git_in(repo_root, "add", str(shared_res.relative_to(repo_root)))
+
+    if stub:
+        n_pages = len(collected)
+        msg = (f"wiki-migration: add {project} documentation to reference-designs/\n\n"
+               f"Move {n_pages} page{'s' if n_pages != 1 else ''} "
+               f"from wiki-migration/ to solutions/reference-designs/{project}/.\n"
+               f"Generated stub index.rst with toctree.\n"
+               f"Localized {len(image_copies)} images, {len(binary_copies)} binary artifacts.\n"
+               f"Updated :doc: links and includes.")
+    else:
+        msg = (f"wiki-migration: move {project} landing page to reference-designs/\n\n"
+               f"Move {wiki_path} landing page and {len(collected)-1} subpages\n"
+               f"from wiki-migration/ to solutions/reference-designs/{project}/.\n"
+               f"Localized {len(image_copies)} images, {len(binary_copies)} binary artifacts.\n"
+               f"Updated :doc: links and includes.")
+    git_in(repo_root, "commit", "-m", msg)
+    print(f"  Committed on {branch_name}")
+
+    # Return to wiki-migration for next project
+    git_in(repo_root, "checkout", "wiki-migration")
+
+    return True
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Move wiki-migration landing pages to reference-designs/",
+    )
+    parser.add_argument("csv", type=Path, help="CSV file with (project, wiki_url) rows")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Preview changes without creating branches or files")
+    parser.add_argument("--projects", nargs="+", metavar="P",
+                        help="Only process these projects (default: all)")
+    parser.add_argument("--verbose", "-v", action="store_true",
+                        help="Show detailed output")
+    parser.add_argument("--stub", action="store_true",
+                        help="Generate stub index.rst instead of renaming landing page")
+    args = parser.parse_args()
+
+    # Resolve paths
+    script_dir = Path(__file__).resolve().parent
+    repo_root = find_repo_root(script_dir)
+    if repo_root is None:
+        print("ERROR: Not inside a git repository")
+        sys.exit(1)
+
+    docs_dir = repo_root / "docs"
+    media_dir = Path(__file__).resolve().parent.parent.parent / "wiki-web" / "media"
+
+    if not docs_dir.exists():
+        print(f"ERROR: docs/ not found at {docs_dir}")
+        sys.exit(1)
+
+    if not media_dir.exists():
+        print(f"WARNING: wiki-web/media/ not found at {media_dir}")
+        print("  Image localization will be skipped for missing files")
+
+    # Parse CSV
+    rows = parse_csv(args.csv)
+    if not rows:
+        print("ERROR: No projects found in CSV")
+        sys.exit(1)
+
+    # Filter projects if specified
+    if args.projects:
+        filter_set = set(args.projects)
+        rows = [(p, w) for p, w in rows if p in filter_set]
+        if not rows:
+            print(f"ERROR: None of {args.projects} found in CSV")
+            sys.exit(1)
+
+    print(f"Processing {len(rows)} projects from {args.csv}")
+    if args.dry_run:
+        print("[DRY RUN MODE]")
+
+    # Ensure we start on wiki-migration
+    orig_branch = current_branch(repo_root)
+
+    success = 0
+    skipped = 0
+    for project, wiki_path in rows:
+        try:
+            if process_project(project, wiki_path, repo_root, docs_dir,
+                               media_dir, args.dry_run, args.verbose,
+                               args.stub):
+                success += 1
+            else:
+                skipped += 1
+        except Exception as e:
+            print(f"  ERROR: {e}")
+            import traceback
+            traceback.print_exc()
+            # Try to return to wiki-migration
+            try:
+                git_in(repo_root, "checkout", "wiki-migration", check=False)
+            except Exception:
+                pass
+            skipped += 1
+
+    # Return to original branch
+    if current_branch(repo_root) != orig_branch:
+        git_in(repo_root, "checkout", orig_branch)
+
+    print(f"\n{'='*60}")
+    print(f"Done: {success} processed, {skipped} skipped")
+
+
+if __name__ == "__main__":
+    main()
