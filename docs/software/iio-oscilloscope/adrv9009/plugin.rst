@@ -63,74 +63,74 @@ Device Global Settings
 ----------------------
 
 - **Active ENSM:** Displays the active mode of the Enable State Machine.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **ENSM Modes:** Selects one of the available modes
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **Profile configuration:** Allows a Profile configuration to be loaded from a
   file.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **TRX LO Frequency(MHz):** Selects the local oscillator frequency. Range
   75MHz to 6GHz with low tuning granularity.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **Calibrations:** Allows the user to reschedule a certain calibration
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 
 Receive Chain
 -------------
 
 - **RF Bandwidth(MHz):** Displays the Primary Signal Bandwidth of the current
   Profile.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **Sampling Rate(MSPS):** Displays the RX Sample Rate of the current Profile.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **RX**
 
   - **Hardware Gain(dB):** Controls the RX gain only in Manual Gain Control
     Mode (MGC).
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
   - **RSSI(dB):** Displays the received strength signal level.
-            :external+hdl:ref:`Read More <adrv9009>`
+            :external+linux:ref:`Read More <adrv9009>`
   - **Gain Control:** Displays the active gain mode.
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
   - **Gain Control Modes:** Selects one of the available modes: manual, hybrid
     and automatic.
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
   - **Gain Control Pin Mode:** Enables Pin Control Mode
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
   - **Tracking**
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
 
      - **Quadrature**
      - **HD2**
 
   - **Powerdown:** Channel Enable/Powerdown
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
 
 Transmit Chain
 --------------
 
 - **RF Bandwidth(MHz):** Displays the Primary Signal Bandwidth of the current
   Profile.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **Sampling Rate(MSPS):** Displays the RX Sample Rate of the current Profile.
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **PA Protection:** Enables PA protection
-  :external+hdl:ref:`Read More <adrv9009>`
+  :external+linux:ref:`Read More <adrv9009>`
 - **TX**
 
   * **Attenuation(dB):** The TX attenuation/gain can be individually controlled
     for TX1 and TX2. The range is from 0 to -41.95 dB in programmable steps sizes.
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
   * **Attenuation Pin Control Mode:** Enables Pin Control Mode
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
   * **Tracking**
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
 
     * **Quadrature**
     * **LO Leakage**
 
   * **Powerdown:** Channel Enable/Powerdown
-    :external+hdl:ref:`Read More <adrv9009>`
+    :external+linux:ref:`Read More <adrv9009>`
 
 Observation Chain
 -----------------
@@ -140,28 +140,28 @@ Observation Chain
 
 -  **RF Bandwidth(MHz):** Displays the Primary Signal Bandwidth of the current
    Profile.
-   :external+hdl:ref:`Read More <adrv9009>`
+   :external+linux:ref:`Read More <adrv9009>`
 -  **Sampling Rate(MSPS):** Displays the RX Sample Rate of the current Profile.
-   :external+hdl:ref:`Read More <adrv9009>`
+   :external+linux:ref:`Read More <adrv9009>`
 -  **AUX PLL LO Frequency(MHz):** Controls the AUX PLL local oscillator
    frequency. Range 75MHz to 6GHz with low tuning granularity.
-   :external+hdl:ref:`Read More <adrv9009>`
+   :external+linux:ref:`Read More <adrv9009>`
 -  **Observation Path LO Source:** Controls the LO source for the observation
    receiver
-   :external+hdl:ref:`Read More <adrv9009>`
+   :external+linux:ref:`Read More <adrv9009>`
 
 -  **RX**
 
    - **Hardware Gain(dB):** Controls the RX gain only in Manual Gain Control
      Mode (MGC).
-     :external+hdl:ref:`Read More <adrv9009>`
+     :external+linux:ref:`Read More <adrv9009>`
    - **Tracking**
-     :external+hdl:ref:`Read More <adrv9009>`
+     :external+linux:ref:`Read More <adrv9009>`
 
      -  **Quadrature**
 
    - **Powerdown:** Channel Enable/Powerdown
-     :external+hdl:ref:`Read More <adrv9009>`
+     :external+linux:ref:`Read More <adrv9009>`
 
 FPGA Settings
 -------------

@@ -21,6 +21,6 @@ the AD-FMCDAQ3-EBZ can be found at:
 -  :external+linux:ref:`AD9528 Low Jitter Clock Generator Linux Driver <ad9528>`
 -  :external+linux:ref:`axi-adc-hdl`
 -  :external+linux:ref:`axi-dac-dds-hdl`
--  :external+hdl:ref:`axi_jesd204_tx`
--  :external+hdl:ref:`axi_jesd204_rx`
--  :external+hdl:ref:`axi_adxcvr`
+-  :external+linux:ref:`axi_jesd204_tx`
+-  :external+linux:ref:`axi_jesd204_rx`
+-  :external+linux:ref:`axi_adxcvr`

@@ -62,11 +62,11 @@ Table of contents
 
       #. About the device driver:
 
-         - :external+hdl:ref:`axi_jesd204_tx`
-         - :external+hdl:ref:`axi_jesd204_rx`
-         - :external+hdl:ref:`axi_adxcvr`
+         - :external+linux:ref:`axi_jesd204_tx`
+         - :external+linux:ref:`axi_jesd204_rx`
+         - :external+linux:ref:`axi_adxcvr`
          - :external+linux:ref:`axi-dac-dds-hdl`
-         - :external+hdl:ref:`axi_dmac`
+         - :external+linux:ref:`axi-dmac`
          - :external+linux:ref:`ad9172`
 
       #. About the device tree:
@@ -77,8 +77,8 @@ Table of contents
 
          - :external+linux:ref:`jesd204-fsm-framework`
          - :external+linux:ref:`hmc7044`
-         - :doc:`JESD204 status utility </software/jesd/jesd_status>`
-         - :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
+         - :ref:`JESD204 status utility <software jesd-status>`
+         - :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
          - :external+hdl:ref:`jesd204`
 
       #. :ref:`Building Zynq Linux kernel and devicetree <linux-kernel zynq>`

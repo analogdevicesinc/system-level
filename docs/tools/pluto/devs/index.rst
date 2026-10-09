@@ -46,7 +46,7 @@ Content
       device driver </resources/tools-software/linux-drivers/iio-transceiver/ad9361>`__
    #. :external+linux:ref:`axi-adc-hdl`
    #. :external+linux:ref:`axi-dac-dds-hdl`
-   #. :external+hdl:ref:`axi_dmac`
+   #. :external+linux:ref:`axi-dmac`
    #. :adi:`ADM1177` Digital Power Monitor Linux Driver
    #. etc.
 

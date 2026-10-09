@@ -93,8 +93,8 @@ Table of contents
         #. About the device driver:
 
            - :external+linux:ref:`AXI HDMI TX Linux driver <hdl-axi-hdmi>`
-           - :external+hdl:ref:`AXI-DMAC DMA Controller Linux driver <axi_dmac>`
-           - :external+hdl:ref:`ADV7511 Linux device driver <adv7511>`
+           - :external+linux:ref:`AXI-DMAC DMA Controller Linux driver <axi-dmac>`
+           - :external+linux:ref:`ADV7511 Linux device driver <adv7511>`
 
         #. About the device tree:
 

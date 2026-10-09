@@ -161,8 +161,8 @@ Table of Contents
          #. About the JESD204 utilities:
 
             #. :external+linux:doc:`JESD204 (FSM) interface Linux Kernel framework <drivers/jesd204/jesd204-fsm-framework>`
-            #. :doc:`JESD204 status utility </software/jesd/jesd_status>`
-            #. :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
+            #. :ref:`JESD204 status utility <software jesd-status>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
             #. :external+hdl:ref:`jesd204`
 
       #. FPGA Resources:

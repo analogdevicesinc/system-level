@@ -139,18 +139,18 @@ Table of Contents
             .. #. `AD9084 Device Driver Customization <TODO>`__
 
          #. :external+linux:ref:`jesd204-fsm-framework`
-         #. :external+hdl:ref:`axi_dmac`
-         #. :external+hdl:ref:`axi_jesd204_tx`
+         #. :external+linux:ref:`axi-dmac`
+         #. :external+linux:ref:`axi_jesd204_tx`
 
-            #. :doc:`JESD204B Status Utility </software/jesd/jesd_status>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
 
-         #. :external+hdl:ref:`axi_jesd204_rx`
+         #. :external+linux:ref:`axi_jesd204_rx`
 
-            #. :doc:`JESD204B Status Utility </software/jesd/jesd_status>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
 
-         #. :external+hdl:ref:`axi_adxcvr`
+         #. :external+linux:ref:`axi_adxcvr`
 
-            #. :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
 
          #. :external+linux:ref:`axi-adc-hdl`
          #. :external+linux:ref:`axi-dac-dds-hdl`

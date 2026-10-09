@@ -90,8 +90,8 @@ Linux
 
 - :external+linux:ref:`AD9680 AXI Linux driver <axi-adc-hdl>`
 - :dokuwiki:`ADA4961 Low Distortion, 3.2 GHz, RF DGA Linux driver <resources/tools-software/linux-drivers/iio-amplifiers/ad8366>`
-- :external+hdl:ref:`JESD204B/C Receive Linux driver <axi_jesd204_rx>`
-- :external+hdl:ref:`JESD204B/C AXI_ADXCVR Highspeed Transceivers Linux driver <axi_adxcvr>`
+- :external+linux:ref:`JESD204B/C Receive Linux driver <axi_jesd204_rx>`
+- :external+linux:ref:`JESD204B/C AXI_ADXCVR Highspeed Transceivers Linux driver <axi_adxcvr>`
 - :dokuwiki:`ZC706 Linux image <resources/tools-software/linux-software/kuiper-linux>`
 
 Help & Support

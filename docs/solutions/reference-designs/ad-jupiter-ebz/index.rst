@@ -141,7 +141,7 @@ Table of contents
            - :external+linux:ref:`adrv9002`
            - :external+linux:ref:`adrv9002-customization`
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+hdl:ref:`axi_dmac`
+           - :external+linux:ref:`axi-dmac`
 
         #. About the device tree:
 

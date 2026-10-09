@@ -107,7 +107,7 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+hdl:ref:`AXI-DMAC DMA Controller Linux driver <axi_dmac>`
+           - :external+linux:ref:`AXI-DMAC DMA Controller Linux driver <axi-dmac>`
 
      #. :external+hdl:ref:`HDL reference design <ad9740_fmc>` which you
         must use in your FPGA.

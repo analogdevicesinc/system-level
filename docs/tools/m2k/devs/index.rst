@@ -60,7 +60,7 @@ Content
 
    #. :external+linux:ref:`axi-adc-hdl`
    #. :external+linux:ref:`axi-dac-dds-hdl`
-   #. :external+hdl:ref:`axi_dmac`
+   #. :external+linux:ref:`axi-dmac`
 
 #. Building the Firmware image from source
 

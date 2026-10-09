@@ -100,7 +100,7 @@ The AD-R1M platform is built from modular ADI reference design boards:
 
        :adi:`EVAL-ADTF3175`
      - Time-of-Flight depth camera for perception
-     - :external+adi_ros2:doc:`adi_3dtof <humble/adi_3dtof_adtf31xx/index>`__
+     - `adi_3dtof <https://analogdevicesinc.github.io/adi_ros2/humble/adi_3dtof_adtf31xx/index.html>`__
 
 
 System Applications

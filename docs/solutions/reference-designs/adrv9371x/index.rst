@@ -91,9 +91,9 @@ Table of Contents
          #. About the device driver:
 
             #. :external+linux:doc:`AD9371/AD9375 Linux Device Driver <drivers/iio-transceiver/ad9371>`
-            #. :external+hdl:ref:`axi_jesd204_tx`
-            #. :external+hdl:ref:`JESD204B Receive Linux Driver <axi_jesd204_rx>`
-            #. :external+hdl:ref:`JESD204B/C AXI_ADXCVR Highspeed Transceivers Linux Driver <axi_adxcvr>`
+            #. :external+linux:ref:`axi_jesd204_tx`
+            #. :external+linux:ref:`JESD204B Receive Linux Driver <axi_jesd204_rx>`
+            #. :external+linux:ref:`JESD204B/C AXI_ADXCVR Highspeed Transceivers Linux Driver <axi_adxcvr>`
             #. :external+linux:ref:`AXI ADC HDL Linux Driver <axi-adc-hdl>`
             #. :external+linux:ref:`axi-dac-dds-hdl`
 
@@ -104,8 +104,8 @@ Table of Contents
          #. About the JEDS204 utilities:
 
             #. :external+linux:ref:`jesd204-fsm-framework`
-            #. :doc:`JESD204B Status Utility </software/jesd/jesd_status>`
-            #. :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
             #. :external+hdl:ref:`jesd204`
 
       #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`

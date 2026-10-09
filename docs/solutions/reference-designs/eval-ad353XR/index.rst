@@ -101,9 +101,9 @@ Table of contents
    #. About the device driver:
 
            - :external+linux:ref:`AXI ADC HDL Linux driver <axi-adc-hdl>`
-           - :external+hdl:ref:`AXI-DMAC DMA Controller Linux driver <axi_dmac>`
-           - :external+hdl:ref:`AXI_ADXCVR High-speed transceivers Linux driver <axi_adxcvr>`
-           - :external+hdl:ref:`JESD204B Receive Linux driver <axi_jesd204_rx>`
+           - :external+linux:ref:`AXI-DMAC DMA Controller Linux driver <axi-dmac>`
+           - :external+linux:ref:`AXI_ADXCVR High-speed transceivers Linux driver <axi_adxcvr>`
+           - :external+linux:ref:`JESD204B Receive Linux driver <axi_jesd204_rx>`
 
 #. About the JESD204 utilities:
 

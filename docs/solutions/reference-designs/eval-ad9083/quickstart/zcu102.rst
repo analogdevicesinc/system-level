@@ -914,7 +914,7 @@ To see the IIO devices detected, run:
     iio:device1: ad9528
     iio:device2: axi-ad9083-rx-hpc (buffer capable)
 
-To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
+To use the :ref:`JESD204 status utility <software jesd-status>`,
 run:
 
 .. shell::

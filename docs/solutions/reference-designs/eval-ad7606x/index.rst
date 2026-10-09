@@ -86,7 +86,7 @@ Table of contents
       no-OS evaluation on AMD Xilinx ZedBoard (FMC)
    #. No-OS Driver Integration
 
-      - :external+no-OS:doc:`AD7606x No-OS Example <projects/ad7606x-fmc>`
+      - :external+no-OS:doc:`AD7606x No-OS Example <projects/adc/ad7606x-fmc>`
       - :git-no-OS:`AD7606 No-OS Driver <drivers/adc/ad7606>`
 
    #. :external+linux:doc:`Linux IIO Driver <drivers/iio-adc/ad7606>` -

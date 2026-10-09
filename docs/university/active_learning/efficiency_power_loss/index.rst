@@ -643,8 +643,8 @@ dissipated. Why?
 
 .. ADMONITION:: Download Resources:
 
-   -  `Efficiency and Power Loss Fritzing files <https://analogdevicesinc.github.io/DownGit/>`__
-   -  `Efficiency and Power Loss LTSpice files <https://analogdevicesinc.github.io/DownGit/>`__
+   -  `Efficiency and Power Loss Fritzing files <https://analogdevicesinc.github.io/DownGit/#/home?url=https://github.com/analogdevicesinc/education_tools/tree/master/m2k/fritzing/efficency_power_loss_bb>`__
+   -  `Efficiency and Power Loss LTSpice files <https://analogdevicesinc.github.io/DownGit/#/home?url=https://github.com/analogdevicesinc/education_tools/tree/master/m2k/ltspice/efficency_power_loss_ltspice>`__
 
 
 Further Reading

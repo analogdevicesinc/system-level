@@ -72,7 +72,7 @@ the components in the system as well as example applications enabling
 connectivity via the 10BASE-T1L interface for system configuration and data
 transfer.
 
-:git-no-OS:`AD-APARD32690-SL Firmware Source Code and User Guide <projects/apard32690>`__
+:git-no-OS:`AD-APARD32690-SL Firmware Source Code and User Guide <projects/eval/apard32690>`
 
 Hardware Components and Connections
 -----------------------------------
@@ -162,7 +162,7 @@ The system is accompanied by an open-source software stack and associated
 collateral, enabling a complete experience from evaluation and prototyping all
 the way to production firmware and applications development.
 
-The :git-no-OS:`AD-APARD32690-SL firmware <projects/apard32690>`
+The :git-no-OS:`AD-APARD32690-SL firmware <projects/eval/apard32690>`
 is based on Analog Devices’ open-source no-OS framework, which includes all the
 tools required for embedded code development and debugging as well as libraries
 enabling host-side connectivity for system configuration and data transfer over

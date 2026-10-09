@@ -95,7 +95,7 @@ Depending on your specific use case for the AD-SWIOT1L-SL platform, these guicks
      system
 
 #. :git-no-OS:`Program and debug AD-SWIOT1L-SL firmware
-   <projects/swiot1l>`
+   <projects/examples/swiot1l>`
 
    - Detailed information about programming and debugging the system
 

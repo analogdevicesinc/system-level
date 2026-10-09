@@ -92,7 +92,7 @@ For Zynq platforms (ZC702, ZC706, ZED), the ADV7511 is supported in Linux
 through the kernel drivers:
 
 - :external+linux:ref:`AXI HDMI TX Linux driver <hdl-axi-hdmi>`
-- :external+hdl:ref:`ADV7511 Linux device driver <adv7511>`
+- :external+linux:ref:`ADV7511 Linux device driver <adv7511>`
 
 The Linux driver provides:
 

@@ -798,7 +798,7 @@ To see the IIO devices detected, run:
 
 .. Add here the output of the command
 
-To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
+To use the :ref:`JESD204 status utility <software jesd-status>`,
 run:
 
 .. shell::

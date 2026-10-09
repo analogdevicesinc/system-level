@@ -130,7 +130,7 @@ Table of contents
            #. :external+linux:ref:`AXI DAC HDL Linux driver <axi-dac-dds-hdl>`
            #. :external+linux:ref:`AD9528 Low Jitter Clock Generator Linux driver <ad9528>`
            #. :external+hdl:ref:`axi_dmac` / :git-linux:`AXI-DMAC DMA Controller Linux driver <main:drivers/dma/dma-axi-dmac.c>`
-           #. :external+hdl:ref:`ADRV904x Linux device driver <adrv904x>`
+           #. :external+linux:ref:`ADRV904x Linux device driver <adrv904x>`
 
         #. About the device tree:
 
@@ -139,8 +139,8 @@ Table of contents
         #. About the JESD204 utilities:
 
            #. :external+linux:ref:`JESD204 FSM <jesd204-fsm-framework>`
-           #. :doc:`JESD204 status utility </software/jesd/jesd_status>`
-           #. :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
+           #. :ref:`JESD204 status utility <software jesd-status>`
+           #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
            #. :external+hdl:ref:`jesd204`
 
      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`

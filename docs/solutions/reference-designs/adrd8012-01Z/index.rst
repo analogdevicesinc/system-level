@@ -108,7 +108,7 @@ card using `Balena Etcher <https://www.balena.io/etcher>`__ or
 
 More details on how to extract a compressed image and write it on the SD card on
 Linux and Windows can be found here:
-:git-aditof_sdk:`Writing an image onto the SD card <master:doc/sdcard_burn.md>`__
+:git-aditof_sdk:`Writing an image onto the SD card <master:doc/sdcard_burn.md>`
 
 System Setup
 ~~~~~~~~~~~~~

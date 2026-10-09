@@ -111,13 +111,13 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+hdl:ref:`axi_jesd204_tx`
-           - :external+hdl:ref:`axi_jesd204_rx`
+           - :external+linux:ref:`axi_jesd204_tx`
+           - :external+linux:ref:`axi_jesd204_rx`
            - :external+hdl:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`
            - :external+linux:ref:`axi-dac-dds-hdl`
            - :external+linux:ref:`ad9528`
-           - :external+hdl:ref:`axi_dmac`
+           - :external+linux:ref:`axi-dac-dds-hdl`
            - ADRV9032/ADRV9032R Linux device driver (in-tree at :git-linux:`main:drivers/iio/trx-rf/adrv903x/adrv903x.c`)
 
         #. About the device tree:
@@ -127,8 +127,8 @@ Table of contents
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :doc:`JESD204 status utility </software/jesd/jesd_status>`
-           - :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
+           - :ref:`JESD204 status utility <software jesd-status>`
+           - :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
            - :external+hdl:ref:`jesd204`
 
      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`

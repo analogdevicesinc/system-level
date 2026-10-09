@@ -109,7 +109,7 @@ Table of contents
 
            - :git-linux:`AD9467 Linux IIO ADC driver (also supports AD9265) <drivers/iio/adc/ad9467.c>`
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+hdl:ref:`axi_dmac`
+           - :external+linux:ref:`axi-dmac`
 
         #. About the device tree:
 

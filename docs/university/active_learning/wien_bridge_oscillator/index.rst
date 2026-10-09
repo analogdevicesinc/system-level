@@ -70,7 +70,7 @@ Eventually, the gain settles to a value that is likely very close to 3 — whate
 Simulation of a Wien Bridge Oscillator with Ideal Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before working with real components and all of their imperfections, a useful exercise is to "build" a few conceptual circuits in LTspice, just to get a taste of what life would be like in an ideal world. The LTspice files can be downloaded here: `Wien Bridge Active Learning Exercise LTspice files <https://analogdevicesinc.github.io/DownGit/>`_.
+Before working with real components and all of their imperfections, a useful exercise is to "build" a few conceptual circuits in LTspice, just to get a taste of what life would be like in an ideal world. The LTspice files can be downloaded here: `Wien Bridge Active Learning Exercise LTspice files <https://analogdevicesinc.github.io/DownGit/#/home?url=https://github.com/analogdevicesinc/education_tools/tree/master/m2k/ltspice/wien_bridge_osc>`_.
 
 LTspice can be downloaded for free at the :adi:`LTspice Product Page <LTspice>`.
 
@@ -192,7 +192,7 @@ Materials
   * 1 - 5 kΩ Single-turn potentiometer
   * 2 - 1N4148 Silicon Diode
 
-Alternatively, printed circuit board files with matching LTspice simulations are available to fabricate a PCB version of this experiment, available at `Wien Bridge PCB files and LTspice files <https://analogdevicesinc.github.io/DownGit/>`_.
+Alternatively, printed circuit board files with matching LTspice simulations are available to fabricate a PCB version of this experiment, available at `Wien Bridge PCB files and LTspice files <https://analogdevicesinc.github.io/DownGit/#/home?url=https://github.com/analogdevicesinc/education_tools/tree/master/experiment-boards/wien_bridge_oscillator>`_.
 
 
 The circuit shown in :numref:`fig-wien_bridge_osc_complete_ltspice` is a complete (and practical) Wien bridge oscillator circuit that can be built on a breadboard. Rather than using an incandescent bulb (which has a positive coefficient of resistance) for the amplifier's input resistor, this circuit shunts part of the feedback resistance with diodes, which have a negative coefficient of resistance. Ignoring the diodes, the gain would be 1+(10k+4.7k)/(4.7k+2k)), or about 3.19. But as the voltage across D1 and D2 approaches 600 mV or so, the effective resistance of R2 is reduced, dropping the gain.
@@ -337,8 +337,8 @@ This exercise was inspired by an ASEE 2022 conference workshop presented in part
 Resources
 ~~~~~~~~~
 
-  * `Wien Bridge Lab LTspice files <https://analogdevicesinc.github.io/DownGit/>`_
-  * `Wien Bridge PCB files and LTspice files <https://analogdevicesinc.github.io/DownGit/>`_
+  * `Wien Bridge Lab LTspice files <https://analogdevicesinc.github.io/DownGit/#/home?url=https://github.com/analogdevicesinc/education_tools/tree/master/m2k/ltspice/wien_bridge_osc>`_
+  * `Wien Bridge PCB files and LTspice files <https://analogdevicesinc.github.io/DownGit/#/home?url=https://github.com/analogdevicesinc/education_tools/tree/master/experiment-boards/wien_bridge_oscillator>`_
 
 
 .. rubric:: Footnotes

@@ -99,8 +99,8 @@ Table of contents
         #. About the device driver:
 
            - :external+linux:ref:`hdl-axi-hdmi`
-           - :external+hdl:ref:`axi_dmac`
-           - :external+hdl:ref:`adv7511`
+           - :external+linux:ref:`axi-dmac`
+           - :external+linux:ref:`adv7511`
              (supports ADV7511, ADV7511W, ADV7513, ADV7533, ADV7535)
 
         #. About the device tree:

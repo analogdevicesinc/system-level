@@ -111,8 +111,8 @@ Table of contents
      #. For Linux software:
 
         - :external+linux:ref:`AD9625 AXI Linux driver <axi-adc-hdl>`
-        - :external+hdl:ref:`JESD204B/C Receive Linux driver <axi_jesd204_rx>`
-        - :external+hdl:ref:`JESD204B/C AXI_ADXCVR Linux driver <axi_adxcvr>`
+        - :external+linux:ref:`JESD204B/C Receive Linux driver <axi_jesd204_rx>`
+        - :external+linux:ref:`JESD204B/C AXI_ADXCVR Linux driver <axi_adxcvr>`
 
 #. :ref:`Help and Support <help-and-support>`
 
