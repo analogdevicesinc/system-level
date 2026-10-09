@@ -29,8 +29,8 @@ Analog Devices provides full Linux support for the AD-FMCOMMS1-EBZ. Depending on
 which FPGA platform you are using the steps to perform to setup the system
 slightly differ:
 
-- :dokuwiki:`ML605 (Microblaze) <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/microblaze_ml605>`
-- :dokuwiki:`KC705 (Microblaze) <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/microblaze_kc705>`
+- :doc:`ML605 (Microblaze) </solutions/reference-designs/ad-fmcomms1-ebz/quickstart/microblaze_ml605>`
+- :doc:`KC705 (Microblaze) </solutions/reference-designs/ad-fmcomms1-ebz/quickstart/microblaze_kc705>`
 - :ref:`ZC702, ZC706, ZED (Zynq) <linux-kernel zynq-hdmi>`
 
 Descriptions of the individual Linux device drivers for the different parts on

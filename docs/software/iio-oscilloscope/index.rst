@@ -57,7 +57,7 @@ To build on a development host (e.g. x86 laptop or desktop) do the following:
 
 #. Optionally build and install the libad9166-iio and libad9361-iio libraries,
    by following
-   :dokuwiki:`these instructions <resources/eval/user-guides/ad-fmcomms5-ebz/multi-chip-sync#linux>`.
+   :doc:`these instructions </solutions/reference-designs/fmcomms5/multi-chip-sync>`.
 #. Download the source using git:
 
    .. shell::

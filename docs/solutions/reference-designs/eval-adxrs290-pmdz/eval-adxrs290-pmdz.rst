@@ -37,7 +37,7 @@ General Setup Using ADICUP3029
 ------------------------------
 
 The :adi:`EVAL-ADXRS290-PMDZ` can be used with 
-:dokuwiki:`ADICUP3029 </resources/eval/user-guides/eval-adicup3029>`
+:doc:`ADICUP3029 </solutions/reference-designs/eval-adicup3029/eval-adicup3029>`
 
 .. figure:: images/adxrs290_architecture.png
    :align: center

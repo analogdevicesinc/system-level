@@ -44,7 +44,7 @@ Table of Contents
    -  :ref:`Electrical Specifications <adrv9361z7035 electrical_specifications>`
    -  :ref:`Performance <adrv9361z7035 performance>`
 
-      -  :dokuwiki:`Power and Sequencing <resources/eval/user-guides/pzsdr/power-and-sequencing>`
+      -  :doc:`Power and Sequencing </solutions/reference-designs/pzsdr/power-and-sequencing>`
 
    -  :ref:`Revision History <adrv9361z7035 revision_history>`
 

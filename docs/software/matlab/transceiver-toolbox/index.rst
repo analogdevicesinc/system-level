@@ -80,7 +80,7 @@ Specific demos may require other toolboxes:
 -  :dokuwiki:`ADALM-PLUTO LTE App </resources/tools-software/transceiver-toolbox/examples/pluto_lte_app>`
 
 Models of different transceivers may require different toolboxes as well. More
-information can be found :dokuwiki:`at the RF Blockset Model of AD9361 from MathWorks page </resources/eval/user-guides/ad-fmcomms2-ebz/software/simrf>`.
+information can be found :doc:`at the RF Blockset Model of AD9361 from MathWorks page </solutions/reference-designs/fmcomms2/software/simrf>`.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~

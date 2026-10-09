@@ -95,8 +95,8 @@ Table of contents
    #. Linux Applications
 
       #. :ref:`libiio`
-      #. :dokuwiki:`FRU EEPROM Utility
-         <resources/tools-software/linux-software/fru_dump>`
+      #. :doc:`FRU EEPROM Utility
+         </software/fru_dump>`
 
 #. Design with the DC2677A
 

@@ -121,8 +121,8 @@ the difference.
       #. :doc:`Basic Data files and formats
          </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
 
-      #. :dokuwiki:`Create and analyze data files in MATLAB
-         <resources/eval/user-guides/ad-fmcomms2-ebz/software/datafiles>`
+      #. :doc:`Create and analyze data files in MATLAB
+         </solutions/reference-designs/fmcomms2/common/datafiles>`
 
       #. :dokuwiki:`Stream data into/out of MATLAB
          <resources/tools-software/transceiver-toolbox>`
@@ -148,8 +148,8 @@ the difference.
 
    #. Simulation
 
-      #. :dokuwiki:`MathWorks SimRF Models of the AD9361
-         <resources/eval/user-guides/ad-fmcomms2-ebz/software/simrf>`
+      #. :doc:`MathWorks SimRF Models of the AD9361
+         </solutions/reference-designs/fmcomms2/software/simrf>`
 
       #. :dokuwiki:`Installing RF Blockset Models for AD9361
          <resources/eval/user-guides/ad-fmcomms2-ebz/software/rfblkset_mdls_install>`
@@ -182,7 +182,7 @@ the difference.
       #. :dokuwiki:`GNU Radio
          <resources/tools-software/linux-software/gnuradio>`
 
-      #. :dokuwiki:`FM Radio/Tuner <resources/tools-software/fm-radio>`
+      #. :doc:`FM Radio/Tuner </solutions/reference-designs/fmcomms2/software/fm_radio>`
          (listen to FM signals on the HDMI monitor)
 
       #. :dokuwiki:`C example

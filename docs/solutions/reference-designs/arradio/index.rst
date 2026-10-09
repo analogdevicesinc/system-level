@@ -86,7 +86,7 @@ Table of Contents
    - Push custom data into/out of the AD9361
 
       - :doc:`Basic Data files and formats </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
-      - :dokuwiki:`Create and analyze data files in MATLAB <resources/eval/user-guides/ad-fmcomms2-ebz/software/datafiles>`
+      - :doc:`Create and analyze data files in MATLAB </solutions/reference-designs/fmcomms2/common/datafiles>`
       - :dokuwiki:`Stream data into/out of MATLAB <resources/tools-software/linux-software/libiio/clients/matlab_simulink>`
       - :dokuwiki:`AD9361 libiio streaming example <resources/tools-software/linux-software/libiio>`
 
@@ -100,7 +100,7 @@ Table of Contents
 
    - Simulation
 
-      - :dokuwiki:`MathWorks SimRF Models of the AD9361 <resources/eval/user-guides/ad-fmcomms2-ebz/software/simrf>`
+      - :doc:`MathWorks SimRF Models of the AD9361 </solutions/reference-designs/fmcomms2/software/simrf>`
 
    - Hardware in the Loop / How to design your own custom BaseBand
 
@@ -112,7 +112,7 @@ Table of Contents
          - :doc:`LTE Transmit and Receive Example </solutions/reference-designs/fmcomms2/software/lte_example>`
 
       - :ref:`GNU Radio <software gnuradio>`
-      - :dokuwiki:`FM Radio/Tuner <resources/tools-software/fm-radio>`
+      - :doc:`FM Radio/Tuner </solutions/reference-designs/fmcomms2/software/fm_radio>`
         (listen to FM signals on the HDMI monitor)
       - :dokuwiki:`C example <resources/tools-software/linux-software/libiio>`
 

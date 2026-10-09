@@ -26,7 +26,7 @@ The :adi:`EVAL-ADICUP3029` is an Arduino Uno form factor compatible platform bas
    -  :dokuwiki:`EVAL-AD5593R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5593r-pmdz>`
    -  :dokuwiki:`EVAL-AD5770R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5770r-pmdz>`
    -  :dokuwiki:`EVAL-AD7124-8-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad7124-8-pmdz>`
-   -  :dokuwiki:`EVAL-ADXRS290-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-adxrs290-pmdz>`
+   -  :doc:`EVAL-ADXRS290-PMDZ PMOD </solutions/reference-designs/eval-adxrs290-pmdz/eval-adxrs290-pmdz>`
    -  :doc:`EVAL-CN0326-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/cn0326>`
    -  :doc:`EVAL-CN0357-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0357>`
    -  :doc:`EVAL-CN0397-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0397>`
