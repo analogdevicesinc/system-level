@@ -114,7 +114,7 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+linux:ref:`AXI-DMAC DMA Controller Linux driver <axi-dmac>`
+           - :external+hdl:ref:`AXI-DMAC DMA Controller Linux driver <axi_dmac>`
 
      #. For No-OS software:
 

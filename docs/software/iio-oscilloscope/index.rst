@@ -451,7 +451,7 @@ Several waveforms are provided with the application for demonstration purposes,
 which can be loaded into different devices. However, these are generally not
 meant for transceiver characterization or demodulation. If you want to do such
 tasks, we would recommend creation of your own waveforms from tools such as
-:dokuwiki:`MATLAB <resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`.
+:doc:`MATLAB </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`.
 
 Source code
 -----------

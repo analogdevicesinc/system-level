@@ -759,7 +759,7 @@ To see the IIO devices detected, run:
    iio:device5: axi-ad9371-tx-hpc (buffer capable)
    iio:device6: axi-ad9371-rx-hpc (buffer capable)
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
 run:
 
 .. shell::

@@ -126,7 +126,7 @@ Instructions on how to build the boot files from source can be found here:
 
 - :git-no-os:`projects/adrv903x`. More no-OS build
   details at :external+no-OS:doc:`build_guide`.
-- :git-hdl:`projects/adrv9032`. More HDL build details at
+- :git-hdl:`projects/adrv903x`. More HDL build details at
   :external+hdl:ref:`build_hdl`.
 
 Required Software

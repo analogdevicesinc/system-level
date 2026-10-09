@@ -37,7 +37,7 @@ Software prerequisites
 -------------------------------------------------------------------------------
 
 #. **Xilinx Vivado and Vitis** — the supported version can be found on the
-   :git-hdl:`HDL releases page`.
+   `HDL releases page <https://github.com/analogdevicesinc/hdl/releases>`__.
    Required when targeting ZedBoard or ZC706 (FPGA-based flow).
 
 #. **A UART terminal** (e.g. Tera Term or PuTTY):

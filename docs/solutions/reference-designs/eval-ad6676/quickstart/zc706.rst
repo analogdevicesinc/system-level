@@ -750,7 +750,7 @@ To see the IIO devices detected, run:
 
    $iio_info | grep iio:device
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
 run:
 
 .. shell::

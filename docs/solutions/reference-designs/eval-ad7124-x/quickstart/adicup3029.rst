@@ -158,13 +158,13 @@ How to use the tools
 The official tool for use with the EVAL-ADICUP3029 is CrossCore Embedded
 Studio. For more information on downloading the tools and a quick start guide,
 see the
-:dokuwiki:`Tools Overview page </resources/eval/user-guides/eval-adicup3029/tools>`.
+:doc:`Tools Overview page </solutions/reference-designs/eval-adicup3029/tools>`.
 
 For importing existing projects, see
-:dokuwiki:`How to import existing projects into your workspace </resources/eval/user-guides/eval-adicup3029/tools/cces_user_guide#how_to_import_existing_projects_into_your_workspace>`.
+:doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`.
 
 For configuring debug sessions, see
-:dokuwiki:`How to configure the debug session </resources/eval/user-guides/eval-adicup3029/tools/cces_user_guide#how_to_configure_the_debug_session_for_an_aducm3029_application>`.
+:doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`.
 
 Project structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -98,19 +98,19 @@ Table of contents
         #. About the device driver:
 
            - :dokuwiki:`AD9695 Linux IIO ADC driver <resources/tools-software/linux-drivers/iio-adc/ad9695>`
-           - :external+linux:ref:`axi_jesd204_rx`
-           - :external+linux:ref:`axi_adxcvr`
+           - :external+hdl:ref:`axi_jesd204_rx`
+           - :external+hdl:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
+           - :doc:`JESD204 status utility </software/jesd/jesd_status>`
            - :external+hdl:ref:`jesd204`
 
      #. :external+hdl:ref:`HDL reference design <ad9695_fmc>` which you must

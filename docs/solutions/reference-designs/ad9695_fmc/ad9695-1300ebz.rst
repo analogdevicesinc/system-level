@@ -15,8 +15,8 @@ acquire data from the evaluation board.
 
 This guide assumes the usage of the accompanying :adi:`ADS7-V2EBZ
 <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-ADS7-V2>`
-FPGA-based data capture kit. The :dokuwiki:`ADS7-V2 user guide
-<resources/eval/ads7-v2>` provides additional information for consultation
+FPGA-based data capture kit. The :doc:`ADS7-V2 user guide
+</solutions/reference-designs/eval-ad9694/quickstart/ads7-v2>` provides additional information for consultation
 during usage.
 
 Documents and software tools can be found at the :adi:`HS-ADC Eval Board
@@ -60,7 +60,7 @@ Helpful Documents
 -------------------------------------------------------------------------------
 
 - :adi:`AD9695 Data Sheet <AD9695>`
-- :dokuwiki:`ADS7-V2EBZ Data Sheet <resources/eval/ads7-v2>`
+- :doc:`ADS7-V2EBZ Data Sheet </solutions/reference-designs/eval-ad9694/quickstart/ads7-v2>`
 - :adi:`AN-905 Application Note <an-905>`, *VisualAnalog Converter Evaluation
   Tool Version 1.0 User Manual*
 - :dokuwiki:`ADI SPI Application Note <resources/technical-guides/adispi>`,

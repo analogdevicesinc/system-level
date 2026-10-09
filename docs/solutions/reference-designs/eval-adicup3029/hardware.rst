@@ -12,10 +12,10 @@ demo software projects.
 The following boards are currently available:
 
 -  :doc:`EVAL-ADICUP3029 Base Board </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`
--  :dokuwiki:`EVAL-ADXL362-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>`
+-  :doc:`EVAL-ADXL362-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>`
 -  :doc:`EVAL-ADXL372-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/adxl372>`
--  :dokuwiki:`EVAL-ADT7420-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/adt7420>`
--  :dokuwiki:`EVAL-CN0326-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/cn0326>`
--  :dokuwiki:`EVAL-CN0357-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0357>`
--  :dokuwiki:`EVAL-CN0397-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
--  :dokuwiki:`EVAL-CN0398-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
+-  :doc:`EVAL-ADT7420-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/adt7420>`
+-  :doc:`EVAL-CN0326-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/cn0326>`
+-  :doc:`EVAL-CN0357-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0357>`
+-  :doc:`EVAL-CN0397-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0397>`
+-  :doc:`EVAL-CN0398-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0398>`

@@ -86,10 +86,10 @@ Table of contents
       no-OS evaluation on AMD Xilinx ZedBoard (FMC)
    #. No-OS Driver Integration
 
-      - `AD7606x No-OS Example <https://analogdevicesinc.github.io/no-OS/projects/adc/ad7606x-fmc.html>`_
+      - :external+no-OS:doc:`AD7606x No-OS Example <projects/ad7606x-fmc>`
       - :git-no-OS:`AD7606 No-OS Driver <drivers/adc/ad7606>`
 
-   #. `Linux IIO Driver <https://analogdevicesinc.github.io/linux/drivers/iio-adc/ad7606.html>`_ -
+   #. :external+linux:doc:`Linux IIO Driver <drivers/iio-adc/ad7606>` -
       Configure and build the Linux IIO driver with DeviceTree support
    #. :ref:`FPGA Prototyping <ad7606_ced1z_fpga>` - Evaluation with the
       CED1Z board and Nios II application

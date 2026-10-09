@@ -52,10 +52,10 @@ Table of Contents
 
    -  Carriers
 
-      -  :dokuwiki:`FMC Carrier (PZSDRCC-FMC) <resources/eval/user-guides/pzsdr/carriers/fmc>`
-      -  :dokuwiki:`Breakout Carrier (PZSDRCC-BRK) <resources/eval/user-guides/pzsdr/carriers/brk>`
-      -  :dokuwiki:`PCIe Carrier (PZSDRCC-PCIE) <resources/eval/user-guides/pzsdr/carriers/pcie>`
-      -  :dokuwiki:`PackRF Carrier (PZSDRCC-PackRF) <resources/eval/user-guides/pzsdr/carriers/packrf>`
+      -  :doc:`FMC Carrier (PZSDRCC-FMC) </solutions/reference-designs/pzsdr/carriers/fmc>`
+      -  :doc:`Breakout Carrier (PZSDRCC-BRK) </solutions/reference-designs/pzsdr/carriers/brk>`
+      -  :doc:`PCIe Carrier (PZSDRCC-PCIE) </solutions/reference-designs/pzsdr/carriers/pcie>`
+      -  :doc:`PackRF Carrier (PZSDRCC-PackRF) </solutions/reference-designs/pzsdr/carriers/packrf>`
 
 - Use the RF SOM Hardware to better understand the AD9361
 

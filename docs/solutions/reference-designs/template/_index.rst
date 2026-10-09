@@ -92,23 +92,23 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+linux:ref:`axi_jesd204_tx`
-           - :external+linux:ref:`axi_jesd204_rx`
-           - :external+linux:ref:`axi_adxcvr`
+           - :external+hdl:ref:`axi_jesd204_tx`
+           - :external+hdl:ref:`axi_jesd204_rx`
+           - :external+hdl:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`
            - :external+linux:ref:`axi-dac-dds-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
            - :dokuwiki:`CHIP1/CHIP2 Linux device driver <resources/tools-software/linux-drivers/iio-transceiver/adrv9025>`
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
-           - :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+           - :doc:`JESD204 status utility </software/jesd/jesd_status>`
+           - :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
            - :external+hdl:ref:`jesd204`
 
      #. :external+hdl:ref:`HDL reference design <template_project>` which you must use in your FPGA.

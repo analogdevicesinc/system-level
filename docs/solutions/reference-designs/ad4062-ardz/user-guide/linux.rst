@@ -19,7 +19,7 @@ Devicetree
 
 Since I3C is a discoverable protocol, the devicetree node is optional,
 still, for optional nodes, follow the documentation at
-:git-linux:`b4/ad4062:Documentation/devicetree/bindings/iio/adc/adi%2Cad4062.yaml`.
+:git-linux:`Documentation/devicetree/bindings/iio/adc/adi%2Cad4062.yaml`.
 
 For the HDL I3C controller, see
 :git-linux:`b4/ad4062:Documentation/devicetree/bindings/i3c/adi%2Ci3c-master.yaml`.

@@ -99,13 +99,13 @@ Table of contents
         #. About the device driver:
 
            - :external+linux:ref:`hdl-axi-hdmi`
-           - :external+linux:ref:`axi-dmac`
-           - :external+linux:ref:`adv7511`
+           - :external+hdl:ref:`axi_dmac`
+           - :external+hdl:ref:`adv7511`
              (supports ADV7511, ADV7511W, ADV7513, ADV7533, ADV7535)
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
      #. :external+hdl:ref:`adv7513` which you must use
         in your FPGA.

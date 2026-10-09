@@ -63,7 +63,7 @@ Required hardware
 
 - :adi:`ADRV9364-Z7020`
   SOM and its power supply
-- :adi:`ADRV1CRR-BOB` carrier board (or :dokuwiki:`ADRV1CRR-PACKRF <resources/eval/user-guides/pzsdr/carriers/packrf>`)
+- :adi:`ADRV1CRR-BOB` carrier board (or :doc:`ADRV1CRR-PACKRF </solutions/reference-designs/pzsdr/carriers/packrf>`)
 - SD card with at least 16GB of memory
 - Micro-USB cable (UART)
 - LAN cable (Ethernet)

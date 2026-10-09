@@ -102,7 +102,7 @@ Table of Contents
 
    #. Push custom data into/out of the AD-FMCOMMS5-EBZ
 
-      #. :dokuwiki:`Basic Data files and formats </resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`
+      #. :doc:`Basic Data files and formats </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
       #. :dokuwiki:`Create and analyze data files in MATLAB </resources/eval/user-guides/ad-fmcomms2-ebz/software/datafiles>`
       #. :dokuwiki:`Stream data into/out of MATLAB </resources/tools-software/linux-software/libiio/clients/matlab_simulink>`
       #. :dokuwiki:`AD9361 libiio streaming example </resources/tools-software/linux-software/libiio>`
@@ -125,8 +125,8 @@ Table of Contents
 
          #. :dokuwiki:`Stream data into/out of MATLAB </resources/tools-software/linux-software/libiio/clients/fmcomms2_3_simulink>`
          #. :dokuwiki:`Beacon Frame Receiver Example </resources/tools-software/linux-software/libiio/clients/beacon_frame_receiver_simulink>`
-         #. :dokuwiki:`QPSK Transmit and Receive Example </resources/tools-software/linux-software/libiio/clients/qpsk_example>`
-         #. :dokuwiki:`LTE Transmit and Receive Example </resources/tools-software/linux-software/libiio/clients/lte_example>`
+         #. :doc:`QPSK Transmit and Receive Example </solutions/reference-designs/fmcomms2/software/qpsk_example>`
+         #. :doc:`LTE Transmit and Receive Example </solutions/reference-designs/fmcomms2/software/lte_example>`
 
       #. :ref:`GNU Radio <software gnuradio>`
       #. :dokuwiki:`FM Radio/Tuner </resources/tools-software/fm-radio>` (listen to FM signals on the HDMI monitor)
@@ -140,7 +140,7 @@ Table of Contents
          #. :dokuwiki:`Build the demo on ZC702, ZC706, or ZED from source </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq>`
          #. :dokuwiki:`Build the demo on KC705 or VC707 for Microblaze from source </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/microblaze>`
          #. :dokuwiki:`Build the 2014_R2 Release Linux kernel from source </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_2014r2>`
-         #. :dokuwiki:`Customizing the devicetree on the target </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+         #. :doc:`Customizing the devicetree on the target </linux/kernel/zynq_tips_tricks>`
 
       #. :dokuwiki:`No-OS Driver </resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal>`
       #. :dokuwiki:`HDL Reference Design </resources/eval/user-guides/ad-fmcomms2-ebz/reference_hdl>` which you must use in your FPGA.
@@ -149,7 +149,7 @@ Table of Contents
 
 #. Additional Documentation about SDR Signal Chains
 
-   #. :dokuwiki:`The math behind the RF </resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+   #. :doc:`The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
    #. :dokuwiki:`IQ rotation, and phase sync </resources/eval/user-guides/ad-fmcomms2-ebz/iq_rotation>`
 
 #. :dokuwiki:`Help and Support </resources/eval/user-guides/ad-fmcomms2-ebz/help_and_support>`

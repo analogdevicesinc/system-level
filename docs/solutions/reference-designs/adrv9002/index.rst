@@ -135,13 +135,13 @@ Table of contents
 
             #. :external+linux:ref:`axi-adc-hdl`
             #. :external+linux:ref:`axi-dac-dds-hdl`
-            #. :external+linux:ref:`axi-dmac`
+            #. :external+hdl:ref:`axi_dmac`
             #. :external+linux:ref:`adrv9002`
             #. :external+linux:ref:`adrv9002-customization`
 
          #. About the device tree:
 
-            #. :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+            #. :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
       #. For no-OS software:
 

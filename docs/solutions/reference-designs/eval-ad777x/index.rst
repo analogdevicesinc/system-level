@@ -112,7 +112,7 @@ Table of contents
         #. About the device driver:
 
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
 
      #. :external+hdl:ref:`HDL reference design <ad777x_fmcz>` which
         you must use in your FPGA.

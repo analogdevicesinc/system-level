@@ -127,5 +127,5 @@ Devicetree support
 +------------------------+-------------------------------------------------------------------+
 | Function               | File                                                              |
 +========================+===================================================================+
-| FMCOMMS2/3 Device Tree | :git-linux:`arch/arm/boot/dts/adi-fmcomms3-up-down-converter.dtsi`|
+| FMCOMMS2/3 Device Tree | :git-linux:`arch/arm/boot/dts/xilinx/adi-fmcomms3-up-down-converter.dtsi`|
 +------------------------+-------------------------------------------------------------------+

@@ -81,10 +81,10 @@ Table of contents
 
 #. No-OS driver resources
 
-   - `AD7616 No-OS Example Project (ZedBoard/ZC706)
-     <https://analogdevicesinc.github.io/no-OS/projects/adc/ad7616-sdz.html>`_
-   - `AD7616 No-OS Example Project (SDP-K1)
-     <https://analogdevicesinc.github.io/no-OS/projects/adc/ad7616-st.html>`_
+   - :external+no-OS:doc:`AD7616 No-OS Example Project (ZedBoard/ZC706)
+     <projects/ad7616-sdz>`
+   - :external+no-OS:doc:`AD7616 No-OS Example Project (SDP-K1)
+     <projects/ad7616-st>`
    - :git-no-OS:`AD7616 No-OS Driver <drivers/adc/ad7616>`
 
 #. Device resources

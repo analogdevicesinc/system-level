@@ -150,7 +150,7 @@ The low level modules are the platform drivers and are included in the **platfor
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :dokuwiki:`tools user guide. <resources/eval/user-guides/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------

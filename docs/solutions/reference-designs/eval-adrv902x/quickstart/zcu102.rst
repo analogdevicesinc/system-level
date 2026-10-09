@@ -916,7 +916,7 @@ To see the EEPROM specifications, run:
     BOM Rev    : A
     Uses LVDS  : Y
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
 run:
 
 .. shell::

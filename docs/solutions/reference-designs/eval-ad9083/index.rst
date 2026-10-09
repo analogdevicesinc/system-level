@@ -103,16 +103,16 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+linux:ref:`axi_jesd204_rx`
-           - :external+linux:ref:`axi_adxcvr`
+           - :external+hdl:ref:`axi_jesd204_rx`
+           - :external+hdl:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
            - :external+linux:ref:`ad9083`
 
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
+           - :doc:`JESD204 status utility </software/jesd/jesd_status>`
            - :external+hdl:ref:`jesd204`
 
      #. :external+hdl:ref:`HDL reference design <ad9083_evb>` which you must

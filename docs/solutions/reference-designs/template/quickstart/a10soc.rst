@@ -667,7 +667,7 @@ To see the EEPROM specifications, run:
 
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
 run:
 
 .. shell::

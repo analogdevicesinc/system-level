@@ -17,7 +17,7 @@ This guide provides some quick instructions on how to setup the
 .. warning::
 
    Support for the A10GX carrier is discontinued and will not be supported in
-   future releases. Last pre-built images can be found at the :dokuwiki:`Nios2 Linux on the Altera FPGA Development Boards <resources/tools-software/linux-drivers/platforms/nios2>` page.
+   future releases. Last pre-built images can be found at the :doc:`Nios2 Linux on the Altera FPGA Development Boards </linux/kernel/nios2>` page.
 
 .. esd-warning::
 
@@ -32,7 +32,7 @@ The following files are needed for the system to boot:
 - HDL bitfile: ``daq3_a10gx.sof``
 - Linux kernel image: ``zImage``
 
-Pre-built images can be found at the :dokuwiki:`Nios2 Linux on the Altera FPGA Development Boards <resources/tools-software/linux-drivers/platforms/nios2>` page.
+Pre-built images can be found at the :doc:`Nios2 Linux on the Altera FPGA Development Boards </linux/kernel/nios2>` page.
 
 Required software
 ~~~~~~~~~~~~~~~~~

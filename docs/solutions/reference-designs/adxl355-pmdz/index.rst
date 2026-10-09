@@ -440,7 +440,7 @@ The original software example for the ADXL355 was developed on the ADICUP360
 platform, and is a simple, terminal-based command line interface. This type of
 example program is being deprecated in favor of tinyiiod-based servers for
 embedded platforms, however this example is still available for reference here:
-:dokuwiki:`ADXL355 Accelerometer PMOD Demo on ADICUP360<resources/eval/user-guides/eval-adicup360/reference_designs/demo_adxl355>`.
+:doc:`ADXL355 Accelerometer PMOD Demo on ADICUP360 </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl355>`.
 
 .. IMPORTANT::
 
@@ -666,7 +666,7 @@ More information and useful links
 
 -  :adi:`EVAL-ADXL355-PMDZ Product Page <EVAL-ADXL355-PMDZ>`
 -  :adi:`ADXL355 Product Page <ADXL355>`
--  :git-no-OS:`EVAL-ADXL355-PMDZ no-OS projects <eval-adxl355-pmdz>`
+-  :git-no-OS:`EVAL-ADXL355-PMDZ no-OS projects <projects/eval-adxl355-pmdz>`
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------

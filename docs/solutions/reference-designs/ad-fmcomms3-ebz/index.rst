@@ -118,8 +118,8 @@ the difference.
 
    #. Push custom data into/out of the AD-FMCOMMS3-EBZ
 
-      #. :dokuwiki:`Basic Data files and formats
-         <resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`
+      #. :doc:`Basic Data files and formats
+         </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
 
       #. :dokuwiki:`Create and analyze data files in MATLAB
          <resources/eval/user-guides/ad-fmcomms2-ebz/software/datafiles>`
@@ -170,11 +170,11 @@ the difference.
          #. :dokuwiki:`Beacon Frame Receiver Example
             <resources/tools-software/linux-software/libiio/clients/beacon_frame_receiver_simulink#beacon_frame_receiver_example>`
 
-         #. :dokuwiki:`QPSK Transmit and Receive Example
-            <resources/tools-software/linux-software/libiio/clients/qpsk_example>`
+         #. :doc:`QPSK Transmit and Receive Example
+            </solutions/reference-designs/fmcomms2/software/qpsk_example>`
 
-         #. :dokuwiki:`LTE Transmit and Receive Example
-            <resources/tools-software/linux-software/libiio/clients/lte_example>`
+         #. :doc:`LTE Transmit and Receive Example
+            </solutions/reference-designs/fmcomms2/software/lte_example>`
 
          #. :dokuwiki:`ADS-B Airplane Tracking Example
             <resources/tools-software/linux-software/libiio/clients/adsb_example>`
@@ -224,8 +224,8 @@ the difference.
          #. :dokuwiki:`Build the 2015_R2 Release Linux kernel from source
             <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_2015r2>`
 
-         #. :dokuwiki:`Customizing the devicetree on the target
-            <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+         #. :doc:`Customizing the devicetree on the target
+            </linux/kernel/zynq_tips_tricks>`
 
       #. :dokuwiki:`No-OS Driver
          <resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal>`
@@ -239,8 +239,8 @@ the difference.
 
 #. Additional Documentation about SDR Signal Chains
 
-   #. :dokuwiki:`The math behind the RF
-      <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+   #. :doc:`The math behind the RF
+      </solutions/reference-designs/fmcomms2/common/math>`
 
 #. :dokuwiki:`Help and Support
    <resources/eval/user-guides/ad-fmcomms2-ebz/help_and_support>`

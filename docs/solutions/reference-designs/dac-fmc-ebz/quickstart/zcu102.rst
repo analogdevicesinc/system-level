@@ -1038,7 +1038,7 @@ To see the IIO devices detected, run:
       iio:device1: hmc7044
       iio:device2: axi-ad9172-hpc (buffer capable)
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :doc:`JESD204 status utility </software/jesd/jesd_status>`,
 run:
 
 .. shell::

@@ -66,7 +66,7 @@ several seconds to complete.
        [ -- snip -- ]
 
 Simply update the values at
-:external+linux:ref:`adrv9009`.
+:external+hdl:ref:`adrv9009`.
 
 For the No-OS driver the mapping can be found at
 :external+linux:ref:`adrv9009-customization`.

@@ -58,8 +58,8 @@ Required setup
 -------------------------------------------------------------------------------
 
 -  First, the :adi:`ADRV9009-ZU11EG` setup should be built. Please refer to the
-   `ADRV9009-ZU11EG Quick Start Guide
-   <https://analogdevicesinc.github.io/system-level/pull/208/solutions/reference-designs/adrv9009-zu11eg/quickstart/quick-start-guide/>`_.
+   :doc:`ADRV9009-ZU11EG Quick Start Guide
+   </solutions/reference-designs/adrv9009-zu11eg/quickstart/quick-start-guide>`.
 -  :adi:`ADRV2CRR-FMC` should be powered with the TE150A1251F01 power supply and
    connected to a network with the ethernet cable.
 -  The screen is connected to :adi:`ADRV2CRR-FMC` through a display

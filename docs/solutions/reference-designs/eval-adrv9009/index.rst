@@ -82,7 +82,7 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
 
       #. Linux software
 
-         #. :external+linux:ref:`ADRV9009/ADRV9008 Linux Device Driver <adrv9009>`
+         #. :external+hdl:ref:`ADRV9009/ADRV9008 Linux Device Driver <adrv9009>`
 
             #. :external+linux:ref:`ADRV9009/ADRV9008 Device Driver Customization <adrv9009-customization>`
             #. :ref:`Customizing the devicetree on the target <linux-kernel zynq-tips-tricks>`
@@ -90,16 +90,16 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
          #. :external+linux:ref:`jesd204-fsm-framework`
          #. :external+linux:ref:`ad9528`
          #. :external+linux:ref:`ad7291`
-         #. :external+linux:ref:`axi-dmac`
-         #. :external+linux:ref:`axi_jesd204_tx`
+         #. :external+hdl:ref:`axi_dmac`
+         #. :external+hdl:ref:`axi_jesd204_tx`
 
             #. :ref:`JESD204B Status Utility <software jesd-status>`
 
-         #. :external+linux:ref:`axi_jesd204_rx`
+         #. :external+hdl:ref:`axi_jesd204_rx`
 
             #. :ref:`JESD204B Status Utility <software jesd-status>`
 
-         #. :external+linux:ref:`axi_adxcvr`
+         #. :external+hdl:ref:`axi_adxcvr`
 
             #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
 

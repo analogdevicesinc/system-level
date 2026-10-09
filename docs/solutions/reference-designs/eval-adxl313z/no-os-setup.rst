@@ -220,7 +220,7 @@ the project for.
 Project Description
 ^^^^^^^^^^^^^^^^^^^
 
-This project is actually a TINYIIOD demo for the used breakout board (the code is available :git-no-OS:`here <projects/eval-adxl313z/src/examples/iio_example>`.). The project launches a TINYIIOD server on the board so that the user may connect to it via an IIO client. Using IIO-Oscilloscope, the user can configure the accelerometer and view the measured data on a plot.
+This project is actually a TINYIIOD demo for the used breakout board (the code is available :git-no-OS:`here <projects/eval-adxl313z/src/examples/iio>`.). The project launches a TINYIIOD server on the board so that the user may connect to it via an IIO client. Using IIO-Oscilloscope, the user can configure the accelerometer and view the measured data on a plot.
 
 If you are not familiar with ADI IIO Application, please take a look at: `IIO No-OS <https://wiki.analog.com/resources/tools-software/no-os-software/iio>`_.
 

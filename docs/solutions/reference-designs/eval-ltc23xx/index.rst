@@ -121,7 +121,7 @@ Table of contents
         #. About the device driver:
 
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
 
         #. About the SPI Engine framework:
 

@@ -130,17 +130,17 @@ Table of contents
            #. :external+linux:ref:`AXI DAC HDL Linux driver <axi-dac-dds-hdl>`
            #. :external+linux:ref:`AD9528 Low Jitter Clock Generator Linux driver <ad9528>`
            #. :external+hdl:ref:`axi_dmac` / :git-linux:`AXI-DMAC DMA Controller Linux driver <main:drivers/dma/dma-axi-dmac.c>`
-           #. :external+linux:ref:`ADRV904x Linux device driver <adrv904x>`
+           #. :external+hdl:ref:`ADRV904x Linux device driver <adrv904x>`
 
         #. About the device tree:
 
-           #. :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           #. :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
         #. About the JESD204 utilities:
 
            #. :external+linux:ref:`JESD204 FSM <jesd204-fsm-framework>`
-           #. :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
-           #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+           #. :doc:`JESD204 status utility </software/jesd/jesd_status>`
+           #. :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
            #. :external+hdl:ref:`jesd204`
 
      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
@@ -159,7 +159,7 @@ Table of contents
    #. :ref:`DPD Error Troubleshooting <adrv904x dpd troubleshooting>`
    #. :ref:`DPD Analysis Tool <adrv904x dpd analysis tool>`
 
-#. :dokuwiki:`SDR math <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :doc:`SDR math </solutions/reference-designs/fmcomms2/common/math>`
 #. :ref:`Help and Support <adrv904x help_and_support>`
 
 .. _adrv904x block-diagram:

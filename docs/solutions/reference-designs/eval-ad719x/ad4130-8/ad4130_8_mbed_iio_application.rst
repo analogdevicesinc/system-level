@@ -42,7 +42,7 @@ Arduino Header support, such as STM32-Discovery, STM32-Nucleo, etc.
 Useful links
 ~~~~~~~~~~~~
 
-- :git-no-OS:`AD4130 No-OS drivers <drivers/adc/ad413x>`
+- :git-no-OS:`AD4130 No-OS drivers <drivers/afe/ad413x>`
 - :adi:`AD4130-8 Product Page <ad4130-8>`
 - :adi:`EVAL-AD4130-8WARDZ <EVAL-AD4130-8>`
 

@@ -128,7 +128,7 @@ Table of contents
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
      #. :external+hdl:ref:`HDL reference design <ad4630_fmc>` which you must
         use in your FPGA.

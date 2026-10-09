@@ -94,7 +94,7 @@ Setting Up the Zephyr Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to build the Zephyr application, you need to set up the Zephyr environment. 
-Please follow the instructions on `Zephyr Getting Started Guide <https://docs.zephyrproject.org/latest/getting_started/index.html>`_ to do so. 
+Please follow the instructions on `Zephyr Getting Started Guide <https://docs.zephyrproject.org/latest/develop/getting_started/index.html>`_ to do so. 
 Make sure to install all the required dependencies and initialize the Zephyr workspace before proceeding to the next steps. 
 
 Getting Libiio

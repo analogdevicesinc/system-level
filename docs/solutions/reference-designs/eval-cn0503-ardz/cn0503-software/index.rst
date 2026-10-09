@@ -67,7 +67,7 @@ The following is a list of items needed in order to replicate this demo.
   - :git-EVAL-ADICUP3029:`AduCM3029_demo_cn0503 demo application <projects/ADuCM3029_demo_cn0503>`
   - :adi:`CrossCore Embedded Studio (2.8.0 or higher) <resources/evaluation-hardware-and-software/embedded-development-software/adswt-cces.html>`
   - `ADuCM302x DFP (3.2.0 or higher) <https://www.keil.arm.com/packs/aducm302x_dfp-analogdevices/boards/>`_
-  - :dokuwiki:`ADICUP3029 BSP (1.1.0 or higher) </resources/eval/user-guides/eval-adicup3029/software/adicup3029>`
+  - :doc:`ADICUP3029 BSP (1.1.0 or higher) </solutions/reference-designs/eval-adicup3029/software/adicup3029>`
   - Serial Terminal Program such as Putty or Tera Term
 
 Setting up the Hardware
@@ -219,14 +219,14 @@ How to Use the Tools
 
 The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore
 Embedded Studio. For more information on downloading the tools and a quick start
-guide on how to use the tool basics, please check out the :dokuwiki:`Tools Overview page </resources/eval/user-guides/eval-adicup3029/tools>`.
+guide on how to use the tool basics, please check out the :doc:`Tools Overview page </solutions/reference-designs/eval-adicup3029/tools>`.
 
 Importing
 ~~~~~~~~~
 
 For more detailed instructions on importing this application/demo example into
 the CrossCore Embedded Studios tools, please view our
-:dokuwiki:`How to import existing projects into your workspace </resources/eval/user-guides/eval-adicup3029/tools/cces_user_guide#how_to_import_existing_projects_into_your_workspace>`
+:doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`
 section.
 
 Debugging
@@ -234,7 +234,7 @@ Debugging
 
 For more detailed instructions on importing this application/demo example into
 the CrossCore Embedded Studios tools, please view our
-:dokuwiki:`How to configure the debug session </resources/eval/user-guides/eval-adicup3029/tools/cces_user_guide#how_to_configure_the_debug_session_for_an_aducm3029_application>`
+:doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`
 section.
 
 Project Structure

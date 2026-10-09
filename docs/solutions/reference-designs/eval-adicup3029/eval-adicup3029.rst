@@ -19,18 +19,18 @@ The :adi:`EVAL-ADICUP3029` is an Arduino Uno form factor compatible platform bas
 -  :doc:`Hardware Details </solutions/reference-designs/eval-adicup3029/hardware>`
 
    -  :doc:`EVAL-ADICUP3029 Base Board </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`
-   -  :dokuwiki:`EVAL-ADXL362-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>`
+   -  :doc:`EVAL-ADXL362-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>`
    -  :doc:`EVAL-ADXL372-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/adxl372>`
-   -  :dokuwiki:`EVAL-ADT7420-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/adt7420>`
+   -  :doc:`EVAL-ADT7420-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/adt7420>`
    -  :dokuwiki:`EVAL-AD5592R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5592r-pmdz>`
    -  :dokuwiki:`EVAL-AD5593R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5593r-pmdz>`
    -  :dokuwiki:`EVAL-AD5770R-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad5770r-pmdz>`
    -  :dokuwiki:`EVAL-AD7124-8-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-ad7124-8-pmdz>`
    -  :dokuwiki:`EVAL-ADXRS290-PMDZ PMOD <resources/eval/user-guides/circuits-from-the-lab/eval-adxrs290-pmdz>`
-   -  :dokuwiki:`EVAL-CN0326-PMDZ PMOD <resources/eval/user-guides/eval-adicup360/hardware/cn0326>`
-   -  :dokuwiki:`EVAL-CN0357-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0357>`
-   -  :dokuwiki:`EVAL-CN0397-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0397>`
-   -  :dokuwiki:`EVAL-CN0398-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
+   -  :doc:`EVAL-CN0326-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/cn0326>`
+   -  :doc:`EVAL-CN0357-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0357>`
+   -  :doc:`EVAL-CN0397-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0397>`
+   -  :doc:`EVAL-CN0398-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
    -  :doc:`EVAL-CN0410-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0410>`
    -  :doc:`EVAL-CN0414-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0414>`
    -  :doc:`EVAL-CN0415-ARDZ Shield </solutions/reference-designs/eval-adicup3029/hardware/cn0415>`

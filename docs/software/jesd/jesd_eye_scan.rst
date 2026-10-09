@@ -24,9 +24,9 @@ calculation across offset settings.
 The utility interfaces with the JESD204 Interface Framework through the
 following driver components:
 
-- :external+linux:ref:`axi_jesd204_tx`
-- :external+linux:ref:`axi_jesd204_rx`
-- :external+linux:ref:`axi_adxcvr`
+- :external+hdl:ref:`axi_jesd204_tx`
+- :external+hdl:ref:`axi_jesd204_rx`
+- :external+hdl:ref:`axi_adxcvr`
 
 Source code is available at :git-jesd-eye-scan-gtk:`GitHub <>`.
 

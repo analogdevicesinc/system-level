@@ -111,7 +111,7 @@ Table of Contents
 
          #. Linux software
 
-            #. :external+linux:ref:`ADRV9009/ADRV9008 Linux Device Driver <adrv9009>`
+            #. :external+hdl:ref:`ADRV9009/ADRV9008 Linux Device Driver <adrv9009>`
 
                #. :external+linux:ref:`ADRV9009/ADRV9008 Device Driver Customization <adrv9009-customization>`
                #. :ref:`Customizing the devicetree on the target <linux-kernel zynq-tips-tricks>`
@@ -121,15 +121,15 @@ Table of Contents
             #. :dokuwiki:`AXI-DMAC DMA Controller Linux Driver <resources/tools-software/linux-drivers/axi-dmac>`
             #. :dokuwiki:`JESD204B Transmit Linux Driver <resources/tools-software/linux-drivers/jesd204/axi_jesd204_tx>`
 
-               #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+               #. :doc:`JESD204B Status Utility </software/jesd/jesd_status>`
 
             #. :dokuwiki:`JESD204B Receive Linux Driver <resources/tools-software/linux-drivers/jesd204/axi_jesd204_rx>`
 
-               #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+               #. :doc:`JESD204B Status Utility </software/jesd/jesd_status>`
 
             #. :dokuwiki:`JESD204B/C AXI_ADXCVR Highspeed Transceivers Linux Driver <resources/tools-software/linux-drivers/jesd204/axi_adxcvr>`
 
-               #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+               #. :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
 
             #. :dokuwiki:`AXI ADC HDL Linux Driver <resources/tools-software/linux-drivers/iio-adc/axi-adc-hdl>`
             #. :dokuwiki:`AXI DAC HDL Linux Driver <resources/tools-software/linux-drivers/iio-dds/axi-dac-dds-hdl>`

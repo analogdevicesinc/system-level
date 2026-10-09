@@ -116,11 +116,11 @@ Table of contents
 
            - :external+linux:doc:`AD7768-1 Linux IIO ADC driver <drivers/iio-adc/ad7768-1>`
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
      #. For no-OS software:
 

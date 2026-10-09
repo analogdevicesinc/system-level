@@ -35,7 +35,7 @@ The boot image contains the FPGA bitstream and the no-OS application, and must
 be built manually from source:
 
 - Instructions on how to build the HDL bitstream can be found here:
-  `HDL User Guide <https://analogdevicesinc.github.io/hdl/>`_ with the
+  :external+hdl:doc:`HDL User Guide <index>` with the
   :external+hdl:ref:`AD5758 HDL project <ad5758_sdz>`. More details at
   :external+hdl:ref:`build_hdl`.
 - Instructions on how to build the no-OS software can be found here:

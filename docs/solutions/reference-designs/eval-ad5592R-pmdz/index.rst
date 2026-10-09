@@ -578,7 +578,7 @@ More Information and Useful Links
 
 - :adi:`EVAL-AD5592R-PMDZ`
 
-- :dokuwiki:`AD5592/AD5593 Pmod ADICUP3029 Demo <resources/eval/user-guides/eval-adicup3029/reference_designs/demo_ad5592r_ad5593r>`
+- :doc:`AD5592/AD5593 Pmod ADICUP3029 Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_ad5592r_ad5593r>`
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------

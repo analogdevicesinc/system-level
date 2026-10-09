@@ -109,11 +109,11 @@ Table of contents
 
            - :git-linux:`AD9467 Linux IIO ADC driver (also supports AD9265) <drivers/iio/adc/ad9467.c>`
            - :external+linux:ref:`axi-adc-hdl`
-           - :external+linux:ref:`axi-dmac`
+           - :external+hdl:ref:`axi_dmac`
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
      #. For no-OS software:
 

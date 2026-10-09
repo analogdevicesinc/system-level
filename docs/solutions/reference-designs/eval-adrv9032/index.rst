@@ -111,33 +111,31 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+linux:ref:`axi_jesd204_tx`
-           - :external+linux:ref:`axi_jesd204_rx`
            - :external+hdl:ref:`axi_jesd204_tx`
            - :external+hdl:ref:`axi_jesd204_rx`
-           - :external+linux:ref:`axi_adxcvr`
+           - :external+hdl:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`
            - :external+linux:ref:`axi-dac-dds-hdl`
            - :external+linux:ref:`ad9528`
            - :external+hdl:ref:`axi_dmac`
-           - ADRV9032/ADRV9032R Linux device driver (in-tree at :git-linux:`main:drivers/iio/adc/adrv903x/adrv903x.c`)
+           - ADRV9032/ADRV9032R Linux device driver (in-tree at :git-linux:`main:drivers/iio/trx-rf/adrv903x/adrv903x.c`)
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
-           - :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+           - :doc:`JESD204 status utility </software/jesd/jesd_status>`
+           - :doc:`JESD204 Eye Scan </software/jesd/jesd_eye_scan>`
            - :external+hdl:ref:`jesd204`
 
      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
-     #. :git-hdl:`HDL reference design <projects/adrv9032>` which you must use in your FPGA.
+     #. :git-hdl:`HDL reference design <projects/adrv903x>` which you must use in your FPGA.
         More HDL build details at :external+hdl:ref:`build_hdl`.
 
-#. :dokuwiki:`Additional documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :doc:`Additional documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _adrv9032 block-diagram:

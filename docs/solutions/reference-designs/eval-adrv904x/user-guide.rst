@@ -119,7 +119,7 @@ IIO attributes
 
 The ``adrv904x-phy`` IIO device exposes sysfs attributes under
 ``/sys/bus/iio/devices/iio:deviceN/``. For a full attribute reference, see the
-:external+linux:ref:`ADRV904x Linux device driver <adrv904x>`
+:external+hdl:ref:`ADRV904x Linux device driver <adrv904x>`
 documentation.
 
 Channel naming
