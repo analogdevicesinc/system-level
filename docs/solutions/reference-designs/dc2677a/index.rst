@@ -95,8 +95,8 @@ Table of contents
    #. Linux Applications
 
       #. :ref:`libiio`
-      #. :dokuwiki:`FRU EEPROM Utility
-         <resources/tools-software/linux-software/fru_dump>`
+      #. :doc:`FRU EEPROM Utility
+         </software/fru_dump>`
 
 #. Design with the DC2677A
 
@@ -113,8 +113,8 @@ Table of contents
 
       #. More information
 
-         #. `ADI HDL User Guide <https://analogdevicesinc.github.io/hdl/user_guide/index.html>`__
-         #. `AXI_LTC235x <https://analogdevicesinc.github.io/hdl/library/axi_ltc235x/index.html>`__
+         #. :external+hdl:doc:`ADI HDL User Guide <user_guide/index>`
+         #. :external+hdl:doc:`AXI_LTC235x <library/axi_ltc235x/index>`
 
 #. :ref:`Help and Support <help-and-support>`
 

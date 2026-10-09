@@ -11,7 +11,7 @@ reduces integration overhead and accelerates product development.
 Resources
 --------------------------------------------------------------------------------
 - Zephyr: :git-zephyr:`EVAL-CN0391-ARDZ <https://github.com/MaureenHelm/zephyr/tree/eval_cn0391_ardz>`
-- no-OS: :git-noos:`EVAL-CN0391-ARDZ <https://github.com/analogdevicesinc/no-OS/tree/staging/eval-cn0391-ardz:>`
+- no-OS: :git-no-OS:`EVAL-CN0391-ARDZ <projects/eval-cn0391-ardz>`
 - Hardware: 
   
   - :adi:`AD-APARD32690-SL Rev. E <ad-apard32690-sl>`
@@ -94,7 +94,7 @@ Setting Up the Zephyr Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to build the Zephyr application, you need to set up the Zephyr environment. 
-Please follow the instructions on `Zephyr Getting Started Guide <https://docs.zephyrproject.org/latest/getting_started/index.html>`_ to do so. 
+Please follow the instructions on `Zephyr Getting Started Guide <https://docs.zephyrproject.org/latest/develop/getting_started/index.html>`_ to do so. 
 Make sure to install all the required dependencies and initialize the Zephyr workspace before proceeding to the next steps. 
 
 Getting Libiio
@@ -235,7 +235,7 @@ Setting Up the no-OS Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to build the no-OS application, you need to set up the no-OS environment.
-Please follow the instructions on the :git-noos:`no-OS Build Guide <build_guides/build_guides:>`
+Please follow the instructions on the :external+no-OS:doc:`no-OS Build Guide <build_guide>`
 to do so. Make sure to install all the required dependencies (GNU Make, ARM GCC
 toolchain, and OpenOCD) before proceeding to the next steps.
 

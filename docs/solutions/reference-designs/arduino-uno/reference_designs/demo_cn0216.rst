@@ -85,7 +85,7 @@ Setting up the Hardware
 
 -  Connect your weigh scale to the EVAL-CN0216-ARDZ via **()**, make
    sure you pay attention to the pinout which can be found on the
-   :dokuwiki:`CN0216 hardware page <resources/eval/user-guides/eval-adicup360/hardware/cn0216>`.
+   :doc:`CN0216 hardware page </solutions/reference-designs/eval-adicup360/hardware/cn0216>`.
 -  Connect an acceptable 7V-12V power supply into the power jack of the Arduino
    Uno
 

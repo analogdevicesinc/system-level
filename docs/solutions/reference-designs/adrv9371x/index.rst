@@ -62,7 +62,7 @@ Table of Contents
          #. :ref:`adrv9371x plugin`
          #. :ref:`adrv9371x advanced-plugin`
 
-      #. :dokuwiki:`FRU EEPROM Utility <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/applications/fru_dump>`
+      #. :doc:`FRU EEPROM Utility </software/fru_dump>`
 
    #. Push custom data into/out of the AD9371/AD9375
 
@@ -99,18 +99,18 @@ Table of Contents
 
          #. About the device tree:
 
-            #. :dokuwiki:`Customizing the devicetree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+            #. :doc:`Customizing the devicetree on the target </linux/kernel/zynq_tips_tricks>`
 
          #. About the JEDS204 utilities:
 
             #. :external+linux:ref:`jesd204-fsm-framework`
-            #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
-            #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
             #. :external+hdl:ref:`jesd204`
 
       #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
       #. :external+hdl:ref:`adrv9371x` which you must use in your FPGA.
-      #. :dokuwiki:`Additional Documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+      #. :doc:`Additional Documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
 
 .. _adrv9371x block diagram:
 

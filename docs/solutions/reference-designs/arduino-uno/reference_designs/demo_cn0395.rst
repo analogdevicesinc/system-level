@@ -3,7 +3,7 @@ Volatile Organic Compounds (VOC) Measurement Demo
 
 The **CN0395_example** is a volatile organic compounds (VOC) detector
 demo project for the Arduino Uno base board with additional
-:dokuwiki:`EVAL-CN0395-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0395>`,
+:doc:`EVAL-CN0395-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0395>`,
 created using the Arduino Genuino IDE.
 
 General description
@@ -13,7 +13,7 @@ This project is a good example of using ADI shields with Arduino boards for fast
 and easy prototyping.
 
 The **CN0395_example** project uses the
-:dokuwiki:`EVAL-CN0395-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0395>`
+:doc:`EVAL-CN0395-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0395>`
 which is a portable VOC detector which comes with a Figaro TGS8100 MOX
 sensor.
 
@@ -24,7 +24,7 @@ The TGS8100 sensor requires two voltage inputs: heater voltage (VH) and
 circuit voltage (VC). The heater voltage (VH) is applied to the
 integrated heater in order to maintain the sensing element at a specific
 temperature which is optimal for sensing. The
-:dokuwiki:`EVAL-CN0395-ARDZ Shield <resources/eval/user-guides/eval-adicup360/hardware/cn0395>`
+:doc:`EVAL-CN0395-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0395>`
 circuit provides the heater voltage (VH), by using :adi:`ADN8810` IDAC
 as a programmable current source. The default full scale current in the
 IDAC is 9.94mA and the default value of the RSN resistors is 41.2Ω.

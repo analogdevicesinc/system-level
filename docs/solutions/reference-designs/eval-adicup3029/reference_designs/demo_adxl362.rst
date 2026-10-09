@@ -11,7 +11,7 @@ The **ADuCM3029_demo_esp8266** is a Wi-Fi demo project for the **EVAL-ADICUP3029
 General Description/Overview
 ----------------------------
 
-The ADuCM3029_demo_esp8266 project uses the :dokuwiki:`EVAL-ADXL362-ARDZ shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32). However, for this example the display is not used.
+The ADuCM3029_demo_esp8266 project uses the :doc:`EVAL-ADXL362-ARDZ shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32). However, for this example the display is not used.
 
 The **EVAL-ADICUP3029** is designed for IOT (Internet of Things) applications in mind, and therefore comes with on board Wi-Fi **ESP8266** module.
 

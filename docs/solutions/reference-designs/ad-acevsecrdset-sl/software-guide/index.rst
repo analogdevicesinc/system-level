@@ -44,7 +44,7 @@ software, and its official repository is the
 :git-no-OS:`no-OS GitHub Repository </>`.
 
 Users are free to use and distribute no-OS, provided that they comply with the
-:git-no-OS:`license <LICENSE>`.
+:git-no-OS:`license <LICENSE_BSD>`.
 The no-OS main drivers used in the firmware are the ones concerned with the
 :adi:`MAX32655` microcontroller, the :adi:`ADE7913` isolated, 3-channel Σ-Δ ADC,
 and the :adi:`ADT75` temperature monitoring system.

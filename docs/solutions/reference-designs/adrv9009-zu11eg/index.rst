@@ -121,15 +121,15 @@ Table of Contents
             #. :dokuwiki:`AXI-DMAC DMA Controller Linux Driver <resources/tools-software/linux-drivers/axi-dmac>`
             #. :dokuwiki:`JESD204B Transmit Linux Driver <resources/tools-software/linux-drivers/jesd204/axi_jesd204_tx>`
 
-               #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+               #. :ref:`JESD204B Status Utility <software jesd-status>`
 
             #. :dokuwiki:`JESD204B Receive Linux Driver <resources/tools-software/linux-drivers/jesd204/axi_jesd204_rx>`
 
-               #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+               #. :ref:`JESD204B Status Utility <software jesd-status>`
 
             #. :dokuwiki:`JESD204B/C AXI_ADXCVR Highspeed Transceivers Linux Driver <resources/tools-software/linux-drivers/jesd204/axi_adxcvr>`
 
-               #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+               #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
 
             #. :dokuwiki:`AXI ADC HDL Linux Driver <resources/tools-software/linux-drivers/iio-adc/axi-adc-hdl>`
             #. :dokuwiki:`AXI DAC HDL Linux Driver <resources/tools-software/linux-drivers/iio-dds/axi-dac-dds-hdl>`

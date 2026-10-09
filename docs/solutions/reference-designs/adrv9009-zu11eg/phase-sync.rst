@@ -10,7 +10,7 @@ A multichip synchronization script is available in the
 `linux_image_ADI-scripts <https://github.com/analogdevicesinc/linux_image_ADI-scripts>`__
 repository:
 
--  `adrv9009_multichip_sync.sh <https://github.com/analogdevicesinc/linux_image_ADI-scripts/blob/master/adrv9009_multichip_sync.sh>`__
+-  :git-linux_image_ADI-scripts:`adrv9009_multichip_sync.sh <master:adrv9009_multichip_sync.sh>`
 
 DMA Gating
 ----------

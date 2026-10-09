@@ -84,16 +84,16 @@ Revision D
 .. admonition:: Downloads
    :class: note
 
-   * :dokuwiki:`Rev D Schematics <university/tools/m2k/devs/02_042233d_top_updated_sch.pdf>`
-   * :dokuwiki:`Rev D Gerbers <university/tools/m2k/devs/09-042233-01d.zip>`
+   * :dokuwiki:`Rev D Schematics <_media/university/tools/m2k/devs/02_042233d_top_updated_sch.pdf>`
+   * :dokuwiki:`Rev D Gerbers <_media/university/tools/m2k/devs/09-042233-01d.zip>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__)
-   * :dokuwiki:`Rev D Bill of materials <university/tools/m2k/devs/05-042233-01-d2-adalm2000_d_bom.xlsx>`
-   * :dokuwiki:`Rev D Allegro Board File <university/tools/m2k/devs/adalm2000_brd_revd.7z>`
+   * :dokuwiki:`Rev D Bill of materials <_media/university/tools/m2k/devs/05-042233-01-d2-adalm2000_d_bom.xlsx>`
+   * :dokuwiki:`Rev D Allegro Board File <_media/university/tools/m2k/devs/adalm2000_brd_revd.7z>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__). Get the `Allegro FREE Physical Viewer
      <https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/allegro-downloads-start.html>`__
      to view.
-   * :dokuwiki:`Rev D Cadence project <university/tools/m2k/devs/20_042233e_compress.zip>`
-   * :dokuwiki:`Rev D 3D model (Case, bare PCB, connectors) <university/tools/m2k/devs/m2k_with_case.zip>`
+   * :dokuwiki:`Rev D Cadence project <_media/university/tools/m2k/devs/20_042233e_compress.zip>`
+   * :dokuwiki:`Rev D 3D model (Case, bare PCB, connectors) <_media/university/tools/m2k/devs/m2k_with_case.zip>`
 
 Revision C
 ----------
@@ -101,15 +101,15 @@ Revision C
 .. admonition:: Downloads
    :class: note
 
-   * :dokuwiki:`Rev C Schematics <university/tools/m2k/devs/adalm2000_revc_schematic.pdf>`
-   * :dokuwiki:`Rev C Gerbers <university/tools/m2k/devs/09-042233-01c.zip>`
+   * :dokuwiki:`Rev C Schematics <_media/university/tools/m2k/devs/adalm2000_revc_schematic.pdf>`
+   * :dokuwiki:`Rev C Gerbers <_media/university/tools/m2k/devs/09-042233-01c.zip>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__)
-   * :dokuwiki:`Rev C Bill of materials <university/tools/m2k/devs/05-042233-01-cadalm2000-revc-bom.xlsx>`
-   * :dokuwiki:`Rev C Allegro BoardFile <university/tools/m2k/devs/08_042233c-revc-brd.7z>`
+   * :dokuwiki:`Rev C Bill of materials <_media/university/tools/m2k/devs/05-042233-01-cadalm2000-revc-bom.xlsx>`
+   * :dokuwiki:`Rev C Allegro BoardFile <_media/university/tools/m2k/devs/08_042233c-revc-brd.7z>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__). Get the `Allegro FREE Physical Viewer
      <https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/allegro-downloads-start.html>`__
      to view.
-   * :dokuwiki:`Rev C Cadence project <university/tools/m2k/devs/20-042233-01c.zip>`
+   * :dokuwiki:`Rev C Cadence project <_media/university/tools/m2k/devs/20-042233-01c.zip>`
 
 Revision B
 ----------
@@ -117,15 +117,15 @@ Revision B
 .. admonition:: Downloads
    :class: note
 
-   * :dokuwiki:`Rev B Schematics <university/tools/m2k/devs/adalm2000_revb_schematic.pdf>`
-   * :dokuwiki:`Rev B Gerbers <university/tools/m2k/devs/09-042233-01b.zip>`
+   * :dokuwiki:`Rev B Schematics <_media/university/tools/m2k/devs/adalm2000_revb_schematic.pdf>`
+   * :dokuwiki:`Rev B Gerbers <_media/university/tools/m2k/devs/09-042233-01b.zip>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__)
-   * :dokuwiki:`Rev B Bill of materials <university/tools/m2k/devs/05-042233-01-b_adalm2000_b_bom.xlsx>`
-   * :dokuwiki:`Rev B Allegro Board File <university/tools/m2k/devs/08_042233brevb_brd.7z>`
+   * :dokuwiki:`Rev B Bill of materials <_media/university/tools/m2k/devs/05-042233-01-b_adalm2000_b_bom.xlsx>`
+   * :dokuwiki:`Rev B Allegro Board File <_media/university/tools/m2k/devs/08_042233brevb_brd.7z>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__). Get the `Allegro FREE Physical Viewer
      <https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/allegro-downloads-start.html>`__
      to view.
-   * :dokuwiki:`Rev B Cadence Project <university/tools/m2k/devs/20-042233-01b.zip>`
+   * :dokuwiki:`Rev B Cadence Project <_media/university/tools/m2k/devs/20-042233-01b.zip>`
 
 Why do a Rev C?
 ~~~~~~~~~~~~~~~
@@ -147,15 +147,15 @@ Revision A
 .. admonition:: Downloads
    :class: note
 
-   * :dokuwiki:`Rev A Schematics <university/tools/m2k/devs/adalm2000_reva_schematic.pdf>`
-   * :dokuwiki:`Rev A Gerbers <university/tools/m2k/devs/09-042233-01a.zip>`
+   * :dokuwiki:`Rev A Schematics <_media/university/tools/m2k/devs/adalm2000_reva_schematic.pdf>`
+   * :dokuwiki:`Rev A Gerbers <_media/university/tools/m2k/devs/09-042233-01a.zip>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__)
-   * :dokuwiki:`Rev A Bill of materials <university/tools/m2k/devs/042233a_adalm2000_a_bom.xlsx>`
-   * :dokuwiki:`Rev A Allegro Board File <university/tools/m2k/devs/08_042233areva_brd.7z>`
+   * :dokuwiki:`Rev A Bill of materials <_media/university/tools/m2k/devs/042233a_adalm2000_a_bom.xlsx>`
+   * :dokuwiki:`Rev A Allegro Board File <_media/university/tools/m2k/devs/08_042233areva_brd.7z>`
      (This file is `compressed <http://www.7-zip.org/7z.html>`__). Get the `Allegro FREE Physical Viewer
      <https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/allegro-downloads-start.html>`__
      to view.
-   * :dokuwiki:`Rev A Cadence project <university/tools/m2k/devs/20-042233-01a.zip>`
+   * :dokuwiki:`Rev A Cadence project <_media/university/tools/m2k/devs/20-042233-01a.zip>`
 
 Why do a Rev B?
 ~~~~~~~~~~~~~~~

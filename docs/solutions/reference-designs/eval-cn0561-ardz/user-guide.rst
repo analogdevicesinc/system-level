@@ -155,4 +155,4 @@ Precision Converters firmware
 For use with standalone microcontroller platforms, the Precision Converters
 firmware build guide is available at:
 
--  `AD4134 IIO Application <https://analogdevicesinc.github.io/precision-converters-firmware/source/projects/ad4134_iio/ad4134_iio.html>`__
+-  :external+precision-converters-firmware:doc:`AD4134 IIO Application <source/projects/ad4134_iio/ad4134_iio>`

@@ -39,22 +39,22 @@ Example Files
      - MATLAB file
      - 7.68MSPS
      - Created via
-       :dokuwiki:`lte_example <resources/tools-software/linux-software/libiio/clients/lte_example>`
+       :doc:`lte_example </solutions/reference-designs/fmcomms2/software/lte_example>`
    * - LTE10.mat
      - MATLAB file
      - 15.36MSPS
      - Created via
-       :dokuwiki:`lte_example <resources/tools-software/linux-software/libiio/clients/lte_example>`
+       :doc:`lte_example </solutions/reference-designs/fmcomms2/software/lte_example>`
    * - LTE15.mat
      - MATLAB file
      - 23.04MSPS
      - Created via
-       :dokuwiki:`lte_example <resources/tools-software/linux-software/libiio/clients/lte_example>`
+       :doc:`lte_example </solutions/reference-designs/fmcomms2/software/lte_example>`
    * - LTE20.mat
      - MATLAB file
      - 30.72MSPS
      - Created via
-       :dokuwiki:`lte_example <resources/tools-software/linux-software/libiio/clients/lte_example>`
+       :doc:`lte_example </solutions/reference-designs/fmcomms2/software/lte_example>`
    * - sinewave_0.3.mat
      - MATLAB file
      - any

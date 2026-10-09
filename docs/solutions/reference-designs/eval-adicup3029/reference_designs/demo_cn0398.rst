@@ -114,8 +114,8 @@ Setting up the Hardware
    |image2|\ |image3|
    \* Connect the **EVAL-CN0398-ARDZ** shield to the board.
 -  Connect the pH sensor to the **J1** connector of the EVAL-CN0398-ARDZ.
--  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.\ :dokuwiki:`(see connection details) <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
--  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.\ :dokuwiki:`(see connection details) <resources/eval/user-guides/eval-adicup360/hardware/cn0398>`
+-  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.\ :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
+-  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.\ :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
 -  Set the jumpers on the **EVAL-CN0398-ARDZ** to the position shown below.(**P8 SENSOR** to **3.3V**; **VIN SUPPLY** to **5V**; **P5** to **10 on DIG11**)
 
 .. image:: ../images/cn0398_jumper_positions.jpg

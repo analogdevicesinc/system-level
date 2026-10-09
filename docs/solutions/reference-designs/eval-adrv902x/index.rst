@@ -129,19 +129,19 @@ Table of contents
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
-           - :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+           - :ref:`JESD204 status utility <software jesd-status>`
+           - :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
            - :external+hdl:ref:`jesd204`
 
      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
      #. :external+hdl:ref:`HDL reference design <adrv9026>` which you must use in your FPGA.
 
-#. :dokuwiki:`Additional documentation about SDR Signal Chains - The math behind the RF <resources/eval/user-guides/ad-fmcomms1-ebz/math>`
+#. :doc:`Additional documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _adrv902x block-diagram:

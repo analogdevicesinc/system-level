@@ -607,7 +607,7 @@ To see the IIO devices detected, run:
    iio:device6: axi-adrv9009-tx-hpc (buffer capable)
    iio:device7: axi-adrv9009-rx-hpc (buffer capable)
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :ref:`JESD204 status utility <software jesd-status>`,
 run:
 
 .. shell::

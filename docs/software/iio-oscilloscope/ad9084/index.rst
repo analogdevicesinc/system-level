@@ -151,7 +151,7 @@ a click on the Load button is required.
    - There are two types of files than can be loaded: .txt or .mat.
      The IIO-Oscilloscope comes with several data files that can be used.
      If you want to create your own data files please take a look at the
-     :dokuwiki:`Basic IQ Data Files <resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`
+     :doc:`Basic IQ Data Files </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
      documentation first.
    - Due to hardware limitation only specific combinations of enabled channels are possible.
      You can enable a total of 1, 2, 4, etc. channels. If 1 channel is enabled then it can be

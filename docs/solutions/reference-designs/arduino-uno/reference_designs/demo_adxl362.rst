@@ -9,7 +9,7 @@ General Description/Overview
 ----------------------------
 
 The **ADXL362_example** uses the
-:dokuwiki:`EVAL-ADXL362-ARDZ shield <resources/eval/user-guides/eval-adicup360/hardware/adxl362>`
+:doc:`EVAL-ADXL362-ARDZ shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>`
 which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated
 **NHD-C12832A1Z-NSW-BBW display** (128x32).
 

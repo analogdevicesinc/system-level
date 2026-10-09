@@ -914,7 +914,7 @@ To see the IIO devices detected, run:
     iio:device1: ad9528
     iio:device2: axi-ad9083-rx-hpc (buffer capable)
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :ref:`JESD204 status utility <software jesd-status>`,
 run:
 
 .. shell::
@@ -951,7 +951,7 @@ Necessary files
 The following files are needed for the system to boot:
 
 - HDL boot file: ``system_top.xsa``
-- no-OS project: :git-no-os:`projects/ad9083_evb`
+- no-OS project: :git-no-os:`projects/ad9083`
 
 Instructions on how to build the boot files from source can be found here:
 

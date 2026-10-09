@@ -37,7 +37,7 @@ General Setup Using ADICUP3029
 ------------------------------
 
 The :adi:`EVAL-ADXRS290-PMDZ` can be used with 
-:dokuwiki:`ADICUP3029 </resources/eval/user-guides/eval-adicup3029>`
+:doc:`ADICUP3029 </solutions/reference-designs/eval-adicup3029/eval-adicup3029>`
 
 .. figure:: images/adxrs290_architecture.png
    :align: center
@@ -126,7 +126,7 @@ Flashing the Firmware/Program
 
    An alternative human-readable Command Line Interface (CLI) program is also
    available for the ADXRS290 Pmod on the EVAL-ADXRS290-PMDZ:
-   :dokuwiki:`ADXRS290 Gyroscope PMOD Command Line Interface Demo <resources/eval/user-guides/eval-adicup3029/reference_designs/demo_adxrs290_pmod>`
+   :doc:`ADXRS290 Gyroscope PMOD Command Line Interface Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_adxrs290_pmod>`
 
 ----
 

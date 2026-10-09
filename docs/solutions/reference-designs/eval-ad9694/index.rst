@@ -109,7 +109,7 @@ Table of contents
         #. About the JESD204 utilities:
 
            - :external+linux:ref:`jesd204-fsm-framework`
-           - :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
+           - :ref:`JESD204 status utility <software jesd-status>`
            - :external+hdl:ref:`jesd204`
 
      #. :external+hdl:ref:`HDL reference design <ad9694_fmc>` which you must use

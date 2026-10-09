@@ -49,7 +49,7 @@ Useful links
 -  `no-OS Drivers <https://github.com/analogdevicesinc/no-OS>`_
 -  :adi:`Products <en/products>`
 
--  :git-no-OS:`AD7134 no-OS Drivers <drivers/adc/ad7134>`
+-  :git-no-OS:`AD7134 no-OS Drivers <drivers/adc/ad713x>`
 -  :adi:`AD7134 <en/products/ad7134.html>`
 -  :adi:`AD4134 <en/products/ad4134.html>`
 

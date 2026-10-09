@@ -82,8 +82,8 @@ Drivers
      - Source code
      - Documentation
    * - Linux
-     - :git-linux:`release/adin1320:drivers/net/phy/adin.c`
-     - :git-linux:`release/adin1320:Documentation/devicetree/bindings/net/adi,adin.yaml`
+     - :git-linux:`drivers/net/phy/adin.c`
+     - :git-linux:`Documentation/devicetree/bindings/net/adi,adin.yaml`
 
 .. note::
 

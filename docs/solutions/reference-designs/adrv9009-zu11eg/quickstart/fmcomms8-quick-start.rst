@@ -236,7 +236,7 @@ Check JESD204B Link Status
      Initial Lane Alignment Sequence   Yes    Yes    Yes    Yes    Yes    Yes    Yes    Yes
 
 For more information see
-:dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`.
+:ref:`JESD204B Status Utility <software jesd-status>`.
 
 Video Configuration
 -------------------

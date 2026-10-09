@@ -120,7 +120,7 @@ the process, a click on the **Load** button is required.
    IIO-Oscilloscope comes with several
    :git-iio-oscilloscope:`data files <waveforms>` that can be used. If you
    want to create your own data files please take a look at the
-   :dokuwiki:`Basic IQ Data Files <resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`
+   :doc:`Basic IQ Data Files </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
    documentation first.
 - Due to hardware limitation only specific combinations of enabled channels
    are possible. You can enable a total of 1, 2, 4, etc. channels. If 1

@@ -62,7 +62,7 @@ Hardware Needed
 
    -  USB-A to USB-Mini Cable
 
--  :dokuwiki:`ADS7-V2EBZ <resources/eval/ads7-v2>` Evaluation Kit which includes:
+-  :ref:`ADS7-V2EBZ <ads7-v2>` Evaluation Kit which includes:
 
    -  12V 60W AC/DC Power Supply
    -  Power Cord

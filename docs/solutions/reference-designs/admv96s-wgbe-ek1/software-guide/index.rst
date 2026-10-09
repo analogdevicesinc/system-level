@@ -269,7 +269,7 @@ The firmware can also interact with a PC application over the serial line
 serial backend at 345600 baudrate. The following existing PC applications may be
 used to interact with the firmware:
 
-#. ``iio_info``, ``iio_attr`` (command-line tools from :git-libiio:`Libiio` )
+#. ``iio_info``, ``iio_attr`` (command-line tools from :git-libiio:`libiio` )
 #. :ref:`IIO Oscilloscope <iio-oscilloscope>`
 #. `Wethlink GUI <https://swdownloads.analog.com/update/wethlink/latest/wethlink_installer.exe>`__ (Windows only)
 

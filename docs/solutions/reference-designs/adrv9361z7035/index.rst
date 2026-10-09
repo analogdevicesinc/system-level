@@ -44,7 +44,7 @@ Table of Contents
    -  :ref:`Electrical Specifications <adrv9361z7035 electrical_specifications>`
    -  :ref:`Performance <adrv9361z7035 performance>`
 
-      -  :dokuwiki:`Power and Sequencing <resources/eval/user-guides/pzsdr/power-and-sequencing>`
+      -  :doc:`Power and Sequencing </solutions/reference-designs/pzsdr/power-and-sequencing>`
 
    -  :ref:`Revision History <adrv9361z7035 revision_history>`
 
@@ -52,10 +52,10 @@ Table of Contents
 
    -  Carriers
 
-      -  :dokuwiki:`FMC Carrier (PZSDRCC-FMC) <resources/eval/user-guides/pzsdr/carriers/fmc>`
-      -  :dokuwiki:`Breakout Carrier (PZSDRCC-BRK) <resources/eval/user-guides/pzsdr/carriers/brk>`
-      -  :dokuwiki:`PCIe Carrier (PZSDRCC-PCIE) <resources/eval/user-guides/pzsdr/carriers/pcie>`
-      -  :dokuwiki:`PackRF Carrier (PZSDRCC-PackRF) <resources/eval/user-guides/pzsdr/carriers/packrf>`
+      -  :doc:`FMC Carrier (PZSDRCC-FMC) </solutions/reference-designs/pzsdr/carriers/fmc>`
+      -  :doc:`Breakout Carrier (PZSDRCC-BRK) </solutions/reference-designs/pzsdr/carriers/brk>`
+      -  :doc:`PCIe Carrier (PZSDRCC-PCIE) </solutions/reference-designs/pzsdr/carriers/pcie>`
+      -  :doc:`PackRF Carrier (PZSDRCC-PackRF) </solutions/reference-designs/pzsdr/carriers/packrf>`
 
 - Use the RF SOM Hardware to better understand the AD9361
 

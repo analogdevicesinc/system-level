@@ -6,7 +6,7 @@ A10GX Quickstart (OBSOLETE)
 .. warning::
 
    Support for the A10GX carrier is discontinued and will not be supported in
-   future releases. Last pre-build images can be found at :dokuwiki:`Nios2 Linux on the Altera FPGA Development Boards <resources/tools-software/linux-drivers/platforms/nios2>` page.
+   future releases. Last pre-build images can be found at :doc:`Nios2 Linux on the Altera FPGA Development Boards </linux/kernel/nios2>` page.
 
 This guide provides some quick instructions on how to setup the AD-FMCDAQ2-EBZ
 on :intel:`A10GX <content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`
@@ -34,7 +34,7 @@ Required Software
 
 .. tip::
 
-   :dokuwiki:`Pre-build Images for Intel Arria 10 GX <resources/tools-software/linux-drivers/platforms/nios2>`
+   :doc:`Pre-build Images for Intel Arria 10 GX </linux/kernel/nios2>`
 
 Setting up the hardware (A10GX)
 -------------------------------

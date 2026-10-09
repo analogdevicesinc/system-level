@@ -174,7 +174,7 @@ Monitoring the status of the JESD Link
 --------------------------------------------------------------------------------
 
 At system startup, besides the IIO Oscilloscope, the
-:dokuwiki:`JESD 204B Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+:ref:`JESD 204B Eye Scan <software jesd-eye-scan>`
 app starts to allow monitoring the status of the JESD204B link to the AD9094 on
 the DAQ board.
 

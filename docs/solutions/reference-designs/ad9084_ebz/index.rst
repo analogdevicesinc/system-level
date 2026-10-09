@@ -121,7 +121,7 @@ Table of Contents
 
          - :ref:`AD9084 Plugin <ad9084 iio-oscilloscope-plugin>`
 
-      #. :dokuwiki:`FRU EEPROM Utility <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/applications/fru_dump>`
+      #. :doc:`FRU EEPROM Utility </software/fru_dump>`
 
 #. Design with the AD9084
 
@@ -142,15 +142,15 @@ Table of Contents
          #. :external+linux:ref:`axi-dmac`
          #. :external+linux:ref:`axi_jesd204_tx`
 
-            #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
 
          #. :external+linux:ref:`axi_jesd204_rx`
 
-            #. :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
+            #. :ref:`JESD204B Status Utility <software jesd-status>`
 
          #. :external+linux:ref:`axi_adxcvr`
 
-            #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
 
          #. :external+linux:ref:`axi-adc-hdl`
          #. :external+linux:ref:`axi-dac-dds-hdl`

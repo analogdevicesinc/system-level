@@ -80,7 +80,7 @@ Specific demos may require other toolboxes:
 -  :dokuwiki:`ADALM-PLUTO LTE App </resources/tools-software/transceiver-toolbox/examples/pluto_lte_app>`
 
 Models of different transceivers may require different toolboxes as well. More
-information can be found :dokuwiki:`at the RF Blockset Model of AD9361 from MathWorks page </resources/eval/user-guides/ad-fmcomms2-ebz/software/simrf>`.
+information can be found :doc:`at the RF Blockset Model of AD9361 from MathWorks page </solutions/reference-designs/fmcomms2/software/simrf>`.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
@@ -185,7 +185,7 @@ instantiated like above as:
 For example usage of certain objects, it can be useful to inspect their related
 test code which exercises initiations in different configurations. The available
 code is available in the GitHub repo folder
-`here <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/test>`__,
+:git-MathWorks_tools:`here <test>`,
 where object tests have the naming convention ``<Object>Tests.m``.
 
 To get a list of currently available objects with the BSP installed simply run:

@@ -158,7 +158,7 @@ the :adi:`EVAL-AD5592R-PMDZ:<EVAL-AD5592R-PMDZ>`
 #. **AD5592R no-OS Driver**
 
    - The 
-     :dokuwiki:`AD5592R no-OS driver <resources/tools-software/uc-drivers/ad5592r>`
+     :external+no-OS:doc:`AD5592R no-OS driver <drivers/adc-dac/ad5592r>`
      is used in bare-metal applications, typically running on low-power,
      embedded microcontrollers.
 
@@ -181,7 +181,7 @@ System Setup Using ADICUP3029
 -----------------------------
 
 The :adi:`EVAL-AD5592R-PMDZ` can be used with
-:dokuwiki:`ADICUP3029 <resources/eval/user-guides/eval-adicup3029>`.
+:doc:`ADICUP3029 </solutions/reference-designs/eval-adicup3029/eval-adicup3029>`.
 
 Demo Requirements
 ~~~~~~~~~~~~~~~~~
@@ -578,7 +578,7 @@ More Information and Useful Links
 
 - :adi:`EVAL-AD5592R-PMDZ`
 
-- :dokuwiki:`AD5592/AD5593 Pmod ADICUP3029 Demo <resources/eval/user-guides/eval-adicup3029/reference_designs/demo_ad5592r_ad5593r>`
+- :doc:`AD5592/AD5593 Pmod ADICUP3029 Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_ad5592r_ad5593r>`
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------

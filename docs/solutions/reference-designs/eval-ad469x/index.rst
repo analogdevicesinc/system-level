@@ -105,12 +105,12 @@ Table of contents
 
         #. About the device driver:
 
-           - `AD4695 IIO ADC driver
-             <https://analogdevicesinc.github.io/linux/drivers/iio-adc/ad4695.html>`__
+           - :external+linux:doc:`AD4695 IIO ADC driver
+             <drivers/iio-adc/ad4695>`
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
 
      #. :external+hdl:ref:`HDL reference design <ad469x_evb>` which you must
         use in your FPGA.

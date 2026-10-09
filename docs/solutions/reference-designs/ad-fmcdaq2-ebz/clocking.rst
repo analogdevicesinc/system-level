@@ -227,7 +227,7 @@ configuration is called :git-linux:`arch/arm/boot/dts/adi-daq2.dtsi`. This file
 contains nodes for the :git-linux:`AD9523-1 <arch/arm/boot/dts/adi-daq2.dtsi#L8>`, the :git-linux:`AD9144 <arch/arm/boot/dts/adi-daq2.dtsi#L105>` and the :git-linux:`AD9680 <arch/arm/boot/dts/adi-daq2.dtsi#L120>`. Each node contains properties that
 describe the hardware setup and provide default configuration parameters. For
 information on how to edit devicetree please see
-:dokuwiki:`Tips & Tricks - Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`.
+:doc:`Tips & Tricks - Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`.
 
 To change the clocking configuration the properties of the AD9523-1 node can be
 modified. The following lists the most important properties for the

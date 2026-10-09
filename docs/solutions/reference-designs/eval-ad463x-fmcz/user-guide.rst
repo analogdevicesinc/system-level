@@ -1042,7 +1042,7 @@ Generic examples for AD463x/AD403x are available in the
 either AD4630-24 or AD4030-24 (and derivatives). Set the device_name parameter
 to ensure that channel operations are appropriately handled. Basic documentation
 can be found at
-`API documentation <https://analogdevicesinc.github.io/pyadi-iio/devices/>`_.
+:external+pyadi-iio:doc:`API documentation <devices/index>`.
 
 Note that python does not automatically scan for usb context or an IP address
 unless a scan is embedded in the python script. If a ZedBoard is connected via

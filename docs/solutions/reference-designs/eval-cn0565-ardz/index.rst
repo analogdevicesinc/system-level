@@ -336,7 +336,7 @@ CN0565 Graphical User Interface Test Example
 
 #. Upload the CN0565 demo firmware to the EVAL-ADICUP3029 by copying the
    pre-built .HEX file directly into the DAPLINK drive
-   (:dokuwiki:`see the ADICUP3029 User Guide </resources/eval/user-guides/eval-adicup3029>`).
+   (:doc:`see the ADICUP3029 User Guide </solutions/reference-designs/eval-adicup3029/eval-adicup3029>`).
 
    - Make sure that the DAPLINK is visible in the file explorer, indicating a
      proper connection between the two boards.

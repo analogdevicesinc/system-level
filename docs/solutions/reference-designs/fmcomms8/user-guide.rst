@@ -81,7 +81,7 @@ Data streaming
 Other tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- :dokuwiki:`FRU EEPROM Utility <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/applications/fru_dump>`
-- :dokuwiki:`JESD204B Status Utility <resources/tools-software/linux-software/jesd_status>`
-- :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+- :doc:`FRU EEPROM Utility </software/fru_dump>`
+- :ref:`JESD204B Status Utility <software jesd-status>`
+- :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
 - :adi:`MATLAB Filter Wizard / Profile Generator for ADRV9009 <media/en/evaluation-boards-kits/evaluation-software/ADRV9008-x-ADRV9009-profile-config-tool-filter-wizard-v2.4.zip>`

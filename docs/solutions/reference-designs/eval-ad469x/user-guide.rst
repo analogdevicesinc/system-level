@@ -398,8 +398,8 @@ The driver source code is available at:
    * - EVAL-AD4696FMCZ
      - Linux
      - :git-linux:`drivers/iio/adc/ad4695.c`
-     - `AD4695 IIO ADC driver
-       <https://analogdevicesinc.github.io/linux/drivers/iio-adc/ad4695.html>`__
+     - :external+linux:doc:`AD4695 IIO ADC driver
+       <drivers/iio-adc/ad4695>`
    * - EVAL-AD4696FMCZ
      - no-OS
      - :git-no-OS:`drivers/adc/ad469x`
