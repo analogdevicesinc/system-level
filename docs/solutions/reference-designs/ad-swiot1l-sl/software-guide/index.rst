@@ -123,7 +123,7 @@ The Scopy AD-SWIOT1L-SL Plugin
 
 For detailed information on how to use the AD-SWIOT1L-SL Scopy plugin, including
 configuration, operation modes, and available instruments, please refer to the
-comprehensive `Scopy SWIOT1L Plugin Documentation <https://analogdevicesinc.github.io/scopy/plugins/swiot1l/index.html>`_.
+comprehensive :external+scopy:doc:`Scopy SWIOT1L Plugin Documentation <plugins/swiot1l/index>`.
 
 
 Using the IIO interface
@@ -144,7 +144,7 @@ In order to get the pyadi-iio drivers follow the next steps:
 
       ### this might need changing once swiot is merged into main
 
-#. Checkout the `swiot branch <https://github.com/analogdevicesinc/pyadi-iio/tree/swiot>`_:
+#. Checkout the :git-pyadi-iio:`swiot branch <swiot:>`:
 
    .. code-block:: bash
 

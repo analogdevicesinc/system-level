@@ -112,7 +112,7 @@ Source code is hosted in the
 repository.
 
 Build guide:
-`Precision Converters MBED Firmware <https://github.com/analogdevicesinc/precision-converters-firmware/blob/main/doc/running_the_build.md>`__
+:external+precision-converters-firmware:doc:`Precision Converters MBED Firmware <source/build/project_build>`
 
 Libiio: IIO Library
 ~~~~~~~~~~~~~~~~~~~~

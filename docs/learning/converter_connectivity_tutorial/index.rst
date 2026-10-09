@@ -368,9 +368,9 @@ require a corresponding modification to the overlay.)
 For reference, here are the overlay source files for the three devices in this
 tutorial. These are in the Linux rpi-6.12.y branch:
 
-- `LM75 Device Tree Overlay <https://github.com/analogdevicesinc/linux/blob/rpi-6.12.y/arch/arm/boot/dts/overlays/rpi-lm75-overlay.dts>`__
-- `ADXL345 Device Tree Overlay <https://github.com/analogdevicesinc/linux/blob/rpi-6.12.y/arch/arm/boot/dts/overlays/rpi-adxl345-overlay.dts>`__
-- `ADXL355 Device Tree Overlay <https://github.com/analogdevicesinc/linux/blob/rpi-6.12.y/arch/arm/boot/dts/overlays/rpi-adxl355-overlay.dts>`__
+:git-linux:`LM75 Device Tree Overlay <rpi-6.12.y:arch/arm/boot/dts/overlays/rpi-lm75-overlay.dts>`
+- :git-linux:`ADXL345 Device Tree Overlay <rpi-6.12.y:arch/arm/boot/dts/overlays/rpi-adxl345-overlay.dts>`
+- :git-linux:`ADXL355 Device Tree Overlay <rpi-6.12.y:arch/arm/boot/dts/overlays/rpi-adxl355-overlay.dts>`
 
 .. NOTE::
 

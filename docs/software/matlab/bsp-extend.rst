@@ -40,7 +40,7 @@ This does not provide status attributes or other more obscure control
 attributes. For example, the RSSI measurement is not provided as part of the
 AD9361 transceiver interfaces. To read this attribute directly we could do the
 following with the
-`common abstractions from here <https://github.com/analogdevicesinc/MathWorks_tools/blob/master/%2Badi/%2Bcommon/Attribute.m#L25>`__:
+:git-MathWorks_tools:`common abstractions from here <%2Badi/%2Bcommon/Attribute.m#L25>`__:
 
 ::
 
@@ -53,7 +53,7 @@ Adding MATLAB Properties For Attributes
 If additional APIs are needed for a device, and that code will be used by
 others, then it is recommended to add an actual property to the class. This can
 provide additional documentation as well as range checking. Below the
-`Rx <https://github.com/analogdevicesinc/MathWorks_tools/blob/master/%2Badi/%2BAD9361/Rx.m>`__
+:git-MathWorks_tools:`Rx <%2Badi/%2BAD9361/Rx.m>`__
 class is modified to allow to selection of the RF port attribute of the
 transceiver. This is done by inserting the following:
 

@@ -131,13 +131,13 @@ With your system fully setup, it's now time to stream data directly into Python.
 Data streaming and device control are provided through the python classes in 
 `pyadi-iio <https://wiki.analog.com/resources/tools-software/linux-software/pyadi-iio>`_. 
 Devices or sensors which connect through the CN0540, such as the CN0549, 
-will share a common base class called `adi.cn0540 <https://analogdevicesinc.github.io/pyadi-iio/devices/adi.cn0540.html>`_. 
+will share a common base class called :external+pyadi-iio:doc:`adi.cn0540 <devices/adi.cn0540>`. 
 However, each specific sensor will have its own class that will contain documentation, methods, 
 and properties specific to it. Therefore, end users should always use the python class associated with the sensor and not the CN0540.
 
 Below is a basic example where we will talk to a CN0540 with CN0549 attached. This is done remotely from a host PC, 
 but can be done locally on the board or through another backend. 
-See the `pyadi-iio doc for more information <https://analogdevicesinc.github.io/pyadi-iio/guides/connectivity.html>`_. 
+See the :external+pyadi-iio:doc:`pyadi-iio doc for more information <guides/connectivity>`. 
 This example can be downloaded from :git-pyadi-iio:`GitHub directly <examples/cn0532_cn0540_basic.py>`.
 
 .. code:: python
@@ -161,7 +161,7 @@ The example above can be run from a command prompt of terminal as:
 
 or by loading into your favorite editor like Spyder, VSCode, or PyCharm. Once run the return object ``data`` will be a numpy array of 32-bit integers of shape ``(2^12,1)``. Numpy is a common type used in many numerical libraries.
 
-For further details about pyadi-iio consult the `documentation on GitHub <https://analogdevicesinc.github.io/pyadi-iio/index.html>`_, or look at more examples in the :git-pyadi-iio:`examples folder <examples>`.
+For further details about pyadi-iio consult the :external+pyadi-iio:doc:`documentation on GitHub <index>`, or look at more examples in the :git-pyadi-iio:`examples folder <examples>`.
 
 Machine Learning Examples
 -------------------------

@@ -72,7 +72,7 @@ the components in the system as well as example applications enabling
 connectivity via the 10BASE-T1L interface for system configuration and data
 transfer.
 
-`AD-APARD32690-SL Firmware Source Code and User Guide <https://github.com/analogdevicesinc/no-OS/tree/main/projects/apard32690>`__
+:git-no-OS:`AD-APARD32690-SL Firmware Source Code and User Guide <projects/apard32690>`__
 
 Hardware Components and Connections
 -----------------------------------

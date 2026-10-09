@@ -100,7 +100,7 @@ The AD-R1M platform is built from modular ADI reference design boards:
 
        :adi:`EVAL-ADTF3175`
      - Time-of-Flight depth camera for perception
-     - `adi_3dtof <https://analogdevicesinc.github.io/adi_ros2/humble/adi_3dtof_adtf31xx/index.html>`__
+     - :external+adi_ros2:doc:`adi_3dtof <humble/adi_3dtof_adtf31xx/index>`__
 
 
 System Applications
@@ -266,7 +266,7 @@ Full documentation and guides are available at the
 
 - :doc:`Hardware Assembly Guide <hardware-assembly>`
 - `AD-R1M Quick Start Guide <https://analogdevicesinc.github.io/ad-r1m-ros2/tutorial/getting-started.html>`__
-- `System Setup <https://analogdevicesinc.github.io/ad-r1m-ros2/tutorial/system-setup.html>`__
+- `System Setup <https://analogdevicesinc.github.io/ad-r1m-ros2/how-to/build-from-scratch/setup-rpi.html>`__
 - `Software Guide <https://github.com/analogdevicesinc/ad-r1m-ros2/blob/main/ad_r1m/doc/reference/software-guide.rst>`__
 - `Tutorials <https://analogdevicesinc.github.io/ad-r1m-ros2/tutorial/index.html>`__
 - `How-to Guides <https://analogdevicesinc.github.io/ad-r1m-ros2/how-to/index.html>`__
@@ -279,7 +279,7 @@ The `adi_ros2 <https://github.com/analogdevicesinc/adi_ros2>`__ meta-repository
 streamlines the use of ADI packages within ROS 2 by providing a single entry point
 for all ADI-supported packages. It includes CI scripts for building system
 dependencies from source, centralized within a Docker wrapper for reproducible
-builds. See the `official documentation <https://analogdevicesinc.github.io/adi_ros2/>`__
+builds. See the :external+adi_ros2:doc:`official documentation <index>`
 for getting started.
 
 **Related ROS 2 Packages:**

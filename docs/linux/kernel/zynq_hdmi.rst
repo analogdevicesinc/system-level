@@ -244,10 +244,10 @@ Build and install the kernel image
 .. note::
 
    The most stable kernel source tree containing support for the ZED, ZC702 and
-   ZC706 plus **AD-FMCOMMS1-EBZ** can be found at `2016_R1
-   <https://github.com/analogdevicesinc/linux/tree/2016_R1>`_. For the
-   **AD-FMCOMMS2-EBZ** use also the `2016_R1
-   <https://github.com/analogdevicesinc/linux/tree/2016_R1>`_ branch.
+   ZC706 plus **AD-FMCOMMS1-EBZ** can be found at :git-linux:`2016_R1
+   <2016_R1:>`. For the
+   **AD-FMCOMMS2-EBZ** use also the :git-linux:`2016_R1
+   <2016_R1:>` branch.
 
 Download and build the kernel image:
 

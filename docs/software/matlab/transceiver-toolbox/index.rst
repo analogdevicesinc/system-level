@@ -185,7 +185,7 @@ instantiated like above as:
 For example usage of certain objects, it can be useful to inspect their related
 test code which exercises initiations in different configurations. The available
 code is available in the GitHub repo folder
-`here <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/test>`__,
+:git-MathWorks_tools:`here <test>`__,
 where object tests have the naming convention ``<Object>Tests.m``.
 
 To get a list of currently available objects with the BSP installed simply run:

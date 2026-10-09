@@ -269,8 +269,8 @@ Interacting with the CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Run commands directly from Putty.
-#. Use example scripts from `this folder <https://github.com/analogdevicesinc/EVAL-ADICUP3029/tree/master/projects/ADuCM3029_demo_cn0503/scripts>`_
-   and see the `readme file <https://github.com/analogdevicesinc/EVAL-ADICUP3029/blob/master/projects/ADuCM3029_demo_cn0503/scripts/README.md>`_
+#. Use example scripts from :git-EVAL-ADICUP3029:`this folder <master:projects/ADuCM3029_demo_cn0503/scripts>`
+   and see the :git-EVAL-ADICUP3029:`readme file <master:projects/ADuCM3029_demo_cn0503/scripts/README.md>`
    to learn how to use them.
 
 Hardware User Guide and Demo Guides

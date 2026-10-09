@@ -21,8 +21,8 @@ components:
 
 The model can be found here:
 
-- `QPSK Tx and Rx Model
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/2017a/hil_models/qpsktxrx>`__
+- :git-MathWorks_tools:`QPSK Tx and Rx Model
+  <2017a:hil_models/qpsktxrx>`
 
 .. figure:: ../images/qpsk_model.png
    :width: 600

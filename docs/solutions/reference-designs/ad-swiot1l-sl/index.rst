@@ -86,16 +86,16 @@ Getting Started with AD-SWIOT1L-SL
 
 Depending on your specific use case for the AD-SWIOT1L-SL platform, these guickstart guides may serve as valuable resources to assist you in navigating your project:
 
-#. `Interact with AD-SWIOT1L-SL using Scopy
-   <https://analogdevicesinc.github.io/scopy/plugins/swiot1l/index.html>`_
+#. :external+scopy:doc:`Interact with AD-SWIOT1L-SL using Scopy
+   <plugins/swiot1l/index>`
 #. :ref:`Program and debug AD-SWIOT1L-SL application code
    <ad-swiot1l-sl software-guide>`
 
    - A step-by-step guide to properly setup and configure your AD-SWIOT1L-SL
      system
 
-#. `Program and debug AD-SWIOT1L-SL firmware
-   <https://github.com/analogdevicesinc/no-OS/tree/main/projects/swiot1l>`_
+#. :git-no-OS:`Program and debug AD-SWIOT1L-SL firmware
+   <projects/swiot1l>`
 
    - Detailed information about programming and debugging the system
 
