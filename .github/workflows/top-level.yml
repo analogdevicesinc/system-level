@@ -95,6 +95,13 @@ jobs:
         check_vale vale-spelling.ini
         check_vale vale-enforcement.ini
 
+    - name: Check disallowed RST directives
+      if: ${{ !cancelled() }}
+      run: |
+        mapfile -t files < "$RUNNER_TEMP/changed-rst.txt"
+        (( ${#files[@]} )) || exit 0
+        python3 .github/scripts/rst-directives.py "${files[@]}"
+
     - name: Check git lfs
       if: ${{ !cancelled() }}
       run: |
