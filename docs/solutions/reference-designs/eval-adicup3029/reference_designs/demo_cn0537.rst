@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_cn0537:
+
 Smoke Detector Demo (w/ EVAL-CN0537-ADRZ)
 =========================================
 

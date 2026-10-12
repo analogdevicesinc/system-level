@@ -51,6 +51,8 @@ means it needs a carrier to plug into. The carriers we support are:
    Support for boards marked with an asterisk (*) was discontinued after the
    hdl_2023_r2 release.
 
+.. _fmcomms2/3/4 supported-env:
+
 Supported environments
 -------------------------------------------------------------------------------
 

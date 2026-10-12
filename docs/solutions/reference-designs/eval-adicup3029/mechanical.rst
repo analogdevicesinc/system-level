@@ -1,3 +1,5 @@
+.. _eval-adicup3029 mechanical:
+
 Hardware Cases and Enclosures
 =============================
 

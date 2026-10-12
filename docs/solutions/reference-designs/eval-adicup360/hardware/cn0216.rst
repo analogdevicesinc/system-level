@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0216:
+
 EVAL-CN0216-ARDZ Shield
 =======================
 
@@ -160,7 +162,7 @@ RevB to RevC:
 Software
 --------
 
--  :doc:`ADICUP360 + CN0216 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0216>`
+-  :ref:`ADICUP360 + CN0216 Demo <eval-adicup360 reference_designs demo_cn0216>`
 -  `Arduino Uno + CN0216 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0216>`_
 
 .. |image1| image:: ../images/cn0216_ref_sel_-_2.png

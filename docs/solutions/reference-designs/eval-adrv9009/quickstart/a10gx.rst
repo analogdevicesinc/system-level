@@ -64,8 +64,6 @@ You will need to:
 - Plug the Power Supply into 12V Power input connector (DC Input).
 - Turn it on.
 
-.. esd-warning::
-
 Programming the FPGA
 --------------------------------------------------------------------------------
 

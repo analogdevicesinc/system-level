@@ -5,5 +5,5 @@
 Software for the AD-FMCDAQ3-EBZ
 ===============================
 
--  :doc:`Linux </solutions/reference-designs/ad-fmcdaq3-ebz/software/linux>`
--  :doc:`No-OS drivers </solutions/reference-designs/ad-fmcdaq3-ebz/software/baremetal>`
+-  :ref:`Linux <ad-fmcdaq3-ebz software linux>`
+-  :ref:`No-OS drivers <ad-fmcdaq3-ebz software baremetal>`

@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_cn0338:
+
 CO2 Gas Measurement Demo
 ========================
 
@@ -6,7 +8,7 @@ The **ADuCM360_demo_cn0338** is a CO2 gas measurement demo project for the EVAL-
 General description
 -------------------
 
-This project is a good example for how to use :doc:`EVAL-ADICUP360 board </solutions/reference-designs/eval-adicup360/hardware/base_board>` in different combinations with shield boards. It expand the list of possible applications that can be done with the base board.
+This project is a good example for how to use :ref:`EVAL-ADICUP360 board <eval-adicup360 hardware base_board>` in different combinations with shield boards. It expand the list of possible applications that can be done with the base board.
 
 The **ADuCM360_demo_cn0338** project uses the :adi:`EVAL-CN0338-ARDZ shield <en/design-center/reference-designs/hardware-reference-design/circuits-from-the-lab/cn0338>` which is a complete thermopile-based gas sensor using the nondispersive infrared (NDIR) principle.
 
@@ -24,7 +26,7 @@ The **ADuCM360_demo_cn0338** application perform ADC reads, processes them and m
 
 To start the application you need first to press ENTER key (CR) from the keyboard. A welcome message will pop-up, after that you can type '**help**' to find out which are the available commands.
 
-The project offers two calibration techniques based on **Beer-Lambert Law**. Find which one is more closer to your application (see :doc:`Calibration Procedure </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0338>`).
+The project offers two calibration techniques based on **Beer-Lambert Law**. Find which one is more closer to your application (see :ref:`Calibration Procedure <eval-adicup360 reference_designs demo_cn0338>`).
 
 .. note::
 
@@ -156,7 +158,7 @@ The software for the **ADuCM360_demo_cn0338** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -196,7 +198,7 @@ Following is the UART configuration.
 
 -  The user must press the **<ENTER>** key to get the welcome message for this demo.
 -  The user then must type in the word **<help>** to bring up the application menu.
--  The application must be calibrated before accurate reading can be taken. There are two calibration modes that you can choose from, and each one has a set of calibration steps required. Please see the :doc:`Calibration Procedure </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0338>` section on what to do for the calibration.
+-  The application must be calibrated before accurate reading can be taken. There are two calibration modes that you can choose from, and each one has a set of calibration steps required. Please see the :ref:`Calibration Procedure <eval-adicup360 reference_designs demo_cn0338>` section on what to do for the calibration.
 -  Once the calibration is complete, type **<run>** into the console window to get your results.
 
 .. image:: ../images/cn0338_demo_21.png
@@ -206,17 +208,17 @@ Following is the UART configuration.
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup360 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to configure the debug session <eval-adicup360 tools cces_user_guide>` section.
 
 Project structure
 -----------------

@@ -1,3 +1,5 @@
+.. _eval-adicup360 tools cces_setup_guide:
+
 EVAL-ADICUP360 Tool Chain
 =========================
 

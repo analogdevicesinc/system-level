@@ -1,3 +1,5 @@
+.. _eval-adicup3029 software adicup3029:
+
 ADICUP3029 Board Support Package (BSP)
 ======================================
 
@@ -21,10 +23,10 @@ Application Examples for the ADICUP3029
 The following application examples are provided as part of the ADICUP3029 BSP
 software pack:
 
--  :doc:`Temperature Demo (with EVAL-ADT7420-PMDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_adt7420>`
--  :doc:`PMOD Accelerometer Demo (with PmodACL2 from Digilent) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_pmodacl2>`
--  :doc:`CO Toxic Gas Measurement Demo with Bluetooth (with EVAL-CN0357-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0357>`
--  :doc:`Visible Light Detection/Measurement Demo (with EVAL-CN0397-ARDZ) </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0397>`
+-  :ref:`Temperature Demo (with EVAL-ADT7420-PMDZ) <eval-adicup3029 reference_designs demo_adt7420>`
+-  :ref:`PMOD Accelerometer Demo (with PmodACL2 from Digilent) <eval-adicup3029 reference_designs demo_pmodacl2>`
+-  :ref:`CO Toxic Gas Measurement Demo with Bluetooth (with EVAL-CN0357-ARDZ) <eval-adicup3029 reference_designs demo_cn0357>`
+-  :ref:`Visible Light Detection/Measurement Demo (with EVAL-CN0397-ARDZ) <eval-adicup3029 reference_designs demo_cn0397>`
 
 Changing the MAC Address of the EM9304
 --------------------------------------
@@ -35,7 +37,7 @@ might be trying to prototype/create a system using multiple ADICUP3029 boards.
 In those circumstances it might be required to change your MAC address to a
 different unique value.
 
-We have created five(5) additional BLE MAC addresses which can be quickly programmed using the desired MAC_address.HEX file and the drag and drop method described :doc:`here. </solutions/reference-designs/eval-adicup3029/tools/adicup3029_hw_drivers>`
+We have created five(5) additional BLE MAC addresses which can be quickly programmed using the desired MAC_address.HEX file and the drag and drop method described :ref:`here. <eval-adicup3029 tools adicup3029_hw_drivers>`
 
 The current available MAC address configurations are outlined in the table
 below.
@@ -79,7 +81,7 @@ The software pack can be downloaded in several ways.
 
 -  Downloaded via the tools program
 
-   -  It is **recommended** to download the ADICUP3029 software pack through from the tools program you are using. That way, all the files, directories structure, and project structure for the various applications is properly saved and accessed. For a detailed description on how to download the ADICUP3029 software pack through CrossCore Embedded Studio please see our :doc:`CrossCore Embedded Studio Quickstart User Guide </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`.
+   -  It is **recommended** to download the ADICUP3029 software pack through from the tools program you are using. That way, all the files, directories structure, and project structure for the various applications is properly saved and accessed. For a detailed description on how to download the ADICUP3029 software pack through CrossCore Embedded Studio please see our :ref:`CrossCore Embedded Studio Quickstart User Guide <eval-adicup3029 tools cces_user_guide>`.
 
 -  Downloaded to local directory
 

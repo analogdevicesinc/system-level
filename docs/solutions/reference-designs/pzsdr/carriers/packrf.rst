@@ -40,7 +40,7 @@ webcams provided in this kit between disjoint nodes.
 Radio Hardware
 ~~~~~~~~~~~~~~
 
-A list of Design files is located in the :doc:`Hardware </solutions/reference-designs/pzsdr/carriers/packrf/hardware>` section. These include pdf's of the schematics, gerber files, board file in native format, bill of materials and more.
+A list of Design files is located in the :ref:`Hardware <pzsdr carriers packrf hardware>` section. These include pdf's of the schematics, gerber files, board file in native format, bill of materials and more.
 
 Radio Design Features
 ~~~~~~~~~~~~~~~~~~~~~
@@ -51,12 +51,12 @@ Radio Design Features
 -  OLED and Navigation Scroll Wheel
 -  Custom Designed Menu
 
-Follow this link for more detailed information on :doc:`design features </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/features>` regarding the power supply design, mechanical considerations, battery maintenance system logic and more.
+Follow this link for more detailed information on :ref:`design features <pzsdr carriers portable-radio-reference-design features>` regarding the power supply design, mechanical considerations, battery maintenance system logic and more.
 
 Portable Radio Software and HDL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The software for the ADRV-PACKRF is provided by Analog Devices as an open source reference design that can be used in various applications. The system source code consists of several components, which are used together to control onboard devices and provide connectivity to external tools for development. Follow this link for more information on the :doc:`System Software Architecture </solutions/reference-designs/pzsdr/carriers/packrf/system-software-architecture>`
+The software for the ADRV-PACKRF is provided by Analog Devices as an open source reference design that can be used in various applications. The system source code consists of several components, which are used together to control onboard devices and provide connectivity to external tools for development. Follow this link for more information on the :ref:`System Software Architecture <pzsdr carriers packrf system-software-architecture>`
 
 Radio GUI
 ~~~~~~~~~
@@ -64,7 +64,7 @@ Radio GUI
 Portable Radio Application Use Cases
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This :doc:`example use case </solutions/reference-designs/pzsdr/carriers/packrf/example-use-case>` allows the user to perform a simple experiment with the datalink and USB webcams.
+This :ref:`example use case <pzsdr carriers packrf example-use-case>` allows the user to perform a simple experiment with the datalink and USB webcams.
 
 -  Default
 -  Modem
@@ -74,12 +74,12 @@ Radio Assembly
 
 Save yourself a headache and do not disassemble the radio.
 
-Assembly of the Portable Radio Reference Design is almost as complicated as some of the hardware and software. It occupies a significant amount of time and will cause headaches, finger aches and potential damage to the device. A detailed list of instructions is provided in case you are assembling or opening a radio. Have a look at the :doc:`assembly instructions </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions>` before beginning.
+Assembly of the Portable Radio Reference Design is almost as complicated as some of the hardware and software. It occupies a significant amount of time and will cause headaches, finger aches and potential damage to the device. A detailed list of instructions is provided in case you are assembling or opening a radio. Have a look at the :ref:`assembly instructions <pzsdr carriers portable-radio-reference-design assembly-instructions>` before beginning.
 
 The Gallery
 ~~~~~~~~~~~
 
-There is also a :doc:`picture gallery </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/gallery>` to document the travels and adventures of the radio.
+There is also a :ref:`picture gallery <pzsdr carriers portable-radio-reference-design gallery>` to document the travels and adventures of the radio.
 
 Registration
 ------------

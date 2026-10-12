@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0395:
+
 EVAL-CN0395-ARDZ Shield
 =======================
 
@@ -110,7 +112,7 @@ Schematic, PCB Layout, Bill of Materials
 Software
 --------
 
--  :doc:`CN0395 ADICUP360 Demo Documentation </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0395>`
+-  :ref:`CN0395 ADICUP360 Demo Documentation <eval-adicup360 reference_designs demo_cn0395>`
 
 Registration
 ------------

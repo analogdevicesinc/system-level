@@ -140,7 +140,7 @@ Follow the steps in this order, to avoid damaging the components:
 
                $ make SER_PAR_N=0
 
-#. Refer to the `AD7616 No-Os Example Project <https://analogdevicesinc.github.io/no-OS/projects/adc/ad7616-sdz.html#xilinx-platform>`_
+#. Refer to the `AD7616 No-Os Example Project <https://analogdevicesinc.github.io/no-OS/projects/ad7616-sdz/#xilinx-platform>`_
    for instructions on how to build and run the no-OS project on the ZC706.
 #. Turn on the power switch on the ZC706
 #. Observe console output messages on your terminal (use the first ttyUSB or

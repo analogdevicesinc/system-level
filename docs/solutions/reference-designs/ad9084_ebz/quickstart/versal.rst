@@ -96,7 +96,7 @@ Configure the kernel and build it
    :show-user:
 
    /github-linux-build/linux
-   $make adi_versal_defconfig
+   $make adi_versal_apollo_defconfig
    #
    # configuration written to .config
    #

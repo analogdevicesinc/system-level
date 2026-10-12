@@ -1003,7 +1003,7 @@ To check the clock status, use the ``iio_attr`` command to query the
     SYNC Status:    Unsynchronized
     Lock Status:    PLL1 & PLL2 Locked
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :ref:`JESD204 status utility <software jesd-status>`,
 run:
 
 .. shell::

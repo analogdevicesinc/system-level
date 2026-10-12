@@ -35,7 +35,7 @@ The boot image contains the FPGA bitstream and no-OS application, and must be
 built manually from source:
 
 - Instructions on how to build the HDL bitstream can be found here:
-  `HDL User Guide <https://analogdevicesinc.github.io/hdl/>`_ with
+  :external+hdl:doc:`HDL User Guide <index>` with
   :external+hdl:ref:`ADAQ7980 HDL project <adaq7980_sdz>`. More details at
   :external+hdl:ref:`build_hdl`.
 - Instructions on how to build the no-OS software can be found here:
@@ -417,7 +417,7 @@ Additional Resources
 
 **Software Documentation:**
 
-- `HDL User Guide <https://analogdevicesinc.github.io/hdl/>`_
+- :external+hdl:doc:`HDL User Guide <index>`
 - :external+no-OS:doc:`No-OS Documentation <index>`
 - :git-hdl:`ADAQ7980 HDL Project <projects/adaq7980_sdz>`
 - :git-no-OS:`ADAQ7980 no-OS Project <projects/adaq7980_sdz>`

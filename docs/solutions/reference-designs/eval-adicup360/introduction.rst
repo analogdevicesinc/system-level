@@ -1,3 +1,5 @@
+.. _eval-adicup360 introduction:
+
 Introduction
 ============
 
@@ -13,8 +15,8 @@ party Aduino shields.
 
 This guide is structured as follows:
 
--  :doc:`ADICUP360 Tool Chain Guide </solutions/reference-designs/eval-adicup360/quickstart>` - Provides all the necessary steps to download/install/setup the tools environment. There is also a quickstart guid to help customers import, build, debug, and create applications.
--  :doc:`Hardware Details </solutions/reference-designs/eval-adicup360/hardware>` - Contains hardware-related information about the base board and the various add on modules
--  :doc:`Example Project with Setup Instructions </solutions/reference-designs/eval-adicup360/reference_designs>` - Contains detailed descriptions of the software reference designs available for the base board and the shields
--  :doc:`Help and Support </solutions/reference-designs/eval-adicup360/help_and_support>` - Provides info on where to get support on any questions you might have regarding the hardware or the software
--  :doc:`Compliance Testing and Results </solutions/reference-designs/eval-adicup360/compliance_testing_and_results>` - Provides info on FCC and CE testing of the EVAL-ADICUP360.
+-  :ref:`ADICUP360 Tool Chain Guide <eval-adicup360 quickstart>` - Provides all the necessary steps to download/install/setup the tools environment. There is also a quickstart guid to help customers import, build, debug, and create applications.
+-  :ref:`Hardware Details <eval-adicup360 hardware>` - Contains hardware-related information about the base board and the various add on modules
+-  :ref:`Example Project with Setup Instructions <eval-adicup360 reference_designs>` - Contains detailed descriptions of the software reference designs available for the base board and the shields
+-  :ref:`Help and Support <eval-adicup360 help_and_support>` - Provides info on where to get support on any questions you might have regarding the hardware or the software
+-  :ref:`Compliance Testing and Results <eval-adicup360 compliance_testing_and_results>` - Provides info on FCC and CE testing of the EVAL-ADICUP360.

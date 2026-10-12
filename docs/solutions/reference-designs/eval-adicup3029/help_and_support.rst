@@ -1,3 +1,5 @@
+.. _eval-adicup3029 help_and_support:
+
 Help and Support
 ================
 
@@ -27,7 +29,7 @@ simple things you can try before contacting Analog Devices.
 -  Program the ADuCM3029
 
    -  Sometimes a flashed program doesn't run properly or can make it difficult to run the debugger.
-   -  The first thing to try in this case, is to :doc:`drag and drop </solutions/reference-designs/eval-adicup3029/tools/adicup3029_hw_drivers>` a known good .HEX or .BIN program into flash.(something with quick visible indicators works best)
+   -  The first thing to try in this case, is to :ref:`drag and drop <eval-adicup3029 tools adicup3029_hw_drivers>` a known good .HEX or .BIN program into flash.(something with quick visible indicators works best)
    -  If drag and drop is not working, it may be necessary to erase the flash.
       To do so:
 
@@ -35,14 +37,14 @@ simple things you can try before contacting Analog Devices.
       -  Make sure that the USB is selected on the three way UART switch (S2).
       -  Power cycle the ADICUP3029 board while holding down the boot switch (S3)
       -  Select the mbed serial COM port in the CrossCore Serial Flash Programmer, and erase the flash.
-      -  Then try :doc:`dragging and dropping </solutions/reference-designs/eval-adicup3029/tools/adicup3029_hw_drivers>` a .HEX or .BIN file into flash
+      -  Then try :ref:`dragging and dropping <eval-adicup3029 tools adicup3029_hw_drivers>` a .HEX or .BIN file into flash
 
    -  If the mass erase didn't work, and you are trying to drag and drop a large
       .BIN file on EVAL-ADICUP3029 Rev B hardware, it's possible that the mbed
       interface file needs to be updated to support your application.
 
-      -  Please visit the :doc:`Maintenance Drive details </solutions/reference-designs/eval-adicup3029/tools/adicup3029_hw_drivers>` page in order to put the board in update mode.
-      -  Once you are in "maintenance mode" you should drag and drop the latest interface file onto your maintenance drive. That file can be downloaded at the bottom of :doc:`Maintenance Drive Page </solutions/reference-designs/eval-adicup3029/tools/adicup3029_hw_drivers>`.
+      -  Please visit the :ref:`Maintenance Drive details <eval-adicup3029 tools adicup3029_hw_drivers>` page in order to put the board in update mode.
+      -  Once you are in "maintenance mode" you should drag and drop the latest interface file onto your maintenance drive. That file can be downloaded at the bottom of :ref:`Maintenance Drive Page <eval-adicup3029 tools adicup3029_hw_drivers>`.
 
 -  Not receiving/transmitting data to the UART
 

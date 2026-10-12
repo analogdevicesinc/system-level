@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware adt7420:
+
 ADT7420 Digital Temperature PMOD
 ================================
 
@@ -104,7 +106,7 @@ respect to GND.
 Software Examples
 -----------------
 
--  :doc:`ADICUP360 + ADT7420 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_adt7420>`
+-  :ref:`ADICUP360 + ADT7420 Demo <eval-adicup360 reference_designs demo_adt7420>`
 -  `ADICUP3029 + ADT7420 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_adt7420>`_
 
 Schematics, PCB Layout, Bill of Materials

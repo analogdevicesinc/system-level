@@ -102,8 +102,8 @@ Table of Contents
 
    #. Push custom data into/out of the AD-FMCOMMS5-EBZ
 
-      #. :dokuwiki:`Basic Data files and formats </resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`
-      #. :dokuwiki:`Create and analyze data files in MATLAB </resources/eval/user-guides/ad-fmcomms2-ebz/software/datafiles>`
+      #. :ref:`Basic Data files and formats <fmcomms2 common basic-iq-datafiles>`
+      #. :ref:`Create and analyze data files in MATLAB <fmcomms2 common datafiles>`
       #. :dokuwiki:`Stream data into/out of MATLAB </resources/tools-software/linux-software/libiio/clients/matlab_simulink>`
       #. :dokuwiki:`AD9361 libiio streaming example </resources/tools-software/linux-software/libiio>`
 
@@ -117,7 +117,7 @@ Table of Contents
 
    #. Simulation
 
-      #. :dokuwiki:`MathWorks SimRF Models of the AD9361 </resources/eval/user-guides/ad-fmcomms2-ebz/software/simrf>`
+      #. :ref:`MathWorks SimRF Models of the AD9361 <fmcomms2 software simrf>`
 
    #. Hardware in the Loop / How to design your own custom BaseBand
 
@@ -125,11 +125,11 @@ Table of Contents
 
          #. :dokuwiki:`Stream data into/out of MATLAB </resources/tools-software/linux-software/libiio/clients/fmcomms2_3_simulink>`
          #. :dokuwiki:`Beacon Frame Receiver Example </resources/tools-software/linux-software/libiio/clients/beacon_frame_receiver_simulink>`
-         #. :dokuwiki:`QPSK Transmit and Receive Example </resources/tools-software/linux-software/libiio/clients/qpsk_example>`
-         #. :dokuwiki:`LTE Transmit and Receive Example </resources/tools-software/linux-software/libiio/clients/lte_example>`
+         #. :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
+         #. :ref:`LTE Transmit and Receive Example <fmcomms2 software lte-example>`
 
       #. :ref:`GNU Radio <software gnuradio>`
-      #. :dokuwiki:`FM Radio/Tuner </resources/tools-software/fm-radio>` (listen to FM signals on the HDMI monitor)
+      #. :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>` (listen to FM signals on the HDMI monitor)
       #. :dokuwiki:`C example </resources/tools-software/linux-software/libiio>`
 
    #. Design a custom AD9361 based platform
@@ -140,7 +140,7 @@ Table of Contents
          #. :dokuwiki:`Build the demo on ZC702, ZC706, or ZED from source </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq>`
          #. :dokuwiki:`Build the demo on KC705 or VC707 for Microblaze from source </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/microblaze>`
          #. :dokuwiki:`Build the 2014_R2 Release Linux kernel from source </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_2014r2>`
-         #. :dokuwiki:`Customizing the devicetree on the target </resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+         #. :ref:`Customizing the devicetree on the target <linux-kernel zynq-tips-tricks>`
 
       #. :dokuwiki:`No-OS Driver </resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal>`
       #. :dokuwiki:`HDL Reference Design </resources/eval/user-guides/ad-fmcomms2-ebz/reference_hdl>` which you must use in your FPGA.
@@ -149,8 +149,8 @@ Table of Contents
 
 #. Additional Documentation about SDR Signal Chains
 
-   #. :dokuwiki:`The math behind the RF </resources/eval/user-guides/ad-fmcomms1-ebz/math>`
-   #. :dokuwiki:`IQ rotation, and phase sync </resources/eval/user-guides/ad-fmcomms2-ebz/iq_rotation>`
+   #. :ref:`The math behind the RF <fmcomms2 common fmcomms-math>`
+   #. :ref:`IQ rotation, and phase sync <fmcomms2 common iq-rotation>`
 
 #. :dokuwiki:`Help and Support </resources/eval/user-guides/ad-fmcomms2-ebz/help_and_support>`
 

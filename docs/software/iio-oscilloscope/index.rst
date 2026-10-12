@@ -57,7 +57,7 @@ To build on a development host (e.g. x86 laptop or desktop) do the following:
 
 #. Optionally build and install the libad9166-iio and libad9361-iio libraries,
    by following
-   :dokuwiki:`these instructions <resources/eval/user-guides/ad-fmcomms5-ebz/multi-chip-sync#linux>`.
+   :ref:`these instructions <ad-fmcomms5-ebz-multi-chip-sync>`.
 #. Download the source using git:
 
    .. shell::
@@ -147,15 +147,16 @@ The other prerequisites and build steps are identical.
 macOS
 +++++
 
-The recommended method is to use brew with tfcollin's tap:
+Install using the Homebrew tap:
 
 .. shell::
 
-   $git clone -b fix-gtk-upgrade https://github.com/tfcollins/homebrew-formulae.git
-   $cd homebrew-formulae
-   $brew install --build-from-source ./gtkdatabox-prev1.rb
-   #if necessary: brew link --overwrite gtkdatabox-prev1
-   $brew install --build-from-source ./iio-oscilloscope.rb
+   $ git clone https://github.com/tfcollins/homebrew-formulae.git
+   $ cd homebrew-formulae
+   $ brew trust tfcollins/formulae
+   $ brew install --build-from-source ./iio-oscilloscope.rb
+
+Last tested on macOS Tahoe 26.7.1.
 
 User guide
 ----------
@@ -451,7 +452,7 @@ Several waveforms are provided with the application for demonstration purposes,
 which can be loaded into different devices. However, these are generally not
 meant for transceiver characterization or demodulation. If you want to do such
 tasks, we would recommend creation of your own waveforms from tools such as
-:dokuwiki:`MATLAB <resources/eval/user-guides/ad-fmcomms2-ebz/software/basic_iq_datafiles>`.
+:ref:`MATLAB <fmcomms2 common basic-iq-datafiles>`.
 
 Source code
 -----------

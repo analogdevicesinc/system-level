@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_cn0216:
+
 Weigh Scale Measurement Demo
 ============================
 
@@ -6,7 +8,7 @@ The **ADuCM360_demo_cn0216** is a weigh scale measurement demo project for the E
 General description
 -------------------
 
-This project is a good example for how to use :doc:`EVAL-ADICUP360 board </solutions/reference-designs/eval-adicup360/hardware/base_board>` in different combinations with various shield boards. It expand the list of possible applications that can be done with the base board.
+This project is a good example for how to use :ref:`EVAL-ADICUP360 board <eval-adicup360 hardware base_board>` in different combinations with various shield boards. It expand the list of possible applications that can be done with the base board.
 
 The **ADuCM360_demo_cn0216** project uses the :adi:`EVAL-CN0216-ARDZ shield <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-CN0216-ARDZ.html>` which is a precision weigh scale system using a **24-bits** sigma-delta converter, and auto-zero amplifiers providing high gain for the bridge sensor input
 
@@ -69,7 +71,7 @@ Setting up the hardware
    :width: 500
 
 -  Connect the **EVAL-CN0216-ARDZ** to the Arduino connectors **P2, P5, P6, P7, P8** of the **EVAL-ADICUP360** board.
--  Connect your weigh scale to the EVAL-CN0216-ARDZ via **()**, make sure you pay attention to the pinout which can be found on the :doc:`CN0216 hardware page </solutions/reference-designs/eval-adicup360/hardware/cn0216>`.
+-  Connect your weigh scale to the EVAL-CN0216-ARDZ via **()**, make sure you pay attention to the pinout which can be found on the :ref:`CN0216 hardware page <eval-adicup360 hardware cn0216>`.
 -  Connect an acceptable 7V-12V power supply into the P11 barrel jack of the
    EVAL-ADICUP360
 
@@ -116,7 +118,7 @@ The software for the **ADuCM360_demo_cn0216** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -171,17 +173,17 @@ Following is the UART configuration.
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup360 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to configure the debug session <eval-adicup360 tools cces_user_guide>` section.
 
 Project structure
 -----------------

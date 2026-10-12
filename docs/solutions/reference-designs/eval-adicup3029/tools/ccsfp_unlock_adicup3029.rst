@@ -1,3 +1,5 @@
+.. _eval-adicup3029 tools ccsfp_unlock_adicup3029:
+
 Unlocking a "Bricked" ADICUP3029
 ================================
 

@@ -1,3 +1,5 @@
+.. _eval-adicup3029 tools adicup3029_hw_drivers:
+
 ADICUP3029 PC/Laptop Drivers
 ============================
 

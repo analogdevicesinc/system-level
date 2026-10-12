@@ -990,7 +990,7 @@ To see the EEPROM specifications, run:
    $fru-dump -b /sys/bus/i2c/devices/15-0050/eeprom
 .. Add here the output of the command
 
-To use the :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`,
+To use the :ref:`JESD204 status utility <software jesd-status>`,
 run:
 
 .. shell::

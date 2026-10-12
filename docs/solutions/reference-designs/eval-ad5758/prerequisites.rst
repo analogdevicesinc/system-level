@@ -63,7 +63,7 @@ To build the HDL reference design, you need:
 #. Make (GNU Make for building the HDL project)
 #. Git (for cloning the HDL repository)
 
-See the `HDL User Guide <https://analogdevicesinc.github.io/hdl/>`_ for detailed
+See the :external+hdl:doc:`HDL User Guide <index>` for detailed
 tool installation and build instructions.
 
 No-OS Build Tools
@@ -99,7 +99,7 @@ Before starting, it's recommended to review:
 #. `EVAL-AD5758 User Guide (UG-1268)
    <https://www.analog.com/media/en/technical-documentation/user-guides/eval-ad5758-ug-1268.pdf>`_ -
    for evaluation board details
-#. `ADI Reference Designs HDL User Guide <https://analogdevicesinc.github.io/hdl/>`_ -
+#. :external+hdl:doc:`ADI Reference Designs HDL User Guide <index>` -
    for understanding the HDL framework
 #. :external+no-OS:doc:`no-OS documentation <index>` - for no-OS driver and
    project structure

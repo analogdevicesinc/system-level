@@ -102,7 +102,7 @@ Table of contents
 
    #. :ref:`ZedBoard Quick start <eval-cn0577-fmcz quickstart zed>`
 
-#. :ref:`Help and Support <help_and_support>`
+#. :ref:`Help and Support <help-and-support>`
 
 .. _eval-cn0577-fmcz block-diagram:
 
@@ -159,7 +159,7 @@ Warning
 
 .. esd-warning::
 
-.. _help_and_support:
+.. _eval-cn0577-fmcz help-and-support:
 
 Help and support
 -------------------------------------------------------------------------------

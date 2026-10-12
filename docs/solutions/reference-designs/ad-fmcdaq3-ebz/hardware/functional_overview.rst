@@ -1,3 +1,5 @@
+.. _ad-fmcdaq3-ebz hardware functional_overview:
+
 .. imported from: https://wiki.analog.com/resources/eval/user-guides/ad-fmcdaq3-ebz/hardware/functional_overview
 
 .. _ad_fmcdaq3_ebz functional overview:

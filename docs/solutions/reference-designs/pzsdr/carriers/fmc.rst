@@ -64,7 +64,7 @@ External AD9361 reference clock via J1
    :width: 800
 
 An external reference clock can be supplied via J1. To switch the source,
-modify the :git-linux:`arch/arm/boot/dts/zynq-adrv9361-z7035.dtsi` device
+modify the :git-linux:`arch/arm/boot/dts/xilinx/zynq-adrv9361-z7035.dtsi` device
 tree:
 
 .. code-block:: none

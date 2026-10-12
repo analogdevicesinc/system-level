@@ -58,8 +58,8 @@ phases are created and executed in the memory, and the user is responsible to
 generate reports, log files or save checkpoints, for later investigations.
 
 All the important Tcl processes, which define the necessary design phases can be
-found in `adi_prcfg_project.tcl
-<https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/projects/scripts/adi_prcfg_project.tcl>`_
+found in :git-hdl:`adi_prcfg_project.tcl
+<legacy_fmcomms2_pr:projects/scripts/adi_prcfg_project.tcl>`
 script. In the picture below can be seen the flow chart of the used design flow.
 
 .. image:: images/pr_design_flow.png
@@ -129,8 +129,8 @@ By default, the script runs all the necessary design flow stages (synthesis,
 implementation, logic verification and so on) in order to get a valid bitstream.
 There is a possibility to define which stages we want to run, by modifying the
 value of the following variables, in the script called
-`/<board_name>/system_project.tcl
-<https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/projects/fmcomms2/zc706/system_project.tcl>`_:
+:git-hdl:`/<board_name>/system_project.tcl
+<legacy_fmcomms2_pr:projects/fmcomms2/zc706/system_project.tcl>`:
 
 .. code-block:: tcl
 
@@ -158,15 +158,15 @@ these modulations, while the system is running.
 
 Initially, the top of the PR module is instantiated on the top of the design
 as a black box. The
-`prcfg_setup.tcl <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/projects/fmcomms2/common/prcfg_bd.tcl>`_
+:git-hdl:`prcfg_setup.tcl <legacy_fmcomms2_pr:projects/fmcomms2/common/prcfg_bd.tcl>`
 script makes sure that the FIFO interfaces between the DMAs and device core
 are brought up to the top.
 The top of the PR is a generic
-`hdl wrapper <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/library/prcfg/common/prcfg_top.v>`_,
+:git-hdl:`hdl wrapper <legacy_fmcomms2_pr:library/prcfg/common/prcfg_top.v>`,
 where the
-`TX <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/library/prcfg/default/prcfg_dac.v>`_
+:git-hdl:`TX <legacy_fmcomms2_pr:library/prcfg/default/prcfg_dac.v>`
 and
-`RX <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/library/prcfg/default/prcfg_adc.v>`_
+:git-hdl:`RX <legacy_fmcomms2_pr:library/prcfg/default/prcfg_adc.v>`
 modules are instantiated.
 
 Adding new PR logic to the design
@@ -174,14 +174,14 @@ Adding new PR logic to the design
 
 When a new PR logic is defined, the user needs to make sure that the top
 modules (which should be named
-`prcfg_dac.v <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/library/prcfg/default/prcfg_dac.v#L43#L61>`_
+:git-hdl:`prcfg_dac.v <legacy_fmcomms2_pr:library/prcfg/default/prcfg_dac.v#L43-L61>`
 and
-`prcfg_adc.v <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/library/prcfg/default/prcfg_adc.v#L43#L60>`_)
+:git-hdl:`prcfg_adc.v <legacy_fmcomms2_pr:library/prcfg/default/prcfg_adc.v#L43-L60>`)
 have the same interface as the already defined modules (**Default**, **Bist**
 or **Qpsk**). The new logic should be placed in the
 **hdl/library/prcfg/[logic_name]** directory, and should be added into the
 flow, by modifying
-`system_project.tcl <https://github.com/analogdevicesinc/hdl/blob/legacy_fmcomms2_pr/projects/fmcomms2/mitx045/system_project.tcl>`_
+:git-hdl:`system_project.tcl <legacy_fmcomms2_pr:projects/fmcomms2/mitx045/system_project.tcl>`
 script.
 
 .. image:: images/pr_generichdl.png
@@ -347,7 +347,7 @@ the partial bitstream:
    (/dev/xdevcfg).
 
 The functions, which do the update of the PR portion can be found
-`here <https://github.com/analogdevicesinc/iio-oscilloscope/blob/master/plugins/pr_config.c#L89#L134>`_.
+:git-iio-oscilloscope:`here <master:plugins/pr_config.c#L89-L134>`.
 
 .. note::
 

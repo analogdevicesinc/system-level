@@ -1,3 +1,5 @@
+.. _eval-adicup3029 smart_app ble_connect:
+
 ADICUP3029 BLE Connection Documentation
 =======================================
 

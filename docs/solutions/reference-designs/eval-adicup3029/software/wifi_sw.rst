@@ -1,3 +1,5 @@
+.. _eval-adicup3029 software wifi_sw:
+
 Wi-Fi Software Pack
 ===================
 
@@ -41,7 +43,7 @@ The software pack can be downloaded in several ways.
 
 -  Downloaded via the tools program
 
-   -  It is **recommended** to download the WiFi software pack through from the tools program you are using. That way, all the files, directories structure, and project structure for the various applications is properly saved and accessed. For a detailed description on how to download the WiFi software pack through CrossCore Embedded Studio please see our :doc:`CrossCore Embedded Studio Quickstart User Guide </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`.
+   -  It is **recommended** to download the WiFi software pack through from the tools program you are using. That way, all the files, directories structure, and project structure for the various applications is properly saved and accessed. For a detailed description on how to download the WiFi software pack through CrossCore Embedded Studio please see our :ref:`CrossCore Embedded Studio Quickstart User Guide <eval-adicup3029 tools cces_user_guide>`.
 
 -  Downloaded to local directory
 

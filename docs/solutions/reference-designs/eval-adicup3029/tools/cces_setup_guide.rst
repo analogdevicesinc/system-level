@@ -1,3 +1,5 @@
+.. _eval-adicup3029 tools cces_setup_guide:
+
 EVAL-ADICUP3029 Tool Chain
 ==========================
 

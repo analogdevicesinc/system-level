@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0338:
+
 EVAL-CN0338-ARDZ Shield
 =======================
 
@@ -13,7 +15,7 @@ The :adi:`EVAL-CN0338-ARDZ shield <cn0338>` is optimized for CO2 sensing, but ca
 Connectors and configuration
 ----------------------------
 
-The CN0338 firmware use P0.1 and P0.2 port of ADuCM360 as UART communicate port, for detailed description about how to connect P0.1 and P0.2 UART port to USER USB or DEBUG UBS, please reference :doc:`EVAL-ADICUP360 Base Board Hardware </solutions/reference-designs/eval-adicup360/hardware/base_board>`
+The CN0338 firmware use P0.1 and P0.2 port of ADuCM360 as UART communicate port, for detailed description about how to connect P0.1 and P0.2 UART port to USER USB or DEBUG UBS, please reference :ref:`EVAL-ADICUP360 Base Board Hardware <eval-adicup360 hardware base_board>`
 
 CN0338 Shield Board
 ~~~~~~~~~~~~~~~~~~~
@@ -59,7 +61,7 @@ Schematics, PCB Layout, Bill of Materials
 Software examples
 -----------------
 
--  :doc:`CN0338 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0338>`
+-  :ref:`CN0338 Demo <eval-adicup360 reference_designs demo_cn0338>`
 
 Registration
 ------------

@@ -276,7 +276,7 @@ Follow the steps in this order, to avoid damaging the components:
 
     The BOOT switches (JP7–JP11) and the MIO0 jumper (JP6) must be set for JTAG
     boot mode. VADJ must be set to 1.8V, as specified in the HDL project's
-    README at :external+hdl:ref:`CN0561`. Optionally, to use USB peripheral
+    README at :external+hdl:ref:`cn0561`. Optionally, to use USB peripheral
     devices with the ZedBoard, install jumpers JP2 and JP3.
 
 #. Connect your signal generator to the analog inputs of the evaluation board

@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0411:
+
 EVAL-CN0411-ARDZ Shield Overview
 ================================
 
@@ -210,7 +212,7 @@ The system can automatically select the proper gain resistance from the user-def
 Software
 --------
 
--  :doc:`ADICUP360 + CN0411 Demo Software and Setup </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0411>`
+-  :ref:`ADICUP360 + CN0411 Demo Software and Setup <eval-adicup360 reference_designs demo_cn0411>`
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------

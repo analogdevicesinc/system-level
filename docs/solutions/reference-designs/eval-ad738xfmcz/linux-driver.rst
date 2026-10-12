@@ -126,7 +126,7 @@ this. In this case you will need to add a
 ``adi,num-sdi`` property that corresponds to the
 ``NUM_OF_SDI`` compile option that was used when compiling
 the FPGA bitstream from the
-`AD738x-FMC HDL project <https://analogdevicesinc.github.io/hdl/projects/ad738x_fmc/index.html>`_.
+:external+hdl:doc:`AD738x-FMC HDL project <projects/ad738x_fmc/index>`.
 
 ::
 
@@ -292,7 +292,7 @@ be able to achieve the maximum sample rate (e.g. 4 MSPS),
 it needs to be used with a specialized SPI controller that
 supports offloading. An example of such a SPI controller
 can be found in the
-`example AD738x-FMC HDL project <https://analogdevicesinc.github.io/hdl/projects/ad738x_fmc/index.html>`_.
+:external+hdl:doc:`example AD738x-FMC HDL project <projects/ad738x_fmc/index>`.
 It can also be used with conventional SPI controllers, but
 sampling rate will be limited by the software and hardware
 capabilities of the system it is running on.

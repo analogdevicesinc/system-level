@@ -42,7 +42,7 @@ Arduino Header support, such as STM32-Discovery, STM32-Nucleo, etc.
 Useful links
 ~~~~~~~~~~~~
 
-- :git-no-OS:`AD4130 No-OS drivers <drivers/adc/ad413x>`
+- :git-no-OS:`AD4130 No-OS drivers <drivers/afe/ad413x>`
 - :adi:`AD4130-8 Product Page <ad4130-8>`
 - :adi:`EVAL-AD4130-8WARDZ <EVAL-AD4130-8>`
 
@@ -112,7 +112,7 @@ Source code is hosted in the
 repository.
 
 Build guide:
-`Precision Converters MBED Firmware <https://github.com/analogdevicesinc/precision-converters-firmware/blob/main/doc/running_the_build.md>`__
+:external+precision-converters-firmware:doc:`Precision Converters MBED Firmware <source/build/project_build>`
 
 Libiio: IIO Library
 ~~~~~~~~~~~~~~~~~~~~

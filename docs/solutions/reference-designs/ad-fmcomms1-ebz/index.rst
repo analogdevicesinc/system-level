@@ -142,8 +142,8 @@ Table of contents
    - :ref:`Linux <ad_fmcomms1_ebz software linux>`
 
      - :ref:`ZC702, ZC706, ZED <linux-kernel zynq-hdmi>`
-     - :dokuwiki:`ML605 (Microblaze) <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/microblaze_ml605>`
-     - :dokuwiki:`KC705 (Microblaze) <resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/microblaze_kc705>`
+     - :ref:`ML605 (Microblaze) <ad_fmcomms1_ebz quickstart microblaze-ml605>`
+     - :ref:`KC705 (Microblaze) <ad_fmcomms1_ebz quickstart microblaze-kc705>`
 
    - :dokuwiki:`No-OS drivers <resources/fpga/xilinx/fmc/ad-fmcomms1-ebz/reference_design_no_os>`
    - :ref:`FMCOMMS1 IIO Oscilloscope Plugin <fmcomms1-plugin>`

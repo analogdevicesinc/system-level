@@ -38,7 +38,7 @@ Contents
          #. :dokuwiki:`Dealing with Non-Quadrature signals <university/tools/pluto/users/non_quad>`
 
    #. :dokuwiki:`Antennas <university/tools/pluto/users/antennas>`
-   #. :dokuwiki:`Letter of Volatility <university/tools/pluto/users/letter_of_volatility_pluto.pdf>`
+   #. :dokuwiki:`Letter of Volatility <_media/university/tools/pluto/users/letter_of_volatility_pluto.pdf>`
 
 #. :dokuwiki:`Quick Start <university/tools/pluto/users/quick_start>`
 #. Intro to the Software. Installing Device Drivers on:

@@ -24,7 +24,7 @@ else:
 EXCLUDE_FILES = {
     'conf.py', 'Makefile', 'make.bat', '.gitignore', '.gitattributes',
     'requirements.txt',
-    'custom.css', 'adi_logo.svg', 'icon.svg',
+    'custom.css', 'icon.svg',
 }
 
 EXCLUDE_EXTENSIONS = {'.rst', '.md'}

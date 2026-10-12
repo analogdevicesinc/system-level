@@ -24,7 +24,7 @@ found on GitHub:
    **No-OS:**
 
    -  HDL dev branch: https://github.com/analogdevicesinc/hdl/tree/dev/projects/pzsdr/ccbrk
-   -  Loopback test: :git-no-OS:`pzsdr/ccbrk/loopback`
+   -  Loopback test: :git-no-OS:`projects/capi_selftest/boards/loopback`
 
    Xilinx SDK 2015.2 is currently required to build both of these projects.
 
@@ -179,7 +179,7 @@ found on GitHub:
    **No-OS:**
 
    -  Tests for various loopback modules (PMOD, camera, FMC, SFP+) run at
-      the U-Boot level: :git-no-OS:`pzsdr/ccfmc/loopback`
+      the U-Boot level: :git-no-OS:`projects/capi_selftest/boards/loopback`
    -  HDL dev branch: https://github.com/analogdevicesinc/hdl/tree/dev/projects/pzsdr/ccfmc
 
    **Test script:**

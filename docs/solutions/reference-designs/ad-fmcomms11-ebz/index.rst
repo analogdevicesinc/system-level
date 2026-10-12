@@ -107,8 +107,8 @@ Table of Contents
    back to it when you want to incorporate one of the devices
    into your product.
 
-   #. :doc:`Functional Overview & Specifications <hardware/functional_overview>`
-   #. :doc:`Characteristics & Performance <hardware/card_specification>`
+   #. :ref:`Functional Overview & Specifications <fmcomms11 functional-overview>`
+   #. :ref:`Characteristics & Performance <fmcomms11 card-specification>`
 
 #. :doc:`FCC or CE certification <certification>`
 #. :doc:`Production Testing Process <testing>`
@@ -156,13 +156,13 @@ Table of Contents
 
          #. About the device tree:
 
-            #. :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+            #. :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
          #. About the JESD204 utilities:
 
             #. :external+linux:doc:`JESD204 (FSM) interface Linux Kernel framework <drivers/jesd204/jesd204-fsm-framework>`
-            #. :dokuwiki:`JESD204 status utility <resources/tools-software/linux-software/jesd_status>`
-            #. :dokuwiki:`JESD204 Eye Scan <resources/tools-software/linux-software/jesd_eye_scan>`
+            #. :ref:`JESD204 status utility <software jesd-status>`
+            #. :ref:`JESD204 Eye Scan <software jesd-eye-scan>`
             #. :external+hdl:ref:`jesd204`
 
       #. FPGA Resources:

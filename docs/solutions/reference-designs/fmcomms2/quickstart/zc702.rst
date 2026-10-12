@@ -8,7 +8,7 @@ This guide provides quick instructions on how to setup the
 
 - :xilinx:`ZC702` on FMC1 LPC
 
-.. image:: ../../images/zc706.png
+.. image:: ../../images/zc702.jpg
   :width: 800
 
 Using Linux as software

@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware adxl362:
+
 EVAL-ADXL362-ARDZ Shield
 ========================
 
@@ -81,7 +83,7 @@ Schematics, PCB Layout, Bill of Materials
 Software examples
 -----------------
 
--  :doc:`ADICUP360 + ADXL362 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl362>`
+-  :ref:`ADICUP360 + ADXL362 Demo <eval-adicup360 reference_designs demo_adxl362>`
 -  `ADICUP3029 + ADXL362 Wi-Fi Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_adxl362>`_
 -  `Arduino Uno + ADXL362 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_adxl362>`_
 

@@ -903,8 +903,8 @@ pre-captured data and the
 In IIO scope, set the Receive Chain and Transmit Chain according to the
 specifications of ADS-B signals. Then, use *DAC Buffer Output* for DDS Mode.
 In the end, select file
-`data_noise.mat
-<https://github.com/analogdevicesinc/MathWorks_tools/blob/2016a/targeting_models/ADSB/data_noise.mat>`_,
+:git-MathWorks_tools:`data_noise.mat
+<2016a:targeting_models/ADSB/data_noise.mat>`,
 which includes the pre-captured data and click Load. You will see the message
 saying "Waveform loaded successfully" if your file has been applied to the DAC
 channels you selected.

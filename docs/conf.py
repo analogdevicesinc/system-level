@@ -35,6 +35,10 @@ html_css_files = [
     'custom.css',
 ]
 
+html_js_files = [
+    'legalese.js',
+]
+
 # -- Custom extensions configuration ------------------------------------------
 
 mermaid_d3_zoom = True

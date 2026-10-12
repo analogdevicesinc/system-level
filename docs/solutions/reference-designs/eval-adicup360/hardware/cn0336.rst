@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0336:
+
 EVAL-CN0336-PMDZ PMOD
 =====================
 
@@ -18,7 +20,7 @@ EVAL-ADICUP360.
 Input Interface
 ~~~~~~~~~~~~~~~
 
-The circuit consists of an input current-to-voltage converter, a level shifting circuit, an ADC stage, and an output isolation stage. The system can process 4 to 20 mA input signals by connecting the positive terminal to Pin 1 and the ground terminal to Pin 2 of J2 terminal block. A diode is connected to provide protection against an accidental reverse connection of the input current source. The calculation of gain and resistor values can be found in :adi:`CN0336 Circuit Note <media/en/reference-design-documentation/reference-designs/CN0336.pdf>`. The guide on how to use the two-point calibration can be found at the software demo :doc:`page </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0336>`.
+The circuit consists of an input current-to-voltage converter, a level shifting circuit, an ADC stage, and an output isolation stage. The system can process 4 to 20 mA input signals by connecting the positive terminal to Pin 1 and the ground terminal to Pin 2 of J2 terminal block. A diode is connected to provide protection against an accidental reverse connection of the input current source. The calculation of gain and resistor values can be found in :adi:`CN0336 Circuit Note <media/en/reference-design-documentation/reference-designs/CN0336.pdf>`. The guide on how to use the two-point calibration can be found at the software demo :ref:`page <eval-adicup360 reference_designs demo_cn0336>`.
 
 .. note::
 
@@ -70,7 +72,7 @@ J1.12      Digital Power       VDD
 Software examples
 -----------------
 
--  :doc:`ADICUP360 + CN0336 </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0336>`
+-  :ref:`ADICUP360 + CN0336 <eval-adicup360 reference_designs demo_cn0336>`
 
 Schematics, PCB Layout, Bill of Materials
 -----------------------------------------

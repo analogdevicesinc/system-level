@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_ad5592r_ad5593r:
+
 AD5592/AD5593 PMOD Demo
 =======================
 
@@ -19,7 +21,7 @@ The program is divided in 2 parts: the setup part in which the present module is
 -  Channel 2 (input GPIO) -> Channel 5 (output GPIO);
 -  Channel 3 (input GPIO) -> Channel 4 (output GPIO).
 
-More information about the CLI commands can be found :doc:`here </solutions/reference-designs/eval-adicup3029/reference_designs/demo_ad5592r_ad5593r>`.
+More information about the CLI commands can be found :ref:`here <eval-adicup3029 reference_designs demo_ad5592r_ad5593r>`.
 
 Demo Requirements
 -----------------
@@ -245,17 +247,17 @@ The software for the **ADuCM3029_demo_ad5592r_ad5593r** can be found here:
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~

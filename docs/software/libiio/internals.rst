@@ -1087,7 +1087,7 @@ of the known constant values of the IIO objects, like the ID of a device, are
 cached within the Python classes for faster access. Then, printing the ID of a
 device in a Python script is as easy as typing “print my_device.id”. To better
 understand the available calls consult the
-:git-libiio:`bindings source <bindings/python/iio.py>` and some available
+:git-libiio:`bindings source <bindings/python/iio>` and some available
 `examples <https://github.com/analogdevicesinc/plutosdr_scripts>`__.
 
 Installation

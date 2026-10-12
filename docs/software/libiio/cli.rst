@@ -13,7 +13,7 @@ development of software interfacing :ref:`Linux Industrial I/O <iio>` (IIO) devi
 - :ref:`libiio iio_reg` : read or write SPI or I2C registers in an IIO device
   (useful to debug drivers).
 
- .. _libiio iio_reg:
+.. _libiio iio_reg:
 
 iio_reg
 =======

@@ -226,7 +226,7 @@ Securing the PCBs
    :width: 600
 
 Once these steps are complete, begin the radio
-:doc:`Partial Assembly Test </solutions/reference-designs/pzsdr/carriers/packrf/testing>`.
+:ref:`Partial Assembly Test <pzsdr carriers packrf testing>`.
 
 Stage 2 — Full Assembly
 ===============================================================================
@@ -461,7 +461,7 @@ builds will have silkscreen etched with the correct labels).
    :width: 400
 
 Once these steps are complete, begin the radio
-:doc:`Full Assembly Test </solutions/reference-designs/pzsdr/carriers/packrf/testing>`.
+:ref:`Full Assembly Test <pzsdr carriers packrf testing>`.
 
 PackRF — Final Assembly
 ===============================================================================

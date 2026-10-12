@@ -266,16 +266,16 @@ receiving process in MATLAB.
 
 The MATLAB version LTE example can be found here:
 
-- `MATLAB Version LTE Transmitter and Receiver Example
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/LTE_MATLAB>`__
+- :git-MathWorks_tools:`MATLAB Version LTE Transmitter and Receiver Example
+  <hil_models/legacy/LTE_MATLAB>`
 
 In order to run this example, you need to get the libiio interface from here and
 include them in the same folder as your example:
 
 - `Libiio Interface <https://github.com/analogdevicesinc/libiio-matlab>`__
 
-The main function is `ad9361_LTE.m
-<https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/LTE_MATLAB/ad9361_LTE.m>`__.
+The main function is :git-MathWorks_tools:`ad9361_LTE.m
+<hil_models/legacy/LTE_MATLAB/ad9361_LTE.m>`.
 This function mainly consists of four parts:
 
 - Pick up LTE parameters according to LTE Mode

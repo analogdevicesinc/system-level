@@ -221,8 +221,8 @@ as a test suite.
 The transmit model **adsbTxGen.m** can be found on the Analog Devices GitHub
 repository:
 
-- `Transmit Model
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/ADSB_transmitter/adsbTxGen.m>`__
+- :git-MathWorks_tools:`Transmit Model
+  <hil_models/legacy/ADSB_transmitter/adsbTxGen.m>`
 
 The input to this function is the known ADS-B message you would like to
 transmit, and the output is the baseband ADS-B waveform that the receiver can
@@ -243,8 +243,8 @@ Receive Model
 The receiver model **ModeS_Simulink_Decode.mdl** and its associated files can
 be found on the Analog Devices GitHub repository:
 
-- `Receive Model
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/ADSB_Simulink>`__
+- :git-MathWorks_tools:`Receive Model
+  <hil_models/legacy/ADSB_Simulink>`
 
 The model itself is quite straightforward. It takes the pre-recorded ADS-B
 data, saved in ``data_Yb.mat`` as input, and then decode the message. The subsystem
@@ -331,10 +331,10 @@ onto a Zynq SoC platform, such as
 who are interested in following along with the radio I/O models can find the
 files on the Analog Devices GitHub repository:
 
-- `Radio I/O in MATLAB
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/ADSB_MATLAB>`__
-- `Radio I/O in Simulink
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/ADSB_Simulink_libiio>`__
+- :git-MathWorks_tools:`Radio I/O in MATLAB
+  <hil_models/legacy/ADSB_MATLAB>`
+- :git-MathWorks_tools:`Radio I/O in Simulink
+  <hil_models/legacy/ADSB_Simulink_libiio>`
 
 To better understand these models, an introduction to IIO System Object provided
 by ADI can be found
@@ -344,8 +344,8 @@ MATLAB
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To validate the MATLAB ADS-B decoding algorithm operation with real time data
-acquired from the PicoZed SDR platform, a MATLAB script `ad9361_ModeS.m
-<https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/ADSB_MATLAB/ad9361_ModeS.m>`__
+acquired from the PicoZed SDR platform, a MATLAB script :git-MathWorks_tools:`ad9361_ModeS.m
+<hil_models/legacy/ADSB_MATLAB/ad9361_ModeS.m>`
 has been developed to perform the following operations:
 
 #. Calculate the earth zone according to user input
@@ -608,8 +608,8 @@ According to the guidelines presented in the reference guide, the intermediate
 model **ModeS_FixPt_Pipelined_ADI.slx** and its associated files can be found
 on the Analog Devices GitHub repository:
 
-- `Intermediate Model
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hil_models/legacy/ADSB_Simulink>`__
+- :git-MathWorks_tools:`Intermediate Model
+  <hil_models/legacy/ADSB_Simulink>`
 
 In this model, we converted the data type from floating point to fixed point,
 and we added some pipeline registers as the first step for setting this model
@@ -762,8 +762,8 @@ towards ADS-B model.
 
 The board support package can be found at Analog Devices GitHub:
 
-- `Analog Devices Board Support Package
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/hdl_wa_bsp>`__
+- :git-MathWorks_tools:`Analog Devices Board Support Package
+  <hdl_wa_bsp>`
 
 To install the Analog Devices BSP, set the MATLAB current folder to the
 ``/vendor/AnalogDevices`` folder found in the location where the BSP was
@@ -807,8 +807,8 @@ In MATLAB, run the following line in command window:
 
 The ADS-B hardware targeting model can be found at Analog Devices GitHub:
 
-- `ADS-B Hardware Targeting Model
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/master/targeting_models/ADSB>`__
+- :git-MathWorks_tools:`ADS-B Hardware Targeting Model
+  <targeting_models/ADSB>`
 
 Open model ``ModeS_ADI_Codegen.slx`` in MATLAB.
 
@@ -956,8 +956,8 @@ some pre-captured data and the
 In IIO scope, set the Receive Chain and Transmit Chain according to the
 specifications of ADS-B signals. Then, use ``DAC Buffer Output`` for DDS
 Mode. In the end, select file
-`data_noise.mat
-<https://github.com/analogdevicesinc/MathWorks_tools/blob/2016a/targeting_models/ADSB/data_noise.mat>`__,
+:git-MathWorks_tools:`data_noise.mat
+<2016a:targeting_models/ADSB/data_noise.mat>`,
 which includes the pre-captured data and click Load. You will see the message
 saying "Waveform loaded successfully" if your file has been applied to the DAC
 channels you selected.

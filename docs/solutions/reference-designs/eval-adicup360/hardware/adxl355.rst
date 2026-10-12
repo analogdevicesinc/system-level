@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware adxl355:
+
 ADXL355 Low Noise, Programmable ±2g, ±4g, and ±8g Accelerometer PMOD
 ====================================================================
 
@@ -74,7 +76,7 @@ The EVAL-ADXL355-PMDZ has two interrupt pins and a data ready pin which can be u
 Software examples
 -----------------
 
--  :doc:`ADXL355 Accelerometer PMOD Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl355>`
+-  :ref:`ADXL355 Accelerometer PMOD Demo <eval-adicup360 reference_designs demo_adxl355>`
 
 Schematics, PCB Layout, Bill of Materials
 -----------------------------------------

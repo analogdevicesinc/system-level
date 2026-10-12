@@ -38,8 +38,8 @@ and your license needs to include the following components:
 
 The model can be found here:
 
-- `IEEE 802.11 Beacon Frame Receiver Model
-  <https://github.com/analogdevicesinc/MathWorks_tools/tree/3.1/hil_models/ieee80211_beacon_rx>`__
+- :git-MathWorks_tools:`IEEE 802.11 Beacon Frame Receiver Model
+  <3.1:hil_models/ieee80211_beacon_rx>`
 
 Its initialization functions are based on the ones of :mw:`IEEE 802.11 WLAN -
 Beacon Frame Receiver with USRP Hardware

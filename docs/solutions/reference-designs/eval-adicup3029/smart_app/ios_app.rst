@@ -1,3 +1,5 @@
+.. _eval-adicup3029 smart_app ios_app:
+
 iOS Smart App Overview
 ======================
 
@@ -58,4 +60,4 @@ Interfacing Data to IoTNode
 
 The **IoTNode** app supports an easy to interface registration, configuration, and data packet system. For complete details on writing embedded code to interface to the IoTNode smart app, please check out the link below.
 
--  :doc:`Interfacing Data with IoTNode </solutions/reference-designs/eval-adicup3029/smart_app/ble_connect>`
+-  :ref:`Interfacing Data with IoTNode <eval-adicup3029 smart_app ble_connect>`

@@ -8,10 +8,8 @@ This guide provides quick instructions on how to set up the
 
 - :xilinx:`KCU105` on FMC LPC
 
-.. image:: ../images/fmcomms2_kcu105_linux.jpeg
-   :width: 900
-
-.. esd-warning::
+.. image:: ../../images/kcu105.png
+   :width: 800
 
 Using Linux as software
 --------------------------------------------------------------------------------
@@ -73,6 +71,8 @@ Creating the setup
 
 .. image:: ../images/fmcomms2_kcu105_linux.jpeg
    :width: 900
+
+.. esd-warning::
 
 In the following example, we will make a physical loopback between the ADC
 and the DAC channels on the evaluation board, using SMA cables.

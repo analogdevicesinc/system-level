@@ -63,19 +63,3 @@ from the FPGA, we use the following:
 
    :adi:`ADI <>` does not offer FPGA carrier platforms for sale or loan;
    getting one yourself is the normal part of development or evaluation.
-
-..
-   Content below was moved from the original file for review:
-
-   - The `ZedBoard <http://zedboard.org/product/zedboard>`_. This is a low
-     cost board, which can be used for basic HDL designs, or just for looking
-     at the AD9361/AD9364. Most of our software and RF developers have this
-     board.
-   - The `Xilinx ZC706 <https://www.xilinx.com/zc706>`_. The fabric on this
-     device is much larger, and if you are looking at targeting - this is the
-     recommended option.
-   - The `Arrow SoCKit <https://www.arrow.com/en/products/sockit/arrow-development-tools>`_.
-     This is a low cost board, which can be used for basic HDL designs, or
-     just for looking at the AD9361.
-   - To determine which card is best for you, check out the introduction
-     section.

@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0391:
+
 EVAL-CN0391-ARDZ Shield
 =======================
 
@@ -121,7 +123,7 @@ Schematic, PCB Layout, Bill of Materials
 Software
 --------
 
--  :doc:`ADICUP360 + CN0391 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0391>`
+-  :ref:`ADICUP360 + CN0391 Demo <eval-adicup360 reference_designs demo_cn0391>`
 -  `Arduino Uno + CN0391 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0391>`_
 
 Registration

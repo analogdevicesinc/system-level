@@ -28,7 +28,7 @@ System Requirements
 
 .. admonition:: Download
 
-   :download:`LTpowerAnalyzer™ Software Installer <https://swdownloads.analog.com/LTpowerAnalyzer™/SetupLTpowerAnalyzer™.exe>`
+   :download:`LTpowerAnalyzer™ Software Installer <https://swdownloads.analog.com/LTpowerAnalyzer/SetupLTpowerAnalyzer.exe>`
 
 Software Installation
 ---------------------
@@ -37,7 +37,7 @@ This section provides a step-by-step procedure of installing the LTpowerAnalyzer
 software. For this demonstration, the LTpowerAnalyzer™ software version is **LTPA
 version 1.8.1.2.**
 
-1. Download the :download:`LTpowerAnalyzer™ Software Installer Package <https://swdownloads.analog.com/LTpowerAnalyzer™/SetupLTpowerAnalyzer™.exe>`
+1. Download the :download:`LTpowerAnalyzer™ Software Installer Package <https://swdownloads.analog.com/LTpowerAnalyzer/SetupLTpowerAnalyzer.exe>`
 2. Locate the executable file **SetupLTpowerAnalyzer™.exe** inside the
    downloads folder.
 3. Double-click the installer file. A notification window will pop up, listing

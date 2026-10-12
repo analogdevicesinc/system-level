@@ -1,3 +1,5 @@
+.. _eval-adicup3029 hardware cn0414:
+
 EVAL-CN0414-ARDZ Shield Overview
 ================================
 
@@ -181,8 +183,8 @@ Schematic, PCB Layout, Bill of Materials
 Software
 --------
 
--  :doc:`ADICUP3029 + CN0414 Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0414>`
--  :doc:`Distributed Control System (DCS) Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_plc_modbus>`
+-  :ref:`ADICUP3029 + CN0414 Demo <eval-adicup3029 reference_designs demo_cn0414>`
+-  :ref:`Distributed Control System (DCS) Demo <eval-adicup3029 reference_designs demo_plc_modbus>`
 
 Registration
 ------------

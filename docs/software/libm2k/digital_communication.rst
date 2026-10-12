@@ -388,7 +388,7 @@ voltage values, communicating with the chip using SPI.
 - Get all AD5592r drivers from
   :git-no-OS:`drivers/adc-dac/ad5592r`
 - Get delay header from
-  :git-no-OS:`include/delay.h`
+  :git-no-OS:`include/no_os_delay.h`
 - Implement mdelay function from delay.h
 
 .. code:: c++

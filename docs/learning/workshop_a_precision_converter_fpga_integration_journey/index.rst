@@ -377,29 +377,27 @@ via standardized AXI-Stream interfaces.
 
 **Component Descriptions:**
 
-.. glossary::
+- **Command Stream Generator (CSG)**: Generates SPI command sequences. Can
+  operate in multiple modes:
 
-   Command Stream Generator (CSG)
-      Generates SPI command sequences. Can operate in multiple modes:
+  - **Software driven**: Controlled through memory-mapped registers
+  - **Hardware driven**: Triggered by external events for data offload
+  - **Periodic**: Generates commands at fixed intervals
+  - **Synchronous**: Responds to external trigger signals
 
-      - **Software driven**: Controlled through memory-mapped registers
-      - **Hardware driven**: Triggered by external events for data offload
-      - **Periodic**: Generates commands at fixed intervals
-      - **Synchronous**: Responds to external trigger signals
+- **Command Stream Executor (CSE)**: Parses incoming command streams and drives
+  the physical SPI pins.
 
-   Command Stream Executor (CSE)
-      Parses incoming command streams and drives the physical SPI pins.
+  - Standard parser for common SPI protocols
+  - Customizable for special requirements (e.g., custom SDI latching)
+  - Handles all SPI modes and timing configurations
 
-      - Standard parser for common SPI protocols
-      - Customizable for special requirements (e.g., custom SDI latching)
-      - Handles all SPI modes and timing configurations
+- **Command Stream Interconnect (CSI)**: Arbitrates multiple command streams to
+  a single executor.
 
-   Command Stream Interconnect (CSI)
-      Arbitrates multiple command streams to a single executor.
-
-      - Supports multiple CSGs sharing one physical SPI interface
-      - Priority-based arbitration (lower port number = higher priority)
-      - Transaction-level switching (uses SYNC instruction)
+  - Supports multiple CSGs sharing one physical SPI interface
+  - Priority-based arbitration (lower port number = higher priority)
+  - Transaction-level switching (uses SYNC instruction)
 
 **SPI Engine Framework – AXI SPI Engine IP**
 

@@ -28,7 +28,7 @@ Power supply
 The power supply comes from the FMC connector, given by the FPGA.
 
 The VADJ values can be checked out in the README.md file of each combination
-with an FPGA, at: :git-hdl:`projects/ad9084_fmca_ebz`.
+with an FPGA, at: :git-hdl:`projects/ad9084_ebz`.
 
 Schematic, PCB Layout, Bill of Materials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

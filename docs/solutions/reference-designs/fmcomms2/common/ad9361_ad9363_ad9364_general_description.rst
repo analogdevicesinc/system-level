@@ -219,8 +219,8 @@ digital half band filters), and the RF bandwidth (which sets the analog
 filters). Loading a filter, and then changing anything in the system, will
 negatively affect overall baseband performance.
 
-This is why we have created an :doc:`AD9361/AD9364 Filter tool
-</solutions/reference-designs/fmcomms2/software/filters/filters>`. It will
+This is why we have created an :ref:`AD9361/AD9364 Filter tool
+<fmcomms2 software filters>`. It will
 design a low pass filter, and ensure that any magnitude and phase effects of the
 analog or digital half bands are compensated for properly inside the FIR
 coefficients.
@@ -233,8 +233,8 @@ does not want to design a filter on their own. This is provided in the
 function. These are also available in MATLAB R2019b when custom filters are not
 designed. These filters are generally wideband, and can provide a reasonably
 flat response to the overall signal chains. For optimal performance, users
-should utilize the :doc:`AD9361/AD9364 Filter tool
-</solutions/reference-designs/fmcomms2/software/filters/filters>`, and design a
+should utilize the :ref:`AD9361/AD9364 Filter tool
+<fmcomms2 software filters>`, and design a
 filter specific for their waveform.
 
 Below are the responses of the filters provided in the

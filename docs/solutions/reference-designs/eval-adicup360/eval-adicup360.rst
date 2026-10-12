@@ -7,63 +7,63 @@ The :adi:`EVAL-ADICUP360` is an Arduino-like platform based on the :adi:`ADuCM36
    :align: right
    :width: 500
 
--  :doc:`Introduction </solutions/reference-designs/eval-adicup360/introduction>`
--  :doc:`Tools and Driver Details </solutions/reference-designs/eval-adicup360/tools>`
+-  :ref:`Introduction <eval-adicup360 introduction>`
+-  :ref:`Tools and Driver Details <eval-adicup360 tools>`
 
-   -  :doc:`CrossCore Download & Installation Guide </solutions/reference-designs/eval-adicup360/tools/cces_setup_guide>`
-   -  :doc:`CrossCore Quickstart User Guide </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
-   -  :doc:`Hardware Drivers and USB Storage Drives </solutions/reference-designs/eval-adicup360/tools/adicup360_hw_drivers>`
-   -  :doc:`Using EVAL-ADICUP360 with IAR and Keil IDEs </solutions/reference-designs/eval-adicup360/tools/keil_iar_support>`
-   -  :doc:`Unbricking the ADICUP360 </solutions/reference-designs/eval-adicup360/tools/ccsfp_unlock_adicup360>`
+   -  :ref:`CrossCore Download & Installation Guide <eval-adicup360 tools cces_setup_guide>`
+   -  :ref:`CrossCore Quickstart User Guide <eval-adicup360 tools cces_user_guide>`
+   -  :ref:`Hardware Drivers and USB Storage Drives <eval-adicup360 tools adicup360_hw_drivers>`
+   -  :ref:`Using EVAL-ADICUP360 with IAR and Keil IDEs <eval-adicup360 tools keil_iar_support>`
+   -  :ref:`Unbricking the ADICUP360 <eval-adicup360 tools ccsfp_unlock_adicup360>`
 
--  :doc:`Hardware Details </solutions/reference-designs/eval-adicup360/hardware>`
+-  :ref:`Hardware Details <eval-adicup360 hardware>`
 
-   -  :doc:`EVAL-ADICUP360 Base Board </solutions/reference-designs/eval-adicup360/hardware/base_board>`
-   -  :doc:`EVAL-ADT7420-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/adt7420>`
-   -  :doc:`EVAL-ADXL355-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/adxl355>`
-   -  :doc:`EVAL-ADXL362-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>`
-   -  :doc:`EVAL-CN0216-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0216>`
-   -  :doc:`EVAL-CN0326-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/cn0326>`
-   -  :doc:`EVAL-CN0336-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/cn0336>`
-   -  :doc:`EVAL-CN0337-PMDZ PMOD </solutions/reference-designs/eval-adicup360/hardware/cn0337>`
-   -  :doc:`EVAL-CN0338-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0338>`
-   -  :doc:`EVAL-CN0357-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0357>`
-   -  :doc:`EVAL-CN0391-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0391>`
-   -  :doc:`EVAL-CN0394-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0394>`
-   -  :doc:`EVAL-CN0395-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0395>`
-   -  :doc:`EVAL-CN0396-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0396>`
-   -  :doc:`EVAL-CN0397-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0397>`
-   -  :doc:`EVAL-CN0398-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
+   -  :ref:`EVAL-ADICUP360 Base Board <eval-adicup360 hardware base_board>`
+   -  :ref:`EVAL-ADT7420-PMDZ PMOD <eval-adicup360 hardware adt7420>`
+   -  :ref:`EVAL-ADXL355-PMDZ PMOD <eval-adicup360 hardware adxl355>`
+   -  :ref:`EVAL-ADXL362-ARDZ Shield <eval-adicup360 hardware adxl362>`
+   -  :ref:`EVAL-CN0216-ARDZ Shield <eval-adicup360 hardware cn0216>`
+   -  :ref:`EVAL-CN0326-PMDZ PMOD <eval-adicup360 hardware cn0326>`
+   -  :ref:`EVAL-CN0336-PMDZ PMOD <eval-adicup360 hardware cn0336>`
+   -  :ref:`EVAL-CN0337-PMDZ PMOD <eval-adicup360 hardware cn0337>`
+   -  :ref:`EVAL-CN0338-ARDZ Shield <eval-adicup360 hardware cn0338>`
+   -  :ref:`EVAL-CN0357-ARDZ Shield <eval-adicup360 hardware cn0357>`
+   -  :ref:`EVAL-CN0391-ARDZ Shield <eval-adicup360 hardware cn0391>`
+   -  :ref:`EVAL-CN0394-ARDZ Shield <eval-adicup360 hardware cn0394>`
+   -  :ref:`EVAL-CN0395-ARDZ Shield <eval-adicup360 hardware cn0395>`
+   -  :ref:`EVAL-CN0396-ARDZ Shield <eval-adicup360 hardware cn0396>`
+   -  :ref:`EVAL-CN0397-ARDZ Shield <eval-adicup360 hardware cn0397>`
+   -  :ref:`EVAL-CN0398-ARDZ Shield <eval-adicup360 hardware cn0398>`
    -  `EVAL-CN0409-ARDZ Shield <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0409>`_
-   -  :doc:`EVAL-CN0411-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0411>`
+   -  :ref:`EVAL-CN0411-ARDZ Shield <eval-adicup360 hardware cn0411>`
 
--  :doc:`Example Projects with Setup Instructions </solutions/reference-designs/eval-adicup360/reference_designs>`
+-  :ref:`Example Projects with Setup Instructions <eval-adicup360 reference_designs>`
 
-   -  :doc:`Blinking LEDs Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_blink>`
-   -  :doc:`Command Line Interpreter Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cli>`
-   -  :doc:`High Accuracy Temperature Demo (with EVAL-ADT7420-PMDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_adt7420>`
-   -  :doc:`High Resolution Accelerometer Demo (with EVAL-ADXL355-PMDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl355>`
-   -  :doc:`Low Power Accelerometer Demo (with EVAL-ADXL362-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl362>`
-   -  :doc:`PMOD Accelerometer Demo (with PmodACL2 from Digilent) </solutions/reference-designs/eval-adicup360/reference_designs/demo_pmodacl2>`
-   -  :doc:`Weigh Scale Demo (with EVAL-CN0216-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0216>`
-   -  :doc:`pH Monitor with Temperature Compensation Demo (with EVAL-CN0326-PMDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0326>`
-   -  :doc:`Data Acquisition for Input Current Demo (with EVAL-CN0336-PMDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0336>`
-   -  :doc:`RTD Temperature Measurement Demo (with EVAL-CN0337-PMDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0337>`
-   -  :doc:`CO2 Gas Measurement Demo (with EVAL-CN0338-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0338>`
-   -  :doc:`CO Toxic Gas Measurement Demo (with EVAL-CN0357-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0357>`
-   -  :doc:`Universal Multichannel Thermocouple Measurement(Digital Output) Demo (with EVAL-CN0391-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0391>`
-   -  :doc:`Universal Multichannel Thermocouple Measurement(Analog Output) Demo (with EVAL-CN0394-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0394>`
-   -  :doc:`Volatile Organic Compound (VOC) Gas Detection Demo (with EVAL-CN0395-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0395>`
-   -  :doc:`Dual Toxic Gas Measurement Demo (with EVAL-CN0396-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0396>`
-   -  :doc:`Visible Light Detection/Measurement Demo (with EVAL-CN0397-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0397>`
-   -  :doc:`Soil Moisture and pH Measurement Demo (with EVAL-CN0398-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0398>`
-   -  :doc:`Turbidity Measurement Demo (with EVAL-CN0409-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0409>`
-   -  :doc:`Total Dissolved Solids Measurement Demo (with EVAL-CN0411-ARDZ) </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0411>`
+   -  :ref:`Blinking LEDs Demo <eval-adicup360 reference_designs demo_blink>`
+   -  :ref:`Command Line Interpreter Demo <eval-adicup360 reference_designs demo_cli>`
+   -  :ref:`High Accuracy Temperature Demo (with EVAL-ADT7420-PMDZ) <eval-adicup360 reference_designs demo_adt7420>`
+   -  :ref:`High Resolution Accelerometer Demo (with EVAL-ADXL355-PMDZ) <eval-adicup360 reference_designs demo_adxl355>`
+   -  :ref:`Low Power Accelerometer Demo (with EVAL-ADXL362-ARDZ) <eval-adicup360 reference_designs demo_adxl362>`
+   -  :ref:`PMOD Accelerometer Demo (with PmodACL2 from Digilent) <eval-adicup360 reference_designs demo_pmodacl2>`
+   -  :ref:`Weigh Scale Demo (with EVAL-CN0216-ARDZ) <eval-adicup360 reference_designs demo_cn0216>`
+   -  :ref:`pH Monitor with Temperature Compensation Demo (with EVAL-CN0326-PMDZ) <eval-adicup360 reference_designs demo_cn0326>`
+   -  :ref:`Data Acquisition for Input Current Demo (with EVAL-CN0336-PMDZ) <eval-adicup360 reference_designs demo_cn0336>`
+   -  :ref:`RTD Temperature Measurement Demo (with EVAL-CN0337-PMDZ) <eval-adicup360 reference_designs demo_cn0337>`
+   -  :ref:`CO2 Gas Measurement Demo (with EVAL-CN0338-ARDZ) <eval-adicup360 reference_designs demo_cn0338>`
+   -  :ref:`CO Toxic Gas Measurement Demo (with EVAL-CN0357-ARDZ) <eval-adicup360 reference_designs demo_cn0357>`
+   -  :ref:`Universal Multichannel Thermocouple Measurement(Digital Output) Demo (with EVAL-CN0391-ARDZ) <eval-adicup360 reference_designs demo_cn0391>`
+   -  :ref:`Universal Multichannel Thermocouple Measurement(Analog Output) Demo (with EVAL-CN0394-ARDZ) <eval-adicup360 reference_designs demo_cn0394>`
+   -  :ref:`Volatile Organic Compound (VOC) Gas Detection Demo (with EVAL-CN0395-ARDZ) <eval-adicup360 reference_designs demo_cn0395>`
+   -  :ref:`Dual Toxic Gas Measurement Demo (with EVAL-CN0396-ARDZ) <eval-adicup360 reference_designs demo_cn0396>`
+   -  :ref:`Visible Light Detection/Measurement Demo (with EVAL-CN0397-ARDZ) <eval-adicup360 reference_designs demo_cn0397>`
+   -  :ref:`Soil Moisture and pH Measurement Demo (with EVAL-CN0398-ARDZ) <eval-adicup360 reference_designs demo_cn0398>`
+   -  :ref:`Turbidity Measurement Demo (with EVAL-CN0409-ARDZ) <eval-adicup360 reference_designs demo_cn0409>`
+   -  :ref:`Total Dissolved Solids Measurement Demo (with EVAL-CN0411-ARDZ) <eval-adicup360 reference_designs demo_cn0411>`
 
--  :doc:`Application Demos with Setup Instructions </solutions/reference-designs/eval-adicup360/application_demos>`
+-  :ref:`Application Demos with Setup Instructions <eval-adicup360 application_demos>`
 
-   -  :doc:`Smart Greenhouse Demonstration (Soil moisture, soil pH, temperature, and visible light spectrum/intensity, LED control </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>`)
+   -  :ref:`Smart Greenhouse Demonstration (Soil moisture, soil pH, temperature, and visible light spectrum/intensity, LED control <eval-adicup360 application_demos smart_greenhouse>`)
 
--  :doc:`Cases, Enclosures, and 3D Printer Files </solutions/reference-designs/eval-adicup360/mechanical>`
--  :doc:`Help and Support </solutions/reference-designs/eval-adicup360/help_and_support>`
--  :doc:`Compliance Testing and Results </solutions/reference-designs/eval-adicup360/compliance_testing_and_results>`
+-  :ref:`Cases, Enclosures, and 3D Printer Files <eval-adicup360 mechanical>`
+-  :ref:`Help and Support <eval-adicup360 help_and_support>`
+-  :ref:`Compliance Testing and Results <eval-adicup360 compliance_testing_and_results>`

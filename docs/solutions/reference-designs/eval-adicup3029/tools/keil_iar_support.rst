@@ -1,3 +1,5 @@
+.. _eval-adicup3029 tools keil_iar_support:
+
 Using Keil or IAR Tools with ADICUP3029
 =======================================
 

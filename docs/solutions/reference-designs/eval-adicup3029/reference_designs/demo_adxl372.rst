@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_adxl372:
+
 ADXL372 Demo using Bluetooth
 ============================
 
@@ -67,7 +69,7 @@ Setting up the Hardware
 Configuring the Software
 ------------------------
 
-For this application you will need to install on your :doc:`IOS </solutions/reference-designs/eval-adicup3029/smart_app/ios_app>` or :dokuwiki:`Android <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` device one of these apps.
+For this application you will need to install on your :ref:`IOS <eval-adicup3029 smart_app ios_app>` or :dokuwiki:`Android <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` device one of these apps.
 
 Outputting Data
 ---------------
@@ -121,7 +123,7 @@ After connecting to the device and generating enough G acceleration(**minimum of
 .. tip::
 
    For more information regarding the mobile application please use the link
-   for :doc:`Bluetooth Smart Device Apps </solutions/reference-designs/eval-adicup3029/smart_app>`
+   for :ref:`Bluetooth Smart Device Apps <eval-adicup3029 smart_app>`
 
 Obtaining the Software
 ----------------------
@@ -156,17 +158,17 @@ The software for the **ADuCM3029_Asset_Health** can be found here:
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~

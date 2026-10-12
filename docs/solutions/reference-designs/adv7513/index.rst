@@ -105,7 +105,7 @@ Table of contents
 
         #. About the device tree:
 
-           - :dokuwiki:`Customizing the device tree on the target <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq_tips_tricks>`
+           - :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
      #. :external+hdl:ref:`adv7513` which you must use
         in your FPGA.
