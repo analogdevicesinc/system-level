@@ -1,3 +1,5 @@
+.. _eval-adicup3029 hardware cn0410:
+
 EVAL-CN0410-ARDZ Shield
 =======================
 
@@ -135,7 +137,7 @@ Schematic, PCB Layout, Bill of Materials
 Software
 --------
 
--  :doc:`ADICUP3029 + CN0410 </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0410>`
+-  :ref:`ADICUP3029 + CN0410 <eval-adicup3029 reference_designs demo_cn0410>`
 
 Registration
 ------------

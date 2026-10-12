@@ -62,7 +62,7 @@ Table of Contents
          #. :ref:`adrv9371x plugin`
          #. :ref:`adrv9371x advanced-plugin`
 
-      #. :doc:`FRU EEPROM Utility </software/fru_dump>`
+      #. :ref:`FRU EEPROM Utility <software fru-dump>`
 
    #. Push custom data into/out of the AD9371/AD9375
 
@@ -99,7 +99,7 @@ Table of Contents
 
          #. About the device tree:
 
-            #. :doc:`Customizing the devicetree on the target </linux/kernel/zynq_tips_tricks>`
+            #. :ref:`Customizing the devicetree on the target <linux-kernel zynq-tips-tricks>`
 
          #. About the JEDS204 utilities:
 
@@ -110,7 +110,7 @@ Table of Contents
 
       #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
       #. :external+hdl:ref:`adrv9371x` which you must use in your FPGA.
-      #. :doc:`Additional Documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
+      #. :ref:`Additional Documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 
 .. _adrv9371x block diagram:
 

@@ -57,7 +57,7 @@ To build on a development host (e.g. x86 laptop or desktop) do the following:
 
 #. Optionally build and install the libad9166-iio and libad9361-iio libraries,
    by following
-   :doc:`these instructions </solutions/reference-designs/fmcomms5/multi-chip-sync>`.
+   :ref:`these instructions <ad-fmcomms5-ebz-multi-chip-sync>`.
 #. Download the source using git:
 
    .. shell::
@@ -451,7 +451,7 @@ Several waveforms are provided with the application for demonstration purposes,
 which can be loaded into different devices. However, these are generally not
 meant for transceiver characterization or demodulation. If you want to do such
 tasks, we would recommend creation of your own waveforms from tools such as
-:doc:`MATLAB </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`.
+:ref:`MATLAB <fmcomms2 common basic-iq-datafiles>`.
 
 Source code
 -----------

@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_cn0411:
+
 Total Dissolved Solids Measurements Demo
 ========================================
 
@@ -165,7 +167,7 @@ The software for the **ADuCM360_demo_cn0411** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -280,7 +282,7 @@ Available commands
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~

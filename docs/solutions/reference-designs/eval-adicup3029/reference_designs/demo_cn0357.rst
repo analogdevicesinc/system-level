@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_cn0357:
+
 CO Toxic Gas Measurement Demo (with EVAL-CN0357-ARDZ)
 =====================================================
 
@@ -6,7 +8,7 @@ The **cn0357_example_noos** is a toxic gas(CO) detector demo project for the EVA
 General Description/Overview
 ----------------------------
 
-This user guide gives a detailed explanation about **cn0357_example_noos** toxic gas (CO) detection project for :doc:`EVAL-ADICUP3029 </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` base board and :adi:`EVAL-CN0357-ARDZ <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-CN0357-ARDZ.html>` gas sensor shield. The gas sensor shield consists of portable gas detector circuit.
+This user guide gives a detailed explanation about **cn0357_example_noos** toxic gas (CO) detection project for :ref:`EVAL-ADICUP3029 <eval-adicup3029 hardware adicup3029>` base board and :adi:`EVAL-CN0357-ARDZ <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-CN0357-ARDZ.html>` gas sensor shield. The gas sensor shield consists of portable gas detector circuit.
 
 .. image:: ../images/picture1.jpg
    :align: center
@@ -160,7 +162,7 @@ Depending on how you want to operate the board and visualize the data, there are
 +---------------------------+-----------------------+---------------------------+
 
 |
-| The data for this demo can be viewed in the serial terminal window (via UART) and by connecting to the Analog Devices iOS Smart Device App (for more information and installation directions check out the :doc:`iOS Smart Device App </solutions/reference-designs/eval-adicup3029/smart_app/ios_app>` page) or Android Smart Device App (for more information and installation directions check out the :dokuwiki:`Android Smart Device App <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` page)
+| The data for this demo can be viewed in the serial terminal window (via UART) and by connecting to the Analog Devices iOS Smart Device App (for more information and installation directions check out the :ref:`iOS Smart Device App <eval-adicup3029 smart_app ios_app>` page) or Android Smart Device App (for more information and installation directions check out the :dokuwiki:`Android Smart Device App <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` page)
 
 Debug Launch Mode
 ~~~~~~~~~~~~~~~~~
@@ -231,17 +233,17 @@ Figure shows the UART terminal when ADI_APP_USE_BLUETOOTH is set to 1
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-A debug configuration must be set up for this project in order to have the possibility to program and to debug the **ADICUP3029_CN0357** project. To do this, follow the instructions from :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+A debug configuration must be set up for this project in order to have the possibility to program and to debug the **ADICUP3029_CN0357** project. To do this, follow the instructions from :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 -  Make sure the target board is connected to workstation (via **USB** at P10) and using the tool bar, navigate to the small Debug icon\ |image11| and select the debugging session you created. The application will programmed and the program execution will stop at the beginning of the main() function.
 

@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0326:
+
 Isolated Low Power pH Monitor with Temperature Compensation PMOD
 ================================================================
 
@@ -60,7 +62,7 @@ Pin 12        Digital Power       VDD
 Software examples
 -----------------
 
--  :doc:`ADICUP360 + CN0326 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0326>`
+-  :ref:`ADICUP360 + CN0326 Demo <eval-adicup360 reference_designs demo_cn0326>`
 -  `ADICUP3029 + CN0326 Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0326>`_
 
 Schematics, PCB Layout, Bill of Materials

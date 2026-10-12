@@ -1,3 +1,5 @@
+.. _eval-adicup360 tools cces_user_guide:
+
 CrossCore Embedded Studio Quickstart User Guide
 ===============================================
 

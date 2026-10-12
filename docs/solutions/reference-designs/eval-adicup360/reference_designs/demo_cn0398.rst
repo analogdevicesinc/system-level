@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_cn0398:
+
 Soil Measurements for pH and moisture Demo
 ==========================================
 
@@ -119,9 +121,9 @@ Setting up the hardware
 -  Connect the **EVAL-CN0398-ARDZ** to the Arduino connectors **P2, P5, P6, P7, P8** of the **EVAL-ADICUP360** board.
 -  Connect the pH sensor to the **J1** connector of the EVAL-CN0398-ARDZ.
 -  Connect the RTD sensor to the **P1** connector of the EVAL-CN0398-ARDZ.
-   :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
+   :ref:`(see connection details) <eval-adicup360 hardware cn0398>`
 -  Connect the moisture sensor to the **P2** connector of the EVAL-CN0398-ARDZ.
-   :doc:`(see connection details) </solutions/reference-designs/eval-adicup360/hardware/cn0398>`
+   :ref:`(see connection details) <eval-adicup360 hardware cn0398>`
 
 .. important::
 
@@ -132,7 +134,7 @@ Setting up the hardware
 
 -  Set the jumpers on the **EVAL-CN0398-ARDZ** as described in the Connectors
    and Jumper Configurations section of the
-   :doc:`EVAL-CN0398-ARDZ hardware guide </solutions/reference-designs/eval-adicup360/hardware/cn0398>`,
+   :ref:`EVAL-CN0398-ARDZ hardware guide <eval-adicup360 hardware cn0398>`,
    according to the power supply required by your moisture sensor.
 -  Plug in the USB cable from the PC to the EVAL-ADICUP360 base board via the
    Debug USB.(P14)
@@ -171,7 +173,7 @@ The software for the **ADuCM360_demo_cn0398** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -213,17 +215,17 @@ Following is the UART configuration.
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup360 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to configure the debug session <eval-adicup360 tools cces_user_guide>` section.
 
 Project Structure
 -----------------

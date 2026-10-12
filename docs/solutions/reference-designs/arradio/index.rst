@@ -85,8 +85,8 @@ Table of Contents
 
    - Push custom data into/out of the AD9361
 
-      - :doc:`Basic Data files and formats </solutions/reference-designs/fmcomms2/common/basic_iq_datafiles>`
-      - :doc:`Create and analyze data files in MATLAB </solutions/reference-designs/fmcomms2/common/datafiles>`
+      - :ref:`Basic Data files and formats <fmcomms2 common basic-iq-datafiles>`
+      - :ref:`Create and analyze data files in MATLAB <fmcomms2 common datafiles>`
       - :dokuwiki:`Stream data into/out of MATLAB <resources/tools-software/linux-software/libiio/clients/matlab_simulink>`
       - :dokuwiki:`AD9361 libiio streaming example <resources/tools-software/linux-software/libiio>`
 
@@ -100,7 +100,7 @@ Table of Contents
 
    - Simulation
 
-      - :doc:`MathWorks SimRF Models of the AD9361 </solutions/reference-designs/fmcomms2/software/simrf>`
+      - :ref:`MathWorks SimRF Models of the AD9361 <fmcomms2 software simrf>`
 
    - Hardware in the Loop / How to design your own custom BaseBand
 
@@ -108,11 +108,11 @@ Table of Contents
 
          - :dokuwiki:`Stream data into/out of MATLAB <resources/tools-software/linux-software/libiio/clients/fmcomms2_3_simulink>`
          - :dokuwiki:`Beacon Frame Receiver Example <resources/tools-software/linux-software/libiio/clients/beacon_frame_receiver_simulink>`
-         - :doc:`QPSK Transmit and Receive Example </solutions/reference-designs/fmcomms2/software/qpsk_example>`
-         - :doc:`LTE Transmit and Receive Example </solutions/reference-designs/fmcomms2/software/lte_example>`
+         - :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
+         - :ref:`LTE Transmit and Receive Example <fmcomms2 software lte-example>`
 
       - :ref:`GNU Radio <software gnuradio>`
-      - :doc:`FM Radio/Tuner </solutions/reference-designs/fmcomms2/software/fm_radio>`
+      - :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>`
         (listen to FM signals on the HDMI monitor)
       - :dokuwiki:`C example <resources/tools-software/linux-software/libiio>`
 
@@ -124,7 +124,7 @@ Table of Contents
          - :external+linux:ref:`Linux AD9361 Device Driver Customization <ad9361-customization>`
          - :ref:`Building Zynq Linux kernel and devicetree <linux-kernel zynq>`
          - :dokuwiki:`Build the demo on Altera SoCKit from source <resources/eval/user-guides/ad-fmcomms2-ebz/software/linux/zynq>`
-         - :doc:`Customizing the devicetree on the target </linux/kernel/zynq_tips_tricks>`
+         - :ref:`Customizing the devicetree on the target <linux-kernel zynq-tips-tricks>`
 
       - :dokuwiki:`No-OS Driver <resources/eval/user-guides/ad-fmcomms2-ebz/software/baremetal>`
 
@@ -137,6 +137,6 @@ Table of Contents
 
 - Additional Documentation about SDR Signal Chains
 
-   - :doc:`The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
+   - :ref:`The math behind the RF <fmcomms2 common fmcomms-math>`
 
 - :dokuwiki:`Help and Support <resources/eval/user-guides/ad-fmcomms2-ebz/help_and_support>`

@@ -266,16 +266,16 @@ ADRV9361-Z7035 System on Modules:
    * - Carrier Board
      - ADRV9364-Z7020
      - ADRV9361-Z7035
-   * - :doc:`FMC Carrier </solutions/reference-designs/pzsdr/carriers/fmc>`
+   * - :ref:`FMC Carrier <pzsdr carriers fmc>`
      - Yes
      - Yes
-   * - :doc:`Breakout Board </solutions/reference-designs/pzsdr/carriers/brk>`
+   * - :ref:`Breakout Board <pzsdr carriers brk>`
      - Yes
      - Yes
-   * - :doc:`PCIe Carrier </solutions/reference-designs/pzsdr/carriers/pcie>`
+   * - :ref:`PCIe Carrier <pzsdr carriers pcie>`
      - Yes
      - Yes
-   * - :doc:`PackRF Carrier </solutions/reference-designs/pzsdr/carriers/packrf>`
+   * - :ref:`PackRF Carrier <pzsdr carriers packrf>`
      - Yes
      - Yes
 

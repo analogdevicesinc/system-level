@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware base_board:
+
 EVAL-ADICUP360 Base Board
 =========================
 
@@ -246,7 +248,7 @@ Switches S1, S2, S3, S4
 
 The **S1, S2, S3, S4 switches** are used to route the P0.1/SCLK1/SCL/SIN, P0.2/MOSI1/SDA/SOUT, P0.6/IRQ2/SIN and P0.7/POR/SOUT pins when they have been assigned a UART function to either the **Arduino I/O** and the **PMOD** connectors or to the Virtual Serial ports implemented via the **USER USB** or the **DEBUG USB** connectors. Each pin can be routed separately, but the routing is usually done for the pairs TxD/RxD.
 
-Most commonly used configurations are given in the table below. For any other more 'exotic' configuration, consult with the :doc:`Schematics and the Layout </solutions/reference-designs/eval-adicup360/hardware/base_board>` of the board.
+Most commonly used configurations are given in the table below. For any other more 'exotic' configuration, consult with the :ref:`Schematics and the Layout <eval-adicup360 hardware base_board>` of the board.
 
 +-------------------------+---------------------------------------+---------------+
 | ADuCM360's pair of pins | Required connection                   | Configuration |
@@ -311,9 +313,9 @@ Schematics, PCB Layout, Bill of Materials
 Software examples
 -----------------
 
--  :doc:`Blinking LEDs Example </solutions/reference-designs/eval-adicup360/reference_designs/demo_blink>`
+-  :ref:`Blinking LEDs Example <eval-adicup360 reference_designs demo_blink>`
 
--  :doc:`CLI demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cli>`
+-  :ref:`CLI demo <eval-adicup360 reference_designs demo_cli>`
 
 .. |image3| image:: ../images/p12_close.png
    :width: 32

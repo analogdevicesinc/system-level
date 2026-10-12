@@ -134,7 +134,7 @@ Table of contents
 
         #. About the device tree:
 
-           #. :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+           #. :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
         #. About the JESD204 utilities:
 
@@ -159,7 +159,7 @@ Table of contents
    #. :ref:`DPD Error Troubleshooting <adrv904x dpd troubleshooting>`
    #. :ref:`DPD Analysis Tool <adrv904x dpd analysis tool>`
 
-#. :doc:`SDR math </solutions/reference-designs/fmcomms2/common/math>`
+#. :ref:`SDR math <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <adrv904x help_and_support>`
 
 .. _adrv904x block-diagram:

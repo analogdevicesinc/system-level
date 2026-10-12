@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_blink:
+
 Blinking LEDs demo
 ==================
 
@@ -44,7 +46,7 @@ Obtaining the source code
 We recommend not opening the project directly, but rather import it into Eclipse
 and make a local copy in your Eclipse workspace.
 
-To learn how to import the **ADuCM360_demo_blink** project from the projects examples in the Git repository, please click on :doc:`How to import existing projects from the GIT Repository </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+To learn how to import the **ADuCM360_demo_blink** project from the projects examples in the Git repository, please click on :ref:`How to import existing projects from the GIT Repository <eval-adicup360 tools cces_user_guide>`
 
 The source code and include files for the **ADuCM360_demo_blink** can be found in projects examples which comes with installer package, or the latest version of the project can be found on Github:
 
@@ -58,12 +60,12 @@ The source code and include files for the **ADuCM360_demo_blink** can be found i
 Importing the ADuCM360_demo_blink project
 -----------------------------------------
 
-The necessary instructions on how to import **ADuCM360_demo_blink** project in your workspace can be found in the section, :doc:`Import a project into workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`.
+The necessary instructions on how to import **ADuCM360_demo_blink** project in your workspace can be found in the section, :ref:`Import a project into workspace <eval-adicup360 tools cces_user_guide>`.
 
 Debugging the ADuCM360_demo_blink project
 -----------------------------------------
 
-- A debug configuration must be set up for this project in order to have the possibility to program and to debug it. To do this, follow the instructions from :doc:`Setting up a Debug Configuration. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+- A debug configuration must be set up for this project in order to have the possibility to program and to debug it. To do this, follow the instructions from :ref:`Setting up a Debug Configuration. <eval-adicup360 tools cces_user_guide>`
 
 -  Make sure the target board is connected to the computer (via **DEBUG USB**) and using the tool bar, navigate to the small Debug icon\ |image1| and select the debugging session you created. The application will programmed and the program execution will stop at the beginning of the main() function.
 

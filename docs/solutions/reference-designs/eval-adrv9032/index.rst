@@ -122,7 +122,7 @@ Table of contents
 
         #. About the device tree:
 
-           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+           - :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
         #. About the JESD204 utilities:
 
@@ -135,7 +135,7 @@ Table of contents
      #. :git-hdl:`HDL reference design <projects/adrv903x>` which you must use in your FPGA.
         More HDL build details at :external+hdl:ref:`build_hdl`.
 
-#. :doc:`Additional documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
+#. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _adrv9032 block-diagram:

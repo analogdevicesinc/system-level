@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_cn0418:
+
 PLC Arduino Shield Output Demo
 ==============================
 

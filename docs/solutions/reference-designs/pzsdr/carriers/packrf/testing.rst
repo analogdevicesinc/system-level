@@ -48,7 +48,7 @@ Test setup
 -------------------------------------------------------------------------------
 
 #. Complete the
-   :doc:`Partial Assembly </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions>`
+   :ref:`Partial Assembly <pzsdr carriers portable-radio-reference-design assembly-instructions>`
    of the radio.
 #. Connect an HDMI monitor to the Raspberry Pi.
 #. Connect a USB keyboard to the Raspberry Pi.
@@ -102,7 +102,7 @@ Step 1 — Partial Assembly Test
 ===============================================================================
 
 This test sequence can only be started once
-:doc:`Partial Assembly </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions>`
+:ref:`Partial Assembly <pzsdr carriers portable-radio-reference-design assembly-instructions>`
 is complete.
 
 The following items are tested:
@@ -146,13 +146,13 @@ Test procedure
 #. Whether the test passed or failed, the selection menu is displayed. Power
    off the RFSOM-BOX by entering **4** in the selection menu.
 #. Continue with
-   :doc:`Full Assembly </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions>`.
+   :ref:`Full Assembly <pzsdr carriers portable-radio-reference-design assembly-instructions>`.
 
 Step 2 — Full Assembly Test
 ===============================================================================
 
 This test sequence can only be started once
-:doc:`Full Assembly </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions>`
+:ref:`Full Assembly <pzsdr carriers portable-radio-reference-design assembly-instructions>`
 is complete.
 
 The following items are tested:
@@ -194,5 +194,5 @@ Test procedure
 #. After testing finishes and the PASSED/FAILED state is displayed, power off
    the RFSOM-BOX by selecting option **4**.
 
-:doc:`PackRF assembly </solutions/reference-designs/pzsdr/carriers/portable-radio-reference-design/assembly-instructions>`
+:ref:`PackRF assembly <pzsdr carriers portable-radio-reference-design assembly-instructions>`
 and testing is now complete.

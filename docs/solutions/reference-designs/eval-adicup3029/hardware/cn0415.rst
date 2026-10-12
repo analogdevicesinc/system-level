@@ -1,3 +1,5 @@
+.. _eval-adicup3029 hardware cn0415:
+
 EVAL-CN0415-ARDZ Shield
 =======================
 
@@ -194,7 +196,7 @@ EVAL-ADICUP3029 base board. The user interface is implemented as a command line
 interface (CLI) through a serial UART connection. The project is created using
 CrossCore Embedded Studio and GNU ARM compiler.
 
--  :doc:`CN0415 Demo using EVAL-ADICUP3029 </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0415>`
+-  :ref:`CN0415 Demo using EVAL-ADICUP3029 <eval-adicup3029 reference_designs demo_cn0415>`
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------

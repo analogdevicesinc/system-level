@@ -23,7 +23,7 @@ Supported carriers
    - - :adi:`ADRV1CRR-BOB`
      - Yes
      - Yes
-   - - :doc:`ADRV1CRR-PACKRF </solutions/reference-designs/pzsdr/carriers/packrf>` (OBSOLETE)
+   - - :ref:`ADRV1CRR-PACKRF <pzsdr carriers packrf>` (OBSOLETE)
      -
      - Yes
 
@@ -41,7 +41,7 @@ Supported environments
      - Yes
      - Yes
      -
-   - - :doc:`ADRV1CRR-PACKRF </solutions/reference-designs/pzsdr/carriers/packrf>` (OBSOLETE)
+   - - :ref:`ADRV1CRR-PACKRF <pzsdr carriers packrf>` (OBSOLETE)
      -
      - Yes
      -

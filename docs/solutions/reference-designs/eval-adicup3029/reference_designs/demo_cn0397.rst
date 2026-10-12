@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_cn0397:
+
 Visible Light Detection Demo [with EVAL-CN0397-ARDZ]
 ====================================================
 
@@ -224,17 +226,17 @@ The software for the **ADuCM3029_demo_cn0397** can be found here:
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 -  Make sure the target board is connected to workstation (via **USB** at P10) and using the tool bar, navigate to the small Debug icon\ |image6| and select the debugging session you created. The application will programmed and the program execution will stop at the beginning of the main() function.
 -  Use step-by-step execution or directly run the program.

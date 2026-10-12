@@ -1,3 +1,5 @@
+.. _eval-adicup360 tools adicup360_hw_drivers:
+
 ADICUP360 PC/Laptop Drivers
 ===========================
 

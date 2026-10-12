@@ -140,7 +140,7 @@ Internal LOs + FPGA
 
 In this section, we assume that you have read and understood the math parts of
 the
-:doc:`IQ Rotation and Correction </solutions/reference-designs/fmcomms2/common/iq_rotation>`
+:ref:`IQ Rotation and Correction <fmcomms2 common iq-rotation>`
 section, and we will focus here on the practical aspects of things.
 
 The FMCOMMS5 board includes two :adi:`ADG918` wide band (-3dB @ 4GHz) switches
@@ -192,7 +192,7 @@ The absolute position doesn't really matter. It's just a function of stepping
 through the four setups, and driving the difference to the same. The math to (a)
 calculate the difference in phases, or :math:`(Theta_{A} - Theta_{A})` and how
 to correct for this phase difference inside the FPGA is detailed
-:doc:`here </solutions/reference-designs/fmcomms2/common/iq_rotation>`.
+:ref:`here <fmcomms2 common iq-rotation>`.
 
 In reality, we should just be able to measure the difference, and set the other
 difference to the same, but we find it visually appealing to drive all the

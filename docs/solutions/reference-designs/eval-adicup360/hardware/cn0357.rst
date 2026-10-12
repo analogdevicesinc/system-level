@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0357:
+
 EVAL-CN0357-ARDZ Shield
 =======================
 
@@ -73,7 +75,7 @@ as shown to connect to the corresponding Digital IO pin.
 Software
 --------
 
--  :doc:`ADICUP360 + CN0357 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0357>`
+-  :ref:`ADICUP360 + CN0357 Demo <eval-adicup360 reference_designs demo_cn0357>`
 -  `ADICUP3029 + CN0357 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0357>`_
 -  `Arduino Uno + CN0357 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0357>`_
 

@@ -138,7 +138,7 @@ Table of contents
 
         #. About the device tree:
 
-           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+           - :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
         #. About the JESD204 utilities:
 
@@ -152,7 +152,7 @@ Table of contents
 
 #. :adi:`Evaluating the AD9081/AD9082/AD9986/AD9988 Mixed Signal, Front-End RF Transceiver with ACE software <media/en/technical-documentation/user-guides/eval-ad9081-9082-9986-9988-ug-1829.pdf>`
 #. :adi:`UG-1578, Device User Guide <media/en/technical-documentation/user-guides/ad9081-ad9082-ug-1578.pdf>`
-#. :doc:`Additional documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
+#. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _ad9081 block-diagram:

@@ -1,3 +1,5 @@
+.. _eval-adicup360 application_demos smart_greenhouse:
+
 Smart Greenhouse Application Demo
 =================================
 
@@ -42,7 +44,7 @@ Setup Requirements
 -  Software/Tools
 
    -  :git-EVAL-ADICUP360:`Smart Greenhouse Demo Source Code <projects/ADuCM360_demo_Smart_Greenhouse>`
-   -  :doc:`CrossCore Embedded Studio </solutions/reference-designs/eval-adicup360/tools/cces_setup_guide>`
+   -  :ref:`CrossCore Embedded Studio <eval-adicup360 tools cces_setup_guide>`
    -  `Putty <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
 
 How to setup Hardware
@@ -146,22 +148,22 @@ The software for the **ADuCM360_demo_Smart_Greenhouse** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup360 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to configure the debug session <eval-adicup360 tools cces_user_guide>` section.
 
 Software Flow Diagram
 ---------------------
@@ -186,11 +188,11 @@ nationalizations and calibrations which must be done, and then some commands and
 instructions on how to use the software. Please read carefully to completely
 understand how to use the demo.
 
--  :doc:`Initialization </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>` - Initialization will set up the hardware and sensors so that they can communication with the EVAL-ADICUP360 and all the setting and modes of the sensor boards are properly configured.
--  :doc:`Calibrations </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>` - The light levels of the CN0397 need to be properly calibrated so that the value that is read by the system is accurate. The pH levels of the CN0398 have the option to be calibrated using known buffer solutions or can be skipped, and an ideal equation is used to determine the pH of the soil. The calibrated method will yeild more accurate results, but using the idea equation is faster.
--  :doc:`Light Control Settings </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>` - User needs to set the amount of light that the plants are receiving, so they can optimially grow. The value set here is read by the CN0397 and then fed back into the CN0370 to either increase or decrease the light intensity. Values input into the **R**\ ed, **G**\ reen, **B**\ lue channels are all in units of LUX
--  :doc:`Loop Setup </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>` - Select the desired mode of operation for the system.
--  :doc:`Software Commands </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>` - Complete list of all available software commands, and what they do.
+-  :ref:`Initialization <eval-adicup360 application_demos smart_greenhouse>` - Initialization will set up the hardware and sensors so that they can communication with the EVAL-ADICUP360 and all the setting and modes of the sensor boards are properly configured.
+-  :ref:`Calibrations <eval-adicup360 application_demos smart_greenhouse>` - The light levels of the CN0397 need to be properly calibrated so that the value that is read by the system is accurate. The pH levels of the CN0398 have the option to be calibrated using known buffer solutions or can be skipped, and an ideal equation is used to determine the pH of the soil. The calibrated method will yeild more accurate results, but using the idea equation is faster.
+-  :ref:`Light Control Settings <eval-adicup360 application_demos smart_greenhouse>` - User needs to set the amount of light that the plants are receiving, so they can optimially grow. The value set here is read by the CN0397 and then fed back into the CN0370 to either increase or decrease the light intensity. Values input into the **R**\ ed, **G**\ reen, **B**\ lue channels are all in units of LUX
+-  :ref:`Loop Setup <eval-adicup360 application_demos smart_greenhouse>` - Select the desired mode of operation for the system.
+-  :ref:`Software Commands <eval-adicup360 application_demos smart_greenhouse>` - Complete list of all available software commands, and what they do.
 
 Initialization
 ~~~~~~~~~~~~~~

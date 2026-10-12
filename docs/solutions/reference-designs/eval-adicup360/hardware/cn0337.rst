@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0337:
+
 EVAL-CN0337-PMDZ PMOD
 =====================
 
@@ -16,7 +18,7 @@ The figure below shows how to properly connect EVAL-CN0337-PMDZ to :adi:`EVAL-AD
 Sensor Interface
 ~~~~~~~~~~~~~~~~
 
-CN0337 processes the output of a Pt100 RTD and includes an innovative circuit for a lead-wire compensation using a standard 3-wire connection. In using other temperature sensors such as Pt200, Pt500, Pt1000, Pt2000, the calculation of gain, output offset, and resistor values is shown in :adi:`CN0337 Circuit Note <media/en/reference-design-documentation/reference-designs/CN0337.pdf>`. The guide on how to use the two-point calibration can be found at the software demo :doc:`page </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0337>`.
+CN0337 processes the output of a Pt100 RTD and includes an innovative circuit for a lead-wire compensation using a standard 3-wire connection. In using other temperature sensors such as Pt200, Pt500, Pt1000, Pt2000, the calculation of gain, output offset, and resistor values is shown in :adi:`CN0337 Circuit Note <media/en/reference-design-documentation/reference-designs/CN0337.pdf>`. The guide on how to use the two-point calibration can be found at the software demo :ref:`page <eval-adicup360 reference_designs demo_cn0337>`.
 
 .. important::
 
@@ -68,7 +70,7 @@ J1.12      Digital Power       VDD
 Software examples
 -----------------
 
--  :doc:`ADICUP360 + CN0337 </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0337>`
+-  :ref:`ADICUP360 + CN0337 <eval-adicup360 reference_designs demo_cn0337>`
 
 Schematics, PCB Layout, Bill of Materials
 -----------------------------------------

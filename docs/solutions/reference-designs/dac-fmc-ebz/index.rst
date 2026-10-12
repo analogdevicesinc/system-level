@@ -71,7 +71,7 @@ Table of contents
 
       #. About the device tree:
 
-         - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+         - :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
       #. About the JESD204 utilities:
 

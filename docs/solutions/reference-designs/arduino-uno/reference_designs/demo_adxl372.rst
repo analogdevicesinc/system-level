@@ -1,3 +1,5 @@
+.. _arduino-uno reference_designs demo_adxl372:
+
 Impact Measurement Demo using the Arduino Uno
 =============================================
 

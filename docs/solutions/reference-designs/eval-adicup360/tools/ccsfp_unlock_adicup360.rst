@@ -1,3 +1,5 @@
+.. _eval-adicup360 tools ccsfp_unlock_adicup360:
+
 Unlocking a "Bricked" ADICUP360
 ===============================
 

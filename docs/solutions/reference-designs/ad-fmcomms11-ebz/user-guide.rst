@@ -23,8 +23,8 @@ Hardware guide
 For detailed hardware documentation, refer to:
 
 - :doc:`hardware` - Board overview, PCB layers and dimensions
-- :doc:`hardware/functional_overview` - System block diagram and signal paths
-- :doc:`hardware/card_specification` - Transmitter and receiver characterization
+- :ref:`fmcomms11 functional-overview` - System block diagram and signal paths
+- :ref:`fmcomms11 card-specification` - Transmitter and receiver characterization
 
 Design files (schematic, PCB layout, bill of materials) are available
 :ref:`here <fmcomms11 hardware-design-files>`.

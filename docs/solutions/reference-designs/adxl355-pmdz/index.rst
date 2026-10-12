@@ -440,7 +440,7 @@ The original software example for the ADXL355 was developed on the ADICUP360
 platform, and is a simple, terminal-based command line interface. This type of
 example program is being deprecated in favor of tinyiiod-based servers for
 embedded platforms, however this example is still available for reference here:
-:doc:`ADXL355 Accelerometer PMOD Demo on ADICUP360 </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl355>`.
+:ref:`ADXL355 Accelerometer PMOD Demo on ADICUP360 <eval-adicup360 reference_designs demo_adxl355>`.
 
 .. IMPORTANT::
 

@@ -1,3 +1,5 @@
+.. _eval-adicup360 application_demos:
+
 Application Demos
 =================
 
@@ -9,4 +11,4 @@ shown, you can create more complex systems and subsystems quickly. Here is an
 example of some more complex examples that create a more complete and closed
 loop system/solution.
 
--  :doc:`Smart Greenhouse Application Demo </solutions/reference-designs/eval-adicup360/application_demos/smart_greenhouse>`
+-  :ref:`Smart Greenhouse Application Demo <eval-adicup360 application_demos smart_greenhouse>`

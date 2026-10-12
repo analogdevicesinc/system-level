@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_adxrs290_pmod:
+
 ADXRS290 Gyroscope PMOD Command Line Interface Demo
 ===================================================
 
@@ -6,7 +8,7 @@ The **ADuCM3029_demo_adxrs290** is a dual-axis angular rate sensor (gyroscope) d
 General description
 -------------------
 
-This project is an example on how to use :doc:`Eval-ADICUP3029 </solutions/reference-designs/eval-adicup3029/eval-adicup3029>`.
+This project is an example on how to use :ref:`Eval-ADICUP3029 <eval-adicup3029 eval-adicup3029>`.
 
 The ADuCM3029_demo_adxrs290_pmdz project uses the :adi:`EVAL-ADXRS290-PMDZ` which has the **ADXRS290, a high performance pitch and roll (dual-axis in-plane) angular rate sensor (gyroscope)** on board.
 
@@ -121,17 +123,17 @@ The software for the **ADICUP3029_ADXRS290** demo can be found here:
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~
@@ -150,7 +152,7 @@ The low level modules are the platform drivers and are included in the **platfor
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------

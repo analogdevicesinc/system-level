@@ -1,3 +1,5 @@
+.. _eval-adicup360 help_and_support:
+
 Help and Support
 ================
 
@@ -110,7 +112,7 @@ ADuCM360-IDE questions (Deprecated)
    convenience. We will be removing support for the ADuCM360-IDE tools
    April 30th 2018.
    Here is a link to download the
-   :doc:`CrossCore tools. </solutions/reference-designs/eval-adicup360/tools/cces_setup_guide>`
+   :ref:`CrossCore tools. <eval-adicup360 tools cces_setup_guide>`
 
 Questions about the Analog Devices Eclipse IDE should be asked at the :ez:`ADuCM Eclipse IDE support community <community/analog-microcontrollers/aducm-eclipse-ide>`.
 

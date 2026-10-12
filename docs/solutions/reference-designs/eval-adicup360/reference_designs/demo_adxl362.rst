@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_adxl362:
+
 Accelerometer Demo
 ==================
 
@@ -6,7 +8,7 @@ The **ADuCM360_demo_adxl362** is an accelerometer demo project for the EVAL-ADIC
 General description
 -------------------
 
-The ADuCM360_demo_adxl362 project uses the :doc:`EVAL-ADXL362-ARDZ shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32).
+The ADuCM360_demo_adxl362 project uses the :ref:`EVAL-ADXL362-ARDZ shield <eval-adicup360 hardware adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32).
 
 .. image:: ../images/adlx362_adicup360.jpg
    :align: left
@@ -26,7 +28,7 @@ Each **ADXL362** chip requires individual calibration which can be done by setti
    :align: right
    :width: 300
 
-The software puts the LCD in a "sleep" mode after **10 sec** if no movement of the boards is present. The system "wakes-up" if the acceleration on any axes is greater than **50 [mG]**. The threshold values can be adjusted by the user (:doc:`See the configuration part </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl362>`).
+The software puts the LCD in a "sleep" mode after **10 sec** if no movement of the boards is present. The system "wakes-up" if the acceleration on any axes is greater than **50 [mG]**. The threshold values can be adjusted by the user (:ref:`See the configuration part <eval-adicup360 reference_designs demo_adxl362>`).
 
 The acceleration axes, the temperature values and the motion grid are displayed
 as is presented in the picture on the right.
@@ -106,7 +108,7 @@ The software for the **ADuCM360_demo_adxl362** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -182,7 +184,7 @@ There is a movement plane offset to the right of the LDC screen which shows whic
    :align: right
    :width: 300
 
-Also this application demonstrates the usage of the motion switch. The software puts the LCD in a "sleep" mode after **10 sec** if no movement of the boards is present. The system "wakes-up" if the acceleration on any axes is greater than **50 [mG]**. The threshold values can be adjusted by the user (:doc:`by configurating the software </solutions/reference-designs/eval-adicup360/reference_designs/demo_adxl362>`).
+Also this application demonstrates the usage of the motion switch. The software puts the LCD in a "sleep" mode after **10 sec** if no movement of the boards is present. The system "wakes-up" if the acceleration on any axes is greater than **50 [mG]**. The threshold values can be adjusted by the user (:ref:`by configurating the software <eval-adicup360 reference_designs demo_adxl362>`).
 
 The acceleration axes, the temperature values and the motion grid are displayed
 as is presented in the picture on the right.
@@ -190,7 +192,7 @@ as is presented in the picture on the right.
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~

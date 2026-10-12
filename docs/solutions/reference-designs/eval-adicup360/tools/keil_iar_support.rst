@@ -1,3 +1,5 @@
+.. _eval-adicup360 tools keil_iar_support:
+
 Using EVAL-ADICUP360 with IAR and Keil IDEs
 ===========================================
 
@@ -91,7 +93,7 @@ Select project in left window -> **Project** and select Add Group - to create pr
 
 .. note::
 
-   You need to have a startup code for ADuCM360 microcontroller. Write your own or just use the *startup_ADuCM360.s* file that we provide (:doc:`How to import and run an existing project </solutions/reference-designs/eval-adicup360/quickstart/keil_iar_support>`).
+   You need to have a startup code for ADuCM360 microcontroller. Write your own or just use the *startup_ADuCM360.s* file that we provide (:ref:`How to import and run an existing project <eval-adicup360 quickstart keil_iar_support>`).
 
 Select project in the left window -> **Project** -> Options:
 

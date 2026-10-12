@@ -1,3 +1,5 @@
+.. _eval-adicup3029 hardware adxl372:
+
 EVAL-ADXL372-ARDZ Shield
 ========================
 
@@ -149,8 +151,8 @@ Schematics, PCB Layout, Bill of Materials
 Software Examples
 -----------------
 
--  :doc:`ADICUP3029 + ADXL372 Bluetooth Demo </solutions/reference-designs/eval-adicup3029/reference_designs/demo_adxl372>`
--  :doc:`Arduino Uno + ADXL372 Demo </solutions/reference-designs/arduino-uno/reference_designs/demo_adxl372>`
+-  :ref:`ADICUP3029 + ADXL372 Bluetooth Demo <eval-adicup3029 reference_designs demo_adxl372>`
+-  :ref:`Arduino Uno + ADXL372 Demo <arduino-uno reference_designs demo_adxl372>`
 
 Registration
 ------------

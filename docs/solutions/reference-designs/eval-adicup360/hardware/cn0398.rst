@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0398:
+
 EVAL-CN0398-ARDZ Shield Overview
 ================================
 
@@ -128,7 +130,7 @@ Schematic, PCB Layout, Bill of Materials
 Software
 --------
 
--  :doc:`ADICUP360 + CN0398 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0398>`
+-  :ref:`ADICUP360 + CN0398 Demo <eval-adicup360 reference_designs demo_cn0398>`
 -  `ADICUP3029 + CN0398 Wi-Fi Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0398>`_
 
 Registration

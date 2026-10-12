@@ -1,3 +1,5 @@
+.. _ad-fmcdaq3-ebz software linux:
+
 .. imported from: https://wiki.analog.com/resources/eval/user-guides/ad-fmcdaq3-ebz/software/linux
 
 .. _ad_fmcdaq3_ebz linux support:

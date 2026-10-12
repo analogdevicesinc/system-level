@@ -93,7 +93,7 @@ Applications
    To get started with setup, configuration, and example use cases, 
    please proceed to the PMOD Guide and follow the provided serial terminal setup.
 
-   - :doc:`PMOD Guide </solutions/reference-designs/eval-adxrs290-pmdz/eval-adxrs290-pmdz>`
+   - :ref:`PMOD Guide <eval_adxrs290_pmdz eval>`
    - :ref:`Serial Terminal Setup <eval_adxrs290_pmdz uart_serial_terminal>`
 
 Recommendations

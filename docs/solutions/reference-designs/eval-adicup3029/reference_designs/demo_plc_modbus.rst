@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_plc_modbus:
+
 Distributed Control System (DCS) Demo
 =====================================
 
@@ -74,7 +76,7 @@ Setting up the Hardware
    -  If the PLC/DCS Node contain only CN0414 boards, then the power can be
       provided through any CN0414 board.
 
-   Refer to the :doc:`CN0414 </solutions/reference-designs/eval-adicup3029/hardware/cn0414>` and :doc:`CN0418 </solutions/reference-designs/eval-adicup3029/hardware/cn0418>` user guides for detailed information on power requirements.
+   Refer to the :ref:`CN0414 <eval-adicup3029 hardware cn0414>` and :ref:`CN0418 <eval-adicup3029 hardware cn0418>` user guides for detailed information on power requirements.
 
 PLC / Single or multi-node DCS System Setup Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,7 +161,7 @@ CN0416 Setup
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 |                             | Isolated Full Duplex                                                                                                                                                        | Isolated Half Duplex | Non-Isolated Full Duplex | Non-isolated Half Duplex |
 +=============================+=============================================================================================================================================================================+======================+==========================+==========================+
-| S1 position                 | :doc:`Any position but different from node to node </solutions/reference-designs/eval-adicup3029/hardware/cn0416>`                                                          |                      |                          |                          |
+| S1 position                 | :ref:`Any position but different from node to node <eval-adicup3029 hardware cn0416>`                                                          |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | S2 position                 | 2                                                                                                                                                                           | 1                    | 3                        | 4                        |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
@@ -173,39 +175,39 @@ CN0416 Setup
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | CN0414 Setup (if available) |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| P1 position                 | :doc:`Any position from MULTI configuration </solutions/reference-designs/eval-adicup3029/hardware/cn0414>`                                                                 |                      |                          |                          |
+| P1 position                 | :ref:`Any position from MULTI configuration <eval-adicup3029 hardware cn0414>`                                                                 |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | P2 position                 |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| P10 position                | :doc:`Any position to result a different EEPROM address from board to board </solutions/reference-designs/eval-adicup3029/hardware/cn0414>`                                 |                      |                          |                          |
+| P10 position                | :ref:`Any position to result a different EEPROM address from board to board <eval-adicup3029 hardware cn0414>`                                 |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | P11 position                |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | P12 position                |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| JP1 position                | :doc:`MULTI configuration position </solutions/reference-designs/eval-adicup3029/hardware/cn0414>`                                                                          |                      |                          |                          |
+| JP1 position                | :ref:`MULTI configuration position <eval-adicup3029 hardware cn0414>`                                                                          |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | CN0418 Setup (if available) |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| P10 position                | :doc:`Any position from MULTI configuration </solutions/reference-designs/eval-adicup3029/hardware/cn0418>`                                                                 |                      |                          |                          |
+| P10 position                | :ref:`Any position from MULTI configuration <eval-adicup3029 hardware cn0418>`                                                                 |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | P9 position                 |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| JP2 position                | :doc:`Any position to result a different EEPROM address from board to board </solutions/reference-designs/eval-adicup3029/hardware/cn0418>`                                 |                      |                          |                          |
+| JP2 position                | :ref:`Any position to result a different EEPROM address from board to board <eval-adicup3029 hardware cn0418>`                                 |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | JP3 position                |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | JP4 position                |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| JP1 position                | :doc:`MULTI configuration position </solutions/reference-designs/eval-adicup3029/hardware/cn0418>`                                                                          |                      |                          |                          |
+| JP1 position                | :ref:`MULTI configuration position <eval-adicup3029 hardware cn0418>`                                                                          |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | P17 position                | Jumper should be placed to power the whole system                                                                                                                           |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 | EVAL-ADICUP3029             |                                                                                                                                                                             |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| S2 position                 | :doc:`ARDUINO position </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`                                                                                  |                      |                          |                          |
+| S2 position                 | :ref:`ARDUINO position <eval-adicup3029 hardware adicup3029>`                                                                                  |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
-| S5 position                 | :doc:`WALL/USB position </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`                                                                                 |                      |                          |                          |
+| S5 position                 | :ref:`WALL/USB position <eval-adicup3029 hardware adicup3029>`                                                                                 |                      |                          |                          |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------------------+--------------------------+
 
 Direct USB connection
@@ -223,9 +225,9 @@ The CLI program does not need the **EVAL-CN0416-ARDZ** board and is not affected
 +-----------------+------------------------------------------------------------------------------------------------------------+
 | EVAL-ADICUP3029 |                                                                                                            |
 +=================+============================================================================================================+
-| S2 position     | :doc:`USB position </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`                     |
+| S2 position     | :ref:`USB position <eval-adicup3029 hardware adicup3029>`                     |
 +-----------------+------------------------------------------------------------------------------------------------------------+
-| S5 position     | :doc:`WALL/USB position </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>`                |
+| S5 position     | :ref:`WALL/USB position <eval-adicup3029 hardware adicup3029>`                |
 +-----------------+------------------------------------------------------------------------------------------------------------+
 
 |
@@ -594,8 +596,8 @@ Bellow is the short command list for the board menu:
 The specific commands for each of the types of boards is described in they
 respective wiki pages:
 
--  :doc:`EVAL-CN0414-ARDZ specific commands </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0414>`
--  :doc:`EVAL-CN0418-ARDZ specific commands </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0418>`
+-  :ref:`EVAL-CN0414-ARDZ specific commands <eval-adicup3029 reference_designs demo_cn0414>`
+-  :ref:`EVAL-CN0418-ARDZ specific commands <eval-adicup3029 reference_designs demo_cn0418>`
 
 Modbus Interface
 ~~~~~~~~~~~~~~~~
@@ -663,17 +665,17 @@ The software for the **ADuCM3029_demo_cn0435** can be found here:
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~
@@ -740,8 +742,8 @@ Board Specific Processes
 The process and commands for each type of boards is described in the appropriate
 application page:
 
--  :doc:`EVAL-CN0414-ARDZ </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0414>`
--  :doc:`EVAL-CN0418-ARDZ </solutions/reference-designs/eval-adicup3029/reference_designs/demo_cn0418>`
+-  :ref:`EVAL-CN0414-ARDZ <eval-adicup3029 reference_designs demo_cn0414>`
+-  :ref:`EVAL-CN0418-ARDZ <eval-adicup3029 reference_designs demo_cn0418>`
 
 Example Applications and Utilities
 ----------------------------------

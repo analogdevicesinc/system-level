@@ -1,3 +1,5 @@
+.. _eval-adicup360 mechanical:
+
 Hardware Cases and Enclosures
 =============================
 

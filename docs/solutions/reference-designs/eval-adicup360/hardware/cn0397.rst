@@ -1,3 +1,5 @@
+.. _eval-adicup360 hardware cn0397:
+
 EVAL-CN0397-ARDZ Shield
 =======================
 
@@ -73,7 +75,7 @@ Schematic, PCB Layout, Bill of Materials
 Software
 --------
 
--  :doc:`ADICUP360 + CN0397 Demo </solutions/reference-designs/eval-adicup360/reference_designs/demo_cn0397>`
+-  :ref:`ADICUP360 + CN0397 Demo <eval-adicup360 reference_designs demo_cn0397>`
 -  `ADICUP360 + ADConnect + CN0397 Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/inventek_thinkworx/demo_cn0397>`_
 -  `ADICUP3029 + CN0397 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0397>`_
 -  `Arduino Uno + CN0397 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0397>`_

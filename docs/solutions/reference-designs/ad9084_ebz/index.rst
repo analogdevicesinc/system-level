@@ -121,7 +121,7 @@ Table of Contents
 
          - :ref:`AD9084 Plugin <ad9084 iio-oscilloscope-plugin>`
 
-      #. :doc:`FRU EEPROM Utility </software/fru_dump>`
+      #. :ref:`FRU EEPROM Utility <software fru-dump>`
 
 #. Design with the AD9084
 

@@ -1,3 +1,5 @@
+.. _ad-fmcdaq3-ebz software baremetal:
+
 .. imported from: https://wiki.analog.com/resources/eval/user-guides/ad-fmcdaq3-ebz/software/baremetal
 
 .. _ad_fmcdaq3_ebz baremetal:

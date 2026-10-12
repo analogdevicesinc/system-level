@@ -1,3 +1,5 @@
+.. _eval-adicup3029 software aducm302x:
+
 ADuCM302x Device Family Pack (DFP)
 ==================================
 
@@ -48,7 +50,7 @@ manual installation to install the pack.
 
 -  Downloaded via the tool chain's CMSIS pack manager
 
-   -  It is **recommended** to download the ADuCM302x software pack through from the tool chain's CMSIS pack manager. That way, all the files, directories structure, and project structure for the various applications is properly saved and accessed. For a detailed description on how to download the ADuCM302x software pack through CrossCore Embedded Studio please see our :doc:`CrossCore Embedded Studio Quickstart User Guide </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`.
+   -  It is **recommended** to download the ADuCM302x software pack through from the tool chain's CMSIS pack manager. That way, all the files, directories structure, and project structure for the various applications is properly saved and accessed. For a detailed description on how to download the ADuCM302x software pack through CrossCore Embedded Studio please see our :ref:`CrossCore Embedded Studio Quickstart User Guide <eval-adicup3029 tools cces_user_guide>`.
 
 -  Downloaded to local directory
 

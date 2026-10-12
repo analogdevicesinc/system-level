@@ -94,16 +94,16 @@ Table of contents
 
 #. :doc:`Hardware <hardware>`
 
-   #. :doc:`Functional Overview & Specifications <hardware/functional_overview>`
+   #. :ref:`Functional Overview & Specifications <fmcomms11 functional-overview>`
 
 #. :external+hdl:doc:`projects/daq3/index`
 
 #. :doc:`Software <software>`
 
-   #. :doc:`no-OS drivers <software/baremetal>`
-   #. :doc:`Linux <software/linux>`
+   #. :ref:`no-OS drivers <ad-fmcdaq3-ebz software baremetal>`
+   #. :ref:`Linux <ad-fmcdaq3-ebz software linux>`
 
-      #. :doc:`ZC706, and related platforms <software/linux>`
+      #. :ref:`ZC706, and related platforms <ad-fmcdaq3-ebz software linux>`
       #. :ref:`linux-kernel microblaze`
       #. Applications
 

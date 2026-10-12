@@ -129,7 +129,7 @@ Table of contents
 
         #. About the device tree:
 
-           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+           - :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
         #. About the JESD204 utilities:
 
@@ -141,7 +141,7 @@ Table of contents
      #. :dokuwiki:`Changing the VCXO frequency and updating the default RF Transceiver Profile <resources/eval/user-guides/rf-trx-vcxo-and-profiles>`
      #. :external+hdl:ref:`HDL reference design <adrv9026>` which you must use in your FPGA.
 
-#. :doc:`Additional documentation about SDR Signal Chains - The math behind the RF </solutions/reference-designs/fmcomms2/common/math>`
+#. :ref:`Additional documentation about SDR Signal Chains - The math behind the RF <fmcomms2 common fmcomms-math>`
 #. :ref:`Help and Support <help-and-support>`
 
 .. _adrv902x block-diagram:

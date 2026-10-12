@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_cn0326:
+
 pH Monitor with Temperature Compensation Demo
 =============================================
 
@@ -6,7 +8,7 @@ The **ADuCM360_demo_cn0326** is a pH monitor with automatic temperature compensa
 General description
 -------------------
 
-This project is a good example for how to use :doc:`EVAL-ADICUP360 board </solutions/reference-designs/eval-adicup360/hardware/base_board>` in different combinations with pmod boards. It expand the list of possible applications that can be done with the base board.
+This project is a good example for how to use :ref:`EVAL-ADICUP360 board <eval-adicup360 hardware base_board>` in different combinations with pmod boards. It expand the list of possible applications that can be done with the base board.
 
 The **ADuCM360_demo_cn0326** project uses the :adi:`EVAL-CN0326-PMDZ pmod <en/design-center/reference-designs/hardware-reference-design/circuits-from-the-lab/cn0326>` which is a pH sensor signal conditioner and digitizer with automatic temperature compensation.
 
@@ -162,7 +164,7 @@ The software for the **ADuCM360_demo_cn0326** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -231,17 +233,17 @@ Command       Description
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup360 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to configure the debug session <eval-adicup360 tools cces_user_guide>` section.
 
 Project structure
 -----------------

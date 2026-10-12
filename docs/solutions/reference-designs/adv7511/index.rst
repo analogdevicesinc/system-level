@@ -98,7 +98,7 @@ Table of contents
 
         #. About the device tree:
 
-           - :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+           - :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
      #. :external+hdl:ref:`HDL reference design <adv7511>` which you must use
         in your FPGA.

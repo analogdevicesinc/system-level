@@ -1,3 +1,5 @@
+.. _eval-adicup3029 software:
+
 Software Pack and Board Support Packages
 ========================================
 
@@ -6,11 +8,11 @@ In order to run any of the examples shown with this platform, it is extremely
 important that all users have the following software packs installed in their
 tools.
 
--  :doc:`ADuCM302x Pack </solutions/reference-designs/eval-adicup3029/software/aducm302x>`
--  :doc:`ADICUP3029 Pack </solutions/reference-designs/eval-adicup3029/software/adicup3029>`
--  :doc:`Sensor Pack </solutions/reference-designs/eval-adicup3029/software/sensors>`
--  :doc:`BLE Software Pack </solutions/reference-designs/eval-adicup3029/software/ble_sw>`
--  :doc:`Wi-Fi Software Pack </solutions/reference-designs/eval-adicup3029/software/wifi_sw>`
+-  :ref:`ADuCM302x Pack <eval-adicup3029 software aducm302x>`
+-  :ref:`ADICUP3029 Pack <eval-adicup3029 software adicup3029>`
+-  :ref:`Sensor Pack <eval-adicup3029 software sensors>`
+-  :ref:`BLE Software Pack <eval-adicup3029 software ble_sw>`
+-  :ref:`Wi-Fi Software Pack <eval-adicup3029 software wifi_sw>`
 
 The simplified diagram below describes the interaction between all packs and the
 applications, and how the packs are built on top of each other. In order to

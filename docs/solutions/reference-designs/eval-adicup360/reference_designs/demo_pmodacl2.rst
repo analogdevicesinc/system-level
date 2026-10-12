@@ -1,3 +1,5 @@
+.. _eval-adicup360 reference_designs demo_pmodacl2:
+
 PMOD Accelerometer Demo
 =======================
 
@@ -6,7 +8,7 @@ The **ADuCM360_demo_pmodacl2** is an accelerometer demo project for the EVAL-ADI
 General description
 -------------------
 
-This project is an example for how to use :doc:`EVAL-ADICUP360 board </solutions/reference-designs/eval-adicup360/hardware/base_board>` in combination with the PmodACL2 accelerometer PMOD.
+This project is an example for how to use :ref:`EVAL-ADICUP360 board <eval-adicup360 hardware base_board>` in combination with the PmodACL2 accelerometer PMOD.
 
 The ADuCM360_demo_pmodacl2 project uses the `PmodACL2 PMOD <http://store.digilentinc.com/pmodacl2-3-axis-mems-accelerometer/>`_ which has the **ADXL362 3-axis MEMS accelerometer** on board.
 
@@ -93,7 +95,7 @@ The software for the **ADuCM360_demo_pmodacl2** demo can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup360 tools cces_user_guide>`
 
 Configuring the Software Parameters
 -----------------------------------
@@ -187,17 +189,17 @@ The user must press the **<ENTER>** key each time they want to display the resul
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup360/tools>`
+The official tool we promote for use with the EVAL-ADICUP360 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup360 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup360 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup360/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studios tools, please view our :ref:`How to configure the debug session <eval-adicup360 tools cces_user_guide>` section.
 
 Project structure
 -----------------

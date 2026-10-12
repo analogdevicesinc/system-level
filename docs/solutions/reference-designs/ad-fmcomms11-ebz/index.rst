@@ -107,8 +107,8 @@ Table of Contents
    back to it when you want to incorporate one of the devices
    into your product.
 
-   #. :doc:`Functional Overview & Specifications <hardware/functional_overview>`
-   #. :doc:`Characteristics & Performance <hardware/card_specification>`
+   #. :ref:`Functional Overview & Specifications <fmcomms11 functional-overview>`
+   #. :ref:`Characteristics & Performance <fmcomms11 card-specification>`
 
 #. :doc:`FCC or CE certification <certification>`
 #. :doc:`Production Testing Process <testing>`
@@ -156,7 +156,7 @@ Table of Contents
 
          #. About the device tree:
 
-            #. :doc:`Customizing the device tree on the target </linux/kernel/zynq_tips_tricks>`
+            #. :ref:`Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`
 
          #. About the JESD204 utilities:
 

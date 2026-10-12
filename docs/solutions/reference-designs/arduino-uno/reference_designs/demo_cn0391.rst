@@ -5,7 +5,7 @@ General Description/Overview
 ----------------------------
 
 The **CN0391_example** project uses the
-:doc:`EVAL-CN0391-ARDZ Shield </solutions/reference-designs/eval-adicup360/hardware/cn0391>`
+:ref:`EVAL-CN0391-ARDZ Shield <eval-adicup360 hardware cn0391>`
 which is a multichannel thermocouple temperature measurement system with
 cold junction compensation.
 

@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_cn0536:
+
 Geiger Counter demo (EVAL-CN0536-ADRZ)
 ======================================
 
@@ -47,8 +49,8 @@ The following is a list of items needed in order to replicate this demo.
       -  `Putty <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
       -  `Tera Term <https://osdn.net/projects/ttssh2/releases>`_
 
-   -  :adi:`CrossCore Embedded Studio <en/design-center/evaluation-hardware-and-software/software/adswt-cces.html#software-relatedsoftware>` (:doc:`Installation wiki </solutions/reference-designs/eval-adicup3029/tools/cces_setup_guide>`) (**Optional** to edit the software)
-   -  ADuCM302x DFP and ADICUP3029 BSP (see this :doc:`guide </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`) (**Optional** to edit the software)
+   -  :adi:`CrossCore Embedded Studio <en/design-center/evaluation-hardware-and-software/software/adswt-cces.html#software-relatedsoftware>` (:ref:`Installation wiki <eval-adicup3029 tools cces_setup_guide>`) (**Optional** to edit the software)
+   -  ADuCM302x DFP and ADICUP3029 BSP (see this :ref:`guide <eval-adicup3029 tools cces_user_guide>`) (**Optional** to edit the software)
    -  :git-EVAL-ADICUP3029:`AduCM3029_demo_cn0536 demo application <projects/ADuCM3029_demo_cn0536>` (**Optional**, software code)
    -  `Python 3 <https://www.python.org/downloads>`_ (**Optional**, to plot MQTT data)
 
@@ -57,7 +59,7 @@ UART demo with precompiled program
 
 .. collapsible:: Click to expand
 
-   -  Set the :doc:`UART switch </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` to USB.
+   -  Set the :ref:`UART switch <eval-adicup3029 hardware adicup3029>` to USB.
 
    .. image:: ../images/adicup3029_switch.png
       :alt: \|
@@ -69,7 +71,7 @@ UART demo with precompiled program
       :alt: \|
       :align: center
 
-   -  Connect a micro-USB cable to the :doc:`USB connector </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` and then to the PC.
+   -  Connect a micro-USB cable to the :ref:`USB connector <eval-adicup3029 hardware adicup3029>` and then to the PC.
    -  Download the **UART** precompiled program
 
    .. admonition:: Download
@@ -79,8 +81,8 @@ UART demo with precompiled program
 
       `ADuCM3029_demo_cn0536_uart.hex <https://github.com/analogdevicesinc/EVAL-ADICUP3029/releases/download/Latest/ADuCM3029_demo_cn0536_uart.hex>`_
 
-   -  :doc:`Upload </solutions/reference-designs/eval-adicup3029/tools/adicup3029_hw_drivers>` the precompiled .hex file to the board. (Copy the .hex file to the DAPLINK drive)
-   -  Reset the board from the :doc:`RESET </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` push button.
+   -  :ref:`Upload <eval-adicup3029 tools adicup3029_hw_drivers>` the precompiled .hex file to the board. (Copy the .hex file to the DAPLINK drive)
+   -  Reset the board from the :ref:`RESET <eval-adicup3029 hardware adicup3029>` push button.
 
    .. image:: ../images/geiger_counter_reset.jpg
       :align: center
@@ -98,7 +100,7 @@ MQTT (Wi-Fi) demo with precompiled program
 
 .. collapsible:: initialState="visible"
 
-   -  Set the :doc:`UART switch </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` to ARDUINO.
+   -  Set the :ref:`UART switch <eval-adicup3029 hardware adicup3029>` to ARDUINO.
 
    .. image:: ../images/adicup3029_switch.png
       :alt: \|
@@ -120,7 +122,7 @@ MQTT (Wi-Fi) demo with precompiled program
    .. image:: ../images/cables.png
       :align: center
 
-   -  Connect a micro-USB cable to the :doc:`USB connector </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` and then to the PC.
+   -  Connect a micro-USB cable to the :ref:`USB connector <eval-adicup3029 hardware adicup3029>` and then to the PC.
    -  Download the **MQTT** precompiled program
 
    .. admonition:: Download
@@ -135,7 +137,7 @@ MQTT (Wi-Fi) demo with precompiled program
       -  SSID: **analog_hotspot**
       -  Password: **12345678**
 
-   -  Reset the board from the :doc:`RESET </solutions/reference-designs/eval-adicup3029/hardware/adicup3029>` push button.
+   -  Reset the board from the :ref:`RESET <eval-adicup3029 hardware adicup3029>` push button.
 
    .. image:: ../images/geiger_counter_reset.jpg
       :align: center
@@ -215,7 +217,7 @@ Working with the software
    -  Go to :git-EVAL-ADICUP3029:`project directory <projects/ADuCM3029_demo_cn0536>`. ``cd projects\ADuCM3029_demo_cn0536``
    -  Follow this :dokuwiki:`guide <resources/no-os/build>` to create a CCES project. This command should be enough: ``make update_srcs``
    -  A folder **build** will be created and inside it the CCES project.
-   -  Import the new generated project into your workspace. See :doc:`wiki </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`
+   -  Import the new generated project into your workspace. See :ref:`wiki <eval-adicup3029 tools cces_user_guide>`
    -  Now the project structure should look like this:
 
    .. image:: ../images/proj_structure.png
@@ -293,7 +295,7 @@ Working with the software
 
 .. collapsible:: Build and debug the project
 
-   :doc:`How to build and a CCES project </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`
+   :ref:`How to build and a CCES project <eval-adicup3029 tools cces_user_guide>`
 
 *End of Document*
 

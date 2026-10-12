@@ -1,3 +1,5 @@
+.. _eval-adicup3029 reference_designs demo_adxl362:
+
 Accelerometer Demo using Wi-Fi (with EVAL-ADXL362-ARDZ)
 =======================================================
 
@@ -11,7 +13,7 @@ The **ADuCM3029_demo_esp8266** is a Wi-Fi demo project for the **EVAL-ADICUP3029
 General Description/Overview
 ----------------------------
 
-The ADuCM3029_demo_esp8266 project uses the :doc:`EVAL-ADXL362-ARDZ shield </solutions/reference-designs/eval-adicup360/hardware/adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32). However, for this example the display is not used.
+The ADuCM3029_demo_esp8266 project uses the :ref:`EVAL-ADXL362-ARDZ shield <eval-adicup360 hardware adxl362>` which has an **ADXL362 3-axis MEMS accelerometer** and a incorporated **NHD-C12832A1Z-NSW-BBW display** (128x32). However, for this example the display is not used.
 
 The **EVAL-ADICUP3029** is designed for IOT (Internet of Things) applications in mind, and therefore comes with on board Wi-Fi **ESP8266** module.
 
@@ -91,7 +93,7 @@ The software for the **ADuCM3029_demo_esp8266** can be found here:
 
 .. note::
 
-   For more information on importing, debugging, or other tools related questions, please see the :doc:`tools user guide. </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>`
+   For more information on importing, debugging, or other tools related questions, please see the :ref:`tools user guide. <eval-adicup3029 tools cces_user_guide>`
 
 Configuring the Software (parameters.h)
 ---------------------------------------
@@ -215,17 +217,17 @@ Outputting Data
 How to use the Tools
 --------------------
 
-The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :doc:`Tools Overview page. </solutions/reference-designs/eval-adicup3029/tools>`
+The official tool we promote for use with the EVAL-ADICUP3029 is CrossCore Embedded Studio. For more information on downloading the tools and a quick start guide on how to use the tool basics, please check out the :ref:`Tools Overview page. <eval-adicup3029 tools>`
 
 Importing
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to import existing projects into your workspace </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to import existing projects into your workspace <eval-adicup3029 tools cces_user_guide>` section.
 
 Debugging
 ~~~~~~~~~
 
-For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :doc:`How to configure the debug session </solutions/reference-designs/eval-adicup3029/tools/cces_user_guide>` section.
+For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~

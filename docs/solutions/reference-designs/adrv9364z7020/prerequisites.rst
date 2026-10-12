@@ -12,7 +12,7 @@ start out with:
 #. A carrier board for the SOM. The supported carriers are:
 
    - :adi:`ADRV1CRR-BOB` — Break-Out Board carrier (CMOS or LVDS mode)
-   - :doc:`ADRV1CRR-PACKRF </solutions/reference-designs/pzsdr/carriers/packrf>` PackRF carrier, LVDS
+   - :ref:`ADRV1CRR-PACKRF <pzsdr carriers packrf>` PackRF carrier, LVDS
      mode (OBSOLETE)
 
 #. Some way to interact with the platform, which normally includes:

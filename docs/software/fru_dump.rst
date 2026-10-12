@@ -7,7 +7,7 @@ As part of the `FMC specification <https://www.vita.com/fmc>`_, EEPROMs exist
 on the FMC cards which can provide configuration for different voltages on for
 the cards themselves. EEPROM images for different ADI cards are available
 online and can be manipulated using the
-:doc:`fru-dump tool </software/fru_dump>`.
+:ref:`fru-dump tool <software fru-dump>`.
 This page will provide steps for updating specific FMC cards. The steps are very
 generic and should apply to all ADI FMC cards which have available master image
 files.

@@ -103,7 +103,7 @@ Table of Contents
    #. Linux Applications
 
       #. :ref:`EVAL-CN0540-ARDZ Plugin <eval-cn0540-ardz iio-oscilloscope-plugin>`
-      #. :doc:`FRU EEPROM Utility </software/fru_dump>`
+      #. :ref:`FRU EEPROM Utility <software fru-dump>`
 
 #. Design with the EVAL-CN0540-ARDZ
 
