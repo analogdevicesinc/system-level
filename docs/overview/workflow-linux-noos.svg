@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <style>
+      .box { stroke: #333; stroke-width: 2; }
+      .box-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; }
+      .box-desc { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .arrow { stroke: #666; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-thick { stroke: #444; stroke-width: 4; fill: none; marker-end: url(#arrowhead-thick); }
+      .arrow-label { font-family: Arial, sans-serif; font-size: 10px; fill: #444; font-style: italic; }
+      .layer-label { font-family: Arial, sans-serif; font-size: 11px; fill: #888; font-weight: bold; }
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .strength { font-family: Arial, sans-serif; font-size: 10px; fill: #2e7d32; }
+      .weakness { font-family: Arial, sans-serif; font-size: 10px; fill: #c62828; }
+      .transition-arrow { stroke: #1565c0; stroke-width: 3; fill: none; marker-end: url(#arrowhead-blue); }
+      .transition-label { font-family: Arial, sans-serif; font-size: 11px; fill: #1565c0; font-weight: bold; }
+      .phase-label { font-family: Arial, sans-serif; font-size: 12px; fill: #666; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+    <marker id="arrowhead-thick" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#444" />
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#1565c0" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="25" class="title-text" text-anchor="middle">Technology Stack Transition: Linux to no-OS</text>
+
+  <!-- Phase labels -->
+  <text x="225" y="55" class="phase-label" text-anchor="middle">PROTOTYPING PHASE</text>
+  <text x="675" y="55" class="phase-label" text-anchor="middle">DEPLOYMENT PHASE</text>
+
+  <!-- Shared Hardware Layer -->
+  <rect x="100" y="70" width="700" height="50" rx="5" class="box" fill="#d7ccc8"/>
+  <text x="450" y="92" class="box-text" text-anchor="middle">Shared Hardware (AD9081, ADRV9009, etc.)</text>
+  <text x="450" y="108" class="box-desc" text-anchor="middle">Same device, same evaluation board, same FPGA carrier</text>
+
+  <!-- Divider line -->
+  <line x1="450" y1="140" x2="450" y2="520" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <!-- Linux Side (Left) -->
+  <rect x="100" y="140" width="320" height="80" rx="5" class="box" fill="#bbdefb"/>
+  <text x="260" y="165" class="box-text" text-anchor="middle">Linux + IIO Drivers</text>
+  <text x="260" y="185" class="box-desc" text-anchor="middle">Full OS with kernel drivers</text>
+  <text x="260" y="202" class="box-desc" text-anchor="middle">IIO subsystem, sysfs, device tree</text>
+
+  <rect x="100" y="235" width="320" height="60" rx="5" class="box" fill="#c8e6c9"/>
+  <text x="260" y="258" class="box-text" text-anchor="middle">libiio + pyadi-iio</text>
+  <text x="260" y="278" class="box-desc" text-anchor="middle">High-level APIs, remote access, tools</text>
+
+  <rect x="100" y="310" width="320" height="50" rx="5" class="box" fill="#f3e5f5"/>
+  <text x="260" y="333" class="box-text" text-anchor="middle">MATLAB / Python / Scopy</text>
+  <text x="260" y="353" class="box-desc" text-anchor="middle">Rich application ecosystem</text>
+
+  <!-- no-OS Side (Right) -->
+  <rect x="480" y="140" width="320" height="80" rx="5" class="box" fill="#ffe0b2"/>
+  <text x="640" y="165" class="box-text" text-anchor="middle">no-OS Bare-Metal</text>
+  <text x="640" y="185" class="box-desc" text-anchor="middle">Direct hardware access</text>
+  <text x="640" y="202" class="box-desc" text-anchor="middle">no-OS drivers + platform layer</text>
+
+  <rect x="480" y="235" width="320" height="60" rx="5" class="box" fill="#fff3e0"/>
+  <text x="640" y="258" class="box-text" text-anchor="middle">Custom Application Code</text>
+  <text x="640" y="278" class="box-desc" text-anchor="middle">Optimized for specific use case</text>
+
+  <rect x="480" y="310" width="320" height="50" rx="5" class="box" fill="#e8eaf6"/>
+  <text x="640" y="333" class="box-text" text-anchor="middle">Deployed Embedded System</text>
+  <text x="640" y="353" class="box-desc" text-anchor="middle">Production-ready firmware</text>
+
+  <!-- Transition Arrow -->
+  <path d="M 420 250 C 440 250, 445 250, 460 250" class="transition-arrow"/>
+  <text x="450" y="230" class="transition-label" text-anchor="middle">Transition</text>
+
+  <!-- Linux Strengths (Green) -->
+  <rect x="100" y="375" width="320" height="90" rx="5" class="box" fill="#e8f5e9"/>
+  <text x="115" y="395" class="section-title">Strengths</text>
+  <text x="115" y="412" class="strength">+ Faster prototyping and validation</text>
+  <text x="115" y="426" class="strength">+ Rich debugging tools (iio_info, oscilloscope)</text>
+  <text x="115" y="440" class="strength">+ Direct MATLAB/Python connectivity</text>
+  <text x="115" y="454" class="strength">+ More guardrails and error checking</text>
+
+  <!-- Linux Weaknesses (Red) -->
+  <rect x="100" y="475" width="320" height="75" rx="5" class="box" fill="#ffebee"/>
+  <text x="115" y="495" class="section-title">Weaknesses</text>
+  <text x="115" y="512" class="weakness">- Higher resource usage (RAM, CPU)</text>
+  <text x="115" y="526" class="weakness">- Non-deterministic timing (OS jitter)</text>
+  <text x="115" y="540" class="weakness">- Longer boot time, more complexity</text>
+
+  <!-- no-OS Strengths (Green) -->
+  <rect x="480" y="375" width="320" height="90" rx="5" class="box" fill="#e8f5e9"/>
+  <text x="495" y="395" class="section-title">Strengths</text>
+  <text x="495" y="412" class="strength">+ Minimal footprint, instant boot</text>
+  <text x="495" y="426" class="strength">+ Deterministic real-time performance</text>
+  <text x="495" y="440" class="strength">+ Lower power consumption</text>
+  <text x="495" y="454" class="strength">+ Production-ready, deployable</text>
+
+  <!-- no-OS Weaknesses (Red) -->
+  <rect x="480" y="475" width="320" height="75" rx="5" class="box" fill="#ffebee"/>
+  <text x="495" y="495" class="section-title">Weaknesses</text>
+  <text x="495" y="512" class="weakness">- Steeper learning curve</text>
+  <text x="495" y="526" class="weakness">- Limited debugging tools</text>
+  <text x="495" y="540" class="weakness">- Manual integration with host tools</text>
+
+  <!-- Arrows from hardware to both stacks -->
+  <line x1="260" y1="120" x2="260" y2="140" class="arrow"/>
+  <line x1="640" y1="120" x2="640" y2="140" class="arrow"/>
+
+  <!-- Internal arrows -->
+  <line x1="260" y1="220" x2="260" y2="235" class="arrow"/>
+  <line x1="260" y1="295" x2="260" y2="310" class="arrow"/>
+  <line x1="640" y1="220" x2="640" y2="235" class="arrow"/>
+  <line x1="640" y1="295" x2="640" y2="310" class="arrow"/>
+
+</svg>

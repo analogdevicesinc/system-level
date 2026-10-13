@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .box { stroke: #333; stroke-width: 2; }
+      .box-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; }
+      .box-desc { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .arrow { stroke: #666; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font-family: Arial, sans-serif; font-size: 10px; fill: #444; font-style: italic; }
+      .layer-label { font-family: Arial, sans-serif; font-size: 11px; fill: #888; font-weight: bold; }
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #333; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="25" class="title-text" text-anchor="middle">Workflow 1: FPGA + High-Speed Data Converter</text>
+
+  <!-- Layer labels -->
+  <text x="25" y="85" class="layer-label">Layer 1</text>
+  <text x="25" y="165" class="layer-label">Layer 2</text>
+  <text x="25" y="265" class="layer-label">Layer 3</text>
+  <text x="25" y="365" class="layer-label">Layer 4</text>
+  <text x="25" y="455" class="layer-label">Layers</text>
+  <text x="25" y="470" class="layer-label">5-7</text>
+
+  <!-- Layer 1: AD9081 Hardware -->
+  <rect x="100" y="60" width="700" height="60" rx="5" class="box" fill="#d7ccc8"/>
+  <text x="450" y="85" class="box-text" text-anchor="middle">AD9081 MxFE (Multi-Channel Transceiver)</text>
+  <text x="450" y="105" class="box-desc" text-anchor="middle">Quad 4 GSPS ADC + Quad 12 GSPS DAC • NCOs, DDCs, DUCs</text>
+
+  <!-- Arrow with JESD204C -->
+  <line x1="450" y1="120" x2="450" y2="140" class="arrow"/>
+  <text x="470" y="133" class="arrow-label">JESD204C (15.5 Gbps/lane)</text>
+
+  <!-- Layer 2: Zynq UltraScale+ -->
+  <rect x="100" y="140" width="340" height="90" rx="5" class="box" fill="#ffe0b2"/>
+  <text x="270" y="165" class="box-text" text-anchor="middle">Xilinx Zynq UltraScale+ MPSoC</text>
+  <text x="270" y="185" class="box-desc" text-anchor="middle">ZCU102 Evaluation Board</text>
+  <text x="155" y="207" class="box-desc">ARM Side:</text>
+  <text x="155" y="222" class="box-desc">• Cortex-A53 (4 cores)</text>
+  <text x="330" y="207" class="box-desc">FPGA Side:</text>
+  <text x="330" y1="222" class="box-desc">• Programmable Logic</text>
+
+  <!-- Layer 3: HDL Reference Design -->
+  <rect x="460" y="140" width="340" height="90" rx="5" class="box" fill="#c8e6c9"/>
+  <text x="630" y="165" class="box-text" text-anchor="middle">HDL Reference Design</text>
+  <text x="630" y="185" class="box-desc" text-anchor="middle">(Running in FPGA Fabric)</text>
+  <text x="480" y="207" class="box-desc">• JESD204 TPL/Link/PHY</text>
+  <text x="480" y="222" class="box-desc">• AXI DMA controllers</text>
+
+  <!-- Arrow from FPGA to HDL -->
+  <line x1="440" y1="185" x2="460" y2="185" class="arrow"/>
+
+  <!-- Layer 3 indicator showing HDL runs in FPGA fabric -->
+  <rect x="100" y="250" width="700" height="70" rx="5" class="box" fill="#e8f5e9" stroke-dasharray="5,5"/>
+  <text x="450" y="275" class="box-text" text-anchor="middle">HDL Components (Layer 3)</text>
+  <text x="450" y="295" class="box-desc" text-anchor="middle">JESD204 Framework • DMA • Clock Management • AXI Interconnects</text>
+  <text x="450" y="312" class="box-desc" text-anchor="middle">Synthesized into FPGA fabric, provides AXI memory-mapped interfaces to ARM</text>
+
+  <!-- Arrow down -->
+  <line x1="270" y1="230" x2="270" y2="250" class="arrow"/>
+
+  <!-- Layer 4: Linux IIO Driver -->
+  <rect x="100" y="340" width="700" height="70" rx="5" class="box" fill="#bbdefb"/>
+  <text x="450" y="365" class="box-text" text-anchor="middle">Linux IIO Driver (axi-ad9081-rx-hpc)</text>
+  <text x="450" y="385" class="box-desc" text-anchor="middle">• Initializes AD9081 via SPI • Configures JESD204 link parameters</text>
+  <text x="450" y="402" class="box-desc" text-anchor="middle">• Programs NCOs, filters, DDCs/DUCs • Exposes DMA buffers via IIO</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="320" x2="450" y2="340" class="arrow"/>
+
+  <!-- Layers 5-7: Software Stack -->
+  <rect x="100" y="430" width="700" height="140" rx="5" class="box" fill="#f3e5f5"/>
+  <text x="450" y="455" class="box-text" text-anchor="middle">Software Stack (Layers 5-7)</text>
+
+  <text x="120" y="480" class="box-desc" font-weight="bold">Layer 5 - libiio:</text>
+  <text x="140" y="495" class="box-desc">local: backend for direct access</text>
+
+  <text x="120" y="517" class="box-desc" font-weight="bold">Layer 6 - pyadi-iio:</text>
+  <text x="140" y="532" class="box-desc">mxfe = adi.ad9081(uri="local:")</text>
+  <text x="140" y="547" class="box-desc">data = mxfe.rx()  # Complex NumPy arrays</text>
+
+  <text x="480" y="480" class="box-desc" font-weight="bold">Layer 7 - Applications:</text>
+  <text x="500" y="495" class="box-desc">• MATLAB / GNU Radio</text>
+  <text x="500" y="510" class="box-desc">• Custom Python/C++ apps</text>
+  <text x="500" y="525" class="box-desc">• SDR frameworks</text>
+  <text x="500" y="540" class="box-desc">• Signal intelligence</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="410" x2="450" y2="430" class="arrow"/>
+
+  <!-- Bottom note -->
+  <text x="450" y="590" style="font-family: Arial, sans-serif; font-size: 11px; fill: #666;" text-anchor="middle">High Performance: Multi-GSPS sample rates • Low latency (&lt;1µs) • Custom FPGA signal processing</text>
+</svg>
