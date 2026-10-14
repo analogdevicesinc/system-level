@@ -10,15 +10,11 @@ ADALM-PLUTO
    */index
    *
 
-.. image:: pluto_in_hand.png
-   :width: 250px
+.. figure:: pluto_in_hand.png
+   :width: 250
    :align: right
 
-..
-   TODO Create buy role
-
 The :adi:`ADALM-PLUTO` Active Learning Module (PlutoSDR)
-`Buy <https://shoppingcart.analog.com/AddModel.aspx?locale=en&ACTION=BUY_BUNDLES&modelNbr=ADALM-PLUTO>`__
 is an easy to use tool available from Analog Devices
 Inc. (ADI) that can be used to introduce fundamentals of
 `Software Defined Radio (SDR) <https://en.wikipedia.org/wiki/Software-defined_radio>`__ or
@@ -71,12 +67,15 @@ use the ADALM-PLUTO.
    (info.html), configuration control for your device (config.txt), and licensing
    information (LICENSE.html).
 
+#. :ref:`Quick Start <pluto users quick_start>`
+
+#. :ref:`Hardware User Guide <pluto hacking hardware>`
+
 #. :ref:`PlutoSDR Users & students <pluto users>`
 
    - PlutoSDR users normally interact with RF signals with
      :mw:`MATLAB, Simulink <hardware-support/adalm-pluto-radio.html>`,
-     :ref:`GNU Radio <software gnuradio>` or
-     :ref:`custom C, C++ <pluto transceiver_transferring_data>`,
+     :ref:`GNU Radio <software gnuradio>`,
      :git-libiio:`C# <bindings/csharp/examples/ExampleProgram.cs>`,
      or :ref:`Python environment <pyadi-iio>` on a
      host (x86) Windows, Linux or Mac or embedded Linux platform
@@ -90,7 +89,11 @@ use the ADALM-PLUTO.
      describes how to get the drivers and host software installed properly.
    - Most users should find all the information they need in this section.
 
-#. :ref:`HDL and Embedded Software Resources <pluto devs>`:
+#. :ref:`C/C++ Examples <pluto transceiver_transferring_data>`
+
+   - Controlling the transceiver and transferring data using libiio with C/C++.
+
+#. :ref:`For Developers <pluto devs>`:
 
    - This material is for those who normally write custom software or HDL (for
      the FPGA) that runs directly on the PlutoSDR. This may put the PlutoSDR in
@@ -104,7 +107,7 @@ use the ADALM-PLUTO.
        internet via Wifi or LAN.
      - a mobile terminal to emulate someone else's keyboard.
 
-#. :ref:`PCB and Layout Resources <pluto hacking>`:
+#. :ref:`Advanced Users <pluto hacking>`
 
    - This section may be useful for those taking the PCB out of the case and
      making hardware modifications, or connecting GPIO to different devices, or
