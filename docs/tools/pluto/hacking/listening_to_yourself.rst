@@ -20,16 +20,16 @@ set to 2400 MHZ, and the Tx set to 2402 MHz, with the internal DDS, set to 3
 MHz, and -30dB down (which would put things at 2405 MHz), with the default
 antennas connected, and the LTE20 Filters loaded.
 
-.. image:: tx_lo_dds.png
-   :width: 600px
+.. figure:: tx_lo_dds.png
+   :width: 600
 
 This shows the peak at the signal (at 2405 MHz, where we expect it), and a LO
 leakage at 2402 MHz. It's difficult to see what this really means in terms of
 signal power, so we can look at the actual gain is set to by the Automatic Gain
 Control (AGC), and the Receive Signal Strength Indicator (RSSI).
 
-.. image:: tx_lo_dds_rx1.png
-   :width: 200px
+.. figure:: tx_lo_dds_rx1.png
+   :width: 200
 
 We can see the RSSI is 66.25 dB, and the Hardware Gain is set to 43 dB.
 
@@ -41,11 +41,11 @@ If we simply disable the DSS, this is what we see:
 .. grid::
    :widths: 50 50
 
-   .. image:: tx_lo_leakage.png
-      :width: 600px
+   .. figure:: tx_lo_leakage.png
+      :width: 600
 
-   .. image:: tx_lo_leakage_rx1.png
-      :width: 200px
+   .. figure:: tx_lo_leakage_rx1.png
+      :width: 200
 
 Now our RSSI has gone to 90.5 dB and the hardware gain is set to 68 dB (which is
 still not at the max gain of the device), we are listening to our own LO
@@ -56,13 +56,12 @@ Tx Off
 
 If we power down the Tx LO with (``0`` is on, ``1`` is powerdown):
 
-.. shell::
-   :no-path:
+.. code:: console
 
-   $iio_attr -c ad9361-phy TX_LO powerdown 1
-    dev 'ad9361-phy', channel 'altvoltage1' (output), id 'TX_LO', attr 'powerdown', value '0'
-    wrote 2 bytes to powerdown
-    dev 'ad9361-phy', channel 'altvoltage1' (output), id 'TX_LO', attr 'powerdown', value '1'
+   analog@analog:~$ iio_attr -c ad9361-phy TX_LO powerdown 1
+   dev 'ad9361-phy', channel 'altvoltage1' (output), id 'TX_LO', attr 'powerdown', value '0'
+   wrote 2 bytes to powerdown
+   dev 'ad9361-phy', channel 'altvoltage1' (output), id 'TX_LO', attr 'powerdown', value '1'
 
 This is the equivalent C source of:
 
@@ -85,11 +84,11 @@ Then we get:
 .. grid::
    :widths: 50 50
 
-   .. image:: tx_lo_off.png
-      :width: 500px
+   .. figure:: tx_lo_off.png
+      :width: 500
 
-   .. image:: tx_lo_off_rx1.png
-      :width: 200px
+   .. figure:: tx_lo_off_rx1.png
+      :width: 200
 
 Tx On, but offset more than your channel
 ----------------------------------------
@@ -101,11 +100,11 @@ the Tx and Rx to the same (2400 MHz), we can see this:
 .. grid::
    :widths: 50 50
 
-   .. image:: tx_lo_lte10.png
-      :width: 500px
+   .. figure:: tx_lo_lte10.png
+      :width: 500
 
-   .. image:: tx_lo_lte10_rx1.png
-      :width: 200px
+   .. figure:: tx_lo_lte10_rx1.png
+      :width: 200
 
 By offsetting things in 10 MHz steps, how far do things need to be away, so that
 it stops affecting the receiver:
