@@ -76,7 +76,17 @@ compiler.
 Compile the kernel
 ~~~~~~~~~~~~~~~~~~
 
-Prepare the configuration:
+Prepare the configuration. For AD9084 and AD9088, use:
+
+.. shell::
+
+   ~/linux
+   $make adi_mb_apollo_defconfig
+    #
+    # configuration written to .config
+    #
+
+For other devices, use:
 
 .. shell::
 
@@ -299,6 +309,8 @@ Then use the commands to program the FPGA:
    xsdb> disconnect
 
 To automate, the same commands can be added to a *.tcl* script and run with ``xsdb run.tcl``.
+In this case, make sure you add an ``after 5000`` command between ``targets 3`` and ``dow...``,
+to allow enough time for the MIG to calibrate.
 
 With ``xmd``:
 
