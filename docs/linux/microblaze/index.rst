@@ -20,7 +20,7 @@ The release is built from the following components:
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 20 35 25
+   :widths: 20 35 35 25
 
    * - Component
      - Repository
@@ -30,9 +30,9 @@ The release is built from the following components:
      - `analogdevicesinc/hdl <https://github.com/analogdevicesinc/hdl>`__
      - `2026.1.0 <https://github.com/analogdevicesinc/hdl/releases/tag/2026.1.0>`__
      - `b62abef <https://github.com/analogdevicesinc/hdl/commit/b62abeff22d613d08e1aeb7f94850ab6a6576a74>`__
-   * - Kernel (``simpleImage.strip``)
+   * - Linux kernel (``simpleImage.strip``)
      - `analogdevicesinc/linux <https://github.com/analogdevicesinc/linux>`__
-     - `xlnx/release/v6.12.y-2026r1 <https://github.com/analogdevicesinc/linux/tree/xlnx/release/v6.12.y-2026r1>`__, tag `xlnx_2026.1.0 <https://github.com/analogdevicesinc/linux/releases/tag/xlnx_2026.1.0>`__
+     - `xlnx/release/v6.12.y-2026r1 <https://github.com/analogdevicesinc/linux/tree/xlnx/release/v6.12.y-2026r1>`__ `xlnx_2026.1.0 <https://github.com/analogdevicesinc/linux/releases/tag/xlnx_2026.1.0>`__
      - `b47bbbe <https://github.com/analogdevicesinc/linux/commit/b47bbbe8ca7bc582c96251fa30d86e55de363f68>`__
    * - Root filesystem
      - `analogdevicesinc/buildroot <https://github.com/analogdevicesinc/buildroot>`__
@@ -54,64 +54,64 @@ Supported FPGA carriers and FMC cards
      - Download folder
    * - KCU105
      - ADRV9371X
-     - ``2026_r1_kcu105_adrv9371x/``
+     - ``kcu105_adrv9371x/``
    * - KCU105
      - FMCDAQ2
-     - ``2026_r1_kcu105_fmcdaq2/``
+     - ``kcu105_fmcdaq2/``
    * - KCU105
      - FMCDAQ3
-     - ``2026_r1_kcu105_fmcdaq3/``
+     - ``kcu105_fmcdaq3/``
    * - KCU105
      - FMCOMMS2-3
-     - ``2026_r1_kcu105_fmcomms2-3/``
+     - ``kcu105_fmcomms2-3/``
    * - KCU105
      - FMCOMMS4
-     - ``2026_r1_kcu105_fmcomms4/``
+     - ``kcu105_fmcomms4/``
    * - VCU118
      - AD9081 (204B tx17/rx18)
-     - ``2026_r1_vcu118_ad9081/``
+     - ``vcu118_ad9081/``
    * - VCU118
      - AD9081 (204B tx9/rx10, default)
-     - ``2026_r1_vcu118_ad9081_m8_l4/``
+     - ``vcu118_ad9081_m8_l4/``
    * - VCU118
      - AD9081 (default + Corundum 100G)
-     - ``2026_r1_vcu118_ad9081_m8_l4_corundum/``
+     - ``vcu118_ad9081_m8_l4_corundum/``
    * - VCU118
      - AD9081 (204C tx10/rx11, 16.5 Gbps)
-     - ``2026_r1_vcu118_ad9081_204c_txmode_10_rxmode_11/``
+     - ``vcu118_ad9081_204c_txmode_10_rxmode_11/``
    * - VCU118
      - AD9081 (204C tx10/rx11, 24.75 Gbps)
-     - ``2026_r1_vcu118_ad9081_204c_txmode_10_rxmode_11_lr_24_75Gbps/``
+     - ``vcu118_ad9081_204c_txmode_10_rxmode_11_lr_24_75Gbps/``
    * - VCU118
      - AD9081 (204C tx23/rx25, 16.5 Gbps)
-     - ``2026_r1_vcu118_ad9081_204c_txmode_23_rxmode_25/``
+     - ``vcu118_ad9081_204c_txmode_23_rxmode_25/``
    * - VCU118
      - AD9081 (204C tx23/rx25, 24.75 Gbps)
-     - ``2026_r1_vcu118_ad9081_204c_txmode_23_rxmode_25_lr_24_75Gbps/``
+     - ``vcu118_ad9081_204c_txmode_23_rxmode_25_lr_24_75Gbps/``
    * - VCU118
      - AD9081 (204C tx24/rx26, 24.75 Gbps)
-     - ``2026_r1_vcu118_ad9081_204c_txmode_24_rxmode_26_lr_24_75Gbps/``
+     - ``vcu118_ad9081_204c_txmode_24_rxmode_26_lr_24_75Gbps/``
    * - VCU118
      - AD9082
-     - ``2026_r1_vcu118_ad9082/``
+     - ``vcu118_ad9082/``
    * - VCU118
      - AD9084 (204C M4 L8 NP16, 4x4)
-     - ``2026_r1_vcu118_ad9084_204C_M4_L8_NP16_20p0_4x4/``
+     - ``vcu118_ad9084_204C_M4_L8_NP16_20p0_4x4/``
    * - VCU118
      - ADRV9025
-     - ``2026_r1_vcu118_adrv9025/``
+     - ``vcu118_adrv9025/``
    * - VCU118
      - ADRV9025 (JESD204C)
-     - ``2026_r1_vcu118_adrv9025_jesd204c/``
+     - ``vcu118_adrv9025_jesd204c/``
    * - VCU118
      - ADRV9025 (NLS)
-     - ``2026_r1_vcu118_adrv9025_nls/``
+     - ``vcu118_adrv9025_nls/``
    * - VCU118
      - Dual AD9208
-     - ``2026_r1_vcu118_dual_ad9208/``
+     - ``vcu118_dual_ad9208/``
    * - VCU118
      - FMCDAQ3
-     - ``2026_r1_vcu118_fmcdaq3/``
+     - ``vcu118_fmcdaq3/``
 
 .. note::
 
@@ -123,7 +123,7 @@ Supported FPGA carriers and FMC cards
 Archive contents
 ----------------
 
-Each ``2026_r1_<carrier>_<fmc>/`` folder contains:
+Each ``<carrier>_<fmc>/`` folder contains:
 
 - ``system_top.bit`` — FPGA bitstream (from the HDL project)
 - ``simpleImage.strip`` — MicroBlaze Linux kernel with the design's device tree
@@ -148,19 +148,50 @@ Method 1: run.tcl (recommended)
       .. shell:: sh
 
          $ source /path/to/Xilinx/2025.1/Vivado/settings64.sh
-         $ cd 2026_r1_<carrier>_<fmc>/
+         $ cd <carrier>_<fmc>/
          $ xsdb run.tcl
 
    .. tab-item:: Windows
 
       .. shell:: ps1
 
-         $ cd 2026_r1_<carrier>_<fmc>
+         $ cd <carrier>_<fmc>
          $ c:/Xilinx/Vivado_Lab/2025.1/bin/xsdb.bat run.tcl
 
-``run.tcl`` automates the full sequence: ``connect`` →
-``fpga -f system_top.bit`` (program the FPGA) → select the MicroBlaze target →
-``dow simpleImage.strip`` (load the kernel) → ``con`` (run) → ``disconnect``.
+``run.tcl`` automates the full sequence:
+
+.. mermaid::
+
+   flowchart LR
+       subgraph ATT["Attach"]
+           A["connect<br/>attach to the JTAG hw_server"]
+       end
+       subgraph PRG["Program FPGA"]
+           B["fpga -f system_top.bit<br/>program the FPGA<br/>with the bitstream"]
+       end
+       subgraph BOOT["Boot kernel"]
+           direction TB
+           C["select the<br/>MicroBlaze target"]
+           D["dow simpleImage.strip<br/>load the Linux image<br/>into memory"]
+           E["con<br/>start execution"]
+           C --> D --> E
+       end
+       subgraph DET["Detach"]
+           F["disconnect<br/>detach from the hw_server"]
+       end
+
+       A --> B --> C
+       E --> F
+
+       classDef session fill:#eceff1,stroke:#455a64,stroke-width:2px,color:#263238
+       classDef program fill:#e1f5ff,stroke:#01579b,stroke-width:2px,color:#013a63
+       classDef load fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#10331a
+       classDef run fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#5a2d00
+
+       class A,C,F session
+       class B program
+       class D load
+       class E run
 
 Method 2: xsdb / xsct (manual)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
