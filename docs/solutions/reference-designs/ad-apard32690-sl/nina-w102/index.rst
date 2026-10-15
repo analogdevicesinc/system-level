@@ -50,7 +50,7 @@ Open the ESP-IDF Command Prompt and run the following steps:
 3. Edit the components/customized_partitions/raw_data/factory_param_data.csv file so the D2WD line reads the following:
     ::
 
-       PLATFORM_ESP32,ESP32-D2WD,"2MB flash, No OTA",4,78,0,1,13,CN,115200,1,3,-1,-1
+       PLATFORM_ESP32,ESP32-D2WD,"2MB flash, No OTA",4,78,0,1,13,CN,115200,1,3,-1,-1,0
 
 4. Build the project by running python build.py build
 5. The complete firmware image is located in build\factory\factory_ESP32-<device>.bin and can be archived for later loading of devices.
@@ -120,6 +120,15 @@ apard_wifi.overlay
 ++++++++++++++++++
 .. code-block:: dts
    :name: apard_wifi.overlay
+
+
+   &uart2a_tx_p1_10 {
+        power-source = <1>;
+   };
+
+   &uart2a_rx_p1_9 {
+        power-source = <1>;
+   };
 
    &uart2 {
        pinctrl-0 = <&uart2a_tx_p1_10 &uart2a_rx_p1_9>;
