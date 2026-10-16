@@ -24,26 +24,25 @@ Content
 
 #. Hardware
 
-   #. :dokuwiki:`Detailed Specifications <university/tools/m2k/devs/specs>`
-   #. :dokuwiki:`Schematics <university/tools/m2k/hacking/hardware>`
-   #. :dokuwiki:`Detailed Performance <university/tools/m2k/devs/performance>`
-   #. :dokuwiki:`Accessing FPGA JTAG <university/tools/m2k/devs/fpga>` with the
-      :dokuwiki:`ADALM-JTAGUART </university/tools/uartjtag>` adapter
+   #. :ref:`Detailed Specifications <pluto devs specs>`
+   #. :ref:`Schematics <pluto hacking hardware>`
+   #. :ref:`Performance Metrics <pluto devs performance>`
+   #. :ref:`Accessing FPGA JTAG <pluto devs fpga>` with the
+      :ref:`ADALM-JTAGUART <uartjtag>` adapter
 
 #. C Applications or Shell scripts on the Pluto
 
-   #. :dokuwiki:`Running Scripts from USB drive <university/tools/m2k/devs/usb_otg>`
-   #. :dokuwiki:`Creating compiled apps to run on-device <university/tools/m2k/devs/embedded_code>`
+   #. :ref:`Running Scripts from USB drive <pluto devs usb_otg>`
+   #. :ref:`Creating compiled apps to run on-device <pluto devs embedded_code>`
 
-#. :external+hdl:ref:`user_guide`
+#. :external+hdl:doc:`ADI Reference Designs HDL User Guide <index>`
 
-   #. :dokuwiki:`AD9361 HDL reference design </resources/eval/user-guides/ad-fmcomms2-ebz/reference_hdl>`
+   #. AD9361 HDL reference design
    #. :external+hdl:ref:`axi_ad9361`
    #. :external+hdl:ref:`axi_dmac`
 
 
-   #. `AD9361 high performance, highly integrated RF Agile Transceiver™ Linux
-      device driver </resources/tools-software/linux-drivers/iio-transceiver/ad9361>`__
+   #. :external+linux:ref:`ad9361`
    #. :external+linux:ref:`axi-adc-hdl`
    #. :external+linux:ref:`axi-dac-dds-hdl`
    #. :external+linux:ref:`axi-dmac`
@@ -53,16 +52,16 @@ Content
 #. Building the Firmware image from source
 
 
-#. :dokuwiki:`./devs/Controlling GPIOs <university/tools/m2k/devs/Controlling GPIOs>`
+#. :ref:`Controlling GPIOs <pluto devs controlling_gpios>`
 #. Accessing the AD9363 inside Pluto from userspace
 
    #. :git-libiio:`libiio local mode example <examples/ad9361-iiostream.c>`
    #. :external+linux:ref:`ad9361`
 
-#. :dokuwiki:`Connecting the Pluto to the Internet <university/tools/m2k/devs/port_forwarding>`
-#. :dokuwiki:`Using U-Boot's DFU modes </university/tools/pluto/users/firmware#dfu_update>`
-#. :dokuwiki:`Boot magic explained <university/tools/m2k/devs/booting>`
-#. :dokuwiki:`Reboot Modes <university/tools/m2k/devs/reboot>`
+#. :ref:`Connecting the Pluto to the Internet <pluto devs port_forwarding>`
+#. :ref:`Using U-Boot's DFU modes <pluto users firmware>`
+#. :ref:`Boot magic explained <pluto devs booting>`
+#. :ref:`Reboot Modes <pluto-m2k reboot>`
 
 .. toctree::
    :hidden:

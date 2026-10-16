@@ -35,8 +35,7 @@ Linux Driver or libiio or Application Questions
 
 For questions regarding the the ADI Linux distribution used in PlutoSDR (which
 is based `buildroom <https://buildroot.org/>`__ with
-:ref:`libiio` library, the Linux
-drivers (including the :external+linux:ref:`ad9361`, or
+:ref:`libiio` library, the Linux drivers (including the :external+linux:ref:`ad9361`, or
 the device trees for PlutoSDR, please use the
 :ez:`Linux Software Drivers <community/linux-device-drivers/linux-software-drivers>`
 sub-community.
@@ -76,8 +75,9 @@ Detailed documentation on the AD9361 device can be found at:
 AD9361/4 FIR Filter Wizard
 --------------------------
 
-Questions about the :dokuwiki:`AD936x FIR Filter Wizard </resources/eval/user-guides/ad-fmcomms2-ebz/software/filters>` can be
-asked on :ez:`Analog Devices Filter Wizard Support support <sw-interface-tools>`.
+Questions about the
+:ref:`AD936x FIR Filter Wizard <fmcomms2 software filters>`
+can be asked on :ez:`Analog Devices Filter Wizard Support support <sw-interface-tools>`.
 
 MATLAB/Simulink/RF Blockset Questions
 -------------------------------------
