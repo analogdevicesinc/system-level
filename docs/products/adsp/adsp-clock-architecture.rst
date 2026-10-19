@@ -69,7 +69,7 @@ upstream dividers to produce the core system clocks required by the SoC.
    - The ``CLKINSEL`` mux selects either ``SYS_CLKIN0`` or ``SYS_CLKIN1`` as
      the reference clock for CGU1.
    - The ADSP-SC846 SoC does not have a ``CLKINSEL`` mux. Both CGUs use
-     ``SYS_CLKIN0`` by default.
+     ``SYS_CLKIN0``.
    - The ADSP-SC598 has a specialised PLL block which clocks the DDR memory
      controller. This allows DDR to be clocked via the CDU or via the PLL
      ``DCLK`` clock.
