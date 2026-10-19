@@ -26,6 +26,15 @@ The following table specifies the supported Petalinux versions and documentation
      - :git-meta-adi:`2021_R1 <2021_R1:>`
      - :git-meta-adi:`README <2021_R1:meta-adi-xilinx/README.md>`
    - - 2021.2
+     - :git-meta-adi:`2021_R2 <2021_R2:>`
+     - :git-meta-adi:`README <2021_R2:meta-adi-xilinx/README.md>`
+   - - 2022.2
+     - :git-meta-adi:`2022_R2 <2022_R2:>`
+     - :git-meta-adi:`README <2022_R2:meta-adi-xilinx/README.md>`
+   - - 2023.2
+     - :git-meta-adi:`2023_R2 <2023_R2:>`
+     - :git-meta-adi:`README <2023_R2:meta-adi-xilinx/README.md>`
+   - - latest
      - :git-meta-adi:`main <main:>`
      - :git-meta-adi:`README <main:meta-adi-xilinx/README.md>`
 
