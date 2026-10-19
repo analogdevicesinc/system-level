@@ -1,26 +1,71 @@
-AD-TRXBOOST1-EBZ User Guide
-===========================
+.. _ad-trxboost1-ebz user-guide:
 
-The :adi:`AD-TRXBOOST1-EBZ` is an add on board for the
-:adi:`FMCOMMS2/3/4/5 <AD-FMCOMMS2-EBZ>` boards which contain the
-:adi:`AD9361`. While the complete chip level design package can be found on the
-ADI product pages of this RF transceiver, information on the card, and how to
-use it and the design package that surrounds it, can be found here.
+User guide
+===============================================================================
 
-The purpose of the AD-TRXBOOST1-EBZ is to add an pre-amp to the TX output and an
-LNA to the RX input of the AD9361.
+The :adi:`AD-TRXBOOST1-EBZ` is an add-on board for the
+:ref:`AD-FMCOMMS2/3/4/5 <fmcomms2>` platform. It adds a pre-amp to the TX
+output and an LNA to the RX input of the :adi:`AD9361`.
 
-.. image:: images/trxboost1_-_top.jpg
-   :alt: trxboost1\_-\_top.jpg
+.. figure:: images/trxboost1_-_top.jpg
    :align: center
    :width: 500
 
--  :doc:`Introduction </solutions/reference-designs/ad-trxboost1-ebz/introduction>`
--  :doc:`Quick Start Guides </solutions/reference-designs/ad-trxboost1-ebz/quickstart>`
--  :doc:`Characterization </solutions/reference-designs/ad-trxboost1-ebz/characterization>`
--  :doc:`Hardware </solutions/reference-designs/ad-trxboost1-ebz/hardware>` (including :doc:`schematics </solutions/reference-designs/ad-trxboost1-ebz/hardware>`)
--  :doc:`Production Testing Process </solutions/reference-designs/ad-trxboost1-ebz/testing>`
--  :doc:`Practical Guide </solutions/reference-designs/ad-trxboost1-ebz/practical>` to using the :adi:`AD-TRXBOOST1-EBZ` with the :adi:`AD-FMCOMMS3-EBZ`
--  :doc:`Help and Support </solutions/reference-designs/ad-trxboost1-ebz/help_and_support>`
+Hardware guide
+-------------------------------------------------------------------------------
 
-.. esd-warning::
+Components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ADL5610 Gain Block
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  30MHz to 6 GHz
+-  Fixed gain of 18.4dB
+-  Noise figure: 2.2dB at 900MHz
+-  OIP3: 38.8dBm at 900MHz
+-  P1dB: 20.4dBm at 900MHz
+-  Single 5V supply
+
+ADL5521 LNA
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  400MHz to 4GHz
+-  Fixed gain of 20.8dB at 900MHz
+-  Noise figure: 0.8dB at 900MHz
+-  OIP3: 37.0dBm at 900MHz
+-  P1dB: 21.8dBm at 900MHz
+-  Single supply between 3V and 5V
+
+Power supply
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Power supply is brought to the AD-TRXBOOST1-EBZ through a 3 pin cable. The
+connection is made at P2 (pin1 = 3.3V, pin2 = GND, pin3 = 12V), which sits
+directly between TX_IN and RX_OUT.
+
+The power originates from the FMCOMMS3 board, connector P301. It can also come
+from an external power supply.
+
+Pin map
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: images/pin_map_-_nlw_2-9-16_.png
+   :align: center
+   :width: 800
+
+..
+   Schematic, PCB Layout, Bill of Materials
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. admonition:: Download
+      :class: download
+
+      -  `Rev B Schematics <files/trxboost1_sch.pdf>`_
+      -  `Rev B Allegro Board File <files/08_038228b-layout.zip>`_
+      -  `Rev B Bill of materials <files/trxboost1_bom.xls>`_
+      -  `Rev B Gerbers <files/038228b-fab.zip>`_
+         (This file is `compressed <http://www.7-zip.org/7z.html>`_)
+      -  Get the `Allegro FREE Physical Viewer
+         <https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/allegro-downloads-start.html>`_
+         (You need 16.5 or higher).
