@@ -408,7 +408,7 @@ Reference Demos & Software
 
 - :external+hdl:ref:`axi_ad35xxr`
 - :external+hdl:ref:`axi_ltc2387`
-- :external+linux:ref:`axi-ad3552r`
+- :external+linux:ref:`ad3552r-hs`
 - :external+linux:ref:`ltc2387`
 - :ref:`hsx-toolbox`
 - :ref:`pyadi-iio`
