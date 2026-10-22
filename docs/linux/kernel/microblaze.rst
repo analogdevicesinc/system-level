@@ -16,7 +16,7 @@ Linux Kernel image for the FMC board connected to a:
 * :xilinx:`VCU128`
 
 The :git-linux:`main:/` contains the Linux Kernel flavor from Analog Devices Inc.
-:download:`rootfs.cpio.gz <https://swdownloads.analog.com/cse/microblaze/rootfs/rootfs.cpio.gz>`
+:download:`mb_rootfs <https://dev.azure.com/AnalogDevices/OpenSource/_build/results?buildId=63451&view=artifacts&pathAsName=false&type=publishedArtifacts>`
 contains the files system to be used.
 As the compiler, the Microblaze GNU Tools are included on both
 :xilinx:`AMD Vivado <en/products/software/adaptive-socs-and-fpgas/vivado.html>` and
@@ -96,15 +96,8 @@ For other devices, use:
     # configuration written to .config
     #
 
-Download the rootfs:
-
-.. shell::
-
-   ~/linux
-   $wget https://swdownloads.analog.com/cse/microblaze/rootfs/rootfs.cpio.gz
-     Saving to: ‘rootfs.cpio.gz’
-     rootfs.cpio.gz    100%[======================>]   4.74M  6.39MB/s    in 0.7s
-     2025-05-28 11:00:09 (6.39 MB/s) - ‘rootfs.cpio.gz’ saved [4970267/4970267]
+Download the `mb_rootfs <https://dev.azure.com/AnalogDevices/OpenSource/_build/results?buildId=63451&view=artifacts&pathAsName=false&type=publishedArtifacts>`__
+from the published artifacts and place it in the root of the kernel tree (*~/linux*).
 
 
 The result of building the kernel is an elf file in *arch/microblaze/boot* named
