@@ -9,7 +9,7 @@ EVALUATION BOARD
 
 .. Add a picture here of the chip
 
-.. image:: ../images/ad9081.webp
+.. image:: ../eval-ad9081/images/ad9081.webp
    :align: left
    :width: 150
 
@@ -34,7 +34,7 @@ Applications:
 - application 2
 
 .. Add a picture here of the evaluation board
-.. image:: ../images/eval_ad9081.png
+.. image:: ../eval-ad9081/images/eval_ad9081.png
    :align: center
    :width: 500
 
@@ -121,7 +121,7 @@ Block diagram
 -------------------------------------------------------------------------------
 
 .. Add here the block diagram of the chip
-.. image:: ../images/ad9081_block_diagram.png
+.. image:: ../eval-ad9081/images/ad9081_block_diagram.png
    :align: center
    :width: 800
 

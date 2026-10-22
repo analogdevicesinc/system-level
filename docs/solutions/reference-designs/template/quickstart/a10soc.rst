@@ -8,7 +8,7 @@ A10SoC Quick start
   evaluationboard_carrier_setup.jpg or .png. The order should be followed!
   The images should all be stored in docs/solutions/reference-designs/images
 
-.. image:: ../../images/ad9081_a10soc_setup.jpg
+.. image:: ../../eval-ad9081/images/ad9081_a10soc_setup.jpg
    :width: 800
 
 This guide provides quick instructions on how to setup the
