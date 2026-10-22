@@ -7,4 +7,3 @@ Products
    :glob:
 
    */index
-   ../tools/*/index
