@@ -32,12 +32,6 @@ client with the client ID ``host`` and subscribes to host topics.
       -  ``host/#``
       -  Receives all messages under the host namespace.
 
-**References:**
-
--  `aedes <https://www.npmjs.com/package/aedes>`__
--  `mqtt <https://www.npmjs.com/package/mqtt>`__
-
-
 **********************
  Embedded MQTT Client
 **********************
@@ -56,12 +50,6 @@ identifier when the connection is established.
 The following sections detail the protocol requirements and implementation
 guidelines that embedded MQTT clients must follow to ensure interoperability
 with the SPE Hub.
-
-**References:**
-
--  `yyjson <https://github.com/ibireme/yyjson>`__
--  `paho.mqtt.c <https://github.com/eclipse-paho/paho.mqtt.c>`__
--  `lwip <https://github.com/lwip-tcpip/lwip>`__
 
 Client Connection Mechanism
 ===========================
@@ -168,7 +156,7 @@ Embedded Topic: ``host/192.168.1.100/data``
      "board": {
        "name": "eval-adin1140d1z",
        "rev": "a",
-       "devices": ["max32690", "adin1140", "adin1110", "adt7420", "at24c64d"],
+       "devices": ["max32690", "adin1140", "adin1110", "adt7420"],
        "regmap": ["adin1140"]
      }
    }
@@ -217,10 +205,11 @@ Embedded Topic: ``host/192.168.1.100/data``
      "board": {
        "name": "eval-adin1140d1z",
        "rev": "a",
-       "devices": ["max32690", "adin1140", "adin1110", "adt7420", "at24c64d"],
+       "devices": ["max32690", "adin1140", "adin1110", "adt7420"],
        "regmap": ["adin1140"]
      },
-     "max32690": {
+     "mcu": {
+       "model": "max32690",
        "firmware": { "ver": "1.0.0", "desc": "" }
      },
      "adin1140": {
@@ -233,7 +222,6 @@ Embedded Topic: ``host/192.168.1.100/data``
      },
      "adin1110": {
        "status": false,
-       "config": [],
        "diags": {
          "link": [],
          "mac": []
@@ -241,10 +229,6 @@ Embedded Topic: ``host/192.168.1.100/data``
      },
      "adt7420": {
        "status": true,
-       "config": []
-     },
-     "at24c64d": {
-       "status": false,
        "config": []
      }
    }
@@ -271,7 +255,6 @@ Embedded Topic: ``host/192.168.1.100/data``
      },
      "adin1110": {
        "status": false,
-       "config": [],
        "diags": {
          "link": [],
          "mac": []
@@ -279,10 +262,6 @@ Embedded Topic: ``host/192.168.1.100/data``
      },
      "adt7420": {
        "status": true,
-       "config": []
-     },
-     "at24c64d": {
-       "status": false,
        "config": []
      }
    }
@@ -316,15 +295,15 @@ initial data publication.
 
    -  -  Embedded
       -  ``eval-adin1140d1z/register/adin1140/read``
-      -  Evaluation board topic for register read to ADIN1140.
+      -  Evaluation board topic for register read from ADIN1140.
 
    -  -  Embedded
       -  ``adin1140/register/adin1140/read``
-      -  Device topic for register read to ADIN1140.
+      -  Device topic for register read from ADIN1140.
 
    -  -  Embedded
       -  ``192.168.1.100/register/adin1140/read``
-      -  Node topic for register read to ADIN1140.
+      -  Node topic for register read from ADIN1140.
 
 .. list-table::
    :header-rows: 1
@@ -521,15 +500,6 @@ Embedded Topic: ``host/192.168.1.100/sense/voltage``
      "y": 3.3
    }
 
-**Example: Current**
-
-Embedded Topic: ``host/192.168.1.100/sense/current``
-
-.. code:: json
-
-   {
-     "y": 0.42
-   }
 
 .. list-table::
    :header-rows: 1
@@ -559,22 +529,21 @@ The SPE Hub enables LED control for evaluation boards.
       -  Description
 
    -  -  Embedded
-      -  ``eval-adin1140d1z/led``
+      -  ``eval-adin1140d1z/led/all``
       -  Evaluation board topic for LED control.
 
    -  -  Embedded
-      -  ``192.168.1.100/led``
+      -  ``192.168.1.100/led/all``
       -  Node topic for LED control.
 
 **Example: LED Control Request**
 
-Local Topic: ``192.168.1.100/led``
+Local Topic: ``192.168.1.100/led/all``
 
 .. code:: json
 
    {
-     "type": 0,
-     "cmd": 2
+      "state": "toggle"
    }
 
 .. list-table::
@@ -586,13 +555,9 @@ Local Topic: ``192.168.1.100/led``
       -  Type
       -  Description
 
-   -  -  ``type``
-      -  ``number``
-      -  Selector. 0 = ALL LEDs, 1 = LED1, 2 = LED2, etc.
-
-   -  -  ``cmd``
-      -  ``number``
-      -  Command. 0 = OFF, 1 = ON, 2 = TOGGLE.
+   -  -  ``state``
+      -  ``string``
+      -  Options: ``"toggle"``, ``"on"``, or ``"off"``.
 
 .. _single-pair-ethernet-hub developer-guide templates:
 
@@ -622,14 +587,17 @@ the node's board metadata: ``board.template`` if present, otherwise
    resources/templates/
    ├── resources/                    # Common assets
    │   └── cpu-bold.svg
+   │
+   ├── ic/
+   │   ├── adin1140/
+   │   └── adin1110/
+   │ 
    └── eval-adin1140d1z/             # Template identifier (board.template or board.name)
        ├── manifest.json             # Entry point for the template
        ├── eval-adin1140d1z.html
        ├── eval-adin1140d1z.css
-       ├── adin1140.html
-       ├── adin1140.css
        └── resources/                # Template-specific assets
-           └── EVAL-ADIN1140D1Z.png
+           └── eval-adin1140d1z.png
 
 Templates are hot-reloaded: SPE Hub watches ``resources/templates`` and
 re-renders the affected node when a ``.html``, ``.css``, or ``.json`` file
@@ -649,7 +617,7 @@ the manifest.
      "custom": [
        {
          "path": "templates/eval-adin1140d1z/eval-adin1140d1z",
-         "data": ["adin1140", "max32690", "adt7420", "adin1110"],
+         "data": ["mcu", "adin1140", "adin1110", "adt7420"],
          "card": {
            "title": "EVAL-ADIN1140D1Z",
            "subtitle": "Evaluation Board",
@@ -657,7 +625,7 @@ the manifest.
          }
        },
        {
-         "path": "templates/eval-adin1140d1z/adin1140",
+         "path": "templates/ic/adin1140/adin1140",
          "data": ["adin1140"],
          "card": {
            "title": "ADIN1140",

@@ -112,21 +112,24 @@ inbound TCP traffic on port 1883:
 #. Provide a descriptive name for the rule, such as ``SPE Hub MQTT (1883)``, and
    finish the wizard to enable it.
 
-.. figure:: firewall-rule-step1.png
+.. grid::
+   :columns: 2
 
-   *Step 1 - Create a new inbound rule*
+   .. figure:: firewall-rule-step1.png
 
-.. figure:: firewall-rule-step2.png
+      *Step 1 - Create a new inbound rule*
 
-   *Step 2 - Allow TCP port 1883*
+   .. figure:: firewall-rule-step2.png
 
-.. figure:: firewall-rule-step3.png
+      *Step 2 - Allow TCP port 1883*
 
-   *Step 3 - Allow the connection*
+   .. figure:: firewall-rule-step3.png
 
-.. figure:: firewall-rule-step4.png
+      *Step 3 - Allow the connection*
 
-   *Step 4 - Name and enable the rule*
+   .. figure:: firewall-rule-step4.png
+
+      *Step 4 - Name and enable the rule*
 
 *************
  Application
@@ -243,7 +246,7 @@ queue. Transactions that encounter validation errors are dropped.
    *Register Control*
 
 MQTT Control
-============
+------------
 
 The MQTT Control component provides a centralized interface for MQTT messaging
 within SPE Hub. It supports manual message publication, periodic message
