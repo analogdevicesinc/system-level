@@ -57,4 +57,6 @@ Cortex-A5 and Cortex-A55 can also run 32-bit or 64-bit Linux respectively.
    linux-support
    setup
    adsp-clock-architecture
+   system-protection
+   sc598-clock-tree
    use-cases
