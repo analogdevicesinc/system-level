@@ -105,7 +105,7 @@ Using the AMD Xilinx toolchain
    $export CROSS_COMPILE="aarch64-linux-gnu-"
 
 Using the Arm GNU Toolchain
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Alternatively, the Arm GNU Toolchain can be used to compile the kernel.
 Download the ``aarch64-none-linux-gnu`` tarball for your host from the
