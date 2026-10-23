@@ -98,7 +98,7 @@ Checkout the release branch:
 .. shell::
 
    ~/linux
-   $git checkout origin/2021_R1 -b 2021_R1
+   $git checkout origin/2026_R1 -b 2026_R1
 
 Download the root filesystem:
 

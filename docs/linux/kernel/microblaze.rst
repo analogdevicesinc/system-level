@@ -6,7 +6,7 @@ Build MicroBlaze Linux kernel
 On the development host
 -----------------------
 
-This guide provides some step-by-step instructions on how to build a Microblaze
+This guide provides some step-by-step instructions on how to build a MicroBlaze
 Linux Kernel image for the FMC board connected to a:
 
 * :xilinx:`KC705`
@@ -16,11 +16,11 @@ Linux Kernel image for the FMC board connected to a:
 * :xilinx:`VCU128`
 
 The :git-linux:`main:/` contains the Linux Kernel flavor from Analog Devices Inc.
-:download:`rootfs.cpio.gz <https://swdownloads.analog.com/cse/microblaze/rootfs/rootfs.cpio.gz>`
+:download:`mb_rootfs <https://artprodcus3.artifacts.visualstudio.com/Adb5ce8ff-2df6-4e7b-a491-7c0f5e26801a/02a28b00-b3c8-4fdf-af9c-c2460499147f/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL0FuYWxvZ0RldmljZXMvcHJvamVjdElkLzAyYTI4YjAwLWIzYzgtNGZkZi1hZjljLWMyNDYwNDk5MTQ3Zi9idWlsZElkLzYzNDUxL2FydGlmYWN0TmFtZS9tYl9yb290ZnM1/content?format=zip>`
 contains the files system to be used.
-As the compiler, the Microblaze GNU Tools are included on both
+As the compiler, the MicroBlaze GNU Tools are included on both
 :xilinx:`AMD Vivado <en/products/software/adaptive-socs-and-fpgas/vivado.html>` and
-:xilinx:`AMD Vivis <en/products/software/adaptive-socs-and-fpgas/vivado.html>`, as well
+:xilinx:`AMD Vitis <en/products/software/adaptive-socs-and-fpgas/vivado.html>`, as well
 as the ``xsdb`` tool for booting.
 
 After ensuring all tools are installed, clone the :git-linux:`main:/`
@@ -47,28 +47,28 @@ The release branches have the format ``<Year>_R[1|2]``, starting from ``2014_R2`
 
 .. shell::
 
-   $git checkout origin/2021_R1 -b 2021_R1
-    Branch 2021_R1 set up to track remote branch 2021_R1 from origin.
-    Switched to a new branch '2021_R1'
+   $git checkout origin/2026_R1 -b 2026_R1
+    Branch 2026_R1 set up to track remote branch 2026_R1 from origin.
+    Switched to a new branch '2026_R1'
 
 Setup cross compile environment variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Microblaze GNU Toolchain included in AMD Vivado/Xilinx is the recommended
+The MicroBlaze GNU Toolchain included in AMD Vivado/Xilinx is the recommended
 compiler.
 
 /data/opt/Xilinx/Vitis/$XVERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
 
 .. shell::
 
-   $XVERSION=2024.2
-   $GCC_MICROBLAZE=$PATH_TO_XILINX/Vits/$VITIS_VERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
+   $XVERSION=2026.1
+   $GCC_MICROBLAZE=$PATH_TO_XILINX/Vitis/$VITIS_VERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
    $export ARCH=microblaze
    $export CROSS_COMPILE="$GCC_MICROBLAZE/microblazeel-xilinx-linux-gnu-"
 
 .. important::
 
-   Find the path to the Xilinx installation folder, and then use
+   Find the path to the AMD Xilinx installation folder, and then use
    it to replace this string: **$PATH_TO_XILINX** that is written above.
    Same goes for the **$VITIS_VERSION**, where you choose the Vitis version.
    Alternatively, you can replace Vitis with Vivado.
@@ -96,15 +96,8 @@ For other devices, use:
     # configuration written to .config
     #
 
-Download the rootfs:
-
-.. shell::
-
-   ~/linux
-   $wget https://swdownloads.analog.com/cse/microblaze/rootfs/rootfs.cpio.gz
-     Saving to: ‘rootfs.cpio.gz’
-     rootfs.cpio.gz    100%[======================>]   4.74M  6.39MB/s    in 0.7s
-     2025-05-28 11:00:09 (6.39 MB/s) - ‘rootfs.cpio.gz’ saved [4970267/4970267]
+Download the `mb_rootfs <https://artprodcus3.artifacts.visualstudio.com/Adb5ce8ff-2df6-4e7b-a491-7c0f5e26801a/02a28b00-b3c8-4fdf-af9c-c2460499147f/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL0FuYWxvZ0RldmljZXMvcHJvamVjdElkLzAyYTI4YjAwLWIzYzgtNGZkZi1hZjljLWMyNDYwNDk5MTQ3Zi9idWlsZElkLzYzNDUxL2FydGlmYWN0TmFtZS9tYl9yb290ZnM1/content?format=zip>`__
+from the published artifacts and place it in the root of the kernel tree (*~/linux*).
 
 
 The result of building the kernel is an elf file in *arch/microblaze/boot* named
@@ -184,7 +177,7 @@ to load via the debugger.
 Patch a DTB to a simpleImage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Microblaze embeds the device tree into the simpleImage, but if you need to
+MicroBlaze embeds the device tree into the simpleImage, but if you need to
 generate a batch of images with the same kernel, you can create an "empty"
 devicetree, build the simpleImage:
 
@@ -284,14 +277,14 @@ With ``xsdb``/``xsct``:
 
       .. shell:: sh
 
-         $ source /path/to/Xilinx/2025.1/Vivado/settings64.sh
+         $ source /path/to/Xilinx/2026.1/Vivado/settings64.sh
          $ xsdb
 
    .. tab-item:: Windows
 
       .. shell:: ps1
 
-         $ c:/Xilinx/Vivado_Lab/2025.1/bin/xsdb.bat
+         $ c:/Xilinx/Vivado_Lab/2026.1/bin/xsdb.bat
 
 Then use the commands to program the FPGA:
 

@@ -71,9 +71,9 @@ The release branches have the format ``<Year>_R[1|2]``, starting from ``2014_R2`
 
 .. shell::
 
-   $git checkout origin/2021_R1 -b 2021_R1
-    Branch 2021_R1 set up to track remote branch 2021_R1 from origin.
-    Switched to a new branch '2021_R1'
+   $git checkout origin/2026_R1 -b 2026_R1
+    Branch 2026_R1 set up to track remote branch 2026_R1 from origin.
+    Switched to a new branch '2026_R1'
 
 Setup cross compile environment variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,6 +112,14 @@ Using the AMD Xilinx toolchain
      - Vivado 2019.1
    - - 2021_R1
      - Vivado 2021.1
+   - - 2021_R2
+     - Vivado 2021.2
+   - - 2022_R2
+     - Vivado 2022.2
+   - - 2023_R2
+     - Vivado 2023.2
+   - - 2026_R1
+     - Vivado 2026.1
 
 .. shell::
 
@@ -121,7 +129,7 @@ Using the AMD Xilinx toolchain
 
 .. important::
 
-   Find the path to the Xilinx installation folder, and then use
+   Find the path to the AMD Xilinx installation folder, and then use
    it to replace this string: **$PATH_TO_XILINX** that is written above.
    Same goes for the **$VITIS_VERSION**, where you choose the Vitis version.
 
@@ -130,23 +138,20 @@ Using the AMD Xilinx toolchain
    $export ARCH=arm
    $export CROSS_COMPILE="arm-linux-gnueabihf-"
 
-Using the Linaro toolchain
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using the Arm GNU Toolchain
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Alternatively, the Linaro toolchain/compiler can be used to compile to kernel.
-Linaro compilers (that work with Zynq) can be downloaded from
-`here <https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabi>`__.
-Always use the latest release just in case.
+Alternatively, the Arm GNU Toolchain can be used to compile the kernel.
+Download the ``arm-none-linux-gnueabihf`` tarball for your host from the
+`Arm GNU Toolchain downloads <https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads>`__
+page. Always use the latest release just in case.
 
-.. shell::
-
-   $wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabi/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi.tar.xz
-   $tar -xvf gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi.tar.xz
+Extract the downloaded tarball and set the environment variables:
 
 .. shell::
 
    $export ARCH=arm
-   $export CROSS_COMPILE=$(pwd)/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi/bin/arm-linux-gnueabi-
+   $export CROSS_COMPILE=$(pwd)/<extracted-toolchain-dir>/bin/arm-none-linux-gnueabihf-
 
 Configure the kernel
 ~~~~~~~~~~~~~~~~~~~~
@@ -239,64 +244,64 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-mini-itx-adv7511-ad9361-fmcomms2-3
      - `Mini-ITX`_
      - | :adi:`ADV7511` (on-board)
-       | :dokuwiki:`AD-FMCOMMS2-EBZ <resources/eval/user-guides/ad-fmcomms2-ebz>`
-       | :dokuwiki:`AD-FMCOMMS3-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>`
+       | :ref:`fmcomms2`
+       | :ref:`ad-fmcomms3-ebz hardware-guide`
    - - zynq-mini-itx-adv7511-ad9364-fmcomms4
      - `Mini-ITX`_
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms4-ebz>` board
+       | :ref:`fmcomms4` board
    - - zynq-zc702-adv7511
      - :xilinx:`ZC702`
      - | :adi:`ADV7511` (on-board)
    - - zynq-zc702-adv7511-ad9361-fmcomms2-3
      - :xilinx:`ZC702`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS2-EBZ <resources/eval/user-guides/ad-fmcomms2-ebz>` or
-       | :dokuwiki:`AD-FMCOMMS3-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>` board
+       | :ref:`fmcomms2` or
+       | :ref:`ad-fmcomms3-ebz hardware-guide` board
    - - zynq-zc702-adv7511-ad9361-fmcomms5
      - :xilinx:`ZC702`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS5-EBZ <resources/eval/user-guides/ad-fmcomms5-ebz>`
+       | :ref:`ad-fmcomms5-ebz`
    - - zynq-zc702-adv7511-ad9364-fmcomms4
      - :xilinx:`ZC702`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms4-ebz>` board
+       | :ref:`fmcomms4` board
    - - zynq-zc706-adv7511
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board)
    - - zynq-zc706-adv7511-ad6676-fmc
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD6676-FMC-EBZ <resources/eval/ad6676-wideband_rx_subsystem_ad6676ebz>` board
+       | :ref:`eval-ad6676 eval` board
    - - zynq-zc706-adv7511-ad9265-fmc-125ebz
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD9265-FMC-125EBZ <resources/fpga/xilinx/fmc/ad9265>` board
+       | :ref:`eval_ad9265` board
    - - zynq-zc706-adv7511-ad9361-fmcomms2-3
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS2-EBZ <resources/eval/user-guides/ad-fmcomms2-ebz>` or
-       | :dokuwiki:`AD-FMCOMMS3-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>` board
+       | :ref:`fmcomms2` or
+       | :ref:`ad-fmcomms3-ebz hardware-guide` board
    - - zynq-zc706-adv7511-ad9361-fmcomms5
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS5-EBZ <resources/eval/user-guides/ad-fmcomms5-ebz>` board
+       | :ref:`ad-fmcomms5-ebz` board
    - - zynq-zc706-adv7511-ad9361-fmcomms5-ext-lo-adf5355
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS5-EBZ <resources/eval/user-guides/ad-fmcomms5-ebz>` board
+       | :ref:`ad-fmcomms5-ebz` board
    - - zynq-zc706-adv7511-ad9364-fmcomms4
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms4-ebz>` board
+       | :ref:`fmcomms4` board
    - - zynq-zc706-adv7511-ad9434-fmc-500ebz
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD9434-FMC-500EBZ <resources/fpga/xilinx/fmc/ad9434>` board
+       | :ref:`ad9434` board
    - - zynq-zc706-adv7511-ad9625-fmcadc2
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCADC2-EBZ <resources/eval/user-guides/ad-fmcdaq2-ebz>` board
+       | :ref:`ad_fmcadc2_ebz eval` board
    - - zynq-zc706-adv7511-ad9739a-fmc
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
@@ -304,19 +309,19 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-zc706-adv7511-adrv9371
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`ADRV9371 <resources/eval/user-guides/mykonos>` board
+       | :ref:`adrv9371x block diagram` board
    - - zynq-zc706-adv7511-adrv9375
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`ADRV9375 <resources/eval/user-guides/mykonos>` board
+       | :ref:`adrv9371x block diagram` board
    - - zynq-zc706-adv7511-fmcadc4
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCADC4-EBZ <resources/eval/user-guides/ad-fmcadc4-ebz>` board
+       | :ref:`ad_fmcadc4_ebz eval` board
    - - zynq-zc706-adv7511-fmcdaq2
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCDAQ2-EBZ <resources/eval/user-guides/ad-fmcdaq2-ebz>` board
+       | :ref:`ad-fmcdaq2-ebz hardware` board
    - - zynq-zc706-adv7511-fmcdaq3
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
@@ -324,7 +329,7 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-zc706-adv7511-fmcjesdadc1
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCJESDADC1-EBZ <resources/eval/user-guides/ad-fmcjesdadc1-ebz>` board
+       | :ref:`ad_fmcjesdadc1_ebz eval` board
    - - zynq-zc706-imageon
      - :xilinx:`ZC706`
      - | FMC-IMAGEON
@@ -334,20 +339,20 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-zed-adv7511-ad9361-fmcomms2-3
      - `Zed Board <http://zedboard.org/product/zedboard>`__
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS2-EBZ <resources/eval/user-guides/ad-fmcomms2-ebz>` or
-       | :dokuwiki:`AD-FMCOMMS3-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>` board
+       | :ref:`fmcomms2` or
+       | :ref:`ad-fmcomms3-ebz hardware-guide` board
    - - zynq-zed-adv7511-ad9364-fmcomms4
      - `ZedBoard`_
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms4-ebz>` board
+       | :ref:`fmcomms4` board
    - - zynq-zed-adv7511-ad9467-fmc-250ebz
      - `ZedBoard`_
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`AD9467-FMC-250EBZ <resources/eval/ad9467-fmc-250ebz>` board
+       | :ref:`ad9467_fmc_250ebz` board
    - - zynq-zed-adv7511-cn0363
      - `ZedBoard`_
      - | :adi:`ADV7511` (on-board) and the
-       | :dokuwiki:`EVAL-CN0363-PMDZ <resources/eval/user-guides/eval-cn0363-pmdz>` board
+       | :ref:`eval-cn0363-pmdz` board
    - - zynq-zed-imageon
      - `ZedBoard`_
      - | FMC-IMAGEON

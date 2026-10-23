@@ -77,9 +77,9 @@ The release branches have the format ``<Year>_R[1|2]``, starting from ``2014_R2`
 
 .. shell::
 
-   $git checkout origin/2021_R1 -b 2021_R1
-    Branch 2021_R1 set up to track remote branch 2021_R1 from origin.
-    Switched to a new branch '2021_R1'
+   $git checkout origin/2026_R1 -b 2026_R1
+    Branch 2026_R1 set up to track remote branch 2026_R1 from origin.
+    Switched to a new branch '2026_R1'
 
 Add aarch64-linux-gnu-gcc to PATH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,23 +104,20 @@ Using the AMD Xilinx toolchain
    $export ARCH=arm64
    $export CROSS_COMPILE="aarch64-linux-gnu-"
 
-Using the Linaro toolchain
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using the Arm GNU Toolchain
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Alternatively, the Linaro toolchain/compiler can be used to compile to kernel.
-Linaro compilers (that work with ZYNQMP) can be downloaded from
-`here <https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu>`__.
-Always use the latest release just in case.
+Alternatively, the Arm GNU Toolchain can be used to compile the kernel.
+Download the ``aarch64-none-linux-gnu`` tarball for your host from the
+`Arm GNU Toolchain downloads <https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads>`__
+page. Always use the latest release just in case.
 
-.. shell::
-
-   $wget https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz
-   $tar -xvf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz
+Extract the downloaded tarball and set the environment variables:
 
 .. shell::
 
    $export ARCH=arm64
-   $export CROSS_COMPILE=$(pwd)/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+   $export CROSS_COMPILE=$(pwd)/<extracted-toolchain-dir>/bin/aarch64-none-linux-gnu-
 
 Configure the kernel
 ~~~~~~~~~~~~~~~~~~~~
@@ -169,19 +166,18 @@ Build the one that fits your FPGA carrier and FMC card
      - chip
    - - zynqmp-zcu102-rev10-ad9361-fmcomms2-3.dts
      - :xilinx:`ZCU102` **Rev. 1.0**
-     - | :dokuwiki:`AD-FMCOMMS2-EBZ <resources/eval/user-guides/ad-fmcomms2-ebz>` or
-       | :dokuwiki:`AD-FMCOMMS3-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>` board
+     - | :ref:`fmcomms2` or
+       | :ref:`ad-fmcomms3-ebz hardware-guide` board
    - - zynqmp-zcu102-rev10-ad9364-fmcomms4.dts
      - :xilinx:`ZCU102` **Rev. 1.0**
-     - | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms4-ebz>` or
-       | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>` board
+     - | :ref:`fmcomms4` board
    - - zynqmp-zcu102-revB-ad9361-fmcomms2-3.dts
      - :xilinx:`ZCU102` Rev.B
-     - | :dokuwiki:`AD-FMCOMMS2-EBZ <resources/eval/user-guides/ad-fmcomms2-ebz>` or
-       | :dokuwiki:`AD-FMCOMMS3-EBZ <resources/eval/user-guides/ad-fmcomms3-ebz>` board
+     - | :ref:`fmcomms2` or
+       | :ref:`ad-fmcomms3-ebz hardware-guide` board
    - - zynqmp-zcu102-revB-ad9364-fmcomms4.dts
      - :xilinx:`ZCU102` Rev.B
-     - | :dokuwiki:`AD-FMCOMMS4-EBZ <resources/eval/user-guides/ad-fmcomms4-ebz>` board
+     - | :ref:`fmcomms4` board
 
 The device tree **zynqmp-zcu102-revA.dts** can also be used for any ZCU102 FPGA
 that uses an SD card for boot up. Building the device tree uses 'make' by
