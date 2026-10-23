@@ -18,8 +18,7 @@ brick wall filters). Just because something is specified for 824 MHz, does not
 mean that it will not pick up something at 600MHz, or even 87MHz, or it might
 not.
 
-The
-:dokuwiki:`JCG401 datasheet <_media/university/tools/pluto/users/jcg401.pdf>`.
+The :download:`JCG401 datasheet <downloads/jcg401.pdf>`
 does spec radiation pattern, beamwidth, polarization, and
 impedance, but leaves out performance (gain or loss) over frequency - since it
 is spec'ed for 824-894 and 1710-2170MHz. We can quickly do that ourselves with
@@ -42,8 +41,8 @@ instrument. It's interesting note that we are measuring both Rx and Tx
 capabilities. It is possible that the Rx at sub 600MHz could be fine, and it is
 just a Tx problem (unlikely, but I just wanted to point it out).
 
-.. image:: jcg401_full_range.png
-   :width: 500px
+.. figure:: images/antennas/jcg401_full_range.png
+   :width: 500
 
 You can see thing over 625 MHz, the antenna has pretty good performance, with
 the exception of a tight notch at 1.12 GHz. This means unless you are really
@@ -59,17 +58,17 @@ make it larger).
 .. grid::
    :widths: 50 50
 
-   .. figure:: jcg401_900ism.png
-      :width: 400px
+   .. figure:: images/antennas/jcg401_900ism.png
+      :width: 400
 
       902 - 928 MHz ISM Band
 
-   .. figure:: jcg401_2400ism.png
-      :width: 400px
+   .. figure:: images/antennas/jcg401_2400ism.png
+      :width: 400
 
       2.4 -2.5 GHz ISM Band
 
-   .. figure:: jcg401_5725ism.png
-      :width: 400px
+   .. figure:: images/antennas/jcg401_5725ism.png
+      :width: 400
 
       5.725 - 5.875 GHz ISM Band

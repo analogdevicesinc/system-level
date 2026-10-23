@@ -122,7 +122,7 @@ Firmware
 
 For the step-by-step procedure on how to update the Pluto Firmware, you
 can use this 
-:dokuwiki:`user guide link <university/tools/pluto/users/firmware>`.
+:ref:`user guide link <pluto-m2k firmware>`.
 
 The latest firmware version for the **ADALM-PLUTO** can be found here:
 
@@ -137,7 +137,7 @@ ADALM-PLUTO Preparation
 
 Follow the step-by-step process on how to configure the ADALM-PLUTO for
 proper operation by referring to this 
-:dokuwiki:`link <university/tools/pluto/users/firmware>`.
+:ref:`link <pluto-m2k firmware>`.
 
 Test Setup
 ~~~~~~~~~~

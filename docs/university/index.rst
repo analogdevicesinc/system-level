@@ -143,7 +143,7 @@ Lab Instruments and Software
 
   * :dokuwiki:`Scopy (Software used for ADALM2000) <university/tools/m2k/scopy>`
 
-* :dokuwiki:`ADALM-PLUTO <university/tools/pluto>`
+* :ref:`ADALM-PLUTO <pluto>`
 
   * :ref:`iio-oscilloscope`
   * :dokuwiki:`GNU Radio (Software can be used for ADALM-PLUTO) <university/tools/pluto/gnuradio>`
@@ -153,7 +153,7 @@ Kits, Boards, & Other Accessories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * :dokuwiki:`ADALP2000 (Parts Kit) <university/tools/adalp2000:parts-index>`
-* :dokuwiki:`ADALM-UARTJTAG (Programming Dongle) <university/tools/uartjtag>`
+* :ref:`ADALM-UARTJTAG (Programming Dongle) <uartjtag>`
 * :dokuwiki:`ADALM-BUCK-ARDZ <university/tools/lab_hw/adalm_buck>`
 * :dokuwiki:`ADALM-SR1-EBZ <university/tools/lab_hw/adalm-sr1>`
 * :dokuwiki:`ADALM2000 Cable Assembly <university/tools/m2k/accessories/cableassembly>`

@@ -354,7 +354,7 @@ Ethernet
    CDC-NCM**.
 
 Please see instructions for
-:dokuwiki:`changing the usb ethernet compatibility mode <university/tools/pluto/users/customizing#changing_the_usb_ethernet_compatibility_mode>`.
+:ref:`changing the usb ethernet compatibility mode <pluto users customizing>`.
 
 .. caution::
 
@@ -538,7 +538,7 @@ and then check out the Pluto IP address, and the host IP address.
 
 In this case, the IP address of the PLUTO device is ``192.168.2.1`` (which is
 the default for all devices). If you need to change this (if you have multiple
-devices), please check the :dokuwiki:`customizing Pluto <university/tools/pluto/users/customizing>`
+devices), please check the :ref:`customizing Pluto <pluto users customizing>`
 documentation.
 
 Checking from serial port

@@ -30,17 +30,17 @@ Contents
 #. :dokuwiki:`Quick Start <university/tools/m2k/users/quick_start>`
 #. Intro to the Software. Installing Device Drivers on:
 
-   #. :dokuwiki:`Windows </university/tools/pluto/drivers/windows>`
-   #. :dokuwiki:`Linux </university/tools/pluto/drivers/linux>`
-   #. :dokuwiki:`MAC </university/tools/pluto/drivers/osx>`
+   #. :ref:`Windows <pluto-m2k drivers windows>`
+   #. :ref:`Linux <pluto-m2k drivers linux>`
+   #. :ref:`MAC <pluto-m2k drivers osx>`
 
 #. Upgrading the the ADALM2000 :ref:`Firmware <pluto-m2k firmware>`
 #. Common customization:
 
-   #. :dokuwiki:`Multiple devices </university/tools/pluto/users/customizing#multiple_devices>`
-   #. :dokuwiki:`Changing the root password on the target </university/tools/pluto/users/customizing#changing_the_root_password_on_the_target>`
-   #. :dokuwiki:`Enabling persistent SSH keys </university/tools/pluto/users/customizing#enabling_persistent_ssh_keys>`
-   #. :dokuwiki:`Changing the USB Ethernet Compatibility Mode </university/tools/pluto/users/customizing#changing_the_usb_ethernet_compatibility_mode>`
+   #. :ref:`Multiple devices <pluto users customizing>`
+   #. :ref:`Changing the root password on the target <pluto users customizing>`
+   #. :ref:`Enabling persistent SSH keys <pluto users customizing>`
+   #. :ref:`Changing the USB Ethernet Compatibility Mode <pluto users customizing>`
 
 #. Once the driver are configured and set up, you can interact with the
    :adi:`ADALM2000` Active Learning Module from:

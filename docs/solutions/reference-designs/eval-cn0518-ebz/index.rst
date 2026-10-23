@@ -123,7 +123,7 @@ Firmware
 ^^^^^^^^
 
 For the step-by-step procedure on how to update the Pluto Firmware, you can use
-this :dokuwiki:`user guide link </university/tools/pluto/users/firmware>`.
+this :ref:`user guide link <pluto-m2k firmware>`.
 
 The latest firmware version for the **ADALM-PLUTO** can be found here:
 
@@ -136,7 +136,7 @@ ADALM-PLUTO Preparation
 
 Follow the step-by-step process on how to configure the ADALM-PLUTO for proper
 operation by referring to this
-:dokuwiki:`link </university/tools/pluto/users/firmware>`.
+:ref:`link <pluto-m2k firmware>`.
 
 Test Setup
 ~~~~~~~~~~
@@ -205,7 +205,7 @@ More Information and Useful Links
 - :adi:`LT3042 Product Page <LT3042>`
 - :adi:`ADM7170 Product Page <ADM7170>`
 - :adi:`LTC6991 Product Page <LTC6991>`
-- :dokuwiki:`ADALM-PLUTO Overview </university/tools/pluto>`
+- :ref:`ADALM-PLUTO Overview <pluto>`
 - :dokuwiki:`Amplifiers for RF Transmission </university/tools/pluto/users/amp>`
 - :dokuwiki:`RF Amplifier Considerations </university/tools/pluto/users/amp>`
 
