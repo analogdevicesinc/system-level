@@ -218,21 +218,38 @@ Supported Protocols
 
 .. list-table::
    :header-rows: 1
-   :widths: 30 70
+   :widths: 20 16 16 16 16 16
 
    * - Mode
-     - Platform Support
+     - Windows
+     - Linux
+     - macOS
+     - iPadOS
+     - Android
    * - RNDIS (default)
-     - Windows ✓, Linux ✓, macOS ✗
+     - ✔
+     - ✔
+     - ✘
+     - ✘
+     - ✘
    * - CDC-NCM
-     - Linux ✓, macOS ✓, iPad ✓
+     - ✘ (Win 11 ✔)
+     - ✔
+     - ✔
+     - ✔
+     - ✔
    * - CDC-ECM
-     - Linux ✓, Android ✓
+     - ✘
+     - ✔
+     - ✘
+     - ✘
+     - ✔
 
 .. note::
 
-   * Default RNDIS doesn't work on macOS.
-   * iPad requires high-power USB 2.0 support (500mA); iPhone doesn't qualify.
+   The default RNDIS mode does not work on macOS. The platform you are
+   testing on needs to support high-power USB 2.0 devices (500mA) -- iPad
+   supports this, iPhone does not.
 
 Configuration Methods
 ~~~~~~~~~~~~~~~~~~~~~
@@ -256,39 +273,3 @@ Configuration Methods
 * ``rndis`` or blank = RNDIS (default)
 * ``ncm`` = CDC-NCM
 * ``ecm`` = CDC-ECM
-
-Access Methods
---------------
-
-Serial Connection
-~~~~~~~~~~~~~~~~~
-
-Available through platform-specific drivers. See the
-:ref:`driver installation pages <pluto-m2k drivers windows>`.
-
-SSH/Ethernet
-~~~~~~~~~~~~
-
-Connect to ``192.168.2.1`` (default):
-
-* Username: ``root``
-* Password: ``analog``
-
-.. code:: console
-
-   analog@analog:~$ ssh root@192.168.2.1
-
-Web Interface
-~~~~~~~~~~~~~
-
-The mass storage device is accessible when connected via USB. Open
-``config.txt`` in a text editor to modify settings.
-
-Important Notes
----------------
-
-* File edits require proper ejection (not unplugging) to trigger processing
-* Hostname customization enables convenient network discovery
-* Multiple devices require subnet separation to prevent conflicts
-* Password and SSH key changes persist across reboots when stored on mtd2
-* Platform-specific USB mode selection prevents driver incompatibilities

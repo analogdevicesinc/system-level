@@ -155,7 +155,7 @@ Required Equipment
 **Firmware**
 
 - For step-by-step procedure on how to update the Pluto Firmware, you can
-  use this :dokuwiki:`user guide link </university/tools/pluto/users/firmware>`.
+  use this :ref:`user guide link <pluto-m2k firmware>`.
   The latest firmware version for the **ADALM-PLUTO** can be found here:
 
   .. admonition:: download
@@ -165,7 +165,7 @@ Required Equipment
 
 - In order to properly operate the ADALM PLUTO, you need to setup and configure
   it. Follow the procedure through this
-  :dokuwiki:`link </university/tools/pluto/users/firmware>`.
+  :ref:`link <pluto-m2k firmware>`.
 
 Test Setup
 ~~~~~~~~~~

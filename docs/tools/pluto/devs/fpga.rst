@@ -3,7 +3,8 @@
 Accessing Pluto's FPGA Over JTAG
 =================================
 
-Connecting to Pluto over JTAG requires a standard JTAG programmer from Xilinx
+Connecting to Pluto over JTAG requires a standard JTAG programmer from AMD
+Xilinx
 or a simpler solution like the JTAG-HS3+JTAGUART programmer. We will be using
 the JTAG-HS3+JTAGUART in this guide.
 
@@ -25,7 +26,7 @@ below.
 Next we can go into Vivado and check the hardware manager for connectivity.
 This can be done with ``xsct`` as follows:
 
-.. code:: console
+.. shell::
 
    tcollins@winston:/tmp$ xsct
    rlwrap: warning: your $TERM is 'xterm' but rlwrap couldn't find it in the terminfo database. Expect some problems.
@@ -56,7 +57,7 @@ udev rules may be required to access the USB device.
 
 Find the device with ``lsusb``:
 
-.. code:: console
+.. shell::
 
    dbezborodov@ubuntu-vivado:~$ lsusb
    Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -71,14 +72,14 @@ In this case, it is ``0403:6014`` (it is the FT232H programmer from Digilent.)
 
 Then add a new rule under ``/etc/udev/rules.d/``:
 
-.. code:: console
+.. shell::
 
    # This is the JTAG programmer for the Pluto.
    SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="6014", GROUP="plugdev", MODE="0660"
 
 Be sure to match the vendor and product IDs of your device. Then do:
 
-.. code:: console
+.. shell::
 
    sudo udevadm control --reload-rules
    sudo udevadm trigger
@@ -100,7 +101,7 @@ JTAG bootstrap zip part of each release. To do so perform the following:
 #. Download the JTAG bootstrap zip from the firmware release page
    (``plutosdr-jtag-bootstrap-<Firmware Version>.zip``)
 #. Unzip the zip then source the ``run.tcl`` inside with ``xmd`` from the
-   Xilinx tools (``xmd -tcl run.tcl``). We are done with JTAG now
+   AMD Xilinx tools (``xmd -tcl run.tcl``). We are done with JTAG now
 #. Next plugin a USB cable to the UART port of the ADALM-UARTJTAG connector and
    open a serial session (Putty or screen or ...)
 #. At this point you should have access to the u-boot menu. Directly from
@@ -109,4 +110,4 @@ JTAG bootstrap zip part of each release. To do so perform the following:
 #. Now plugin PlutoSDR's data USB port to your PC and it should appear as a DFU
    device
 #. Flash the firmware as usual with the :ref:`DFU utils as documented here
-   <pluto users firmware>`
+   <pluto-m2k firmware dfu_update>`

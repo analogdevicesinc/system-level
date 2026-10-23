@@ -91,7 +91,7 @@ Representative systems
 We are intentionally starting with an extremely simple example. But once you
 understand how to communicate with an LM74, ADXL345, or ADXL355, you're well
 over the initial learning curve to understanding much more complicated
-systems. The :dokuwiki:`ADALM-Pluto </university/tools/pluto>` is a great example -
+systems. The :ref:`ADALM-Pluto <pluto>` is a great example -
 it contains an AD9363 RF Agile Transcieiver, Zynq SoC FPGA, Memory, USB interface,
 and much more. Even the simplified block diagram is pretty daunting:
 

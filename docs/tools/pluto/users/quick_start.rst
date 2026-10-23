@@ -26,15 +26,15 @@ verification steps from the driver installation pages above.
 3. Install Scopy for your host
 -------------------------------
 
-Download and install `Scopy <https://analogdevicesinc.github.io/scopy/index.html>`__
+Download and install :external+scopy:doc:`Scopy <index>`
 for your host.
 
 4. IIO Oscilloscope vs Scopy 2.0
 ----------------------------------
 
-`Scopy 2.0 <https://analogdevicesinc.github.io/scopy/>`__ is the modern
+:external+scopy:doc:`Scopy 2.0 <index>` is the modern
 replacement for the legacy
-`IIO Oscilloscope <https://wiki.analog.com/resources/tools-software/linux-software/iio_oscilloscope>`__
+:dokuwiki:`IIO Oscilloscope <resources/tools-software/linux-software/iio_oscilloscope>`
 application. Both tools provide similar functionality for configuring and
 testing PlutoSDR, but Scopy 2.0 offers a more polished interface and
 additional features.
@@ -42,7 +42,9 @@ additional features.
 AD936X plugin comparison
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `AD936X plugin <https://analogdevicesinc.github.io/scopy/plugins/ad936x/ad936x.html>`__
+.. TODO:: verify this intersphinx target against the live scopy inventory
+
+The :external+scopy:doc:`AD936X plugin <plugins/ad936x/ad936x>`
 in both tools allows you to configure the transceiver's receive and transmit
 chains. Scopy 2.0 provides a cleaner layout with the same controls.
 

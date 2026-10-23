@@ -15,6 +15,7 @@ ADALM-PLUTO
    :align: right
 
 The :adi:`ADALM-PLUTO` Active Learning Module (PlutoSDR)
+(:adi:`Buy <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/adalm-pluto.html>`)
 is an easy to use tool available from Analog Devices
 Inc. (ADI) that can be used to introduce fundamentals of
 `Software Defined Radio (SDR) <https://en.wikipedia.org/wiki/Software-defined_radio>`__ or

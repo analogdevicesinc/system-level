@@ -29,7 +29,7 @@ Features List:
 
   - Received Signal Strength Indicator: 100 dB (±2 dB)
 
-- :xilinx:`Xilinx Zynq <products/silicon-devices/soc.html>` XC7Z010-1CLG225C
+- :xilinx:`AMD Xilinx Zynq <products/silicon-devices/soc.html>` XC7Z010-1CLG225C
 
   - :xilinx:`Zynq-7000 All Programmable SoC Overview <support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf>`
   - :xilinx:`Datasheet <support/documentation/data_sheets/ds187-XC7Z010-XC7Z020-Data-Sheet.pdf>`

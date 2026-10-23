@@ -59,7 +59,7 @@ Content
    #. :external+linux:ref:`ad9361`
 
 #. :ref:`Connecting the Pluto to the Internet <pluto devs port_forwarding>`
-#. :ref:`Using U-Boot's DFU modes <pluto users firmware>`
+#. :ref:`Using U-Boot's DFU modes <pluto-m2k firmware dfu_update>`
 #. :ref:`Boot magic explained <pluto devs booting>`
 #. :ref:`Reboot Modes <pluto-m2k reboot>`
 

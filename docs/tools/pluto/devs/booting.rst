@@ -110,7 +110,7 @@ network or serial), and do this as root:
 - If you want to replace the 40 MHz oscillator, and insert a 20 MHz
   (20000000 Hz) clock:
 
-  .. code:: console
+  .. shell::
 
      # fw_setenv ad936x_ext_refclk "<20000000>"
 
@@ -119,21 +119,21 @@ network or serial), and do this as root:
 
 - If you have a AD9364 inside your PlutoSDR
 
-  .. code:: console
+  .. shell::
 
      # fw_setenv attr_name compatible
      # fw_setenv attr_val ad9364
 
 - If you have a standard Zynq 7010 (not the special single core version)
 
-  .. code:: console
+  .. shell::
 
      # fw_setenv maxcpus
 
 - If you want to tweak your default XO correction rather than 40 MHz, you have
   determined at a stable temp it is 39,999,764 Hz:
 
-  .. code:: console
+  .. shell::
 
      # fw_setenv xo_correction 39999764
 

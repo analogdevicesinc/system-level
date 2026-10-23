@@ -25,7 +25,7 @@ without you knowing about it.
 If you need to run iio over the internet, set up a ssh tunnel, similar to this
 linux command:
 
-.. code:: console
+.. shell::
 
    rgetz@brain:~$ ssh -nNT -L \*:30431:localhost:30431 root@192.168.2.1
 

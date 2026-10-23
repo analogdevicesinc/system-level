@@ -90,14 +90,14 @@ Standalone Platform
      - Tx (Ranges)
      - Rx (Ranges)
      - Purpose
-   * - :dokuwiki:`ADALM-PLUTO <university/tools/pluto>`
+   * - :ref:`ADALM-PLUTO <pluto>`
      - 1 x AD9363
      - 1 x 1
      - 1 (325 - 3800 MHz)
      - 1 (325 - 3800 MHz)
      - Active Learning Module
 
-The :dokuwiki:`ADALM-PLUTO <university/tools/pluto>` is just the AD9363 in a 1 x
+The :ref:`ADALM-PLUTO <pluto>` is just the AD9363 in a 1 x
 1 RF configuration with on-board Z7010 FPGA. PlutoSDR is a self contained RF lab
 in your hand, powered through USB. The board includes a narrow tuning range
 balun, which is performance optimized for 2.4 GHz. It is a stand alone unit

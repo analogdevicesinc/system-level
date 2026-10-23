@@ -74,11 +74,12 @@ conversion receiver.
   sample rate. The receive chain is augmented with configurable automatic gain
   control (AGC) or manual gain control modes, dc offset correction, and
   quadrature correction. The resulting received I and Q signals are passed onto
-  the digital baseband processor, in this case the Xilinx Zynq SoC.
+  the digital baseband processor, in this case the AMD Xilinx Zynq SoC.
 
 * The transmit subsystem also use a direct conversion architecture. Accepting
   12-bit I and Q samples from the baseband processor (in this case, the same
-  Xilinx Zynq SoC), it runs them through a 128-tap finite impulse response (FIR)
+  AMD Xilinx Zynq SoC), it runs them through a 128-tap finite impulse response
+  (FIR)
   filter, digital interpolation filters, a high speed digital to analog
   converter (DAC), an analog filter, the direct conversion mixers, and through a
   small power amplifier (PA) out to the antenna.
@@ -88,7 +89,7 @@ conversion receiver.
   ADC, DAC and output sample rate.
 
 The
-`Xilinx Zynq All Programmable SoC <https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html>`_
+`AMD Xilinx Zynq All Programmable SoC <https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html>`_
 (AP SoC) integrates the software programmability of an ARM-based processor with
 the hardware programmability of an FPGA, enabling hardware acceleration while
 integrating CPU, DSP, ASSP, and mixed signal functionality into a single device.

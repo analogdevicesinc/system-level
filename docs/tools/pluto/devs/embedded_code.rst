@@ -26,7 +26,7 @@ Prerequisites:
   `PlutoSDR firmware releases page <https://github.com/analogdevicesinc/plutosdr-fw/releases>`__
   for the relevant information.
 
-  - :xilinx:`Xilinx SDK <products/design-tools/embedded-software/sdk.html>`
+  - :xilinx:`AMD Xilinx SDK <products/design-tools/embedded-software/sdk.html>`
   - `Linaro toolchain <http://releases.linaro.org/components/toolchain/binaries/>`__
 
 - System Root of the firmware used on PlutoSDR itself (this will be downloaded
@@ -48,19 +48,19 @@ since the compiler or libraries running on the Pluto can change over time.
 Set up your Linux Host
 -----------------------
 
-#. Make sure to use either the Xilinx or the Linaro toolchain (you only need
-   one)
+#. Make sure to use either the AMD Xilinx or the Linaro toolchain (you only
+   need one)
 
-   #. Assuming you have the Xilinx SDK installed in ``/opt/Xilinx``, add the
+   #. Assuming you have the AMD Xilinx SDK installed in ``/opt/Xilinx``, add the
       necessary tools to your path:
 
-      .. code:: console
+      .. shell::
 
          tcollins@winston: source /opt/Xilinx/Vivado/2018.2/settings64.sh
 
    #. Grab the Linaro toolchain, unpack it, and add it to the path:
 
-      .. code:: console
+      .. shell::
 
          tcollins@winston: cd /usr/local/bin
          tcollins@winston: sudo wget http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabihf/gcc-linaro-7.2.1-2017.11-i686_arm-linux-gnueabihf.tar.xz
@@ -69,7 +69,7 @@ Set up your Linux Host
 
 #. Make sure the compiler is in your path:
 
-   .. code:: console
+   .. shell::
 
       tcollins@winston: arm-linux-gnueabihf-gcc --version
       arm-linux-gnueabihf-gcc (Linaro GCC 7.2-2017.11-rc1) 7.2.1 20171011
@@ -80,7 +80,7 @@ Set up your Linux Host
 #. Download the sysroot for your release of firmware, unpack it, and place it
    somewhere you will find it.
 
-   .. code:: console
+   .. shell::
 
       tcollins@winston: wget https://github.com/analogdevicesinc/plutosdr-fw/releases/download/v0.30/sysroot-v0.30.tar.gz
       tcollins@winston: tar zxvf sysroot-v0.30.tar.gz
@@ -88,20 +88,20 @@ Set up your Linux Host
 
 #. First create a new directory for this project and move to it.
 
-   .. code:: console
+   .. shell::
 
       tcollins@winston: mkdir /tmp/plutoapp
       tcollins@winston: cd /tmp/plutoapp
 
 #. Grab the example code here:
 
-   .. code:: console
+   .. shell::
 
       tcollins@winston: wget https://raw.githubusercontent.com/analogdevicesinc/libiio/libiio-v0/examples/ad9361-iiostream.c
 
 #. Cross-compile the example by calling the compiler:
 
-   .. code:: console
+   .. shell::
 
       tcollins@winston: arm-linux-gnueabihf-gcc -mfloat-abi=hard --sysroot=$HOME/pluto-0.30.sysroot -std=gnu99 -g -o pluto_stream ad9361-iiostream.c -lpthread -liio -lm -Wall -Wextra
 
@@ -112,7 +112,7 @@ This is a little easier, since the compiler is already for ARM. You can follow
 the instructions for the i686 devices, but do not install a different
 compiler. And when compiling, just call gcc:
 
-.. code:: console
+.. shell::
 
    tcollins@rasberian: gcc -mfloat-abi=hard --sysroot=$HOME/pluto-0.30.sysroot -std=gnu99 -g -o pluto_stream ad9361-iiostream.c -lpthread -liio -lm -Wall -Wextra
 
@@ -121,13 +121,13 @@ Running on Pluto
 
 Copy the executable to PlutoSDR:
 
-.. code:: console
+.. shell::
 
    tcollins@winston: scp pluto_stream root@192.168.2.1:/tmp/
 
 Run the app:
 
-.. code:: console
+.. shell::
 
    tcollins@winston:/tmp/plutoapp$ ssh -t root@192.168.2.1 /tmp/pluto_stream
    root@192.168.2.1's password: analog

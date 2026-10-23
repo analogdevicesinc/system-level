@@ -45,7 +45,7 @@ Software
   :ref:`Windows <pluto-m2k drivers windows>`,
   :ref:`Linux <pluto-m2k drivers linux>`,
   :ref:`MAC <pluto-m2k drivers osx>`
-- :ref:`Upgrading Firmware <pluto users firmware>`
+- :ref:`Upgrading Firmware <pluto-m2k firmware>`
 - :ref:`Calibrating <pluto users calibration>`
 - :ref:`Customizing <pluto users customizing>`
 
@@ -55,7 +55,7 @@ Applications
 Once the drivers are configured and set up, you can interact with the
 :adi:`ADALM-PLUTO` Active Learning Module from:
 
-- `Scopy <https://analogdevicesinc.github.io/scopy/index.html>`__
+- :external+scopy:doc:`Scopy <index>`
 - `gqrx <http://gqrx.dk/>`__, an open source software defined radio receiver
   (SDR) powered by the GNU Radio
 - :mw:`Official support for MATLAB and Simulink <hardware-support/adalm-pluto-radio.html>`
@@ -70,7 +70,7 @@ Once the drivers are configured and set up, you can interact with the
   plugin for PlutoSDR can be found here:
   `SoapyPlutoSDR <https://github.com/jocover/SoapyPlutoSDR>`__
 - `Access and control of PlutoSDR hardware using python bindings to libiio <https://github.com/radiosd/PlutoSdr>`__
-- `Python Interfaces <https://analogdevicesinc.github.io/pyadi-iio/index.html>`__
+- :external+pyadi-iio:doc:`Python Interfaces <index>`
 - :ref:`C Examples <pluto transceiver_transferring_data>`
 
 Resources

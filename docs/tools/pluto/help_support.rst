@@ -52,7 +52,7 @@ HDL / Vivado WebPack Questions
 For questions regarding the PlutoSDR HDL design please ask them in the
 :ez:`FPGA Reference Designs <community/fpga>` sub-community. If you have questions
 about the Vivado HL WebPACK Edition, including any questions about compiling the
-design with please go ask `Xilinx <http://forums.xilinx.com/>`__.
+design with please go ask `AMD Xilinx <http://forums.xilinx.com/>`__.
 
 Hardware Questions
 ------------------

@@ -271,7 +271,9 @@ with pin control.
 Testing in IIO Oscilloscope
 ---------------------------
 
-The `Advanced Tab <https://analogdevicesinc.github.io/scopy/plugins/ad936x/index.html>`__
+.. TODO:: verify this intersphinx target against the live scopy inventory
+
+The :external+scopy:doc:`Advanced Tab <plugins/ad936x/index>`
 indicates how to control these in the IIO oscilloscope.
 
 .. [1]

@@ -51,7 +51,7 @@ RF data—approximately 104 LTE frames—sufficient for educational decoders.
 FPGA Size
 ^^^^^^^^^
 
-The Xilinx Zynq 7010 FPGA is quite limited:
+The AMD Xilinx Zynq 7010 FPGA is quite limited:
 
 ============  =====
 Attribute     Size
@@ -124,6 +124,8 @@ RF Shielding
 The PlutoSDR lacks internal RF shielding. Strong transmitters (e.g., cellphones)
 placed nearby may degrade performance at any tuned frequency. Adding RF
 shielding would impact cost and size.
+
+.. _pluto users name rf_filtering:
 
 RF Filtering
 ~~~~~~~~~~~~

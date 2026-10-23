@@ -36,4 +36,4 @@ Hopefully you have reviewed the documentation on the
 :ref:`FMCOMMS3 <ad-fmcomms3-ebz>`,
 :ref:`FMCOMMS4 <fmcomms4>`.
 Those guides provide a lot of background on the combination of the :adi:`AD9361`,
-:adi:`AD9363`, or :adi:`AD9364` and the Xilinx Zynq.
+:adi:`AD9363`, or :adi:`AD9364` and the AMD Xilinx Zynq.

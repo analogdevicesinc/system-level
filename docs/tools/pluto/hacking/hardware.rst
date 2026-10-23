@@ -138,8 +138,7 @@ Revision A
 
 .. admonition:: Download
 
-   - `Rev A Design & Support Files
-     <https://www.analog.com/media/en/evaluation-documentation/evaluation-design-files/adalm-pluto-design-reva.zip>`__
+   - :adi:`Rev A Design & Support Files <media/en/evaluation-documentation/evaluation-design-files/adalm-pluto-design-reva.zip>`
      (schematics, Gerbers, bill of materials, Allegro board file)
 
 Why do a Rev B?
@@ -176,13 +175,13 @@ Revision B
    .. important::
 
       Although the below files indicates the
-      Xilinx ``XC7Z010-1CLG225C`` is used in the PlutoSDR, it is actually the Xilinx
-      ``XC7Z010-1CLG225C4334`` (a single core version before the 7007 was released).
+      AMD Xilinx ``XC7Z010-1CLG225C`` is used in the PlutoSDR, it is actually
+      the AMD Xilinx ``XC7Z010-1CLG225C4334`` (a single core version before the
+      7007 was released).
       We keep using the "special" version. If you are starting a new design - use the
       ``XC7Z007S-1CLG225C``.
 
-   - `Rev B Design & Support Files
-     <https://www.analog.com/media/en/evaluation-documentation/evaluation-design-files/adalm-pluto-design-revb.zip>`__
+   - :adi:`Rev B Design & Support Files <media/en/evaluation-documentation/evaluation-design-files/adalm-pluto-design-revb.zip>`
      (schematics, Gerbers, bill of materials, Allegro board file, Cadence
      project, 3D model)
 
@@ -274,8 +273,7 @@ you something like (this connects the additional Rx and Tx, and CLK input):
 
 .. admonition:: Download
 
-   - `Rev D Design & Support Files
-     <https://www.analog.com/media/en/evaluation-documentation/evaluation-design-files/adalm-pluto-design-revd.zip>`__
+   - :adi:`Rev D Design & Support Files <media/en/evaluation-documentation/evaluation-design-files/adalm-pluto-design-revd.zip>`
      (schematics, Gerbers, bill of materials, Allegro board file, Cadence
      project). The 3D model (case, bare PCB, connectors) works for all
      revisions and is included in the Revision B package above.
@@ -295,7 +293,9 @@ Datasheets
 
 Here are some pointers to datasheets that are sometimes hard to find.
 
-.. -  `Rakon <https://www.rakon.com/>`__ :download:`1.8V RXO3225M 40MHz <downloads/rakon_rxo3225m_40mhz_513371_1.8v.pdf>`  (removed locally; see analog.com ADALM-PLUTO design support package)
+-  `Rakon <https://www.rakon.com/>`__
+   :dokuwiki:`1.8V RXO3225M 40MHz <_media/university/tools/pluto/hacking/rakon_rxo3225m_40mhz_513371_1.8v.pdf>`
+   Oscillator
 
 Before PlutoSDR
 ---------------

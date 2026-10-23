@@ -41,9 +41,9 @@ Content
       #. :ref:`m2k hardware`
    #. Detailed Performance *(Coming soon)*
    #. Accessing the Console with the
-      :dokuwiki:`ADALM-JTAGUART </university/tools/uartjtag>` adapter
+      :ref:`ADALM-JTAGUART <uartjtag>` adapter
    #. Accessing FPGA JTAG with the
-      :dokuwiki:`ADALM-JTAGUART </university/tools/uartjtag>` adapter
+      :ref:`ADALM-JTAGUART <uartjtag>` adapter
 
 #. :external+hdl:doc:`index`
 
