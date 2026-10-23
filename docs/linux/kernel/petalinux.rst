@@ -3,7 +3,7 @@
 Build with Petalinux
 ====================
 
-The ADI Linux kernel can also be compiled using Petalinux to be used on Xilinx
+The ADI Linux kernel can also be compiled using Petalinux to be used on AMD Xilinx
 SoC FPGA based platforms (using :git-meta-adi:`ADI Yocto </>` repository).
 The following table specifies the supported Petalinux versions and documentation:
 

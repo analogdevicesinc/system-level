@@ -129,7 +129,7 @@ Using the AMD Xilinx toolchain
 
 .. important::
 
-   Find the path to the Xilinx installation folder, and then use
+   Find the path to the AMD Xilinx installation folder, and then use
    it to replace this string: **$PATH_TO_XILINX** that is written above.
    Same goes for the **$VITIS_VERSION**, where you choose the Vitis version.
 
@@ -139,7 +139,7 @@ Using the AMD Xilinx toolchain
    $export CROSS_COMPILE="arm-linux-gnueabihf-"
 
 Using the Arm GNU Toolchain
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Alternatively, the Arm GNU Toolchain can be used to compile the kernel.
 Download the ``arm-none-linux-gnueabihf`` tarball for your host from the
