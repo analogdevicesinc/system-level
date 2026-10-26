@@ -62,7 +62,7 @@ ADI addressed this issue and started providing software for its parts as well.
 
 There is a market advantage in selling parts with accompanying software.
 
-Baremetal projects deliverables 10 years ago consisted of:
+Baremetal project deliverables 10 years ago consisted of:
 
 - A .zip file containing the driver files
 - A .zip file containing a project
@@ -118,7 +118,7 @@ What is a No-OS device driver
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A No-OS device driver provides the software interface for hardware devices.
-Software application can access hardware functionality without knowing in detail
+Software applications can access hardware functionality without knowing in detail
 how the driver operates. The register map, bit fields, are directly handled by
 the driver, as well as communication interface specific sequences and timings.
 
@@ -136,7 +136,7 @@ the driver, as well as communication interface specific sequences and timings.
    :align: center
    :width: 500
 
-- Contains minimum init() and remove() functions -  take as parameter the
+- Contains minimum init() and remove() functions - take as parameter the
   specific init_param structure
 
 - Puts the device into the desired state
@@ -154,7 +154,7 @@ the driver, as well as communication interface specific sequences and timings.
    :align: center
    :width: 500
 
-- Software application can access hardware functionality without knowing in
+- Software applications can access hardware functionality without knowing in
   detail how the device operates
 
 
@@ -173,7 +173,7 @@ Platform drivers use vendor HAL - Hardware Abstraction Layer.
 No-OS platform drivers are implementations of peripheral no-OS API on a
 particular platform.
 
-No-OS modularity allow it to run a lot of its code on different platforms like:
+No-OS modularity allows it to run a lot of its code on different platforms like:
 
 - Xilinx (Zynq7000, ZynqMP, Microblaze)
 - Maxim (32650, 32655, 32660, 32670, 78000), ADuCM (3029)
@@ -201,7 +201,7 @@ Specifications:
 - It uses no-OS API
 - It uses various libraries
 - User interaction – serial, iio-oscilloscope
-- makefiles
+- CMakeLists, Kconfig files
 
 Project hardware typically is made of:
 
@@ -217,11 +217,11 @@ IIO Concepts
 ~~~~~~~~~~~~
 
 What is IIO - is a framework in the Linux kernel designed for devices such as
-adcs, dacs, etc..
+ADCs, DACs, etc.
 There is a tree concept inside kernel, there is the context concept which is
 specific to a board and has a set of drivers.
 Context has a backend associated with it, it can be local or remote.
-Is has an attribute associated with it - give various descriptions of the board:
+It has an attribute associated with it - give various descriptions of the board:
 name, version, etc.
 Underneath the context comes the device, specific to the board and has also
 attributes, along with debug attributes - components you normally don't interact
@@ -230,17 +230,18 @@ Devices can have buffers and channels. Buffers are associated with data and the
 channels represent the number of paths for signals to be acquired/generated.
 
 The Linux Industrial I/O (IIO) subsystem is intended to provide support for
-devices that, in some  sense, are analog-to-digital or digital-to-analog
+devices that, in some sense, are analog-to-digital or digital-to-analog
 converters.
 
 Devices that fall into this category are:
+
 - ADCs
 - DACs
 - Accelerometers, gyros, IMUs
-- Capacitance-to-Digital converters  (CDCs)
-- Pressure, temperature, and light  sensors, etc.
-- RF Transceivers (like the AD9361 /  AD9364 / AD9371 / ADRV9009)
-- It can be used on ADCs ranging from a  1MSPS SoC ADC to >5 GSPS ADCs
+- Capacitance-to-Digital converters (CDCs)
+- Pressure, temperature, and light sensors, etc.
+- RF Transceivers (like the AD9361 / AD9364 / AD9371 / ADRV9009)
+- It can be used on ADCs ranging from a 1MSPS SoC ADC to >5 GSPS ADCs
 
 .. _fig-iio:
 
@@ -295,19 +296,19 @@ Materials
 * Raspberry Pi 5 or Linux PC as development workstation
 * USB cable for MAX78000FTHR connection
 
-Pre-requisites
-~~~~~~~~~~~~~~
+Prerequisites
+~~~~~~~~~~~~~
 
 The workshop environment can be set up using one of three methods. Choose the
 option that best fits your situation:
 
 - **Option 1: Pre-built Kuiper Image** - Recommended for live workshops and
-  quick setup. Everything is pre-installed and ready to use.
-- **Option 2: Manual Setup** - For self-paced learning on your own Linux
-  machine or when you want to understand the full setup process.
-- **Option 3: Debian packaging** - Recommended for live workshops and people 
-   who want to learn about this subject without dealing with setup steps. 
-   Everything is installed automatically and it's quick to set up.
+  quick setup. Everything is pre-installed and ready to use, on a Raspberry Pi 5 board.
+- **Option 2: Debian package for Kuiper Linux** - Recommended for live workshops
+  where a stock Kuiper Linux environment is preferred on an ARM64 host.
+  Everything is installed automatically and it's quick to set up.
+- **Option 3: Manual Setup** - Recommended for running on any Debian or Ubuntu-based system,
+  regardless of its processor architecture.
 
 Option 1: Pre-built Kuiper Image
 ++++++++++++++++++++++++++++++++
@@ -330,39 +331,11 @@ pre-installed. This is the fastest way to get started.
 Once the Raspberry Pi 5 boots, the environment is ready. Skip to
 :ref:`environment-configuration` to configure the environment variables.
 
-Option 2: Manual Setup
-++++++++++++++++++++++
+Option 2: Debian package for Kuiper Linux
++++++++++++++++++++++++++++++++++++++++++
 
-Set up the environment manually on a Raspberry Pi 5 or any Linux PC. This
-option is useful for self-paced learning or development.
-
-Clone the workshop repository and run the setup script:
-
-.. code-block:: bash
-
-   git clone https://github.com/romandariana/workshop_baremetal
-   cd workshop_baremetal
-   chmod +x setup.sh
-   ./setup.sh
-
-The setup creates the following directory structure:
-
-.. code-block:: text
-
-   ~/workshop_baremetal/
-   ├── setup.sh
-   ├── ai8x-synthesis/
-   ├── MAX78000SDK/
-   │   └── Libraries/
-   └── no-OS/
-       └── projects/
-           └── workshop/
-
-Option 3: Debian packaging
-++++++++++++++++++++++++++
-
-Set up the environment automatically on a Raspberry Pi 5 (or other system running
-Linux Ubuntu or Debian). This option is useful for a headache-free setup.
+Set up the environment automatically on an ARM64 host (such as a Raspberry Pi 4 or 5) running
+Kuiper Linux.
 
 #. Go to the workshops repository (ask a colleague for a link pointing to it, if you
    were not already provided one!) and download the *datax-workshops-embedded-baremetal*
@@ -376,13 +349,13 @@ Linux Ubuntu or Debian). This option is useful for a headache-free setup.
    You may use the *scp* command (just ensure that you are on the same network)
    or any other method of your choice.
 
-.. admonition:: Note
+   .. note::
 
-   The artifact is a zip file named *datax-workshops-embedded-baremetal.zip*.
+      The artifact is a zip file named *datax-workshops-embedded-baremetal.zip*.
 
-.. admonition:: Note
+   .. note::
 
-   From now on, all steps will be done on your Raspberry Pi 5.
+      From now on, all steps will be done on your Raspberry Pi 5.
 
 #. Run the following
    commands, needed for the Visual Studio Code installation:
@@ -430,24 +403,64 @@ Linux Ubuntu or Debian). This option is useful for a headache-free setup.
       cd ~/Desktop/datax-workshops/embedded-baremetal
       source env.sh
 
+Option 3: Manual Setup
+++++++++++++++++++++++
+
+Set up the environment manually on a Raspberry Pi 5 or any Linux PC. This
+option is useful for self-paced learning or development.
+
+Clone the workshop repository and run the setup script:
+
+.. code-block:: bash
+
+   git clone https://github.com/tvlad1234/workshop_baremetal
+   cd workshop_baremetal
+   chmod +x setup.sh
+   ./setup.sh
+
+Log out and back in once after setup so the new USB/serial group membership takes effect.
+
+The setup creates the following directory structure:
+
+.. code-block:: text
+
+   ~/workshop_baremetal/
+   ├── setup.sh              # Setup script
+   ├── workshop/             # Workshop project source files
+   ├── openocd/              # OpenOCD source trees and built binaries
+   ├── msdk/                 # Analog Devices MSDK
+   │   └── Libraries/        # ← MAXIM_LIBRARIES points here
+   └── no-OS/
+       └── projects/
+           └── workshop/     # Symlink to ../../../workshop
+
 .. _environment-configuration:
 
 Environment Configuration
 +++++++++++++++++++++++++
 
-After completing Option 1 or Option 2, configure the environment variables
-by running the commands below.
-This step is not necessary for Option 3, as the environment is already configured.
+In order for the no-OS build system to find the necessary MAX78000 SDK libraries, the
+current working terminal must have the ``MAXIM_LIBRARIES`` variable set to the path in which
+the libraries reside.
+
+If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
 
-   export MAXIM_LIBRARIES=~/workshop_baremetal/MAX78000SDK/Libraries
-   export PLATFORM=maxim
-   export TARGET=max78000
+   export MAXIM_LIBRARIES=~/workshop_baremetal/msdk/Libraries
+
+If you set up the environment using Option 2, run:
+
+.. code-block:: bash
+
+   export MAXIM_LIBRARIES=~/Desktop/datax-workshops/embedded-baremetal/msdk/Libraries
+
 
 .. note::
+   The variable is exported only to the current terminal. If you close this terminal or
+   open a new one, you must export the variable again.
 
-   Add these exports to your ``~/.bashrc`` to make them persistent across
+   You can also add this export to your ``~/.bashrc`` file to make it persistent across
    terminal sessions.
 
 Example 1: Hello World UART
@@ -457,35 +470,37 @@ This first example demonstrates basic UART communication. The firmware prints
 "Hello World" messages to the serial console, confirming that the development
 environment is correctly configured.
 
-Open a terminal and navigate to the workshop project directory.
+Open a terminal and navigate to the no-OS directory.
 
-If you set up the environment using Option 1 or Option 2, run:
-
-.. code-block:: bash
-
-   cd ~/workshop_baremetal/no-OS/projects/workshop
-
-If you set up the environment using Option 3, run:
+If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
 
-   cd ~/Desktop/datax-workshops/embedded-baremetal/no-OS/projects/workshop
+   cd ~/workshop_baremetal/no-OS
 
-Clean any previous build artifacts and build the first example:
+If you set up the environment using Option 2, run:
 
 .. code-block:: bash
 
-   make reset
-   make EXAMPLE=example_1
+   cd ~/Desktop/datax-workshops/embedded-baremetal/no-OS
 
-Connect the MAX78000FTHR to one of your workstation's USB ports through an USB
+Build the first example:
+
+.. code-block:: bash
+
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant example_1 --board max78000fthr
+
+Connect the MAX78000FTHR to one of your workstation's USB ports through a USB
 cable.
 
 Flash the firmware to the MAX78000FTHR:
 
 .. code-block:: bash
 
-   make EXAMPLE=example_1 run
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant example_1 --board max78000fthr \
+    --probe openocd --flash
 
 Open a new terminal and start the serial monitor:
 
@@ -560,18 +575,20 @@ using the USB cable.
 The accelerometer has an internal temperature sensor. This example makes use of
 this by reading it and displaying temperature values onto the serial terminal.
 
-Clean any previous build artifacts and build the second example:
+Build the second example:
 
 .. code-block:: bash
 
-   make reset
-   make EXAMPLE=example_2
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant example_2 --board max78000fthr
 
 Make sure you have an active terminal running picocom then load the example:
 
 .. code-block:: bash
 
-   make EXAMPLE=example_2 run
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant example_2 --board max78000fthr \
+    --probe openocd --flash
 
 Observe the output being printed every second.
 
@@ -594,17 +611,17 @@ The new format should be 24.66 degrees.
 
 **Hint**
 
-You need to modify example_2.c and then reset, rebuild and reload the program
+You need to modify example_2.c, rebuild, and flash the program
 onto the board. The recommended way to do this is to open the no-OS folder using
-your favorite editor and search for example_2.c file.
+your favorite editor (we recommend Visual Studio Code) and open the *example_2.c* file.
 
-If you set up the environment using Option 1 or Option 2, run:
+If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
 
    code ~/workshop_baremetal/no-OS
 
-If you set up the environment using Option 3, run:
+If you set up the environment using Option 2, run:
 
 .. code-block:: bash
 
@@ -621,9 +638,12 @@ third example:
 
 .. code-block:: bash
 
-   make reset
-   make EXAMPLE=example_3
-   make EXAMPLE=example_3 run
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant example_3 --board max78000fthr
+
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant example_3 --board max78000fthr \
+    --probe openocd --flash
 
 Notice the output displayed:
 
@@ -643,22 +663,6 @@ For temperature you need to compute the temp_dividend and temp_divisor.
 
 For accelerometer values you need to compute the x_dividend, y_dividend,
 z_dividend and accel_divisor.
-
-You need to modify example_3.c and then reset, rebuild and reload the program
-onto the board. The recommended way to do this is to open the no-OS folder using
-your favorite editor and search for example_3.c file.
-
-If you set up the environment using Option 1 or Option 2, run:
-
-.. code-block:: bash
-
-   code ~/workshop_baremetal/no-OS
-
-If you set up the environment using Option 3, run:
-
-.. code-block:: bash
-
-   code ~/Desktop/datax-workshops/embedded-baremetal/no-OS
 
 The formula for the temperature:
 
@@ -740,35 +744,34 @@ components on a circuit by physically tilting the accelerometer.
 Close the terminal running picocom.
 
 Make sure you are in the workshop project directory
-(``~/workshop_baremetal/no-OS/projects/workshop`` for Option 1 or Option 2,
+(``~/workshop_baremetal/no-OS/projects/workshop`` for Option 1 or Option 3,
 ``~/Desktop/datax-workshops/embedded-baremetal/no-OS/projects/workshop`` for
-Option 3) and reset the workspace:
-
-.. code-block:: bash
-
-   make reset
+Option 2).
 
 Build the IIO_EXAMPLE of this project:
 
 .. code-block:: bash
 
-   make EXAMPLE=iio_example
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant iio_example --board max78000fthr
 
 Program the board:
 
 .. code-block:: bash
 
-   make EXAMPLE=iio_example run
+   python tools/scripts/no_os_build.py build \
+    --project workshop --variant iio_example --board max78000fthr \
+    --probe openocd --flash
 
 Change the directory and run the game.
 
-If you set up the environment using Option 1 or Option 2, run:
+If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
 
    cd ~/workshop_baremetal/play
 
-If you set up the environment using Option 3, run:
+If you set up the environment using Option 2, run:
 
 .. code-block:: bash
 
