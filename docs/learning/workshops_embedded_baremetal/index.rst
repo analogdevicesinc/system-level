@@ -276,6 +276,8 @@ Features:
 - 0 g offset vs. temperature (all axes): 0.15 mg/°C maximum
 - V\ :sub:`SUPPLY` with internal regulators: 2.25 V to 3.6 V
 
+.. workshop-guide-start
+
 Hands-on Activity
 -----------------
 
@@ -795,6 +797,8 @@ Move the accelerometer board around and observe the output. Be careful not to
 disconnect the wires.
 
 Let's see if you can beat the game!
+
+.. workshop-guide-end
 
 Takeaways
 ---------
