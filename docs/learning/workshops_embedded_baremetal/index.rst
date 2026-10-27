@@ -359,11 +359,12 @@ Kuiper Linux.
 
       From now on, all steps will be done on your Raspberry Pi 5.
 
-#. Run the following
-   commands, needed for the Visual Studio Code installation:
+#. Run the following commands to add the Visual Studio Code
+   package repositories to your system:
 
    .. code-block:: bash
 
+      sudo apt-get update
       sudo apt-get install -y gpg
       curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /tmp/microsoft.gpg
       sudo install -D -o root -g root -m 644 /tmp/microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -371,7 +372,7 @@ Kuiper Linux.
       echo "deb [arch=amd64,arm64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" \
          | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 
-#. Run the following commands to update the package list:
+#. Update the package list:
 
    .. code-block:: bash
 
@@ -398,12 +399,14 @@ Kuiper Linux.
       datax-workshops-embedded-baremetal-setup
 
 #. Log out and back in once after setup so the new USB/serial group membership takes effect.
-   Then load the workshop environment from inside the workspace folder:
+   You can then go to the workspace folder:
 
    .. code-block:: bash
 
       cd ~/Desktop/datax-workshops/embedded-baremetal
-      source env.sh
+
+Continue with :ref:`environment-configuration` to export the ``MAXIM_LIBRARIES``
+variable.
 
 Option 3: Manual Setup
 ++++++++++++++++++++++
@@ -584,7 +587,8 @@ Build the second example:
    python tools/scripts/no_os_build.py build \
     --project workshop --variant example_2 --board max78000fthr
 
-Make sure you have an active terminal running picocom then load the example:
+Since the board was disconnected, restart the serial monitor in a separate
+terminal (``picocom -b 57600 /dev/ttyACM0``), then load the example:
 
 .. code-block:: bash
 
@@ -745,10 +749,9 @@ components on a circuit by physically tilting the accelerometer.
 
 Close the terminal running picocom.
 
-Make sure you are in the workshop project directory
-(``~/workshop_baremetal/no-OS/projects/workshop`` for Option 1 or Option 3,
-``~/Desktop/datax-workshops/embedded-baremetal/no-OS/projects/workshop`` for
-Option 2).
+Make sure you are in the no-OS directory
+(``~/workshop_baremetal/no-OS`` for Option 1 or Option 3,
+``~/Desktop/datax-workshops/embedded-baremetal/no-OS`` for Option 2).
 
 Build the IIO_EXAMPLE of this project:
 
