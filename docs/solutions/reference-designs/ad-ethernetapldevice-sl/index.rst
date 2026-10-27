@@ -154,22 +154,29 @@ Required Hardware
 Setup Instructions
 ~~~~~~~~~~~~~~~~~~
 
-#. Connect the AD-EthernetAPLDevice-SL to the DEMO-ADIN1100D2Z and ensure all
-   connectors are fully seated.
+#. Connect the AD-EthernetAPLDevice-SL to the DEMO-ADIN1100D2Z and ensure that
+   all connectors are fully seated.
 
-#. Connect a 2- or 4-wire PT100 sensor to the temperature connector.
+#. Connect a 2- or 4-wire PT100 sensor to the temperature-sensor connector.
 
-#. Attach the MAX32625PICO programmer to the ARM debug header using the 10-pin
-   ribbon cable.
+#. Connect the MAX32625PICO programmer to the ARM debug header with the
+   10-pin ribbon cable.
 
-#. For RISC-V debugging, install the NON-IS digital board and connect the
-   RISC-V debug probe to the RISC-V Jtag header (available only on the NON-IS
-   board).
+#. To debug the RISC-V co-processor, install the NON-IS digital board and
+   connect a RISC-V debug probe to its RISC-V JTAG header. This header is only
+   available on the NON-IS board.
 
-#. Connect the DEMO-ADIN1100D2Z to your PC via Ethernet.
+#. Connect the DEMO-ADIN1100D2Z to your PC with an Ethernet cable.
 
-#. Apply power to the DEMO-ADIN1100D2Z (9V to 15V input). The AD-EthernetAPLDevice-SL
-   will be powered via Ethernet.
+#. Power the DEMO-ADIN1100D2Z from a 9 V to 15 V supply. The
+   AD-EthernetAPLDevice-SL is powered over Ethernet.
+
+#. Open a terminal application (PuTTY is recommended) and connect to the
+   virtual COM port assigned to the MAX32625PICO programmer. Set the serial
+   connection to **115200** baud, 8 data bits, no parity, and 1 stop bit.
+
+#. Press the reset button on the DEMO-ADIN1100D2Z. The terminal displays the
+   board's IP address, which you can use to ping the board.
 
 .. figure:: config.png
    :width: 600 px
