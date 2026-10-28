@@ -3,37 +3,40 @@
 Linux User Guide
 ================
 
-This user guide uses :external+linux:doc:`index` and supports the carriers
-Digilent Cora Z7S and Terasic DE10-Nano. For linux, see
+This guide uses :external+linux:doc:`Linux <index>` and supports the Digilent
+Cora Z7S and Terasic DE10-Nano carriers. For bare-metal evaluation, see
 :ref:`eval-ad4062-ardz no-OS`.
 
-Building the firmware
----------------------
+Before you begin
+----------------
 
-Follow the :ref:`Kuiper Linux <kuiper>` documentation to prepare an SD card
-with the latest Kuiper image. The AD4062 Linux driver and devicetree are
-included in recent Kuiper releases.
+Prepare an SD card by following the :ref:`Kuiper Linux <kuiper>` documentation.
+The AD4062 driver is available in both the upstream Linux kernel and the ADI
+Linux fork, including the Kuiper release images. You can always use a custom
+kernel and HDL build as described in :ref:`eval-ad4062-ardz linux flashing`
+to tinker with the stack.
 
 Devicetree
 ----------
 
-Since I3C is a discoverable protocol, the devicetree node is optional,
-still, for optional nodes, follow the documentation at
+Because I3C is a discoverable protocol, the ADC device tree node is optional.
+If you add one, follow
 :git-linux:`Documentation/devicetree/bindings/iio/adc/adi%2Cad4062.yaml`.
 
 For the HDL I3C controller, see
-:git-linux:`b4/ad4062:Documentation/devicetree/bindings/i3c/adi%2Ci3c-master.yaml`.
+`Documentation/devicetree/bindings/i3c/adi,i3c-master.yaml <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/i3c/adi,i3c-master.yaml>`__
+and :external+hdl:ref:`i3c_controller`.
 
 Hardware setup
 --------------
 
-After flashing the SD Card with Linux, set up the hardware with following steps:
+After preparing the Linux SD card, set up the hardware as follows:
 
 * Disconnect both the evaluation board and the carrier from all power sources.
 * Add the SD Card to the carrier.
-* Connect the evaluation board to the carrier using the Arduino Uno compatible
-  headers (there is only one position where all pins are connected).
-* Check jumpers and powering on instructions specific for the carrier.
+* Connect the evaluation board to the carrier through the Arduino Uno
+  compatible headers. There is only one orientation in which all pins mate.
+* Check the carrier-specific jumper and power instructions.
 * When powering the evaluation board from the carrier, follow:
 
   - Set JP2 jumper on the evaluation board to the +5V position.
@@ -62,23 +65,21 @@ values to support up to eight AD4060/AD4062s on one I3C bus.
 The evaluation board's jumpers JP11, JP12, and JP10 allow for setting the
 ADDR0, ADDR1, and ADDR2 respectively to either VIO or GND.
 
+.. _eval-ad4062-ardz linux flashing:
+
 Flashing the firmware
 ---------------------
 
-These steps are done before the hardware setup, with the board powered off.
+Perform these steps with the carrier powered off.
 
-For both CoraZ7S and DE10-Nano, prepare an SD Card with :ref:`Kuiper Linux <kuiper>`.
+For either carrier, prepare an SD card with :ref:`Kuiper Linux <kuiper>`.
 
+You can also build a custom kernel and HDL image as described in the
+:ref:`Linux kernel build guide <linux-kernel>` and
+:external+hdl:ref:`HDL build guide <build_hdl>`.
 
-The AD4062 devicetree and driver are not yet included in Kuiper releases.
-Use custom kernel build, see the :ref:`Linux kernel build guide <linux-kernel>`
-and :external+hdl:ref:`HDL build guide <build_hdl>`.
-
-The linux driver can be obtained from the
-`patch series on linux-iio <https://lore.kernel.org/linux-iio/20251227163506.2fb90815@jic23-huawei/>`__.
-
-Insert the SD Card into the powered-off carrier and follow the hardware setup
-steps.
+Insert the SD card into the powered-off carrier, then complete the hardware
+setup steps.
 
 Quick start
 -----------
@@ -457,9 +458,8 @@ Or use ``iio_event_monitor`` if available:
 GPIO controller
 ~~~~~~~~~~~~~~~
 
-When configured in the device tree, the GP0 and GP1 pins can be exposed as
-GPIO outputs. The GPIO controller feature allows you to control these pins
-as general-purpose outputs.
+When configured in the device tree, GP0 and GP1 are exposed through the
+GPIO character-device interface as general-purpose outputs.
 
 Device tree configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -496,22 +496,18 @@ it is **not** available as a GPIO.
 Using GPIOs from userspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Use ``gpiodetect`` to identify the gpiochip labeled ``ad4062`` (or ``ad4060``),
+then use ``gpioset`` from libgpiod to drive a line. For example, to set GP1
+(line 1) high:
+
 .. shell::
 
-   # Export GPIO 1 (GP1)
-   $echo 1 > /sys/class/gpio/export
+   $gpiodetect
+   $gpioset gpiochip0 1=1
 
-   # Set direction to output
-   $echo out > /sys/class/gpio/gpio1/direction
-
-   # Set value high
-   $echo 1 > /sys/class/gpio/gpio1/value
-
-   # Set value low
-   $echo 0 > /sys/class/gpio/gpio1/value
-
-   # Unexport when done
-   $echo 1 > /sys/class/gpio/unexport
+The gpiochip number depends on the system. See the
+`GPIO character device userspace API <https://docs.kernel.org/userspace-api/gpio/chardev.html>`__
+for more details.
 
 Low-power mode
 ~~~~~~~~~~~~~~

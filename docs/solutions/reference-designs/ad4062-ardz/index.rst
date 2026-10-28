@@ -29,11 +29,11 @@ The :adi:`EVAL-AD4060-ARDZ` and :adi:`EVAL-AD4062-ARDZ` evaluation boards enable
 quick and easy evaluation of the performance and features of the
 :adi:`AD4060` or the :adi:`AD4062`, respectively.
 
-The AD4060 and AD4062 are compact, low power, 12-bit or 16-bit (respectively)
+The AD4060 and AD4062 are compact, low-power, 12-bit and 16-bit, respectively,
 Easy Drive successive approximation register (SAR) analog-to-digital converters
-(ADCs) featuring an I3C digital interface. These devices offer exceptional
-performance with sample rates up to 2 MSPS while maintaining low power consumption,
-making them ideal for battery-powered precision measurement and monitoring applications.
+(ADCs) with an I3C digital interface. They sample at up to 2 MSPS while
+maintaining low power consumption, making them suitable for battery-powered
+precision measurement and monitoring applications.
 
 The evaluation boards are designed to conform to the Arduino Uno Shield mechanical
 and electrical standard, enabling easy integration with various controller boards
@@ -45,8 +45,8 @@ Overview
 This section provides a general overview of the evaluation board, all supported
 carriers, firmware options, and software tools.
 
-The evaluation boards support multiple carrier platforms for both bare-metal
-(no-OS) and Linux environments:
+Choose a carrier and software environment from the following supported
+combinations:
 
 .. list-table::
 
@@ -107,7 +107,7 @@ Features
   - Autonomous threshold event monitoring
   - GPIO controller support
   - Automatic low-power mode management
-  - Burst averaging with up to 2048x oversampling (AD4062)
+  - Burst averaging with up to 4096x (AD4062) or 256x (AD4060) oversampling
 
 * **GUI Applications:**
 
@@ -169,10 +169,10 @@ For detailed hardware specifications, schematics, and board layout, see the
 the :adi:`user guide <media/en/technical-documentation/user-guides/eval-ad4060_ad4062.pdf>`
 and design support files.
 
-Overview
---------
+Software and reference design
+-----------------------------
 
-This section summarizes all source code and related documentation for the
+This section summarizes the source code and related documentation for the
 evaluation board.
 
 Working with the source code requires prior knowledge of software development
@@ -199,13 +199,6 @@ The driver source code is available at:
      - AD4060/4062 (I3C only)
      - :git-linux:`drivers/iio/adc/ad4062.c`
      - :git-linux:`doc <Documentation/iio/ad4062.rst>`
-
-.. note::
-
-   The Linux driver is currently under review for upstream inclusion in the
-   mainline kernel. See the `patch series on linux-iio
-   <https://lore.kernel.org/linux-iio/20251227163506.2fb90815@jic23-huawei/>`__
-   mailing list for the latest status.
 
 **Driver Architecture:**
 

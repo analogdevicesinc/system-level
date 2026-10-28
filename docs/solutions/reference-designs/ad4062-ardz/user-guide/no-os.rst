@@ -3,32 +3,26 @@
 No-OS User Guide
 ================
 
-This user guide uses :external+no-OS:doc:`index` and supports the carriers
-NUCLEO-H503RB and NUCLEO-H563ZI. For linux, see :ref:`eval-ad4062-ardz linux`,
+This guide uses :external+no-OS:doc:`no-OS <index>` and supports the
+NUCLEO-H503RB and NUCLEO-H563ZI carriers. For Linux evaluation, see
+:ref:`eval-ad4062-ardz linux`.
 
-Building the firmware
----------------------
+Before you begin
+----------------
 
-**For no-OS**:
-
-Follow the :external+no-OS:doc:`no-OS build guide <build_guide>` to set up your
-development environment and build the firmware for the AD405X project.
-
-**For Linux**:
-
-Follow the :ref:`Kuiper Linux <kuiper>` documentation to prepare an SD card
-with the latest Kuiper image. The AD4062 Linux driver and devicetree are
-included in recent Kuiper releases.
+Install the required no-OS build tools by following the
+:external+no-OS:doc:`no-OS build guide <build_guide>`. Build the AD405X project
+for the selected carrier after completing the hardware setup below.
 
 Hardware setup
 --------------
 
-Before writing the no-OS firmware, set up the hardware with following steps:
+Before flashing the no-OS firmware, set up the hardware as follows:
 
 * Disconnect both the evaluation board and the carrier from all power sources.
-* Connect the evaluation board to the carrier using the Arduino Uno compatible
-  headers (there is only one position where all pins are connected).
-* Check jumpers and powering on instructions specific for the carrier.
+* Connect the evaluation board to the carrier through the Arduino Uno
+  compatible headers. There is only one orientation in which all pins mate.
+* Check the carrier-specific jumper and power instructions.
 * When powering the evaluation board from the carrier, follow:
 
   - Set JP2 jumper on the evaluation board to the +5V position.
@@ -63,17 +57,18 @@ Flashing the firmware
 These steps are done after the hardware setup, with the board powered on and
 connected to a PC.
 
-Build the no-OS firmware following the :external+no-OS:doc:`build guide <build_guide>`.
-The AD405X project supports multiple examples:
+Build the no-OS firmware according to the
+:external+no-OS:doc:`build guide <build_guide>`. The AD405X project provides
+these relevant examples:
 
 * **basic_i3c_example**: Interactive example for I3C devices that prints samples
   and waits for threshold events
 * **i3c_dma_example**: I3C example with DMA support
 * **iio_example**: TinyIIO server for use with libiio clients
 
-See :external+no-OS:doc:`projects/adc/ad405x` for detailed build and flash
-instructions. Flash the built *.elf* file to the STM32 board using STM32 Cube IDE
-or by copying to the USB mass storage device.
+See :external+no-OS:doc:`projects/adc/ad405x` for build and flash details.
+Flash the resulting ``.elf`` file to the STM32 board with STM32CubeIDE or, where
+supported by the carrier, by copying it to the USB mass-storage device.
 
 Quick start
 -----------
@@ -244,12 +239,12 @@ To capture a stream of samples to a buffer:
 
 This captures 1024 samples in buffers of 256 samples each.
 
-tinyIIO limitations
-~~~~~~~~~~~~~~~~~~~
+TinyIIO limitations
+~~~~~~~~~~~~~~~~~~~~
 
-Not all driver features are exposed through tinyIIO, in particular, threshold
-events are not available as IIO events like in the linux driver, still, an
-example that demos threshold events without tinyIIO is provided.
+TinyIIO does not expose every driver feature. In particular, threshold events
+are not available as IIO events as they are in the Linux driver. A separate
+no-OS example demonstrates threshold events without TinyIIO.
 
 References
 ----------
