@@ -26,8 +26,8 @@ Hardware
 Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- :adi:`ADI Kuiper Image for CN0540 <https://swdownloads.analog.com/cse/kuiper/cn0540.tar.gz>`
-- :adi:`IIO-Oscilloscope <iio-oscilloscope/releases>`
+- `ADI Kuiper Image for CN0540 <https://swdownloads.analog.com/cse/kuiper/cn0540.tar.gz>`_
+- :git-iio-oscilloscope:`IIO-Oscilloscope <releases+>`
 
 Setup
 -------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ writer, and insert the card directly into the microSD card slot on the DE10-Nano
 Download and Install IIO-Oscilloscope
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Download the latest :adi:`IIO-Oscilloscope release <iio-oscilloscope/releases>`
+Download the latest :git-iio-oscilloscope:`IIO-Oscilloscope release <releases+>`
 from Github, and install it on your PC. (You may need to right-click the
 installer, and run as "Elevated" in order to get it to install.)
 

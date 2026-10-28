@@ -199,7 +199,7 @@ MathWorks webinars
 -------------------------------------------------------------------------------
 
 #. :mw:`Modelling and Simulating Analog Devices' RF Transceivers with MATLAB and SimRF <videos/modelling-and-simulating-analog-devices-rf-transceivers-with-matlab-and-simrf-89934.html>`
-#. :mw:`Getting Started with Software-Defined Radio using MATLAB and Simulink <videos/getting-started-with-software-defined-radio-using-matlab-and-simulink-108646.html>`
+#. :mw:`Getting Started with Software-Defined Radio using MATLAB and Simulink <videos/software-defined-radio-using-matlab-and-simulink-1601496230597.html>`
 
 Warning
 -------------------------------------------------------------------------------

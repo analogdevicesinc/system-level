@@ -105,4 +105,4 @@ ZCU102 + EVAL-ADRV9026/ADRV9029
 Unboxing guide
 -------------------------------------------------------------------------------
 
-:ez:`Detailed unboxing guide <cfs-file/__key/communityserver-discussions-components-files/703/AD9371-and-ADRV9026-setup-with-ZCU102-or-ZC706-April2019.pdf>`
+:ez:`Detailed unboxing guide <cfs-file/__key/communityserver-discussions-components-files/703/5482.AD9371-and-ADRV9009-setup-with-ZCU102-or-ZC706-April2019.pdf>`

@@ -52,7 +52,7 @@ writer, and insert the card directly into the microSD card slot on the CoraZ7-07
 Download and Install IIO-Oscilloscope
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Download the latest :adi:`IIO-Oscilloscope release <iio-oscilloscope/releases>`
+Download the latest :git-iio-oscilloscope:`IIO-Oscilloscope release <releases+>`
 from GitHub, and install it on your PC (you may need to right-click the
 installer, and run as "Elevated" in order to get it to install).
 

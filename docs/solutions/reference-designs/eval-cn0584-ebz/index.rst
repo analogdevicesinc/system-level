@@ -628,7 +628,7 @@ Running the example
    Github link for the Python sample script:
    :git-pyadi-iio:`CN0585 Python Example <cn0585_v1:examples/cn0585_fmcz_example.py>`
 
-#. Download or git clone :git-pyadi-iio:`pyadi-iio repository <pyadi-iio>` to your local drive.
+#. Download or git clone :git-pyadi-iio:`pyadi-iio repository <>` to your local drive.
 
       - If direct downloading ZIP folder, make sure to download from cn0585_v1 branch.
       - If cloning the repository using `Git <https://git-scm.com/downloads>`__, type
@@ -716,7 +716,7 @@ MATLAB and Simulink
 
 .. admonition:: Download
 
-   Github link for the Matlab sample script: :git-repo:`CN0585StreamingTest.m </HighSpeedConverterToolbox/blob/cn0585_v1/test/CN0585StreamingTest.m>`
+   Github link for the Matlab sample script: :git-HighSpeedConverterToolbox:`CN0585StreamingTest.m <cn0585_v1:test/CN0585StreamingTest.m>`
 
 The steps described in the `matlab tranceiver-toolbox` section have to be
 followed to configure the Matlab/Simulink project using the
@@ -729,7 +729,7 @@ Remote data streaming to and from hardware is made available through system
 object interfaces, which are unique for each component or platform. The hardware
 interfacing system objects provide a class to both configure a given platform
 and move data back and forth from the device. To run the
-:git-repo:`CN0585StreamingTest.m </HighSpeedConverterToolbox/blob/cn0585_v1/test/CN0585StreamingTest.m>`
+:git-HighSpeedConverterToolbox:`CN0585StreamingTest.m <cn0585_v1:test/CN0585StreamingTest.m>`
 example, the following steps must be completed first.
 
 #. Ensure MATLAB package “Communications Toolbox Support Package for Analog
@@ -833,7 +833,7 @@ Reference Demos & Software
 --------------------------
 
 - :ref:`hsx-toolbox`
-- :git-repo:`pyadi-iio`
+- :git-pyadi-iio:`pyadi-iio <>`
 - :ref:`pyadi-iio`
 - :ref:`iio-oscilloscope`
 - :ref:`kuiper`

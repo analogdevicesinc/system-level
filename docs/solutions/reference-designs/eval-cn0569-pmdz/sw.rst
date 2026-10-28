@@ -7,8 +7,8 @@ The :adi:`EVAL-CN0569-PMDZ` is a PMOD form factor circuit board that allows
 evaluation of :adi:`ADPD1080` working in tandem with two :adi:`ADPD2140` to
 create a Infrared Light Gesture Sensor. This example uses the
 :adi:`EVAL-ADICUP3029` as a motherboard as well as
-:git-no-OS:`no-OS repository <no-OS>` software implementing
-an IIO server and :git-pyadi-iio:`pyadi-iio repository <pyadi-iio>`
+:git-no-OS:`no-OS repository <>` software implementing
+an IIO server and :git-pyadi-iio:`pyadi-iio repository <>`
 code that runs on a host computer and implements gesture sensing algorithm.
 
 General Description/Overview
@@ -45,9 +45,9 @@ The following is a list of items needed in order to replicate this demo.
 
 **Software**
 
-- :git-no-OS:`no-OS repository <no-OS>` and specifically the
+- :git-no-OS:`no-OS repository <>` and specifically the
   :git-no-OS:`example project <projects/iio_adpd1080>`
-- :git-pyadi-iio:`pyadi-iio repository <pyadi-iio>` and specifically the
+- :git-pyadi-iio:`pyadi-iio repository <>` and specifically the
   :git-pyadi-iio:`examples <examples/cn0569>`
 - CrossCore Embedded Studio (2.10.1 or higher)
 - ADuCM302x DFP (3.2.0 or higher)

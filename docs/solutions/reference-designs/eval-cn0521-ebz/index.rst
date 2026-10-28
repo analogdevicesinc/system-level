@@ -168,8 +168,7 @@ IIO Oscilloscope
 .. important::
 
    Make sure to download/update to the latest version of IIO Oscilloscope
-   found on this 
-   :git-repo:`link <https://github.com/analogdevicesinc/iio-oscilloscope/releases>`.
+   found on this :git-iio-oscilloscope:`link <releases+>`.
 
   - Once done with the installation or an update of the latest IIO
     Oscilloscope, open the application. The user needs to supply a URI,

@@ -125,8 +125,6 @@ USB and Power
 
 **Dimensions:** 66mm x 58.6mm x 67.9mm
 
-**Enclosure Drawing:** `Link <resources/eval-adtf3175d-nxz_drawing_v1.pdf>`_
-
 **Laser Safety:** Class 1
 
 .. toctree::

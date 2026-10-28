@@ -53,7 +53,7 @@ modes that can be used by designers to debug their designs during prototyping
 and optimize their radio configuration for a specific application.
 
 More information can be found in the AD9361 Reference Manual
-:ez:`UG 570 <cfs-file/__key/telligent-evolution-components-attachments/00-441-00-00-00-07-91-97/AD9361_5F00_Reference_5F00_Manual_5F00_UG_2D00_570.pdf>`.
+:adi:`UG 570 <media/en/technical-documentation/user-guides/AD9361_Reference_Manual_UG-570.pdf>`.
 
 Receive Chain
 -------------------------------------------------------------------------------

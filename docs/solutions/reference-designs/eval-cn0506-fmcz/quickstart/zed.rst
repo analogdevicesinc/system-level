@@ -4,7 +4,7 @@ CN0506 + ZedBoard Quickstart
 ===============================================================================
 
 This guide provides instructions on how to setup :adi:`CN0506` on the
-:xilinx:`ZedBoard` platform.
+`ZedBoard <https://digilent.com/shop/zedboard-zynq-7000-arm-fpga-soc-development-board/>`_ platform.
 
 .. image:: ../../images/zedboard-2.png
    :align: center
@@ -900,11 +900,11 @@ Registration
 
    Receive software update notifications, documentation updates, view the
    latest videos, and more when you register your hardware.
-   `Register <https://my.analog.com/en/app/registration/hardware/EVAL-CN0506-FMCZ?&v=RevB>`__
+   `Register <https://my.analog.com/en/app/registration/hardware/>`__
    to receive all these great benefits and more!
 
 Need Help?
 -------------------------------------------------------------------------------
 
-* :ez:`Analog Devices Circuit from the Lab Help Forum <circuits_from_the_lab>`
-* :ez:`Add a question! <circuits_from_the_lab/f/q-a/p/addpost>`
+* :ez:`Analog Devices Engineer Zone Forum <reference-designs>`
+* :ez:`Add a question! <reference-designs/f/q-a/p/addpost>`

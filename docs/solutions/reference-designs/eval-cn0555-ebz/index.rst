@@ -318,5 +318,5 @@ Registration
 
    Receive software update notifications and documentation updates, view
    the latest videos, and more when you register your hardware.
-   :adi:`Register </app/registration/hardware/EVAL-CN0555-EBZ?&v=Rev%20E>`
+   `Register <https://my.analog.com/en/app/registration/hardware/>`_
    to receive all these great benefits and more!

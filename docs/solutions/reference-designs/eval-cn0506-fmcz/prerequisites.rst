@@ -12,9 +12,9 @@ Hardware prerequisites
 #. The :adi:`EVAL-CN0506-FMCZ` FMC evaluation board
 #. An FPGA carrier platform. Our supported platforms are:
 
-   - :intel:`Arria 10 SoC`
+   - `Arria 10 SoC <https://www.altera.com/products/fpga/arria-10/sx-series>`_
    - :xilinx:`Zynq-7000 (ZC706, Zed Board)`
-   - :xilinx:`Zynq UltraScale+ (ZCU102)`
+   - :xilinx:`Zynq UltraScale+ (ZCU102) <products/silicon-devices/soc/zynq-ultrascale-mpsoc.html>`
 
 #. Some way to interact with the FPGA platform:
 
