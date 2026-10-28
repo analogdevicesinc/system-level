@@ -96,7 +96,7 @@ Example files
    receiver design. (this would include root raised cosine decimator,
    equalization, frequency compenstation, retiming, etc. and is best looked at
    by a MathWorks example
-   :mw:`here <help/comm/examples/hdl-optimized-qpsk-receiver-with-captured-data.html>`.
+   :mw:`here <help/wireless-hdl/ug/qpsk-transmitter-receiver.html>`.
    Since there is no default receiver in the default HDL design that ADI provides -
    looking at things with the osc application - you will not see good results.
    This is expected, and normal.

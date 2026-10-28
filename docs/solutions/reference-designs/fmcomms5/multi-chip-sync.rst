@@ -201,7 +201,7 @@ application, it's in
 :git-iio-oscilloscope:`AD9361 advanced plugin <plugins/fmcomms2_adv.c#L788>`.
 
 If you have questions about the code - please
-:ez:`ask <community/linux-device-drivers/linux-software-drivers>`.
+:ez:`ask </linux-software-drivers>`.
 
 When it's needed to go through a internal LO phase calibration sequence
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

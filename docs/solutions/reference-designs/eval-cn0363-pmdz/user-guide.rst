@@ -106,7 +106,7 @@ various digital communication protocols such as SPI, I2C, and UART.
 These interface types were standardized by Digilent, which is now a
 division of National Instruments. Complete details on the PMOD
 specification can be found at
-`Digilent Pmod Interface Specification <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+`Digilent Pmod Interface Specification <https://digilent.com/reference/_media/reference/pmod/pmod-interface-specification-1_3_1.pdf>`_.
 
 The specific interface used for the EVAL-CN0363-PMDZ boards is the
 extended SPI. In general ADI has adopted the extended SPI connector for
@@ -150,7 +150,7 @@ Software guide
 --------------------------------------------------------------------------------
 
 The primary program to interact with the EVAL-CN0363-PMDZ is the
-:doc:`ADI Colorimeter application <software/linux/colorimeter>`.
+:ref:`ADI Colorimeter application <eval-cn0363-pmdz-colorimeter>`.
 It can be used to gather, manage and compare processed sample data from
 the EVAL-CN0363-PMDZ.
 
@@ -163,5 +163,5 @@ intended to be used for debugging purposes.
 
 All applications run directly on the ZED board itself.
 
-- :doc:`ADI Colorimeter application <software/linux/colorimeter>`
+- :ref:`ADI Colorimeter application <eval-cn0363-pmdz-colorimeter>`
 - :ref:`IIO-Scope <iio-oscilloscope>`

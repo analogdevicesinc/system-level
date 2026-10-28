@@ -80,4 +80,4 @@ Other Support
 -------------
 
 If the issue persists, contact Analog Devices support via
-:ez:`EngineerZone <community/linux-device-drivers/linux-software-drivers>`.
+:ez:`EngineerZone <linux-software-drivers>`.

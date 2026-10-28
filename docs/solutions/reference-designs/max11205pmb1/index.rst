@@ -76,7 +76,7 @@ The PMOD interface is a series of standardized digital interfaces for various
 digital communication protocols such as SPI, I2C, and UART. These interface
 types were standardized by Digilent, which is now a division of National
 Instruments. Complete details on the PMOD specification can be found
-`here <https://www.digilentinc.com/Pmods/Digilent-Pmod_%20Interface_Specification.pdf>`_.
+`here <https://digilent.com/reference/_media/reference/pmod/pmod-interface-specification-1_3_1.pdf>`_.
 
 The specific interface used for the MAX11205PMB1 boards is SPI.
 

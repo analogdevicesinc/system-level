@@ -126,11 +126,11 @@ experiencing any problems while using the boards or following any of the user
 guides, feel free to ask on our support community :ez:`/`.
 
 For questions regarding the hardware or the HDL reference design, post in the
-:ez:`Motor Control Hardware Platforms <community/motor-control-hardware-platforms2>`
-or :ez:`FPGA Reference Designs <community/fpga>` sub-communities. For
+:ez:`Motor Control Hardware Platforms <motor-control-hardware-platforms2>`
+or :ez:`FPGA Reference Designs <fpga>` sub-communities. For
 questions regarding the Linux drivers for any of the components on the motor
 control boards, use the
-:ez:`Linux Software Drivers <community/linux-software-drivers>`
+:ez:`Linux Software Drivers <linux-software-drivers>`
 sub-community.
 
 When asking a question, please give a detailed description of your problem.

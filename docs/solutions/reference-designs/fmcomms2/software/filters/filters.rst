@@ -64,7 +64,7 @@ files can be found here:
 
 For more information about installing and running MATLAB apps, please
 refer to:
-:mw:`Install and run MATLAB apps <help/matlab/creating_guis/install-and-run-app.html>`.
+:mw:`Install and run MATLAB apps <help/matlab/matlab_env/get-add-ons.html>`.
 
 If using a checkout or unpacked archive, the application can be run
 in one of two ways:
@@ -399,9 +399,7 @@ best target delay which yields the minimum group delay variance.
 - Generate HDL: Following the previous step, if you decide to have
   the FIR filter implemented on FPGA, the design wizard can help you
   generate the HDL code. By clicking "Generate HDL", the 'fdhdltool'
-  function
-  (:mw:`fdhdltool <help/hdlfilter/fdhdltool.html>`)
-  is called and the Generate HDL dialog box will pop up, as shown in
+  function is called and the Generate HDL dialog box will pop up, as shown in
   the figure below. There are quite a few options you can choose
   concerning how you would like the HDL to be generated. In the end,
   by clicking "Generate", the HDL will be generated for you.

@@ -180,7 +180,7 @@ the desired phase shift, which will cause a fixed rotation around the origin (in
 a constellation, or I vs Q plot).
 
 We can use the `trigonometric sum/difference identities
-<http://www.sosmath.com/trig/Trig5/trig5/trig5.html>`_ to re-write that as:
+<https://en.wikipedia.org/wiki/List_of_trigonometric_identities#Angle_sum_and_difference_identities>`_ to re-write that as:
 
 :math:`I'(t) = \cos(\omega t) \times \cos(\psi) - \sin(\omega t) \times
 \sin(\psi)` and

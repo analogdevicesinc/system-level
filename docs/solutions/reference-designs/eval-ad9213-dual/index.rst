@@ -122,18 +122,17 @@ feel free to ask us a question. Questions can be asked on our
 
 For questions regarding the AD9213-DUAL-EBZ hardware or the HDL reference
 design, please use the
-:ez:`FPGA Reference Designs <community/fpga>` sub-community.
+:ez:`FPGA Reference Designs <fpga>` sub-community.
 For questions regarding the Linux drivers for any of the components on the
 AD9213-DUAL-EBZ, please use the
-:ez:`Linux Software Drivers
-<community/linux-device-drivers/linux-software-drivers>` sub-community.
+:ez:`Linux Software Drivers <linux-software-drivers>` sub-community.
 
 For questions regarding the
 :adi:`AD9213 <en/products/ad9213.html>` ADC, please use the
-:ez:`Data Converters <community/data_converters>` sub-community.
+:ez:`Data Converters <data_converters>` sub-community.
 For questions regarding the
 :adi:`ADF4377 <en/products/adf4377.html>` Clock, please use the
-:ez:`Clock and Timing <community/clock_and_timing>` sub-community.
+:ez:`Clock and Timing <clock_and_timing>` sub-community.
 
 When asking a question, please take the time to give a detailed description
 of your problem. Always include on which platform you are currently using

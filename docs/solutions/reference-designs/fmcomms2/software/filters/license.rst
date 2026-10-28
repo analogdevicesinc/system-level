@@ -5,7 +5,7 @@ AD9361 Filter Design license
 
 The license that the AD9361 Filter Wizard is released under is
 a BSD-like (which means not BSD) license. The version is included
-in the :git-mathworks_tools:`source <AD9361_Filter_Wizard>`, and
+in the :git-mathworks_tools:`source <>`, and
 is re-created here for ease of reading. If you don't/can't agree
 to this license, you should not use this software.
 

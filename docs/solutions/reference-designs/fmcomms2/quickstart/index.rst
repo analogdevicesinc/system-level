@@ -4,9 +4,9 @@ Quickstart
 ===============================================================================
 
 The Quick Start Guides provide a simple step by step instruction on how to do an
-initial system setup for the :adi:`EVAL-AD-FMCOMMS2` / :adi:`EVAL-AD-FMCOMMS3`
-/ :adi:`EVAL-AD-FMCOMMS4` boards on various FPGA development boards. They will
-discuss how to program the bitstream, run a no-OS program or boot a Linux
+initial system setup for the :adi:`EVAL-AD-FMCOMMS2` / :adi:`EVAL-AD-FMCOMMS3-EBZ`
+/ :adi:`EVAL-AD-FMCOMMS4-EBZ` boards on various FPGA development boards. They
+will discuss how to program the bitstream, run a no-OS program or boot a Linux
 distribution.
 
 .. toctree::

@@ -1100,21 +1100,21 @@ following configuration changes in :git-no-os:`projects/adrv9009`:
 
       #define FMCOMMS8_ZCU102
 
-#. In :git-no-os:`projects/adrv9009/Makefile`, enable IIO support
-   by changing ``IIOD`` from ``n`` to ``y``:
+#. IIO support is enabled by selecting the ``iio`` build variant.
+   :git-no-os:`projects/adrv9009/iio.conf` already sets
+   ``CONFIG_ADRV9009_IIO_EXAMPLE=y`` — pass ``--variant iio`` to
+   ``no_os_build.py`` instead of ``--variant demo``.
 
-   .. code-block:: makefile
+#. In :git-no-os:`projects/adrv9009/CMakeLists.txt`, switch to the
+   FMCOMMS8 wideband transceiver profile by replacing the default profile
+   name in both ``target_sources`` and ``target_include_directories``:
 
-      IIOD ?= y
+   .. code-block:: none
 
-#. In :git-no-os:`projects/adrv9009/Makefile`, switch to the
-   FMCOMMS8 transceiver profile by commenting out the default
-   profile and uncommenting the wideband profile:
-
-   .. code-block:: makefile
-
-      #PROFILE = tx_bw100_ir122p88_rx_bw100_or122p88_orx_bw100_or122p88_dc122p88
-      PROFILE = tx_bw200_ir245p76_rx_bw200_or245p76_orx_bw200_or245p76_dc245p76
+      # from:
+      profiles/tx_bw100_ir122p88_rx_bw100_or122p88_orx_bw100_or122p88_dc122p88
+      # to:
+      profiles/tx_bw200_ir245p76_rx_bw200_or245p76_orx_bw200_or245p76_dc245p76
 
 Required Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

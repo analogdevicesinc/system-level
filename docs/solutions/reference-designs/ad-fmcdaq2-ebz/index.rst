@@ -80,11 +80,11 @@ Table of contents
       get started
    #. :ref:`Quick Start Guides <ad_fmcdaq2_ebz quickstart>`:
 
-      #. :doc:`ZC706 <quickstart/zc706>`
-      #. :doc:`ZCU102 <quickstart/zcu102>`
-      #. :doc:`MICROBLAZE <quickstart/microblaze>`
-      #. :doc:`Arria 10 SoC <quickstart/a10soc>`
-      #. :doc:`A10GX (OBSOLETE) <quickstart/a10gx>`
+      #. :ref:`ZC706 <ad_fmcdaq2_ebz quickstart zc706>`
+      #. :ref:`ZCU102 <ad_fmcdaq2_ebz quickstart zcu102>`
+      #. :ref:`MICROBLAZE <ad_fmcdaq2_ebz quickstart microblaze>`
+      #. :ref:`Arria 10 SoC <ad_fmcdaq2_ebz quickstart a10soc>`
+      #. :ref:`A10GX (OBSOLETE) <ad_fmcdaq2_ebz quickstart a10gx>`
 
    #. Configure an SD card with :external+kuiper:doc:`Kuiper <index>`
 

@@ -45,7 +45,7 @@ models, the support package can be found here:
    :width: 600
 
 For more information about support package, please refer to
-:mw:`Support Package Installation <help/simulink/ug/start-support-package-installer.html>`.
+:mw:`Support Package Installation <help/matlab/matlab_env/get-add-ons.html>`.
 
 Comments and Feedback
 -------------------------------------------------------------------------------

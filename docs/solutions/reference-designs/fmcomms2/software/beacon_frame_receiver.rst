@@ -23,9 +23,8 @@ In this section, we will show an IEEE 802.11b beacon frame receiver example. In
 this example, FMCOMMS2 is used as RF front-end, which captures the WiFi signals
 over the air. These signals are then streamed from target to Simulink via the
 ``iio_sys_obj`` block. The Simulink model is shown in the figure below, where
-the Receiver and PLCP Display are from an existing Simulink example :mw:`IEEE
-802.11 WLAN - Beacon Frame Receiver with USRP Hardware
-<help/supportpkg/usrpradio/ug/ieee-802-11-tm-wlan-ofdm-beacon-receiver-with-usrp-r-hardware.html>`.
+the Receiver and PLCP Display are from an existing Simulink example
+:mw:`IEEE 802.11 WLAN - Beacon Frame Receiver with USRP Hardware <help/wlan/ug/802-11-ofdm-beacon-frame-generation.html>`.
 This Simulink model will decode the received WiFi signals, and display all the
 information from the beacon frame.
 
@@ -41,9 +40,8 @@ The model can be found here:
 - :git-MathWorks_tools:`IEEE 802.11 Beacon Frame Receiver Model
   <3.1:hil_models/ieee80211_beacon_rx>`
 
-Its initialization functions are based on the ones of :mw:`IEEE 802.11 WLAN -
-Beacon Frame Receiver with USRP Hardware
-<help/supportpkg/usrpradio/ug/ieee-802-11-tm-wlan-ofdm-beacon-receiver-with-usrp-r-hardware.html>`.
+Its initialization functions are based on the ones of 
+:mw:`IEEE 802.11 WLAN - Beacon Frame Receiver with USRP Hardware <help/wlan/ug/802-11-ofdm-beacon-frame-generation.html>`.
 
 .. figure:: ../images/beacon_frame_model.png
    :width: 600

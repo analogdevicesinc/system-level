@@ -10,7 +10,7 @@ Hardware prerequisites
 -------------------------------------------------------------------------------
 
 #. The AD9361/AD9364-based evaluation boards: :adi:`EVAL-AD-FMCOMMS2` /
-   :adi:`EVAL-AD-FMCOMMS3` / :adi:`EVAL-AD-FMCOMMS4`
+   :adi:`EVAL-AD-FMCOMMS3-EBZ` / :adi:`EVAL-AD-FMCOMMS4-EBZ`
 
    To determine which one is best for you, check out the
    :ref:`introduction <fmcomms2 common introduction>` section.

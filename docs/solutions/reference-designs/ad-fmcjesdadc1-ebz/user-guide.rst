@@ -111,11 +111,9 @@ Help & Support
      and :git-hdl:`projects <projects>`.
    - Questions? Ask on:
 
-     - :ez:`FPGA/HDL questions <community/fpga>` (or ask on
+     - :ez:`FPGA/HDL questions <fpga>` (or ask on
        `Xilinx Forums <http://forums.xilinx.com/>`_ /
        `Altera Forums <http://www.alteraforums.com/>`_)
-     - :ez:`Linux Software Driver questions
-       <community/linux-device-drivers/linux-software-drivers>`
-     - :ez:`No-OS Driver questions
-       <community/linux-device-drivers/microcontroller-no-os-drivers>`
-     - :ez:`AD9250 general questions <community/data_converters/high-speed_adcs>`
+     - :ez:`Linux Software Driver questions <linux-software-drivers>`
+     - :ez:`No-OS Driver questions <microcontroller-no-os-drivers>`
+     - :ez:`AD9250 general questions <data_converters/high-speed_adcs>`

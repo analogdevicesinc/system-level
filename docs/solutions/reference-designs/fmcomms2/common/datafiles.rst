@@ -517,5 +517,4 @@ Data
    `Minimum-shift keying <https://en.wikipedia.org/wiki/Minimum-shift_keying>`_
 
 .. [4]
-   :mw:`LTE PHY Downlink with Spatial Multiplexing
-   <help/comm/examples/lte-phy-downlink-with-spatial-multiplexing.html>`
+   :mw:`LTE PHY Downlink with Spatial Multiplexing <help/lte/index.html>`
