@@ -1,15 +1,21 @@
+.. imported from: https://wiki.analog.com/resources/fpga/xilinx/interposer/ad9783
+
 .. _eval-ad9783 quickstart zcu102:
 
 AD9783 Evaluation Board, DAC-FMC Interposer & Xilinx Reference Design
 =====================================================================
 
-The :adi:`AD9783 <en/products/ad9783.html>` includes pin-compatible, high dynamic range, dual digital-to-analog converters (DACs) with 16-bit resolution, and sample rate of up to 500 MSPS. The device includes specific features for direct conversion transmit applications, including gain and offset compensation, interfacing seamlessly with analog quadrature modulators.
+The :adi:`AD9783` includes pin-compatible, high dynamic range, dual
+digital-to-analog converters (DACs) with 16-bit resolution, and sample rate of
+up to 500 MSPS. The device includes specific features for direct conversion
+transmit applications, including gain and offset compensation, interfacing
+seamlessly with analog quadrature modulators.
 
 Supported Devices
 -----------------
 
--  :adi:`AD9783 Evaluation board <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-AD9783.html#eb-overview>`
--  :adi:`DAC FMC Interposer board <en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/AD-DAC-FMC.html>`
+-  :adi:`AD9783 Evaluation board <EVAL-AD9783>`
+-  :adi:`DAC FMC Interposer board <AD-DAC-FMC>`
 
 Supported Carriers
 ------------------
@@ -24,7 +30,13 @@ Block Diagram
 
 The reference design consists of a DDS module and a LVDS interface.
 
-|image1|
+.. _eval-ad9783 fig-zcu102-bd:
+
+.. figure:: ../images/ad9780-9781-9783-fbl.png
+   :align: center
+   :alt: AD9780/AD9781/AD9783 functional block diagram
+
+   AD9780/AD9781/AD9783 functional block diagram
 
 Description
 ~~~~~~~~~~~
@@ -42,7 +54,10 @@ correspondents in the AD-DAC-FMC-ADP schematic.
 
 Example:
 
-**AD9783-EBZ schematic**: D15P is connected to J17 plug header, at A3 **AD-DAC-FMC-ADP schematic**: J17 plug header pin A3 is called TXI_DATA_P15 and is connected to CLK1_M2C_P pin from P1 FMC header **ZCU102 schematic**: pin CLK1_M2C_P is pin T8 in FMC HP0 Thus we have this constraint:
+**AD9783-EBZ schematic**: D15P is connected to J17 plug header, at A3
+**AD-DAC-FMC-ADP schematic**: J17 plug header pin A3 is called TXI_DATA_P15 and
+is connected to CLK1_M2C_P pin from P1 FMC header **ZCU102 schematic**: pin
+CLK1_M2C_P is pin T8 in FMC HP0 Thus we have this constraint:
 
 ::
 
@@ -72,43 +87,67 @@ Required Software
 Setup
 ~~~~~
 
-.. image:: https://wiki.analog.com/_media/resources/fpga/xilinx/interposer/ad9783_zcu102_setup.jpg
+.. _eval-ad9783 fig-zcu102-setup:
+
+.. figure:: ../images/ad9783-zcu102-setup.jpg
    :align: center
    :width: 600
 
--  Hardware adjustments:
+   AD9783 evaluation board with the ZCU102
 
-   -  Desolder XJP1, 3, 4, 5 from AD9783-DPG-EBZ in order to use the SPI communication through the cable from step 3 and directly into the ZCU102's PMOD0
+#. Hardware adjustments:
+
+   -  Desolder XJP1, 3, 4, 5 from the AD9783-DPG-EBZ in order to use the SPI
+      communication through the cable from step 3 and directly into the ZCU102's
+      PMOD0
    -  Check that the desoldering was done properly and there is no current from
       one side to the other
 
--  Attach AD9783-DPG2-EBZ to ZCU102 FMC 0 connector using the AD-DAC-FMC-ADP adapter board
--  Connect a 5 wire cable from AD9783-EBZ's XP3 to ZCU102's PMOD0 (see pinout
-   from the photo below):
+#. Attach the AD9783-DPG2-EBZ to the ZCU102 FMC 0 connector using the
+   AD-DAC-FMC-ADP adapter board
+#. Connect a 5 wire cable from the AD9783-EBZ's XP3 to the ZCU102's PMOD0 (see
+   the pinout in :numref:`eval-ad9783 fig-zcu102-spi-pinout`):
 
-|resources-fpga-xilinx-interposer-ad9783_zcu102_spi_pinout.jpg|
+   .. _eval-ad9783 fig-zcu102-spi-pinout:
 
-   * Prepare the SD card:
-     * Prepare the **latest** Linux image from :doc:`SDCARD for Zynq & Altera SoC Quick Start Guide </wiki-migration/resources/tools-software/linux-software/kuiper-linux>` wiki page. Follow those steps and then continue from here.
-     * From **zynqmp-common** folder of the **boot** partition, copy the **Image** file into the root folder of the partition
-     * From **zynqmp-zcu102-rev10-ad9783** folder of the **boot** partition, copy the **system.dtb** and **BOOT.BIN** files into the root folder of the partition
-   * Insert the SD card into the ZCU102 SD card slot
-   * Connect clock source for the clock input at J1 on the evaluation board via a SMA cable, and DAC output at J5 (IOUT1P) or J9 (IOUT2P) via a SMA cable to a spectrum analyzer
-   * Connect the UART port on ZCU102 via USB Micro-B to PC
-   * Set the clock input to 500MHz, +3dBm
-   * Connect the evaluation board to a 5Vdc 1A power supply on P5 and P6
-   * Power on the evaluation board, clock generator and ZCU102
-   * Write the EEPROM found on the AD-DAC-FMC-ADP to set the **Vadj** to **1.8V**, using the tutorial :doc:`FRU EEPROM Utility </wiki-migration/resources/eval/user-guides/ad-fmcomms1-ebz/software/linux/applications/fru_dump>`. The file you will write on the EEPROM, can be found on the `fru_tools <https://github.com/analogdevicesinc/fru_tools>`_ repository: download the **AD9783-DPG2-EBZ.bin** file from //masterfiles// folder onto your SD card.
+   .. figure:: ../images/ad9783-zcu102-spi-pinout.jpg
+      :align: center
+      :width: 600
+
+      SPI pinout between XP3 and PMOD0
+
+#. Prepare the SD card:
+
+   -  Prepare the **latest** Linux image following the
+      :external+kuiper:doc:`index` guide, then continue from here
+   -  From the **zynqmp-common** folder of the **boot** partition, copy the
+      **Image** file into the root folder of the partition
+   -  From the **zynqmp-zcu102-rev10-ad9783** folder of the **boot** partition,
+      copy the **system.dtb** and **BOOT.BIN** files into the root folder of the
+      partition
+
+#. Insert the SD card into the ZCU102 SD card slot
+#. Connect the clock source for the clock input at J1 on the evaluation board
+   via an SMA cable, and the DAC output at J5 (IOUT1P) or J9 (IOUT2P) via an SMA
+   cable to a spectrum analyzer
+#. Connect the UART port on the ZCU102 via USB Micro-B to the PC
+#. Set the clock input to 500 MHz, +3 dBm
+#. Connect the evaluation board to a 5 Vdc 1 A power supply on P5 and P6
+#. Power on the evaluation board, clock generator and ZCU102
+#. Write the EEPROM found on the AD-DAC-FMC-ADP to set the **Vadj** to
+   **1.8 V**, using the :ref:`software fru-dump` tutorial. The file you will
+   write on the EEPROM can be found in the
+   `fru_tools <https://github.com/analogdevicesinc/fru_tools>`__ repository:
+   download the **AD9783-DPG2-EBZ.bin** file from the *masterfiles* folder onto
+   your SD card.
 
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
--  Check if the voltage supply test points of the evaluation board has the correct value
--  Check if all (3) blue LEDs on the AD-DAC-FMC-ADP board are lit up. Reconnect the board to the FMC connector of the carrier if not lit up
+-  Check if the voltage supply test points of the evaluation board have the
+   correct value
+-  Check if all (3) blue LEDs on the AD-DAC-FMC-ADP board are lit up. Reconnect
+   the board to the FMC connector of the carrier if not lit up
 -  Check if the carrier is being supplied properly
--  Check on the Spectrum Analyzer if the DAC clock inputs are properly driven.
+-  Check on the spectrum analyzer if the DAC clock inputs are properly driven.
    If not detected, check properly the clock source and connections.
-
-.. |image1| image:: https://wiki.analog.com/_media/resources/fpga/xilinx/interposer/ad9783_zcu102_bd.jpg
-
-.. |resources-fpga-xilinx-interposer-ad9783_zcu102_spi_pinout.jpg| image:: https://wiki.analog.com/_media/resources/fpga/xilinx/interposer/ad9783_zcu102_spi_pinout.jpg

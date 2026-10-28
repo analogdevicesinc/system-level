@@ -3,10 +3,10 @@
 Quick start
 ===============================================================================
 
-The quick start guide provides step-by-step instructions on how to do
-an initial system setup for the :adi:`EVAL-AD9783` evaluation board on the 
-supported FPGA carrier or controller boards. This guide covers how to
-prepare the SD card, program the bitstream, and boot Kuiper Linux.
+The quick start guide provides step-by-step instructions on how to do an initial
+system setup for the :adi:`EVAL-AD9783` evaluation board on the supported FPGA
+carrier or controller boards. This guide covers how to prepare the SD card,
+program the bitstream, and boot Kuiper Linux.
 
 .. toctree::
 
@@ -32,9 +32,8 @@ routed through an :adi:`AD-DAC-FMC` adapter board.
 Supported controller boards
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD9783` connect to the high speed controller borards via SPI and 
+The :adi:`EVAL-AD9783` connect to the high speed controller boards via SPI and
 GPIO signals, routed through an :adi:`AD-DAC-FMC` adapter board.
-
 
 Supported environments
 -------------------------------------------------------------------------------
@@ -50,7 +49,3 @@ Supported environments
      - Yes
      - Yes
      - ---
-   * - :adi:`SDP-H1`
-     - FMC LPC
-     - FMC LPC
-     - FMC LPC

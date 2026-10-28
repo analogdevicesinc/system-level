@@ -15,19 +15,22 @@ Overview
 The :adi:`EVAL-AD9783` evaluation board allows users to easily set up and test
 the 72-lead lead frame chip scale package (LFCSP_VQ) of the :adi:`AD9783` /
 :adi:`AD9781` / :adi:`AD9780` devices. Paying careful attention to layout and
-circuit design, combined with a prototyping area, allows the user to
-effectively evaluate the AD9783, AD9781, AD9780 in applications that require
-high resolution and high speed conversion.
+circuit design, combined with a prototyping area, allows the user to effectively
+evaluate the AD9783, AD9781, AD9780 in applications that require high resolution
+and high speed conversion.
 
 Features:
 
 - High dynamic range, dual DAC parts
 - Low noise and intermodulation distortion
 - Single carrier W-CDMA ACLR = 80 dBc @ 61.44 MHz IF
-- Innovative switching output stage permits usable outputs beyond Nyquist frequency
+- Innovative switching output stage permits usable outputs beyond Nyquist
+  frequency
 - LVDS inputs with dual-port or optional interleaved single-port operation
-- Differential analog current outputs are programmable from 8.6 mA to 31.7 mA full scale
-- Auxiliary 10-bit current DACs with source/sink capability for external offset nulling
+- Differential analog current outputs are programmable from 8.6 mA to 31.7 mA
+  full scale
+- Auxiliary 10-bit current DACs with source/sink capability for external offset
+  nulling
 
 Applications:
 
@@ -54,19 +57,18 @@ Applications:
 Recommendations
 -------------------------------------------------------------------------------
 
-People who follow the flow that is outlined have a much better experience
-with things. However, like many things, documentation is never as complete
-as it should be. If you have any questions, feel free to ask on our
-:ez:`/`, but before that, please make sure you read our documentation
-thoroughly.
+People who follow the flow that is outlined have a much better experience with
+things. However, like many things, documentation is never as complete as it
+should be. If you have any questions, feel free to ask on our :ez:`/`, but
+before that, please make sure you read our documentation thoroughly.
 
 Table of contents
 -------------------------------------------------------------------------------
 
 #. Using the evaluation board/full stack reference design that we offer:
 
-   #. :ref:`Prerequisites <eval-ad9783 prerequisites>` - what you
-      need to get started
+   #. :ref:`Prerequisites <eval-ad9783 prerequisites>` - what you need to get
+      started
    #. :ref:`Quick start guides <eval-ad9783 quickstart>`:
 
       #. Using the :ref:`ZCU102 <eval-ad9783 quickstart zcu102>`
@@ -90,10 +92,10 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+linux:ref:`AXI-DMAC DMA Controller Linux driver <axi-dmac>`
+           - :external+linux:ref:`axi-dac-dds-hdl`
 
-     #. :external+hdl:ref:`HDL reference design <ad9783_ebz>` which you
-        must use in your FPGA.
+     #. :external+hdl:ref:`HDL reference design <ad9783_ebz>` which you must use
+        in your FPGA.
 
 #. :ref:`Help and Support <help-and-support>`
 
@@ -103,14 +105,14 @@ Block diagram
 -------------------------------------------------------------------------------
 
 The :external+hdl:ref:`AD9783_EBZ` on the ZCU102 uses the
-:external+hdl:ref:`AXI AD9783 <axi_ad9783>` IP core to interface the
-DAC via a parallel bus. The AXI-DMAC streams sample data from DDR memory
-to the IP core, which drives the AD9783 at up to 500 MSPS.
+:external+hdl:ref:`AXI AD9783 <axi_ad9783>` IP core to interface the DAC via a
+parallel bus. The AXI-DMAC streams sample data from DDR memory to the IP core,
+which drives the AD9783 at up to 500 MSPS.
 
-.. figure:: ./images/ad9783-block_diagram.jpeg
-   :alt: AD9783 block diagram
+.. figure:: ./images/ad9780-9781-9783-fbl.png
+   :alt: AD9780/AD9781/AD9783 functional block diagram
 
-   AD9783 block diagram.
+   AD9780/AD9781/AD9783 functional block diagram.
 
 ADI articles
 -------------------------------------------------------------------------------
