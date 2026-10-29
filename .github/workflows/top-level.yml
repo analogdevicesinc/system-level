@@ -14,14 +14,14 @@ jobs:
     - uses: analogdevicesinc/doctools/checkout@action
     - name: Install pip packages
       run: |
-        python3 -m venv venv
-        source ./venv/bin/activate
+        python3 -m venv ../venv
+        source ../venv/bin/activate
         python3 -m ensurepip
         pip3 install -r docs/requirements.txt --upgrade
 
     - name: Build doc
       run: |
-        source ./venv/bin/activate
+        source ../venv/bin/activate
         source .github/scripts/sphinx-build.sh
 
         export GIT_LFS_TO_LINKS="true"
