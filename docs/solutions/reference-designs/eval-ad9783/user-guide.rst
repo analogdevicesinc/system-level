@@ -92,17 +92,20 @@ be set to **1.8 V** by writing its EEPROM, see
 Schematic, PCB layout, bill of materials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Design files (schematics, PCB layout, and BOM) are available for the
-AD9783-DPG2-EBZ RevB and the AD9783-DUAL-EBZ RevB.
+The design files (schematics, PCB layout, and BOM) for the AD9783-DPG2-EBZ RevB
+and the AD9783-DUAL-EBZ RevB can be downloaded as an
+:adi:`archive <media/en/technical-documentation/evaluation-documentation/eval-ad9783-design-files.zip>`
+from the :adi:`EVAL-AD9783` evaluation board page. It contains:
 
-.. TODO: link these files once they are uploaded to analog.com.
+-  Schematics: AD9783-DPG2-EBZ RevB, AD9783-DUAL-EBZ RevB
+-  Bill of Materials: AD9783-DPG2-EBZ RevB, AD9783-DUAL-EBZ RevB
+-  PCB Gerber files: AD9783-DPG2-EBZ RevB
+-  PCB BRD file: AD9783-DPG2-EBZ RevB, AD9783-DUAL-EBZ RevB
+-  PCB Layout PDF: AD9783-DPG2-EBZ RevB
 
-   -  Quick Start Guide for DPG2/DPG3 users
-   -  Schematics: AD9783-DPG2-EBZ RevB, AD9783-DUAL-EBZ RevB
-   -  Bill of Materials: AD9783-DPG2-EBZ RevB, AD9783-DUAL-EBZ RevB
-   -  PCB Gerber files: AD9783-DPG2-EBZ RevB
-   -  PCB BRD file: AD9783-DPG2-EBZ RevB, AD9783-DUAL-EBZ RevB
-   -  PCB Layout PDF: AD9783-DPG2-EBZ RevB
+The quick start guide for users of the DPG2 and DPG3 controller boards is
+available as a
+:adi:`PDF <media/en/technical-documentation/evaluation-documentation/eval-ad9783-81-80-evaluation-board-quick-start-guide.pdf>`.
 
 Software guide
 -------------------------------------------------------------------------------
