@@ -1,33 +1,58 @@
-.. _eval_ade120x eval:
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/ade120x
 
-EVAL ADE120X
-=========================================================================
+.. _eval-ade120x:
 
-.. TODO: Add a picture of the chip/board
+EVAL-ADE120x
+===============================================================================
+
+Evaluating the ADE1201/ADE1202 configurable, isolated binary input monitors.
+
+.. figure:: eval-ade1202.png
+   :align: center
+   :width: 400
+
+   EVAL-ADE1202EBZ
 
 Overview
 -------------------------------------------------------------------------------
 
-.. TODO: Describe in max 10 rows the main features and applications.
+The ADE120x is an isolated binary input monitor. It performs an isolated
+measurement of a binary input voltage and communicates the status of this input
+to low voltage processors or logic circuits. The ADE120x application circuit
+can accept a wide range of binary input voltages from 10 V to 300 V scaled
+using a resistor divider before applying the voltage to the pins.
+
+This content applies to both :adi:`ADE1201` and :adi:`ADE1202`.
 
 Features:
 
-- feature 1
-- feature 2
+- Configurable, isolated digital input (single channel on the ADE1201, dual
+  channel on the ADE1202)
+- Programmable trip threshold and on-chip debounce filter
+- On-chip data and power isolation
+- Programmable wetting current
+- ADC samples available for system diagnostics
 
 Applications:
 
-- application 1
-- application 2
+- Energy transmission and distribution
+- Multifunction relay protection
+- Substation battery monitoring
+- Circuit breaker status indication
+
+User guides
+-------------------------------------------------------------------------------
 
 .. toctree::
-   :hidden:
+   :caption: The user guides are provided at:
 
-   hardware/eval-ade1202
-   help_and_support
    tools
-   tools/labview_setup_guide
-   tools/software_drivers
+   hardware/eval-ade1202
+
+The evaluation hardware also requires one of the following controller boards:
+
+- :adi:`EVAL-SDP-CB1Z <SDP-B>`, used by the LabVIEW GUI.
+- :adi:`EVAL-SDP-CK1Z <SDP-K1>`, used by the MBED software drivers.
 
 Recommendations
 -------------------------------------------------------------------------------
@@ -46,4 +71,8 @@ Warning
 Help and support
 -------------------------------------------------------------------------------
 
-Please go to :ref:`Help and Support <help-and-support>` page.
+.. toctree::
+
+   help_and_support
+
+For other questions, see the :ref:`help-and-support` page.
