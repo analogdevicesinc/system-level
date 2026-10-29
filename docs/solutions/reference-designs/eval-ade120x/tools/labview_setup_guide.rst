@@ -1,18 +1,27 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/eval-ade120x/tools/labview_setup_guide
+
 How to setup and use the LabVIEW GUI Tool
 =========================================
 
-To download the latest LabVIEW GUI installer click on
-`this link <https://wiki.analog.com/_media/ftp/ftp.analog.com/pub/microconverter/ade120x/eval-ade1201ebz%20evaluation%20software%20installer.zip>`_
+The latest LabVIEW GUI installer (*EVAL-ADE1201EBZ evaluation software
+installer*) is available from the
+:adi:`EVAL-ADE1202 product page <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/eval-ade1202.html>`.
 
 The LabVIEW GUI is designed to work with the EVAL-ADE1202EBZ evaluation board.
 It provides an interface to allow the user to access all the functionality of
-the ADE1202.
+the :adi:`ADE1202`.
 
-Note, the EVAL-SDP-B is required also and needs to be purchased separately
+.. note::
 
-Refer to UG-1679 for detailed instructions on how to download and use the GUI
-tool
+   The :adi:`EVAL-SDP-CB1Z <SDP-B>` is also required and needs to be purchased
+   separately.
 
-.. image:: ../images/labview.png
+Refer to
+:adi:`UG-1679 <media/en/technical-documentation/user-guides/eval-ade1202ebz-ug-1679.pdf>`
+for detailed instructions on how to download and use the GUI tool.
+
+.. figure:: labview.png
    :align: center
    :width: 400
+
+   ADE1202 LabVIEW GUI
