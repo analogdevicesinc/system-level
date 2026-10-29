@@ -11,8 +11,8 @@
      - .
      - solutions/reference-designs/ad-swiot1l-sl/index
 
-Applied Systems Control Workshop
-================================
+Applied Systems Control
+=======================
 
 .. workshop-guide-start
 
@@ -317,6 +317,8 @@ Your workshop kit should contain the following items:
 | 1 x USB 2.0 cable
 | 1 x cable connector for external 24V power supply
 | 1 x cable connector for channels connectivity
+| 1 x connector with an LED (OSTAMCA131A) and a potentiometer (labeled 1)
+| 1 x connector with a fan (MC002103) (labeled 2)
 | 1 x Raspberry Pi 5
 | 1 x Raspberry Pi 5 Type-C power supply
 
@@ -381,9 +383,11 @@ Linux Ubuntu or Debian).
 
    From now on, all steps will be done on your Raspberry Pi 5.
 
-#. Run the following commands, needed for the Visual Studio Code installation,
-   if you wish to use it for editing the code. If you prefer to use another editor,
-   such as Thonny, Nano, or Vim, you can skip this step:
+#. Run the following commands, needed for the Visual Studio Code installation.
+   This step is optional, but Visual Studio Code is the recommended editor, as
+   the exercises assume it. If you prefer to use another editor, such as Thonny
+   (normally already installed with the package), Nano, or Vim, you can skip
+   this step:
 
    .. code-block:: bash
 
@@ -414,15 +418,87 @@ Linux Ubuntu or Debian).
 
       sudo apt install ./datax-workshops-applied-systems-control.deb
 
-#. Run the setup script to configure the environment:
+#. Run the setup script:
 
    .. code-block:: bash
 
       datax-workshops-applied-systems-control-setup
 
-#. Reboot the Raspberry Pi so the new USB/serial group membership takes effect.
+Continue with the *Network Setup* steps below to configure the connection to
+the board.
 
 .. workshop-guide-start
+
+Network Setup
+"""""""""""""
+
+This guide assumes a Raspberry Pi 5 running Kuiper with the workshop package
+already installed. The only extra steps needed are creating the network
+connection to the board by hand and rebooting.
+
+#. Check the name of the T1L adapter interface:
+
+   .. code-block:: bash
+
+      nmcli device
+
+   The adapter should show up as ``eth1``, with the type ``ethernet``.
+
+#. Create the connection and bring it up by copying the following commands
+   into a terminal:
+
+   .. code-block:: bash
+
+      sudo nmcli connection add type ethernet con-name T1L ifname eth1 \
+          ipv4.method manual ipv4.addresses 192.168.97.30/24 ipv4.gateway 192.168.97.1 \
+          ipv4.never-default yes ipv6.method disabled
+      sudo nmcli connection up T1L
+
+#. Reboot the Raspberry Pi so the network settings apply. The connection
+   autoconnects at boot.
+
+Here is what each part of the creation command does:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 35 65
+
+   * - Option
+     - Meaning
+   * - ``connection add``
+     - Create a saved NetworkManager connection.
+   * - ``type ethernet``
+     - The connection is wired.
+   * - ``con-name T1L``
+     - The name of the connection, used later to bring it up or delete it.
+   * - ``ifname eth1``
+     - Bind the connection to the T1L adapter only.
+   * - ``ipv4.method manual``
+     - Use a fixed address, with no DHCP.
+   * - ``ipv4.addresses 192.168.97.30/24``
+     - The address of the Raspberry Pi. The board (AD-SWIOT1L-SL) uses
+       ``192.168.97.40``, and the ``/24`` puts both on the same network.
+   * - ``ipv4.gateway 192.168.97.1`` and ``ipv4.never-default yes``
+     - The profile requires a gateway, but this connection never becomes the
+       default route.
+   * - ``ipv6.method disabled``
+     - No IPv6 on this link.
+
+``sudo`` is needed because creating and activating system-wide network
+connections requires administrator privileges.
+
+.. admonition:: Note
+
+   The connection is bound to the ``eth1`` interface only and never becomes the
+   default route, so it does not affect the regular network connection of the
+   Raspberry Pi.
+
+.. admonition:: Note
+
+   If a **T1L** connection already exists, ``connection add`` creates a
+   duplicate. Run ``sudo nmcli connection delete T1L`` and repeat from step 2.
+   If the adapter is not ``eth1``, use the name shown by ``nmcli device`` in
+   the ``ifname`` option.
 
 Testing the Board Connectivity
 """"""""""""""""""""""""""""""
@@ -430,8 +506,9 @@ Testing the Board Connectivity
 #. Open a terminal and run the command: ``ping 192.168.97.40``. This will
    rule out the host (RPi 5) network configuration issues.
 
-#. If the ping command is not successful, run ``sudo ip route add
-   192.168.97.40 dev eth0`` to add a route to the board's IP address.
+#. If the ping command is not successful, go back to the *Network Setup*
+   steps. Check the adapter with ``nmcli device`` and the connection with
+   ``nmcli connection show``, then delete and recreate the connection.
 
 .. image:: images/ping.png
    :alt: Ping command output
@@ -445,81 +522,127 @@ Open a terminal and navigate to the workshop examples directory:
 
 .. code-block:: bash
 
-   cd ~/Desktop/datax-workshops/applied-systems-control
+   cd ~/Desktop/datax-workshops/applied-systems-control/pyadi-iio/examples/workshop
 
 .. image:: images/code1.jpg
    :alt: Channel configuration code
    :width: 600
    :align: center
 
-.. figure:: images/system.jpg
-   :alt: System setup
+.. figure:: images/connectors.png
+   :alt: AD-SWIOT1L-SL connectors used in the exercises: potentiometer, LED and fan
    :width: 600
    :align: center
 
-   System setup
+   Connectors used in the exercises
 
+The exercises use two different connectors of the system:
+
+- **Exercises 1 and 2:** the **Potentiometer** and **LED** connector (labeled **1**).
+- **Exercise 3 (PID control):** the **Fan** connector (labeled **2**).
 
 .. admonition:: Note
 
    You may choose to edit and run exercises using different methods and IDEs.
 
-   **Using Visual Studio Code:** open the exercises in the IDE by running:
+   **Using Visual Studio Code (recommended):** open the exercises folder in the
+   IDE by running:
 
    .. code-block:: bash
 
-      ./open-vscode
+      cd ~/Desktop/datax-workshops/applied-systems-control/pyadi-iio/examples/workshop
+      code .
 
-   A Visual Studio Code instance will pop up, with all the exercises found in the
-   ``~/Desktop/datax-workshops/applied-systems-control`` directory displayed in
-   the Explorer view. You can open any exercise file and edit it as needed.
+   ``code .`` is the standard Linux way of opening a folder in Visual Studio
+   Code, so it works the same on any distribution. A Visual Studio Code
+   instance will pop up, with all the exercises found in the folder displayed
+   in the Explorer view. You can open any exercise file and edit it as needed.
 
-   To run the code, use the terminal inside VS Code:
+   To run the code, use the integrated terminal inside VS Code:
 
    .. code-block:: bash
 
       python3 <exercise_name>.py
 
-   **Using Thonny:** open the exercises in the IDE by running:
+   **Using Thonny:** Thonny opens files, not folders, and has no equivalent of
+   ``code .``. Open the exercise you want to work on by running:
 
    .. code-block:: bash
 
-      ./open-thonny
+      cd ~/Desktop/datax-workshops/applied-systems-control/pyadi-iio/examples/workshop
+      thonny exercise_1.py &
 
-   A Thonny instance will pop up, with all the exercises found in the
-   ``~/Desktop/datax-workshops/applied-systems-control`` directory
-   displayed in tabs found above the editor. You can open any exercise
-   file and edit it as needed.
+   A Thonny instance will pop up with the file open in the editor. You can
+   open other exercise files from the same folder and edit them as needed.
 
    To run the code, click the green **Run** button while having the desired exercise file open.
 
-Exercise 1: Power the RGB LED red, green and blue
-"""""""""""""""""""""""""""""""""""""""""""""""""
+Exercise 1: Machine status light
+""""""""""""""""""""""""""""""""
+
+Factory machines have a light on top that tells the operator what is going on
+without walking up to the machine: green means running, yellow is a warning,
+red is a fault and blue means waiting for the operator. The RGB LED on the
+board is the status light of your machine.
 
 - Use the connector labeled **1** (with the RGB LED) and plug it into the board.
-- Open file **exercise_2.py**.
-- Write a for loop to power the LED red, green, and blue in sequence.
+- Open file **exercise_1.py**.
+- Step 1 (red, machine fault) is already done, so you can see how it works.
+  Complete the remaining steps using ``set_light(red, green, blue)`` to turn
+  each color ON or OFF:
+
+  #. Green light, the machine is running.
+  #. Blue light, the machine is waiting for the operator.
+  #. Yellow light, warning. The LED has no yellow, so you will have to figure it out.
+  #. Start-up sequence: blue for 3 seconds, then green for 3, yellow for 2 and
+     red for 2.
+
 - Run your code and observe the colors change.
+- Bonus: write a ``for`` loop that flashes the red light 5 times (half a
+  second on, half a second off), like a real alarm.
 
 .. hint::
-
-   The DAC channel raw values range from 0 to 8191 (``AD74413R_DAC_MAX_CODE - 1``).
-   The 13-bit DAC resolution of the AD74413R gives 2\ :sup:`13` = 8192 possible
-   values (0 to 8191). Using 8192 directly causes an overflow, so use
-   ``AD74413R_DAC_MAX_CODE - 1`` for the maximum value.
 
    You can use ``time.sleep()`` to add a delay between color changes. Not sure
    whether it takes seconds or milliseconds? Check the
    `official Python documentation <https://docs.python.org/3/library/time.html#time.sleep>`_
    to find out!
 
-Exercise 2: Adjust the brightness of an LED using a potentiometer
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+   The script turns the light off by itself when it stops, the way a real
+   machine goes to a safe state.
+
+Exercise 2: The control panel knob
+""""""""""""""""""""""""""""""""""
+
+Control panels are full of knobs, and inside most of them there is a
+potentiometer, a resistor that changes its value when you turn it. The board
+has one too. You will read it and use it to control the status light from
+Exercise 1.
 
 - Use the connector labeled **1** (with a potentiometer and LED) and plug it into the board.
-- Open file **exercise_3.py**.
-- Assign the value of the potentiometer to the ADC channel.
-- Run your code. The LED brightness should change as you adjust the potentiometer.
+- Open file **exercise_2.py**.
+- The code runs inside a ``while True`` loop, so it keeps going until you
+  press Ctrl+C (some red error text when you stop it is normal). Complete the
+  steps inside the loop:
+
+  #. Run the script and turn the knob slowly from one end to the other. Write
+     down the smallest and the biggest value you see.
+  #. Turn the resistance into a percentage: 0% all the way left, 100% all the
+     way right.
+  #. Dim the red light with the knob, using ``set_light(red, green, blue)``
+     with values from 0 to 100.
+  #. Tank level alarm: pretend the knob measures how full a tank is. Show
+     green below 70%, yellow from 70% to 90% and red above 90%.
+  #. Calibration: check that your percentage really is 0 and 100 at the two
+     ends. If not, change ``KNOB_MAX`` to the biggest value you wrote down in
+     step 1.
+
+- Bonus: make the light go slowly from green to red as you turn the knob.
+
+.. hint::
+
+   To get the percentage, use ``percent = resistance / KNOB_MAX * 100``. For
+   the tank level alarm you will need ``if``, ``elif`` and ``else``.
 
 Exercise 3: PID control loop of temperature using a PWM-controlled fan
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -533,22 +656,34 @@ Exercise 3: PID control loop of temperature using a PWM-controlled fan
    is not blowing air onto the sensor, the temperature will keep rising and
    the fan will just spin faster without the control loop having any effect.
 
-- Run the **pid_control.py** script and see how the PWM signal and speed adjust
-  based on temperature.
-- Make the ``pwm_output`` variable an input from the user and see how the
-  duty cycle affects fan speed.
+- Open file **exercise_3.py**. It is a complete fan controller, so this time
+  you do not write code: you change the numbers, run it and look at the plots.
+  The script shows the temperature, the fan speed and the PWM signal live. Stop
+  it with Ctrl+C or by closing the plot window, and the fan turns off by itself.
+- Before every run, write down what you think will happen, then run it and check
+  if you were right. Change one thing at a time and put it back when you are
+  done with a step.
 
-.. hint::
+#. **Read the PWM signal:** run the script as it is and put your finger on the
+   temperature sensor. The terminal prints the PWM duty cycle. Look at the
+   bottom plot: for how much of every cycle is the signal on? Does it match the
+   number in the terminal? What does the plot look like at 0% and 100%?
+#. **Switching frequency:** change ``PWM_FREQUENCY`` to 1, 5, 20 and 50 Hz. At
+   which frequency can you hear the fan speed up and slow down? At 50 Hz, do the
+   short pulses still look right? Every on/off switch is a message over the
+   network, so the board cannot switch as fast as we want.
+#. **Setpoint:** look at the current temperature of the board. Set ``setpoint``
+   to 5 degrees under it and run it, then 5 degrees above it. What does the fan
+   do? Can the controller reach the setpoint? Why not?
+#. **Tuning, one letter at a time:** do the same test every time (finger on the
+   sensor for 30 seconds, then let go and wait 30 seconds).
 
-   Look for the following lines in the code:
-
-   .. code-block:: python
-
-      # Get the PID-adjusted PWM duty cycle based on the temperature
-      pwm_output = pid_control(current_temperature)
-
-   Replace the ``pid_control()`` call with Python's ``input()`` function to
-   get the duty cycle value from the user instead.
+   #. Only P: set ``Ki = 0`` and ``Kd = 0``, try ``Kp`` = 1.5, 10 and 30. Does
+      the temperature get back down to the setpoint?
+   #. Add I: keep your best ``Kp``, try ``Ki`` = 0.2, 1 and 5. Is the difference
+      to the setpoint gone? Does it go past the setpoint now?
+   #. Add D: try ``Kd`` = 1, 20 and 50. Is there less overshoot? What does the
+      fan speed plot look like when ``Kd`` is big?
 
 .. workshop-guide-end
 
