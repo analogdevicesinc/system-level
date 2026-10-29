@@ -1,0 +1,6 @@
+Component             , Role                                          , Quantity, Notes
+AD-SYNCHRONA14-EBZ    , The main clock source for the AD-JUPITER-EBZs.,        1, Sources the reference clock and the Multi-chip Synchronization signals.
+AD-JUPITER-EBZ        , The platform for the Holoscan implementation. ,        2, Samples the incoming signals and performs the digital signal processing.
+ADRV9009-ZU11EG RF-SOM, The platform for the Matlab implementation.   ,        1, Samples the incoming signals and performs the digital signal processing.
+ADRV2CRR-FMC          , The carrier board for the RF-SOM.             ,        1, Provides the necessary interfaces and power for the ADRV9009-ZU11EG RF-SOM.
+ADALM-PLUTO           , The transmitter platform.                     ,        1, Generates the transmitted RF signal.
