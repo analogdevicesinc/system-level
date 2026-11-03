@@ -32,35 +32,35 @@ Supported Carriers
      - :adi:`EVAL-ADICUP3029`
      - Pmod connector
      - SPI
-   * - :adi:`EVAL-AD7124-4SDZ`
+   * - :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>`
      - :adi:`SDP-B`
      - 120-pin SDP connector
      - SPI
-   * - :adi:`EVAL-AD7124-4SDZ`
+   * - :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>`
      - `Nucleo-L476RG <https://www.st.com/en/evaluation-tools/nucleo-l476rg.html>`_
      - :adi:`SDP Breakout Board <SDP-BREAKOUT-BOARD>`
      - SPI
-   * - :adi:`EVAL-AD7124-8SDZ`
+   * - :adi:`EVAL-AD7124-8SDZ <EVAL-AD7124-8>`
      - :adi:`SDP-B`
      - 120-pin SDP connector
      - SPI
-   * - :adi:`EVAL-AD7124-8SDZ`
+   * - :adi:`EVAL-AD7124-8SDZ <EVAL-AD7124-8>`
      - `Nucleo-L476RG <https://www.st.com/en/evaluation-tools/nucleo-l476rg.html>`_
      - :adi:`SDP Breakout Board <SDP-BREAKOUT-BOARD>`
      - SPI
-   * - :adi:`EVAL-AD7124-4ASDZ`
+   * - :adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>`
      - :adi:`SDP-B`
      - 120-pin SDP connector
      - SPI
-   * - :adi:`EVAL-AD7124-4ASDZ`
+   * - :adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>`
      - :adi:`EVAL-SDP-CK1Z <SDP-K1>`
      - Arduino connectors
      - SPI
-   * - :adi:`EVAL-AD7124-8ASDZ`
+   * - :adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>`
      - :adi:`SDP-B`
      - 120-pin SDP connector
      - SPI
-   * - :adi:`EVAL-AD7124-8ASDZ`
+   * - :adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>`
      - :adi:`EVAL-SDP-CK1Z <SDP-K1>`
      - Arduino connectors
      - SPI

@@ -48,7 +48,7 @@ Supported Carriers
 -------------------------------------------------------------------------------
 
 - :xilinx:`ZC706` (FMC via SDP-I-FMC)
-- :xilinx:`ZedBoard` (FMC via SDP-I-FMC)
+- `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__ (FMC via SDP-I-FMC)
 - `SDP-K1 <https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/SDP-K1.html>`_
   (fly-wire, No-OS)
 

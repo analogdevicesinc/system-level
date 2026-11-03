@@ -9,7 +9,7 @@ start out with:
 Hardware prerequisites
 -------------------------------------------------------------------------------
 
-#. The ADAQ7980 evaluation board: :adi:`EVAL-ADAQ7980-SDZ`
+#. The ADAQ7980 evaluation board: :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>`
 #. FMC Interposer Board: `EVAL-SDP-CK1Z <https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/EVAL-SDP-CK1Z.html>`_ (FMC-I-SDP)
 
    - Required to connect the SDP-format EVAL-ADAQ7980-SDZ to the Zedboard's FMC connector

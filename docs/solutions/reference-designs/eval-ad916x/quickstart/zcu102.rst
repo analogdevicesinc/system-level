@@ -64,7 +64,7 @@ Required Software
 - SD Card 16GB imaged with :external+kuiper:doc:`Kuiper <index>`
 - A UART terminal (Putty/Tera Term/Minicom, etc.) with baud rate 115200
   (8N1)
-- :git-iio-oscilloscope:`IIO Oscilloscope <releases>` (for remote operation)
+- :git-iio-oscilloscope:`IIO Oscilloscope <releases+>` (for remote operation)
 
 Required Hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -998,7 +998,7 @@ evaluation boards from within a Linux system.
 
 .. important::
    Make sure to download/update to the latest version of
-   :git-iio-oscilloscope:`IIO Oscilloscope <releases>`.
+   :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`.
 
 #. Once done with the installation or an update of the latest IIO Oscilloscope,
    open the application. The user needs to supply a URI which will be used in the

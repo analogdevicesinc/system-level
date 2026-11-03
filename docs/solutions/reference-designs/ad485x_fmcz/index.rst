@@ -39,7 +39,7 @@ Features:
 - On-board reference circuit and power supplies
 - Standalone capability through FMC connector and/or test points
 - PC software for control and data analysis of the time and frequency domain
-- :xilinx:`ZedBoard`-compatible
+- `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__-compatible
 - Compatible with other FMC controller boards
 
 Applications:
@@ -113,8 +113,8 @@ Table of Contents
 
       #. Linux software
 
-         #. :git-linux:`AD485x Linux driver source code <drivers/iio/adc/ad4858.c>`
-         #. :git-linux:`EVAL-AD4858FMCZ Linux device tree <arch/arm/boot/dts/xilinx/zynq-zed-adv7511-ad4858.dts>`
+         #. :git-linux:`AD485x Linux driver source code <staging/ad4858_rebased:drivers/iio/adc/ad4858.c>`
+         #. :git-linux:`EVAL-AD4858FMCZ Linux device tree <staging/ad4858_rebased:arch/arm/boot/dts/zynq-zed-adv7511-ad4858.dts>`
 
       #. More information
 
@@ -153,7 +153,7 @@ Software Projects and Platforms
 
 - :ref:`EVAL-AD4858 + ZedBoard <ad485x_fmcz quickstart zed>`
 - :git-hdl:`AD485x-FMC HDL project <projects/ad485x_fmcz>`
-- :git-no-OS:`AD485x No-OS project <projects/ad485x_fmcz>`
+- :git-no-OS:`AD485x No-OS driver <drivers/adc/ad4858>`
 
 Warning
 -------------------------------------------------------------------------------

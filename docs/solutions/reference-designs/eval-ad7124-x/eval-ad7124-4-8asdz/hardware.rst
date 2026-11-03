@@ -23,7 +23,7 @@ the evaluation board as detailed in this section.
 Power Supplies
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD7124-4ASDZ<EVAL-AD7124>`/:adi:`EVAL-AD7124-8ASDZ`
+The :adi:`EVAL-AD7124-4ASDZ<EVAL-AD7124>`/:adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>`
 receives power through the controller
 board when connected to the PC via USB. Linear regulators generate the required
 power supply levels from the applied USB voltage.
@@ -259,4 +259,4 @@ Design and Integration Files
 -------------------------------------------------------------------------------
 
 Schematics, layout files, and bill of materials are available on the
-:adi:`EVAL-AD7124-4ASDZ` product page.
+:adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>` product page.

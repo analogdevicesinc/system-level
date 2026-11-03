@@ -4,7 +4,7 @@ ZedBoard Quickstart
 ===============================================================================
 
 This guide provides quick instructions on how to set up the
-:adi:`EVAL-ADAQ7980-SDZ` on:
+:adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` on:
 
 - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   FMC LPC

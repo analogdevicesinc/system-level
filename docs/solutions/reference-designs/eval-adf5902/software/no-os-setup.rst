@@ -15,7 +15,7 @@ Required Hardware
 -----------------
 
 -  :adi:`EVAL-ADF5902` board & Power supply
--  :adi:`SDP-I-FMC` Interposer
+-  :adi:`SDP-I-FMC <EVAL-SDP-I-FMC>` Interposer
 -  `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
 
 Required Software

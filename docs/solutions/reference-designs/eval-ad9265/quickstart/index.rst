@@ -35,7 +35,7 @@ The carriers we support are:
      - EVAL-AD9265
    - - :xilinx:`ZC706`
      - FMC LPC
-   - - :xilinx:`ZedBoard`
+   - - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - FMC LPC
 
 Supported environments
@@ -57,7 +57,7 @@ The supported OS are:
      - Yes
      - Yes
    - - EVAL-AD9265
-     - :xilinx:`ZedBoard`
+     - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - Yes
      - Yes
      - No

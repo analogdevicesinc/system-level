@@ -10,7 +10,7 @@ reduces integration overhead and accelerates product development.
 
 Resources
 --------------------------------------------------------------------------------
-- Zephyr: :git-zephyr:`EVAL-CN0391-ARDZ <https://github.com/MaureenHelm/zephyr/tree/eval_cn0391_ardz>`
+- Zephyr: :git-zephyr:`EVAL-CN0391-ARDZ <boards/shields/eval_cn0391_ardz>`
 - no-OS: :git-no-OS:`EVAL-CN0391-ARDZ <projects/eval-cn0391-ardz>`
 - Hardware: 
   

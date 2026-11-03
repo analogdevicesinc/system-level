@@ -73,12 +73,12 @@ MATLAB
 The MATLAB example can be found here:
 
 - :git-MathWorks_tools:`ADS-B Airplane Tracking Example
-  <hil_models/ADSB_MATLAB>`
+  <hil_models/legacy/ADSB_MATLAB>`
 
 In this MATLAB example, we combine the data capture process and receiver
 algorithm, so you only need to run one script:
 :git-MathWorks_tools:`ad9361_ModeS.m
-<hil_models/ADSB_MATLAB/ad9361_ModeS.m>`.
+<hil_models/legacy/ADSB_MATLAB/ad9361_ModeS.m>`.
 
 This function mainly consists of three parts:
 
@@ -185,13 +185,13 @@ Simulink
 The model using Simulink libiio can be found here:
 
 - :git-MathWorks_tools:`ADS-B Airplane Tracking Example
-  <hil_models/ADSB_Simulink_libiio>`
+  <hil_models/legacy/ADSB_Simulink_libiio>`
 
 This Simulink model is based upon an existing Simulink example provided by
 MathWorks:
 
 - :git-MathWorks_tools:`Original MathWorks Example
-  <hil_models/ADSB_Simulink>`
+  <hil_models/legacy/ADSB_Simulink>`
 
 The detector and decoding piece comes directly from that model, and we add the
 Simulink IIO System object to conduct the signal reception and hardware in the

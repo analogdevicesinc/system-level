@@ -146,7 +146,7 @@ Creating the no-OS test ELFs
 
    cd ~/zynq-picozed-sdr2
    git clone https://github.com/analogdevicesinc/no-OS
-   cd no-OS/pzsdr/ccbrk/loopback
+   cd no-OS/projects/capi_selftest/boards/loopback
    ln -s ~/zynq-picozed-sdr2/hdl/projects/pzsdr/ccbrk/ccbrk_pzsdr.sdk/system_top.hdf
    make
    cp sdk/loopback/Release/loopback.elf /media/BOOT
@@ -248,7 +248,7 @@ Creating the no-OS test ELFs
 
    cd ~/zynq-picozed-sdr2
    git clone https://github.com/analogdevicesinc/no-OS
-   cd no-OS/pzsdr/ccfmc/loopback
+   cd no-OS/projects/capi_selftest/boards/loopback
    ln -s ~/zynq-picozed-sdr2/hdl/projects/pzsdr/ccbrk/ccbrk_pzsdr.sdk/system_top.hdf
    make
    cp sdk/loopback/Release/loopback.elf /media/BOOT

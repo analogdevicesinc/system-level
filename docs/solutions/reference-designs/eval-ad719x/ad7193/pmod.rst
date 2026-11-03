@@ -132,12 +132,12 @@ Nexys3 and LX-9 MicroBoard
 Zedboard
 ~~~~~~~~
 
-Run the ``download.bat`` script from the ``bin`` folder downloaded from
-the project repository. The script will automatically configure the ZYNQ
-SoC and download the elf file afterwards.
+.. Run the ``download.bat`` script from the ``bin`` folder downloaded from
+   the project repository. The script will automatically configure the ZYNQ
+   SoC and download the elf file afterwards.
 
-If the download script fails to run, modify the AMD Xilinx Tools path in
-``download.bat`` to match your AMD Xilinx installation path.
+   If the download script fails to run, modify the AMD Xilinx Tools path in
+   ``download.bat`` to match your AMD Xilinx installation path.
 
 Demo Modes
 ----------
@@ -224,6 +224,7 @@ code may be available on the
 Digilent Zedboard:
 
 - `XPS Project <https://github.com/analogdevicesinc/fpgahdl_xilinx/tree/master/cf_adv7511_zed>`__
-- :git-no-os:`PmodAD5 Driver Files <Pmods/PmodAD5>`
-- :git-no-os:`ZYNQ SoC Peripherals Driver Files <Pmods/Common/sw>`
-- :git-no-os:`Programming Script <Pmods/PmodAD5/bin>`
+- :git-no-os:`AD719x Driver Files <drivers/adc/ad719x>`
+
+.. - :git-no-os:`ZYNQ SoC Peripherals Driver Files <Pmods/Common/sw>`
+   - :git-no-os:`Programming Script <Pmods/PmodAD5/bin>`

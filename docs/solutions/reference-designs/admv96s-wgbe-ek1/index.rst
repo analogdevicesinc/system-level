@@ -15,8 +15,8 @@ prototyping system for 60 GHz short data links. It consists of a pair of
 receiver and transmitter boards with a 1 Gbps Ethernet interface on each side of
 the wireless link.
 
-The 60 GHz wireless link is implemented by the :adi:`ADMV9525` and
-:adi:`ADMV9525` modules. These are coupled with a SerDes device
+The 60 GHz wireless link is implemented by the :adi:`ADMV9615` and
+:adi:`ADMV9625` modules. These are coupled with a SerDes device
 which translates the modules’ SGMII interface to RGMII so that it can be
 connected to an ADIN1300 industrial low latency and low power 1 Gbps Ethernet
 PHY. This enables each side of the wireless link to act as an Ethernet port and

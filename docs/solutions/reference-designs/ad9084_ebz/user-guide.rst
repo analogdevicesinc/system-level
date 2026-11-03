@@ -3,7 +3,7 @@
 User guide
 ===============================================================================
 
-:adi:`EVAL-AD9084` top view:
+:adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` top view:
 
 .. image:: ../images/eval_ad9084_top_view.png
    :align: center
@@ -12,7 +12,7 @@ User guide
 The complete user guides of the evaluation board can be found at:
 
 - :adi:`AD9084/AD9088 Software Development User Guide, UG-2300 (Rev. Prl) <media/en/technical-documentation/user-guides/ad9084-ad9088-device-ug-2300.pdf>`
-- :adi:`EVAL-AD9084 User Guide, UG-2326 (Rev. 0) <media/en/technical-documentation/user-guides/eval-ad9084-ug-2326.pdf>`
+- :adi:`EVAL-AD9084 User Guide, UG-2326 (Rev. 0) <media/en/technical-documentation/user-guides/eval-ad9084-ad9088-ug-2326.pdf>`
 
 Hardware guide
 -------------------------------------------------------------------------------

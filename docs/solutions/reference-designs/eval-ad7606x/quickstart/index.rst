@@ -5,7 +5,7 @@ Quickstart
 
 The Quick Start Guides provide step-by-step instructions on how to do an
 initial system setup for the :adi:`EVAL-AD7606B-FMCZ` /
-:adi:`EVAL-AD7606C-18FMCZ` evaluation boards.
+:adi:`EVAL-AD7606C-18FMCZ <EVAL-AD7606C-18>` evaluation boards.
 
 FPGA-based evaluation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -23,7 +23,7 @@ bitstream programming, no-OS programs, and Linux boot.
 Supported carriers
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD7606B-FMCZ` and :adi:`EVAL-AD7606C-18FMCZ` are FMC boards
+The :adi:`EVAL-AD7606B-FMCZ` and :adi:`EVAL-AD7606C-18FMCZ <EVAL-AD7606C-18>` are FMC boards
 that need a carrier to plug into.
 
 The carriers we support are:

@@ -23,7 +23,7 @@ Supported carriers
    * - Carrier
      - HDL
      - No-OS
-   * - :xilinx:`ZedBoard`
+   * - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - Yes
      - Yes
    * - :xilinx:`ZC706`

@@ -21,7 +21,7 @@ Supported carriers
 
 The carriers we support are:
 
-- :xilinx:`ZedBoard <products/boards-and-kits/1-8dyf-11.html>` on FMC connector (for EVAL-AD400x-FMCZ)
+- `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__ on FMC connector (for EVAL-AD400x-FMCZ)
 - `Cora Z7S <https://digilent.com/shop/cora-z7-zynq-7000-single-core-for-arm-fpga-soc-development>`__ on PMOD connector (for EVAL-ADAQ40xx)
 
 Supported Environments
@@ -36,7 +36,7 @@ The supported OS are:
      - HDL
      - Linux Software
      - No-OS Software
-   - - :xilinx:`ZedBoard <products/boards-and-kits/1-8dyf-11.html>`
+   - - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - Yes
      - Yes
      - Yes

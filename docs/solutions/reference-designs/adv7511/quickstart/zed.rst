@@ -178,7 +178,7 @@ Required Software
 Required Hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- :xilinx:`ZED Board <products/boards-and-kits/1-8dyf-11.html>` and its power supply
+- `ZED Board <https://digilent.com/reference/programmable-logic/zedboard/start>`__ and its power supply
 - HDMI Monitor
 - HDMI cable
 - 2x Mini-USB cables, one for UART and one for JTAG

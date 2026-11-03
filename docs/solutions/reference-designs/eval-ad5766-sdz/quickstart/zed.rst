@@ -1,7 +1,7 @@
 .. include-template:: ../../template/quickstart/zed.rst.jinja
 
    quickstart_ref: ad5766 zed
-   eval_board: EVAL-AD5766-SD2Z
+   eval_board: EVAL-AD5766/67-SD2Z <EVAL-AD5766>
    has_linux: false
    has_no_os: true
    no_os_project_path: projects/ad5766-sdz

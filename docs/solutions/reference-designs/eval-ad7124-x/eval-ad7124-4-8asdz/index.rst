@@ -8,7 +8,7 @@ EVAL-AD7124-4ASDZ / EVAL-AD7124-8ASDZ User Guide
 
    hardware
 
-The :adi:`EVAL-AD7124-4ASDZ` and :adi:`EVAL-AD7124-8ASDZ` are full-featured
+The :adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>` and :adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>` are full-featured
 evaluation boards for the :adi:`AD7124-4` and :adi:`AD7124-8`, low power, low
 noise, completely integrated analog front ends for high precision measurement
 applications. Both boards share the same PCB design.
@@ -66,7 +66,7 @@ Quick Start Guide
 Equipment required
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- :adi:`EVAL-AD7124-4ASDZ` or :adi:`EVAL-AD7124-8ASDZ` evaluation board
+- :adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>` or :adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>` evaluation board
 - :adi:`SDP-B` controller board
 - USB cable
 - DC signal source

@@ -5,8 +5,8 @@ Nucleo-L476RG Quick Start (STM32)
 
 .. esd-warning::
 
-This guide describes how to use the :adi:`EVAL-AD7124-4SDZ` or
-:adi:`EVAL-AD7124-8SDZ` evaluation board with the STM32 Nucleo-L476RG using
+This guide describes how to use the :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>` or
+:adi:`EVAL-AD7124-8SDZ <EVAL-AD7124-8>` evaluation board with the STM32 Nucleo-L476RG using
 STM32CubeIDE. The general procedure can be applied to other STM32 processors
 and IDEs.
 
@@ -24,7 +24,7 @@ See :ref:`eval-ad7124-x prerequisites` for the full list.
 
 **Hardware:**
 
-- :adi:`EVAL-AD7124-4SDZ` or :adi:`EVAL-AD7124-8SDZ` evaluation board
+- :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>` or :adi:`EVAL-AD7124-8SDZ <EVAL-AD7124-8>` evaluation board
 - `STM32 Nucleo-L476RG <https://www.st.com/en/evaluation-tools/nucleo-l476rg.html>`_
 - :adi:`SDP Breakout Board <SDP-BREAKOUT-BOARD>` (for convenient SPI
   connections)
@@ -207,7 +207,7 @@ Power and USB
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A 9 V DC supply (barrel jack, center pin positive) is required to power the
-:adi:`EVAL-AD7124-4SDZ` evaluation board. The Nucleo-L476RG is
+:adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>` evaluation board. The Nucleo-L476RG is
 powered via the USB connection to the PC, which also provides the serial UART
 connection.
 
@@ -219,7 +219,7 @@ connection.
 SPI interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SPI connections from the :adi:`EVAL-AD7124-4SDZ` to the
+SPI connections from the :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>` to the
 Nucleo-L476RG can be made via the :adi:`SDP Breakout Board <SDP-BREAKOUT-BOARD>`.
 
 .. list-table:: SPI Wiring (via SDP Breakout Board)
@@ -248,7 +248,7 @@ Nucleo-L476RG can be made via the :adi:`SDP Breakout Board <SDP-BREAKOUT-BOARD>`
 Analog inputs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The screw terminal connections on J6 and J11 on the :adi:`EVAL-AD7124-4SDZ`
+The screw terminal connections on J6 and J11 on the :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>`
 board can be used to connect analog input signals.
 
 **Configuration A:**

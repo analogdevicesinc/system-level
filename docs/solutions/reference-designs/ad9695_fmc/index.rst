@@ -97,7 +97,6 @@ Table of contents
 
         #. About the device driver:
 
-           - :dokuwiki:`AD9695 Linux IIO ADC driver <resources/tools-software/linux-drivers/iio-adc/ad9695>`
            - :external+linux:ref:`axi_jesd204_rx`
            - :external+linux:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`

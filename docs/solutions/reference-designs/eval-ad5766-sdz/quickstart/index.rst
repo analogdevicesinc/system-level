@@ -27,7 +27,7 @@ The carriers we support are:
 
    - - FPGA board
      - :adi:`EVAL-AD5766/67-SD2Z <EVAL-AD5766>`
-   - - :xilinx:`ZedBoard`
+   - - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - FMC
 
 Supported environments
@@ -42,7 +42,7 @@ The supported OS are:
      - HDL
      - Linux software
      - no-OS software
-   - - :xilinx:`ZedBoard`
+   - - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - Yes
      - No
      - Yes

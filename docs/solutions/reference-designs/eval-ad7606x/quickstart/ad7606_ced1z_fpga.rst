@@ -15,7 +15,7 @@ Supported Devices
 Evaluation Boards
 -----------------
 
-- :adi:`EVAL-AD7605EDZ`
+- :adi:`EVAL-AD7605EDZ <EVAL-AD7605-4>`
 - :adi:`EVAL-AD7605-4`
 - :adi:`EVAL-AD7606EDZ`
 - :adi:`EVAL-AD7606-6EDZ`
@@ -67,7 +67,7 @@ More Information
 - :adi:`AD7606-6 Product Info <AD7606-6>` — pricing, samples, datasheet
 - :adi:`AD7606-4 Product Info <AD7606-4>` — pricing, samples, datasheet
 - `Nios II Embedded Development Suite (EDS)
-  <http://www.altera.com/devices/processor/nios2>`_
+  <https://community.altera.com/kb/knowledge-base/how-can-i-install-nios-ii-embedded-design-suite-legacy-tools/342234>`_
 
 Getting Started
 ---------------
@@ -82,8 +82,8 @@ The following hardware items are required:
 - `Terasic USB Blaster <http://www.terasic.com.tw/>`_
 - One of the following evaluation boards:
 
-  - :adi:`EVAL-AD7605EDZ evaluation board`
-  - :adi:`EVAL-AD7605-4EDZ evaluation board`
+  - :adi:`EVAL-AD7605EDZ evaluation board <EVAL-AD7605-4>`
+  - :adi:`EVAL-AD7605-4EDZ evaluation board <EVAL-AD7605-4>`
   - :adi:`EVAL-AD7606EDZ evaluation board`
   - :adi:`EVAL-AD7606-6EDZ evaluation board`
   - :adi:`EVAL-AD7606-4EDZ evaluation board`
@@ -96,9 +96,9 @@ Software Tools
 
 The following software tools are required:
 
-- `Quartus II Web Edition <http://www.altera.com/products/software/quartus-ii/web-edition/qts-we-index.html>`_
+- `Quartus II Web Edition <https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html>`_
   design software v11.0
-- `Nios II EDS <https://www.altera.com/download/software/nios-ii>`_ v11.0
+- `Nios II EDS <https://community.altera.com/kb/knowledge-base/how-can-i-install-nios-ii-embedded-design-suite-legacy-tools/342234>`_ v11.0
 
 The Quartus II design software and the Nios II EDS are available via the
 Altera Complete Design Suite DVD or by downloading from the web.

@@ -10,9 +10,9 @@ Hardware prerequisites
 -------------------------------------------------------------------------------
 
 #. One of the :adi:`AD7124-4` / :adi:`AD7124-8`-based evaluation boards:
-   :adi:`EVAL-AD7124-8-PMDZ`, :adi:`EVAL-AD7124-4SDZ`,
-   :adi:`EVAL-AD7124-8SDZ`, :adi:`EVAL-AD7124-4ASDZ`, or
-   :adi:`EVAL-AD7124-8ASDZ`.
+   :adi:`EVAL-AD7124-8-PMDZ`, :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>`,
+   :adi:`EVAL-AD7124-8SDZ <EVAL-AD7124-8>`, :adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>`, or
+   :adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>`.
 
 #. A carrier platform. Our recommended ones can be found
    :ref:`here<ad7124x carriers>`
@@ -23,10 +23,10 @@ Hardware prerequisites
 Additional hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- For the :adi:`EVAL-AD7124-4SDZ` and :adi:`EVAL-AD7124-8SDZ`
+- For the :adi:`EVAL-AD7124-4SDZ <EVAL-AD7124-8>` and :adi:`EVAL-AD7124-8SDZ <EVAL-AD7124-8>`
   (with :adi:`SDP-B` or Nucleo): 7--9 V DC power supply applied
   to J3 (bench top) or J5 (wall wart/DC plug).
-- For the :adi:`EVAL-AD7124-4ASDZ` and :adi:`EVAL-AD7124-8ASDZ`
+- For the :adi:`EVAL-AD7124-4ASDZ <EVAL-AD7124>` and :adi:`EVAL-AD7124-8ASDZ <EVAL-AD7124>`
   (with :adi:`SDP-B`): no external power supply required; the
   board is powered through the :adi:`SDP-B` via USB from the PC.
 - Analog input test signals or sensors (RTDs, thermocouples, thermistors) as

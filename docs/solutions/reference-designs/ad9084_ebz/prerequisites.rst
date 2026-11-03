@@ -7,7 +7,7 @@ Prerequisites
 What you need, depends on what you are trying to do. As a minimum, you need to
 start out with:
 
-#. The :adi:`EVAL-AD9084` evaluation card.
+#. The :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation card.
 #. A carrier platform. ADI does not offer these boards for sale or loan, getting
    one yourself is normal part of development or evaluation of the AD9084.
 

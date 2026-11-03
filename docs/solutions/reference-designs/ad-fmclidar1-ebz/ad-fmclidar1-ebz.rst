@@ -94,7 +94,7 @@ deterministic transfer of data from the APD to the host processing system.
 .. admonition:: Download
    :class: download
 
-   :git-hdl:`Access the LiDAR Prototyping Platform software and get started <projects/ad_fmclidar1_ebz>`
+   :git-hdl:`Access the LiDAR Prototyping Platform software and get started <docs/projects/ad_fmclidar1_ebz>`
 
 Laser Safety
 --------------------------------------------------------------------------------

@@ -12,11 +12,11 @@ Required Hardware
 -------------------------------------------------------------------------------
 
 - AMD Xilinx :xilinx:`VCU118` or :xilinx:`VCU128` board
-- :adi:`EVAL-AD9084` evaluation board
+- :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board
 - 2x `Vita 57 FMC+ Extender <https://www.samtec.com/kits/optics-fpga/fmcp-extender/>`__
 - 2 x Micro-USB cable
 - Ethernet cables
-- Power supply for the FPGA carrier board and the :adi:`EVAL-AD9084` evaluation board
+- Power supply for the FPGA carrier board and the :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board
 
 Required Software
 -------------------------------------------------------------------------------

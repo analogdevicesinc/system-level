@@ -18,12 +18,12 @@ Hardware prerequisites
       * - Carrier
         - Interface to EVAL-AD7616
         - Additional hardware required
-      * - :xilinx:`ZedBoard`
+      * - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
         - FMC
-        - :adi:`SDP-I-FMC` adapter board
+        - :adi:`SDP-I-FMC <EVAL-SDP-I-FMC>` adapter board
       * - :xilinx:`ZC706`
         - FMC
-        - :adi:`SDP-I-FMC` adapter board
+        - :adi:`SDP-I-FMC <EVAL-SDP-I-FMC>` adapter board
       * - :adi:`SDP-K1`
         - Fly-wire (SPI)
         - STLINK-V3 programmer

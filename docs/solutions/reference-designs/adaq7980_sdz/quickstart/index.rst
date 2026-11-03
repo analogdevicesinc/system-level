@@ -4,7 +4,7 @@ Quickstart
 ===============================================================================
 
 The Quick Start Guide provides a simple step by step instruction on how to do
-an initial system setup for the :adi:`EVAL-ADAQ7980-SDZ` board on the ZedBoard
+an initial system setup for the :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` board on the ZedBoard
 FPGA development board. It will discuss how to program the bitstream and run a
 no-OS program.
 
@@ -41,7 +41,7 @@ The supported environments are:
 Hardware Setup
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-ADAQ7980-SDZ` board connects to the ZedBoard FMC connector.
+The :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` board connects to the ZedBoard FMC connector.
 The carrier setup requires power, UART (115200 baud), and JTAG connections
 for no-OS development.
 

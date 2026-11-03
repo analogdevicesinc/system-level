@@ -90,7 +90,7 @@ Required Software
 
 - SD Card 16GB imaged with :ref:`Kuiper Linux <kuiper>`
 - An UART terminal (Putty/Tera Term/Minicom, etc.) with baud rate 115200 (8N1)
-- :git-iio-oscilloscope:`IIO-Oscilloscope <releases>`
+- :git-iio-oscilloscope:`IIO-Oscilloscope <releases+>`
 
 Required Hardware
 ~~~~~~~~~~~~~~~~~
@@ -670,7 +670,7 @@ parameters and visualize data.
 .. important::
 
    Make sure to download/update to the latest version of
-   :git-iio-oscilloscope:`IIO Oscilloscope <releases>`.
+   :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`.
 
 Remote run on host
 ^^^^^^^^^^^^^^^^^^
