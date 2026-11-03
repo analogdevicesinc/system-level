@@ -19,7 +19,7 @@ interfaces. For programming and configuring the data link, the user has software
 tools available for download.
 
 The 60 GHz wireless link is implemented by the :adi:`ADMV9615` and
-:adi:`ADMV9525` modules. These are coupled with a SerDes device
+:adi:`ADMV9625` modules. These are coupled with a SerDes device
 which translates the modules’ SGMII interface to RGMII so that it can be
 connected to an ADIN1300 industrial low latency and low power 1 Gbps Ethernet
 PHY. This enables each side of the wireless link to act as an Ethernet port and

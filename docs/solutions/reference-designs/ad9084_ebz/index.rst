@@ -26,7 +26,7 @@ Apollo MxFE Quad, 16-Bit, 28GSPS RF DAC and Quad, 12-Bit, 20 GSPS RF ADC.
 Overview
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD9084` is an FMC radio card for the :adi:`AD9084`,
+The :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` is an FMC radio card for the :adi:`AD9084`,
 mixed signal front end (MxFE®), highly integrated device with a 16-bit,
 28 GSPS maximum sample rate, RF digital-to-analog converter (DAC) core,
 and 12-bit, 20 GSPS maximum sample rate, RF analog-to-digital converter
@@ -91,7 +91,7 @@ should be. If you have any questions, feel free to ask on our
 sure you read our documentation thoroughly.
 
 To better understand the :adi:`AD9084`, we recommend to use the
-:adi:`EVAL-AD9084` evaluation board.
+:adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board.
 
 
 Table of Contents
@@ -128,7 +128,7 @@ Table of Contents
    #. :ref:`ad9084 block-diagram`
 
       #. :adi:`AD9084 Product page <AD9084>`
-      #. `Full Datasheet and chip design package <TODO>`__
+      .. #. `Full Datasheet and chip design package <TODO>`__
 
    #. Design a custom AD9084 based platform
 

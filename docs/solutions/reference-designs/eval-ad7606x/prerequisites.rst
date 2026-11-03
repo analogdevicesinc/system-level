@@ -12,7 +12,7 @@ Hardware Prerequisites
 
 #. **IIO Ecosystem** (recommended):
 
-   - :adi:`EVAL-AD7606B-FMCZ`, :adi:`EVAL-AD7606C-18FMCZ`, or equivalent
+   - :adi:`EVAL-AD7606B-FMCZ`, :adi:`EVAL-AD7606C-18FMCZ <EVAL-AD7606C-18>`, or equivalent
      evaluation board
    - :adi:`SDP-K1 System Demonstration Platform`
 
@@ -31,7 +31,7 @@ Hardware Prerequisites
 
 #. **Linux / no-OS FPGA Development** (ZedBoard):
 
-   - :adi:`EVAL-AD7606B-FMCZ` or :adi:`EVAL-AD7606C-18FMCZ` FMC evaluation
+   - :adi:`EVAL-AD7606B-FMCZ` or :adi:`EVAL-AD7606C-18FMCZ <EVAL-AD7606C-18>` FMC evaluation
      board
    - AMD Xilinx `ZedBoard
      <https://digilent.com/reference/programmable-logic/zedboard/start>`__
@@ -55,9 +55,9 @@ Software Prerequisites
 
 **FPGA-Based Evaluation**:
 
-- `Quartus II Web Edition <http://www.altera.com/products/software/quartus-ii/web-edition/qts-we-index.html>`_
+- `Quartus II Web Edition <https://www.intel.com/content/www/us/en/products/details/fpga/development-tools/quartus-prime.html>`_
   v11.0
-- `Nios II EDS <https://www.altera.com/download/software/nios-ii>`_ v11.0
+- `Nios II EDS <https://community.altera.com/kb/knowledge-base/how-can-i-install-nios-ii-embedded-design-suite-legacy-tools/342234>`_ v11.0
 
 **ACE Automation**:
 

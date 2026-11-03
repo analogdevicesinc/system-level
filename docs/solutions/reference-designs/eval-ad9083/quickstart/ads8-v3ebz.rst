@@ -25,7 +25,7 @@ Hardware Needed
 ---------------
 
 - AD9083EBZ Evaluation Board
-- :dokuwiki:`ADS8-V3EBZ <ads8-v3ebz>` High Speed Carrier Card
+- :adi:`ADS8-V3EBZ` High Speed Carrier Card
 
 Software Needed
 ---------------

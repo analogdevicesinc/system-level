@@ -35,7 +35,7 @@ The carriers we support are:
    - - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
      - FMCA
      - ---
-   - - :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
+   - - `FM87 <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
      - FMCA
      - ---
    - - :xilinx:`VCK190`
@@ -72,7 +72,7 @@ The supported OS are:
      - Yes
      - Yes
      - ---
-   - - :intel:`FM87 <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
+   - - `FM87 <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
      - ---
      - ---
      - ---

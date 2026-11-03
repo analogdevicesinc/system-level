@@ -6,7 +6,7 @@ ZedBoard Quickstart
 This guide provides quick instructions on how to set up the
 :adi:`EVAL-AD9265` on:
 
-- :xilinx:`ZedBoard` FMC LPC
+- `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__ FMC LPC
 
 .. image:: ../../images/ZedBoard.png
    :width: 700
@@ -56,13 +56,13 @@ Required software
 
 - SD card (16 GB minimum) imaged with :external+kuiper:doc:`Kuiper <index>`
   (see that guide for instructions, then return here)
-- :git-iio-oscilloscope:`IIO Oscilloscope <releases>`
+- :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`
 - A UART terminal (PuTTY/Tera Term/Minicom, etc.), baud rate 115200 (8N1)
 
 Required hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- AMD Xilinx :xilinx:`ZedBoard` FPGA board and its 12 V power supply
+- AMD Xilinx `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__ FPGA board and its 12 V power supply
 - :adi:`EVAL-AD9265` FMC evaluation board (AD9265-FMC-125EBZ)
 - Micro-USB cable (UART, connects to J14)
 - LAN cable (Ethernet, connects to J11)
@@ -86,7 +86,7 @@ Creating the setup
 
 Follow the steps in this order, to avoid damaging the components:
 
-#. Get the :xilinx:`ZedBoard <products/boards-and-kits/1-8dyf-11.html>`
+#. Get the `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
 #. Insert the SD card into the SD card slot (J12)
 
    .. image:: ../images/ad9265_zed_sd.jpg
@@ -782,7 +782,7 @@ IIO Oscilloscope
 
 .. important::
    Make sure to download/update to the latest version of
-   :git-iio-oscilloscope:`IIO Oscilloscope <releases>`.
+   :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`.
 
 #. Once the board has booted, open IIO Oscilloscope on your host PC. Supply
    the board's IP address as the URI in the format ``ip:<ip_address>``. To

@@ -8,7 +8,7 @@ EVAL-ADAQ7980-SDZ
 Overview
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-ADAQ7980-SDZ` evaluation board enables quick and easy evaluation
+The :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` evaluation board enables quick and easy evaluation
 of the performance and features of the :adi:`ADAQ7980` and :adi:`ADAQ7988`
 16-bit analog-to-digital converter (ADC) subsystems.
 
@@ -37,7 +37,7 @@ busy indicator. The user interface is compatible with 1.8 V, 2.5 V, 3 V, or 5 V
 logic. Specified operation of these devices is from -55°C to +125°C.
 
 This user guide will discuss how to use the ZedBoard FPGA development board and
-evaluation software to configure and collect data from the :adi:`EVAL-ADAQ7980-SDZ`.
+evaluation software to configure and collect data from the :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>`.
 
 .. image:: images/eval-angle.png
    :align: center

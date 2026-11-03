@@ -121,7 +121,7 @@ This library provides an abstracted interface to communicate between the
 IIO device and the IIO client application (IIO Oscilloscope) without
 worrying about the low level hardware details.
 
-- :git-libiio:`Libiio releases <releases>`
+- :git-libiio:`Libiio releases <releases+>`
 
 IIO Oscilloscope (Client)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +131,7 @@ device configuration/debugging. The data from IIO devices (ADCs/DACs)
 is transmitted over Serial/Ethernet/USB link to IIO Oscilloscope through
 the abstracted layer of libiio.
 
-- :git-iio-oscilloscope:`IIO Oscilloscope releases <releases>`
+- :git-iio-oscilloscope:`IIO Oscilloscope releases <releases+>`
 
 Evaluating AD4130-8 Using IIO Ecosystem
 ---------------------------------------

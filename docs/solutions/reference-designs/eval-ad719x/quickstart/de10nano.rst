@@ -183,7 +183,7 @@ parameters and visualize data.
 .. important::
 
    Make sure to download/update to the latest version of
-   :git-iio-oscilloscope:`IIO Oscilloscope <releases>`.
+   :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`.
 
 Remote run on host
 ^^^^^^^^^^^^^^^^^^

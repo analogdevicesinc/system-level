@@ -11,7 +11,7 @@ Hardware prerequisites
 
    - AMD Xilinx :xilinx:`ZC706` Rev 1.1 or higher — 12 V power supply,
      Mini-USB for UART (J21), Micro-USB for JTAG, LAN for Ethernet (J45)
-   - AMD Xilinx :xilinx:`ZedBoard` — 12 V power supply,
+   - AMD Xilinx `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__ — 12 V power supply,
      Micro-USB for UART (J14), LAN for Ethernet (J11)
 
 #. SMA cables for analog input connection to the evaluation board (J100)
@@ -30,7 +30,7 @@ Software prerequisites
 **For Linux (Kuiper)**
 
 #. SD card imaged with :external+kuiper:doc:`Kuiper Linux <index>`
-#. :git-iio-oscilloscope:`IIO Oscilloscope <releases>`
+#. :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`
 #. :external+scopy:doc:`Scopy <index>` v2.0 or later (requires the IIO plugin)
 #. UART terminal application (PuTTY/Tera Term/Minicom), 115200 8N1
 

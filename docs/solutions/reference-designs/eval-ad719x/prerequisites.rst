@@ -62,7 +62,7 @@ If using IIO Oscilloscope (FPGA carrier boards)
 
 #. SD card imaged with :ref:`Kuiper Linux <kuiper>`
 
-#. :git-iio-oscilloscope:`IIO Oscilloscope <releases>`
+#. :git-iio-oscilloscope:`IIO Oscilloscope <releases+>`
 
 #. A serial terminal (PuTTY, Tera Term, Minicom, etc.) configured
    at 115200 baud (8N1)

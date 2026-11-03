@@ -70,7 +70,7 @@ Module.
 :dokuwiki:`this document <university/courses/alm1k/m2k-convert-labs>` outlines how labs
 might be adapted for use with either M1K or M2K hardware / software.
 The labs are generally written to be performed using just the components provided in the
-Analog Parts Kit, :dokuwiki:`ADALP2000 <university/tools/adalp200/parts-index>`,
+Analog Parts Kit, :ref:`ADALP2000 <adalp2000>`,
 supplied through ADI and our authorized distribution channel, however additional
 components are sometimes used.
 
@@ -187,10 +187,10 @@ Interviews with the following people(in order of appearance):
 * Sarah Evans, `Applied Physics student, Rensselaer Polytechnic Institute <http://www.rpi.edu/dept/phys/>`_,
 * Trent Shapiro, `Aerospace Engineering student, Rensselaer Polytechnic Institute <http://mane.rpi.edu/>`_,
 * Richard Sawyer, `Electrical Engineering student, Clarkson University <http://www.clarkson.edu/ece/>`_,
-* Meghan Farrell, `Biomedical Engineering student, Worcester Polytechnic Institute (WPI) <http://www.wpi.edu/academics/bme/>`_,
+* Meghan Farrell, `Biomedical Engineering student, Worcester Polytechnic Institute (WPI) <https://www.wpi.edu/academics/departments/biomedical-engineering>`_,
 * Greg Packhem, `Mechanical Engineering student, Rensselaer Polytechnic Institute <http://mane.rpi.edu/>`_,
 * `Ray Stata <http://investor.analog.com/directors.cfm>`_ (cofounder and Chairman of the Board of Analog Devices, Inc),
 * `Dr. Sam Fuller <http://investor.analog.com/management.cfm>`_ (Vice President - Research & Development, Chief Technology Officer of Analog Devices Inc),
 * `Ken Conner <http://hibp.ecse.rpi.edu/~connor/ken_connor.html>`_ (Professor, Department of Electrical, Computer, and Systems Engineering, education director of the Smart Lighting Engineering Research Center and director of the Mobile Studio Project at Rensselaer Polytechnic Institute),
-* `Kathleen Meehan <http://www.ece.vt.edu/faculty/meehan.php>`_, associate professor, Bradley Department of Electrical and Computer Engineering, Virginia Tech,
+* Kathleen Meehan, associate professor, Bradley Department of Electrical and Computer Engineering, Virginia Tech,
 * Emre Önder (Vice President, Marketing & Core Markets at Analog Devices)

@@ -4,7 +4,7 @@ AD9084-FMCA-EBZ Versal ACAP VCK190/VPK180 Quick Start Guide
 ===========================================================
 
 This guide provides some quick instructions on how to setup the
-:adi:`EVAL-AD9084` board on:
+:adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` board on:
 
 - :xilinx:`VCK190` on FMC2
 - :xilinx:`VPK180` on FMC+
@@ -13,13 +13,13 @@ Required Hardware
 -------------------------------------------------------------------------------
 
 - AMD Xilinx :xilinx:`VCK190` or :xilinx:`VPK180` board
-- :adi:`EVAL-AD9084` evaluation board
+- :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board
 - SD Card of at least 16GB imaged with Kuiper Linux (see
   :external+kuiper:doc:`Configure a SD Card <hardware-configuration>`)
 - 2x `Vita 57 FMC+ Extender <https://www.samtec.com/kits/optics-fpga/fmcp-extender/>`__ (:xilinx:`VCK190` only)
 - USB Type-C cable
 - Ethernet cables
-- Power supply for the FPGA carrier board and the :adi:`EVAL-AD9084` evaluation board
+- Power supply for the FPGA carrier board and the :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board
 
 Required Software
 -------------------------------------------------------------------------------
@@ -163,9 +163,9 @@ Physical setup
 
    .. image:: versal/vck190_sw11.jpg
 
-#. Connect :adi:`EVAL-AD9084` to FMCP2 (J53) with FMC+ riser or equivalent.
+#. Connect :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` to FMCP2 (J53) with FMC+ riser or equivalent.
 #. Connect the power supplies to the FPGA carrier board and the
-   :adi:`EVAL-AD9084`` evaluation board.
+   :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>`` evaluation board.
 
    .. image:: versal/vck190_ad9084_ebz.jpg
 

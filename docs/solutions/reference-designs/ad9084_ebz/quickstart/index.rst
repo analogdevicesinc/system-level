@@ -4,7 +4,7 @@ Quickstart
 ===============================================================================
 
 The Quick Start Guides provide a simple step by step instruction on how to do an
-initial system setup for the :adi:`EVAL-AD9084` evaluation
+initial system setup for the :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation
 board on various FPGA development boards. They will discuss how to program the
 bitstream, run a no-OS program or boot a Linux distribution.
 
@@ -21,7 +21,7 @@ bitstream, run a no-OS program or boot a Linux distribution.
 Supported carriers
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD9084` is, by definition a "FPGA mezzanine card" (FMC),
+The :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` is, by definition a "FPGA mezzanine card" (FMC),
 that means it needs a carrier to plug into.
 The carriers we support are:
 

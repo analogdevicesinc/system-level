@@ -4,7 +4,7 @@ ZedBoard Quickstart
 ===============================================================================
 
 This guide provides quick instructions on how to set up the
-:adi:`EVAL-AD7380FMCZ` / :adi:`EVAL-AD7381FMCZ` /
+:adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` / :adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` /
 :adi:`EVAL-AD7386FMCZ` on:
 
 - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
@@ -75,7 +75,7 @@ Required Hardware
 - AMD Xilinx
   `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   FPGA board and its power supply (12V)
-- :adi:`EVAL-AD7380FMCZ` / :adi:`EVAL-AD7381FMCZ` /
+- :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` / :adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` /
   :adi:`EVAL-AD7386FMCZ` FMC evaluation board
 - SD card with at least 16GB of memory
 - Micro-USB cable (UART)
@@ -689,7 +689,7 @@ Scopy
 data captured from the AD738x evaluation board.
 
 Connect the positive and negative wires to one of the differential
-analog input pairs on the :adi:`EVAL-AD7380FMCZ` board
+analog input pairs on the :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` board
 (AINA+/AINA-, AINB+/AINB-):
 
 - W1 → AINA+
@@ -727,7 +727,7 @@ EVAL-AD7381FMCZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The setup and testing procedure is the same as for the
-:adi:`EVAL-AD7380FMCZ`. The :adi:`AD7381` also has differential
+:adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>`. The :adi:`AD7381` also has differential
 analog inputs (AINA+/AINA-, AINB+/AINB-).
 
 Creating the setup
@@ -746,7 +746,7 @@ Scopy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connect the positive and negative wires to one of the differential
-analog input pairs on the :adi:`EVAL-AD7381FMCZ` board
+analog input pairs on the :adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` board
 (AINA+/AINA-, AINB+/AINB-):
 
 - W1 → AINA+
@@ -765,7 +765,7 @@ EVAL-AD7386-4FMCZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The setup and testing procedure is the same as for the
-:adi:`EVAL-AD7380FMCZ`, except the :adi:`AD7386-4` has
+:adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>`, except the :adi:`AD7386-4` has
 single-ended analog inputs (AINA, AINB, AINC, AIND).
 
 Creating the setup
@@ -830,7 +830,7 @@ Required Hardware
 - AMD Xilinx
   `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   FPGA board and its power supply (12V)
-- :adi:`EVAL-AD7380FMCZ` / :adi:`EVAL-AD7381FMCZ` /
+- :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` / :adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` /
   :adi:`EVAL-AD7386FMCZ` FMC evaluation board
 - 2x Micro-USB cables, one for UART and one for JTAG
 - Signal generator
@@ -911,7 +911,7 @@ Scopy
 data captured from the AD738x evaluation board.
 
 Connect the positive and negative wires to one of the differential
-analog input pairs on the :adi:`EVAL-AD7380FMCZ` board
+analog input pairs on the :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` board
 (AINA+/AINA-, AINB+/AINB-):
 
 - W1 → AINA+

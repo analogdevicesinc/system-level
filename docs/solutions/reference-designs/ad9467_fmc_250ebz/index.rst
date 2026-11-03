@@ -98,7 +98,7 @@ Table of contents
         #. About the device driver:
 
            - :external+hdl:ref:`AXI_AD9467 IP documentation <axi_ad9467>`
-           - :dokuwiki:`AD9467 Linux driver <resources/tools-software/linux-drivers/iio-adc/ad9467>`
+           - :git-linux:`AD9467 Linux driver <drivers/iio/adc/ad9467.c>`
 
         #. About the device tree:
 

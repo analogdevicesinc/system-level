@@ -4,8 +4,8 @@ Quickstart
 ===============================================================================
 
 The Quick Start Guides provide simple step by step instructions on
-how to do an initial system setup for the :adi:`EVAL-AD7380FMCZ` /
-:adi:`EVAL-AD7381FMCZ` / :adi:`EVAL-AD7386FMCZ` boards.
+how to do an initial system setup for the :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` /
+:adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` / :adi:`EVAL-AD7386FMCZ` boards.
 
 FPGA-based evaluation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,7 +22,7 @@ cover bitstream programming, no-OS programs and Linux boot.
 Supported carriers
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD7380FMCZ` / :adi:`EVAL-AD7381FMCZ` /
+The :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` / :adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` /
 :adi:`EVAL-AD7386FMCZ` are, by definition, "FPGA mezzanine cards"
 (FMC); that means they need a carrier to plug into.
 

@@ -11,7 +11,7 @@ ZedBoard Quick start
 This guide provides quick instructions on how to setup the
 :adi:`EVAL-AD9467` on:
 
-- :xilinx:`ZedBoard`
+- `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
 
 Using Linux as software
 -------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ Required Software
 Required Hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- AMD Xilinx :xilinx:`ZedBoard`
+- AMD Xilinx `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
 - :adi:`EVAL-AD9467` FMC evaluation board
 - SD card with at least 16GB of memory
 - Micro-USB cable (UART)

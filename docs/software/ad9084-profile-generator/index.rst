@@ -100,7 +100,7 @@ the generated ``.bin`` under the ``CONFIG_EXTRA_FIRMWARE`` option:
 You can then follow the :ref:`Linux kernel build flow <ad9084 versal linux>`
 to build the kernel and boot it on the board.
 
-For Intel Agilex 7 I-Series (`FM87 <https://www.intel.com/content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`__)
+For Intel Agilex 7 I-Series (`FM87 <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Update the ``arch/arm64/configs/adi_zynqmp_defconfig`` file to include

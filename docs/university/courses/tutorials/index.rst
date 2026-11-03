@@ -125,10 +125,10 @@ Phase Locked Loops
 -------------------------------------------------------------------------------
 
 - Fundamentals of Phase Locked Loops :adi:`(MT-086) <MT-086>`
-- :adi:`DAC, DDS, PLL's, and Clock Distribution (pdf) <static/imported-files/seminars_webcasts/High%20Speed%20System%20Applications%20(PDF)/HS%20Systems%20Part%203%20for%20Print_A.pdf>`
-- :adi:`Phase Locked Loops for High-Frequency Receivers and Transmitters - Part 1 (pdf) <static/imported-files/tech_articles/206357438phase_locked.pdf>`
-- :adi:`Phase Locked Loops for High-Frequency Receivers and Transmitters - Part 2 (pdf) <static/imported-files/tech_articles/112684897PLLs_2.pdf>`
-- :adi:`Phase Locked Loops for High-Frequency Receivers and Transmitters - Part 3 (pdf) <static/imported-files/tech_articles/596616802PLLs_3.pdf>`
+- :adi:`DAC, DDS, PLL's, and Clock Distribution <en/resources/technical-books/high-speed-system-applications.html>`
+- :adi:`Phase Locked Loops for High-Frequency Receivers and Transmitters - Part 1 <en/resources/analog-dialogue/articles/pll-for-high-frequency-receivers-and-transmitters-1.html>`
+- :adi:`Phase Locked Loops for High-Frequency Receivers and Transmitters - Part 2 <en/resources/analog-dialogue/articles/pll-for-high-frequency-receivers-and-transmitters-2.html>`
+- :adi:`Phase Locked Loops for High-Frequency Receivers and Transmitters - Part 3 <en/resources/analog-dialogue/articles/pll-for-high-frequency-receivers-and-transmitters-3.html>`
 
 Analog Circuit Simulation
 -------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ Sampling Systems
 #. Aspects of ADC Input Noise :adi:`(MT-004) <MT-004>`
 #. Aperture Time, Aperture Jitter, Aperture Delay Time :adi:`(MT-007) <MT-007>`
 
-   - :adi:`The Effect of Clock Noise on Sampled Data Systems (ppt) <static/imported-files/rarely_asked_questions/clockNoise.ppt>`
+   - :adi:`The Effect of Clock Noise on Sampled Data Systems (RAQ) <en/resources/analog-dialogue/raqs/raq-issue-6.html>`
 
 #. Converting Oscillator Phase Noise to Time Jitter :adi:`(MT-008) <MT-008>`
 #. :adi:`The Power Spectral Density of Phase Noise and Jitter (AN-1067) <media/en/technical-documentation/application-notes/AN-1067.pdf>`
@@ -164,8 +164,8 @@ Digital to Analog Converters
 
 #. String DACs, Thermometer (Fully Decoded) DACs :adi:`(MT-014) <MT-014>`
 #. Binary DACs :adi:`(MT-015) <MT-015>`
-#. Segmented DACs :adi:`(MT-016) <MT-016>`
-#. Oversampling Interpolating DACs :adi:`(MT-017) <MT-017>`
+#. Segmented DACs :adi:`(MT-016) <media/en/training-seminars/tutorials/MT-016.pdf>`
+#. Oversampling Interpolating DACs :adi:`(MT-017) <media/en/training-seminars/tutorials/MT-017.pdf>`
 #. Intentionally Nonlinear DACs :adi:`(MT-018) <MT-018>`
 #. DAC Interface Fundamentals :adi:`(MT-019) <MT-019>`
 #. Fundamentals of Direct Digital Synthesis (DDS) :adi:`(MT-085) <MT-085>`
@@ -187,10 +187,10 @@ Analog to Digital Converters
 High Speed System Applications
 -------------------------------------------------------------------------------
 
-- :adi:`High Speed Data Conversion Overview <static/imported-files/seminars_webcasts/High%20Speed%20System%20Applications%20%28PDF%29/HS%20Systems%20Part%201%20for%20Print_A.pdf>`
-- :adi:`Optimizing Data Converter Interfaces <static/imported-files/seminars_webcasts/High%20Speed%20System%20Applications%20%28PDF%29/HS%20Systems%20Part%202%20for%20Print_A.pdf>`
-- :adi:`DACs, DDSs, PLLs, and Clock Distribution <static/imported-files/seminars_webcasts/High%20Speed%20System%20Applications%20%28PDF%29/HS%20Systems%20Part%203%20for%20Print_A.pdf>`
-- :adi:`PC Board Layout and Design Tools <static/imported-files/seminars_webcasts/High%20Speed%20System%20Applications%20%28PDF%29/HS%20Systems%20Part%204%20for%20Print_A.pdf>`
+- :adi:`High Speed Data Conversion Overview <en/resources/technical-books/high-speed-system-applications.html>`
+- :adi:`Optimizing Data Converter Interfaces <en/resources/technical-books/high-speed-system-applications.html>`
+- :adi:`DACs, DDSs, PLLs, and Clock Distribution <en/resources/technical-books/high-speed-system-applications.html>`
+- :adi:`PC Board Layout and Design Tools <en/resources/technical-books/high-speed-system-applications.html>`
 - :adi:`High-Speed Time-Domain Measurements - Practical Tips for Improvement <library/analogDialogue/archives/41-03/time_domain.pdf>`
 
 Signals and Systems

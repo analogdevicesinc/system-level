@@ -29,7 +29,7 @@ connect the evaluation board:
 
    - - FPGA board
      - EVAL-AD9467
-   - - :xilinx:`ZedBoard`
+   - - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - FMC LPC
    - - :xilinx:`ZCU102`
      - FMC HPC0
@@ -46,7 +46,7 @@ The supported OS are:
      - HDL
      - Linux software
      - No-OS software
-   - - :xilinx:`ZedBoard`
+   - - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
      - Yes
      - Yes
      - -

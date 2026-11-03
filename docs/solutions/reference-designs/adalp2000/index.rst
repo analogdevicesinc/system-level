@@ -50,11 +50,11 @@ Kit Contents
 .. _ds-sn54hc273: http://www.ti.com/lit/ds/symlink/sn54hc273-sp.pdf
 .. _ds-hcm9765: https://www.mouser.com/datasheet/2/418/hcm9765_p11_453-1382862.pdf
 .. _ds-k164: https://eu.mouser.com/datasheet/2/400/NTC_Leaded_disks_K164-1317145.pdf
-.. _ds-yageo-sqp: https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/Yageo_LR_SQP_NSP_1.pdf
+.. _ds-yageo-sqp: https://www.mouser.com/datasheet/2/447/Yageo_LR_SQP_NSP_1-1853456.pdf
 .. _ds-3386: https://www.bourns.com/docs/Product-Datasheets/3386.pdf
 .. _ds-2n3904: https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf
 .. _ds-2n3906: https://www.onsemi.com/pdf/datasheet/2n3906-d.pdf
-.. _ds-irf510: http://www.vishay.com/docs/91015/sihf510.pdf
+.. _ds-irf510: https://www.vishay.com/docs/91015/irf510.pdf
 .. _ds-tip31a: http://www.mouser.com/ds/2/149/fairchild%20semiconductor_tip31a-549394.pdf
 .. _ds-tip32c: https://www.mouser.com/ds/2/149/TIP32C-890156.pdf
 .. _ds-zvn2110a: https://www.diodes.com/assets/Datasheets/ZVN2110A.pdf
@@ -169,7 +169,7 @@ Kit Contents
 |    ltc1043.png      |               |                              |                               |
 |    :width: 200px    |               |                              |                               |
 +---------------------+---------------+------------------------------+-------------------------------+
-| .. figure::         | LTC1054       | Switched-Capacitor Regulator | :adi:`LTC1054 <ltc1054>`      |
+| .. figure::         | LTC1054       | Switched-Capacitor Regulator | :adi:`LTC1054 <LTC1054>`      |
 |    ltc1054.png      |               |                              |                               |
 |    :width: 200px    |               |                              |                               |
 +---------------------+---------------+------------------------------+-------------------------------+

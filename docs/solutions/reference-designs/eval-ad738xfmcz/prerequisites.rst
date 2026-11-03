@@ -10,7 +10,7 @@ Hardware prerequisites
 -------------------------------------------------------------------------------
 
 #. An AD738x-based evaluation board:
-   :adi:`EVAL-AD7380FMCZ` / :adi:`EVAL-AD7381FMCZ` /
+   :adi:`EVAL-AD7380FMCZ <EVAL-AD738xFMCZ>` / :adi:`EVAL-AD7381FMCZ <EVAL-AD738xFMCZ>` /
    :adi:`EVAL-AD7386FMCZ`
 #. An FPGA carrier platform. Our recommended one can be found
    :ref:`here <eval-ad738xfmcz carriers>`.

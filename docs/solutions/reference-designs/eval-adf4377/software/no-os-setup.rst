@@ -22,7 +22,7 @@ Required Hardware
 -----------------
 
 -  :adi:`EV-ADF4377SD1Z` board & Power supply
--  :adi:`SDP-I-FMC` Interposer
+-  :adi:`SDP-I-FMC <EVAL-SDP-I-FMC>` Interposer
 -  ZedBoard
 
 Required Software

@@ -146,7 +146,7 @@ The drivers source code are available at:
      - :git-no-OS:`drivers/adc/ad405x`
      - :external+no-OS:doc:`doc <drivers/adc/ad405x>`
    * - Linux
-     - :git-linux:`staging/ad4052:drivers/iio/adc/ad4052.c`
+     - :git-linux:`staging/xlnx/main/ad4052:drivers/iio/adc/ad4052.c`
      - -
 
 The no-OS driver is divided into a core driver and a tinyIIO layer to be used
@@ -212,7 +212,7 @@ For the carriers targeting Linux, the devicetrees are available at:
    * - Carrier
      - Devicetree
    * - Cora Z7S
-     - :git-linux:`zynq-coraz7s-ad4052.dts <staging/ad4052:arch/arm/boot/dts/xilinx/zynq-coraz7s-ad4052.dts>`
+     - :git-linux:`zynq-coraz7s-ad4052.dts <staging/xlnx/main/ad4052:arch/arm/boot/dts/xilinx/zynq-coraz7s-ad4052.dts>`
    * - DE10-Nano
      - \-
 
@@ -223,7 +223,7 @@ The DE10-Nano and Cora Z7s use the FPGA to instantiate the controllers to
 interface the evaluation board.
 
 The source code is available at
-:git-hdl:`ad4052:projects/ad4052_ardz`
+:git-hdl:`projects/ad4052_ardz`
 and documented at
 :external+hdl:ref:`ad4052_ardz`.
 

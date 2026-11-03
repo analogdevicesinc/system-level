@@ -5,20 +5,20 @@ AD9084-FMCA-EBZ Intel Agilex 7 Quick Start Guide
 
 This guide provides some quick instructions on how to setup the AD9084 eval board on:
 
-- Intel Agilex 7 :intel:`DK-SI-AGIB027FA <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>`
+- Intel Agilex 7 `DK-SI-AGIB027FA <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__
 
 Required Hardware
 -------------------------------------------------------------------------------
 
-- Intel :intel:`DK-SI-AGIB027FA <content/www/us/en/products/details/fpga/development-kits/agilex/si-agi027.html>` board.
+- Intel `DK-SI-AGIB027FA <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1305>`__ board.
 - Intel :intel:`HPS IO48 OOBE Daughter Card <content/www/us/en/docs/programmable/721605/current/daughter-cards-17810.html>`.
-- :adi:`EVAL-AD9084` evaluation board.
+- :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board.
 - SD Card of at least 16GB imaged with Kuiper Linux (see
   :external+kuiper:doc:`Configure a SD Card <hardware-configuration>`).
 - 1x `Vita 57 FMC+ Extender <https://www.samtec.com/kits/optics-fpga/fmcp-extender/>`__.
 - USB-C cable.
 - Ethernet cable.
-- Power supply for the FPGA carrier board and the :adi:`EVAL-AD9084` evaluation board.
+- Power supply for the FPGA carrier board and the :adi:`EVAL-AD9084 <AD9084-FMCA-EBZ>` evaluation board.
 
 Required Software
 -------------------------------------------------------------------------------

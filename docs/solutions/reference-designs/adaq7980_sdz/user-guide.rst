@@ -15,7 +15,7 @@ General Setup
 Board Overview
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :adi:`EVAL-ADAQ7980-SDZ` Shield (**ADAQ7980 Board**) is a compact evaluation
+The :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` Shield (**ADAQ7980 Board**) is a compact evaluation
 board designed to interface with the ZedBoard via the FMC connector. The board
 provides access to all the key features of the :adi:`ADAQ7980`/:adi:`ADAQ7988`
 16-bit SAR ADC subsystems.
@@ -23,7 +23,7 @@ provides access to all the key features of the :adi:`ADAQ7980`/:adi:`ADAQ7988`
 Power Supply
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :adi:`EVAL-ADAQ7980-SDZ` is powered through the FMC connector from the
+The :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` is powered through the FMC connector from the
 ZedBoard. The board requires the following supply voltages:
 
 - VDD (Analog supply)
@@ -38,7 +38,7 @@ evaluation board.
 Analog Input
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The main analog input on the :adi:`EVAL-ADAQ7980-SDZ` is available through an
+The main analog input on the :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` is available through an
 SMA connector on the board. The input can accept single-ended or differential
 signals depending on the configuration. The integrated ADC driver provides
 signal conditioning and buffering for optimal ADC performance.
@@ -50,7 +50,7 @@ requirements.
 LED Indicators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :adi:`EVAL-ADAQ7980-SDZ` board includes LED indicators for:
+The :adi:`EVAL-ADAQ7980-SDZ <EVAL-ADAQ7980>` board includes LED indicators for:
 
 - Power status
 - Communication activity

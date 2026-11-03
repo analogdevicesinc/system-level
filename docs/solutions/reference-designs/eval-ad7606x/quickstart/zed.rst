@@ -10,7 +10,7 @@ ZedBoard Quick Start
 .. esd-warning::
 
 This guide provides step-by-step instructions on how to set up the
-:adi:`EVAL-AD7606B-FMCZ` / :adi:`EVAL-AD7606C-18FMCZ` on:
+:adi:`EVAL-AD7606B-FMCZ` / :adi:`EVAL-AD7606C-18FMCZ <EVAL-AD7606C-18>` on:
 
 - `ZedBoard <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   The supported revision is C or higher.
@@ -47,7 +47,7 @@ Required Hardware
 - AMD Xilinx `ZedBoard
   <https://digilent.com/reference/programmable-logic/zedboard/start>`__
   Rev C or later, with 12 V power supply
-- :adi:`EVAL-AD7606B-FMCZ` or :adi:`EVAL-AD7606C-18FMCZ` FMC evaluation
+- :adi:`EVAL-AD7606B-FMCZ` or :adi:`EVAL-AD7606C-18FMCZ <EVAL-AD7606C-18>` FMC evaluation
   board
 - 2x Micro-USB cables (one for UART, one for JTAG)
 - Signal generator capable of ±10 V or ±5 V output (to drive analog inputs)
