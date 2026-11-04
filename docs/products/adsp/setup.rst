@@ -12,6 +12,8 @@ or a JTAG debugger embedded on supported carrier boards.
 JTAG & OpenOCD Setup
 -----------------------------
 
+See :ref:`adsp-jtag` for the supported ICE versions and voltage levels.
+
 To communicate with the board, you must build and run the ADI fork of OpenOCD.
 
 Install Dependencies
