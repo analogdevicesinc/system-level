@@ -111,7 +111,6 @@ Table of Contents
    #. :ref:`Characteristics & Performance <fmcomms11 card-specification>`
 
 #. :doc:`FCC or CE certification <certification>`
-#. :doc:`Production Testing Process <testing>`
 
 #. Using the evaluation board/full stack reference design that we offer:
 
@@ -226,5 +225,4 @@ Warning
    hardware/functional_overview
    prerequisites
    quickstart/index
-   testing
    user-guide
