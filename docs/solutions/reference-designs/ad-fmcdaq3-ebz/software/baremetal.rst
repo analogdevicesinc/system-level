@@ -16,7 +16,7 @@ recent additions.
 Altera Platform(s)
 ------------------
 
-- `Arria 10 GX FPGA Development Kit <https://www.intel.com/content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`__
+- `Arria 10 GX FPGA Development Kit <https://www.altera.com/products/devkit/po-3017/arria-10-gx-fpga-development-kit>`__
 
 AMD Xilinx Platform(s)
 ----------------------

@@ -197,8 +197,8 @@ The driver source code is available at:
      - :external+no-OS:doc:`doc <drivers/adc/ad405x>`
    * - Linux
      - AD4060/4062 (I3C only)
-     - :git-linux:`drivers/iio/adc/ad4062.c`
-     - :git-linux:`doc <Documentation/iio/ad4062.rst>`
+     - :git-linux:`main:drivers/iio/adc/ad4062.c`
+     - :git-linux:`doc <main:Documentation/iio/ad4062.rst>`
 
 **Driver Architecture:**
 

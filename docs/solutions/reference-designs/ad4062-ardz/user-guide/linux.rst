@@ -21,7 +21,7 @@ Devicetree
 
 Because I3C is a discoverable protocol, the ADC device tree node is optional.
 If you add one, follow
-:git-linux:`Documentation/devicetree/bindings/iio/adc/adi%2Cad4062.yaml`.
+:git-linux:`main:Documentation/devicetree/bindings/iio/adc/adi,ad4062.yaml`.
 
 For the HDL I3C controller, see
 `Documentation/devicetree/bindings/i3c/adi,i3c-master.yaml <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/i3c/adi,i3c-master.yaml>`__

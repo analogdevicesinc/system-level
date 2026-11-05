@@ -36,7 +36,7 @@ cable provided.
 Transmission Specifications
 -------------------------------------------------------------------------------
 
-The :adi:`AD-FRQCVT1-EBZ` extends the frequency of operation for the 
+The :adi:`AD-FREQCVT1-EBZ` extends the frequency of operation for the 
 :adi:`FMCOMMS3/4/5 <AD-FMCOMMS3-EBZ>`:
 
 -  Input signals in the frequency range of 1-100 MHz is up-converted to an

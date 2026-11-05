@@ -111,7 +111,6 @@ Table of Contents
    #. :ref:`Characteristics & Performance <fmcomms11 card-specification>`
 
 #. :doc:`FCC or CE certification <certification>`
-#. :doc:`Production Testing Process <testing>`
 
 #. Using the evaluation board/full stack reference design that we offer:
 
@@ -200,7 +199,7 @@ MathWorks Webinars
 --------------------------------------------------------------------------------
 
 - `Modelling and Simulating Analog Devices’ RF Transceivers with MATLAB and SimRF <https://www.mathworks.com/videos/modelling-and-simulating-analog-devices-rf-transceivers-with-matlab-and-simrf-89934.html>`_
-- `Getting Started with Software-Defined Radio using MATLAB and Simulink <https://www.mathworks.com/videos/getting-started-with-software-defined-radio-using-matlab-and-simulink-108646.html>`_
+- `Getting Started with Software-Defined Radio using MATLAB and Simulink <https://www.mathworks.com/videos/software-defined-radio-using-matlab-and-simulink-1601496230597.html>`_
 
 Help and support
 --------------------------------------------------------------------------------
@@ -226,5 +225,4 @@ Warning
    hardware/functional_overview
    prerequisites
    quickstart/index
-   testing
    user-guide

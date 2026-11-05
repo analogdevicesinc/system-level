@@ -8,7 +8,7 @@ A10GX Quickstart (OBSOLETE)
 This guide provides some quick instructions on how to setup the
 :adi:`AD-FMCDAQ3-EBZ` on:
 
-- `Arria 10 GX FPGA Development Kit <https://www.intel.com/content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`__
+- `Arria 10 GX FPGA Development Kit <https://www.altera.com/products/devkit/po-3017/arria-10-gx-fpga-development-kit>`__
   (A10GX) on FMC1
 
 .. image:: ./../images/arria10-fpga-kit.jpg
@@ -46,7 +46,7 @@ Required software
 Required hardware
 ~~~~~~~~~~~~~~~~~
 
-- `Intel Arria 10 GX FPGA Development Kit <https://www.intel.com/content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`__
+- `Intel Arria 10 GX FPGA Development Kit <https://www.altera.com/products/devkit/po-3017/arria-10-gx-fpga-development-kit>`__
   and its power supply
 - :adi:`AD-FMCDAQ3-EBZ` FMC evaluation board
 - Micro-USB cable (JTAG)
