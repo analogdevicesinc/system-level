@@ -283,7 +283,12 @@ Hands-on Activity
 
 By the end of this workshop, you will learn:
 
+.. workshop-guide-end
+
 * How to set up a no-OS development environment on Linux
+
+.. workshop-guide-start
+
 * How to build and flash firmware to MAX78000FTHR
 * How to read sensor data via SPI from ADXL355 accelerometer
 * How to convert raw register values to meaningful units
@@ -295,11 +300,18 @@ Materials
 * MAX78000FTHR evaluation board
 * EVAL-ADXL355-PMDZ accelerometer module
 * Jumper wires (6 connections required)
-* Raspberry Pi 5 or Linux PC as development workstation
+* Raspberry Pi 5 as development workstation
 * USB cable for MAX78000FTHR connection
 
 Prerequisites
 ~~~~~~~~~~~~~
+
+This guide assumes you are using a Raspberry Pi 5 running a Kuiper image that
+already has the workshop environment installed. In the live workshop, the
+Raspberry Pi 5 is provided already flashed, so no setup is needed on your side.
+The workshop files are located in ``~/Desktop/datax-workshops/embedded-baremetal``.
+
+.. workshop-guide-end
 
 The workshop environment can be set up using one of three methods. Choose the
 option that best fits your situation:
@@ -439,6 +451,8 @@ The setup creates the following directory structure:
        └── projects/
            └── workshop/     # Symlink to ../../../workshop
 
+.. workshop-guide-start
+
 .. _environment-configuration:
 
 Environment Configuration
@@ -448,6 +462,8 @@ In order for the no-OS build system to find the necessary MAX78000 SDK libraries
 current working terminal must have the ``MAXIM_LIBRARIES`` variable set to the path in which
 the libraries reside.
 
+.. workshop-guide-end
+
 If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
@@ -455,6 +471,8 @@ If you set up the environment using Option 1 or Option 3, run:
    export MAXIM_LIBRARIES=~/workshop_baremetal/msdk/Libraries
 
 If you set up the environment using Option 2, run:
+
+.. workshop-guide-start
 
 .. code-block:: bash
 
@@ -477,6 +495,8 @@ environment is correctly configured.
 
 Open a terminal and navigate to the no-OS directory.
 
+.. workshop-guide-end
+
 If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
@@ -484,6 +504,8 @@ If you set up the environment using Option 1 or Option 3, run:
    cd ~/workshop_baremetal/no-OS
 
 If you set up the environment using Option 2, run:
+
+.. workshop-guide-start
 
 .. code-block:: bash
 
@@ -506,6 +528,52 @@ Flash the firmware to the MAX78000FTHR:
    python tools/scripts/no_os_build.py build \
     --project workshop --variant example_1 --board max78000fthr \
     --probe openocd --flash
+
+Both commands call the same script and differ only by the last two flags.
+Here is what each part does:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 35 65
+
+   * - Option
+     - Meaning
+   * - ``python tools/scripts/no_os_build.py``
+     - The no-OS build utility. It is a wrapper around CMake that selects the
+       right configuration for your board, configures the build, compiles the
+       firmware and, optionally, programs it onto the board.
+   * - ``build``
+     - The subcommand that configures and compiles a project. The other
+       subcommand, ``list``, prints every valid project, variant and board
+       combination.
+   * - ``--project workshop``
+     - The project to build, which is a folder under ``projects/``. In this
+       workshop, ``projects/workshop`` is a symlink to the workshop source
+       files.
+   * - ``--variant example_1``
+     - The configuration of the project to build. It selects the
+       ``workshop/example_1.conf`` file, which decides what code is compiled
+       into the firmware. Each example of this workshop is a different variant
+       of the same project.
+   * - ``--board max78000fthr``
+     - The target board. It selects the CMake preset that sets the platform
+       (Maxim), the compiler toolchain and the board-specific settings. The
+       toolchain finds the MAX78000 libraries through the ``MAXIM_LIBRARIES``
+       variable exported earlier. The project, variant and board must form a
+       valid combination.
+   * - ``--probe openocd``
+     - The debug probe used to program the board. It is passed to CMake as
+       ``-DPROBE=openocd``. OpenOCD talks to the on-board debugger of the
+       MAX78000FTHR over USB. The other accepted value is ``jlink``.
+   * - ``--flash``
+     - After a successful build, program the firmware onto the board by running
+       the CMake ``flash`` target. It requires ``--probe``, and the board must
+       be connected over USB.
+
+The build output is placed in ``build/workshop-example_1-max78000fthr`` inside
+the no-OS directory. The first command only builds, so it needs no board
+connected. The second command rebuilds (nothing changed, so it is quick) and
+then flashes.
 
 Open a new terminal and start the serial monitor:
 
@@ -580,7 +648,10 @@ using the USB cable.
 The accelerometer has an internal temperature sensor. This example makes use of
 this by reading it and displaying temperature values onto the serial terminal.
 
-Build the second example:
+Build the second example. Compared to Example 1, only ``--variant`` changes:
+``example_2`` selects the ``workshop/example_2.conf`` configuration, so the
+firmware compiled is the temperature-reading code. All the other flags keep the
+meaning explained in the table from Example 1.
 
 .. code-block:: bash
 
@@ -621,6 +692,8 @@ You need to modify example_2.c, rebuild, and flash the program
 onto the board. The recommended way to do this is to open the no-OS folder using
 your favorite editor (we recommend Visual Studio Code) and open the *example_2.c* file.
 
+.. workshop-guide-end
+
 If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
@@ -628,6 +701,8 @@ If you set up the environment using Option 1 or Option 3, run:
    code ~/workshop_baremetal/no-OS
 
 If you set up the environment using Option 2, run:
+
+.. workshop-guide-start
 
 .. code-block:: bash
 
@@ -640,7 +715,8 @@ Read temperature and the acceleration values from ADXL355 and convert the data
 from raw values into user readable values.
 
 Make sure you have an active terminal running picocom, then build and flash the
-third example:
+third example. Again, only ``--variant`` changes (``example_3``), selecting the
+``workshop/example_3.conf`` configuration:
 
 .. code-block:: bash
 
@@ -749,11 +825,26 @@ components on a circuit by physically tilting the accelerometer.
 
 Close the terminal running picocom.
 
-Make sure you are in the no-OS directory
-(``~/workshop_baremetal/no-OS`` for Option 1 or Option 3,
-``~/Desktop/datax-workshops/embedded-baremetal/no-OS`` for Option 2).
+Make sure you are in the no-OS directory:
 
-Build the IIO_EXAMPLE of this project:
+.. workshop-guide-end
+
+If you set up the environment using Option 1 or Option 3, run:
+
+.. code-block:: bash
+
+   cd ~/workshop_baremetal/no-OS
+
+If you set up the environment using Option 2, run:
+
+.. workshop-guide-start
+
+.. code-block:: bash
+
+   cd ~/Desktop/datax-workshops/embedded-baremetal/no-OS
+
+Build the IIO_EXAMPLE of this project. Only ``--variant`` changes
+(``iio_example``), selecting the ``workshop/iio_example.conf`` configuration:
 
 .. code-block:: bash
 
@@ -770,6 +861,8 @@ Program the board:
 
 Change the directory and run the game.
 
+.. workshop-guide-end
+
 If you set up the environment using Option 1 or Option 3, run:
 
 .. code-block:: bash
@@ -777,6 +870,8 @@ If you set up the environment using Option 1 or Option 3, run:
    cd ~/workshop_baremetal/play
 
 If you set up the environment using Option 2, run:
+
+.. workshop-guide-start
 
 .. code-block:: bash
 
