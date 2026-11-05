@@ -215,7 +215,7 @@ ADRV9002 clock
 Jupiter SDR supports two ADRV9002 clock sources:
 
 #. on-board 38.4MHz oscillator -
-   `GTXO-74V/JI <https://www.golledge.com/products/gtxo-74v-low-phase-noise-sm-tcxo-with-voltage-control-and-clipped-sine-output/c-26/p-327>`__
+   `GTXO-74V/JI <https://golledge.com/products/tcxos/12/GTXO-74>`__
    made by Golledge
 
 #. external clock input exposed to the dedicated SMA connector

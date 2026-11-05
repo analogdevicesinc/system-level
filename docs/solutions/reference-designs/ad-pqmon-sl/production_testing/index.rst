@@ -41,7 +41,7 @@ Required Hardware
 * DUT - PQM board assembly (main board + front panel)
 * New empty SD card for SD test
 * T1L cable, not crossed (see image below)
-* T1L Usb adapter (:adi:`AD-T1LUSB2.0-EBZ`)
+* T1L Usb adapter (:adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>`)
 * :adi:`MAX32625PICO` (Daplink programmer) with MAX32650 Daplink firmware
 * :adi:`MAX32625PICO` ribbon cable
 * 1 x Usb Type-A to Usb Type-C cable (for DUT power)

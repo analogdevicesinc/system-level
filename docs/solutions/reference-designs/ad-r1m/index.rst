@@ -315,7 +315,7 @@ Related Products
 **Sensors:**
 
 - :adi:`ADIS16470` - High-precision 6-axis IMU
-- :adi:`ADTF3175D` - Time-of-Flight depth camera
+- :adi:`EVAL-ADTF3175` - Time-of-Flight depth camera
 
 **GMSL Camera Boards:**
 

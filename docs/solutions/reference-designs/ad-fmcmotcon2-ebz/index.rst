@@ -20,18 +20,19 @@ interfaces; Hall, Differential Hall, Encoder, and Resolver position sensor
 interfaces; EnDat and BISS digital sensor interfaces; and a flexible FPGA/SoC
 control interface.
 
-The :adi:`AD-DYNO2-EBZ` dynamometer acts as an electronically adjustable load
-for testing real-time motor control performance. It consists of two BLDC motors
-directly coupled through a rigid connection.
+The :ref:`AD-DYNO2-EBZ <ad_fmcmotcon2_ebz dyno>` dynamometer acts as an
+electronically adjustable load for testing real-time motor control performance.
+It consists of two BLDC motors directly coupled through a rigid connection.
 
 The system consists of:
 
 - :adi:`AD-FMCMOTCON2-EBZ` - Controller board, compatible with all AMD Xilinx FPGA
   platforms with FMC LPC or HPC connectors.
-- :adi:`AD-DRVLV2-EBZ` - Low voltage drive board. Drives Brushed DC / BLDC /
-  PMSM / Stepper motors up to 48 V and 20 A.
-- :adi:`AD-DYNO2-EBZ` - Dynamometer drive system. Electronically adjustable
-  load with two BLDC motors in a dyno setup (optional).
+- :ref:`AD-DRVLV2-EBZ <ad_fmcmotcon2_ebz lv-board>` - Low voltage drive board.
+  Drives Brushed DC / BLDC / PMSM / Stepper motors up to 48 V and 20 A.
+- :ref:`AD-DYNO2-EBZ <ad_fmcmotcon2_ebz dyno>` - Dynamometer drive system.
+  Electronically adjustable load with two BLDC motors in a dyno setup
+  (optional).
 
 .. note::
 
