@@ -486,6 +486,23 @@ If you set up the environment using Option 2, run:
    You can also add this export to your ``~/.bashrc`` file to make it persistent across
    terminal sessions.
 
+.. warning::
+
+   **Type carefully!** Build and flash commands are not forgiving. A stray
+   character, a wrong path or a skipped step can leave you with a broken build,
+   a board that will not flash, or other things going awry. Read each
+   command before you press Enter, copy the paths exactly as shown, and when
+   something looks off, stop and ask before retrying. This applies to every
+   command in this guide, not only to the build and flash ones.
+
+.. admonition:: Challenges are optional
+   :class: challenge
+
+   Each example comes with a challenge. Nobody is grading you and nobody is
+   holding you at gunpoint, so there is no pressure to complete them. But if you
+   finish the example early and feel like flexing, go for the challenge. Fast
+   hands get rewarded. Eventually. Possibly with something shiny.
+
 Example 1: Hello World UART
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -675,22 +692,24 @@ Observe the output being printed every second.
    :align: center
    :width: 500
 
-**Challenge**
+.. admonition:: Challenge
+   :class: challenge
 
-Change the current format of the printed temperature from millidegrees to
-degrees.
+   Change the current format of the printed temperature from millidegrees to
+   degrees.
 
-**Example**
+   **Example**
 
-The current format is: 24668.050838350 millidegrees.
+   The current format is: 24668.050838350 millidegrees.
 
-The new format should be 24.66 degrees.
+   The new format should be 24.66 degrees.
 
-**Hint**
+.. hint::
 
-You need to modify example_2.c, rebuild, and flash the program
-onto the board. The recommended way to do this is to open the no-OS folder using
-your favorite editor (we recommend Visual Studio Code) and open the *example_2.c* file.
+   You need to modify example_2.c, rebuild, and flash the program
+   onto the board. The recommended way to do this is to open the no-OS folder using
+   your favorite editor (we recommend Visual Studio Code) and open the *example_2.c* file.
+
 
 .. workshop-guide-end
 
@@ -735,87 +754,88 @@ Notice the output displayed:
    :align: center
    :width: 500
 
-**Challenge**
+.. admonition:: Challenge
+   :class: challenge
 
-Compute the temperature and the accelerations using the raw values.
+   Compute the temperature and the accelerations using the raw values.
 
-**Hint**
+.. hint::
 
-For temperature you need to compute the temp_dividend and temp_divisor.
+   For temperature you need to compute the temp_dividend and temp_divisor.
 
-For accelerometer values you need to compute the x_dividend, y_dividend,
-z_dividend and accel_divisor.
+   For accelerometer values you need to compute the x_dividend, y_dividend,
+   z_dividend and accel_divisor.
 
-The formula for the temperature:
+   The formula for the temperature:
 
-.. math::
+   .. math::
 
-   TEMPERATURE = (RAW + OFFSET) \cdot SCALE
+      TEMPERATURE = (RAW + OFFSET) \cdot SCALE
 
-.. math::
+   .. math::
 
-   TEMPERATURE = \left(RAW + \frac{OFFSET}{OFFSET\_DIV}\right) \cdot \frac{SCALE\_FACTOR}{SCALE\_FACTOR\_DIV}
+      TEMPERATURE = \left(RAW + \frac{OFFSET}{OFFSET\_DIV}\right) \cdot \frac{SCALE\_FACTOR}{SCALE\_FACTOR\_DIV}
 
-.. math::
+   .. math::
 
-   TEMPERATURE = \frac{(RAW \cdot OFFSET\_DIV + OFFSET) \cdot SCALE\_FACTOR}{OFFSET\_DIV \cdot SCALE\_FACTOR\_DIV}
+      TEMPERATURE = \frac{(RAW \cdot OFFSET\_DIV + OFFSET) \cdot SCALE\_FACTOR}{OFFSET\_DIV \cdot SCALE\_FACTOR\_DIV}
 
-The formula for the acceleration:
+   The formula for the acceleration:
 
-.. math::
+   .. math::
 
-   ACCELERATION = RAW \cdot SCALE
+      ACCELERATION = RAW \cdot SCALE
 
-.. math::
+   .. math::
 
-   ACCELERATION = \frac{RAW \cdot SCALE\_FACTOR\_MUL}{SCALE\_FACTOR\_DIV}
+      ACCELERATION = \frac{RAW \cdot SCALE\_FACTOR\_MUL}{SCALE\_FACTOR\_DIV}
 
-.. list-table:: Parameter correspondence table
-   :header-rows: 1
-   :widths: 50 50
+   .. list-table:: Parameter correspondence table
+      :header-rows: 1
+      :widths: 50 50
 
-   * - PARAMETER
-     - VALUE
-   * - TEMPERATURE OFFSET
-     - -2111.25
-   * - TEMPERATURE SCALE
-     - -110.497238
-   * - ACCELERATION SCALE
-     - 0.00003824593
+      * - PARAMETER
+        - VALUE
+      * - TEMPERATURE OFFSET
+        - -2111.25
+      * - TEMPERATURE SCALE
+        - -110.497238
+      * - ACCELERATION SCALE
+        - 0.00003824593
 
-.. list-table:: Macro correspondence table
-   :header-rows: 1
-   :widths: 50 50
+   .. list-table:: Macro correspondence table
+      :header-rows: 1
+      :widths: 50 50
 
-   * - MACRO
-     - VALUE
-   * - ADXL355_TEMP_OFFSET
-     - -211125
-   * - ADXL355_TEMP_OFFSET_DIV
-     - 100
-   * - ADXL355_TEMP_SCALE_FACTOR
-     - -110497238
-   * - ADXL355_TEMP_SCALE_FACTOR_DIV
-     - 1000000
-   * - ADXL355_ACC_SCALE_FACTOR_MUL
-     - 38245
-   * - ADXL355_ACC_SCALE_FACTOR_DIV
-     - 1000000000
+      * - MACRO
+        - VALUE
+      * - ADXL355_TEMP_OFFSET
+        - -211125
+      * - ADXL355_TEMP_OFFSET_DIV
+        - 100
+      * - ADXL355_TEMP_SCALE_FACTOR
+        - -110497238
+      * - ADXL355_TEMP_SCALE_FACTOR_DIV
+        - 1000000
+      * - ADXL355_ACC_SCALE_FACTOR_MUL
+        - 38245
+      * - ADXL355_ACC_SCALE_FACTOR_DIV
+        - 1000000000
 
-To compute the temperature and the accelerations you can use either the macros
-or their values from the above table. The ``ADXL355_TEMP`` macros correspond to
-the temperature values, and the ``ADXL355_ACC`` macros correspond to the
-acceleration values.
+   To compute the temperature and the accelerations you can use either the macros
+   or their values from the above table. The ``ADXL355_TEMP`` macros correspond to
+   the temperature values, and the ``ADXL355_ACC`` macros correspond to the
+   acceleration values.
 
-The raw values from the formulas can be found in the source file under the name
-``raw_<temp, x, y, z>``.
+   The raw values from the formulas can be found in the source file under the name
+   ``raw_<temp, x, y, z>``.
 
-.. note::
+   .. note::
 
-   For the division to be correct, the dividend must be represented on twice
-   the number of bits the divisor is represented on, so you need to cast
-   explicitly one parameter of the dividend to ``int64_t``.
-   Example: ``(int64_t)ADXL355_TEMP_SCALE_FACTOR``.
+      For the division to be correct, the dividend must be represented on twice
+      the number of bits the divisor is represented on, so you need to cast
+      explicitly one parameter of the dividend to ``int64_t``.
+      Example: ``(int64_t)ADXL355_TEMP_SCALE_FACTOR``.
 
 Example 4: IIO Accelerometer Game
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
