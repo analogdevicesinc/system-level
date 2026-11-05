@@ -32,14 +32,14 @@ Devices Under Test (DUTs)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * :adi:`AD-SWIOT1L-SL`
-* :adi:`AD-T1LUSB2.0-EBZ`
+* :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>`
 * T1L Ethernet cable
 
 Testing Equipment
 ~~~~~~~~~~~~~~~~~
 
 * 1 x :adi:`AD-SWIOT1L-SL` board (used as a reference)
-* 1 x :adi:`AD-T1LUSB2.0-EBZ` board (used as a reference)
+* 1 x :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` board (used as a reference)
 * :adi:`MAX32625PICO` (Daplink programmer)
 * Usb A to Micro-Usb cable for the Daplink programmer
 * Raspberry Pi 4 + Power supply

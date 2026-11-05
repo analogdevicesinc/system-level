@@ -141,7 +141,7 @@ the difference.
       #. :adi:`AD9361 Product page <AD9361>`
 
       #. :adi:`Full Datasheet and chip design package
-         <hrfif-components/rfif-transceivers/products/AD9361-Integrated-RF-Agile-Transceiver-Design-Res/fca.html>`
+         <en/design-center/landing-pages/001/integrated-rf-agile-transceiver-design-resources.html>`
 
       #. :dokuwiki:`MATLAB Filter Design Wizard for AD9361
          <resources/eval/user-guides/ad-fmcomms2-ebz/software/filters>`

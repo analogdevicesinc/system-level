@@ -144,21 +144,21 @@ Downloads
 .. admonition:: Download
    :class: download
 
+   :adi:`AD-FXTOF1-EBZ Design & Integration Files
+   <media/en/technical-documentation/evaluation-documentation/ad-fxtof1-ebz-design-files.zip>`
+
    **ToF module resources:**
 
-   - `Mechanical drawing & Pinout <resources/ad-fxtof1-ebz_mechanical_drawing.pdf>`_
-   - `ToF module 3D step model <resources/tofcam.zip>`_
-   - `High level BOM <images/ad-fxtof1-ebz_high_level_bom.xlsx>`_
-
-.. admonition:: Download
-   :class: download
+   - Mechanical drawing & Pinout
+   - ToF module 3D step model
+   - High level BOM
 
    **Interposer board resources:**
 
-   - `Schematics <resources/02-066110-01-a.pdf>`_
-   - `PCB Layout <resources/09-066110-01a.zip>`_
-   - `Bill of Materials <resources/05-066110-01-a.zip>`_
-   - `Allegro Project <resources/20-066110-01a.zip>`_
+   - Schematics
+   - PCB Layout
+   - Bill of Materials
+   - Allegro Project
 
 .. note::
 

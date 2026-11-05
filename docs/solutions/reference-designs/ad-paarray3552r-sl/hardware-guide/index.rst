@@ -188,7 +188,7 @@ Equipment Needed
   10-pin SWD cable and with updated firmware: :ref:`see firmware update
   instructions <ad-paarray3552r-sl software-guide>`
 - One (1) :adi:`HMC8500` GaN Power Amplifier Evaluation Board
-- One (1) :adi:`HMC8429` RF Switch Evaluation Board
+- One (1) :adi:`HMC849A` RF Switch Evaluation Board
 - One (1) :adi:`ADL5611` Gain Block AmplifierEvaluation Board
 - One (1) +5V to +60V programmable power supply
 - Two (2) micro-USB to USB cable

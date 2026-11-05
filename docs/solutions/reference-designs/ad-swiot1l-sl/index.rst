@@ -51,7 +51,7 @@ system together and get it up and running in no time.
 This is what you’ll find in the development kit box:
 
 - 1 x :adi:`AD-SWIOT1L-SL` board with enclosure
-- 1 x :adi:`AD-T1LUSB-EBZ` 10BASE-T1L to usb adapter board.
+- 1 x :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` 10BASE-T1L to usb adapter board.
 - 1 x Profibus (1x2x18AWG) cable for Single Pair Ethernet (SPE) connectivity
 - 1 x usb 2.0 cable 
 - 1 x cable connector for the external 24 V power supply

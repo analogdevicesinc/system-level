@@ -23,7 +23,7 @@ files are available here:
 Embedded Software
 -----------------
 
-The :adi:`AD-PAARRAY3552R` is accompanied by an open-source software stack
+The :adi:`AD-PAARRAY3552R-SL` is accompanied by an open-source software stack
 and associated collateral, enabling a complete experience from
 evaluation and prototyping all the way to production firmware and applications
 development.

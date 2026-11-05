@@ -313,8 +313,8 @@ control applications.
    AD-T1LUSB-EBZ 10BASE-T1L to USB Adapter
 
 The :adi:`AD-SWIOT1L-SL` kit includes a
-10BASE-T1L to USB adapter :adi:`AD-T1LUSB2.0-EBZ` which is useful to directly
-control the board via a USB connection.
+10BASE-T1L to USB adapter :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` which is
+useful to directly control the board via a USB connection.
 
 .. note::
 

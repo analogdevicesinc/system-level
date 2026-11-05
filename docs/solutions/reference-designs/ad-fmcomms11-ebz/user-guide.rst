@@ -50,10 +50,10 @@ PyADI-IIO
 
 :git-pyadi-iio:`PyADI-IIO </>` is a Python abstraction module for ADI
 hardware with IIO drivers. An FMCOMMS11 example can be found
-:git-pyadi-iio:`here <examples/fmcomms11_example.py>`.
+:git-pyadi-iio:`here <examples/fmcomms11.py>`.
 
 MATLAB
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - `Modelling and Simulating Analog Devices' RF Transceivers with MATLAB and SimRF <https://www.mathworks.com/videos/modelling-and-simulating-analog-devices-rf-transceivers-with-matlab-and-simrf-89934.html>`_
-- `Getting Started with Software-Defined Radio using MATLAB and Simulink <https://www.mathworks.com/videos/getting-started-with-software-defined-radio-using-matlab-and-simulink-108646.html>`_
+- `Getting Started with Software-Defined Radio using MATLAB and Simulink <https://www.mathworks.com/videos/software-defined-radio-using-matlab-and-simulink-1601496230597.html>`_
