@@ -13,7 +13,6 @@ bitstream, run a no-OS program or boot a Linux distribution.
 .. toctree::
    :maxdepth: 1
 
-   On A10GX (OBSOLETE) <a10gx>
    On KCU105 <kcu105>
    On VCU118 <vcu118>
    On ZC706 <zc706>
@@ -36,9 +35,6 @@ connect the evaluation board:
 
    * - FPGA board
      - EVAL-AD-FMCDAQ3-EBZ
-   * - :intel:`A10GX <content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`
-       (OBSOLETE)
-     - FMC1
    * - :xilinx:`KCU105`
      - FMC HPC
    * - :xilinx:`VCU118`
@@ -60,11 +56,6 @@ The supported OS are:
      - HDL
      - Linux software
      - No-OS software
-   * - :intel:`A10GX <content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`
-       (OBSOLETE)
-     - ---
-     - Yes
-     - ---
    * - :xilinx:`KCU105`
      - Yes
      - Yes
@@ -89,12 +80,6 @@ On most carriers, the :adi:`AD-FMCDAQ3-EBZ` board connects to the HPC connector
 (unless otherwise noted). The carrier setup requires power, UART (115200),
 ethernet (for Linux), HDMI (if available) and/or JTAG (for no‑OS). A few typical
 setups are shown below.
-
-A10GX + AD-FMCDAQ3-EBZ (OBSOLETE)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: ./../images/arria10-fpga_daq3.jpg
-    :width: 900
 
 KCU105 + AD-FMCDAQ3-EBZ
 ~~~~~~~~~~~~~~~~~~~~~~~

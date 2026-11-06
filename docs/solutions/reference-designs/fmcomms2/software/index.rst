@@ -21,9 +21,5 @@ AD-FMCOMMS5-EBZ.
    Installing RF Blockset Models <rfblkset_mdls_install>
    AD9361 Receive Testbench <rfblkset_mdls_run_testbench>
    SimRF Models <simrf>
-   Beacon Frame Receiver Example <beacon_frame_receiver>
    QPSK Transmit and Receive Example <qpsk_example>
-   LTE Transmitter and Receiver Example <lte_example>
-   ADS-B Airplane Tracking Example <adsb_example>
-   ADS-B Airplane Tracking Tutorial <adsb_tutorial>
    FM Radio/Tuner <fm_radio>

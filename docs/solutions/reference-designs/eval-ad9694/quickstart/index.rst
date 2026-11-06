@@ -12,7 +12,6 @@ platforms.
 
    On ZCU102 <zcu102>
    ADS7-V2EBZ (Windows) <ads7-v2>
-   ADS7-V1EBZ (Obsolete) <ads7-v1>
 
 .. _ad9694 carriers:
 

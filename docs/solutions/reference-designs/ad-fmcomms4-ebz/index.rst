@@ -137,10 +137,7 @@ Table of contents
       #. MATLAB/Simulink Examples
 
          #. :ref:`Stream data into/out of MATLAB <matlab transceiver-toolbox>`
-         #. :ref:`Beacon Frame Receiver Example <fmcomms2 software beacon-frame-receiver>`
          #. :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
-         #. :ref:`LTE Transmitter and Receiver Example <fmcomms2 software lte-example>`
-         #. :ref:`ADS-B Airplane Tracking Example <fmcomms2 software adsb-example>`
 
       #. :ref:`GNU Radio <software gnuradio>`
       #. :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>`

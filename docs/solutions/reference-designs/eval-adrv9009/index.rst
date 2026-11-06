@@ -44,7 +44,6 @@ If you have any questions, feel free to :ref:`ask <help-and-support>`.
       #. :ref:`On ZCU102 <adrv9009 quickstart zcu102>`
       #. :ref:`On ZC706 <adrv9009 quickstart zc706>`
       #. :ref:`On KCU105 <adrv9009 quickstart kcu105>`
-      #. :ref:`On Arria 10 GX <adrv9009 quickstart a10gx>`
       #. :ref:`On Arria 10 SoC <adrv9009 quickstart a10soc>`
       #. Configure an SD Card with :external+kuiper:doc:`Kuiper <index>`
 

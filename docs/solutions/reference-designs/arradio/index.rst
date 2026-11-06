@@ -109,7 +109,6 @@ Table of Contents
          - :dokuwiki:`Stream data into/out of MATLAB <resources/tools-software/linux-software/libiio/clients/fmcomms2_3_simulink>`
          - :dokuwiki:`Beacon Frame Receiver Example <resources/tools-software/linux-software/libiio/clients/beacon_frame_receiver_simulink>`
          - :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
-         - :ref:`LTE Transmit and Receive Example <fmcomms2 software lte-example>`
 
       - :ref:`GNU Radio <software gnuradio>`
       - :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>`

@@ -173,9 +173,6 @@ the difference.
          #. :ref:`QPSK Transmit and Receive Example
             <fmcomms2 software qpsk-example>`
 
-         #. :ref:`LTE Transmit and Receive Example
-            <fmcomms2 software lte-example>`
-
          #. :dokuwiki:`ADS-B Airplane Tracking Example
             <resources/tools-software/linux-software/libiio/clients/adsb_example>`
 

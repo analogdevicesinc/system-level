@@ -39,22 +39,22 @@ Example Files
      - MATLAB file
      - 7.68MSPS
      - Created via
-       :ref:`lte_example <fmcomms2 software lte-example>`
+       the LTE example
    * - LTE10.mat
      - MATLAB file
      - 15.36MSPS
      - Created via
-       :ref:`lte_example <fmcomms2 software lte-example>`
+       the LTE example
    * - LTE15.mat
      - MATLAB file
      - 23.04MSPS
      - Created via
-       :ref:`lte_example <fmcomms2 software lte-example>`
+       the LTE example
    * - LTE20.mat
      - MATLAB file
      - 30.72MSPS
      - Created via
-       :ref:`lte_example <fmcomms2 software lte-example>`
+       the LTE example
    * - sinewave_0.3.mat
      - MATLAB file
      - any

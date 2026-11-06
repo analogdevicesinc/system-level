@@ -12,7 +12,6 @@ bitstream, run a no-OS program or boot a Linux distribution.
    :maxdepth: 1
 
    On A10SOC <a10soc>
-   On A10GX (OBSOLETE) <a10gx>
    On MICROBLAZE <microblaze>
    On ZC706  <zc706>
    On ZCU102 <zcu102>
@@ -34,9 +33,6 @@ connect the evaluation board:
 
    - - FPGA board
      - EVAL-AD-FMCDAQ2-EBZ
-   - - :intel:`A10GX <content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`
-       (OBSOLETE)
-     - FMC1
    - - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
      - FMC HPC1
    - - :xilinx:`KCU105`
@@ -58,11 +54,6 @@ The supported OS are:
      - HDL
      - Linux software
      - No-OS software
-   - - :intel:`A10GX <content/www/us/en/products/details/fpga/development-kits/arria/10-gx.html>`
-       (OBSOLETE)
-     - ---
-     - Yes
-     - ---
    - - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
      - Yes
      - Yes
