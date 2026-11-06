@@ -84,7 +84,6 @@ Table of contents
       #. :ref:`ZCU102 <ad_fmcdaq2_ebz quickstart zcu102>`
       #. :ref:`MICROBLAZE <ad_fmcdaq2_ebz quickstart microblaze>`
       #. :ref:`Arria 10 SoC <ad_fmcdaq2_ebz quickstart a10soc>`
-      #. :ref:`A10GX (OBSOLETE) <ad_fmcdaq2_ebz quickstart a10gx>`
 
    #. Configure an SD card with :external+kuiper:doc:`Kuiper <index>`
 

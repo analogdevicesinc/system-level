@@ -116,7 +116,6 @@ Table of contents
       #. :ref:`On ZED <fmcomms2 quickstart zed>`
       #. :ref:`On ZCU102 <fmcomms2 quickstart zcu102>`
       #. :ref:`On KCU105 <fmcomms2 quickstart kcu105>`
-      #. :ref:`On KC705, VC707 (Obsolete) <fmcomms2 quickstart microblaze>`
       #. :external+kuiper:doc:`Configure a pre-existing SD-Card <index>`
 
    #. Linux Applications
@@ -158,10 +157,7 @@ Table of contents
       #. MATLAB/Simulink Examples
 
          - :ref:`Stream data into/out of MATLAB <matlab transceiver-toolbox>`
-         - :ref:`Beacon Frame Receiver Example <fmcomms2 software beacon-frame-receiver>`
          - :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
-         - :ref:`LTE Transmitter and Receiver Example <fmcomms2 software lte-example>`
-         - :ref:`ADS-B Airplane Tracking Example <fmcomms2 software adsb-example>`
 
       #. :ref:`GNU Radio <software gnuradio>`
       #. :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>`
@@ -172,10 +168,6 @@ Table of contents
 
       #. :ref:`Analog Devices Transceiver Toolbox for MATLAB and Simulink <matlab transceiver-toolbox>`
       #. :mw:`QPSK Modem Design Workflow <help/comm/ug/hdlqpsktransmitterreceiver.html>`
-
-   #. Complete Workflow
-
-      #. :ref:`ADS-B Airplane Tracking Tutorial <fmcomms2 software adsb-tutorial>`
 
    #. Design a custom AD9361 based platform
 
