@@ -16,7 +16,6 @@ distribution.
    On ZC706 <zc706>
    On ZC702 <zc702>
    On ZED <zed>
-   On KC705, VC707 (Obsolete) <microblaze>
 
 .. _fmcomms2/3/4 carriers:
 
@@ -150,19 +149,3 @@ KCU105 + FMCOMMS2
    :width: 800
 
 Go to :ref:`the setup guide <fmcomms2 quickstart kcu105>`.
-
-KC705 + FMCOMMS2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: ../images/fmcomms2_kc705.jpeg
-   :width: 800
-
-Go to :ref:`the setup guide <fmcomms2 quickstart microblaze>`.
-
-VC707 + FMCOMMS2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: ../images/fmcomms2_vc707.jpeg
-   :width: 800
-
-Go to :ref:`the setup guide <fmcomms2 quickstart microblaze>`.

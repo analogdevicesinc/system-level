@@ -301,7 +301,7 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-zc706-adv7511-ad9625-fmcadc2
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :ref:`ad_fmcadc2_ebz eval` board
+       | :adi:`AD-FMCADC2-EBZ <ad-fmcadc2-ebz>` board
    - - zynq-zc706-adv7511-ad9739a-fmc
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
@@ -317,7 +317,7 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-zc706-adv7511-fmcadc4
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :ref:`ad_fmcadc4_ebz eval` board
+       | :adi:`AD-FMCADC4-EBZ <ad-fmcadc4-ebz>` board
    - - zynq-zc706-adv7511-fmcdaq2
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
@@ -329,7 +329,7 @@ Build the one that fits your FPGA carrier and FMC card
    - - zynq-zc706-adv7511-fmcjesdadc1
      - :xilinx:`ZC706`
      - | :adi:`ADV7511` (on-board) and the
-       | :ref:`ad_fmcjesdadc1_ebz eval` board
+       | :adi:`AD-FMCJESDADC1-EBZ <ad-fmcjesdadc1-ebz>` board
    - - zynq-zc706-imageon
      - :xilinx:`ZC706`
      - | FMC-IMAGEON

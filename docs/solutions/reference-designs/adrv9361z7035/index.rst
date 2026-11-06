@@ -97,10 +97,7 @@ Table of Contents
       -  MATLAB/Simulink Examples
 
          -  :ref:`Stream data into/out of MATLAB <matlab transceiver-toolbox>`
-         -  :ref:`Beacon Frame Receiver Example <fmcomms2 software beacon-frame-receiver>`
          -  :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
-         -  :ref:`LTE Transmit and Receive Example <fmcomms2 software lte-example>`
-         -  :ref:`ADS-B Airplane Tracking Example <fmcomms2 software adsb-example>`
 
       -  :ref:`GNU Radio <software gnuradio>`
       -  :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>` (listen to FM signals on the HDMI monitor)
@@ -112,7 +109,6 @@ Table of Contents
 
    -  Complete Workflow
 
-      -  :ref:`ADS-B Airplane Tracking Tutorial <fmcomms2 software adsb-tutorial>`
       -  :dokuwiki:`QPSK Modem Design Workflow <resources/eval/user-guides/ad-fmcomms2-ebz/software/matlab_bsp_modem>`
 
    -  Design a custom AD9361 based platform

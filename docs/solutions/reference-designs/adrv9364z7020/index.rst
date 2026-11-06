@@ -80,10 +80,7 @@ should be. If you have any questions, feel free to :ref:`ask <help-and-support>`
       #. MATLAB/Simulink Examples
 
          #. :dokuwiki:`Stream data into/out of MATLAB <resources/tools-software/linux-software/libiio/clients/fmcomms2_3_simulink>`
-         #. :ref:`Beacon Frame Receiver Example <fmcomms2 software beacon-frame-receiver>`
          #. :ref:`QPSK Transmit and Receive Example <fmcomms2 software qpsk-example>`
-         #. :ref:`LTE Transmit and Receive Example <fmcomms2 software lte-example>`
-         #. :ref:`ADS-B Airplane Tracking Example <fmcomms2 software adsb-example>`
 
       #. :ref:`GNU Radio <software gnuradio>`
       #. :ref:`FM Radio/Tuner <fmcomms2 software fm-radio>`
@@ -93,10 +90,6 @@ should be. If you have any questions, feel free to :ref:`ask <help-and-support>`
    #. Targeting
 
       #. :dokuwiki:`Analog Devices BSP for MathWorks HDL Workflow Advisor <resources/eval/user-guides/ad-fmcomms2-ebz/software/matlab_bsp>`
-
-   #. Complete Workflow
-
-      #. :ref:`ADS-B Airplane Tracking Tutorial <fmcomms2 software adsb-tutorial>`
 
    #. Design a custom AD9364-based platform
 

@@ -50,7 +50,7 @@ and within the `API documentation <http://analogdevicesinc.github.io/libiio/>`__
 * :dokuwiki+deprecated:`IIO System Object <resources/tools-software/linux-software/libiio/clients/matlab_simulink>`
 * :dokuwiki+deprecated:`IIO Plugin for Visual Analog <resources/tools-software/linux-software/libiio/clients/visual_analog>`
 * :dokuwiki+deprecated:`QPSK Transmit and Receive Example <resources/tools-software/linux-software/libiio/clients/qpsk_example>`
-* :dokuwiki+deprecated:`ADS-B Airplane Tracking Example <resources/tools-software/linux-software/libiio/clients/adsb_example>`
+* :doc:`ADS-B Airplane Tracking Example </learning/ADS-B_airplane_tracking_tutorial/libiio_client>`
 * :dokuwiki+deprecated:`Beacon Frame Receiver Example <resources/tools-software/linux-software/libiio/clients/beacon_frame_receiver_simulink>`
 
 Network Backends
