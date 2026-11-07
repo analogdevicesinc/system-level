@@ -1,3 +1,15 @@
+.. collection:: Scalable Phased Array and Adaptive RF Systems
+   :subtitle: SDR system development enabled by ADI DataX.
+   :image: demo-block-diagram.svg
+   :label: demo
+
+   Explore scalable RF platforms and a monopulse tracking application.
+
+   system-level:
+     - .
+     - tools/pluto/index
+     - learning/workshop_what_sw_for_sdr/index
+
 .. _monopulse-tracker:
 
 Scalable Phased Array & Adaptive RF Systems Enabled by ADI DataX™

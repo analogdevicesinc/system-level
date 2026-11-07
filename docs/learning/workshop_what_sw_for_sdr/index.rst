@@ -1,3 +1,14 @@
+.. collection:: What software do I need for my SDR?
+   :subtitle: Software and exercises for SDR workshops.
+   :label: workshop
+
+   Find software images and training materials for Pluto and Jupiter SDR workshops.
+
+   system-level:
+     - .
+     - tools/pluto/index
+     - learning/monopulse-tracker/index
+
 What software do I need for my SDR?
 ===============================================================================
 

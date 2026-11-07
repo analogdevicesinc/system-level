@@ -1,3 +1,15 @@
+.. collection:: Tools for Precision Wideband Mixed Signal System Design
+   :subtitle: Tools for precision wideband mixed-signal applications.
+   :label: tutorial
+
+   Explore signal generation, data acquisition, and frequency-domain analysis.
+
+   system-level:
+     - .
+     - learning/tools_for_ls/index
+     - learning/sw_infrastructure/index
+     - tools/m2k/index
+
 Tools for Precision Wideband Mixed Signal System Design
 ===============================================================================
 

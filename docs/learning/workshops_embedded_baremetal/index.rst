@@ -1,3 +1,14 @@
+.. collection:: Embedded Baremetal
+   :subtitle: Introduction to baremetal programming.
+   :label: workshop
+
+   Learn about software that runs directly on embedded hardware.
+
+   system-level:
+     - .
+     - learning/workshops_embedded_linux/index
+     - solutions/reference-designs/adxl355-pmdz/index
+
 Embedded Baremetal
 ==================
 

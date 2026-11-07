@@ -1,3 +1,13 @@
+.. collection:: Enabling Flexible Data Acquisition Across Mixed Vendor Compute Platforms
+   :subtitle: ADI DataX across heterogeneous compute environments.
+   :image: demo_block_diagram.svg
+   :label: demo
+
+   Explore portable data acquisition workflows across Zephyr and no-OS platforms.
+
+   system-level:
+     - .
+
 Enabling Flexible Data Acquisition Across Mixed Vendor Compute Platforms
 ================================================================================
 

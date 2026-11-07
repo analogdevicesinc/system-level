@@ -1,3 +1,12 @@
+.. collection:: Tools for High-Speed Mixed Signal System Design
+   :subtitle: Future tutorial on high-speed system design.
+   :label: tutorial
+
+   A placeholder for high-speed ADC and DAC system design material.
+
+   system-level:
+     - .
+
 Tools for High-Speed Mixed Signal System Design
 ===============================================================================
 

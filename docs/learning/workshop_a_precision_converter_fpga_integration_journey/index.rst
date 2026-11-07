@@ -1,3 +1,13 @@
+.. collection:: A Precision Converter FPGA Integration Journey
+   :subtitle: Integrating a precision converter with an FPGA.
+   :label: workshop
+
+   Explore the integration stack and the SPI Engine Framework.
+
+   system-level:
+     - .
+     - tools/m2k/index
+
 A Precision Converter FPGA Integration Journey
 ==============================================
 

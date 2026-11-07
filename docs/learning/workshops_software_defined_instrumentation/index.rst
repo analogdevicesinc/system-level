@@ -1,3 +1,15 @@
+.. collection:: Software Defined Instrumentation
+   :subtitle: Instrumentation with ADALM2000 and Scopy.
+   :image: m2k.png
+   :label: workshop
+
+   Explore measurement and signal generation with software-defined instruments.
+
+   system-level:
+     - .
+     - tools/m2k/index
+     - learning/workshops_introduction_to_electronics/index
+
 Software Defined Instrumentation
 ================================
 

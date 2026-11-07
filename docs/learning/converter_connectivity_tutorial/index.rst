@@ -1,3 +1,15 @@
+.. collection:: Converter Connectivity Tutorial
+   :subtitle: Connect and prototype with converters and sensors.
+   :label: tutorial
+
+   Learn to use device drivers and software tools with evaluation hardware.
+
+   system-level:
+     - .
+     - learning/tools_for_ls/index
+     - solutions/reference-designs/adxl355-pmdz/index
+     - tools/pluto/index
+
 .. _conv_connect_tutorial:
 
 Converter Connectivity Tutorial

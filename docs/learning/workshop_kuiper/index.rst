@@ -1,3 +1,14 @@
+.. collection:: Customizing ADI Kuiper Linux
+   :subtitle: Build and customize ADI Kuiper Linux images.
+   :label: workshop
+
+   Learn to configure Kuiper 2 images and interact with ADI hardware.
+
+   system-level:
+     - .
+     - learning/workshops_embedded_linux/index
+     - learning/converter_connectivity_tutorial/index
+
 Customizing ADI Kuiper Linux
 ============================
 

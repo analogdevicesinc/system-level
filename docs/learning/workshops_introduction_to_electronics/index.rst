@@ -1,3 +1,14 @@
+.. collection:: Introduction to Electronics
+   :subtitle: Electronics and electrical engineering fundamentals.
+   :label: workshop
+
+   An introductory workshop on electronics and microchips for students.
+
+   system-level:
+     - .
+     - tools/m2k/index
+     - learning/workshops_software_defined_instrumentation/index
+
 Introduction to Electronics
 ===============================================================================
 

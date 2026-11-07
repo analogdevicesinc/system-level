@@ -1,3 +1,12 @@
+.. collection:: Precision ADC Tutorial
+   :subtitle: Precision ADC tutorial on the ADI wiki.
+   :label: tutorial
+
+   Find the existing precision ADC tutorial on the ADI wiki.
+
+   system-level:
+     - .
+
 .. _precision_adc_tutorial:
 
 Precision ADC Tutorial

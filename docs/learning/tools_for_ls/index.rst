@@ -1,3 +1,15 @@
+.. collection:: ADI DataX Tools for Low Speed Mixed Signal System Design
+   :subtitle: Tools for low-speed mixed-signal applications.
+   :label: tutorial
+
+   Build a transistor curve tracer while exploring ADI DataX hardware and software.
+
+   system-level:
+     - .
+     - learning/converter_connectivity_tutorial/index
+     - learning/tutorial_prec_adc/index
+     - learning/tools_for_prec_wb/index
+
 .. _datax-tools-for-ls-system-design:
 
 ADI DataX Tools for Low Speed Mixed Signal System Design

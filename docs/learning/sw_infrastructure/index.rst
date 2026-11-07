@@ -1,3 +1,14 @@
+.. collection:: Software Infrastructure for ADCs, DACs, and Sensors
+   :subtitle: Hardware and software tools for mixed-signal development.
+   :label: tutorial
+
+   Explore software frameworks and prototyping tools using the AD4080 ADC.
+
+   system-level:
+     - .
+     - learning/tools_for_ls/index
+     - learning/tools_for_prec_wb/index
+
 Software Infrastructure for designing with ADCs, DACs, and Sensors
 ===============================================================================
 

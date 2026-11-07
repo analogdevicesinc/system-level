@@ -1,3 +1,12 @@
+.. collection:: ADS-B Airplane Tracking Tutorial
+   :subtitle: Model-based design of an ADS-B receiver (deprecated).
+   :label: tutorial
+
+   Explore SDR development using a model-based ADS-B airplane tracking example.
+
+   system-level:
+     - .
+
 ADS-B Airplane Tracking Tutorial
 =================================
 

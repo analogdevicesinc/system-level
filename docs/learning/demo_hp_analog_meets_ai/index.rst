@@ -1,3 +1,13 @@
+.. collection:: High-Performance Analog Meets AI
+   :subtitle: Data extraction for AI training and inference.
+   :image: demo_block_diagram.svg
+   :label: demo
+
+   Explore a multi-channel RF modulation recognition workflow.
+
+   system-level:
+     - .
+
 DEMO High-Performance Analog Meets AI
 ===============================================================================
 

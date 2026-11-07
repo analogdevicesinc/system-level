@@ -1,3 +1,15 @@
+.. collection:: Embedded Linux
+   :subtitle: Developing applications for embedded Linux systems.
+   :image: images/tux.png
+   :label: workshop
+
+   Explore Linux device drivers, IIO, and GPIO through hands-on activities.
+
+   system-level:
+     - .
+     - learning/workshops_embedded_baremetal/index
+     - learning/workshop_kuiper/index
+
 Embedded Linux
 ==============
 
