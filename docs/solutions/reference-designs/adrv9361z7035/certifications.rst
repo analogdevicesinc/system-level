@@ -5,12 +5,11 @@
 ADRV936x RF SOM Certifications
 ==============================
 
-Information regarding environmental and mechanical testing is listed here.
-Sinusoidal vibration, random vibration, shock testing etc. The ADRVx RF SOM
-family is tested against various military (https://mil-std.org) and Information
-Technology Standards (NIST) using external vendors with the appropriate
-equipment. All details and results of such are maintained in the test reports
-below.
+Information regarding environmental and mechanical testing is listed here:
+sinusoidal vibration, random vibration, shock testing, etc. The ADRV936x RF SOM
+family is tested against various military (MIL-STD) and Information Technology
+Standards (NIST) using external vendors with the appropriate equipment. All
+details and results of such are maintained in the test reports below.
 
 ADRV9364-Z7020
 --------------
@@ -59,5 +58,5 @@ ADRV9361-Z7035
 Support
 -------
 
-Please refer to :ez:`EngineerZone <community/fpga>` with questions on
+Please refer to :ez:`EngineerZone <fpga>` with questions on
 hardware/schematics/or using the ADRV936x RF SOMs.
