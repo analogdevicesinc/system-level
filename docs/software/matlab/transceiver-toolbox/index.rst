@@ -75,8 +75,8 @@ For HDL code generation the following are required:
 Specific demos may require other toolboxes:
 
 -  :dokuwiki:`QPSK Modem </resources/eval/user-guides/ad-fmcomms2-ebz/software/matlab_bsp_modem>`
--  :dokuwiki:`Frequency Hopping </resources/eval/user-guides/adrv936x_rfsom/tutorials/frequency_hopping>`
--  :dokuwiki:`Loopback Delay Estimation </resources/eval/user-guides/adrv936x_rfsom/tutorials/loopback_delay_estimation>`
+-  :ref:`adrv9361z7035 frequency-hopping`
+-  :ref:`adrv9361z7035 loopback-delay-estimation`
 -  :dokuwiki:`ADALM-PLUTO LTE App </resources/tools-software/transceiver-toolbox/examples/pluto_lte_app>`
 
 Models of different transceivers may require different toolboxes as well. More
@@ -575,8 +575,8 @@ They can also be viewed on GitHub:
 
 Highlighted demos:
 
--  :dokuwiki:`Frequency hopping </resources/tools-software/resources/eval/user-guides/adrv936x_rfsom/tutorials/frequency_hopping>`
--  :dokuwiki:`Loopback delay estimation </resources/tools-software/resources/eval/user-guides/adrv936x_rfsom/tutorials/loopback_delay_estimation>`
+-  :ref:`adrv9361z7035 frequency-hopping`
+-  :ref:`adrv9361z7035 loopback-delay-estimation`
 -  :dokuwiki:`AGC Optimization </resources/tools-software/resources/eval/user-guides/ad9361_agc_tuning>`
 
 Help & Support

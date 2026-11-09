@@ -201,8 +201,8 @@ the difference.
       #. :dokuwiki:`ADS-B Airplane Tracking Tutorial
          <resources/eval/user-guides/picozed_sdr/tutorials/adsb>`
 
-      #. :dokuwiki:`Frequency Hopping Controller
-         <resources/eval/user-guides/adrv936x_rfsom/tutorials/frequency_hopping>`
+      #. :ref:`Frequency Hopping Controller
+         <adrv9361z7035 frequency-hopping>`
 
    #. Design a custom AD9361 based platform
 

@@ -3,7 +3,7 @@
 Portable Radio Reference Design
 ===============================
 
-The Portable Radio Reference Design is a combination of `ADRV9361-Z7035 <https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom>`_ PCB, carrier card, metal enclosure and additional smaller items (adapter PCBs, cables, connectors etc). The image below is one unit with plastic windows installed. The SOM, RF Shield, FPGA, and other connections are visible.
+The Portable Radio Reference Design is a combination of :ref:`ADRV9361-Z7035 <adrv9361z7035>` PCB, carrier card, metal enclosure and additional smaller items (adapter PCBs, cables, connectors etc). The image below is one unit with plastic windows installed. The SOM, RF Shield, FPGA, and other connections are visible.
 
 The system is fully contained inside of a 159.99mm x 78.00mm x 43.00mm (6.3" x
 3.071" x 1.69") aluminum metal enclosure. Card guides on the inside of the case
