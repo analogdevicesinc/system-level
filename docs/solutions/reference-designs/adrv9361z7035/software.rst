@@ -1,3 +1,7 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom/user-guide/software
+
+.. _adrv9361z7035 software:
+
 ADRV9361-Z7035 User Guide - Software
 ====================================
 
@@ -11,7 +15,7 @@ Getting Started
 To quickly explore the reference design, here are some resources:
 
 -  The `SD Card Image <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_ used to boot the reference design.
--  The Analog Devices :doc:`ADRV9361-Z7035 SDR Wiki </solutions/reference-designs/adrv936x_rfsom/adrv936x_rfsom>` provides details about reference designs
+-  The Analog Devices :ref:`ADRV9361-Z7035 SDR Wiki <adrv9361z7035>` provides details about reference designs
 -  The `HDL <https://github.com/analogdevicesinc/hdl>`_, `no-OS <https://github.com/analogdevicesinc/no-OS>`_ and `Linux <https://github.com/analogdevicesinc/linux>`_ sources are hosted on GitHub
 
    -  For HDL, we highly recommend cloning from the latest official tag (released twice per year), not the development branch. https://github.com/analogdevicesinc/hdl/releases
@@ -34,7 +38,7 @@ available here.
 Operating Systems
 -----------------
 
-The following operating Systems are supported on the Zynq ARM processors. The most up-to-date and comprehensive list can be found `here <https://www.xilinx.com/products/design-tools/software-zone/embedded-computing.html#os>`_ on the Xilinx web site, however the following section will give you an idea of the popular options. Most software developers will start with the Linux reference design and drivers provided by Analog Devices at the GitHub page listed below. Analog Devices also have a wiki page that provides details of their Linux reference design for ADRV9361-Z7035 SDR :doc:`here </solutions/reference-designs/adrv936x_rfsom/adrv936x_rfsom>`.
+The following operating Systems are supported on the Zynq ARM processors. The most up-to-date and comprehensive list can be found `here <https://www.xilinx.com/products/design-tools/software-zone/embedded-computing.html#os>`_ on the Xilinx web site, however the following section will give you an idea of the popular options. Most software developers will start with the Linux reference design and drivers provided by Analog Devices at the GitHub page listed below. Analog Devices also have a wiki page that provides details of their Linux reference design for ADRV9361-Z7035 SDR :ref:`here <adrv9361z7035>`.
 
 **Non-Commercial OS**
 
@@ -111,7 +115,7 @@ useful links for more information are provided as follows:
 Drivers, Source Code, and Reference Designs
 -------------------------------------------
 
-Analog Devices provides a comprehensive set of drivers, source code, reference designs, and other technical resources for the ADRV9361-Z7035 SDR. More information may be found on their :doc:`ADRV9361-Z7035 SDR </solutions/reference-designs/adrv936x_rfsom/adrv936x_rfsom>` wiki page. A source code support package is hosted on `Github <https://github.com/analogdevicesinc>`_, including the HDL and software code.
+Analog Devices provides a comprehensive set of drivers, source code, reference designs, and other technical resources for the ADRV9361-Z7035 SDR. More information may be found on their :ref:`ADRV9361-Z7035 SDR <adrv9361z7035>` wiki page. A source code support package is hosted on `Github <https://github.com/analogdevicesinc>`_, including the HDL and software code.
 
 Analog Devices AD9361 RF Agile Transceiver
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,5 +159,5 @@ designing custom baseband functions in the Zynq SoC.
 -  `LTE Transmit and Receive Example <https://wiki.analog.com/resources/tools-software/linux-software/libiio/clients/lte_example>`_
 -  `ADS-B Airplane Tracking Example <https://wiki.analog.com/resources/tools-software/linux-software/libiio/clients/adsb_example>`_
 
-.. |image1| image:: ../images/adigit_hub_hdl_repository.png
+.. |image1| image:: images/adigit_hub_hdl_repository.png
    :width: 600

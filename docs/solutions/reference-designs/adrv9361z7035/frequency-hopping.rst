@@ -1,3 +1,7 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom/tutorials/frequency_hopping
+
+.. _adrv9361z7035 frequency-hopping:
+
 Frequency Hopping Example Design
 ================================
 
@@ -47,7 +51,7 @@ deterministic.
 Fastlock Controller IP
 ----------------------
 
-.. image:: ../images/hoppingdiagram.png
+.. image:: images/hoppingdiagram.png
    :align: center
    :width: 800
 
@@ -230,7 +234,7 @@ MATLAB Example
 
 Since there is an IIO driver for the Hop Controller it can be controlled remotely from MATLAB. A system object called :git-TransceiverToolbox:`FrequencyHopper <trx_examples/targeting/frequency-hopping/FrequencyHopper.m>` was created using the IIO binding provided in the `ADI BSP <https://wiki.analog.com/resources/eval/user-guides/matlab_bsp>`_ to access the IIO driver. The :git-TransceiverToolbox:`example <trx_examples/targeting/frequency-hopping/fastlock.m>` provided in the BSP will load profiles for 8 LO frequencies 1 MHz apart so they the receiver can view the entire hopping range. Next, the Hop Controller is configured and hopping is initiated. The script will show a frequency versus time plot similar to below.
 
-.. image:: ../images/hop_result.png
+.. image:: images/hop_result.png
    :align: center
    :width: 600
 

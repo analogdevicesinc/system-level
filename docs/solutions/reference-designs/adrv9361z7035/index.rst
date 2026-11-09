@@ -27,7 +27,12 @@ with production volume.
    electrical-specifications
    performance
    quickstart
+   software
+   additional-information
+   certifications
    revision-history
+   frequency-hopping
+   loopback-delay-estimation
 
 Table of Contents
 -----------------
@@ -46,6 +51,9 @@ Table of Contents
 
       -  :ref:`Power and Sequencing <pzsdr power-and-sequencing>`
 
+   -  :ref:`Software <adrv9361z7035 software>`
+   -  :ref:`Additional Information <adrv9361z7035 additional-information>`
+   -  :ref:`Certifications <adrv9361z7035 certifications>`
    -  :ref:`Revision History <adrv9361z7035 revision_history>`
 
       -  including schematics and BOM
@@ -113,6 +121,8 @@ Table of Contents
    -  Complete Workflow
 
       -  :ref:`ADS-B Airplane Tracking Tutorial <fmcomms2 software adsb-tutorial>`
+      -  :ref:`adrv9361z7035 frequency-hopping`
+      -  :ref:`adrv9361z7035 loopback-delay-estimation`
       -  :dokuwiki:`QPSK Modem Design Workflow <resources/eval/user-guides/ad-fmcomms2-ebz/software/matlab_bsp_modem>`
 
    -  Design a custom AD9361 based platform

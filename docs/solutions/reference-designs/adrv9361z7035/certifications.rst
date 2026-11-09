@@ -1,3 +1,7 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom/testing
+
+.. _adrv9361z7035 certifications:
+
 ADRV936x RF SOM Certifications
 ==============================
 

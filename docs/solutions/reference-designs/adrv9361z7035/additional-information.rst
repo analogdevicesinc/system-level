@@ -1,3 +1,7 @@
+.. imported from: https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom/user-guide/additional-information
+
+.. _adrv9361z7035 additional-information:
+
 ADRV9361-Z7035 User Guide - Additional Information
 ==================================================
 
@@ -148,7 +152,7 @@ is reprogrammed without regard for the required sequencing of the system.
 Consult the Zynq-7000 SoC and Analog Devices AD9361 datasheets before modifying
 the sequencing scheme.
 
-.. image:: ../images/programming_header.png
+.. image:: images/programming_header.png
    :align: center
    :width: 400
 
@@ -185,7 +189,7 @@ These steps will overwrite the contents of the SD card, so be certain there is
 no existing data that needs to be retrieved from the SD card prior to following
 these steps.
 
-.. image:: ../images/requirements.png
+.. image:: images/requirements.png
    :align: center
    :width: 400
 
@@ -251,9 +255,9 @@ repository.
 
 DDR3L Trace Lengths
 
-.. |USB-SDP-CABLEZ| image:: ../images/usb-sdp-cablez-b.png
+.. |USB-SDP-CABLEZ| image:: images/usb-sdp-cablez-b.png
    :width: 400
-.. |image1| image:: ../images/xadc_power_configuration.png
+.. |image1| image:: images/xadc_power_configuration.png
    :width: 400
-.. |image2| image:: ../images/trace_lenghts.png
+.. |image2| image:: images/trace_lengths.png
    :width: 400
