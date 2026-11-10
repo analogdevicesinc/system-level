@@ -221,7 +221,7 @@ Resources
 - :adi:`ADBMS2950`
 - :adi:`ADBMS6822`
 - :adi:`MAX32690`
-- :adi:`LLT8303`
+- :adi:`LT8303`
 - :adi:`ADUM225N`
 - :adi:`LTC7001`
 - :adi:`LTC3639`

@@ -37,7 +37,7 @@ Required Hardware
 * HDMI cable
 * Mouse and keyboard
 * 1 x :adi:`AD-RPI-T1LPSE-SL` board
-* 1 x :adi:`AD-APARD32690-SPOE` (Device Under Test)
+* 1 x :adi:`AD-APARDSPOE-SL` (Device Under Test)
 * 1 x :adi:`AD-APARD32690-SL` board
 * 1 x T1L cable
 * 12V power supply USB Type-C
