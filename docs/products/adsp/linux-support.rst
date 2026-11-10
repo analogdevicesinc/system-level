@@ -49,6 +49,7 @@ for the the Commits link with the newest version and at least one Release.
       :git-linux:`Release 1 <releases/tag/6.18.31-1+>`
       :git-linux:`Release 2 <releases/tag/6.18.31-2+>`
       :git-linux:`Release 3 <releases/tag/6.18.31-3+>`
+      :git-linux:`Release 4 <releases/tag/6.18.31-4+>`
 
 ..
     - v6.12.38:
@@ -67,6 +68,7 @@ for the the Commits link with the newest version and at least one Release.
       :git-u-boot:`Release 3 <releases/tag/v2025.10-3+>`
       :git-u-boot:`Release 4 <releases/tag/v2025.10-4+>`
       :git-u-boot:`Release 5 <releases/tag/v2025.10-5+>`
+      :git-u-boot:`Release 6 <releases/tag/v2025.10-6+>`
     - v2026.01:
       :git-u-boot:`Commits <commits/adi-u-boot-2026.01.y+>`
 - :git-buildroot:`+`
@@ -133,6 +135,7 @@ Yocto
     :git-lnxdsp-adi-meta:`Release v5.0.0 <releases/tag/5.0.0-rel+>`
     :git-lnxdsp-adi-meta:`Release v5.0.1 <releases/tag/5.0.1-rel+>`
     :git-lnxdsp-adi-meta:`Release v5.1.0 <releases/tag/5.1.0-rel+>`
+    :git-lnxdsp-adi-meta:`Release v5.1.1 <releases/tag/5.1.1-rel+>`
 
 For every official Yocto release, Poky defines the oldest and newest default supported
 kernel versions. Newer versions of the kernel may be supported with recipe 
