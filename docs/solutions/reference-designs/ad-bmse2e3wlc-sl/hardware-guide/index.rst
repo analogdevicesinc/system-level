@@ -115,7 +115,7 @@ Hardware Setup
 * 2 × :adi:`DC2472A` Battery Emulator
 * 1 × :adi:`MAX32666FTHR` Microcontroller
 * 1 × :adi:`MAX32625PICO` Programming Board
-* 2 × :adi:`isoSPI` twisted-pair cables
+* 2 × isoSPI twisted-pair cables
 * 1 × 10-pin SWD debugger cable
 * 3 × Micro-USB to USB cables
 * 1 × PC/Laptop

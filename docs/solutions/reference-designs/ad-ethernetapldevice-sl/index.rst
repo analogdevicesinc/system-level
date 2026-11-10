@@ -29,7 +29,7 @@ Key Features
 - :adi:`MAX32690`  dual-core MCU (ARM Cortex-M4 with FPU + RISC-V co-processor)
 - External RAM (512 Mb) and Flash (64 Mb)
 - 10BASE-T1L Ethernet via :adi:`ADIN1110`  MAC/PHY
-- Supports APL class A, :adi:`ADIN1100D2Z` recommended
+- Supports APL class A, :adi:`ADIN1100D2Z <ADIN1100>` recommended
 - Open-source software stack with drivers and example applications
 - Zephyr RTOS support and integration with Code Fusion Studio
 

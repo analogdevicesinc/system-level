@@ -7,7 +7,7 @@ Overview
 --------
 
 The purpose of this test procedure is to identify connectivity issues, poor
-soldering, and potential manufacturing defects in the :adi:`AD-ACEVSECRDSET-SL`
+soldering, and potential manufacturing defects in the :adi:`AD-ACEVSECRDSET-SL <ad-bct2ade9113-sl>`
 board. Some issues are directly identified by explicit part-targeted tests,
 while others are detected implicitly by running adjacent tests.
 
@@ -34,7 +34,7 @@ Required Hardware
 ~~~~~~~~~~~~~~~~~
 
 * :adi:`MAX32625PICO` (Daplink programmer)
-* :adi:`AD-ACEVSECRDSET-SL` board
+* :adi:`AD-ACEVSECRDSET-SL <ad-bct2ade9113-sl>` board
 * Raspberry Pi 4, power cable, HDMI cable
 * Mouse and keyboard
 * Power cable for AD-ACEVSECRDSET-SL board
