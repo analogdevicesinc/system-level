@@ -1,0 +1,1316 @@
+.. _eval-adar3000 quickstart zcu102:
+
+ZCU102 Quick start
+===============================================================================
+
+This guide provides quick instructions on how to set up the
+ADAR3000/3001-EVALZ on:
+
+- :xilinx:`ZCU102` on FMC HPC1, through the SDP-I-FMC interposer
+
+.. image:: ../../images/zcu102.jpg
+   :width: 800
+
+Using Linux as software
+-------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. important::
+
+   Pre-built files for this reference design are not yet available on the
+   Kuiper SD card image. Build them from source, as described below.
+
+The following files are needed for the system to boot, in the root directory
+of the BOOT partition of the SD card:
+
+- HDL boot image: ``BOOT.BIN``, built from the
+  :git-hdl:`projects/adar3000/zcu102` HDL project
+- Linux kernel image: ``Image``
+- Linux device tree: ``system.dtb``, built from
+  :git-linux:`adi-adar3000-evb.dts <main:arch/arm64/boot/dts/xilinx/adi-adar3000-evb.dts>`
+
+Instructions on how to build them from source can be found here:
+
+- :ref:`linux-kernel zynqmp`. The ``adi_zynqmp_defconfig`` configuration
+  enables the ADAR3000 driver. Build the device tree with
+  ``make xilinx/adi-adar3000-evb.dtb`` and copy it to the SD card as
+  ``system.dtb``.
+- :external+hdl:ref:`adar3000`. More HDL build details at
+  :external+hdl:ref:`build_hdl`.
+
+Required software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- SD card 16 GB imaged with :external+kuiper:doc:`Kuiper <index>`
+- A UART terminal (PuTTY/Tera Term/Minicom, etc.), baud rate 115200 (8N1)
+
+Required hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx :xilinx:`ZCU102` FPGA board and its power supply
+- ADAR3000/3001-EVALZ evaluation board
+- SDP-I-FMC interposer
+- Two bench power supplies, see
+  :ref:`eval-adar3000 user-guide power-supply`
+- SD card with at least 16 GB of memory
+- Micro-USB cable, for UART
+- LAN cable (Ethernet), optional, for remote access
+
+More details as to why you need these, can be found at
+:ref:`eval-adar3000 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../images/adar3000_zcu102_setup.jpg
+   :alt: ZCU102 with the SDP-I-FMC interposer and the evaluation board
+   :width: 900
+
+   ZCU102 with the SDP-I-FMC interposer on FMC HPC1 and the ADAR3000/3001-EVALZ
+
+.. esd-warning::
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Get the :xilinx:`ZCU102`.
+#. Insert the SD card into the SD card slot of the FPGA board.
+#. Configure the :xilinx:`ZCU102` for SD boot mode (mode switch SW6[4:1] in
+   the position **4-OFF, 3-OFF, 2-OFF, 1-ON**).
+
+   .. image:: ../../images/zcu102_1p0_bootmode.jpg
+      :alt: ZCU102 boot mode switch set for SD boot
+      :width: 400
+
+#. On the ADAR3000/3001-EVALZ, fit the jumpers on P8 and P9, leave P4 as
+   shipped (pin 1 to pin 2), and make sure P2, P12 and P13 are open, see
+   :ref:`eval-adar3000 user-guide hardware-configuration`.
+#. Connect the SDP-I-FMC interposer to the FPGA carrier FMC **HPC1** socket
+   (J4), and the ADAR3000/3001-EVALZ to the interposer's 120-pin SDP
+   connector, P5.
+#. Connect the bench supplies to the evaluation board test loops, with the
+   outputs off, as described in :ref:`eval-adar3000 user-guide power-supply`.
+#. Connect USB UART (Micro-USB) to your host PC (J83).
+#. Optionally, plug an Ethernet cable from your router or switch into the
+   Ethernet port of the FPGA board.
+#. Plug the power supply into the 12 V power input connector (J52).
+#. Turn on the bench supplies, then the power switch on the FPGA board. The
+   driver checks for the device while Linux boots, so the evaluation board
+   must be powered first.
+#. Make sure the FMC ``VADJ`` rail is at 1.8 V, see
+   :ref:`eval-adar3000 user-guide vadj`.
+#. Observe the kernel and serial console messages on your terminal (use the
+   first ttyUSB or COM port the ZCU102 registers).
+
+Boot messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following is what is printed in the serial console, after you have
+connected to the proper ttyUSB or COM port:
+
+.. collapsible:: Complete boot log
+
+   ::
+
+      Zynq MP First Stage Boot Loader
+      Release 2025.1   Sep 16 2026  -  14:04:56
+      NOTICE:  BL31: Non secure code at 0x8000000
+      NOTICE:  BL31: v2.8(release):xilinx-v2023.2
+      NOTICE:  BL31: Built : 10:57:16, Feb  7 2024
+      PMUFW:	v1.1
+
+      U-Boot 2018.01-21442-gf06dec3cab (Feb 13 2025 - 17:12:07 +0200) Xilinx ZynqMP ZCU102 revA, Build: jenkins-development-build_uboot-57
+
+      I2C:   ready
+      DRAM:  4 GiB
+      EL Level:	EL2
+      Chip ID:	zu9eg
+      MMC:   sdhci@ff170000: 0 (SD)
+      *** Warning - bad CRC, using default environment
+
+      In:    serial@ff000000
+      Out:   serial@ff000000
+      Err:   serial@ff000000
+      Bootmode: LVL_SHFT_SD_MODE1
+      Net:   ZYNQ GEM: ff0e0000, phyaddr 15, interface rgmii-id
+
+      Warning: ethernet@ff0e0000 using MAC address from ROM
+      eth0: ethernet@ff0e0000
+      Hit any key to stop autoboot:  2  1  0
+      switch to partitions #0, OK
+      mmc0 is current device
+      Device: sdhci@ff170000
+      Manufacturer ID: 3
+      OEM: 5344
+      Name: SD32G
+      Tran Speed: 50000000
+      Rd Block Len: 512
+      SD version 3.0
+      High Capacity: Yes
+      Capacity: 29.7 GiB
+      Bus Width: 4-bit
+      Erase Group Size: 512 Bytes
+      reading uEnv.txt
+      407 bytes read in 19 ms (20.5 KiB/s)
+      Loaded environment from uEnv.txt
+      Importing environment from SD ...
+      Running uenvcmd ...
+      Copying Linux from SD to RAM...
+      ** No boot file defined **
+      reading system.dtb
+      42326 bytes read in 30 ms (1.3 MiB/s)
+      reading Image
+      51814912 bytes read in 3419 ms (14.5 MiB/s)
+      ## Flattened Device Tree blob at 04000000
+         Booting using the fdt blob at 0x4000000
+         Loading Device Tree to 000000000fff2000, end 000000000ffff555 ... OK
+
+      Starting kernel ...
+
+      [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+      [    0.000000] Linux version 6.12.0-27787-gca3ac7191a94 (user@host) (aarch64-linux-gnu-gcc (Debian 15.2.0-13) 15.2.0, GNU ld (GNU Binutils for Debian) 2.46) #115 SMP Thu Nov 12 13:53:06 EET 2026
+      [    0.000000] Machine model: ZynqMP ZCU102 Rev1.0
+      [    0.000000] earlycon: cdns0 at MMIO 0x00000000ff000000 (options '115200n8')
+      [    0.000000] printk: legacy bootconsole [cdns0] enabled
+      [    0.000000] efi: UEFI not found.
+      [    0.000000] OF: reserved mem: 0x000000003ed00000..0x000000003ed3ffff (256 KiB) nomap non-reusable memory@3ed00000
+      [    0.000000] OF: reserved mem: 0x000000003ef00000..0x000000003ef3ffff (256 KiB) nomap non-reusable memory@3ef00000
+      [    0.000000] Zone ranges:
+      [    0.000000]   DMA      [mem 0x0000000000000000-0x00000000ffffffff]
+      [    0.000000]   DMA32    empty
+      [    0.000000]   Normal   [mem 0x0000000100000000-0x000000087fffffff]
+      [    0.000000] Movable zone start for each node
+      [    0.000000] Early memory node ranges
+      [    0.000000]   node   0: [mem 0x0000000000000000-0x000000003ecfffff]
+      [    0.000000]   node   0: [mem 0x000000003ed00000-0x000000003ed3ffff]
+      [    0.000000]   node   0: [mem 0x000000003ed40000-0x000000003eefffff]
+      [    0.000000]   node   0: [mem 0x000000003ef00000-0x000000003ef3ffff]
+      [    0.000000]   node   0: [mem 0x000000003ef40000-0x000000007fffffff]
+      [    0.000000]   node   0: [mem 0x0000000800000000-0x000000087fffffff]
+      [    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000087fffffff]
+      [    0.000000] cma: Reserved 256 MiB at 0x0000000070000000 on node -1
+      [    0.000000] psci: probing for conduit method from DT.
+      [    0.000000] psci: PSCIv1.1 detected in firmware.
+      [    0.000000] psci: Using standard PSCI v0.2 function IDs
+      [    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+      [    0.000000] psci: SMC Calling Convention v1.2
+      [    0.000000] percpu: Embedded 29 pages/cpu s79704 r8192 d30888 u118784
+      [    0.000000] Detected VIPT I-cache on CPU0
+      [    0.000000] CPU features: detected: ARM erratum 845719
+      [    0.000000] alternatives: applying boot alternatives
+      [    0.000000] Kernel command line: console=ttyPS0,115200 root=/dev/mmcblk0p2 rw earlycon rootfstype=ext4 rootwait clk_ignore_unused cpuidle.off=1 root=/dev/mmcblk0p2 rw rootwait
+      [    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+      [    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+      [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1048576
+      [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+      [    0.000000] software IO TLB: area num 4.
+      [    0.000000] software IO TLB: mapped [mem 0x000000006c000000-0x0000000070000000] (64MB)
+      [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+      [    0.000000] trace event string verifier disabled
+      [    0.000000] rcu: Hierarchical RCU implementation.
+      [    0.000000] rcu: 	RCU event tracing is enabled.
+      [    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+      [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+      [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+      [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+      [    0.000000] GIC: Adjusting CPU interface base to 0x00000000f902f000
+      [    0.000000] Root IRQ handler: gic_handle_irq
+      [    0.000000] GIC: Using split EOI/Deactivate mode
+      [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+      [    0.000000] arch_timer: cp15 timer(s) running at 100.00MHz (phys).
+      [    0.000000] clocksource: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x171024e7e0, max_idle_ns: 440795205315 ns
+      [    0.000000] sched_clock: 57 bits at 100MHz, resolution 10ns, wraps every 4398046511100ns
+      [    0.008336] Console: colour dummy device 80x25
+      [    0.012489] Calibrating delay loop (skipped), value calculated using timer frequency.. 200.00 BogoMIPS (lpj=400000)
+      [    0.022840] pid_max: default: 32768 minimum: 301
+      [    0.027522] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+      [    0.034786] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+      [    0.070654] rcu: Hierarchical SRCU implementation.
+      [    0.070701] rcu: 	Max phase no-delay instances is 1000.
+      [    0.075233] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+      [    0.083160] EFI services will not be available.
+      [    0.087721] smp: Bringing up secondary CPUs ...
+      [    0.092459] Detected VIPT I-cache on CPU1
+      [    0.092525] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+      [    0.092981] Detected VIPT I-cache on CPU2
+      [    0.093027] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+      [    0.093461] Detected VIPT I-cache on CPU3
+      [    0.093506] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+      [    0.093569] smp: Brought up 1 node, 4 CPUs
+      [    0.127503] SMP: Total of 4 processors activated.
+      [    0.132174] CPU: All CPU(s) started at EL2
+      [    0.136241] CPU features: detected: 32-bit EL0 Support
+      [    0.141345] CPU features: detected: CRC32 instructions
+      [    0.146481] alternatives: applying system-wide alternatives
+      [    0.152963] Memory: 3727940K/4194304K available (23872K kernel code, 3368K rwdata, 21436K rodata, 1792K init, 750K bss, 199848K reserved, 262144K cma-reserved)
+      [    0.166878] devtmpfs: initialized
+      [    0.174979] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+      [    0.179157] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+      [    0.191627] 19904 pages in range for non-PLT usage
+      [    0.191645] 511424 pages in range for PLT usage
+      [    0.191794] pinctrl core: initialized pinctrl subsystem
+      [    0.201612] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+      [    0.207092] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+      [    0.213476] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+      [    0.221332] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+      [    0.228976] audit: initializing netlink subsys (disabled)
+      [    0.234426] audit: type=2000 audit(0.156:1): state=initialized audit_enabled=0 res=1
+      [    0.234811] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+      [    0.248830] ASID allocator initialised with 65536 entries
+      [    0.263177] platform fd0e0000.pcie: Fixed dependency cycle(s) with /axi/pcie@fd0e0000
+      [    0.265417] platform fd0e0000.pcie: Fixed dependency cycle(s) with /axi/pcie@fd0e0000/legacy-interrupt-controller
+      [    0.279140] platform fd4a0000.display: Fixed dependency cycle(s) with /dpcon
+      [    0.282634] platform dpcon: Fixed dependency cycle(s) with /axi/display@fd4a0000
+      [    0.293341] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+      [    0.296676] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+      [    0.302914] HugeTLB: registered 32.0 MiB page size, pre-allocated 0 pages
+      [    0.309655] HugeTLB: 0 KiB vmemmap can be freed for a 32.0 MiB page
+      [    0.315884] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+      [    0.322629] HugeTLB: 0 KiB vmemmap can be freed for a 2.00 MiB page
+      [    0.328859] HugeTLB: registered 64.0 KiB page size, pre-allocated 0 pages
+      [    0.335604] HugeTLB: 0 KiB vmemmap can be freed for a 64.0 KiB page
+      [    0.410071] raid6: neonx8   gen()  2231 MB/s
+      [    0.478136] raid6: neonx4   gen()  2199 MB/s
+      [    0.546199] raid6: neonx2   gen()  2094 MB/s
+      [    0.614262] raid6: neonx1   gen()  1811 MB/s
+      [    0.682336] raid6: int64x8  gen()  1104 MB/s
+      [    0.750403] raid6: int64x4  gen()  1565 MB/s
+      [    0.818473] raid6: int64x2  gen()  1440 MB/s
+      [    0.886536] raid6: int64x1  gen()   975 MB/s
+      [    0.886577] raid6: using algorithm neonx8 gen() 2231 MB/s
+      [    0.958603] raid6: .... xor() 1654 MB/s, rmw enabled
+      [    0.958649] raid6: using neon recovery algorithm
+      [    0.962955] iommu: Default domain type: Translated
+      [    0.967274] iommu: DMA domain TLB invalidation policy: strict mode
+      [    0.979979] SCSI subsystem initialized
+      [    0.980175] usbcore: registered new interface driver usbfs
+      [    0.983568] usbcore: registered new interface driver hub
+      [    0.988840] usbcore: registered new device driver usb
+      [    0.994022] mc: Linux media interface: v0.10
+      [    0.998104] videodev: Linux video capture interface: v2.00
+      [    1.003570] pps_core: LinuxPPS API ver. 1 registered
+      [    1.008454] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+      [    1.017548] PTP clock support registered
+      [    1.021453] EDAC MC: Ver: 3.0.0
+      [    1.024870] zynqmp-ipi-mbox mailbox@ff9905c0: Registered ZynqMP IPI mbox with TX/RX channels.
+      [    1.033515] jesd204: found 0 devices and 0 topologies
+      [    1.038106] FPGA manager framework
+      [    1.041442] Advanced Linux Sound Architecture Driver Initialized.
+      [    1.048057] Bluetooth: Core ver 2.22
+      [    1.051024] NET: Registered PF_BLUETOOTH protocol family
+      [    1.056290] Bluetooth: HCI device and connection manager initialized
+      [    1.062607] Bluetooth: HCI socket layer initialized
+      [    1.067449] Bluetooth: L2CAP socket layer initialized
+      [    1.072472] Bluetooth: SCO socket layer initialized
+      [    1.077735] vgaarb: loaded
+      [    1.081848] clocksource: Switched to clocksource arch_sys_counter
+      [    1.086285] VFS: Disk quotas dquot_6.6.0
+      [    1.089953] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+      [    1.102768] NET: Registered PF_INET protocol family
+      [    1.102972] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+      [    1.112111] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+      [    1.117872] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+      [    1.125547] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+      [    1.133617] TCP bind hash table entries: 32768 (order: 8, 1048576 bytes, linear)
+      [    1.141564] TCP: Hash tables configured (established 32768 bind 32768)
+      [    1.147326] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+      [    1.153986] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+      [    1.161157] NET: Registered PF_UNIX/PF_LOCAL protocol family
+      [    1.167059] RPC: Registered named UNIX socket transport module.
+      [    1.172516] RPC: Registered udp transport module.
+      [    1.177183] RPC: Registered tcp transport module.
+      [    1.181853] RPC: Registered tcp-with-tls transport module.
+      [    1.187302] RPC: Registered tcp NFSv4.1 backchannel transport module.
+      [    1.194852] PCI: CLS 0 bytes, default 64
+      [    1.198516] Initialise system trusted keyrings
+      [    1.202132] workingset: timestamp_bits=62 max_order=20 bucket_order=0
+      [    1.208886] NFS: Registering the id_resolver key type
+      [    1.213443] Key type id_resolver registered
+      [    1.217580] Key type id_legacy registered
+      [    1.221579] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+      [    1.228224] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+      [    1.235585] jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+      [    1.242697] fuse: init (API version 7.41)
+      [    1.302518] NET: Registered PF_ALG protocol family
+      [    1.302568] xor: measuring software checksum speed
+      [    1.307648]    8regs           :  2699 MB/sec
+      [    1.311969]    32regs          :  2703 MB/sec
+      [    1.316467]    arm64_neon      :  2367 MB/sec
+      [    1.319406] xor: using function: 32regs (2703 MB/sec)
+      [    1.324426] Key type asymmetric registered
+      [    1.328492] Asymmetric key parser 'x509' registered
+      [    1.333369] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 246)
+      [    1.340689] io scheduler mq-deadline registered
+      [    1.345185] io scheduler kyber registered
+      [    1.349172] io scheduler bfq registered
+      [    1.356996] ledtrig-cpu: registered to indicate activity on CPUs
+      [    1.395920] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+      [    1.404285] brd: module loaded
+      [    1.407682] loop: module loaded
+      [    1.408113] Registered mathworks_ip class
+      [    1.409706] mtdoops: mtd device (mtddev=name/number) must be supplied
+      [    1.418977] tun: Universal TUN/TAP device driver, 1.6
+      [    1.420694] CAN device driver interface
+      [    1.424991] SPI driver wl1271_spi has no spi_device_id for ti,wl1271
+      [    1.430718] SPI driver wl1271_spi has no spi_device_id for ti,wl1273
+      [    1.437030] SPI driver wl1271_spi has no spi_device_id for ti,wl1281
+      [    1.443351] SPI driver wl1271_spi has no spi_device_id for ti,wl1283
+      [    1.449658] SPI driver wl1271_spi has no spi_device_id for ti,wl1285
+      [    1.455978] SPI driver wl1271_spi has no spi_device_id for ti,wl1801
+      [    1.462291] SPI driver wl1271_spi has no spi_device_id for ti,wl1805
+      [    1.468601] SPI driver wl1271_spi has no spi_device_id for ti,wl1807
+      [    1.474919] SPI driver wl1271_spi has no spi_device_id for ti,wl1831
+      [    1.481230] SPI driver wl1271_spi has no spi_device_id for ti,wl1835
+      [    1.487548] SPI driver wl1271_spi has no spi_device_id for ti,wl1837
+      [    1.493966] usbcore: registered new interface driver asix
+      [    1.499242] usbcore: registered new interface driver ax88179_178a
+      [    1.505300] usbcore: registered new interface driver cdc_ether
+      [    1.511097] usbcore: registered new interface driver net1080
+      [    1.516719] usbcore: registered new interface driver cdc_subset
+      [    1.522603] usbcore: registered new interface driver zaurus
+      [    1.528134] usbcore: registered new interface driver cdc_ncm
+      [    1.533761] usbcore: registered new interface driver r8153_ecm
+      [    1.540698] usbcore: registered new interface driver uas
+      [    1.544835] usbcore: registered new interface driver usb-storage
+      [    1.550830] usbcore: registered new interface driver usbserial_generic
+      [    1.557281] usbserial: USB Serial support registered for generic
+      [    1.563252] usbcore: registered new interface driver ftdi_sio
+      [    1.568957] usbserial: USB Serial support registered for FTDI USB Serial Device
+      [    1.576228] usbcore: registered new interface driver upd78f0730
+      [    1.582104] usbserial: USB Serial support registered for upd78f0730
+      [    1.590002] rtc_zynqmp ffa60000.rtc: registered as rtc0
+      [    1.593512] rtc_zynqmp ffa60000.rtc: setting system clock to 2026-11-12T11:47:02 UTC (1794484022)
+      [    1.602397] i2c_dev: i2c /dev entries driver
+      [    1.607205] usbcore: registered new interface driver uvcvideo
+      [    1.613734] Bluetooth: HCI UART driver ver 2.3
+      [    1.616696] Bluetooth: HCI UART protocol H4 registered
+      [    1.621797] Bluetooth: HCI UART protocol BCSP registered
+      [    1.627094] Bluetooth: HCI UART protocol LL registered
+      [    1.632174] Bluetooth: HCI UART protocol ATH3K registered
+      [    1.637554] Bluetooth: HCI UART protocol Three-wire (H5) registered
+      [    1.643808] Bluetooth: HCI UART protocol Intel registered
+      [    1.649142] Bluetooth: HCI UART protocol QCA registered
+      [    1.654342] usbcore: registered new interface driver bcm203x
+      [    1.659958] usbcore: registered new interface driver bpa10x
+      [    1.665503] usbcore: registered new interface driver bfusb
+      [    1.670949] usbcore: registered new interface driver btusb
+      [    1.676407] usbcore: registered new interface driver ath3k
+      [    1.681931] EDAC MC: ECC not enabled
+      [    1.685695] sdhci: Secure Digital Host Controller Interface driver
+      [    1.691520] sdhci: Copyright(c) Pierre Ossman
+      [    1.695837] sdhci-pltfm: SDHCI platform and OF driver helper
+      [    1.701715] SMCCC: SOC_ID: ID = jep106:0049:0000 Revision = 0x24738093
+      [    1.708030] zynqmp_firmware_probe Platform Management API v1.1
+      [    1.713775] zynqmp_firmware_probe Trustzone version v1.0
+      [    1.749513] zynqmp-aes zynqmp-aes.0: AES is not supported on the platform
+      [    1.750680] zynqmp-aes zynqmp-aes.0: probe with driver zynqmp-aes failed with error -95
+      [    1.758772] zynqmp_rsa zynqmp_rsa.0: RSA is not supported on the platform
+      [    1.765378] zynqmp_rsa zynqmp_rsa.0: probe with driver zynqmp_rsa failed with error -95
+      [    1.773440] usbcore: registered new interface driver usbhid
+      [    1.778876] usbhid: USB HID core driver
+      [    1.782825] SPI driver fb_seps525 has no spi_device_id for syncoam,seps525
+      [    1.798131] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 (0,8000003f) counters available
+      [    1.802938] fpga_manager fpga0: Xilinx ZynqMP FPGA Manager registered
+      [    1.808571] usbcore: registered new interface driver snd-usb-audio
+      [    1.815879] pktgen: Packet Generator for packet performance testing. Version: 2.75
+      [    1.822391] Initializing XFRM netlink socket
+      [    1.826163] NET: Registered PF_INET6 protocol family
+      [    1.831614] Segment Routing with IPv6
+      [    1.834700] In-situ OAM (IOAM) with IPv6
+      [    1.838608] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+      [    1.844795] NET: Registered PF_PACKET protocol family
+      [    1.849462] NET: Registered PF_KEY protocol family
+      [    1.854323] can: controller area network core
+      [    1.858560] NET: Registered PF_CAN protocol family
+      [    1.863296] can: raw protocol
+      [    1.866237] can: broadcast manager protocol
+      [    1.870390] can: netlink gateway - max_hops=1
+      [    1.874801] Bluetooth: RFCOMM TTY layer initialized
+      [    1.879561] Bluetooth: RFCOMM socket layer initialized
+      [    1.884670] Bluetooth: RFCOMM ver 1.11
+      [    1.888382] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+      [    1.893653] Bluetooth: BNEP filters: protocol multicast
+      [    1.898846] Bluetooth: BNEP socket layer initialized
+      [    1.903776] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+      [    1.909660] Bluetooth: HIDP socket layer initialized
+      [    1.914771] 9pnet: Installing 9P2000 support
+      [    1.918837] NET: Registered PF_IEEE802154 protocol family
+      [    1.924209] Key type dns_resolver registered
+      [    1.936569] registered taskstats version 1
+      [    1.936612] Loading compiled-in X.509 certificates
+      [    1.945621] Btrfs loaded, zoned=no, fsverity=no
+      [    1.958434] ff000000.serial: ttyPS0 at MMIO 0xff000000 (irq = 22, base_baud = 6249999) is a xuartps
+      [    1.967470] printk: legacy console [ttyPS0] enabled
+      [    1.967470] printk: legacy console [ttyPS0] enabled
+      [    1.972393] printk: legacy bootconsole [cdns0] disabled
+      [    1.972393] printk: legacy bootconsole [cdns0] disabled
+      [    1.985207] ff010000.serial: ttyPS1 at MMIO 0xff010000 (irq = 23, base_baud = 6249999) is a xuartps
+      [    2.041425] xilinx-zynqmp-dpdma fd4c0000.dma-controller: Xilinx DPDMA engine is probed
+      [    2.053319] spi-nor spi0.0: SPI-NOR-UniqueID e00d0e000b0000270050826cb362
+      [    2.060125] spi-nor spi0.0: found mt25qu512a, expected m25p80
+      [    2.066269] 4 fixed-partitions partitions found on MTD device spi0.0
+      [    2.072620] Creating 4 MTD partitions on "spi0.0":
+      [    2.077413] 0x000000000000-0x000000100000 : "qspi-fsbl-uboot"
+      [    2.084049] 0x000000100000-0x000000600000 : "qspi-linux"
+      [    2.090141] 0x000000600000-0x000000620000 : "qspi-device-tree"
+      [    2.096721] 0x000000620000-0x000000c00000 : "qspi-rootfs"
+      [    2.107824] xilinx-axipmon ffa00000.perf-monitor: Probed Xilinx APM
+      [    2.114576] xilinx-axipmon fd0b0000.perf-monitor: Probed Xilinx APM
+      [    2.121190] xilinx-axipmon fd490000.perf-monitor: Probed Xilinx APM
+      [    2.127788] xilinx-axipmon ffa10000.perf-monitor: Probed Xilinx APM
+      [    2.135105] i2c i2c-0: using pinctrl states for GPIO recovery
+      [    2.141037] i2c i2c-0: using generic GPIOs for recovery
+      [    2.146682] pca953x 0-0020: supply vcc not found, using dummy regulator
+      [    2.153387] pca953x 0-0020: using no AI
+      [    2.159007] pca953x 0-0021: supply vcc not found, using dummy regulator
+      [    2.165700] pca953x 0-0021: using no AI
+      [    2.170463] pca954x 0-0075: supply vdd not found, using dummy regulator
+      [    2.177655] ina2xx 2-0040: supply vs not found, using dummy regulator
+      [    2.184784] ina2xx 2-0040: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.191385] ina2xx 2-0041: supply vs not found, using dummy regulator
+      [    2.198431] ina2xx 2-0041: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.205015] ina2xx 2-0042: supply vs not found, using dummy regulator
+      [    2.212050] ina2xx 2-0042: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.218652] ina2xx 2-0043: supply vs not found, using dummy regulator
+      [    2.225694] ina2xx 2-0043: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.232279] ina2xx 2-0044: supply vs not found, using dummy regulator
+      [    2.239381] ina2xx 2-0044: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.245997] ina2xx 2-0045: supply vs not found, using dummy regulator
+      [    2.253030] ina2xx 2-0045: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.259619] ina2xx 2-0046: supply vs not found, using dummy regulator
+      [    2.266660] ina2xx 2-0046: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.273269] ina2xx 2-0047: supply vs not found, using dummy regulator
+      [    2.280311] ina2xx 2-0047: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.286906] ina2xx 2-004a: supply vs not found, using dummy regulator
+      [    2.293957] ina2xx 2-004a: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.300560] ina2xx 2-004b: supply vs not found, using dummy regulator
+      [    2.307604] ina2xx 2-004b: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.314040] i2c i2c-0: Added multiplexed i2c bus 2
+      [    2.319254] ina2xx 3-0040: supply vs not found, using dummy regulator
+      [    2.326387] ina2xx 3-0040: power monitor ina226 (Rshunt = 2000 uOhm)
+      [    2.332998] ina2xx 3-0041: supply vs not found, using dummy regulator
+      [    2.340038] ina2xx 3-0041: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.346642] ina2xx 3-0042: supply vs not found, using dummy regulator
+      [    2.353688] ina2xx 3-0042: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.360303] ina2xx 3-0043: supply vs not found, using dummy regulator
+      [    2.367350] ina2xx 3-0043: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.373959] ina2xx 3-0044: supply vs not found, using dummy regulator
+      [    2.380995] ina2xx 3-0044: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.387608] ina2xx 3-0045: supply vs not found, using dummy regulator
+      [    2.394653] ina2xx 3-0045: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.401244] ina2xx 3-0046: supply vs not found, using dummy regulator
+      [    2.408292] ina2xx 3-0046: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.414895] ina2xx 3-0047: supply vs not found, using dummy regulator
+      [    2.421980] ina2xx 3-0047: power monitor ina226 (Rshunt = 5000 uOhm)
+      [    2.428399] i2c i2c-0: Added multiplexed i2c bus 3
+      [    2.480896] i2c i2c-0: Added multiplexed i2c bus 4
+      [    2.485887] i2c i2c-0: Added multiplexed i2c bus 5
+      [    2.490680] pca954x 0-0075: registered 4 multiplexed busses for I2C mux pca9544
+      [    2.498080] cdns-i2c ff020000.i2c: 400 kHz mmio ff020000 irq 40
+      [    2.505110] i2c i2c-1: using pinctrl states for GPIO recovery
+      [    2.511053] i2c i2c-1: using generic GPIOs for recovery
+      [    2.516688] pca954x 1-0074: supply vdd not found, using dummy regulator
+      [    2.523788] at24 6-0054: supply vcc not found, using dummy regulator
+      [    2.530711] at24 6-0054: 1024 byte 24c08 EEPROM, writable, 1 bytes/write
+      [    2.537475] i2c i2c-1: Added multiplexed i2c bus 6
+      [    2.542879] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.550196] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.557508] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.564823] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.572133] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.579441] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.586753] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.594068] si5341 7-0036: no regulator set, defaulting vdd_sel to 2.5V for out
+      [    2.602152] si5341 7-0036: Chip: 5341 Grade: 1 Rev: 3
+      [    2.631159] i2c i2c-1: Added multiplexed i2c bus 7
+      [    2.638244] si570 8-005d: registered, current frequency 300000000 Hz
+      [    2.644664] i2c i2c-1: Added multiplexed i2c bus 8
+      [    2.651700] si570 9-005d: registered, current frequency 156250000 Hz
+      [    2.658116] i2c i2c-1: Added multiplexed i2c bus 9
+      [    2.663167] si5324 10-0069: si5328 probed
+      [    2.719674] si5324 10-0069: si5328 probe successful
+      [    2.724613] i2c i2c-1: Added multiplexed i2c bus 10
+      [    2.729687] i2c i2c-1: Added multiplexed i2c bus 11
+      [    2.734748] i2c i2c-1: Added multiplexed i2c bus 12
+      [    2.739807] i2c i2c-1: Added multiplexed i2c bus 13
+      [    2.744696] pca954x 1-0074: registered 8 multiplexed busses for I2C switch pca9548
+      [    2.752467] pca954x 1-0075: supply vdd not found, using dummy regulator
+      [    2.759444] i2c i2c-1: Added multiplexed i2c bus 14
+      [    2.764508] i2c i2c-1: Added multiplexed i2c bus 15
+      [    2.769572] i2c i2c-1: Added multiplexed i2c bus 16
+      [    2.774652] i2c i2c-1: Added multiplexed i2c bus 17
+      [    2.779715] i2c i2c-1: Added multiplexed i2c bus 18
+      [    2.784776] i2c i2c-1: Added multiplexed i2c bus 19
+      [    2.789870] i2c i2c-1: Added multiplexed i2c bus 20
+      [    2.794929] i2c i2c-1: Added multiplexed i2c bus 21
+      [    2.799810] pca954x 1-0075: registered 8 multiplexed busses for I2C switch pca9548
+      [    2.807445] cdns-i2c ff030000.i2c: 400 kHz mmio ff030000 irq 41
+      [    2.817071] cdns-wdt fd4d0000.watchdog: Xilinx Watchdog Timer with timeout 60s
+      [    2.825423] nwl-pcie fd0e0000.pcie: host bridge /axi/pcie@fd0e0000 ranges:
+      [    2.832342] nwl-pcie fd0e0000.pcie:      MEM 0x00e0000000..0x00efffffff -> 0x00e0000000
+      [    2.840376] nwl-pcie fd0e0000.pcie:      MEM 0x0600000000..0x07ffffffff -> 0x0600000000
+      [    2.848512] nwl-pcie fd0e0000.pcie: Link is DOWN
+      [    2.853577] nwl-pcie fd0e0000.pcie: PCI host bridge to bus 0000:00
+      [    2.859764] pci_bus 0000:00: root bus resource [bus 00-ff]
+      [    2.865252] pci_bus 0000:00: root bus resource [mem 0xe0000000-0xefffffff]
+      [    2.872125] pci_bus 0000:00: root bus resource [mem 0x600000000-0x7ffffffff pref]
+      [    2.879632] pci 0000:00:00.0: [10ee:d021] type 01 class 0x060400 PCIe Root Port
+      [    2.886958] pci 0000:00:00.0: PCI bridge to [bus 00]
+      [    2.891919] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+      [    2.898708] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+      [    2.906490] pci 0000:00:00.0: PME# supported from D0 D1 D2 D3hot
+      [    2.914513] pci 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+      [    2.922648] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+      [    2.929279] pci 0000:00:00.0: PCI bridge to [bus 01]
+      [    2.934246] pci_bus 0000:00: resource 4 [mem 0xe0000000-0xefffffff]
+      [    2.940515] pci_bus 0000:00: resource 5 [mem 0x600000000-0x7ffffffff pref]
+      [    2.948938] [drm] Initialized zynqmp-dpsub 1.0.0 for fd4a0000.display on minor 0
+      [    2.981433] mmc0: SDHCI controller on ff170000.mmc [ff170000.mmc] using ADMA 64-bit
+      [    3.031772] mmc0: new high speed SDHC card at address 5048
+      [    3.037649] mmcblk0: mmc0:5048 SD32G 29.7 GiB
+      [    3.044340]  mmcblk0: p1 p2 p3
+      [    3.993880] zynqmp-dpsub fd4a0000.display: [drm] Cannot find any crtc or sizes
+      [    4.001154] zynqmp-dpsub fd4a0000.display: ZynqMP DisplayPort Subsystem driver probed
+      [    4.009333] ahci-ceva fd0c0000.ahci: supply ahci not found, using dummy regulator
+      [    4.016914] ahci-ceva fd0c0000.ahci: supply phy not found, using dummy regulator
+      [    4.024395] ahci-ceva fd0c0000.ahci: supply target not found, using dummy regulator
+      [    4.032310] ahci-ceva fd0c0000.ahci: AHCI vers 0001.0301, 32 command slots, 6 Gbps, platform mode
+      [    4.041190] ahci-ceva fd0c0000.ahci: 2/2 ports implemented (port mask 0x3)
+      [    4.048076] ahci-ceva fd0c0000.ahci: flags: 64bit ncq sntf pm clo only pmp fbs pio slum part ccc sds apst
+      [    4.058737] scsi host0: ahci-ceva
+      [    4.062385] scsi host1: ahci-ceva
+      [    4.065802] ata1: SATA max UDMA/133 mmio [mem 0xfd0c0000-0xfd0c1fff] port 0x100 irq 49 lpm-pol 0
+      [    4.074588] ata2: SATA max UDMA/133 mmio [mem 0xfd0c0000-0xfd0c1fff] port 0x180 irq 49 lpm-pol 0
+      [    4.087512] macb ff0e0000.ethernet eth0: Cadence GEM rev 0x50070106 at 0xff0e0000 irq 37 (00:0a:35:07:ea:2e)
+      [    4.114766] xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+      [    4.120275] xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 1
+      [    4.128042] xhci-hcd xhci-hcd.1.auto: hcc params 0x0238f625 hci version 0x100 quirks 0x0000808002000810
+      [    4.137477] xhci-hcd xhci-hcd.1.auto: irq 50, io mem 0xfe200000
+      [    4.143497] xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+      [    4.148989] xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 2
+      [    4.156649] xhci-hcd xhci-hcd.1.auto: Host supports USB 3.0 SuperSpeed
+      [    4.163323] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.12
+      [    4.171594] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+      [    4.178812] usb usb1: Product: xHCI Host Controller
+      [    4.183689] usb usb1: Manufacturer: Linux 6.12.0-27787-gca3ac7191a94 xhci-hcd
+      [    4.190815] usb usb1: SerialNumber: xhci-hcd.1.auto
+      [    4.196059] hub 1-0:1.0: USB hub found
+      [    4.199835] hub 1-0:1.0: 1 port detected
+      [    4.204126] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.12
+      [    4.212388] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+      [    4.219611] usb usb2: Product: xHCI Host Controller
+      [    4.224489] usb usb2: Manufacturer: Linux 6.12.0-27787-gca3ac7191a94 xhci-hcd
+      [    4.231637] usb usb2: SerialNumber: xhci-hcd.1.auto
+      [    4.236854] hub 2-0:1.0: USB hub found
+      [    4.240620] hub 2-0:1.0: 1 port detected
+      [    4.251669] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+      [    4.258788] of_cfs_init
+      [    4.261243] of_cfs_init: OK
+      [    4.264130] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+      [    4.306168] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+      [    4.312562] Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+      [    4.319907] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+      [    4.321966] clk: Not disabling unused clocks
+      [    4.328531] cfg80211: failed to load regulatory.db
+      [    4.332776] PM: genpd: Disabling unused power domains
+      [    4.342948] ALSA device list:
+      [    4.345911]   No soundcards found.
+      [    4.397853] ata2: SATA link down (SStatus 0 SControl 330)
+      [    4.403279] ata1: SATA link down (SStatus 0 SControl 330)
+      [    4.420518] EXT4-fs (mmcblk0p2): warning: mounting fs with errors, running e2fsck is recommended
+      [    4.431323] EXT4-fs (mmcblk0p2): mounted filesystem 8f241631-1e44-4030-ae61-cad693793a80 r/w with ordered data mode. Quota mode: none.
+      [    4.443445] VFS: Mounted root (ext4 filesystem) on device 179:2.
+      [    4.456778] devtmpfs: mounted
+      [    4.460208] Freeing unused kernel memory: 1792K
+      [    4.464784] Run /sbin/init as init process
+      [    4.975785] systemd[1]: Failed to look up module alias 'autofs4': Function not implemented
+      [    5.009410] systemd[1]: systemd 247.3-7+rpi1+deb11u2 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +ZSTD +SECCOMP +BLKID +ELFUTILS +KMOD +IDN2 -IDN +PCRE2 default-hierarchy=unified)
+      [    5.033367] systemd[1]: Detected architecture arm64.
+
+      Welcome to Kuiper GNU/Linux 11.2 (bullseye)!
+
+      [    5.067085] systemd[1]: Set hostname to <analog>.
+      [    5.133889] zynqmp-dpsub fd4a0000.display: [drm] Cannot find any crtc or sizes
+      [    6.383098] systemd[1]: /lib/systemd/system/plymouth-start.service:16: Unit configured to use KillMode=none. This is unsafe, as it disables systemd's process lifecycle management for the service. Please update your service to use a safer KillMode=, such as 'mixed' or 'control-group'. Support for KillMode=none is deprecated and will eventually be removed.
+      [    6.586769] systemd[1]: Queued start job for default target Graphical Interface.
+      [    7.697856] random: crng init done
+      [    7.701467] systemd[1]: system-getty.slice: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+      [    7.713819] systemd[1]: (This warning is only shown for the first unit using IP firewalling.)
+      [    7.722924] systemd[1]: Created slice system-getty.slice.
+      [  OK  ] Created slice system-getty.slice.
+      [    7.742354] systemd[1]: Created slice system-modprobe.slice.
+      [  OK  ] Created slice system-modprobe.slice.
+      [    7.758280] systemd[1]: Created slice system-serial\x2dgetty.slice.
+      [  OK  ] Created slice system-serial\x2dgetty.slice.
+      [    7.778306] systemd[1]: Created slice system-systemd\x2dfsck.slice.
+      [  OK  ] Created slice system-systemd\x2dfsck.slice.
+      [    7.798160] systemd[1]: Created slice User and Session Slice.
+      [  OK  ] Created slice User and Session Slice.
+      [    7.814201] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+      [  OK  ] Started Forward Password R…uests to Wall Directory Watch.
+      [    7.834177] systemd[1]: Condition check resulted in Arbitrary Executable File Formats File System Automount Point being skipped.
+      [    7.846590] systemd[1]: Reached target Slices.
+      [  OK  ] Reached target Slices.
+      [    7.858047] systemd[1]: Reached target Swap.
+      [  OK  ] Reached target Swap.
+      [    7.870707] systemd[1]: Listening on Syslog Socket.
+      [  OK  ] Listening on Syslog Socket.
+      [    7.882231] systemd[1]: Listening on fsck to fsckd communication Socket.
+      [  OK  ] Listening on fsck to fsckd communication Socket.
+      [    7.902119] systemd[1]: Listening on initctl Compatibility Named Pipe.
+      [  OK  ] Listening on initctl Compatibility Named Pipe.
+      [    7.922605] systemd[1]: Listening on Journal Audit Socket.
+      [  OK  ] Listening on Journal Audit Socket.
+      [    7.942296] systemd[1]: Listening on Journal Socket (/dev/log).
+      [  OK  ] Listening on Journal Socket (/dev/log).
+      [    7.962340] systemd[1]: Listening on Journal Socket.
+      [  OK  ] Listening on Journal Socket.
+      [    7.974556] systemd[1]: Listening on Network Service Netlink Socket.
+      [  OK  ] Listening on Network Service Netlink Socket.
+      [    8.004283] systemd[1]: Listening on udev Control Socket.
+      [  OK  ] Listening on udev Control Socket.
+      [    8.022282] systemd[1]: Listening on udev Kernel Socket.
+      [  OK  ] Listening on udev Kernel Socket.
+      [    8.058142] systemd[1]: Mounting Huge Pages File System...
+               Mounting Huge Pages File System...
+      [    8.072034] systemd[1]: Mounting POSIX Message Queue File System...
+               Mounting POSIX Message Queue File System...
+      [    8.091781] systemd[1]: Mounting RPC Pipe File System...
+               Mounting RPC Pipe File System...
+      [    8.112026] systemd[1]: Mounting Kernel Debug File System...
+               Mounting Kernel Debug File System...
+      [    8.127915] systemd[1]: Mounting Kernel Trace File System...
+               Mounting Kernel Trace File System...
+      [    8.142237] systemd[1]: Condition check resulted in Kernel Module supporting RPCSEC_GSS being skipped.
+      [    8.155374] systemd[1]: Starting Restore / save the current clock...
+               Starting Restore / save the current clock...
+      [    8.176553] systemd[1]: Starting Set the console keyboard layout...
+               Starting Set the console keyboard layout...
+      [    8.194108] systemd[1]: Condition check resulted in Create list of static device nodes for the current kernel being skipped.
+      [    8.207973] systemd[1]: Starting Load Kernel Module configfs...
+               Starting Load Kernel Module configfs...
+      [    8.224428] systemd[1]: Starting Load Kernel Module drm...
+               Starting Load Kernel Module drm...
+      [    8.240366] systemd[1]: Starting Load Kernel Module fuse...
+               Starting Load Kernel Module fuse...
+      [    8.257049] systemd[1]: Condition check resulted in Set Up Additional Binary Formats being skipped.
+      [    8.266353] systemd[1]: Condition check resulted in File System Check on Root Device being skipped.
+      [    8.277681] systemd[1]: Starting Journal Service...
+               Starting Journal Service...
+      [    8.294631] systemd[1]: Starting Load Kernel Modules...
+               Starting Load Kernel Modules...
+      [    8.308346] systemd[1]: Starting Remount Root and Kernel File Systems...
+               Starting Remount Root and Kernel File Systems...
+      [    8.330326] systemd[1]: Starting Coldplug All udev Devices...
+               Starting Coldplug All udev Devices...
+      [    8.357822] systemd[1]: Mounted Huge Pages File System.
+      [  OK  ] Mounted Huge Pages File System.
+      [    8.378614] systemd[1]: Mounted POSIX Message Queue File System.
+      [  OK  ] Mounted POSIX Message Queue File System.
+      [    8.402725] systemd[1]: Mounted RPC Pipe File System.
+      [  OK  ] Mounted RPC Pipe File System.
+      [    8.426702] systemd[1]: Mounted Kernel Debug File System.
+      [  OK  ] Mounted Kernel Debug File System.
+      [    8.450748] systemd[1]: Mounted Kernel Trace File System.
+      [  OK  ] Mounted Kernel Trace File System.
+      [    8.476227] systemd[1]: Finished Restore / save the current clock.
+      [  OK  ] Finished Restore / save the current clock.
+      [    8.498666] systemd[1]: Started Journal Service.
+      [  OK  ] Started Journal Service.
+      [  OK  ] Finished Set the console keyboard layout.
+      [  OK  ] Finished Load Kernel Module configfs.
+      [  OK  ] Finished Load Kernel Module drm.
+      [  OK  ] Finished Load Kernel Module fuse.
+      [FAILED] Failed to start Load Kernel Modules.
+      See 'systemctl status systemd-modules-load.service' for details.
+               Mounting FUSE Control File System...
+      [    8.630428] EXT4-fs (mmcblk0p2): re-mounted 8f241631-1e44-4030-ae61-cad693793a80 r/w. Quota mode: none.
+               Mounting Kernel Configuration File System...
+               Starting Apply Kernel Variables...
+      [  OK  ] Finished Remount Root and Kernel File Systems.
+      [  OK  ] Mounted FUSE Control File System.
+      [  OK  ] Mounted Kernel Configuration File System.
+      [  OK  ] Finished Apply Kernel Variables.
+               Starting Flush Journal to Persistent Storage...
+               Starting Load/Save Random Seed...
+               Starting Create System Users...
+      [  OK  ] Finished Create System Users.
+      [  OK  ] Finished Load/Save Random Seed.
+               Starting Create Static Device Nodes in /dev...
+      [  OK  ] Finished Create Static Device Nodes in /dev.
+      [  OK  ] Reached target Local File Systems (Pre).
+               Starting Rule-based Manage…for Device Events and Files...
+      [  OK  ] Finished Coldplug All udev Devices.
+               Starting Helper to synchronize boot up for ifupdown...
+               Starting Wait for udev To …plete Device Initialization...
+      [  OK  ] Finished Helper to synchronize boot up for ifupdown.
+      [  OK  ] Started Rule-based Manager for Device Events and Files.
+               Starting Show Plymouth Boot Screen...
+               Starting Network Service...
+      [  OK  ] Started Show Plymouth Boot Screen.
+      [  OK  ] Started Forward Password R…s to Plymouth Directory Watch.
+      [  OK  ] Reached target Local Encrypted Volumes.
+      [  OK  ] Started Network Service.
+               Starting Wait for Network to be Configured...
+      [  OK  ] Finished Flush Journal to Persistent Storage.
+      [  OK  ] Found device /dev/ttyPS0.
+      [  OK  ] Found device /dev/disk/by-partuuid/c076b576-01.
+      [  OK  ] Found device /dev/ttyS0.
+      [  OK  ] Listening on Load/Save RF …itch Status /dev/rfkill Watch.
+               Starting File System Check…isk/by-partuuid/c076b576-01...
+      [  OK  ] Started File System Check Daemon to report status.
+      [  OK  ] Finished Wait for udev To Complete Device Initialization.
+      [  OK  ] Finished File System Check…/disk/by-partuuid/c076b576-01.
+               Mounting /boot...
+      [  OK  ] Mounted /boot.
+      [  OK  ] Reached target Local File Systems.
+               Starting Set console font and keymap...
+               Starting Raise network interfaces...
+               Starting Preprocess NFS configuration...
+               Starting Tell Plymouth To Write Out Runtime Data...
+               Starting Create Volatile Files and Directories...
+      [  OK  ] Finished Set console font and keymap.
+      [  OK  ] Finished Preprocess NFS configuration.
+      [  OK  ] Finished Tell Plymouth To Write Out Runtime Data.
+      [  OK  ] Reached target NFS client services.
+      [  OK  ] Reached target Remote File Systems (Pre).
+      [  OK  ] Reached target Remote File Systems.
+      [  OK  ] Finished Create Volatile Files and Directories.
+               Starting Network Time Synchronization...
+               Starting Update UTMP about System Boot/Shutdown...
+      [  OK  ] Finished Update UTMP about System Boot/Shutdown.
+               Starting Load Kernel Modules...
+      [  OK  ] Started Network Time Synchronization.
+      [  OK  ] Reached target System Time Set.
+      [  OK  ] Reached target System Time Synchronized.
+      [  OK  ] Finished Raise network interfaces.
+      [FAILED] Failed to start Load Kernel Modules.
+      See 'systemctl status systemd-modules-load.service' for details.
+      [  OK  ] Reached target System Initialization.
+      [  OK  ] Started CUPS Scheduler.
+      [  OK  ] Started Daily apt download activities.
+      [  OK  ] Started Daily apt upgrade and clean activities.
+      [  OK  ] Started Periodic ext4 Onli…ata Check for All Filesystems.
+      [  OK  ] Started Discard unused blocks once a week.
+      [  OK  ] Started Daily rotation of log files.
+      [  OK  ] Started Daily man-db regeneration.
+      [  OK  ] Started Daily Cleanup of Temporary Directories.
+      [  OK  ] Reached target Paths.
+      [  OK  ] Reached target Timers.
+      [  OK  ] Listening on Avahi mDNS/DNS-SD Stack Activation Socket.
+      [  OK  ] Listening on CUPS Scheduler.
+      [  OK  ] Listening on D-Bus System Message Bus Socket.
+      [  OK  ] Listening on Erlang Port Mapper Daemon Activation Socket.
+      [  OK  ] Listening on GPS (Global P…ioning System) Daemon Sockets.
+      [  OK  ] Listening on triggerhappy.socket.
+      [  OK  ] Reached target Sockets.
+      [  OK  ] Reached target Basic System.
+               Starting Analog Devices power up/down sequence...
+               Starting Avahi mDNS/DNS-SD Stack...
+      [  OK  ] Started Regular background program processing daemon.
+      [  OK  ] Started D-Bus System Message Bus.
+               Starting dphys-swapfile - …unt, and delete a swap file...
+               Starting Remove Stale Onli…t4 Metadata Check Snapshots...
+               Starting Creating IIOD Context Attributes......
+               Starting Authorization Manager...
+               Starting DHCP Client Daemon...
+               Starting LSB: Switch to on…nless shift key is pressed)...
+               Starting LSB: rng-tools (Debian variant)...
+               Starting System Logging Service...
+               Starting User Login Management...
+               Starting triggerhappy global hotkey daemon...
+               Starting Disk Manager...
+               Starting WPA supplicant...
+      [  OK  ] Started triggerhappy global hotkey daemon.
+      [  OK  ] Started DHCP Client Daemon.
+      [  OK  ] Started LSB: rng-tools (Debian variant).
+      [  OK  ] Started System Logging Service.
+      [  OK  ] Finished dphys-swapfile - …mount, and delete a swap file.
+      [  OK  ] Started User Login Management.
+      [  OK  ] Started Avahi mDNS/DNS-SD Stack.
+      [  OK  ] Started WPA supplicant.
+      [  OK  ] Reached target Network.
+               Starting CUPS Scheduler...
+      [  OK  ] Started Erlang Port Mapper Daemon.
+               Starting HTTP based time synchronization tool...
+               Starting OpenBSD Secure Shell server...
+               Starting Permit User Sessions...
+      [  OK  ] Started Unattended Upgrades Shutdown.
+      [  OK  ] Started Authorization Manager.
+               Starting Modem Manager...
+      [  OK  ] Finished Permit User Sessions.
+               Starting Light Display Manager...
+      [  OK  ] Started HTTP based time synchronization tool.
+      [  OK  ] Started OpenBSD Secure Shell server.
+      [  OK  ] Finished Analog Devices power up/down sequence.
+      [  OK  ] Finished Creating IIOD Context Attributes....
+      [  OK  ] Started IIO Daemon.
+      [  OK  ] Started LSB: Switch to ond…(unless shift key is pressed).
+      [FAILED] Failed to start VNC Server for X11.
+      My IP address is 192.168.100.2 169.254.173.46
+
+      Raspbian GNU/Linux 11 analog ttyPS0
+
+      analog login: root (automatic login)
+
+      Linux analog 6.12.0-27787-gca3ac7191a94 #115 SMP Thu Nov 12 13:53:06 EET 2026 aarch64
+
+      The programs included with the Debian GNU/Linux system are free software;
+      the exact distribution terms for each program are described in the
+      individual files in /usr/share/doc/*/copyright.
+
+      Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+      permitted by applicable law.
+      Last login: Thu Nov 12 11:44:29 GMT 2026 on ttyPS0
+      root@analog:~#
+
+Checking the device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The commands below are run on the FPGA board, in the serial terminal or over
+SSH. The driver registers one IIO device, ``adar3000_0``, and prints nothing
+in the kernel log when it finds the device:
+
+.. code-block:: bash
+
+   dmesg | grep -i adar
+   grep . /sys/bus/iio/devices/iio:device*/name
+   iio_info | grep -A1 adar3000_0
+
+Expected output:
+
+.. code-block:: bash
+
+   /sys/bus/iio/devices/iio:device0/name:xilinx-ams
+   /sys/bus/iio/devices/iio:device1/name:adar3000_0
+   	iio:device1: adar3000_0 (buffer capable)
+   		33 channels found:
+
+If ``dmesg`` shows ``Failed to read/write scratchpad``, the device did not
+answer: check that the evaluation board is powered and that ``VADJ`` is at
+1.8 V, then reboot.
+
+The device has 32 output channels, ``phase0`` to ``phase15`` for the delay
+and ``power0`` to ``power15`` for the attenuation of the 16 elements, and one
+input channel, ``temp16``. Elements 0 to 3 belong to beam 0, 4 to 7 to beam 1,
+8 to 11 to beam 2 and 12 to 15 to beam 3.
+
+Testing the driver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The expected outputs below are those of a freshly booted board; run the steps
+in order, since some of them build on the state left by earlier ones. A write
+with ``iio_attr`` prints the value read back after the write.
+
+**1. Temperature**
+
+.. code-block:: bash
+
+   raw=$(iio_attr -c adar3000_0 temp16 raw)
+   offset=$(iio_attr -c adar3000_0 temp16 offset)
+   scale=$(iio_attr -c adar3000_0 temp16 scale)
+   echo "raw $raw offset $offset scale $scale"
+   awk "BEGIN { printf \"%.1f degC\n\", ($raw + $offset) * $scale / 1000 }"
+
+Expected output; the code and temperature follow the board:
+
+.. code-block:: bash
+
+   raw 124 offset -99.750000 scale 917.431193
+   22.2 degC
+
+**2. Direct control bank**
+
+Write, then read back, the delay and attenuation of beam 1, element 1:
+
+.. code-block:: bash
+
+   iio_attr -c -o adar3000_0 phase5 raw 21
+   iio_attr -c -o adar3000_0 phase5 raw
+   iio_attr -c -o adar3000_0 power5 raw 42
+   iio_attr -c -o adar3000_0 power5 raw
+
+Expected output:
+
+.. code-block:: bash
+
+   21
+   21
+   42
+   42
+
+**3. Beam mode**
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 beam1_mode
+   iio_attr -d adar3000_0 beam1_mode_available
+
+Expected output:
+
+.. code-block:: bash
+
+   direct
+   direct memory fifo instant_direct reset mute
+
+**4. RAM sequencer range**
+
+Read the power-on range of beam 1, set it to 10 to 20 and read it back:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 beam1_ram_start
+   iio_attr -d adar3000_0 beam1_ram_stop
+   iio_attr -d adar3000_0 beam1_ram_start 10
+   iio_attr -d adar3000_0 beam1_ram_stop 20
+   iio_attr -d adar3000_0 beam1_ram_start
+   iio_attr -d adar3000_0 beam1_ram_stop
+
+Expected output:
+
+.. code-block:: bash
+
+   0
+   63
+   10
+   20
+   10
+   20
+
+**5. Amplifier bias and enable**
+
+The beam amplifiers are named ``EL0H`` to ``EL3H`` and the element amplifiers
+``EL0V`` to ``EL3V``. Read the power-on operational state of beam amplifier 0,
+then write and read back the sleep state of beam amplifier 2 and of element
+amplifier 1:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 amp_bias_operational_EL0H
+   iio_attr -d adar3000_0 amp_en_operational_EL0H
+   iio_attr -d adar3000_0 amp_bias_sleep_EL2H 5
+   iio_attr -d adar3000_0 amp_bias_sleep_EL2H
+   iio_attr -d adar3000_0 amp_bias_sleep_EL1V 2
+   iio_attr -d adar3000_0 amp_bias_sleep_EL1V
+   iio_attr -d adar3000_0 amp_en_sleep_EL1V 0
+   iio_attr -d adar3000_0 amp_en_sleep_EL1V
+
+Expected output:
+
+.. code-block:: bash
+
+   3
+   1
+   5
+   5
+   2
+   2
+   0
+   0
+
+**6. Update source**
+
+The update, reset and mute commands of the next steps are driven over SPI:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 update_intf_ctrl
+   iio_attr -d adar3000_0 update_intf_ctrl_available
+   iio_attr -d adar3000_0 update_intf_ctrl SPI
+
+Expected output:
+
+.. code-block:: bash
+
+   pin
+   pin SPI
+   SPI
+
+**7. Memory load mode**
+
+With beam 2 in memory load mode its channels address RAM beamstate
+``beam2_ram_index``. Write a different delay to beamstates 5 and 6 of beam 2,
+element 0, and read each back:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 beam2_load_mode memory
+   iio_attr -d adar3000_0 beam2_ram_index 5
+   iio_attr -c -o adar3000_0 phase8 raw 33
+   iio_attr -d adar3000_0 beam2_ram_index 6
+   iio_attr -c -o adar3000_0 phase8 raw 44
+   iio_attr -d adar3000_0 beam2_ram_index 5
+   iio_attr -c -o adar3000_0 phase8 raw
+   iio_attr -d adar3000_0 beam2_ram_index 6
+   iio_attr -c -o adar3000_0 phase8 raw
+
+Expected output:
+
+.. code-block:: bash
+
+   memory
+   5
+   33
+   6
+   44
+   5
+   33
+   6
+   44
+
+**8. FIFO, update and reset**
+
+Put beam 3 in FIFO mode and queue two beamstates through its channels; the
+eighth value of each, ``power15``, commits it. Then issue an update, which
+dequeues one beamstate, and a reset, which empties the queue:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 beam3_mode fifo
+   iio_attr -d adar3000_0 beam3_load_mode fifo
+   for n in 1 2; do
+   	for c in phase12 power12 phase13 power13 phase14 power14 phase15 power15; do
+   		iio_attr -c -o adar3000_0 $c raw $n > /dev/null
+   	done
+   done
+   echo "queued:     wr $(iio_attr -d adar3000_0 beam3_fifo_wr) rd $(iio_attr -d adar3000_0 beam3_fifo_rd)"
+   iio_attr -d adar3000_0 beam3_update 1
+   echo "one update: wr $(iio_attr -d adar3000_0 beam3_fifo_wr) rd $(iio_attr -d adar3000_0 beam3_fifo_rd)"
+   iio_attr -d adar3000_0 beam3_mode reset
+   iio_attr -d adar3000_0 beam3_update 1
+   echo "reset:      wr $(iio_attr -d adar3000_0 beam3_fifo_wr) rd $(iio_attr -d adar3000_0 beam3_fifo_rd)"
+
+Expected output:
+
+.. code-block:: bash
+
+   fifo
+   fifo
+   queued:     wr 2 rd 0
+   0
+   one update: wr 2 rd 1
+   reset
+   0
+   reset:      wr 2 rd 2
+
+**9. Instantaneous direct mode guard**
+
+A beam in instantaneous direct mode cannot enter its reset or mute beamstate,
+so selecting mute is refused:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 beam3_mode instant_direct
+   iio_attr -d adar3000_0 beam3_mode mute; echo "exit $?"
+
+Expected output:
+
+.. code-block:: bash
+
+   instant_direct
+   ERROR: Invalid argument (22) while writing 'beam3_mode' with 'mute'
+   exit 1
+
+**10. Buffer load into RAM**
+
+The output buffer of the device is loaded into the RAM or the FIFO of the
+enabled beams each time its trigger fires. Create a timer trigger and assign
+it to the device:
+
+.. code-block:: bash
+
+   mount | grep -q configfs || mount -t configfs none /sys/kernel/config
+   mkdir -p /sys/kernel/config/iio/triggers/hrtimer/t0
+   echo t0 > /sys/bus/iio/devices/iio:device1/trigger/current_trigger
+   cat /sys/bus/iio/devices/iio:device1/trigger/current_trigger
+
+Expected output:
+
+.. code-block:: bash
+
+   t0
+
+Push four beamstates for beam 0 into RAM beamstates 0 to 3, then read them
+back through the channels. Scan ``n`` carries the values ``8n`` to ``8n + 7``.
+The ``sleep`` keeps the buffer enabled until the trigger has fired:
+
+.. code-block:: bash
+
+   iio_attr -d adar3000_0 beam0_load_mode memory
+   iio_attr -d adar3000_0 beam0_ram_index 0
+   python3 -c "import sys; sys.stdout.buffer.write(bytes(range(32)))" > beamstates.bin
+   (cat beamstates.bin; sleep 1) | iio_writedev -b 4 adar3000_0 \
+   	phase0 power0 phase1 power1 phase2 power2 phase3 power3
+   echo "iio_writedev exit $?"
+   for s in 0 1 2 3; do
+   	iio_attr -d adar3000_0 beam0_ram_index $s > /dev/null
+   	echo "beamstate $s: $(for c in phase0 power0 phase1 power1 phase2 power2 phase3 power3; do
+   		iio_attr -c -o adar3000_0 $c raw; done | tr '\n' ' ')"
+   done
+
+Expected output:
+
+.. code-block:: bash
+
+   memory
+   0
+   WARNING: High-speed mode not enabled
+   iio_writedev exit 0
+   beamstate 0: 0 1 2 3 4 5 6 7
+   beamstate 1: 8 9 10 11 12 13 14 15
+   beamstate 2: 16 17 18 19 20 21 22 23
+   beamstate 3: 24 25 26 27 28 29 30 31
+
+**11. Register access**
+
+Read the SPI revision register, then write and read back the scratchpad:
+
+.. code-block:: bash
+
+   iio_reg adar3000_0 0x00B
+   iio_reg adar3000_0 0x00A 0x5A
+   iio_reg adar3000_0 0x00A
+
+Expected output:
+
+.. code-block:: bash
+
+   0x1
+   0x5a
+
+Using no-OS as software
+-------------------------------------------------------------------------------
+
+Necessary files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following files are needed:
+
+- HDL boot file: ``system_top.xsa``, built from the
+  :git-hdl:`projects/adar3000/zcu102` HDL project
+- no-OS project: :git-no-os:`projects/adar300x`
+
+Instructions on how to build them from source can be found here:
+
+- :external+no-OS:doc:`projects/beamformer/adar300x`. More no-OS build
+  details at :external+no-OS:doc:`build_guides/build_xilinx_cmake`.
+- :external+hdl:ref:`adar3000`. More HDL build details at
+  :external+hdl:ref:`build_hdl`.
+
+Required software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx Vivado and Vitis 2025.1 (downloading Vitis from
+  `here <https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html>`_
+  will include Vivado as well)
+- A UART terminal (PuTTY/Tera Term/Minicom, etc.), baud rate 115200 (8N1)
+- For the IIO example, :git-libiio:`libiio <releases+>` 1.0.0 or later
+
+Required hardware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- AMD Xilinx :xilinx:`ZCU102` FPGA board and its power supply
+- ADAR3000/3001-EVALZ evaluation board
+- SDP-I-FMC interposer
+- Two bench power supplies, see
+  :ref:`eval-adar3000 user-guide power-supply`
+- 2x Micro-USB cables, one for UART and one for JTAG
+
+More details as to why you need these, can be found at
+:ref:`eval-adar3000 prerequisites`.
+
+Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating the setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../images/adar3000_zcu102_setup.jpg
+   :alt: ZCU102 with the SDP-I-FMC interposer and the evaluation board
+   :width: 900
+
+   ZCU102 with the SDP-I-FMC interposer on FMC HPC1 and the ADAR3000/3001-EVALZ
+
+.. esd-warning::
+
+Follow the steps in this order, to avoid damaging the components:
+
+#. Get the :xilinx:`ZCU102`.
+#. Configure the :xilinx:`ZCU102` for JTAG boot mode (mode switch SW6[4:1] in
+   the position **ON,ON,ON,ON**).
+#. On the ADAR3000/3001-EVALZ, fit the jumpers on P8 and P9, leave P4 as
+   shipped (pin 1 to pin 2), and make sure P2, P12 and P13 are open, see
+   :ref:`eval-adar3000 user-guide hardware-configuration`.
+#. Connect the SDP-I-FMC interposer to the FPGA carrier FMC **HPC1** socket
+   (J4), and the ADAR3000/3001-EVALZ to the interposer's 120-pin SDP
+   connector, P5.
+#. Connect the bench supplies to the evaluation board test loops, with the
+   outputs off, as described in :ref:`eval-adar3000 user-guide power-supply`.
+#. Connect USB UART (Micro-USB) to your host PC (J83).
+#. Connect USB JTAG (Micro-USB) to your host PC (J2).
+#. Plug the power supply into the 12 V power input connector (J52).
+#. Turn on the power switch on the FPGA board, then the bench supplies.
+#. Make sure the FMC ``VADJ`` rail is at 1.8 V, see
+   :ref:`eval-adar3000 user-guide vadj`.
+#. Open the UART terminal on the first ttyUSB or COM port the ZCU102
+   registers.
+#. Build and run the basic example using the steps shown in
+   :external+no-OS:doc:`projects/beamformer/adar300x`.
+#. Observe the console output messages on your terminal.
+
+.. seealso::
+
+   For more detailed information on ZCU102 switch configuration, check the
+   *ZCU102 Hardware User Guide* (chapter "MPSoC Device Configuration")
+   `here <https://docs.amd.com/v/u/en-US/ug1182-zcu102-eval-bd>`__.
+
+Console output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The basic example checks every feature of the driver against the device and
+stops at the first mismatch. On a working setup the console shows the
+following; the temperature follows the board:
+
+.. collapsible:: Basic example console output
+
+   ::
+
+      Zynq MP First Stage Boot Loader
+      Release 2025.1
+      PMU-FW is not running, certain applications may not be supported.
+      ADAR300X basic example
+      ADAR3000 initialized: PRODUCT_ID 0xC001, SPI_REV 0x01
+      DIRECT beamstate write/readback: OK
+      UPDATE strobed on all 4 beams
+      Amplifier power-up defaults: OK (enabled, bias 3)
+      Amplifier bias/enable write/readback: OK
+      ADC temperature: 22.248 degC (code 124)
+      RAM beamstate write/readback: OK
+      FIFO beam 0 write pointer 0 to 3 after 3 loads, read 0
+      RESET and MUTE beamstate write/readback: OK
+      Beam UPDATE and RESET via FIFO read pointer, and MUTE: OK
+      RAM sequencer range defaults and write/readback: OK
+
+Any other final line is an error message naming the check that failed and the
+values it saw. A scratchpad mismatch during initialization usually means the
+``VADJ`` rail is not at 1.8 V.
+
+Using the IIO example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The IIO example serves the device over the same UART to libiio clients such as
+``iio_info``, ``iio_attr`` and ``iio_rwdev``. Build and flash the
+``iio_example`` variant, close the UART terminal, and check that the device
+enumerates:
+
+.. code-block:: bash
+
+   iio_info -u serial:/dev/ttyUSB0,115200,8n1
+
+The output lists one device, ``adar3000``, with 33 channels and an output
+buffer. The complete step by step IIO test procedure, with the expected output
+of every step, is in :external+no-OS:doc:`projects/beamformer/adar300x`.
