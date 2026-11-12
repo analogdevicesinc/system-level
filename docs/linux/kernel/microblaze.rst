@@ -27,9 +27,9 @@ After ensuring all tools are installed, clone the :git-linux:`main:/`
 
 .. shell::
 
-   $git clone https://github.com/analogdevicesinc/linux.git \
-   $            --no-single-branch --depth=10 \
-   $            -- linux
+   $ git clone https://github.com/analogdevicesinc/linux.git \
+                --no-single-branch --depth=10 \
+                -- linux
 
 The ``depth`` and ``no-single-branch`` options are included to speed up the
 cloning by fetching only near the head of each branch/release, you may remove
@@ -47,9 +47,9 @@ The release branches have the format ``<Year>_R[1|2]``, starting from ``2014_R2`
 
 .. shell::
 
-   $git checkout origin/2026_R1 -b 2026_R1
-    Branch 2026_R1 set up to track remote branch 2026_R1 from origin.
-    Switched to a new branch '2026_R1'
+   $ git checkout origin/2026_R1 -b 2026_R1
+     Branch 2026_R1 set up to track remote branch 2026_R1 from origin.
+     Switched to a new branch '2026_R1'
 
 Setup cross compile environment variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,10 +61,10 @@ compiler.
 
 .. shell::
 
-   $XVERSION=2026.1
-   $GCC_MICROBLAZE=$PATH_TO_XILINX/Vitis/$VITIS_VERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
-   $export ARCH=microblaze
-   $export CROSS_COMPILE="$GCC_MICROBLAZE/microblazeel-xilinx-linux-gnu-"
+   $ XVERSION=2026.1
+   $ GCC_MICROBLAZE=$PATH_TO_XILINX/Vitis/$VITIS_VERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
+   $ export ARCH=microblaze
+   $ export CROSS_COMPILE="$GCC_MICROBLAZE/microblazeel-xilinx-linux-gnu-"
 
 .. important::
 
@@ -81,7 +81,7 @@ Prepare the configuration. For AD9084 and AD9088, use:
 .. shell::
 
    ~/linux
-   $make adi_mb_apollo_defconfig
+   $ make adi_mb_apollo_defconfig
     #
     # configuration written to .config
     #
@@ -91,7 +91,7 @@ For other devices, use:
 .. shell::
 
    ~/linux
-   $make adi_mb_defconfig
+   $ make adi_mb_defconfig
     #
     # configuration written to .config
     #
@@ -113,7 +113,7 @@ that the *<dts-file>* does not include the file extension *.dts*.
 .. shell::
 
    ~/linux
-   $make simpleImage.<dts-file>
+   $ make simpleImage.<dts-file>
 
 .. tip::
 
@@ -125,14 +125,14 @@ To see what device-trees for the different FPGA carrier and FMC module combinati
 .. shell::
 
    ~/linux
-   $ls -l arch/microblaze/boot/dts
+   $ ls -l arch/microblaze/boot/dts
 
 So, for example, for *vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1.dts*:
 
 .. shell::
 
    ~/linux
-   $make simpleImage.vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1
+   $ make simpleImage.vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1
       SYNC    include/config/auto.conf.cmd
       CC      scripts/mod/empty.o
       CC      scripts/mod/devicetable-offsets.s
@@ -183,72 +183,117 @@ devicetree, build the simpleImage:
 
 .. shell::
 
-   /path/to/linux
+   ~/linux
    $ printf "/dts-v1/;\n\n/ { };\n" > arch/microblaze/boot/dts/generic.dts
    $ make simpleImage.generic
+   $ rm arch/microblaze/boot/dts/generic.dts
 
-Locate the embedded empty DTB slot using a helper script:
+Locate the embedded DTB slot using a helper script (also in :git+linux:`ci:ci/lib.sh`):
 
 .. code-block:: python
    :caption: find_empty_dtb.py
 
-   import struct, sys
+   import struct
+   import sys
 
-   # 'Empty' DTB struct block: FDT_BEGIN_NODE, '', FDT_END_NODE, FDT_END
+   # 'Empty' DTB structure block: FDT_BEGIN_NODE, '', FDT_END_NODE, FDT_END
    EMPTY_STRUCT = bytes.fromhex('00000001000000000000000200000009')
    DTB_MAGIC = 0xd00dfeed
    OFF_DT_STRUCT = 56
 
-   with open(sys.argv[1], 'rb') as f:
+   image = sys.argv[1]
+   with open(image, 'rb') as f:
        data = f.read()
 
-   pos = 0
-   while True:
-       pos = data.find(EMPTY_STRUCT, pos)
-       if pos == -1:
-           break
-       dtb_start = pos - OFF_DT_STRUCT
-       if dtb_start < 0:
-           pos += 1
-           continue
-       magic = struct.unpack('>I', data[dtb_start:dtb_start+4])[0]
-       if magic != DTB_MAGIC:
-           pos += 1
-           continue
-       if struct.unpack('>I', data[dtb_start+8:dtb_start+12])[0] != OFF_DT_STRUCT:
-           pos += 1
-           continue
-       dtb_size = struct.unpack('>I', data[dtb_start+4:dtb_start+8])[0]
-       dtb_end = dtb_start + dtb_size
-       boundary = dtb_end
-       while boundary < len(data) and data[boundary] == 0:
-           boundary += 1
-       print(f'{dtb_start} {dtb_size} {boundary} {boundary - dtb_start}')
-       sys.exit(0)
+   def elf_section(name):
+       # Returns the file offset and size of the named ELF section
+       if data[:4] != b'\x7fELF':
+           sys.exit(f'{image}: not an ELF file')
+       end = '<' if data[5] == 1 else '>'
+       if data[4] == 1:
+           shoff, = struct.unpack_from(end + 'I', data, 32)
+           shentsize, shnum, shstrndx = struct.unpack_from(end + 'HHH', data, 46)
+           sh = end + 'IIIIII'
+       else:
+           shoff, = struct.unpack_from(end + 'Q', data, 40)
+           shentsize, shnum, shstrndx = struct.unpack_from(end + 'HHH', data, 58)
+           sh = end + 'IIQQQQ'
+       headers = [struct.unpack_from(sh, data, shoff + i * shentsize)
+                  for i in range(shnum)]
+       strtab = headers[shstrndx][4]
+       for sh_name, _, _, _, offset, size in headers:
+           if data[strtab + sh_name:data.index(b'\0', strtab + sh_name)] == name:
+               return offset, size
+       sys.exit(f'{image}: no {name.decode()} section')
 
-   sys.exit(1)
+   start, slot_size = elf_section(b'__fdt_blob')
+   magic, size, off_dt_struct = struct.unpack_from('>III', data, start)
+   struct_block = data[start + OFF_DT_STRUCT:start + OFF_DT_STRUCT + len(EMPTY_STRUCT)]
+   if (magic != DTB_MAGIC or off_dt_struct != OFF_DT_STRUCT or
+           struct_block != EMPTY_STRUCT):
+       sys.exit(f'{image}: __fdt_blob does not hold an empty DTB')
 
-Then build the target DTB, zero the slot, and write the new DTB in place:
+   print(start, size, slot_size)
+
+And the following script, which copies the image, clears the slot, and writes
+the DTB in it, after checking that the DTB is valid and fits in the slot:
+
+.. code-block:: sh
+   :caption: patch_dtb.sh
+
+   #!/bin/sh
+   # Usage: patch_dtb.sh <simpleImage.generic.strip> <dtb> <output image>
+   set -e
+   image=$1
+   dtb=$2
+   out=$3
+
+   slot=$(python3 "$(dirname "$0")/find_empty_dtb.py" "$image")
+   set -- $slot
+   start=$1
+   slot_size=$3
+
+   magic=$(od -An -tx1 -N4 "$dtb" | tr -d ' \n')
+   if [ "$magic" != d00dfeed ]; then
+       echo "$dtb: not a DTB" >&2
+       exit 1
+   fi
+   size=$(stat -c %s "$dtb")
+   if [ "$size" -gt "$slot_size" ]; then
+       echo "$dtb: $size bytes, larger than the $slot_size bytes slot" >&2
+       exit 1
+   fi
+
+   cp "$image" "$out"
+   dd if=/dev/zero of="$out" bs=1 seek="$start" count="$slot_size" \
+      conv=notrunc status=none
+   dd if="$dtb" of="$out" bs=1 seek="$start" conv=notrunc status=none
+   echo "$out: $size bytes DTB at offset $start"
+
+Then build the DTB and patch it into a copy of the image, for example for
+*vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1.dts*:
 
 .. shell::
-   :no-path:
 
-   $ image=arch/microblaze/boot/simpleImage.generic.strip
-   $ dtb=vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1.dtb
-   $ read dtb_start dtb_size dtb_boundary dtb_available < <(python3 find_empty_dtb.py "$image")
-   $ make $dtb
-   # Copy generic image and patch the copy
-   $ dtb_length=$((dtb_boundary - dtb_start))
-   $ image_out="$(dirname $image)/simpleImage.${dtb%.dtb}.strip"
-   $ cp "$image" "$image_out"
-   $ dd if=/dev/zero \
-       of="$image_out" \
-       bs=1 seek=$dtb_start conv=notrunc count=$dtb_length
-    68152 bytes (68 kB, 67 KiB) copied, 0.0198292 s, 3.4 MB/s
-   $ dd if="arch/microblaze/boot/dts/$dtb" \
-        of="$image_out" \
-        bs=1 seek=$dtb_start conv=notrunc
-    31787 bytes (32 kB, 31 KiB) copied, 0.0111866 s, 2.8 MB/s
+   ~/linux
+   $ dts=vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1
+   $ make $dts.dtb
+   $ sh patch_dtb.sh arch/microblaze/boot/simpleImage.generic.strip \
+       arch/microblaze/boot/dts/$dts.dtb \
+       arch/microblaze/boot/simpleImage.$dts.strip
+     arch/microblaze/boot/simpleImage.vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1.strip: 31807 bytes DTB at offset 9118368
+
+To patch several devicetrees, repeat the last two steps for each one:
+
+.. shell::
+
+   ~/linux
+   $ for dts in vcu118_quad_ad9084_revB vcu118_quad_ad9084_26p4_revB ; do \
+        make $dts.dtb
+        sh patch_dtb.sh arch/microblaze/boot/simpleImage.generic.strip \
+           arch/microblaze/boot/dts/$dts.dtb \
+           arch/microblaze/boot/simpleImage.$dts.strip ; \
+     done
 
 .. _linux-kernel microblaze boot:
 
