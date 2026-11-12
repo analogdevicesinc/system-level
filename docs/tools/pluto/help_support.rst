@@ -37,7 +37,7 @@ For questions regarding the the ADI Linux distribution used in PlutoSDR (which
 is based `buildroom <https://buildroot.org/>`__ with
 :ref:`libiio` library, the Linux drivers (including the :external+linux:ref:`ad9361`, or
 the device trees for PlutoSDR, please use the
-:ez:`Linux Software Drivers <community/linux-device-drivers/linux-software-drivers>`
+:ez:`Linux Software Drivers <linux-software-drivers>`
 sub-community.
 
 If you have generic userspace questions (*how do I use a standard linux tool*),
@@ -97,7 +97,8 @@ GNU Radio and Python
 
 Questions about using the PlutoSDR with GNU Radio or python, can be asked on
 Analog Devices' :ez:`Software Tools <sw-interface-tools>` sub-community.
-Generic questions about GNU Radio should be asked on their `mailing list <https://gnuradio.org/redmine/projects/gnuradio/wiki/MailingLists>`__.
+Generic questions about GNU Radio should be asked on their
+`mailing list <https://wiki.gnuradio.org/index.php/MailingLists>`__.
 
 Bugs / Feature Requests
 -----------------------

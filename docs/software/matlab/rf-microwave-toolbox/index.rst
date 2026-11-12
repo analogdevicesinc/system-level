@@ -27,7 +27,7 @@ within MATLAB.
 .. admonition:: Download
    :class: download
 
-   :git-RFMicrowaveToolbox:`Analog Devices Inc, RF Microwave Toolbox Release Page <releases>`.
+   :git-RFMicrowaveToolbox:`Analog Devices Inc, RF Microwave Toolbox Release Page <releases+>`.
 
 To interface and stream data with hardware will require installation of
 :ref:`libiio` and one of two Hardware Support Packages from MathWorks. The

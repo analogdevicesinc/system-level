@@ -498,11 +498,11 @@ IMU
 GPS
 ~~~
 
--  The `Quectel L76-M33 <http://www.quectel.com/UploadFile/Product/Quectel_L76_GNSS_Specification_V1.3.pdf>`_ IC is a small (10.1mm x 9.7mm) GNSS module
+-  The `Quectel L76-M33 <https://www.quectel.com/content/uploads/2024/02/Quectel_L76L76-L_Hardware_Design_V3.2-3.pdf>`_ IC is a small (10.1mm x 9.7mm) GNSS module
 
    -  The IC is capable of tracking any GPS or GLONASS signals, using its 33 tracking channels and 99 acquisition channels.
    -  The L76-M33 brings low power, anti-jamming and high sensitivity (-165dBm Tracking, -148dBm Acquisition), to create a fast and accurate GPS capable system.
-   -  A `Dome Antenna <https://www.inventeksys.com/products-page/gps-antennas/antdom-05-01-wpm-gps-antenna/>`_ with 5 meter cable is used to receive the GPS signals, verify position and time.
+   -  A `Dome Antenna <https://www.inventeksys.com/antdom-05-01-wpm-gps-antenna/>`_ with 5 meter cable is used to receive the GPS signals, verify position and time.
    -
 
    |image3|
