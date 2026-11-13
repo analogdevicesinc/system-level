@@ -21,7 +21,8 @@ contains the files system to be used.
 As the compiler, the MicroBlaze GNU Tools are included on both
 :xilinx:`AMD Vivado <en/products/software/adaptive-socs-and-fpgas/vivado.html>` and
 :xilinx:`AMD Vitis <en/products/software/adaptive-socs-and-fpgas/vivado.html>`, as well
-as the ``xsdb`` tool for booting.
+as the ``xsdb`` tool for booting. The Bootlin toolchain is an alternative
+compiler, but AMD tools are still needed for the ``xsdb`` boot method.
 
 After ensuring all tools are installed, clone the :git-linux:`main:/`
 
@@ -54,24 +55,42 @@ The release branches have the format ``<Year>_R[1|2]``, starting from ``2014_R2`
 Setup cross compile environment variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The MicroBlaze GNU Toolchain included in AMD Vivado/Xilinx is the recommended
-compiler.
+Select a toolchain and keep the environment variables set in the shell used
+for the following kernel build commands.
 
-/data/opt/Xilinx/Vitis/$XVERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
+.. tab-set::
 
-.. shell::
+   .. tab-item:: AMD Xilinx
 
-   $ XVERSION=2026.1
-   $ GCC_MICROBLAZE=$PATH_TO_XILINX/Vitis/$VITIS_VERSION/gnu/microblaze/linux_toolchain/lin64_le/bin/
-   $ export ARCH=microblaze
-   $ export CROSS_COMPILE="$GCC_MICROBLAZE/microblazeel-xilinx-linux-gnu-"
+      The MicroBlaze GNU Toolchain included in AMD Vivado or Vitis is the
+      recommended compiler. Set ``PATH_TO_XILINX`` to the installation folder
+      and choose the Vitis version. Alternatively, replace Vitis with Vivado.
 
-.. important::
+      .. shell::
 
-   Find the path to the AMD Xilinx installation folder, and then use
-   it to replace this string: **$PATH_TO_XILINX** that is written above.
-   Same goes for the **$VITIS_VERSION**, where you choose the Vitis version.
-   Alternatively, you can replace Vitis with Vivado.
+         $ PATH_TO_XILINX=/path/to/Xilinx
+         $ VITIS_VERSION=2026.1
+         $ GCC_MICROBLAZE=$PATH_TO_XILINX/Vitis/$VITIS_VERSION/gnu/microblaze/linux_toolchain/lin64_le/bin
+         $ export ARCH=microblaze
+         $ export CROSS_COMPILE="$GCC_MICROBLAZE/microblazeel-xilinx-linux-gnu-"
+
+   .. tab-item:: Bootlin
+
+      Install the Bootlin little-endian MicroBlaze toolchain
+      (:git-linux:`source <ci:container/install-compilers.sh>`). Download and
+      verify the GCC 13.3.0 release, then extract it to a directory of your
+      choice:
+
+      .. shell::
+         :no-path:
+
+         $ COMPILER_PATH=/path/to/toolchains
+         $ curl -LO https://toolchains.bootlin.com/downloads/releases/toolchains/microblazeel/tarballs/microblazeel--glibc--stable-2024.05-1.tar.xz
+         $ echo '2468c298089873e4d86026b84ca68e46b4802413639a55f2db1c6aba181d66d6 \
+             microblazeel--glibc--stable-2024.05-1.tar.xz' | sha256sum -c
+         $ tar xf microblazeel--glibc--stable-2024.05-1.tar.xz
+         $ export ARCH=microblaze
+         $ export CROSS_COMPILE="$COMPILER_PATH/microblazeel--glibc--stable-2024.05-1/bin/microblazeel-linux-"
 
 Compile the kernel
 ~~~~~~~~~~~~~~~~~~
@@ -97,7 +116,8 @@ For other devices, use:
     #
 
 Download the `mb_rootfs <https://artprodcus3.artifacts.visualstudio.com/Adb5ce8ff-2df6-4e7b-a491-7c0f5e26801a/02a28b00-b3c8-4fdf-af9c-c2460499147f/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL0FuYWxvZ0RldmljZXMvcHJvamVjdElkLzAyYTI4YjAwLWIzYzgtNGZkZi1hZjljLWMyNDYwNDk5MTQ3Zi9idWlsZElkLzYzNDUxL2FydGlmYWN0TmFtZS9tYl9yb290ZnM1/content?format=zip>`__
-from the published artifacts and place it in the root of the kernel tree (*~/linux*).
+from the published artifacts and extract ``mb_rootfs/rootfs.cpio.gz`` from the
+archive into the root of the kernel tree (*~/linux/rootfs.cpio.gz*).
 
 
 The result of building the kernel is an elf file in *arch/microblaze/boot* named
