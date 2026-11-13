@@ -32,10 +32,8 @@ After ensuring all tools are installed, clone the :git-linux:`main:/`
                 --no-single-branch --depth=10 \
                 -- linux
 
-The ``depth`` and ``no-single-branch`` options are included to speed up the
-cloning by fetching only near the head of each branch/release, you may remove
-them to fetch all history, but bear in mind it will go from around 800 MB to
-around 3.4GB and growing.
+The ``--depth`` and ``--no-single-branch`` options fetch only recent history
+for each branch.
 
 Checkout the Release branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -117,11 +115,16 @@ For other devices, use:
 
 Download the `mb_rootfs <https://artprodcus3.artifacts.visualstudio.com/Adb5ce8ff-2df6-4e7b-a491-7c0f5e26801a/02a28b00-b3c8-4fdf-af9c-c2460499147f/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL0FuYWxvZ0RldmljZXMvcHJvamVjdElkLzAyYTI4YjAwLWIzYzgtNGZkZi1hZjljLWMyNDYwNDk5MTQ3Zi9idWlsZElkLzYzNDUxL2FydGlmYWN0TmFtZS9tYl9yb290ZnM1/content?format=zip>`__
 from the published artifacts and extract ``mb_rootfs/rootfs.cpio.gz`` from the
-archive into the root of the kernel tree (*~/linux/rootfs.cpio.gz*).
+archive into the root of the kernel tree (*~/linux/rootfs.cpio.gz*). For example,
+if you saved the download as ``~/Downloads/mb_rootfs.zip``:
 
+.. shell::
 
-The result of building the kernel is an elf file in *arch/microblaze/boot* named
-`simpleImage.<dts-file>` based on the dts specified.
+   ~/linux
+   $ unzip -p ~/Downloads/mb_rootfs.zip mb_rootfs/rootfs.cpio.gz > rootfs.cpio.gz
+
+The build produces images in ``arch/microblaze/boot``, named
+``simpleImage.<dts-file>``.
 
 The build process for the kernel searches in the *arch/microblaze/boot/dts*
 directory for a specified device tree file and then builds the device tree into
@@ -189,8 +192,8 @@ So, for example, for *vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_rev
     Entry Point:  80000000
     Kernel: arch/microblaze/boot/simpleImage.vcu118_quad_ad9081_204c_txmode_23_rxmode_25_onchip_pll_revc_nz1 is ready  (#3678)
 
-The STRIP image (*.strip*) found under *arch/microblaze/boot* is the ELF image
-to load via the debugger.
+The ``simpleImage.<dts-file>.strip`` output in ``arch/microblaze/boot`` is the
+ELF image to load via the debugger.
 
 .. _linux-kernel microblaze dtb-hack:
 
@@ -351,7 +354,8 @@ With ``xsdb``/``xsct``:
 
          $ c:/Xilinx/Vivado_Lab/2026.1/bin/xsdb.bat
 
-Then use the commands to program the FPGA:
+Then use the commands to program the FPGA. Run ``targets`` and use the
+MicroBlaze target index for your board (``3`` below is only an example):
 
 ::
 
