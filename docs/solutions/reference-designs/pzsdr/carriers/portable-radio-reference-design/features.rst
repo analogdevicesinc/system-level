@@ -250,7 +250,7 @@ There are roughly four stages of importance when considering the hot swap.
 Threshold Calculation and Capacitor Bank Sizing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now to tackle the numbers. How do we decide on UV and OV thresholds? It is actually the `ADRV9361-Z7035 <https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom>`_ which dictates the decision. The input voltage range for the SOM is strictly set at 4.5V to 5.5V. This was carefully designed as to protect the FPGA from damage. When the OV or UV is triggered, the system must switch to the next power supply before the capacitor bank runs out of charge and the voltage droops beyond the 4.5V.
+Now to tackle the numbers. How do we decide on UV and OV thresholds? It is actually the :ref:`ADRV9361-Z7035 <adrv9361z7035>` which dictates the decision. The input voltage range for the SOM is strictly set at 4.5V to 5.5V. This was carefully designed as to protect the FPGA from damage. When the OV or UV is triggered, the system must switch to the next power supply before the capacitor bank runs out of charge and the voltage droops beyond the 4.5V.
 
 There are two factors at play here. The first is, if you make the window around
 5V too wide, you leave very little headroom to respect the 4.5V-5.5V.
