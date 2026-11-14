@@ -48,7 +48,7 @@ PCB.
 
 If you want to remove the PCB, and place it on the table, we recommend that you
 attach
-`Cylindrical Bumpers <https://www.digikey.com/scripts/DkSearch/dksus.dll?KeywordSearch?Site=US&Keywords=3M156065-ND>`__
+:digikey:`Cylindrical Bumpers <3M156065-ND>`
 (also known as feet), on
 the PCB to protect the components on the bottom of the PCB. These are not
 included in the design, and must be purchased separately (as we don't expect too
@@ -205,7 +205,7 @@ Why do a Rev C?
    RF connector.
 -  As a cost optimization (and feature enhancement), we may redo some of the
    power section (replacing the NCP339AFCT2G, ADM1177, with the
-   `LTC4413 <http://cds.linear.com/docs/en/datasheet/441312ff.pdf>`__) - this is
+   :adi:`LTC4413`) - this is
    still TBD based on lab work to be done. One of the usability issues - is that
    the 2 NCP339AFCT2G devices are designed to be break before make - which
    causes the power supply to reset if you plug the ADALM-PLUTO into a PC (which
@@ -249,7 +249,7 @@ There are new internal rev D features:
 
 u.FL to SMA cables can be picked up for a few dollars at a variety of locations
 including
-`Digkey <https://www.digikey.com/scripts/DkSearch/dksus.dll?KeywordSearch?Site=US&Keywords=U.FL%20to%20SMA>`__,
+:digikey:`Digi-Key <U.FL%20to%20SMA>`,
 `Mouser <https://www.mouser.com/c/?q=U.FL%20to%20SMA>`__,
 `AdaFruit <https://www.adafruit.com/product/851>`__ or
 `Sparkfun <https://www.sparkfun.com/products/9145>`__.

@@ -25,7 +25,7 @@ OLED Installation
    Loctite. Attach 4× M2.5 nuts and tighten. Cut off the ends of the screw
    if it extends beyond the nut.
 #. Insert a
-   `20-position FMC cable <https://www.digikey.com/WM11498-ND>`_ into the
+   :digikey:`20-position FMC cable <WM11498-ND>` into the
    OLED connector with the exposed copper facing away from the PCB. Close the
    black bracket to secure the cable.
 #. Apply hot glue to the connector and part of the cable so it cannot be
@@ -46,7 +46,7 @@ Nav Switch Installation
 
 #. Place 4× M2.5 × 8mm screws through the belly plate. Apply Loctite 242.
 #. Place 4×
-   `908-135 <https://www.digikey.com/908-135-ND>`_
+   :digikey:`908-135 <908-135-ND>`
    standoffs onto the screws.
 #. Place the Nav Switch PCB into the circular opening with the connector
    closer to the middle of the belly plate. Attach 4× M2.5 nuts and tighten.
@@ -94,7 +94,7 @@ Preparing the ADRV936x PCB
 Heatsink Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Heatsink <https://www.digikey.com/345-1146-ND>`_
+:digikey:`Heatsink <345-1146-ND>`
 
 #. Apply a circle of thermal grease to the protruding portion of the Xilinx
    FPGA and spread the paste around.
@@ -209,17 +209,17 @@ Securing the PCBs
 -------------------------------------------------------------------------------
 
 #. Place 4×
-   `5mm nylon spacers <https://www.digikey.com/R40-6710594>`_
+   :digikey:`5mm nylon spacers <R40-6710594>`
    between the PCBs, aligned with the corner holes of the SOM PCB.
 #. Insert 2×
-   `#6-32 metal screws <https://www.digikey.com/PMS 632 0075 PH>`_
+   :digikey:`#6-32 metal screws <PMS%20632%200075%20PH>`
    on the cable brace side. Apply Loctite 242. Secure with
-   `metal hex nuts <https://www.digikey.com/HNSS 632>`_.
+   :digikey:`metal hex nuts <HNSS%20632>`.
    Do not over-tighten.
 #. Insert 2×
-   `#6-32 nylon screws <https://www.digikey.com/NY PMS 632 0050 PH>`_
+   :digikey:`#6-32 nylon screws <NY%20PMS%20632%200050%20PH>`
    in the other two mounting holes. Apply Loctite 242. Secure with
-   `nylon hex nuts <https://www.digikey.com/H620-ND>`_.
+   :digikey:`nylon hex nuts <H620-ND>`.
    Do not over-tighten.
 
 .. image:: ../../images/som_carrier.jpg

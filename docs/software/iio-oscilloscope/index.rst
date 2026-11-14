@@ -336,7 +336,8 @@ The Capture Window is where device data is displayed.
             and suitability for different applications (some are more frequency
             accurate, others are more amplitude accurate). To choose a window
             function, you (the user) must select the most appropriate one. Check
-            the :dokuwiki:`details <iio_oscilloscope/window_functions>`.
+            the
+            :dokuwiki:`details <resources/tools-software/linux-software/iio_oscilloscope/window_functions>`.
          -  **FFT Average:** Selects the average weight to be applied to the FFT
             samples.
          -  **PWR Offset:** Selects the offset of the FFT graph.
@@ -462,7 +463,8 @@ Files
 
 The source code for the entire application is at
 :git-iio-oscilloscope:`/`. You can ask
-questions about it on the :ez:`community/linux-device-drivers`.
+questions about it on the
+:ez:`Linux Software Drivers <linux-software-drivers>` forum.
 
 Internals
 +++++++++

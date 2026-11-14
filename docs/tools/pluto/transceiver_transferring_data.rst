@@ -24,7 +24,7 @@ If you’re not familiar with IIO, please start reading here:
 -  `IIO Linux Kernel Documentation sysfs-bus-iio-\* <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing>`__
 -  `IIO Documentation <http://git.kernel.org/?p=linux/kernel/git/gregkh/staging.git;a=tree;f=drivers/staging/iio/Documentation;hb=refs/heads/staging-next>`__
 -  `IIO High Speed <https://events.static.linuxfound.org/sites/events/files/slides/iio_high_speed.pdf>`__
--  `Video from FOSDEM of how IIO is used in SDR applications <http://ftp.heanet.ie/mirrors/fosdem-video/2015/devroom-software_defined_radio/iiosdr.mp4>`__
+-  `Video from FOSDEM of how IIO is used in SDR applications <https://video.fosdem.org/2015/devroom-software_defined_radio/iiosdr.mp4>`__
 
 .. video:: https://www.youtube.com/watch?v=p_VntEwUe24
 

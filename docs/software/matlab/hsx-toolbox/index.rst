@@ -310,4 +310,4 @@ Further Reading
 Help & Support
 ---------------
 
-Questions? :ez:`Ask Help & Support <linux-device-drivers/linux-software-drivers>`.
+Questions? :ez:`Ask Help & Support <linux-software-drivers>`.
