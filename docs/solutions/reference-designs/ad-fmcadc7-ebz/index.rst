@@ -16,8 +16,6 @@ AD-FMCADC7-EBZ (Obsolete)
    Support was discontinued starting with the **2022_R2** Kuiper Linux release.
    The last release with pre-built files is **2021_r2** - see all releases at
    :git-kuiper:`releases+`.
-   HDL source code is available on the
-   :git-hdl:`hdl_2021_r2 <hdl_2021_r2:projects/fmcadc7>` branch.
 
 Overview
 -------------------------------------------------------------------------------
