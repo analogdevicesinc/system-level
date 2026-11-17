@@ -56,7 +56,7 @@ carriers we support are:
      - LPC
      - Yes **VADJ 1.8V**
      - N/A²
-   * - `Arria 10 SoC <https://www.altera.com/products/boards_and_kits/dev-kits/altera/arria-10-soc-development-kit.html>`_
+   * - `Arria 10 SoC <https://www.altera.com/products/devkit/po-3006/arria-10-sx-soc-development-kit>`__
      - FMCA
      - Yes
      - N/A³
@@ -107,7 +107,7 @@ The supported OS are:
      - Yes
      - Yes
      - 2019-R2
-   * - `Arria 10 SoC <https://www.altera.com/products/boards_and_kits/dev-kits/altera/arria-10-soc-development-kit.html>`_
+   * - `Arria 10 SoC <https://www.altera.com/products/devkit/po-3006/arria-10-sx-soc-development-kit>`__
      - Yes
      - Yes
      - ---

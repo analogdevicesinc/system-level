@@ -27,7 +27,7 @@ digital interfaces connect to Zynq through the Processing System (PS) or
 Programmable Logic (PL). The Analog Devices AD9361 connects through Zynq PL.
 
 Consult the Xilinx Zynq-7000 AP SoC Technical Reference Manual for more
-information: https://www.amd.com/content/dam/xilinx/support/documents/data_sheets/ds190-Zynq-7000-Overview.pdf
+information: :xilinx:`Zynq-7000 SoC Overview <support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf>`
 
 .. image:: images/zynq-7000_ap_soc_block_diagram.png
    :alt: Zynq-7000 AP SoC Block Diagram
@@ -45,7 +45,7 @@ mixed-signal baseband section and integrated frequency synthesizers. The AD9361
 operates in the 70 MHz to 6.0 GHz range, covering most licensed and unlicensed
 bands. Channel bandwidths from less than 200 kHz to 56 MHz are supported.
 
-Consult the AD9361 Reference Manual :ez:`UG570 <cfs-file/__key/telligent-evolution-components-attachments/00-441-00-00-00-07-91-97/AD9361_5F00_Reference_5F00_Manual_5F00_UG_2D00_570.pdf>` for more details.
+Consult the AD9361 Reference Manual :adi:`UG570 <media/en/technical-documentation/user-guides/ad9361.pdf>` for more details.
 
 .. image:: images/ad9361_block_diagram.png
    :alt: AD9361 Block Diagram

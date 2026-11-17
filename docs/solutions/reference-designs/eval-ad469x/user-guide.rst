@@ -20,7 +20,7 @@ Two evaluation boards are available for the AD469x family:
      - FMC
      - AD4695, AD4696, AD4697, AD4698
      - :adi:`EVAL-SDP-CH1Z <EVAL-SDP-CH1Z>` (SDP-H1)
-   * - :adi:`EVAL-AD4692-ARDZ <EVAL-AD4692>`
+   * - :adi:`EVAL-AD4692-ARDZ <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/eval-ad4692-ardz.html>`
      - Arduino Uno Shield
      - AD4691, AD4692, AD4693, AD4694
      - :adi:`SDP-K1 <EVAL-SDP-CK1Z>`
@@ -44,7 +44,7 @@ connector.
 EVAL-AD4692-ARDZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The :adi:`EVAL-AD4692-ARDZ <EVAL-AD4692>` demonstrates the performance of the
+The :adi:`EVAL-AD4692-ARDZ <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/eval-ad4692-ardz.html>` demonstrates the performance of the
 :adi:`AD4692` family of Easy Drive multiplexed SAR ADCs with per-channel
 averaging filters. It features two AC input channels (CH0 and CH1) via SMA
 connectors and six DC channels (CH2 through CH7). The remaining eight channels

@@ -19,8 +19,7 @@ Hardware Prerequisites
    - `ZCU102 <https://www.xilinx.com/ZCU102>`_
    - `ZC706 <https://www.xilinx.com/ZC706>`_
    - `VCU118 <https://www.xilinx.com/VCU118>`_
-   - `Arria 10 SoC Development Kit
-     <https://www.intel.com/content/www/us/en/programmable/products/boards_and_kits/dev-kits/altera/arria-10-soc-development-kit.html>`_
+   - `Arria 10 SoC Development Kit <https://www.altera.com/products/devkit/po-3006/arria-10-sx-soc-development-kit>`__
 
    .. note::
 

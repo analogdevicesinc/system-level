@@ -35,19 +35,9 @@ Copy the following files to the FAT32 BOOT partition of the SD card:
 - ``Image`` (from the ``zynqmp-common`` folder)
 - ``system.dtb``
 
-.. admonition:: Download
-   :class: download
-
-   - `FMCOMMS8 with ADRV9009-ZU11EG HW Rev.B boot files (2019_R2 Release)
-     <https://swdownloads.analog.com/cse/boot_partition_files/2019_R2/latest_boot_partition.tar.xz>`_
-   - :git-hdl:`ADRV9009-ZU11EG HDL Project source files <projects/adrv9009zu11eg/adrv2crr_fmcomms8>`
-
-.. admonition:: Download
-   :class: download
-
-   - `FMCOMMS8 with ZCU102 boot files (2019_R2 Release)
-     <https://swdownloads.analog.com/cse/boot_partition_files/2019_R2/latest_boot_partition.tar.xz>`_
-   - :git-hdl:`ZCU102 HDL Project source files <projects/fmcomms8/zcu102>`
+- :ref:`ADI Kuiper Linux <kuiper>` image
+- :git-hdl:`ADRV9009-ZU11EG HDL Project source files <projects/adrv9009zu11eg/adrv2crr_fmcomms8>`
+- :git-hdl:`ZCU102 HDL Project source files <projects/fmcomms8/zcu102>`
 
 Required Hardware
 -----------------

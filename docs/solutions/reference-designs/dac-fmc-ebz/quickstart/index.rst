@@ -29,7 +29,7 @@ AD917x-FMC-EBZ evaluation boards.
      - FMC HPC
    * - `VCU118 <https://www.xilinx.com/VCU118>`_
      - FMC+
-   * - `Arria 10 SoC <https://www.intel.com/content/www/us/en/programmable/products/boards_and_kits/dev-kits/altera/arria-10-soc-development-kit.html>`_
+   * - `Arria 10 SoC <https://www.altera.com/products/devkit/po-3006/arria-10-sx-soc-development-kit>`__
      - FMCA
 
 Supported Environments
