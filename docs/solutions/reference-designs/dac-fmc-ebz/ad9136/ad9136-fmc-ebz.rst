@@ -8,7 +8,7 @@ Preface
 
 This user guide describes both the hardware and software setup needed to acquire data capture from :adi:`AD9135-FMC-EBZ <EVAL-AD9135>`/:adi:`AD9136-FMC-EBZ <EVAL-AD9136>` evaluation board to characterize :adi:`AD9135`/:adi:`AD9136` 11-/16-bit 2.8Gsps dual JESD204B signal processing RF Digital to Analog Converter.
 
-The :adi:`AD9135-FMC-EBZ <EVAL-AD9135>`/:adi:`AD9136-FMC-EBZ <EVAL-AD9136>` is an FMC mezzanine card and connects to an :adi:`ADS7-V2 <eval-ads7-v2>` or :adi:`ADS8-V1 <eval-ads8-v1ebz>` data pattern generator system. The ADS7-V2/ADS8-V1 automatically formats the data and sends it to the AD9135/AD9136 FMC card via its JESD204B lanes. +12V, +3.3V, and VADJ power supply rails are provided by the ADS7-V2/ADS8-V1 system via the FMC connector P1. A clock distribution chip AD9516 is included on this EVB as a clock fan-out and frequency divider for the DACCLK, JESD204B SYSREF signals, and a GBTCLK clock used by the ADS7-V2/ADS8-V1. There is also an FMC standard I2C bus that is used by the ADS7-V2/ADS8-V1 to identify the AD9135/AD9136 FMC card. This I2C interface is implemented in software in the AD9135/AD9136 FMC card PIC processor (XU1). All ADS7-V2/ADS8-V1 to/from AD9135/AD9136 FMC card interface signals are connected via the FMC connector P1.
+The :adi:`AD9135-FMC-EBZ <EVAL-AD9135>`/:adi:`AD9136-FMC-EBZ <EVAL-AD9136>` is an FMC mezzanine card and connects to an :adi:`ADS7-V2 <eval-ads7-v2>` or :adi:`ADS8-V1 <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/ads8-v1ebz.html>` data pattern generator system. The ADS7-V2/ADS8-V1 automatically formats the data and sends it to the AD9135/AD9136 FMC card via its JESD204B lanes. +12V, +3.3V, and VADJ power supply rails are provided by the ADS7-V2/ADS8-V1 system via the FMC connector P1. A clock distribution chip AD9516 is included on this EVB as a clock fan-out and frequency divider for the DACCLK, JESD204B SYSREF signals, and a GBTCLK clock used by the ADS7-V2/ADS8-V1. There is also an FMC standard I2C bus that is used by the ADS7-V2/ADS8-V1 to identify the AD9135/AD9136 FMC card. This I2C interface is implemented in software in the AD9135/AD9136 FMC card PIC processor (XU1). All ADS7-V2/ADS8-V1 to/from AD9135/AD9136 FMC card interface signals are connected via the FMC connector P1.
 
 Typical Setup
 -------------
@@ -47,7 +47,7 @@ Helpful Files/Links
 -  :doc:`AD9135-EBZ/AD9136-EBZ User Guide <ad9136-ebz>` for non-FMC card users
 -  :dokuwiki:`ADS7-V1/-V2 for High-Speed DAC Evaluation <resources/eval/dpg/ads7>`
 -  Datasheet: :adi:`AD9135/AD9136 <media/en/technical-documentation/data-sheets/AD9135_9136.pdf>`
--  IBIS Model: :adi:`AD9135 <media/en/package-pcb-model-library/ibis-models/ad9135bcpz>`,\ :adi:`AD9136 <media/en/package-pcb-model-library/ibis-models/ad9136bcpz>`
+-  IBIS Model: :adi:`AD9135 <en/license/ibis-models.html?mediaPath=/media/en/simulation-models/ibis-models/ad9135bcpz.ibs&modelType=ibis-models>`,\ :adi:`AD9136 <en/license/ibis-models.html?mediaPath=/media/en/simulation-models/ibis-models/ad9136bcpz.ibs&modelType=ibis-models>`
 -  AMI Model: `AD9144/AD9152/AD9154/AD9135/AD9136 <https://form.analog.com/Form_Pages/securedownloads/designFilePackage.aspx?prodID=AD9144-9152-9154-9135-9136>`_
 -  Simulink ADIsimDAC Model: `AD9136 <http://download.analog.com/behavioral-models/mathworks/ad9136_mathworks.zip>`_
 -  Schematic: :dokuwiki:`AD9135-FMC-EBZ <_media/resources/eval/dpg/ad9135-fmc-ebz_revb_schematic.pdf>`, :dokuwiki:`AD9136-FMC-EBZ <_media/resources/eval/dpg/ad9136-fmc-ebz_revb_schematic.pdf>`

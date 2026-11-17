@@ -4,7 +4,7 @@ ARRADIO
 =======
 
 The `ARRADIO <https://www.arrow.com/en/products/arradio/terasic-technologies>`__
-board is an `HSMC <http://www.altera.com/literature/ds/hsmc_spec.pdf>`_ board by
+board is an `HSMC <https://docs.altera.com/r/docs/683460/current/max-10-fpga-development-kit-user-guide/hsmc>`__ board by
 `Arrow <https://www.arrow.com/en/manufacturers/analog-devices>`_ & `Terasic <http://arradio.terasic.com/>`_
 for the :adi:`AD9361`, a highly integrated RF Agile Transceiver™. While the
 complete chip level design package can be found on the :adi:`the ADI web site <ad9361_design_files>`.
@@ -19,7 +19,7 @@ The purpose of the ARRADIO board is to provide an RF platform to which shows
 maximum performance of the AD9361. It's expected that the RF performance of this
 platform can meet the datasheet specifications without issues at 2.4 GHz, and
 not much anywhere else. This is due to the external Johanson Technology's
-`2450BL15B050E <https://www.johansontechnology.com/datasheets/baluns/JTI_Balun-2450BL15B050_12-03.pdf>`_
+`2450BL15B050E <https://www.johansontechnology.com/docs/4498/Balun-2450BL15B0050001E.pdf>`__
 2.45 GHz balun that is on the board. This balun is rated for a operating
 frequency of 2400~2500 MHz.
 

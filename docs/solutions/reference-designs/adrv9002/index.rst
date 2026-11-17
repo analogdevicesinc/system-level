@@ -189,7 +189,7 @@ MathWorks webinars
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. :mw:`Modelling and Simulating Analog Devices' RF Transceivers with MATLAB and SimRF <videos/modelling-and-simulating-analog-devices-rf-transceivers-with-matlab-and-simrf-89934.html>`
-#. :mw:`Getting Started with Software-Defined Radio using MATLAB and Simulink <videos/getting-started-with-software-defined-radio-using-matlab-and-simulink-108646.html>`
+#. `Getting Started with Software-Defined Radio using MATLAB and Simulink <https://www.youtube.com/watch?v=_lWLc02yVYA>`__
 
 Additional information
 -------------------------------------------------------------------------------
@@ -203,7 +203,7 @@ Four Quick Steps to Production - SDR Prototyping Platform Series:
 
 SDR Signal Chains documentation - the math behind the RF:
 
-- :adi:`SDR Signal Chains Documentation <en/lp/001/sdr.html>`
+- :ref:`SDR Signal Chains Documentation <fmcomms2 common fmcomms-math>`
 
 Help and support
 -------------------------------------------------------------------------------

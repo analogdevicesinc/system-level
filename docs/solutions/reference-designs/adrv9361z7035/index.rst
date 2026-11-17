@@ -135,9 +135,6 @@ Table of Contents
    -  :ref:`The math behind the RF <fmcomms2 common fmcomms-math>`
 
 - :ref:`Help and Support <fmcomms2 help-and-support>`
-- Videos and Webinars
-
-   -  `Radio Deployment on SoC Platforms <https://www.mathworks.com/videos/radio-deployment-on-soc-platforms-1513346830203.html>`_
 
 Warning
 -------

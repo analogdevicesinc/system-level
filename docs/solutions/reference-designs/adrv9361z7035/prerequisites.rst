@@ -76,7 +76,7 @@ For basic functionalities regarding visualizing and analyzing the data received
 from the FPGA, we use the following:
 
 #. :external+scopy:doc:`Scopy <index>` v2.0 or later (must contain the IIO
-   plugin), or :adi:`IIO Oscilloscope <iio-oscilloscope>`
+   plugin), or :ref:`IIO Oscilloscope <iio-oscilloscope>`
 
 #. :ref:`Kuiper Linux <kuiper>` - ADI's customized Linux distribution for SDR
    platforms (recommended)

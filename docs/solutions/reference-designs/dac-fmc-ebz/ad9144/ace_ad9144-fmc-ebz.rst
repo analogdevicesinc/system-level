@@ -33,7 +33,7 @@ Helpful Files/Links
 
 -  :dokuwiki:`ADS7-V1/-V2 for High-Speed DAC Evaluation <resources/eval/dpg/ads7>`
 -  Datasheet: :adi:`AD9144 <media/en/technical-documentation/data-sheets/AD9144.pdf>`
--  IBIS Model: :adi:`AD9144 <media/en/package-pcb-model-library/ibis-models/ad9144bcpz>`
+-  IBIS Model: :adi:`AD9144 <en/license/ibis-models.html?mediaPath=/media/en/simulation-models/ibis-models/ad9144bcpz.ibs&modelType=ibis-models>`
 -  AMI Model: `AD9144/AD9152/AD9154/AD9135/AD9136 <https://form.analog.com/Form_Pages/securedownloads/designFilePackage.aspx?prodID=AD9144-9152-9154-9135-9136>`_
 -  Simulink ADIsimDAC Model: `AD9144 <http://download.analog.com/behavioral-models/mathworks/ad9144_mathworks.zip>`_
 -  Schematic: :dokuwiki:`RevB <_media/resources/eval/dpg/ad9144-fmc-ebz_revb_schematic.pdf>`
