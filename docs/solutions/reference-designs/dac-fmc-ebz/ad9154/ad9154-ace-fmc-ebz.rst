@@ -33,7 +33,7 @@ Helpful Files/Links
 
 -  :dokuwiki:`ADS7-V1/-V2 for High-Speed DAC Evaluation <resources/eval/dpg/ads7>`
 -  Datasheet: :adi:`AD9154 <media/en/technical-documentation/data-sheets/AD9154.pdf>`
--  IBIS Model: :adi:`AD9154 <media/en/package-pcb-model-library/ibis-models/ad9154bcpz>`
+-  IBIS Model: :adi:`AD9154 <en/license/ibis-models.html?mediaPath=/media/en/simulation-models/ibis-models/ad9154bcpz.ibs&modelType=ibis-models>`
 -  AMI Model: `AD9144/AD9152/AD9154/AD9135/AD9136 <https://form.analog.com/Form_Pages/securedownloads/designFilePackage.aspx?prodID=AD9144-9152-9154-9135-9136>`_
 -  Schematic: :dokuwiki:`RevA <_media/resources/eval/dpg/ad9154-fmc-ebz_reva_schematic.pdf>`
 -  Bill of Materials: :dokuwiki:`RevA <_media/resources/eval/dpg/ad9154-fmc-ebz_reva_bom.xls>`

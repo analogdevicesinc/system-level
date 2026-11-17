@@ -228,7 +228,7 @@ Sample circuit
 -------------------------------------------------------------------------------
 
 The sample circuit can be downloaded using this link:
-:dokuwiki:`ad4696_transient.zip <resources/quick-start/ad469x-ltspice-user-guide/transient-sims?do=export_code>`
+:adi:`ad4696_transient.asc <media/en/simulation-models/ltspice-demo-circuits/ad4696_transient.asc>`
 
 Appended below are some screenshots of the LTspice running simulations for the
 ADC AD4696 model. In this simulation, transient glitches are being modeled when

@@ -39,7 +39,7 @@ Required Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - AMD Xilinx Vivado (the supported version can be found in the
-  :git-hdl:`HDL repository <tree/master>`)
+  :git-hdl:`HDL repository <main:/>`)
 - UART terminal (Putty/Tera Term/Minicom, etc.) with baud rate 115200 (8N1)
 - ADV7511 Transmitter Library (requires Wine on Linux)
 
