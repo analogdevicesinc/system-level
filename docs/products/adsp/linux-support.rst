@@ -50,6 +50,7 @@ for the the Commits link with the newest version and at least one Release.
       :git-linux:`Release 2 <releases/tag/6.18.31-2+>`
       :git-linux:`Release 3 <releases/tag/6.18.31-3+>`
       :git-linux:`Release 4 <releases/tag/6.18.31-4+>`
+      :git-linux:`Release 5 <releases/tag/6.18.31-5+>`
 
 ..
     - v6.12.38:
@@ -69,6 +70,7 @@ for the the Commits link with the newest version and at least one Release.
       :git-u-boot:`Release 4 <releases/tag/v2025.10-4+>`
       :git-u-boot:`Release 5 <releases/tag/v2025.10-5+>`
       :git-u-boot:`Release 6 <releases/tag/v2025.10-6+>`
+      :git-u-boot:`Release 7 <releases/tag/v2025.10-7+>`
     - v2026.01:
       :git-u-boot:`Commits <commits/adi-u-boot-2026.01.y+>`
 - :git-buildroot:`+`
