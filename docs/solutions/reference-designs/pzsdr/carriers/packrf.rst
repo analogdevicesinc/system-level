@@ -3,7 +3,7 @@
 ADRV-PackRF
 ===========
 
-PackRF is a pair of software defined radios designed using the `ADRV9361-Z7035 <https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom>`_ system on module (SOM). The SOM is based on the\ :adi:`AD9361 <en/products/rf-microwave/integrated-transceivers-transmitters-receivers/wideband-transceivers-ic/ad9361.html>` RF Transceiver and the Xilinx Zynq®-7000 All Programmable (AP) SoC.
+PackRF is a pair of software defined radios designed using the :ref:`ADRV9361-Z7035 <adrv9361z7035>` system on module (SOM). The SOM is based on the\ :adi:`AD9361 <en/products/rf-microwave/integrated-transceivers-transmitters-receivers/wideband-transceivers-ic/ad9361.html>` RF Transceiver and the Xilinx Zynq®-7000 All Programmable (AP) SoC.
 
 See the :adi:`Analog Devices Product Home Page <en/design-center/reference-designs/circuits-from-the-lab/cn0412.html#rd-overview>` for information on price and options to purchase the system.
 
@@ -23,7 +23,7 @@ and links to additional material.
 Portable Radio Reference Design
 -------------------------------
 
-The radios are referred to as 'Portable Radio Reference Design'. Each one is a combination of `ADRV9361-Z7035 <https://wiki.analog.com/resources/eval/user-guides/adrv936x_rfsom>`_ PCB, carrier card, metal enclosure and additional, smaller items (adapter PCBs, cables, connectors etc). The system is fully contained inside of a 159.99mm x 78.00mm x 43.00mm (6.3" x 3.071" x 1.69") aluminum metal enclosure. Card guides on the inside of the case provide a secure shelf for the PCB's. Production units will be a blue metal etched with silkscreen providing part numbers, links to documentation and more.
+The radios are referred to as 'Portable Radio Reference Design'. Each one is a combination of :ref:`ADRV9361-Z7035 <adrv9361z7035>` PCB, carrier card, metal enclosure and additional, smaller items (adapter PCBs, cables, connectors etc). The system is fully contained inside of a 159.99mm x 78.00mm x 43.00mm (6.3" x 3.071" x 1.69") aluminum metal enclosure. Card guides on the inside of the case provide a secure shelf for the PCB's. Production units will be a blue metal etched with silkscreen providing part numbers, links to documentation and more.
 
 .. image:: ../images/production_build.png
    :alt: 1 Portable Radio Unit

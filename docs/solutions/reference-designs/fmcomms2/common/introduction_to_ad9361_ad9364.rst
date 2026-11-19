@@ -190,7 +190,7 @@ System on Modules (SOMs)
      - 1 (2400 - 2500 MHz)
      - 1 (2400 - 2500 MHz)
      - Highly Integrated System on Module
-   * - :dokuwiki:`ADRV9361-Z7035 <resources/eval/user-guides/adrv936x_rfsom>`
+   * - :ref:`ADRV9361-Z7035 <adrv9361z7035>`
      - 1 x AD9361
      - 2 x 2
      - 2 (2400 - 2500 MHz)
@@ -243,7 +243,7 @@ optimized for 2.4 GHz. If you want a different range, you can change baluns
 (footprint compatible options are available). This board has four FCI 0.8mm
 connectors.
 
-The :dokuwiki:`ADRV9361-Z7035 <resources/eval/user-guides/adrv936x_rfsom>`
+The :ref:`ADRV9361-Z7035 <adrv9361z7035>`
 board, in simple terms, is just the AD9361 in a 2 x 2 RF configuration with
 on-board Z7035 FPGA. Hence the features and capabilities of the device extend to
 the board. The board includes a narrow tuning range balun, which is performance
