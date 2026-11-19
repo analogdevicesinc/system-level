@@ -59,6 +59,11 @@ Workshops
 
    workshop_kuiper/index
 
+.. toctree::
+   :maxdepth: 1
+   
+   sp_concepts_with_mmsc/index
+
 
 Academic Workshops
 -------------------------------------------------------------------------------
