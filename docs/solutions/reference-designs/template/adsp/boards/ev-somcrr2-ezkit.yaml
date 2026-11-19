@@ -110,3 +110,22 @@ hardware_sections:
       ``adi-dbgagent.cfg``, OpenOCD warns that this firmware version is
       obsolete. The warning can be ignored, as 0.0.1 is the current version
       of this firmware.
+  - title: SigmaStudio connectors (S12, S13)
+    body: |
+      Each SoM connector has a 0.1" header that interfaces with SigmaStudio
+      through the EVAL-ADUSB2EBZ board. The pinout is in the schematic.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - SoM connector
+           - Header
+         * - SOM A
+           - S12
+         * - SOM B
+           - S13
+
+      .. note::
+
+         The "Connectors" section of the carrier board manual calls these
+         headers P30 and P31. The schematic uses S12 and S13.

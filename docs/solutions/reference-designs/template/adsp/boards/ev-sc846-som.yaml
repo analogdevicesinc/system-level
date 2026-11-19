@@ -87,3 +87,38 @@ hardware_sections:
       **P4** is the JTAG header for an external ICE, such as the ICE-1000 or
       ICE-1500. Use it in standalone mode, or on a carrier board with the debug
       agent disabled.
+  - title: USB mode (S1)
+    body: |
+      Switch **S1** selects the USB mode of the SoM. It is shown in the
+      schematic, but not described in the manual.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - S1
+           - USB mode
+         * - OFF
+           - Device
+         * - ON
+           - Host
+  - title: Remote power cycling (R163)
+    body: |
+      The power multiplexer **U20** powers the SoM from one of two inputs:
+      the carrier board, through **R164**, or the USB Type-C connector **P2**,
+      through **R163**. The carrier board input has priority, and U20 switches
+      to USB power when the carrier board power is removed.
+
+      So while a USB cable is connected to P2, for the serial console, turning
+      off the power supply of the carrier board does not power off the SoM. To
+      power cycle the SoM from the carrier board power input, for example with
+      a switched power distribution unit (PDU) in an automated test setup,
+      remove the 0 ohm resistor **R163**.
+
+      R163 is on the bottom side of the SoM, next to U20, near the corner with
+      the **E1** label. Do not confuse it with R164, the 0 ohm resistor of the
+      carrier board input, which is also next to U20. Before removing it,
+      check with a multimeter that one pad of R163 connects to the VBUS pins
+      of P2.
+
+      After this rework, the SoM can no longer be powered from P2, so it can
+      only be used on a carrier board.
