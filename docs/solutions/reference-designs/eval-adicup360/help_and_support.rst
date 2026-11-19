@@ -64,7 +64,7 @@ If you have any questions regarding the **base platform**, any of the **shields/
    -  ADICUP360 software
    -  ADICUP360 documentation
 
--  :ez:`Reference Design support community <community/circuits_from_the_lab>` for questions about:
+-  :ez:`Reference Design support community <reference-designs>` for questions about:
 
    -  Add on Arduino shields from Analog Devices
    -  Add on PMODs from Analog Devices

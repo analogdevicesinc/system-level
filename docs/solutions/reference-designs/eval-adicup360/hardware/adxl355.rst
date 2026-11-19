@@ -37,7 +37,11 @@ for you, in order to use the board.
 Power Supply Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When using the ADXL355 PMOD board, the 3.3V power for the PMOD comes directly from the host board it is connected to. The power from the host is generally capable of providing up to 100 mA at 3.3V, but for complete PMOD power specifications please click\ `here <https://digilent.com/reference/_media/reference/pmod/pmod-interface-specification-1_3_1.pdf>`_.
+When using the ADXL355 PMOD board, the 3.3V power for the PMOD comes directly
+from the host board it is connected to. The power from the host is generally
+capable of providing up to 100 mA at 3.3V, but for complete PMOD power
+specifications please click\ 
+`here <https://digilent.com/reference/_media/reference/pmod/pmod-interface-specification-1_3_1.pdf>`_.
 
 Digital Interface (PMOD)
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,7 +102,7 @@ Registration
 
 .. tip::
 
-   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-ADXL355-PMDZ?&v=Rev B>`_ to receive all these great benefits and more!
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://my.analog.com/en/app/registration/hardware/EVAL-ADXL355-PMDZ?&v=Rev%20B>`_ to receive all these great benefits and more!
 
 .. |image1| image:: ../images/adxl355_layout.png
    :width: 300

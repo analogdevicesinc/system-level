@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 resources:
+
 EVAL-ADPAQ3029 - Resources
 ==========================
 

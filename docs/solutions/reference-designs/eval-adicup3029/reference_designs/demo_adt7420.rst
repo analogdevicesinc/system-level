@@ -218,9 +218,7 @@ More Information
 
 .. note::
 
-   See :dokuwiki:`resources/eval/user-guides/eval-adicup3029/reference_designs/ble_packet <resources/eval/user-guides/eval-adicup3029/reference_designs/ble_packet>`
-
-*End of Document*
+   See :ref:`eval-adicup3029 smart_app ble_connect`
 
 .. |image1| image:: ../images/adt7420_demo_launch_configurations.png
    :width: 200

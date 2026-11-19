@@ -163,7 +163,7 @@ physical device. Click on the Devices option from the side tab.
 
 |image6|
 
-**To add the device please follow this tutorial** https://developer.ibm.com/recipes/tutorials/how-to-register-devices-in-ibm-iot-foundation/
+**To add the device please follow this tutorial** https://www.ibm.com/docs/en/ma-pmis?topic=data-creating-device-types.
 
 Setting WIFI connection
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -394,8 +394,6 @@ Debugging
 ~~~~~~~~~
 
 For more detailed instructions on importing this application/demo example into the CrossCore Embedded Studio tools, please view our :ref:`How to configure the debug session <eval-adicup3029 tools cces_user_guide>` section.
-
-*End of Document*
 
 .. |image1| image:: ../images/reference_design_esp8266_hw_mod_back.png
    :width: 400

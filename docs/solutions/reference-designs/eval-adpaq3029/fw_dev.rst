@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 fw_dev:
+
 EVAL-ADPAQ3029 - Firmware development
 =====================================
 

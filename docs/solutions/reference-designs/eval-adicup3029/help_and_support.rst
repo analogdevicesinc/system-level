@@ -71,7 +71,7 @@ If you have any questions regarding the **base platform**, any of the **shields/
    -  ADICUP3029 software
    -  ADICUP3029 documentation
 
--  :ez:`Reference Design support community <community/circuits_from_the_lab>` for questions about:
+-  :ez:`Reference Design support community <reference-designs>` for questions about:
 
    -  Add on Arduino shields from Analog Devices
    -  Add on PMODs from Analog Devices
@@ -105,5 +105,3 @@ EVAL-ADICUP3029, either post a question or send an email.
    below:
 
    -  `processor.tools.support@analog.com <mailto:processor.tools.support@analog.com>`_
-
-*End of Document*

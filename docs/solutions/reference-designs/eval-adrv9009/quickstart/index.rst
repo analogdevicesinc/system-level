@@ -53,7 +53,7 @@ The carriers we support are:
      - FMCA
      - FMCA
      - FMCA
-   * - :intel:`Arria 10 GX <content/www/us/en/products/details/fpga/development-kits/arria/10.html>`
+   * - `Arria 10 GX <https://docs.altera.com/r/docs/683526/current/arria-10-gx-fpga-development-kit-user-guide/arria-10-gx-fpga-development-kit-overview>`__
      - FMCA
      - FMCA
      - FMCA
@@ -86,11 +86,11 @@ The supported environments are:
      - Yes
      - Yes
      - ---
-   * - :intel:`Arria 10 GX <content/www/us/en/products/details/fpga/development-kits/arria/10.html>`
+   * - `Arria 10 GX <https://docs.altera.com/r/docs/683526/current/arria-10-gx-fpga-development-kit-user-guide/arria-10-gx-fpga-development-kit-overview>`__
      - Yes
      - Yes
      - ---
-   * - :intel:`Intel Stratix 10 SX SoC Development Kit <content/www/us/en/products/details/fpga/development-kits/stratix/10-sx.html>`
+   * - `Intel Stratix 10 SX SoC Development Kit <https://docs.altera.com/r/docs/683303/current/stratix-10-sx-soc-development-kit-user-guide/overview>`__
      - Yes
      - ---
      - ---

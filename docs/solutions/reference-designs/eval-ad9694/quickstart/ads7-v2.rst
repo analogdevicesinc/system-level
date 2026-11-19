@@ -61,7 +61,7 @@ Helpful Documents
 Software Needed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :adi:`ACE (Analysis | Control | Evaluation) <ace-software>`
+-  :adi:`ACE (Analysis | Control | Evaluation) <ace>`
 -  :adi:`SPI Controller <spicontroller>`
 -  :adi:`VisualAnalog <visualanalog>`
 

@@ -92,7 +92,7 @@ Installing the no-OS BMS Embedded Drivers
 1. Install the **no-OS-BMS-Examples-Rel1.0.0.exe** file. Default installation
    path will be on **C:\\Analog\\**
 
-2. Download and install `MaximSDK for Maxim MCUs <https://www.analog.com/en/design/software-description.html/swpart=SFW0010820A>`_.
+2. Download and install `MaximSDK for Maxim MCUs <https://www.analog.com/en/resources/evaluation-hardware-and-software/embedded-development-software/software-download.html?swpart=SFW0010820A>`_.
 
 .. container:: indent
 
