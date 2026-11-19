@@ -10,6 +10,10 @@ be used on several carrier boards and a carrier board can host several SoMs, so
 the content of each board is kept in one data file and shared by all its
 combinations.
 
+Each combination is a single page. The text of a board, its overview and its
+settings, is written once in the board data file and the board templates, and
+is rendered in the page of every combination that uses the board.
+
 Overview
 --------------------------------------------------------------------------------
 
@@ -21,10 +25,7 @@ Overview
    │   │   ├── ev-sc846-som.yaml
    │   │   └── ev-somcrr2-ezkit.yaml
    │   ├── images/                    # Board pictures, shared by all pages
-   │   ├── index.rst.jinja            # Combination templates
-   │   ├── prerequisites.rst.jinja
-   │   ├── quickstart.rst.jinja
-   │   ├── user-guide.rst.jinja
+   │   ├── index.rst.jinja            # Combination template, the whole page
    │   ├── board-overview.rst.jinja   # Board templates
    │   ├── documents.rst.jinja
    │   ├── som-hardware.rst.jinja
@@ -33,12 +34,9 @@ Overview
    │   └── carrier-setup.rst.jinja
    └── ev-sc846-som-ev-somcrr2-ezkit/ # One directory per combination
        ├── combination.yaml
-       ├── index.rst
-       ├── prerequisites.rst
-       ├── quickstart.rst
-       └── user-guide.rst
+       └── index.rst
 
-The pages of a combination only include the combination templates, with the
+The page of a combination only includes the combination template, with the
 data from ``combination.yaml``:
 
 .. code-block:: rst
@@ -46,7 +44,7 @@ data from ``combination.yaml``:
    .. include-template:: ../template/adsp/index.rst.jinja
       :file: combination.yaml
 
-The combination templates include the board templates, with the data from
+The combination template includes the board templates, with the data from
 ``boards/<som>.yaml`` and ``boards/<carrier>.yaml``. The ``include-template``
 directive takes the data of a single file, so every board template only uses
 the data of one board.
@@ -62,8 +60,7 @@ Adding a combination
    its pictures to ``images/``. Use an existing file of the same board type as
    a starting point.
 #. Create the directory ``<som>-<carrier>/``, with a ``combination.yaml`` and
-   the four pages ``index.rst``, ``prerequisites.rst``, ``quickstart.rst`` and
-   ``user-guide.rst``. Copy them from an existing combination; the pages are
+   an ``index.rst``. Copy them from an existing combination; ``index.rst`` is
    identical for all combinations.
 
 The reference designs index lists the new directory automatically.
@@ -101,8 +98,9 @@ Combination variables
      - string
      - Linux device tree of the combination
 
-The labels of the pages are ``<som> <carrier>``, followed by
-``prerequisites``, ``quickstart``, ``user-guide`` or ``help-and-support``.
+The label of the page is ``<som> <carrier>``. The labels of its sections are
+the same, followed by ``prerequisites``, ``quickstart``, ``som``, ``carrier``
+or ``help-and-support``.
 
 Board variables
 --------------------------------------------------------------------------------
@@ -127,8 +125,8 @@ Common to SoMs and carrier boards:
      - Features of the board
    * - ``images``
      - list
-     - Pictures in ``images/``, each with ``file``, ``alt``, ``caption`` and
-       ``width``
+     - Pictures in ``images/``, each with ``file``, ``alt`` and ``caption``,
+       shown side by side in a grid
    * - ``manual``
      - string
      - Path of the board manual on analog.com, the complete user guide of the

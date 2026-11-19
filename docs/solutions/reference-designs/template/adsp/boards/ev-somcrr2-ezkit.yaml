@@ -32,15 +32,12 @@ images:
   - file: ev-somcrr2-ezkit.png
     alt: Angled view of the EV-SOMCRR2-EZKIT with two SoMs installed
     caption: EV-SOMCRR2-EZKIT with two SoMs installed
-    width: 600
   - file: ev-somcrr2-ezkit-top.png
     alt: Top view of the EV-SOMCRR2-EZKIT with two SoMs installed
     caption: EV-SOMCRR2-EZKIT top
-    width: 300
   - file: ev-somcrr2-ezkit-bottom.png
     alt: Bottom view of the EV-SOMCRR2-EZKIT
     caption: EV-SOMCRR2-EZKIT bottom
-    width: 300
 
 manual: media/en/technical-documentation/user-guides/ev-somcrr2-ezkit-manual.pdf
 

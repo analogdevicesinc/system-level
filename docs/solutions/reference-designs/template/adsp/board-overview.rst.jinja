@@ -1,6 +1,3 @@
-{{ id | upper }}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 {{ description }}
 
 Features:
@@ -9,12 +6,15 @@ Features:
 - {{ feature | indent(2) }}
 {% endfor %}
 
-{% for image in images %}
-.. figure:: /solutions/reference-designs/template/adsp/images/{{ image.file }}
-   :alt: {{ image.alt }}
-   :align: center
-   :width: {{ image.width }}
+.. grid::
+   :columns: {{ images | length }}
 
-   {{ image.caption }}
+{% for image in images %}
+   .. figure:: /solutions/reference-designs/template/adsp/images/{{ image.file }}
+      :alt: {{ image.alt }}
+      :align: center
+      :width: 100%
+
+      {{ image.caption }}
 
 {% endfor %}

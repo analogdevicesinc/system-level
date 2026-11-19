@@ -1,7 +1,7 @@
 {% set slot = slots | selectattr("name", "equalto", recommended_slot) | first %}
 {% set route = jtag_routing.routes | selectattr("slot", "equalto", recommended_slot) | first %}
 Prepare the {{ id | upper }}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Insert the SoM into the **{{ slot.name }}** connector.
    {{ recommended_slot_reason | indent(3) }}

@@ -33,15 +33,12 @@ images:
   - file: ev-sc846-som.jpg
     alt: Angled view of the EV-SC846-SOM
     caption: EV-SC846-SOM
-    width: 600
   - file: ev-sc846-som-top.png
     alt: Top view of the EV-SC846-SOM
     caption: EV-SC846-SOM top
-    width: 300
   - file: ev-sc846-som-bottom.png
     alt: Bottom view of the EV-SC846-SOM
     caption: EV-SC846-SOM bottom
-    width: 300
 
 manual: media/en/technical-documentation/user-guides/ev-sc846-som-manual.pdf
 
