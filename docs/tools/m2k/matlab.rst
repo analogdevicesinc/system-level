@@ -136,7 +136,7 @@ follow these steps:
 Inside libm2k repo go to */bindings/matlab*
 
 Next, update the locations of the
-:git-libm2k:`libm2k headers <bindings/matlab/build_library_linux64.m#L13>`
+:git-libm2k:`libm2k headers <bindings/matlab/build_library.m#L28-L29>`
 to point to where libm2k is build. On Ubuntu these may look similar to:
 
 .. code:: matlab

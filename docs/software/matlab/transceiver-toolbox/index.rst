@@ -575,9 +575,9 @@ They can also be viewed on GitHub:
 
 Highlighted demos:
 
--  :dokuwiki:`Frequency hopping </resources/tools-software/resources/eval/user-guides/adrv936x_rfsom/tutorials/frequency_hopping>`
--  :dokuwiki:`Loopback delay estimation </resources/tools-software/resources/eval/user-guides/adrv936x_rfsom/tutorials/loopback_delay_estimation>`
--  :dokuwiki:`AGC Optimization </resources/tools-software/resources/eval/user-guides/ad9361_agc_tuning>`
+-  :dokuwiki:`Frequency hopping <resources/eval/user-guides/adrv936x_rfsom/tutorials/frequency_hopping>`
+-  :dokuwiki:`Loopback delay estimation <resources/eval/user-guides/adrv936x_rfsom/tutorials/loopback_delay_estimation>`
+-  :dokuwiki:`AGC Optimization <resources/eval/user-guides/ad9361_agc_tuning>`
 
 Help & Support
 --------------

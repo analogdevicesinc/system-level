@@ -662,7 +662,7 @@ connectivity to the SoC. The USB interface provides the following functions:
 Memory
 ------
 
-System memory is a Micron `MT41K256M16TW-107 <https://www.micron.com/parts/dram/ddr3-sdram/mt41k256m16tw-107>`__
+System memory is a Micron `MT41K256M16TW-107 <https://www.micron.com/products/memory/dram-components/ddr3-sdram/part-catalog/part-detail/mt41k256m16tw-107>`__
 4Gbyte, 1066 Mbps, DDR3L low voltage SDRAM. This memory is used for temporary
 storage of streaming data as well as the operating system.
 

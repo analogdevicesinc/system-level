@@ -14,8 +14,8 @@ found on GitHub:
 
    **U-Boot:**
 
-   -  U-Boot test branch: :git-u-boot-xlnx:`tree/pzsdr-test`
-   -  U-Boot QSPI booting branch: :git-u-boot-xlnx:`tree/qspiboot`
+   -  U-Boot test branch: :git-u-boot-xlnx:`pzsdr-test <pzsdr-test:/>`
+   -  U-Boot QSPI booting branch: :git-u-boot-xlnx:`qspiboot <qspiboot:/>`
 
    A version of U-Boot built from the test branch will run through the tests
    assuming a properly formatted SD card, while the QSPI branch is for
@@ -23,7 +23,7 @@ found on GitHub:
 
    **No-OS:**
 
-   -  HDL dev branch: https://github.com/analogdevicesinc/hdl/tree/dev/projects/pzsdr/ccbrk
+   -  HDL (``hdl_2015_r2`` release): :git-hdl:`hdl_2015_r2:projects/pzsdr/ccbrk`
    -  Loopback test: :git-no-OS:`projects/capi_selftest/boards/loopback`
 
    Xilinx SDK 2015.2 is currently required to build both of these projects.
@@ -174,20 +174,21 @@ found on GitHub:
 
    **U-Boot:**
 
-   -  U-Boot test branch: :git-u-boot-xlnx:`tree/pzsdr-ccfmc-test`
+   -  U-Boot test branch:
+      :git-u-boot-xlnx:`pzsdr-ccfmc-test <pzsdr-ccfmc-test:/>`
 
    **No-OS:**
 
    -  Tests for various loopback modules (PMOD, camera, FMC, SFP+) run at
       the U-Boot level: :git-no-OS:`projects/capi_selftest/boards/loopback`
-   -  HDL dev branch: https://github.com/analogdevicesinc/hdl/tree/dev/projects/pzsdr/ccfmc
+   -  HDL (``hdl_2015_r2`` release): :git-hdl:`hdl_2015_r2:projects/pzsdr/ccfmc`
 
    **Test script:**
 
    -  Bash script to automate the various interface tests:
-      :git-board-tests:`picozed-sdr2-fmc/runtests.sh`
+      :git-board-tests:`master:picozed-sdr2-fmc/runtests.sh`
    -  The remaining files used by the tests:
-      :git-board-tests:`picozed-sdr2-fmc`
+      :git-board-tests:`master:picozed-sdr2-fmc`
 
 First, write the latest available SD card image from
 `kuiper-linux <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_

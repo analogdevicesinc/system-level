@@ -10,8 +10,8 @@ devices and provide connectivity to external tools for development. The
 following components are either used to build the ADRV-PACKRF firmware or can be
 used remotely from a host PC through a network connection:
 
--  FPGA HDL Code :git-hdl:`Standard Reference Design <projects/adrv9361z7035/ccpackrf_lvds>`, :git-TransceiverToolbox:`Modem Enhancements <CI/projects/adrv9361z7035/ccbox_lvds_modem>`)
--  Linux Kernel/Device Drivers (`Transceiver <https://wiki.analog.com/resources/tools-software/linux-drivers/iio-transceiver/ad9361>`_, :git-rfsom-box-gui:`Modem Controller <tun_tap>`)
+-  FPGA HDL Code :git-hdl:`Standard Reference Design <hdl_2023_r2:projects/adrv9361z7035/ccpackrf_lvds>`, :git-TransceiverToolbox:`Modem Enhancements <v21.1.1:CI/projects/adrv9361z7035/ccbox_lvds_modem>`)
+-  Linux Kernel/Device Drivers (`Transceiver <https://wiki.analog.com/resources/tools-software/linux-drivers/iio-transceiver/ad9361>`_, :git-rfsom-box-gui:`Modem Controller <master:tun_tap>`)
 -  `U-boot Bootloader <https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18841973/Build+U-Boot>`_
 -  `Graphical User Interface (GUI) <https://github.com/analogdevicesinc/rfsom-box-gui>`_
 -  `Modem Design Workflow and Generation <https://wiki.analog.com/resources/eval/user-guides/ad-fmcomms2-ebz/software/matlab_bsp_modem>`_

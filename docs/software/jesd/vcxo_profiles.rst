@@ -96,7 +96,7 @@ RF transceiver profile updates
 A new RF transceiver profile must be generated to match the new device clock
 frequency. Use the appropriate MATLAB tool:
 
-- :adi:`MATLAB Profile Generator for AD9371 <media/en/evaluation-boards-kits/evaluation-software/AD9371-TES.zip>`
+- :ref:`MATLAB Profile Generator for AD9371 <adrv9371x filters>`
 - :adi:`MATLAB Filter Wizard / Profile Generator for ADRV9009 <media/en/evaluation-boards-kits/evaluation-software/ADRV9008-x-ADRV9009-profile-config-tool-filter-wizard-v2.4.zip>`
 
 When choosing the device clock frequency, ``Lane rate / 40`` is recommended as a

@@ -24,6 +24,9 @@ needs_extensions = {
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
                     'solutions/reference-designs/common/zcu102-zynqmp-setup.rst']
 
+# The doctools default (scripts/DkSearch/dksus.dll) returns HTTP 500
+url_digikey = 'https://www.digikey.com/en/products/result?keywords='
+
 source_suffix = {
     ".rst": "restructuredtext",
     ".md": "markdown",

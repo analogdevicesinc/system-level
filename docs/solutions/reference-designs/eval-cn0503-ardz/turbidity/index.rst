@@ -38,7 +38,7 @@ The following is a list of items needed in order to replicate this demo.
 - :adi:`EVAL-ADICUP3029` with firmware (see :ref:`Software User Guide<cn0503-software>`)
 - Host computer with CN0503 software (see :download:`Quick Setup Guide <cn0503_gui_quick_start_guide.docx>`)
   and Microsoft Excel (Optional for computing the parameters of the linear approximation)
-- :digikey:`Lumileds Luxeon IR Compact 940nm LED L1IZ-0940000000000 <en/products/detail/lumileds/L1IZ-0940000000000/7243419>`
+- `Lumileds Luxeon IR Compact 940nm LED L1IZ-0940000000000 <https://www.digikey.com/en/products/detail/lumileds/L1IZ-0940000000000/7243419>`_
 - `Oakton T100 calibration kit (optional for calibration) <https://www.amazon.com/Oakton-AO-35635-52-Replacement-Turbidity-Calibration/dp/B00DDOW1JS>`_
 - Test solutions (common household liquids, such as milk, mixed with water or
   cement slurry water)
