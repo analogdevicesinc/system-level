@@ -7,7 +7,7 @@ processor: ADSP-SC846
 
 # OpenOCD configuration, see the adsp setup page
 openocd_interface: adi-dbgagent.cfg
-openocd_target: adspsc59x_a55.cfg
+openocd_target: adspsc84x_core0.cfg
 
 # Linux release and device tree, see the adsp setup page
 release: adi_sc846_ezkit_defconfig

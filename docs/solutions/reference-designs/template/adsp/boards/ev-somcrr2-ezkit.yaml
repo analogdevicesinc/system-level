@@ -87,3 +87,26 @@ jtag_routing:
       settings: ["1-2", "2-3"]
     - route: Daisy chain
       settings: ["2-3", "1-2"]
+
+hardware_sections:
+  - title: Debug agent USB IDs
+    body: |
+      The debug agent enumerates on the host PC as one of two USB devices.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - USB ID
+           - Device
+           - OpenOCD interface
+         * - ``064b:250d``
+           - ADSPSC846 USB Debug Agent
+           - ``adi-dbgagent.cfg``
+         * - ``064b:250c``
+           - Multi-processor USB Debug Agent
+           - ``adi-mpdbgagent.cfg``
+
+      Both run the multi-processor debug agent firmware, version 0.0.1. With
+      ``adi-dbgagent.cfg``, OpenOCD warns that this firmware version is
+      obsolete. The warning can be ignored, as 0.0.1 is the current version
+      of this firmware.
