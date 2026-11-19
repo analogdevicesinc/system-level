@@ -1,0 +1,80 @@
+{% set ref = som ~ " " ~ carrier %}
+{% set boards = "/solutions/reference-designs/template/adsp/boards/" %}
+.. _{{ ref }}:
+
+{{ som | upper }} on the {{ carrier | upper }}
+================================================================================
+
+{{ processor }} system-on-module on the {{ carrier | upper }} carrier board.
+
+Overview
+-------------------------------------------------------------------------------
+
+This page describes how to evaluate the :adi:`{{ processor }}`
+with the {{ som | upper }} system-on-module (SoM) on the {{ carrier | upper }}
+carrier board. The SoM carries the processor, its memories and power supplies;
+the carrier board provides the peripherals and the on-board debug agent.
+
+.. include-template:: /solutions/reference-designs/template/adsp/board-overview.rst.jinja
+   :file: {{ boards }}{{ som }}.yaml
+
+.. include-template:: /solutions/reference-designs/template/adsp/board-overview.rst.jinja
+   :file: {{ boards }}{{ carrier }}.yaml
+
+.. toctree::
+   :hidden:
+
+   prerequisites
+   quickstart
+   user-guide
+
+Recommendations
+-------------------------------------------------------------------------------
+
+People who follow the flow that is outlined, have a much better experience with
+things. However, like many things, documentation is never as complete as it
+should be. If you have any questions, check the
+:ref:`Help and Support <{{ ref }} help-and-support>` section at the bottom of
+the page.
+
+Table of contents
+-------------------------------------------------------------------------------
+
+#. Using the evaluation boards:
+
+   #. :ref:`Prerequisites <{{ ref }} prerequisites>`: what you need to get
+      started
+   #. :ref:`Quick start <{{ ref }} quickstart>`: set up the boards and boot
+      Linux
+   #. :ref:`User guide <{{ ref }} user-guide>`: board settings, and the
+      manuals of both boards
+
+#. Design with the {{ processor }}:
+
+   #. :adi:`{{ processor }} product page <{{ processor }}>`
+   #. :ref:`Linux support <adsp linux-support>`
+   #. :ref:`Getting started <adsp setup>` with OpenOCD, U-Boot and Linux
+
+#. :ref:`Help and Support <{{ ref }} help-and-support>`
+
+Helpful documents
+-------------------------------------------------------------------------------
+
+.. include-template:: /solutions/reference-designs/template/adsp/documents.rst.jinja
+   :file: {{ boards }}{{ som }}.yaml
+
+.. include-template:: /solutions/reference-designs/template/adsp/documents.rst.jinja
+   :file: {{ boards }}{{ carrier }}.yaml
+
+Warning
+-------------------------------------------------------------------------------
+
+.. esd-warning::
+
+.. _{{ ref }} help-and-support:
+
+Help and support
+-------------------------------------------------------------------------------
+
+For questions and more information, please visit the
+:ez:`Processors and DSP <dsp>` community on EngineerZone.

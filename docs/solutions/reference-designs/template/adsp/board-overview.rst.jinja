@@ -1,0 +1,20 @@
+{{ id | upper }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{{ description }}
+
+Features:
+
+{% for feature in features %}
+- {{ feature | indent(2) }}
+{% endfor %}
+
+{% for image in images %}
+.. figure:: /solutions/reference-designs/template/adsp/images/{{ image.file }}
+   :alt: {{ image.alt }}
+   :align: center
+   :width: {{ image.width }}
+
+   {{ image.caption }}
+
+{% endfor %}

@@ -1,0 +1,16 @@
+{% set slot = slots | selectattr("name", "equalto", recommended_slot) | first %}
+{% set route = jtag_routing.routes | selectattr("slot", "equalto", recommended_slot) | first %}
+Prepare the {{ id | upper }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Insert the SoM into the **{{ slot.name }}** connector.
+   {{ recommended_slot_reason | indent(3) }}
+#. Enable the debug agent with switch **{{ debug_agent.switch }}**:
+   {{ debug_agent.enable_text }}.
+#. Route JTAG to {{ slot.name }}:
+   {% for switch in jtag_routing.switches %}**{{ switch }}** to {{ route.settings[loop.index0] }}{% if not loop.last %} and {% endif %}{% endfor %}.
+#. Connect the Ethernet port **{{ slot.ethernet }}**, which belongs to
+   {{ slot.name }}, to your network.
+#. Connect the USB port of the debug agent to the host PC.
+#. Connect the serial console of the SoM to the host PC.
+#. Connect the {{ power_supply }} power supply to **{{ power_input }}**.

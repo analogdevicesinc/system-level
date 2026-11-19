@@ -1,0 +1,14 @@
+# EV-SC846-SOM on the EV-SOMCRR2-EZKIT
+# Board data is in ../template/adsp/boards/<som>.yaml and <carrier>.yaml
+
+som: ev-sc846-som
+carrier: ev-somcrr2-ezkit
+processor: ADSP-SC846
+
+# OpenOCD configuration, see the adsp setup page
+openocd_interface: adi-dbgagent.cfg
+openocd_target: adspsc59x_a55.cfg
+
+# Linux release and device tree, see the adsp setup page
+release: adi_sc846_ezkit_defconfig
+dtb: sc846-som-ezkit.dtb

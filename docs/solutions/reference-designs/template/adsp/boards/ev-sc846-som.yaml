@@ -1,0 +1,89 @@
+# EV-SC846-SOM system-on-module
+# Rendered by the som-*.rst.jinja and documents.rst.jinja templates.
+# Sources: EV-SC846-SOM manual, Revision 1.0, July 2026
+
+id: ev-sc846-som
+
+description: >-
+  The :adi:`EV-SC846-SOM <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/ev-sc846-som.html>`
+  is a System-on-Module 2.0 (SoM 2.0) evaluation board for the
+  :adi:`ADSP-SC846 <en/products/ADSP-SC846.html>`, a SHARC Connect processor
+  with a SHARC-FX core and two ARM Cortex-A55 cores. The SoM carries the
+  processor, its memories and power supplies, and plugs into a carrier board
+  through its finger edge connector. It can also run standalone, powered from
+  its USB Type-C connector, with an external ICE for JTAG.
+
+features:
+  - >-
+    ADSP-SC846 processor, one SHARC-FX core and two Cortex-A55 cores, 25 MHz
+    input clock, up to 1.2 GHz core clock
+  - 8 Gbit LPDDR4 (2x 256M x 16)
+  - 2 Gbit quad SPI flash, on SPI2
+  - 256 Mbit xSPI flash and 256 Mbit xSPI RAM combo device
+  - 16 GB eMMC
+  - >-
+    USB to UART bridge on a USB Type-C connector, which also powers the SoM in
+    standalone mode
+  - >-
+    10-pin 0.05" JTAG header, and a second JTAG header for the hardware
+    security module (HSM)
+  - Rotary boot mode switch and reset pushbutton
+
+images:
+  - file: ev-sc846-som.jpg
+    alt: Angled view of the EV-SC846-SOM
+    caption: EV-SC846-SOM
+    width: 600
+  - file: ev-sc846-som-top.png
+    alt: Top view of the EV-SC846-SOM
+    caption: EV-SC846-SOM top
+    width: 300
+  - file: ev-sc846-som-bottom.png
+    alt: Bottom view of the EV-SC846-SOM
+    caption: EV-SC846-SOM bottom
+    width: 300
+
+manual: media/en/technical-documentation/user-guides/ev-sc846-som-manual.pdf
+
+documents:
+  - ":adi:`ADSP-SC846` data sheet"
+  - ":adi:`ADSP-2184x/ADSP-SC84x hardware reference manual <media/en/dsp-documentation/processor-manuals/adsp-2184x-adsp-sc84x-hrm.pdf>`"
+  - ":adi:`ADSP-21844/ADSP-21846/ADSP-SC844/ADSP-SC846 anomaly list <media/en/technical-documentation/data-sheets/adsp-21844-21846-adsp-sc844-sc846-anomaly.pdf>`"
+
+schematic: media/en/technical-documentation/eval-board-schematic/ev-sc846-som-schem.pdf
+bom_ref: adsp boms ev-sc846-som
+
+# Power input selection
+power:
+  jumper: JP1
+  standalone: "1-2"
+  standalone_input: USB Type-C connector P2
+  carrier: "2-3"
+
+# Boot mode selection
+boot:
+  switch: S2
+  jtag_position: 0
+  flash_position: 1
+  modes:
+    - [0, No boot]
+    - [1, SPI1 flash boot (default)]
+    - [2, SPI2 host boot]
+    - [3, UART0 boot]
+    - [4, Link port 0 boot]
+    - [5, xSPI0 flash boot]
+    - [6, eMMC boot]
+    - [7, xSPI1 flash boot]
+
+# JTAG voltage of the processor, see the adsp-jtag page
+jtag_voltage: 1.8 V
+
+# Connector of the serial console
+uart: USB Type-C connector P2
+
+hardware_sections:
+  - title: JTAG (P4)
+    body: |
+      **P4** is the JTAG header for an external ICE, such as the ICE-1000 or
+      ICE-1500. Use it in standalone mode, or on a carrier board with the debug
+      agent disabled.

@@ -1,0 +1,68 @@
+{{ id | upper }}
+-------------------------------------------------------------------------------
+
+The complete user guide of the {{ id | upper }} can be found at the
+:adi:`{{ id | upper }} manual <{{ manual }}>`. This section only describes
+the settings needed to set up the boards.
+
+Debug agent enable ({{ debug_agent.switch }})
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Switch **{{ debug_agent.switch }}** enables or disables the on-board debug
+agent. Disable it to attach an external ICE to the JTAG header of the SoM.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Debugger
+{% for column in debug_agent.columns %}
+     - {{ column }}
+{% endfor %}
+   * - On-board debug agent
+{% for setting in debug_agent.enable %}
+     - {{ setting }}
+{% endfor %}
+   * - External ICE
+{% for setting in debug_agent.disable %}
+     - {{ setting }}
+{% endfor %}
+
+{% if debug_agent.note %}
+.. note::
+
+   {{ debug_agent.note | indent(3) }}
+
+{% endif %}
+JTAG routing ({{ jtag_routing.switches | join(", ") }})
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Switches {% for switch in jtag_routing.switches %}**{{ switch }}**{% if not loop.last %} and {% endif %}{% endfor %}
+route the JTAG signals of the debug agent to a single SoM, or to all SoMs in a
+daisy chain. If only one SoM is installed, route the JTAG signals to that SoM.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Route
+{% for switch in jtag_routing.switches %}
+     - {{ switch }}
+{% endfor %}
+{% for route in jtag_routing.routes %}
+   * - {{ route.route }}
+{% for setting in route.settings %}
+     - {{ setting }}
+{% endfor %}
+{% endfor %}
+
+{% for section in hardware_sections | default([]) %}
+{{ section.title }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{{ section.body }}
+
+{% endfor %}
+Schematic, PCB Layout, Bill of Materials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- :adi:`{{ id | upper }} schematic <{{ schematic }}>`
+- :ref:`{{ id | upper }} bill of materials <{{ bom_ref }}>`

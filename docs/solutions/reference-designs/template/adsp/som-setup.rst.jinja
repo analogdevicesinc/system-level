@@ -1,0 +1,19 @@
+Prepare the {{ id | upper }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Set jumper **{{ power.jumper }}** to {{ power.carrier }}, to power the SoM
+   from the carrier board.
+#. Set the boot mode switch **{{ boot.switch }}** to position
+   {{ boot.jtag_position }}, so the processor waits to be bootstrapped over
+   JTAG.
+
+The serial console of the SoM is on its {{ uart }}.
+
+{% if boot.switch != "S1" %}
+.. important::
+
+   :ref:`adsp setup` calls the boot mode switch S1. On the {{ id | upper }} it
+   is **{{ boot.switch }}**. When the installer asks to change the boot mode,
+   set {{ boot.switch }} to position {{ boot.flash_position }}.
+
+{% endif %}

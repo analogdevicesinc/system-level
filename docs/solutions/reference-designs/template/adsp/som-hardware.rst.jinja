@@ -1,0 +1,61 @@
+{{ id | upper }}
+-------------------------------------------------------------------------------
+
+The complete user guide of the {{ id | upper }} can be found at the
+:adi:`{{ id | upper }} manual <{{ manual }}>`. This section only describes
+the settings needed to set up the boards.
+
+Power supply ({{ power.jumper }})
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Jumper **{{ power.jumper }}** selects the power input of the SoM.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Mode
+     - {{ power.jumper }}
+     - Power input
+   * - Standalone
+     - {{ power.standalone }}
+     - {{ power.standalone_input }}
+   * - On a carrier board
+     - {{ power.carrier }}
+     - SoM 2.0 connector, from the carrier board
+
+Boot mode ({{ boot.switch }})
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Switch **{{ boot.switch }}** selects the boot mode of the processor. Use
+position {{ boot.jtag_position }} to bootstrap the processor over JTAG, as
+described in :ref:`adsp setup`, and position {{ boot.flash_position }} to boot
+U-Boot from the flash after it is installed.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Position
+     - Boot mode
+{% for position, mode in boot.modes %}
+   * - {{ position }}
+     - {{ mode }}
+{% endfor %}
+
+.. important::
+
+   The JTAG interface of the processor on the {{ id | upper }} runs at
+   {{ jtag_voltage }}. Set the voltage of an external ICE to {{ jtag_voltage }}
+   before connecting it. See :ref:`adsp-jtag`.
+
+{% for section in hardware_sections | default([]) %}
+{{ section.title }}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{{ section.body }}
+
+{% endfor %}
+Schematic, PCB Layout, Bill of Materials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- :adi:`{{ id | upper }} schematic <{{ schematic }}>`
+- :ref:`{{ id | upper }} bill of materials <{{ bom_ref }}>`
