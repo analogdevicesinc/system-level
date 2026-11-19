@@ -147,7 +147,7 @@ This example uses the `Eclipse Mosquitto <https://mosquitto.org>`_ which is an o
 
    -  `OpenSSL <http://slproweb.com/products/Win32OpenSSL.html>`_
 
-      -  :dokuwiki:`pthreads <ftp/sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86>`
+      -  `pthreads <https://sourceware.org/pub/pthreads-win32/dll-latest/dll/x86/>`__
       -  Refer to pictures outlined in the additional `step by step instructions. <https://sivatechworld.wordpress.com/2015/06/11/step-by-step-installing-and-configuring-mosquitto-with-windows-7>`_
 
 -  Make sure these additional programs are installed before you continue
@@ -247,8 +247,6 @@ application:
 -  noos: is directory containing linked resources from the noos repo. Eg. Adxl362 driver, network files and platform drivers (spi, uart)
 -  Mqtt client is linked as static library. Can be found in noos/libraries/mqtt
 -  To build mqtt library run the following command in the ADuCM3029_demo_esp8266 folder: ``make libs``
-
-*End of Document*
 
 .. |image1| image:: ../images/reference_design_esp8266_hw_mod_back.png
    :width: 400

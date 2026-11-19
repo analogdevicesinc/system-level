@@ -92,7 +92,7 @@ RSN= 4.096/(10\* Full Scale Current)
 Button
 ~~~~~~
 
-Pressing push button S2 allows the user to do a hard reset of the temperature and humidity sensor `SHT30 <https://www.sensirion.com/fileadmin/user_upload/customers/sensirion/Dokumente/2_Humidity_Sensors/Sensirion_Humidity_Sensors_SHT3x_Datasheet_digital.pdf>`_.
+Pressing push button S2 allows the user to do a hard reset of the temperature and humidity sensor `SHT30 <https://sensirion.com/file/datasheet_sht3x_digital>`_.
 
 Schematic, PCB Layout, Bill of Materials
 ----------------------------------------
@@ -119,7 +119,7 @@ Registration
 
 .. tip::
 
-   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0395-ARDZ?&v=RevA>`_ to receive all these great benefits and more!
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://my.analog.com/en/app/registration/hardware/EVAL-CN0395-ARDZ?&v=RevA>`_ to receive all these great benefits and more!
 
 .. |image1| image:: ../images/eval-cn0395-ardz.jpg
 .. |image2| image:: ../images/cn0397_chip_select.jpg

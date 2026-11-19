@@ -61,7 +61,7 @@ The following is a list of items needed in order to replicate this demo.
 
 .. note::
 
-   The turbidity calibration solutions used in the evaluation are the `HI88703-11 <https://hannainst.com/turbidity-calibration-standards-for-hi88703-and-hi83414-hi88703-11.html>`_,\ `Oakton T100 <https://www.coleparmer.com/i/oakton-t100-replacement-turbidity-calibration-kit/3563552>`_ and `Cole Parmer kit <https://www.johnmorrisgroup.com/AU/Product/48740/Cole-Parmer-Turbidity-Standards-Pack>`_\
+   The turbidity calibration solutions used in the evaluation are the `HI88703-11 <https://hannainst.com/turbidity-calibration-standards-for-hi88703-and-hi83414-hi88703-11.html>`_ and `Oakton T100 <https://www.coleparmer.com/i/oakton-t100-replacement-turbidity-calibration-kit/3563552>`_\
 
 -  Software
 

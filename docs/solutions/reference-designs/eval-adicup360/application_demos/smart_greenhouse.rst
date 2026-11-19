@@ -31,9 +31,9 @@ Setup Requirements
    -  pH Probe with BNC termination type (`Atlas Scientific pH probe <https://www.atlas-scientific.com/product_pages/probes/ph_probe.html>`_)
    -  3 Wire Moisture Sensor (`VH400 <http://www.vegetronix.com/Products/VH400/>`_)
    -  3 Wire PT100
-   -  627nm LED's (`LXM2-PD01-0050 <https://www.digikey.com/LXM2-PD01-0050>`_ used in demo)
-   -  540nm LED's (`LXML-PM01-0100 <https://www.digikey.com/LXML-PM01-0100>`_ used in demo)
-   -  470nm LED's (`LXML-PB01-0040 <https://www.digikey.com/LXML-PB01-0040>`_ used in demo)
+   -  627nm LED's (`LXM2-PD01-0050 <https://www.digikey.com/en/products/detail/lumileds/LXM2-PD01-0050/3961247>`_ used in demo)
+   -  540nm LED's (`LXML-PM01-0100 <https://www.digikey.com/en/products/detail/lumileds/LXML-PM01-0100/3961259>`_ used in demo)
+   -  470nm LED's (`LXML-PB01-0040 <https://www.digikey.com/en/products/detail/lumileds/LXML-PB01-0040/3961134>`_ used in demo)
 
 -  Cables/Power
 
@@ -89,7 +89,7 @@ VDD            7                  DVDD
 
 .. note::
 
-   The demo used three CN0370 hardware routed on the same SPI bus with different chip selects and each hardware controls specific external LEDs which includes `BLUE LED <https://www.digikey.com/LXML-PB01-0040>`_, `GREEN LED <https://www.digikey.com/LXML-PM01-0100>`_ and `RED LED <https://www.digikey.com/LXM2-PD01-0050>`_
+   The demo used three CN0370 hardware routed on the same SPI bus with different chip selects and each hardware controls specific external LEDs which includes `BLUE LED <https://www.digikey.com/en/products/detail/lumileds/LXML-PB01-0040/3961134>`_, `GREEN LED <https://www.digikey.com/en/products/detail/lumileds/LXML-PM01-0100/3961259>`_ and `RED LED <https://www.digikey.com/en/products/detail/lumileds/LXM2-PD01-0050/3961247>`_
 
 Complete setup |image8| Hardware Connections as follows
 

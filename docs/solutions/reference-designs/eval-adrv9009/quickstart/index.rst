@@ -81,7 +81,7 @@ The supported environments are:
      - Yes
      - Yes
      - ---
-   * - :intel:`Intel Stratix 10 SX SoC Development Kit <content/www/us/en/products/details/fpga/development-kits/stratix/10-sx.html>`
+   * - `Intel Stratix 10 SX SoC Development Kit <https://docs.altera.com/r/docs/683303/current/stratix-10-sx-soc-development-kit-user-guide/overview>`__
      - Yes
      - ---
      - ---
