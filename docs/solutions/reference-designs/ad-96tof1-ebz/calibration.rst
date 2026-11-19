@@ -172,7 +172,8 @@ The following steps run through a **near mode calibration** with the target posi
 
    To be added.
 
-.. admonition:: Download
-   :class: download
+..
+   .. admonition:: Download
+      :class: download
 
-   `Calibration Assembly Document <resources/calibration_assembly_doc.pdf>`_
+      `Calibration Assembly Document <resources/calibration_assembly_doc.pdf>`_

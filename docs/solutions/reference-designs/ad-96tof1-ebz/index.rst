@@ -100,10 +100,11 @@ case with different VCSEL.
 
    To be added.
 
-.. admonition:: Download
-   :class: download
+..
+   .. admonition:: Download
+      :class: download
 
-   `Rev. B Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revb.zip>`_ `Rev. C Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revc.zip>`_ `Rev. D Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revd.zip>`_
+      `Rev. B Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revb.zip>`_ `Rev. C Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revc.zip>`_ `Rev. D Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revd.zip>`_
 
 --------------
 
@@ -132,10 +133,11 @@ sensor.
 
    To be added.
 
-.. admonition:: Download
-   :class: download
+..
+   .. admonition:: Download
+      :class: download
 
-   `Rev. B Hardware design files (including schematics, BoM and layout) <resources/tof_afe_revb.zip>`_ `Rev. C Hardware design files (including schematics, BoM and layout) <resources/tof_afe_revc.zip>`_
+      `Rev. B Hardware design files (including schematics, BoM and layout) <resources/tof_afe_revb.zip>`_ `Rev. C Hardware design files (including schematics, BoM and layout) <resources/tof_afe_revc.zip>`_
 
 .. note::
 
@@ -223,9 +225,10 @@ Laser Safety
    for this solution.
 
 
-   `Laser Certification Report AD-96TOF1-EBZ Rev.B & Rev.C <resources/report_2132_ad-96tof1-ebz_60825_classification.pdf>`_
+   ..
+      `Laser Certification Report AD-96TOF1-EBZ Rev.B & Rev.C <resources/report_2132_ad-96tof1-ebz_60825_classification.pdf>`_
 
-   `Laser Certification Report AD-96TOF1-EBZ Rev.D <resources/report_2388_60825_classification.pdf>`_
+      `Laser Certification Report AD-96TOF1-EBZ Rev.D <resources/report_2388_60825_classification.pdf>`_
 
 --------------
 

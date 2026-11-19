@@ -223,8 +223,8 @@ On Linux the default clock configuration is supplied through the `devicetree
 <https://www.devicetree.org/>`_.
 
 The devicetree file that is used for the AD-FMCDAQ2-EBZ and contains the clock
-configuration is called :git-linux:`arch/arm/boot/dts/adi-daq2.dtsi`. This file
-contains nodes for the :git-linux:`AD9523-1 <arch/arm/boot/dts/adi-daq2.dtsi#L8>`, the :git-linux:`AD9144 <arch/arm/boot/dts/adi-daq2.dtsi#L105>` and the :git-linux:`AD9680 <arch/arm/boot/dts/adi-daq2.dtsi#L120>`. Each node contains properties that
+configuration is called :git-linux:`main:arch/arm/boot/dts/adi-daq2.dtsi`. This file
+contains nodes for the :git-linux:`AD9523-1 <main:arch/arm/boot/dts/adi-daq2.dtsi#L13>`, the :git-linux:`AD9144 <main:arch/arm/boot/dts/adi-daq2.dtsi#L47>` and the :git-linux:`AD9680 <main:arch/arm/boot/dts/adi-daq2.dtsi#L104>`. Each node contains properties that
 describe the hardware setup and provide default configuration parameters. For
 information on how to edit devicetree please see
 :ref:`Tips & Tricks - Customizing the device tree on the target <linux-kernel zynq-tips-tricks>`.

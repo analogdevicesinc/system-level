@@ -68,14 +68,14 @@ Troubleshooting
 
    To be added.
 
-.. admonition:: Download
-   :class: download
+..
+   .. admonition:: Download
+      :class: download
 
-   **Nvidia Xavier AGX interposer design and manufacturing files**
+      **Nvidia Xavier AGX interposer design and manufacturing files**
 
-   
-   -  `Design files <resources/08_065345a.zip>`_
-   -  `Gerber files <resources/nvidia_agx_xavier_interposer.zip>`_
+      -  `Design files <resources/08_065345a.zip>`_
+      -  `Gerber files <resources/nvidia_agx_xavier_interposer.zip>`_
    
 
 --------------

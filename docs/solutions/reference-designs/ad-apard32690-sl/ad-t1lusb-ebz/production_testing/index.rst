@@ -35,7 +35,7 @@ Required Hardware
 * 24V power supply for the AD-SWIOT1L-SL board
 * Raspberry Pi, power supply, Mini-HDMI cable
 * Mouse and keyboard
-* T1L-to-Usb cable and :adi:`AD-T1LUSB2.0-EBZ` (media converter) as Device
+* T1L-to-Usb cable and :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` (media converter) as Device
   Under Test (DUT)
 * Usb-A to Type-C cable for the media converter
 
