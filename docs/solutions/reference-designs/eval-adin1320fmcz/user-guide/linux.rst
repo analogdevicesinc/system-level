@@ -414,6 +414,6 @@ References
 ------------
 
 * :adi:`ADIN1320 Product Page <ADIN1320>`
-* :adi:`EVAL-ADIN1320FMCZ Product Page <EVAL-ADIN1320FMCZ>`
+* :adi:`EVAL-ADIN1320FMCZ Product Page <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/eval-adin1320.html>`
 * :git-linux:`Linux Driver Source <drivers/net/phy/adin.c>`
 * :git-linux:`Linux Devicetree Source <release/adin1320:arch/arm/boot/dts/xilinx/zynq-zed-adin1320fmcz-rgmii.dts>`

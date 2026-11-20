@@ -1,7 +1,12 @@
 .. _eval-adicup3029 smart_app ios_app:
 
-iOS Smart App Overview
-======================
+iOS Smart App Overview (Obsolete)
+=================================
+
+.. warning::
+
+   This page is obsolete. The IoTNode app has been discontinued and is no
+   longer available on the App Store, so the steps below may no longer work.
 
 **IoTNode** is iOS Smart Device App developed by **Analog Devices Inc.** to showcase example projects using **EVAL-ADICUP3029**.
 
@@ -28,7 +33,7 @@ Wait until installation is successful.
 .. admonition:: Download
    :class: download
 
-   Direct link to `App Store <https://appsto.re/ie/jkUekb.i>`_
+   The IoTNode app was available on the App Store.
 
 How to use IoTNode
 ------------------

@@ -1,3 +1,5 @@
+.. _arduino-uno reference_designs demo_cn0397:
+
 RGB Visible Light Detection Demo using the Arduino Uno
 ======================================================
 

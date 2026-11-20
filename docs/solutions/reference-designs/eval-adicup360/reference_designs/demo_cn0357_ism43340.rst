@@ -114,7 +114,7 @@ on Github:
 Importing the ADuCM360_ISM43340_CN0357 project
 ----------------------------------------------
 
-The necessary instructions on how to import the ADuCM360_ISM43340_CN0357 project from the projects examples in the Git repository, can be found in `How to import existing projects from the GIT Repository <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/quickstart/eclipse_user_guide>`_ page.
+The necessary instructions on how to import the ADuCM360_ISM43340_CN0357 project from the projects examples in the Git repository, can be found in :ref:`How to import existing projects from the GIT Repository <eval-adicup360 tools cces_user_guide>` page.
 
 Debugging the ADuCM30_ISM43340_CN0357 project
 ---------------------------------------------

@@ -9,7 +9,7 @@ ADIN1320 PHY Evaluation Board.
    :align: right
    :width: 300
 
-The :adi:`EVAL-ADIN1320FMCZ` evaluation board is designed to simplify the
+The :adi:`EVAL-ADIN1320FMCZ <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/eval-adin1320.html>` evaluation board is designed to simplify the
 testing and integration of the :adi:`ADIN1320`, a low power, single port
 Gigabit Ethernet physical layer (PHY) optimized for industrial applications.
 The platform enables comprehensive evaluation of the ADIN1320 functionality,

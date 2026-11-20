@@ -42,9 +42,14 @@ The following is a list of items needed in order to replicate this demo.
    -  CrossCore Embedded Studio (2.6.0 or higher)
    -  ADuCM302x DFP (2.0.0 or higher)
    -  ADICUP3029 BSP (1.0.0 or higher)
-   -  Android IoTNode App (optional)
+   -  iOS IoTNode App (optional)
 
-      -  Either Android or iOS version
+   .. TODO: The Android IoTNode app is no longer available and there is no valid
+      link or replacement for it. To be decided what to do with this part.
+
+      -  Android IoTNode App (optional)
+
+         -  Either Android or iOS version
 
    -  Serial Terminal Program (Required for running in release mode only)
 
@@ -162,7 +167,17 @@ Depending on how you want to operate the board and visualize the data, there are
 +---------------------------+-----------------------+---------------------------+
 
 |
-| The data for this demo can be viewed in the serial terminal window (via UART) and by connecting to the Analog Devices iOS Smart Device App (for more information and installation directions check out the :ref:`iOS Smart Device App <eval-adicup3029 smart_app ios_app>` page) or Android Smart Device App (for more information and installation directions check out the :dokuwiki:`Android Smart Device App <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` page)
+| The data for this demo can be viewed in the serial terminal window (via UART)
+  and by connecting to the Analog Devices iOS Smart Device App (for more
+  information and installation directions check out the
+  :ref:`iOS Smart Device App <eval-adicup3029 smart_app ios_app>` page).
+
+.. TODO: The Android IoTNode app is no longer available and there is no valid
+   link or replacement for it. To be decided what to do with this part.
+
+   or Android Smart Device App (for more information and installation
+   directions check out the :dokuwiki:`Android Smart Device App
+   <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` page)
 
 Debug Launch Mode
 ~~~~~~~~~~~~~~~~~
@@ -174,9 +189,6 @@ smart app and printed onto the console.
 
 |image2|
 
-If you have the app installed on your phone, these figure shows the output on
-android device.
-
 .. important::
 
    Do not try to connect directly (or pair) to the EVAL-ADICUP3029 from your
@@ -186,10 +198,17 @@ android device.
    -  "Scan" for nearby demos.
    -  Once you find your demo, click on it to open it up.
 
--  **Android App display**
--  **iOS App display**
+.. TODO: The Android IoTNode app is no longer available and there is no valid
+   link or replacement for it. To be decided what to do with this part.
 
-|image3| |image4|
+   If you have the app installed on your phone, these figure shows the output on
+   android device.
+
+   -  **Android App display**
+
+   |image3| |image4|
+
+-  **iOS App display**
 
 |image5| |image6|
 
@@ -212,7 +231,13 @@ Figure shows the UART terminal when ADI_APP_USE_BLUETOOTH is set to 1
 .. image:: ../images/disco.png
    :width: 300
 
-**iOS App and Android App display** If you have the app installed on your phone, these figure shows the output on android device.
+**iOS App display**
+
+.. TODO: The Android IoTNode app is no longer available and there is no valid
+   link or replacement for it. To be decided what to do with this part.
+
+   **iOS App and Android App display** If you have the app installed on your
+   phone, these figure shows the output on android device.
 
 .. important::
 
@@ -223,10 +248,14 @@ Figure shows the UART terminal when ADI_APP_USE_BLUETOOTH is set to 1
    -  "Scan" for nearby demos.
    -  Once you find your demo, click on it to open it up.
 
--  **Android App display**
--  **iOS App display**
+.. TODO: The Android IoTNode app is no longer available and there is no valid
+   link or replacement for it. To be decided what to do with this part.
 
-|image7| |image8|
+   -  **Android App display**
+
+   |image7| |image8|
+
+-  **iOS App display**
 
 |image9| |image10|
 
@@ -276,8 +305,6 @@ sending data .
 The **cn0357_app.cpp** is the application file for the project. The **ADuCM3029** folder consists of pinmux for SPI0, SPI2 and UART0.
 
 The **RTE** folder contains ADuCM3029 Device Family Pack,Board Support Package files and Sensor Config files related to cn0357_example_noos project.
-
-*End of Document*
 
 .. |image1| image:: ../images/adt7420_demo_launch_configurations.png
    :width: 200

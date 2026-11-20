@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 sw_tools_setup:
+
 EVAL-ADPAQ3029 - Software tools setup
 =====================================
 
@@ -62,7 +64,11 @@ The Ubuntu Linux Installer(Debian) installs all necessary components to local di
 Activating CCES
 ~~~~~~~~~~~~~~~
 
-The first time you launch CCES, you will be prompted to input a serial number, name, and email address. A full license can be purchased from :adi:`here <en/support/customer-service-resources/sales/buy-products.html>`. To know more about acquiring, activating and managing licenses, see the manual :adi:`here <media/cn/dsp-documentation/software-manuals/cces_1-0-1_licensing_man_rev.1.1.pdf>`.
+The first time you launch CCES, you will be prompted to input a serial number,
+name, and email address. A full license can be purchased from
+:adi:`here <en/support/customer-service-resources/sales/buy-products.html>`.
+To know more about acquiring, activating and managing licenses, see the manual
+:adi:`here <media/en/dsp-documentation/software-manuals/cces-SWLicensing-guide.pdf>`.
 
 The New License Wizard will guide you through the process.
 

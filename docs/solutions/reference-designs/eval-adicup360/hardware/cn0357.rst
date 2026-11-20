@@ -3,7 +3,7 @@
 EVAL-CN0357-ARDZ Shield
 =======================
 
-:adi:`CN0357` single-supply, low noise, portable gas detector circuit using an electrochemical sensor. The Alphasense CO-AX carbon monoxide sensor is used in this example. Electrochemical sensors offer several advantages for instruments that detect or measure the concentration of many toxic gases. Most sensors are gas specific and have usable resolutions under one part per million (ppm) of gas concentration.
+:adi:`CN0357 <en/resources/app-notes/an-2552.html>` single-supply, low noise, portable gas detector circuit using an electrochemical sensor. The Alphasense CO-AX carbon monoxide sensor is used in this example. Electrochemical sensors offer several advantages for instruments that detect or measure the concentration of many toxic gases. Most sensors are gas specific and have usable resolutions under one part per million (ppm) of gas concentration.
 
 The circuit shown in below uses the :adi:`ADA4528-2`, dual auto zero amplifier, which has a maximum offset voltage of 2.5 µV at room temperature and an industry leading 5.6 µV/√Hz of voltage noise density. In addition, the :adi:`AD5270-20 <AD5270>` programmable rheostat is used rather than a fixed transimpedance resistor, allowing for rapid prototyping of different gas sensor systems, without changing the bill of materials. The :adi:`ADR3412` precision, low noise, micropower reference establishes the 1.2 V common-mode, pseudo ground reference voltage with 0.1% accuracy and 8 ppm/°C drift. For applications where measuring fractions of ppm gas concentration is important, using the :adi:`ADA4528-2` and the :adi:`ADR3412` makes the circuit performance suitable for interfacing with a 16-bit ADC, such as the :adi:`AD7790`.
 

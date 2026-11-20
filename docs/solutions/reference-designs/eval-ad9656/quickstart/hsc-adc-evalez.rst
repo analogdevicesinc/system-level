@@ -30,8 +30,8 @@ Required software
 
 Install the following software on the PC before proceeding:
 
-- `VisualAnalog <https://wiki.analog.com/ftp/ftp.analog.com/pub/hssp_sw/visualanalog/visualanalog_setup.exe>`_
-- `SPIController <https://wiki.analog.com/ftp/ftp.analog.com/pub/adispi/a2dcomponents/install/spicontroller_setup.exe>`_
+- :adi:`VisualAnalog <visualanalog>`
+- :adi:`SPIController <spicontroller>`
 
 Configuring the board
 -------------------------------------------------------------------------------

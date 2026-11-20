@@ -76,16 +76,15 @@ Software
 --------
 
 -  :ref:`ADICUP360 + CN0397 Demo <eval-adicup360 reference_designs demo_cn0397>`
--  `ADICUP360 + ADConnect + CN0397 Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/inventek_thinkworx/demo_cn0397>`_
--  `ADICUP3029 + CN0397 Bluetooth Demo <https://wiki.analog.com/resources/eval/user-guides/eval-adicup3029/reference_designs/demo_cn0397>`_
--  `Arduino Uno + CN0397 Demo <https://wiki.analog.com/resources/eval/user-guides/arduino-uno/reference_designs/demo_cn0397>`_
+-  :ref:`ADICUP3029 + CN0397 Bluetooth Demo <eval-adicup3029 reference_designs demo_cn0397>`
+-  :ref:`Arduino Uno + CN0397 Demo <arduino-uno reference_designs demo_cn0397>`
 
 Registration
 ------------
 
 .. tip::
 
-   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://form.analog.com/Form_Pages/FeedBack/EVAL-CN0397-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
+   Receive software update notifications, documentation updates, view the latest videos, and more when you register your hardware. `Register <https://my.analog.com/en/app/registration/hardware/EVAL-CN0397-ARDZ?&v=RevB>`_ to receive all these great benefits and more!
 
 .. |image1| image:: ../images/cn0397_chip_select.jpg
 .. |image2| image:: ../images/cs_config.jpg

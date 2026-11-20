@@ -69,7 +69,14 @@ Setting up the Hardware
 Configuring the Software
 ------------------------
 
-For this application you will need to install on your :ref:`IOS <eval-adicup3029 smart_app ios_app>` or :dokuwiki:`Android <resources/eval/user-guides/eval-adicup3029/smart_app/android_app>` device one of these apps.
+For this application you will need to install the IoTNode app on your
+:ref:`iOS <eval-adicup3029 smart_app ios_app>` device.
+
+.. TODO: The Android IoTNode app is no longer available and there is no valid
+   link or replacement for it. To be decided what to do with this part.
+
+   For this application you will need to install on your iOS or Android device
+   one of these apps.
 
 Outputting Data
 ---------------
@@ -185,5 +192,3 @@ The project is structured in 3 layers:
 
 The ADXL372 transmits data to ADuCM3029 controller through the Communication
 layer. The data is processed and sent over BLE to a mobile device.
-
-*End of Document*

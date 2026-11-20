@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 first_app:
+
 EVAL-ADPAQ3029 - First application [RGB LED]
 ============================================
 
