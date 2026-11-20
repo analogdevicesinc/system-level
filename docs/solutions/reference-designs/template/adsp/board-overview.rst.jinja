@@ -1,0 +1,17 @@
+{{ description }}
+
+Features:
+
+{% for feature in features %}
+- {{ feature | indent(2) }}
+{% endfor %}
+
+.. carousel::
+
+{% for image in images %}
+   .. figure:: /solutions/reference-designs/template/adsp/images/{{ image.file }}
+      :alt: {{ image.alt }}
+
+      {{ image.caption }}
+
+{% endfor %}
