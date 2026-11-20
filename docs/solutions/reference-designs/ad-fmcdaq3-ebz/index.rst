@@ -90,7 +90,6 @@ Table of contents
    #. :doc:`On ZCU102 <quickstart/zcu102>`
    #. :doc:`On KCU105 <quickstart/kcu105>`
    #. :doc:`On VCU118 <quickstart/vcu118>`
-   #. :doc:`On A10GX <quickstart/a10gx>`
 
 #. :doc:`Hardware <hardware>`
 

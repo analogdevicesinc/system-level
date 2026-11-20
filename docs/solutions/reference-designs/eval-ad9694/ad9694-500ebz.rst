@@ -93,8 +93,7 @@ Equipment Needed
 -  Analog signal source and antialiasing filter
 -  Sample clock source
 -  12V, 6.5A switching power supply (such as the SL POWER CENB1080A1251F01
-   supplied with :ref:`ADS7-V2EBZ <ads7-v2>` /
-   :ref:`ADS7-V1EBZ <ads7-v1>`)
+   supplied with :ref:`ADS7-V2EBZ <ads7-v2>`)
 -  PC running Windows®
 -  USB 2.0 port
 -  :adi:`AD9694-500EBZ <EVAL-AD9694>` board

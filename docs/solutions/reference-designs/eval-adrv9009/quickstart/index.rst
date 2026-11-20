@@ -16,7 +16,6 @@ boot a Linux distribution.
    On ZCU102 <zcu102>
    On ZC706 <zc706>
    On KCU105 <kcu105>
-   On Arria 10 GX <a10gx>
    On Arria 10 SoC <a10soc>
 
 .. _adrv9009 carriers:
@@ -53,10 +52,6 @@ The carriers we support are:
      - FMCA
      - FMCA
      - FMCA
-   * - :intel:`Arria 10 GX <content/www/us/en/products/details/fpga/development-kits/arria/10.html>`
-     - FMCA
-     - FMCA
-     - FMCA
 
 Supported Environments
 --------------------------------------------------------------------------------
@@ -83,10 +78,6 @@ The supported environments are:
      - Yes
      - ---
    * - :intel:`Arria 10 SoC <content/www/us/en/products/details/fpga/arria/10.html>`
-     - Yes
-     - Yes
-     - ---
-   * - :intel:`Arria 10 GX <content/www/us/en/products/details/fpga/development-kits/arria/10.html>`
      - Yes
      - Yes
      - ---
@@ -127,10 +118,4 @@ Arria 10 SoC + ADRV9009/PCBZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../images/adrv9009_a10soc.jpeg
-   :width: 800
-
-Arria 10 GX + ADRV9009/PCBZ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: ../images/arria10-fpga_adrv9009.jpg
    :width: 800
