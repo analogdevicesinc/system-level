@@ -6,14 +6,11 @@ Features:
 - {{ feature | indent(2) }}
 {% endfor %}
 
-.. grid::
-   :columns: {{ images | length }}
+.. carousel::
 
 {% for image in images %}
    .. figure:: /solutions/reference-designs/template/adsp/images/{{ image.file }}
       :alt: {{ image.alt }}
-      :align: center
-      :width: 100%
 
       {{ image.caption }}
 

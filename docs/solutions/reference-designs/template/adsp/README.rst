@@ -126,7 +126,7 @@ Common to SoMs and carrier boards:
    * - ``images``
      - list
      - Pictures in ``images/``, each with ``file``, ``alt`` and ``caption``,
-       shown side by side in a grid
+       shown in a carousel
    * - ``manual``
      - string
      - Path of the board manual on analog.com, the complete user guide of the
