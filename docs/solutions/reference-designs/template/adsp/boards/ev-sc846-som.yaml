@@ -67,7 +67,9 @@ boot:
     - [1, SPI1 flash boot (default)]
     - [2, SPI2 host boot]
     - [3, UART0 boot]
-    - [4, Link port 0 boot]
+    # The manual calls position 4 "Link Port 0 Boot", the switch "Extended
+    # LinkPort0 Boot"
+    - [4, Extended link port 0 boot]
     - [5, xSPI0 flash boot]
     - [6, eMMC boot]
     - [7, xSPI1 flash boot]
