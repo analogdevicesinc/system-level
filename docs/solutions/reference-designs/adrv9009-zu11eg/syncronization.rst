@@ -60,7 +60,7 @@ chapter “\ **Multichip Synchronization via PLL2**” For further details.
 .. warning::
 
    Depending on the Linux/Devicetree version, the HMC7044 eval board got replaced by `AD-SYNCHRONA14-EBZ <https://wiki.analog.com/resources/eval/user-guides/ad-synchrona14-ebz>`_
-   please see here: :git-linux:`linux/commit/ff537311d1fc7dc20d43a198b44007c22f2e9779 <commit/ff537311d1fc7dc20d43a198b44007c22f2e9779>`
+   please see here: :git-linux:`linux/commit/ff537311d1fc7dc20d43a198b44007c22f2e9779 <commit/ff537311d1fc7dc20d43a198b44007c22f2e9779+>`
 
    ::
 

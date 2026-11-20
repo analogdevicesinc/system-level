@@ -55,7 +55,7 @@ Required Software
 Required Hardware
 -----------------
 
-- Xilinx `ADRV9361-Z7035 <https://www.xilinx.com/ADRV9361-Z7035>`_ board
+- :adi:`ADRV9361-Z7035 <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/adrv9361-z7035.html>` board
 - :adi:`ADRV1CRR-FMC` board
 - Micro-USB 2.0 uart cable
 - Ethernet cable

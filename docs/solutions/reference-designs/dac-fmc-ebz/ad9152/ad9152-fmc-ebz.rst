@@ -8,7 +8,7 @@ Preface
 
 This user guide describes both the hardware and software setup needed to acquire data capture from :adi:`AD9152-FMC-EBZ <EVAL-AD9152>` evaluation board (EVB) to characterize the :adi:`AD9152` 16-bit 2.25GSPS Dual JESD204B signal processing RF Digital-to-Analog Converter.
 
-The AD9152-FMC-EBZ has an FMC mezzanine card and connects to an :adi:`ADS7-V2 <eval-ads7-v2>` or :adi:`ADS8-V1 <eval-ads8-v1ebz>` data pattern generator system. The ADS7-V2/ADS8-V1 automatically formats the data and sends it to the EVB via its JESD204B lanes. +12V, +3.3V, and VADJ power supply rails are provided by the ADS7-V2/ADS8-V1 system via the FMC connector P1. A clock distribution chip (AD9516-1) is included on this EVB as a clock fan-out and frequency divider for the DACCLK, JESD204B SYSREF signals, and a GBTCLK clock used by the ADS7-V2/ADS8-V1.
+The AD9152-FMC-EBZ has an FMC mezzanine card and connects to an :adi:`ADS7-V2 <eval-ads7-v2>` or :adi:`ADS8-V1 <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/ads8-v1ebz.html>` data pattern generator system. The ADS7-V2/ADS8-V1 automatically formats the data and sends it to the EVB via its JESD204B lanes. +12V, +3.3V, and VADJ power supply rails are provided by the ADS7-V2/ADS8-V1 system via the FMC connector P1. A clock distribution chip (AD9516-1) is included on this EVB as a clock fan-out and frequency divider for the DACCLK, JESD204B SYSREF signals, and a GBTCLK clock used by the ADS7-V2/ADS8-V1.
 
 There is also an FMC standard I2C bus that is used by the ADS7-V2/ADS8-V1 to
 identify the board. This I2C interface is implemented in software in the
@@ -44,7 +44,7 @@ Helpful Files/Links
 
 -  :dokuwiki:`ADS7-V1/-V2 for High-Speed DAC Evaluation <resources/eval/dpg/ads7>`
 -  Datasheet: :adi:`AD9152 <media/en/technical-documentation/data-sheets/AD9152.pdf>`
--  IBIS Model: :adi:`AD9152 <media/en/package-pcb-model-library/ibis-models/ad9152bcpz>`
+-  IBIS Model: :adi:`AD9152 <en/license/ibis-models.html?mediaPath=/media/en/simulation-models/ibis-models/ad9152bcpz.ibs&modelType=ibis-models>`
 -  AMI Model: `AD9144/AD9152/AD9154/AD9135/AD9136 <https://form.analog.com/Form_Pages/securedownloads/designFilePackage.aspx?prodID=AD9144-9152-9154-9135-9136>`_
 -  Schematic: :dokuwiki:`RevA <_media/resources/eval/dpg/ad9152-fmc-ebz_reva_schematic.pdf>`
 -  Bill of Materials: :dokuwiki:`RevA <_media/resources/eval/dpg/ad9152-fmc-ebz_reva_bom.xlsx>`

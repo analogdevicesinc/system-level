@@ -369,10 +369,10 @@ Equipment Needed
 ~~~~~~~~~~~~~~~~
 
   - :adi:`ADPS40099-RD`
-  - :adi:`MAXUSB Interface`
-  - :adi:`USB-C cable/12V power jack`
-  - :adi:`18650 battery`
-  - :adi:`PC with GUI`
+  - MAXUSB Interface
+  - USB-C cable/12V power jack
+  - 18650 battery
+  - PC with GUI
 
 1. **Pre-Power Check**. Ensure all jumpers are set according to the default
    positions shown below.
@@ -430,7 +430,7 @@ Support
 
 Analog Devices provides **limited** online support for users of this
 reference design and its Analog Devices components through the
-:ez:`Power Management` forum.
+:ez:`Power Management <power>` forum.
 
 |
 

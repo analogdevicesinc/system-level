@@ -18,7 +18,7 @@ Hardware:
 -  :adi:`EVAL-XLMOUNT1`
 -  Cabling the CN0532 to the CN0540
 
-   -  `1m Shielded male to male SMA cable <https://www.digikey.com/135101-02-M1.00>`_ or
+   -  `1m Shielded male to male SMA cable <https://www.digikey.com/en/products/detail/amphenol-rf/135101-02-M1-00/4865160>`__ or
    -  Twisted pair set of wires cut to the desired length
 
 -  `DE10-Nano FPGA Board <https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1046>`_

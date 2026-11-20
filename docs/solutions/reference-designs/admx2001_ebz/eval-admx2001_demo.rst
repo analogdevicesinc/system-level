@@ -5,8 +5,7 @@ EVAL-ADMX2001 LCR Meter Demo/Evaluation Setup
 
    This page applies to hardware revision B and C, and firmware versions 1.3.1,
    1.3.2, and 1.3.3. It may not apply to past or future versions. For firmware
-   update instructions, see `Firmware Updates.
-   <https://wiki.analog.com/eval-admx2001ebz>`_
+   update instructions, see :ref:`Firmware Updates <eval-admx2001 firmware-updates>`.
 
 The EVAL-ADMX2001 LCR Meter Demo is an evaluation system that is comprised of
 both the ADMX2001B and the EVAL-ADMX2001EBZ boards.
@@ -1506,6 +1505,8 @@ ADMX2001B Pin Configuration and Function Descriptions
 
 | | ----
 
+.. _eval-admx2001 firmware-updates:
+
 Firmware Updates
 ~~~~~~~~~~~~~~~~
 
@@ -1672,7 +1673,7 @@ Currently, the GUI supports:
 -  Calibrated measurements (but not the process of calibrating the board)
 -  And more!
 
-.. image:: https://wiki.analog.com/_media/resources/eval/user-guides/admx/updated_admx2001b_python_gui_example.png
+.. image:: images/admx2001b_python_gui_example.png
    :align: center
    :width: 400
 

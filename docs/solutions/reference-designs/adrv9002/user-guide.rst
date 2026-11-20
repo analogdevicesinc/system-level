@@ -24,7 +24,7 @@ generate the required internal power domains. The board requires **1.8V**
 on the VADJ supply for the transmitter/receiver DACs/ADCs and GPIO signals.
 
 The VADJ configuration for each FPGA carrier board can be found in the
-README.md file at: :git-hdl:`projects/adrv9002`.
+README.md file at: :git-hdl:`projects/adrv9001 <main:projects/adrv9001>`.
 
 Clock configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
