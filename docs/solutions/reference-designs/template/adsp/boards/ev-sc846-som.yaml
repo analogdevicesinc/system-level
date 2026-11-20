@@ -102,9 +102,29 @@ hardware_sections:
     body: |
       **P12** is a 6-pin through-hole footprint for controlling the boot mode
       from outside the SoM, for example from a GPIO controller in an automated
-      test setup. It is not populated; solder a 6-pin header to use it. It is
-      shown in the schematic, but not described in the manual. See the
-      schematic for the pinout.
+      test setup. It is not populated; solder a 0.1" 6-pin header, such as the
+      Samtec TSW-106-08-G-S of the schematic, to use it. It is shown in the
+      schematic, but not described in the manual.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Pin
+           - Signal
+         * - 1
+           - BMODE0
+         * - 2
+           - BMODE1
+         * - 3
+           - BMODE2
+         * - 4
+           - BMODE3
+         * - 5, 6
+           - Ground
+
+      To switch between waiting to be bootstrapped over JTAG and booting from
+      the SPI1 flash, drive only BMODE0 and leave the other pins unconnected:
+      low to wait for JTAG, high to boot from the SPI1 flash.
 
       Set the boot mode switch **S2** to position 0 while P12 is used. In the
       other positions, S2 also drives the boot mode inputs and conflicts with
