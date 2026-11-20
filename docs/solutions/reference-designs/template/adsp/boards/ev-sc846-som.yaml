@@ -124,13 +124,19 @@ hardware_sections:
          * - 5, 6
            - Ground
 
-      To switch between waiting to be bootstrapped over JTAG and booting from
-      the SPI1 flash, drive only BMODE0 and leave the other pins unconnected:
-      low to wait for JTAG, high to boot from the SPI1 flash.
+      Each BMODE pin has a 10 kOhm pull-down resistor, and the boot mode is the
+      binary value of BMODE3 to BMODE0, the same as the position numbers of
+      S2. Drive a pin high, at the level of ``VDD_EXT``, to set its bit; leave
+      it unconnected or drive it low to clear it. For example, to switch
+      between waiting to be bootstrapped over JTAG (0) and booting from the
+      SPI1 flash (1), drive only BMODE0: low for 0, high for 1.
 
-      Set the boot mode switch **S2** to position 0 while P12 is used. In the
-      other positions, S2 also drives the boot mode inputs and conflicts with
-      the external controller, which can keep the processor from starting.
+      .. warning::
+
+         Set the boot mode switch **S2** to position 0 while P12 is used. S2
+         connects the BMODE pins of its position directly to ``VDD_EXT``, so
+         an external controller that drives one of them low shorts
+         ``VDD_EXT``, which can keep the processor from starting.
   - title: Remote power cycling (R163)
     body: |
       The power multiplexer **U20** powers the SoM from one of two inputs:
