@@ -98,6 +98,17 @@ hardware_sections:
            - Device
          * - ON
            - Host
+  - title: Boot mode header (P12)
+    body: |
+      **P12** is a 6-pin through-hole footprint for controlling the boot mode
+      from outside the SoM, for example from a GPIO controller in an automated
+      test setup. It is not populated; solder a 6-pin header to use it. It is
+      shown in the schematic, but not described in the manual. See the
+      schematic for the pinout.
+
+      Set the boot mode switch **S2** to position 0 while P12 is used. In the
+      other positions, S2 also drives the boot mode inputs and conflicts with
+      the external controller, which can keep the processor from starting.
   - title: Remote power cycling (R163)
     body: |
       The power multiplexer **U20** powers the SoM from one of two inputs:
