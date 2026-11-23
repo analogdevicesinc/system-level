@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 (adc x-band-dev-kit)=
 # X-Band Phased Array Development Platform
 
