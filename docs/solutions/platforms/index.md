@@ -86,15 +86,6 @@ Low-cost SDR system based on the AD9361
 ```
 ````
 
-````{card} X-Band Development Platform
-:ref: adc x-band-dev-kit
-
-32T/32R Hybrid Beamforming Phased Array Platform
-
-```{image} x-band/xbdev-box.png
-```
-````
-
 ````{card} Jupiter SDR
 :ref: adc jupiter
 
@@ -166,7 +157,6 @@ We have a Catalyst centres in:
 
 Phaser (CN0566)<phaser/index>
 Triton <triton/index>
-X-Band Development Platform <x-band/index>
 Jupiter SDR <jupiter/index>
 Pluto SDR<pluto/index>
 ```
