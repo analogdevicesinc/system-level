@@ -1,15 +1,15 @@
-.. collection:: Software Infrastructure for ADCs, DACs, and Sensors
+.. collection:: ADI DataX Tools for Precision Wideband System Design
    :subtitle: Hardware and software tools for mixed-signal development.
    :label: tutorial
 
-   Explore software frameworks and prototyping tools using the AD4080 ADC.
+   Explore software frameworks and prototyping tools using the ADALM-MMSC.
 
    system-level:
      - .
      - learning/tools_for_ls/index
      - learning/tools_for_prec_wb/index
 
-Software Infrastructure for designing with ADCs, DACs, and Sensors
+ADI DataX Tools for Precision Wideband System Design
 ===============================================================================
 
 .. note::
@@ -31,7 +31,7 @@ This tutorial will use a part “somewhere in the middle” in terms of complexi
 
 This tutorial will cover each of these in summary, accompanied by hands-on exercises with hardware. We’ll test drive key software utilities, run example programs, take some basic performance measurements, and prototype a simple seismic application example for strategic and key (S&K) customer Fred in the Shed Instruments. Finally, we’ll show how concepts can be applied to other data converter products – PLLs, DDS, IMUs, and more.
 
-The tutorial can be most easily run on a Raspberry Pi 4 or 400, but we’ll leave you with instructions on how to install everything on your ADI laptop, your co-worker’s Mac, and your other co-worker’s Linux box. You will walk away knowing how to bring up this portable, economical setup in customer lobbies, labs, and conference rooms. It also serves as a testing ground for elements that can be used in a future mixed-mode signal chain tutorial.
+The tutorial can be most easily run on a Raspberry Pi 5, but we’ll leave you with instructions on how to install everything on your ADI laptop, your co-worker’s Mac, and your other co-worker’s Linux box. You will walk away knowing how to bring up this portable, economical setup in customer lobbies, labs, and conference rooms. It also serves as a testing ground for elements that can be used in a future mixed-mode signal chain tutorial.
 
 You may recognize some of the material; this tutorial builds upon two previous ones:
 
@@ -43,7 +43,7 @@ where we connected an AD5592r to a Raspberry Pi and built a transistor curve tra
 
 where we used an ADALM2000 as part of a colorimeter proof of concept, then demonstrated how easy it was to replace the ADALM2000 with an AD4630-24 ADC.
 
-Slide Deck and Video
+Slide Deck
 ~~~~~~~~~~~~~~~~~~~~
 
 This tutorial is also designed to be presented as a live, hands-on workshop; a slide deck is provided here:
@@ -52,118 +52,353 @@ This tutorial is also designed to be presented as a live, hands-on workshop; a s
 
    :download:`Slide Deck: ADI’s Software Infrastructure for designing with ADCs, DACs, and Sensors <adi_software_infrastructure_for_adcs_dacs_sensors.pptx>`
 
-A complete video run-through will also be provided, either as a companion to following the tutorial yourself, or to practice before presenting as a hands-on workshop. This video is a placeholder for the time being, but many of the concepts apply directly to this workshop:
+.. A complete video run-through will also be provided, either as a companion to following the tutorial yourself, or to practice before presenting as a hands-on workshop. This video is a placeholder for the time being, but many of the concepts apply directly to this workshop:
 
-.. ADMONITION:: ToDo
+.. .. ADMONITION:: ToDo
 
-   To Do: Re-shoot video after experiment-specific module released.
+..    To Do: Re-shoot video after experiment-specific module released.
 
-   .. video:: https://www.youtube.com/watch?v=UHX1njMQ7V0
+..    .. video:: https://www.youtube.com/watch?v=UHX1njMQ7V0
 
 Materials
 ---------
 
-- Raspberry Pi 400 (or 4)
-- 32 GB or larger, Class 10 or greater SD card
-- EVAL-AD4080-ARDZ eval board (Not on Analog.com yet, see disty links below.)
-    - `EVAL-AD4080-ARDZ at DigiKey <https://www.digikey.com/en/products/detail/analog-devices-inc/EVAL-AD4052-ARDZ/24854310>`_
-    - `EVAL-AD4080-ARDZ at Mouser <https://www.mouser.com/ProductDetail/Analog-Devices/EVAL-AD4052-ARDZ?qs=wT7LY0lnAe1804F8ddHaXQ%3D%3D>`_
-- Tensility 16-00078 / DigiKey 839-1671-ND 12 V adapter
-- ST Nucleo-H563ZI
-- ADALM2000 Multi-function USB instrument
-   - ADALM2000 will be referred to as "m2k"
-- Either 1k series resistors, or 2k/3k attenuators between the M2k and AD4080
-    - `Design files for a minimal attenuator / filter board used in initial workshop <https://github.com/trupples/ftc2024-ad4080-addon/tree/main/minimal>`_
+- Raspberry Pi 5 + power supply + SD card
+- :ref:`ADALM-MMSC <adalm-mmsc>` board (contains the AD4080 and a pre-programmed MAX32666FTHR microcontroller running the IIO server)
+- :ref:`ADALM2000 <m2k>` board (Multi-function USB instrument)
+- Two micro-USB cables (one for the ADALM2000, one for the ADALM-MMSC)
+- Jumper wires: the ADALM2000's two GND wires and its W1 and W2 wires connect to header P17 on the ADALM-MMSC (supplied with the ADALM2000)
 
 Hardware setup
 ~~~~~~~~~~~~~~
 
-Jump the ST Nucleo's SB70 with a blob of solder. This jumper is near pin 1 of the main processor chip.
+The ADALM-MMSC is powered and read over its USB connection, so no firmware programming or additional power supply is needed; the board ships with the IIO server firmware already loaded. (Firmware upgrade instructions are in the :ref:`ADALM-MMSC documentation <adalm-mmsc>`.)
 
-Update the ST Nucleo-H563ZI management firmware using the utility at `ST-LINK boards firmware upgrade <https://www.st.com/en/development-tools/stsw-link007.html>`_ 
+The complete setup is shown in :numref:`fig-hw_setup`. Connect the ADALM2000 and the ADALM-MMSC to two of the Raspberry Pi 5's USB ports using the micro-USB cables, and connect a display to the Raspberry Pi's micro-HDMI port. Connect the ADALM2000 to the ADALM-MMSC with the jumper wires as described below, and power up the Raspberry Pi last, using its USB-C 5 V power supply.
 
-Program the ST Nucleo-H563ZI board with the AD4080 tinyiiod server binary file.
+.. _fig-hw_setup:
 
-.. NOTE::
+.. figure:: complete_hw_setup.png
+   :width: 40 em
+   :align: center
 
-   ToDo: Replace with link to controlled file when released. In the meantime, use this file.
-   
-   .. ADMONITION:: Download
+   Complete hardware setup: Raspberry Pi 5, ADALM-MMSC and ADALM2000.
 
-      :download:`ST Nucleo Programming File <ad4080_stm32_nucleo_h563.bin>`
-	  
-   MD5 checksum: 637690bad1d489a5429f8bc518336aaf
-   
-   (On Windows: ``certutil -hashfile .\ad4080_stm32_nucleo_h563.bin MD5``)
+The ADALM2000 is the signal source for the ADALM-MMSC. The jumper wire connections between the two, marked in red in :numref:`fig-hw_setup`, are shown in close-up in :numref:`fig-m2k_mmsc`:
 
+- Connect the ADALM2000's two black GND wires to the lower two posts of P17 (pins 3 and 4)
+- Connect the solid yellow W1 wire to P17 pin 1
+- Connect the striped yellow W2 wire to P17 pin 2
+- Set jumper P10 to the lower position (DIR) and P12 to the upper position (DIR). This bypasses the Sallen-Key filter and applies the inputs directly to the fully differential amplifier.
 
-Mount the EVAL-AD4080-ARDZ to the Nucleo-H563ZI board. Pin connections are unambiguous; it will only plug in in one location. Connect the m2k's W1 and W2 waveform generator  outputs to the EVAL-AD4080-ARDZ inputs with the 1k series resistors or 2k/3k attenuator, and optionally connect the m2k's 1+ and 1- to the ADC inputs as shown in :numref:`fig-m2k_ad4080_nucleo`.
+.. _fig-m2k_mmsc:
 
-.. _fig-m2k_ad4080_nucleo:
-
-.. figure:: setup_ad4080eval_m2k.jpg
+.. figure:: ../../tools/adalm-mmsc/adalm-mmsc_hardware_setup.png
    :width: 30 em
    :align: center
 
-   AD4080-ARDZ mounting and ADALM2000 connections.
+   Close-up of the ADALM2000 to ADALM-MMSC connections.
 
-For reference, the connector pinouts are shown in :numref:`fig-m2k_ad4080_pinout`.
+.. note::
 
-
-.. _fig-m2k_ad4080_pinout:
-
-.. figure:: setup_connections.png
-   :width: 30 em
-   :align: center
-
-   EVAL-AD4080 Connector Pinouts.
-
-- W1 - IN- on adapter (mislabeled)
-- W2 - IN+ on adapter (mislabeled)
-- 1+ to P2, pin 1
-- 1- to P2, pin 7
-- 1-, 2- to m2k GND pins
-
-Connect the ADALM2000 to one of the Raspberry Pi's USB port, and the Nucleo-H563ZI to another. Power the EVAL-AD4080-ARDZ with the 12 V adapter, and power up the Raspberry Pi
+   None of the exercises need the AD4080 inputs to be probed. If you want to probe them anyway, for debugging or other purposes, connect the ADALM2000's 1+ and 1- scope inputs to the ADALM-MMSC. On boards from the first production build, the usual P7 pins are too short for the ADALM2000 fly wires. Use P29 and P30 instead: P29 is ADC_IN_N and goes to 1-, and P30 is ADC_IN_P and goes to 1+. See the errata in the :ref:`ADALM-MMSC documentation <adalm-mmsc>`.
 
 Software Setup
 ~~~~~~~~~~~~~~
 .. important::
 
-   The setup script installs several software packages, it is recommended to use a dedicated SD card for this exercise to avoid conflicts or overwriting anything important.
+   The setup installs several software packages, it is recommended to use a dedicated SD card for this exercise to avoid conflicts or overwriting anything important.
 
 Write the ADI Kuiper Linux image onto the SD card. Directions and the image download are available at:
 
 `Analog Devices Kuiper Linux <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_
 
-In theory the latest Kuiper Linux release should always work, but this tutorial is tested with the 2023_r2 release. All previous releases are archived and available.
+This tutorial is tested with Kuiper Linux 2 (full image). It already includes libiio 0.26 (``iio_info``, ``libiio-dev``, Python bindings), libm2k 0.9.0 (including the Python bindings), pyadi-iio, and Scopy 2.0, so these do not need to be installed separately.
 
-Boot up the Raspberry Pi and connect to the internet. Code and setup scripts for this workshop are available at:
+Boot up the Raspberry Pi and connect to the internet. There are two ways to set up the software for this workshop:
 
-`ftc24-ws Workshop Files <https://github.com/cristina-suteu/ftc24-ws/>`_
+- :ref:`Manual setup <sw_setup_manual>`: you run each step yourself, which is the best choice if you want to understand what is installed and why.
+- :ref:`Debian package <sw_setup_deb>`: a single package that installs everything.
 
-.. todo::
+.. _sw_setup_manual:
 
-   Re-host code and setup scripts, perhaps in the analogdevicesinc/education_tools repo.
+Option 1: Manual setup
+----------------------
 
-Open a terminal and run the following commands:
+Run everything as your normal user, not as root. Only the commands that need ``sudo`` have it.
+
+Step 1: Install system packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Kuiper Linux 2 already ships the ADI libraries (libiio, libm2k, pyadi-iio, numpy, Scopy). The workshop also needs a Python GUI toolkit and a few tools for creating the virtual environment and building genalyzer.
 
 ::
 
-   git clone https://github.com/cristina-suteu/ftc24-ws.git
-   cd ftc24-ws 
-   sudo ./workshopsetup.sh
-   
-This will download and install all of the prerequisite software needed for the rest of the exercise.
+   sudo apt-get update
+   sudo apt-get install -y python3-venv python3-tk pkg-config
+
+When ``sudo`` asks for a password, enter ``analog``: it is the default password of the ``analog`` user on Kuiper Linux.
+
+- ``apt-get update`` downloads a fresh list of available packages and versions. Without it, apt may fetch outdated versions or report that a package can't be found.
+- ``-y`` answers "yes" to the confirmation prompt.
+
+The other packages the workshop needs are already pre-installed on Kuiper Linux 2.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Package
+     - Why we need it
+   * - ``python3-venv``
+     - Creates an isolated Python environment (``.venv``) in Step 3. The workshop's extra libraries go there, so they don't touch the system Python that Kuiper's own tools rely on.
+   * - ``python3-tk``
+     - Provides tkinter, Python's GUI toolkit. matplotlib uses it for interactive windows, such as plots with sliders. Without it you get static plots or an import error.
+   * - ``pkg-config``
+     - Helps CMake find installed libraries and their compiler flags.
+
+Step 2: Get the exercises
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+   This workshop is still in progress. To be sure the exercises work, get them from the `ftc24-ws <https://github.com/cristina-suteu/ftc24-ws>`_ repository instead of the folder described below, and skip the rest of this step:
+
+   ::
+
+      git clone https://github.com/cristina-suteu/ftc24-ws.git ~/Desktop/tools-for-pw
+
+The exercises are not a separate repository. They are the ``examples/adalm-mmsc`` folder on the ``adalm-mmsc`` branch of this pyadi-iio fork:
+
+https://github.com/thorenscientific/pyadi-iio/tree/adalm-mmsc/examples/adalm-mmsc
+
+We only want that one folder, not the whole repository. Git's sparse checkout downloads just the folder we ask for.
+
+Clone the repository without its files:
+
+::
+
+   git clone --depth 1 --branch adalm-mmsc --sparse \
+      https://github.com/thorenscientific/pyadi-iio /tmp/pyadi-iio
+
+- ``--branch adalm-mmsc`` selects the branch that contains the exercises. The default branch does not have them.
+- ``--depth 1`` downloads only the latest snapshot, not the whole history.
+- ``--sparse`` checks out only the files in the top-level folder at first, not the whole tree.
+- ``/tmp/pyadi-iio`` is a temporary location. We delete it at the end.
+
+Select the exercise folder:
+
+::
+
+   cd /tmp/pyadi-iio
+   git sparse-checkout set examples/adalm-mmsc
+
+This makes git download only the contents of ``examples/adalm-mmsc``.
+
+Copy it into the workshop directory and clean up:
+
+::
+
+   mkdir -p ~/Desktop/tools-for-pw
+   cp -r examples/adalm-mmsc/. ~/Desktop/tools-for-pw/
+   cd ~/Desktop/tools-for-pw
+   rm -rf /tmp/pyadi-iio
+
+- ``~/Desktop/tools-for-pw`` is the workshop directory. The virtual environment and the exercises live there.
+- After this, the exercise files are directly in ``~/Desktop/tools-for-pw/``.
+
+The C exercise (Exercise 4) is a single file, ``hello_iio.c``. Create the folder and open a new file in it:
+
+::
+
+   mkdir -p ~/Desktop/tools-for-pw/hello_iio
+   nano ~/Desktop/tools-for-pw/hello_iio/hello_iio.c
+
+Paste in the following code, then save and exit (Ctrl+O, Enter, Ctrl+X):
+
+.. code-block:: c
+
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <iio.h>
+
+   #define URI "local:"
+
+   int main() {
+
+       struct iio_context *ctx;
+       struct iio_device *dev;
+       struct iio_channel *chn;
+       char value[20];
+       double temp_f; 
+       double temp_c;
+
+       ctx = iio_create_context_from_uri(URI);
+       if(!ctx) {
+           printf("No context\n");
+           return -1;
+       }
+       dev = iio_context_find_device(ctx, "cpu_thermal");
+       if(!dev) {
+           printf("No such device \n");
+           return -1;
+       }
+       chn = iio_device_find_channel(dev, "temp1", false);
+
+       iio_channel_attr_read(chn, "input", value, sizeof(value));
+
+       temp_c = atoi(value)/ 1000.0;
+       temp_f = temp_c * 1.8 + 32 ;
+       printf("%f Fahrenheit Degrees \n", temp_f);
+       printf("%f Celsius Degrees \n", temp_c);
+
+       iio_context_destroy(ctx);
+
+       return 0;
+
+   }
+
+Step 3: Create the Python virtual environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You should already be in the workshop directory. If not:
+
+::
+
+   cd ~/Desktop/tools-for-pw
+
+Create the environment:
+
+::
+
+   python3 -m venv --system-site-packages .venv
+
+- ``python3 -m venv .venv`` creates a private Python environment in the ``.venv`` folder.
+- ``--system-site-packages`` lets that environment also see packages installed system-wide. The Kuiper packages (iio, libm2k, adi, numpy) live in the system Python. Without this flag the venv couldn't import them, and we'd have to reinstall them.
+
+Install the extra libraries:
+
+::
+
+   .venv/bin/python3 -m pip install matplotlib obspy
+
+- ``.venv/bin/python3 -m pip`` makes sure the packages go into the venv and not the system Python.
+- ``matplotlib`` is used for plotting.
+- ``obspy`` is used by the seismograph exercise.
+
+Step 4: Build and install genalyzer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Genalyzer is a C library with Python bindings. It isn't packaged for this image, so we compile version v0.1.7 from source.
+
+Download the source:
+
+::
+
+   git clone --branch v0.1.7 --depth 1 https://github.com/analogdevicesinc/genalyzer /tmp/genalyzer
+
+- ``--branch v0.1.7`` picks the version the workshop was tested with.
+- ``--depth 1`` downloads only that snapshot, not the whole history, which is faster.
+- ``/tmp/genalyzer`` is a temporary location. We delete it at the end.
+
+Configure the build:
+
+::
+
+   mkdir /tmp/genalyzer/build && cd /tmp/genalyzer/build
+   cmake -DCMAKE_BUILD_TYPE=Release ..
+
+- Building in a separate build folder keeps the source tree clean.
+- ``cmake`` checks that the compiler and FFTW are available and generates the Makefiles.
+- ``-DCMAKE_BUILD_TYPE=Release`` builds the optimized version.
+
+Compile:
+
+::
+
+   make -j$(nproc)
+
+- ``make`` compiles the library.
+- ``-j$(nproc)`` uses all CPU cores. On a Pi this takes a few minutes.
+
+Install the library system-wide:
+
+::
+
+   sudo make install
+   sudo ldconfig
+
+- ``sudo make install`` copies the compiled library and headers into system folders such as ``/usr/local/lib``, which needs root.
+- ``ldconfig`` refreshes the system's list of shared libraries, so programs, including the C exercise, can find the new one.
+
+Install the Python bindings into the venv:
+
+::
+
+   cd ~/Desktop/tools-for-pw
+   .venv/bin/python3 -m pip install /tmp/genalyzer/bindings/python
+
+This installs the genalyzer Python module into the venv. It wraps the C library you just installed.
+
+Clean up:
+
+::
+
+   rm -rf /tmp/genalyzer
+
+The source and build files are no longer needed.
+
+Step 5: Install Thonny in the venv
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Thonny is the editor for the Python exercises (Exercise 3). We install it inside the virtual environment from Step 3, so that it runs on the venv's Python and can find genalyzer, matplotlib and obspy without any extra configuration.
+
+::
+
+   ~/Desktop/tools-for-pw/.venv/bin/python3 -m pip install thonny
+
+- ``.venv/bin/python3 -m pip`` installs Thonny into the venv, not into the system Python, so no ``sudo`` is needed.
+- The venv can still see the system-wide packages (``tkinter``, which Thonny needs, comes from ``python3-tk`` in Step 1).
+
+Thonny now lives at ``~/Desktop/tools-for-pw/.venv/bin/thonny``. So that you can start it by just typing ``thonny``, add an alias to your shell configuration:
+
+::
+
+   echo "alias thonny='$HOME/Desktop/tools-for-pw/.venv/bin/thonny'" >> ~/.bashrc
+   source ~/.bashrc
+
+- ``alias thonny=...`` makes the command ``thonny`` run the venv's copy of Thonny.
+- ``>> ~/.bashrc`` appends the alias to the file that every new terminal reads, so you only do this once.
+- ``source ~/.bashrc`` makes the alias available in the terminal you are using now.
+
+Step 6: Install VS Code
+^^^^^^^^^^^^^^^^^^^^^^^
+
+VS Code is the editor for the C exercise (Exercise 4).
+
+Download the ARM64 ``.deb`` package from https://code.visualstudio.com/download in a browser. It is saved in the ``Downloads`` folder. Then install it from there:
+
+::
+
+   cd ~/Downloads
+   sudo apt install ./code_*_arm64.deb
+
+- ``cd ~/Downloads`` moves to the folder where the browser saved the package.
+- ``./code_*_arm64.deb`` tells apt to install the downloaded file instead of looking for the package in its online list.
+
+.. _sw_setup_deb:
+
+Option 2: Debian package
+------------------------
+
+.. todo::
+
+   Describe installing the workshop with a Debian package, once the package is available.
 
 Exercise 1: Command line
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Multiple examples require running Linux commands. For those, open the terminal
-from the task bar:
-
-.. image:: terminal_open.png
-    :width: 15 em
+Multiple examples require running Linux commands. For those, open the terminal using ``Ctrl + Alt + T`` key combination.
 
 IIO Info
 --------
@@ -171,7 +406,7 @@ Communication with the various data converter sources and sinks is done through 
 
 There are three IIO contexts in our setup:
 - The Raspberry Pi itself, whose backend is local. It has two IIO devices: an internal temperature sensor and a supply voltage monitor
-- The ST Nucleo-H563ZI,whose backend is serial. It has one IIO device: the AD4080
+- The ADALM-MMSC, whose backend is serial (served by its MAX32666FTHR microcontroller). It has one IIO device: the AD4080
 - The ADALM2000, whose backend is either USB or network. It has several IIO devices: the XADC housekeeping ADCs on the FPGA, the AD9963 ADC/DAC, and custom peripherals (triggering, waveform generation, DMAs) in the FPGA.
 
 Let's use the ``iio_info`` utility to display information about...
@@ -238,7 +473,7 @@ Let's use the ``iio_info`` utility to display information about...
                                         attr  2: scale value: 0.732421875
         [... snip ...]
 
-...the ``serial:/dev/ttyACM0,230400,8n1`` context (EVAL-AD4080):
+...the ``serial:/dev/ttyACM0,230400,8n1`` context (ADALM-MMSC):
 
     ::
         
@@ -248,70 +483,65 @@ The iio_info utility is handy for debugging setups, making sure contexts are ava
 
 Exercise 2: Scopy (2.0!)
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Scopy is a GUI application that provides the test instrument interfaces to the ADALM2000, as well as custom instruments for other hardware, such as the `AD-SWIOT1L-SL <https://www.analog.com/AD-SWIOT1L-SL>`__ Software-configurable Analog and Digital I/O with 10BASE-T1L. When  no board-specific control panel is available, a debug interface provides access to all IIO attributes for a given context, generic time and frequency domain plots, and DAC data managers. We will use Scopy to control and capture data from the AD4080 board.
+Scopy is a GUI application that provides the test instrument interfaces to the ADALM2000, as well as custom instruments for other hardware, such as the `AD-SWIOT1L-SL <https://www.analog.com/AD-SWIOT1L-SL>`__ Software-configurable Analog and Digital I/O with 10BASE-T1L. When  no board-specific control panel is available, a debug interface provides access to all IIO attributes for a given context, generic time and frequency domain plots, and DAC data managers. We will use Scopy to control and capture data from the ADALM-MMSC.
 
-Click the Scopy shortcut on the desktop as shown in :numref:`fig-open_scopy` (Note #1) and then choose “Execute” when prompted (#2). Once opened, it should detect the attached M2k. Click “Connect”
-(#3).
+Open a terminal and run:
 
-.. warning::
-    Do not open scopy from the start menu, because that will open an older
-    version.
+::
 
+   scopy
+
+Wait for the Scopy window to open; this can take a few seconds. Once opened, it should detect the attached ADALM2000. Click "Connect" as shown in :numref:`fig-open_scopy` and wait for the calibration to complete.
 
 .. _fig-open_scopy:
-.. figure:: m2k_connect.png
-   :width: 30 em
+.. figure:: connect.png
+   :width: 50 em
    :align: center
 
-   Opening Scopy and Connecting to ADALM2000
+   Connecting to the ADALM2000 in Scopy
 
-A Scopy profile is available to set up the initial configuration. Load the **m2k_and_ad408_scopy_ini** file as shown in :numref:`fig-load_ini`. 
-
-.. _fig-load_ini:
-.. figure:: m2k_load_ini.png
-   :width: 40 em
-   :align: center
-
-   Loading Scopy Profile
-
-Connect to the AD4080 as shown in :numref:`fig-connect_ad4080`.
+Connect to the ADALM-MMSC as shown in :numref:`fig-connect_ad4080`.
 
 .. _fig-connect_ad4080:
 .. figure:: ad4080_connect.png
    :width: 50 em
    :align: center
 
-   Connecting to the AD4080
+   Connecting to the ADALM-MMSC
 
-Open the AD4080 debug panel as shown in :numref:`fig-open_debug`.
+Open the Debugger instrument of the ADALM-MMSC, as shown in :numref:`fig-open_debug`.
 
 .. _fig-open_debug:
-.. figure:: ad4080_debug_panel.png
+.. figure:: debug.png
    :width: 50 em
    :align: center
 
-   Opening the AD4080 Debug Panel
+   The ADALM-MMSC Debugger
 
+Explore the context's hierarchy, attributes, and channels. Take a peek at ``filter_type``, ``oversampling_ratio``, ``sampling_frequency``, etc.
 
-Explore the context’s hierarchy, attributes, and channels. Take a peek at filter_sel, sinc_dec_rate, etc.
+Next, open the Signal Generator instrument of the ADALM2000. In the Waveform tab, set up the two channels as follows. The ADALM2000 drives the ADALM-MMSC's differential input with both channels, so enable both:
 
-Next, open the Signal Generator instrument and click run. Open the AD4080 data panel as shown in :numref:`fig-open_data`.
+- **Channel 1:** Sine, amplitude 1 Vpp, offset 0, frequency 500 kHz, phase 0
+- **Channel 2:** Rising Ramp Sawtooth, amplitude 1 Vpp, offset 0, frequency 50 kHz, phase 0
+
+Click Run. Then open the ADC - Time instrument of the ADALM-MMSC, set the buffer size to 4096 samples, and click the "Start" button to begin capturing data, as shown in :numref:`fig-open_data`.
 
 .. _fig-open_data:
-.. figure:: ad4080_data_panel.png
+.. figure:: data_panel.png
    :width: 50 em
    :align: center
 
-   Opening the AD4080 Data Panel
+   Capturing the signal in ADC - Time
 
-Click the “Start” button to begin capturing data.
+The ADALM-MMSC samples at 40 MSPS, so the 4096 samples span 102.4 µs. In that time you should see about 51 cycles of the 500 kHz sine riding on about 5 periods of the 50 kHz ramp.
 
 **Extra Credit:**
 
-Observe the SINC5+Comp filter's step response. Set the FILTER_SEL attribute to **sinc5_plus_compensation**. The step response should look like :numref:`fig-sinc5_step`.
+Observe the SINC5+Comp filter's step response. Set the ``filter_type`` attribute to **sinc5+pf1** in the Debugger. In the Signal Generator, set Channel 2 to a Square wave with amplitude 1 Vpp, frequency 1 kHz, 50 % duty cycle and offset 0, and disable Channel 1, so that only the square wave reaches the ADC. Zoom in on a rising edge in ADC - Time. The step response should look like :numref:`fig-sinc5_step`.
 
 .. _fig-sinc5_step:
-.. figure:: ad4080_sinc5_comp_step_resp.png
+.. figure:: sinc5.png
    :width: 50 em
    :align: center
 
@@ -320,78 +550,100 @@ Observe the SINC5+Comp filter's step response. Set the FILTER_SEL attribute to *
 Exercise 3: Python and the Thonny IDE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Most examples in this workshop are Python scripts. Thonny is a Python IDE and will allow you to edit and run them easily. Launch Thonny from the start menu:
+Most examples in this workshop are Python scripts. Thonny is a Python IDE and will allow you to edit and run them easily. In the setup, Thonny was installed in the workshop's Python virtual environment, which has all the required packages. Open a terminal and run:
 
-.. image:: thonny_open.png
-    :width: 20 em
+::
+
+   thonny
+
+Wait for the Thonny window to open. To open each exercise, use *Load* in Thonny's toolbar (or *File > Open...*), browse to the file given in the exercise, and click *Run*.
 
 
-Simple sine wave from the M2K to the AD4080
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Simple sine wave from the ADALM2000 to the AD4080
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Start generating a sine wave using Scopy. In Thonny, load
-**Desktop/ftc24-ws/hello_hw/hello_ad4080.py**
+This is the "hello world" of the ADALM-MMSC: connect to it, capture some samples, and look at them. Start generating a sine wave using Scopy. In Thonny, load
+**Desktop/tools-for-pw-system-design/hello_hw/hello_ad4080.py**
 and click Run:
 
 .. image:: hello_ad4080.png
 
+The script connects to the ADALM-MMSC using pyadi-iio, with nothing more than its URI, and reads one buffer of 8192 samples captured at 40 MSPS. It converts the raw ADC codes to volts using the scale reported by the device, then plots the samples in the time domain together with an averaged FFT that keeps updating as new buffers arrive. Change the frequency or amplitude in Scopy and watch the spectrum follow.
+
+This exercise shows how little code it takes to get data out of the ADALM-MMSC. The same attributes you explored in the Scopy debug panel (sampling frequency, scale, buffer size) are available as plain Python properties, and a single ``rx()`` call returns the samples.
+
+.. note::
+
+   The scripts connect to the AD4080 at ``serial:/dev/ttyACM0,230400,8n1`` by default. If the Pi assigned a different serial device number to the ADALM-MMSC, use ``iio_info -s`` to see which contexts are available.
+
 Performance metrics with Genalyzer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Stop the M2k waveform generator and close Scopy, because this demo will generate
+In the previous exercise the signal came from Scopy, and the result was judged by eye. Here the script generates a known test signal and measures how the ADALM-MMSC reproduces it. Stop the ADALM2000 waveform generator and close Scopy, because this demo will generate
 a signal programmatically. In Thonny, load
-**Desktop/ftc24-ws/hello_genalyzer/m2k_source_ad4080_sink.py**
+**~/Desktop/tools-for-pw/m2k_source_ad4080_sink.py**
 and Run:
 
 .. image:: m2k_source_ad4080_sink.png
 
+The script uses `Genalyzer <https://github.com/analogdevicesinc/genalyzer>`_ to build a waveform containing a 100 kHz fundamental, its 2nd to 4th harmonics, and four unrelated interfering tones at known levels. It plays the waveform through the ADALM2000, captures 16384 samples with the ADALM-MMSC's digital filter turned off (so the full 40 MSPS bandwidth is visible), and runs a Fourier analysis on the result. The fundamental, harmonics and noise tones are labeled on the FFT, and the amplitudes, SNR and THD are printed in the console.
+
+This exercise shows that the ADALM-MMSC can be used as a measurement instrument, not just a data source: because the input is known, you can compare what you transmitted with what the ADC reports. It also shows one program working with two IIO contexts at the same time, the ADALM2000 over USB and the ADALM-MMSC over its serial connection.
+
 Sinc1 frequency response
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+The ADALM-MMSC does not have to deliver all 40 MSPS. Its AD4080 includes a digital filter that decimates the data to a lower rate, and the simplest option is the sinc1 filter. It is cheap and fast, but not a brick-wall filter: signals above the new, lower Nyquist frequency are only attenuated, and what remains folds back (aliases) into the band you are looking at.
+
 In Thonny, load and run
-**Desktop/ftc24-ws/hello_genalyzer/sinc_folding_interactive.py**.
-Drag the slider controlling the frequency of the transmitted noise and interpret the resulting FFT for different frequencies:
+**~/Desktop/tools-for-pw/sinc_folding_interactive.py**:
 
 .. image:: sinc_folding_interactive.png
+   :width: 25 em
+
+The ADALM2000 transmits a band of noise, and the ADALM-MMSC captures it with its sinc1 filter set to a decimation (oversampling ratio) of 256 by default. This can be changed with the ``-d`` argument. Drag the slider controlling the frequency of the transmitted noise and interpret the resulting FFT for different frequencies, comparing it with the theoretical sinc1 response, including frequency folding.
+
+This exercise shows that the filter type and output data rate are runtime settings of the ADALM-MMSC (the ``filter_type`` and ``oversampling_ratio`` attributes), and that the measured behavior of the hardware matches the theory. It also shows the trade-off between data rate and aliasing that you will face when choosing a filter for your own application.
 
 ObsPy
 ~~~~~
 
-In Thonny, load and run **Desktop/ftc24-ws/hello_seismograph/seismograph.py**:
+A seismic signal is slow, only a few hertz, while the AD4080 samples at 40 MSPS, so the ADALM-MMSC's digital filter does the work of bringing the data rate down to something suitable.
+
+In Thonny, load and run **Desktop/tools-for-pw-system-design/hello_seismograph/seismograph.py**:
 
 .. image:: seismograph.png
+   :width: 25 em
+
+The script uses `ObsPy <https://docs.obspy.org/>`_ to read a recorded earthquake and plays 40 seconds of it through the ADALM2000, standing in for a real sensor. So that it fits in a single buffer, the waveform is sped up 100 times. The ADALM-MMSC captures it using the sinc1 filter with an oversampling ratio of 1024, which reduces the 40 MSPS to about 39 kSPS, so that a 16384-sample buffer covers about 419 ms. The script then plots the transmitted waveform and the received one together with its envelope.
+
+This exercise shows that a fast SAR ADC can serve a slow, low-frequency application: the oversampling and filtering happen inside the ADALM-MMSC, with no filter code on the host. It also shows that the same chain (libm2k, pyadi-iio and the Python ecosystem) connects the hardware straight into domain-specific tools, in this case ObsPy.
 
 Exercise 4: Using libiio in C
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The libiio has language bindings for C, C#, Python, and MATLAB. This exercise will show how to use libiio in C.
 
-In a terminal, navigate to **Desktop/ftc24-ws/hello_iio**
+The program reads the Raspberry Pi's CPU temperature through libiio. It is the same sensor you saw as ``cpu_thermal`` in the ``local:`` context in Exercise 1. Every libiio program follows the same four steps, and this one shows each of them:
+
+1. **Create a context** with ``iio_create_context_from_uri``. Here the URI is ``local:``, the Raspberry Pi itself.
+2. **Find the device** with ``iio_context_find_device``, by name (``cpu_thermal``).
+3. **Find the channel** with ``iio_device_find_channel`` (``temp1``, an input channel).
+4. **Read an attribute** of the channel with ``iio_channel_attr_read`` (``input``). The value comes in thousandths of a degree Celsius. The program divides it by 1000, converts it to Fahrenheit, prints both, and releases the context.
+
+These are the same calls you would use for the ADALM-MMSC or the ADALM2000. Only the URI (for example ``serial:/dev/ttyACM0,230400,8n1``) and the device, channel and attribute names change.
+
+To read the source code, open a terminal, go to the exercise folder and open the file in VS Code:
 
 ::
-    
-    cd ~/Desktop/ftc24-ws/hello_iio
 
-Run ``ls -la`` to check the contents of this directory. Expected output:
+    cd ~/Desktop/tools-for-pw
+    code hello_iio.c
 
-::
-
-    total 24
-    drwxr-xr-x 2 analog analog 4096 Oct 29 15:51 .
-    drwxr-xr-x 9 analog analog 4096 Oct 29 15:51 ..
-    -rw-r--r-- 1 analog analog  132 Oct 29 16:03 CMakeLists.txt
-    -rw-r--r-- 1 analog analog  733 Oct 29 16:03 hello_iio.c
-    -rw-r--r-- 1 analog analog  204 Oct 29 16:03 how_2_build_cmake.txt
-    -rw-r--r-- 1 analog analog   35 Oct 29 16:03 how_2_build_cmdline.txt
-
-Take a look at the source code using the command ``geany hello_iio.c``. Check
-the ``how_2_build_cmake.txt`` and ``how_2_build_cmdline.txt`` files for build
-instructions.
-
-Copy the command from ``how_2_build_cmdline.txt`` into the command line (Ctrl-Shift-C, Ctrl-Shift-V) and run it (there should be no console output): ::
+Run using the command: ::
 
     gcc hello_iio.c -o hello_iio -liio
 
-Alternatively, you can use the CMake build system. For this project, run the following commands (also in ``how_2_build_cmake.txt``):
+Alternatively, you can use the CMake build system: ::
 
     mkdir build
     cd build
@@ -418,21 +670,21 @@ Some **example use cases**:
 - Connecting to multiple iio contexts through a single internet connection, using different ports for each device (four Phasers example in the slide deck)
 - Backend compatibility: some libiio builds (such as the one bundled in MATLAB Toolboxes) don't support the serial backend. IIOD can forward the serial context to a port on the local (or loopback) network, allowing the MATLAB Toolbox to connect to that and access the device
 
-IIOD runs on the computer that has access to the context you want to forward. In the case of this workshop, that is the Raspberry Pi to which the M2K and AD4080 are connected. To check which backends your build of libiio (which IIOD is part of) supports, run ``iio_info -V``: ::
+IIOD runs on the computer that has access to the context you want to forward. In the case of this workshop, that is the Raspberry Pi to which the ADALM2000 and AD4080 are connected. To check which backends your build of libiio (which IIOD is part of) supports, run ``iio_info -V``: ::
 
     iio_info version: 0.26 (git tag:a0eca0d)
     Libiio version: 0.26 (git tag: a0eca0d) backends: local xml ip usb serial
 
 To forward a context, first identify its URI:
 
-- For the M2K, use ``usb:`` or ``ip:192.168.2.1``
+- For the ADALM2000, use ``usb:`` or ``ip:192.168.2.1``
 - For the AD4080, use ``serial:/dev/ttyACM0,230400,8n1`` (or ACM1, depending on the order in which the Pi assigns serial device numbers)
 
 Then choose a port on which iiod will listen. Kuiper linux already has an instance of iiod running on the default port (30431) forwarding the ``local:`` context. 
 
 Examples:
 
-To forward the M2K connection to port 50905, run: ::
+To forward the ADALM2000 connection to port 50905, run: ::
     
     iiod -u ip:192.168.2.1 -p 50905
 
@@ -451,4 +703,4 @@ For example, ``iio_info`` can now display the AD4080 context by connecting to th
     iio_info -u ip:analog.local:50907
 
 .. note::
-    In the above command, analog.local is the default hostname of a Kuiper Linux system. This can be replaced with another hostname or IP address as appropriate, if it was changed.
+    In the above command, ``analog`` is the default hostname of a Kuiper Linux system, and ``analog.local`` is the name it is reachable at on the local network. This can be replaced with another hostname or IP address as appropriate, if it was changed.
