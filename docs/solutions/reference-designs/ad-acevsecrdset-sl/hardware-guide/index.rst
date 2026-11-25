@@ -6,7 +6,7 @@ Hardware User Guide
 Introduction
 ------------
 
-The :adi:`AD-ACEVSECRDSET-SL` design incorporates the :adi:`ADE9113`
+The :adi:`AD-ACEVSECRDSET-SL <ad-bct2ade9113-sl>` design incorporates the :adi:`ADE9113`
 3-Channel, Isolated, Sigma Delta (Σ-Δ) ADC and the :adi:`MAX32655`
 low-power, Arm Cortex-M4 processor with FPU-Based microcontroller
 and Bluetooth 5.2 allowing the implementation of type 2 EVSE charging cables.

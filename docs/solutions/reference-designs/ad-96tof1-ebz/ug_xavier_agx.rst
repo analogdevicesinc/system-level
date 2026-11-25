@@ -73,10 +73,10 @@ Troubleshooting
 
    **Nvidia Xavier AGX interposer design and manufacturing files**
 
-   
-   -  `Design files <resources/08_065345a.zip>`_
-   -  `Gerber files <resources/nvidia_agx_xavier_interposer.zip>`_
-   
+   The design files (08_065345a.zip) and Gerber files
+   (nvidia_agx_xavier_interposer.zip) are available in the
+   `design files archive <https://www.analog.com/media/en/technical-documentation/evaluation-documentation/ad-96tof1-ebz-design-files.zip>`_.
+
 
 --------------
 

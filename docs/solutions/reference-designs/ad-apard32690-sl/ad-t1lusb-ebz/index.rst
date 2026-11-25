@@ -128,7 +128,7 @@ obtain the following response if everything works properly:
    Reply from 169.254.193.171: bytes=32 time<1ms TTL=128
 
 In this way, we can confirm that the connection between a computer and the
-:adi:`AD-T1LUSB2.0-EBZ` board works as expected.
+:adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` board works as expected.
 
 Design and Integration Files
 ----------------------------

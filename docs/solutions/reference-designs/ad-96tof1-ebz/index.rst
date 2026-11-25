@@ -96,14 +96,16 @@ case with different VCSEL.
 
    The previous board versions (Rev. B and Rev. C) use MOSFET driver: :adi:`ADP3624`
 
-.. note::
-
-   To be added.
-
 .. admonition:: Download
    :class: download
 
-   `Rev. B Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revb.zip>`_ `Rev. C Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revc.zip>`_ `Rev. D Hardware design files (including schematics, BoM and layout) <resources/tof_laser_revd.zip>`_
+   `Design files archive <https://www.analog.com/media/en/technical-documentation/evaluation-documentation/ad-96tof1-ebz-design-files.zip>`_
+
+   The archive contains:
+
+   -  Rev. B hardware design files (tof_laser_revb.zip)
+   -  Rev. C hardware design files (tof_laser_revc.zip)
+   -  Rev. D hardware design files (tof_laser_revd.zip)
 
 --------------
 
@@ -128,14 +130,15 @@ sensor.
 -  *Temperature measurement:* :adi:`ADT7410`
 -  *Power:* :adi:`ADP5071`, :adi:`LTC3119`, :adi:`ADP7112`, :adi:`ADP5023`
 
-.. note::
-
-   To be added.
-
 .. admonition:: Download
    :class: download
 
-   `Rev. B Hardware design files (including schematics, BoM and layout) <resources/tof_afe_revb.zip>`_ `Rev. C Hardware design files (including schematics, BoM and layout) <resources/tof_afe_revc.zip>`_
+   `Design files archive <https://www.analog.com/media/en/technical-documentation/evaluation-documentation/ad-96tof1-ebz-design-files.zip>`_
+
+   The archive contains:
+
+   -  Rev. B hardware design files (tof_afe_revb.zip)
+   -  Rev. C hardware design files (tof_afe_revc.zip)
 
 .. note::
 
@@ -223,9 +226,13 @@ Laser Safety
    for this solution.
 
 
-   `Laser Certification Report AD-96TOF1-EBZ Rev.B & Rev.C <resources/report_2132_ad-96tof1-ebz_60825_classification.pdf>`_
+   The laser certification reports are available in the
+   `design files archive <https://www.analog.com/media/en/technical-documentation/evaluation-documentation/ad-96tof1-ebz-design-files.zip>`_:
 
-   `Laser Certification Report AD-96TOF1-EBZ Rev.D <resources/report_2388_60825_classification.pdf>`_
+   -  Laser Certification Report AD-96TOF1-EBZ Rev.B & Rev.C
+      (report_2132_ad-96tof1-ebz_60825_classification.pdf)
+   -  Laser Certification Report AD-96TOF1-EBZ Rev.D
+      (report_2388_60825_classification.pdf)
 
 --------------
 

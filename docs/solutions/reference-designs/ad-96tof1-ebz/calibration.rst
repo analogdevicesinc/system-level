@@ -168,11 +168,9 @@ The following steps run through a **near mode calibration** with the target posi
 
 -  Calibrated firmware is now stored in EEPROM.
 
-.. note::
-
-   To be added.
-
 .. admonition:: Download
    :class: download
 
-   `Calibration Assembly Document <resources/calibration_assembly_doc.pdf>`_
+   The calibration assembly document (calibration_assembly_doc.pdf) is
+   available in the
+   `design files archive <https://www.analog.com/media/en/technical-documentation/evaluation-documentation/ad-96tof1-ebz-design-files.zip>`_.
