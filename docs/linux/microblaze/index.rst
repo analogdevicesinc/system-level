@@ -109,7 +109,7 @@ paths below are relative to the archive root.
    * - VCU118
      - AD9208
      - dual
-     - ``vcu118_ad9082/vcu118_ad9208_dual/``  
+     - ``vcu118_ad9208_dual/``  
    * - VCU118
      - AD9084
      - JESD204C, M4 L8 NP16, 20.0 Gb/s, 4×4
