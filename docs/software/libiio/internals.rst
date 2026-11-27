@@ -55,10 +55,9 @@ network in an application.
 That network backend was also opening questions about other possible
 improvements: for instance, using IIO devices from applications running on
 different operating systems, like Windows, using those devices in environments
-like :ref:`GNU Radio <software gnuradio>`,
-:dokuwiki:`MATLAB <resources/tools-software/linux-software/libiio/clients/matlab_simulink>`
+like :ref:`GNU Radio <software gnuradio>`
 or
-:dokuwiki:`Simulink <resources/tools-software/linux-software/libiio/clients/matlab_simulink>`,
+:dokuwiki:`MATLAB and Simulink <resources/tools-software/linux-software/libiio/clients/matlab_simulink>`,
 etc.
 
 License and code management

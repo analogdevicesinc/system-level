@@ -291,6 +291,11 @@ Capture Window
 
 The Capture Window is where device data is displayed.
 
+.. toctree::
+   :hidden:
+
+   window-functions/index
+
 -  **Capture Window Settings**
 
    -  **Plot Title:** Click Edit > Plot Title to
@@ -336,8 +341,7 @@ The Capture Window is where device data is displayed.
             and suitability for different applications (some are more frequency
             accurate, others are more amplitude accurate). To choose a window
             function, you (the user) must select the most appropriate one. Check
-            the
-            :dokuwiki:`details <resources/tools-software/linux-software/iio_oscilloscope/window_functions>`.
+            the :ref:`details <iio-oscilloscope window-functions>`.
          -  **FFT Average:** Selects the average weight to be applied to the FFT
             samples.
          -  **PWR Offset:** Selects the offset of the FFT graph.
