@@ -1048,7 +1048,7 @@ Support
 
 If you have any questions about PicoZed / AD9361 or ADI BSP workflow, please
 ask on the EngineerZone.
-:ez:`ADI Support <community/linux-device-drivers/microcontroller-no-os-drivers>`
+:ez:`ADI Support <microcontroller-no-os-drivers>`
 
 If you have any questions about ADS-B receiver algorithm or HW/SW Co-Design
 workflow, please contact MathWorks.

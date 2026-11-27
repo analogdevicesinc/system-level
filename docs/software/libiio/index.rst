@@ -59,8 +59,8 @@ Network Backends
 If you just want to use libiio and iiod, which may be on a pre-compiled image -
 there are many places you can stream data to.
 
-- :dokuwiki:`MATLAB and Simulink </libiio/clients/matlab_simulink>`
-- :dokuwiki:`Visual Analog </libiio/clients/Visual Analog>`
+- :doc:`MATLAB and Simulink </software/matlab/index>`
+- :dokuwiki:`Visual Analog <resources/tools-software/linux-software/libiio/clients/visual_analog>`
 - :ref:`iio-oscilloscope`
 - :ref:`GNU Radio <software gnuradio>`
 - :ref:`pyadi-iio: Device Specific Python Interfaces For IIO Drivers <pyadi-iio>`

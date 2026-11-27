@@ -64,7 +64,7 @@ so you don't lose it.
 
 If you do want more, they can be obtained from
 `Samtec <https://www.samtec.com/products/ftsh-105-01-l-d>`__,
-`Digikey <https://www.digikey.com/scripts/DkSearch/dksus.dll?KeywordSearch?Site=US&Keywords=SAM10499-ND>`__ or
+:digikey:`Digi-Key <SAM10499-ND>` or
 `Arrow <https://www.arrow.com/en/products/ftsh-105-01-l-d/samtec>`__.
 
 Anyone is free to use the same pinout on their platform - or copy the schematics

@@ -98,7 +98,7 @@ To build on a development host (e.g. x86 laptop or desktop) do the following:
          ./osc: error while loading shared libraries: libosc.so: cannot open shared object file: No such file or directory
 
      Or, worst case, when you are debugging things, you will see your modified
-     source code, but it will be running/executing the older shared shared object
+     source code, but it will be running/executing the older shared object
      which was loaded (since it didn't find things in the library path).
 
 Ubuntu 20 and Older
@@ -291,6 +291,11 @@ Capture Window
 
 The Capture Window is where device data is displayed.
 
+.. toctree::
+   :hidden:
+
+   window-functions/index
+
 -  **Capture Window Settings**
 
    -  **Plot Title:** Click Edit > Plot Title to
@@ -336,7 +341,7 @@ The Capture Window is where device data is displayed.
             and suitability for different applications (some are more frequency
             accurate, others are more amplitude accurate). To choose a window
             function, you (the user) must select the most appropriate one. Check
-            the :dokuwiki:`details <iio_oscilloscope/window_functions>`.
+            the :ref:`details <iio-oscilloscope window-functions>`.
          -  **FFT Average:** Selects the average weight to be applied to the FFT
             samples.
          -  **PWR Offset:** Selects the offset of the FFT graph.
@@ -462,7 +467,8 @@ Files
 
 The source code for the entire application is at
 :git-iio-oscilloscope:`/`. You can ask
-questions about it on the :ez:`community/linux-device-drivers`.
+questions about it on the
+:ez:`Linux Software Drivers <linux-software-drivers>` forum.
 
 Internals
 +++++++++
