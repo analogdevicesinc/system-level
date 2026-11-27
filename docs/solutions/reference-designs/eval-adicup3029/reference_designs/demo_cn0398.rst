@@ -187,7 +187,7 @@ This example uses the `Eclipse Mosquitto <https://mosquitto.org>`_ which is an o
 
    -  `OpenSSL <http://slproweb.com/products/Win32OpenSSL.html>`_
 
-      -  :dokuwiki:`pthreads <ftp/sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86>`
+      -  `pthreads <https://sourceware.org/pub/pthreads-win32/dll-latest/dll/x86/>`__
 
 -  Make sure these additional programs are installed before you continue
 -  Click next and finish the installation.

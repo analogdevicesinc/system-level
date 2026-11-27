@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 resources app_sht20:
+
 EVAL-ADPAQ3029 - SHT20 [I2C] demo
 =================================
 
@@ -6,11 +8,11 @@ EVAL-ADPAQ3029 - SHT20 [I2C] demo
 .. admonition:: Download
    :class: download
 
-   `SHT20 Firmware <sht20.zip>`_
+   :download:`SHT20 Firmware <sht20.zip>`
 
-   `Tile GUI application <moduware.tile.example-i2c.zip>`_
+   :download:`Tile GUI application <moduware.tile.example-i2c.zip>`
 
--  Follow the same steps as given :doc:`here </solutions/reference-designs/eval-adpaq3029/first_app>`
+-  Follow the same steps as given :ref:`here <eval-adpaq3029 first_app>`
 -  In this project, SHT20 (Temperature and Humidity Sensor) is used.
 
 .. image:: ../images/app7.png

@@ -32,7 +32,7 @@ Getting Started
 
 .. tip::
 
-   See :external+analog-attach:doc:`the installation guide <install-steps/index>` for
+   See :external+analog-attach:doc:`the installation guide <install/index>` for
    detailed setup instructions.
 
 The extension provides two main views:

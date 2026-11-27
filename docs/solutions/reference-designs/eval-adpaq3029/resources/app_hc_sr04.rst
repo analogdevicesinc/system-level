@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 resources app_hc_sr04:
+
 EVAL-ADPAQ3029 - HC-SR04 demo
 =============================
 
@@ -6,11 +8,11 @@ EVAL-ADPAQ3029 - HC-SR04 demo
 .. admonition:: Download
    :class: download
 
-   `HC-SR04 Firmware <hc-sr04.zip>`_
+   :download:`HC-SR04 Firmware <hc-sr04.zip>`
 
-   `Tile GUI application <moduware.tile.example-hcsr04.zip>`_
+   :download:`Tile GUI application <moduware.tile.example-hcsr04.zip>`
 
--  Follow the same steps as given :doc:`here </solutions/reference-designs/eval-adpaq3029/first_app>`
+-  Follow the same steps as given :ref:`here <eval-adpaq3029 first_app>`
 -  In this project, an Ultrasonic Sensor – HC-SR04 has been used.
 
 .. image:: ../images/app5.png

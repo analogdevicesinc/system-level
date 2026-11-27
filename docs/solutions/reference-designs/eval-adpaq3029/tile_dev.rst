@@ -1,5 +1,16 @@
-EVAL-ADPAQ3029 - Tile (GUI) development
-=======================================
+.. _eval-adpaq3029 tile_dev:
+
+EVAL-ADPAQ3029 - Tile (GUI) development (Obsolete)
+==================================================
+
+.. warning::
+
+   This page is obsolete. The Moduware app has been discontinued and is no
+   longer available on the Google Play Store, and the Moduware website is no
+   longer reachable, so the steps below may no longer work. The closest
+   available alternative is the
+   `Moduware React Native prototype app <https://github.com/moduware/moduware-react-native-prototype>`__,
+   which has not been tested with the EVAL-ADPAQ3029.
 
 Application development for the Moduware platform consists of two primary parts:
 Firmware and Web based GUI application.
@@ -23,7 +34,7 @@ of:
 Development
 ~~~~~~~~~~~
 
-Please find the example source code for Tile development in :doc:`resources </solutions/reference-designs/eval-adpaq3029/resources>` page.
+Please find the example source code for Tile development in :ref:`resources <eval-adpaq3029 resources>` page.
 
 -  The files that make up the tile can be opened and edited in any text editor.
 -  Begin by initializing any functions declared in the MDK_REGISTER_CMD in the .json file.
@@ -42,7 +53,8 @@ Deployment
 Installing Moduware App
 ^^^^^^^^^^^^^^^^^^^^^^^
 
--  Install the basic version of the Moduware app that can be downloaded from the website https://Moduware.com/app/. The app is also available on play store.
+-  Install the basic version of the Moduware app that could be downloaded from
+   the website moduware.com/app. The app was also available on Google Play Store.
 -  Once the application is installed, launch the application. The following GUI
    is displayed when the application is opened.
 

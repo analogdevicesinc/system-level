@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 resources app_servo:
+
 EVAL-ADPAQ3029 - Servo motor demo
 =================================
 
@@ -6,11 +8,11 @@ EVAL-ADPAQ3029 - Servo motor demo
 .. admonition:: Download
    :class: download
 
-   `Servo motor Firmware <servo.zip>`_
+   :download:`Servo motor Firmware <servo.zip>`
 
-   `Tile GUI application <moduware.tile.example-servo.zip>`_
+   :download:`Tile GUI application <moduware.tile.example-servo.zip>`
 
--  Follow the same steps as given :doc:`here </solutions/reference-designs/eval-adpaq3029/first_app>`
+-  Follow the same steps as given :ref:`here <eval-adpaq3029 first_app>`
 -  In this project, a Servo motor is used.
 
 .. image:: ../images/app9.png

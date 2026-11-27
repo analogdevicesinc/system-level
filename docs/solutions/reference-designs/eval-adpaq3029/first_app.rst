@@ -1,9 +1,11 @@
+.. _eval-adpaq3029 first_app:
+
 EVAL-ADPAQ3029 - First application [RGB LED]
 ============================================
 
--  Setup the hardware as shown :doc:`here. </solutions/reference-designs/eval-adpaq3029/hw_setup>`
--  Make sure to use Dev module with LED. Here is the schematics for one such board - `Nexpaq_Glue_Micro_Dev_Board. <resources/dev_board.pdf>`_
--  Download the following projects from the :doc:`resources </solutions/reference-designs/eval-adpaq3029/resources>` section.
+-  Setup the hardware as shown :ref:`here <eval-adpaq3029 hw_setup>`.
+-  Make sure to use Dev module with LED. Here is the schematics for one such board - :download:`Nexpaq_Glue_Micro_Dev_Board <resources/dev_board.pdf>`.
+-  Download the following projects from the :ref:`resources <eval-adpaq3029 resources>` section.
 
    -  Bootloader
    -  MDK source code
@@ -13,9 +15,9 @@ EVAL-ADPAQ3029 - First application [RGB LED]
 .. admonition:: Download
    :class: download
 
-   `RGB led Firmware <resources/ledapp.zip>`_
+   :download:`RGB led Firmware <resources/ledapp.zip>`
 
-   `Tile GUI application <resources/moduware.tile.example-led-rgb.zip>`_
+   :download:`Tile GUI application <resources/moduware.tile.example-led-rgb.zip>`
 
 -  The mapping of the RGB LED with the ADPAQ GPIOs is given below
 
@@ -29,9 +31,9 @@ EVAL-ADPAQ3029 - First application [RGB LED]
    Blue      P1_09
    ========= ==============
 
--  Launch the CCES IDE and import the first 3 projects into CCES as explained :doc:`here </solutions/reference-designs/eval-adpaq3029/fw_dev/import_prj>`.
--  Build and flash the firmware binary (\*.bin) as explained :doc:`here </solutions/reference-designs/eval-adpaq3029/fw_dev>`
--  Deploy the tile application as explained :doc:`here </solutions/reference-designs/eval-adpaq3029/tile_dev>`
+-  Launch the CCES IDE and import the first 3 projects into CCES as explained :ref:`here <eval-adpaq3029 fw_dev import_prj>`.
+-  Build and flash the firmware binary (\*.bin) as explained :ref:`here <eval-adpaq3029 fw_dev>`
+-  Deploy the tile application as explained :ref:`here <eval-adpaq3029 tile_dev>`
 -  Launch the ``Moduware`` app and pair to the gateway (Mini Dev board)
 -  Now you should be able to see tile with ``DevMod``.
 

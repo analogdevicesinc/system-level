@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 fw_dev:
+
 EVAL-ADPAQ3029 - Firmware development
 =====================================
 
@@ -75,9 +77,9 @@ Other API's available for application:
 4. Application development
 --------------------------
 
-This is the main application running on :adi:`ADuCM3029`. Below are the steps that will help you in writing your own application using MDK library. Please see :doc:`resources </solutions/reference-designs/eval-adpaq3029/resources>` section to download source code.
+This is the main application running on :adi:`ADuCM3029`. Below are the steps that will help you in writing your own application using MDK library. Please see :ref:`resources <eval-adpaq3029 resources>` section to download source code.
 
-:doc:`Guide to import the source code and setup library paths </solutions/reference-designs/eval-adpaq3029/fw_dev/import_prj>`
+:ref:`Guide to import the source code and setup library paths <eval-adpaq3029 fw_dev import_prj>`
 
 -  Declare any functions and global variables in the Dev Module header (\*.h) file.
 -  Program the newly declared function in the corresponding source (\*.c) file. The function can be now be referenced from the continuously looping main function used by Modpack.
@@ -109,7 +111,7 @@ Building
 Debugging
 ~~~~~~~~~
 
--  As shown in :doc:`hardware setup </solutions/reference-designs/eval-adpaq3029/hw_setup>` section, connect the debugger between PC and Dev Module.
+-  As shown in :ref:`hardware setup <eval-adpaq3029 hw_setup>` section, connect the debugger between PC and Dev Module.
 -  The debugger should show up as ``DAPLINK``.
 
 .. image:: images/deb3.png

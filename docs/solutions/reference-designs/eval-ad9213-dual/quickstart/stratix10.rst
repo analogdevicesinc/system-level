@@ -21,7 +21,7 @@ Required equipment and hardware
 -------------------------------------------------------------------------------
 
 - :adi:`AD9213-DUAL-EBZ Evaluation Board`
-- :intel:`Intel Stratix 10 SX SoC Development Kit <content/www/us/en/products/details/fpga/development-kits/stratix/10-sx.html>`
+- `Intel Stratix 10 SX SoC Development Kit <https://docs.altera.com/r/docs/683303/current/stratix-10-sx-soc-development-kit-user-guide/overview>`__
 - RF Power Splitter for splitting the test tone to apply two equal signals
   to each of the two ADCs
 - Phase matched coaxial cables to connect the power splitter to the ADC

@@ -45,7 +45,7 @@ The following is a list of items needed in order to replicate this demo.
    -  EVAL-ADICUP3029
    -  EVAL-CN0414-ARDZ and/or EVAL-CN0418-ARDZ, up to 4 boards total, in any configuration
    -  EVAL-CN0416-ARDZ (not needed for direct USB connection to a single node)
-   -  Additional EVAL-CN0416-ARDZ, ADALM-UARTJTAG, and 2x5, 100mil cable such as `AMP A3AAH-1006G <https://www.digikey.com/A3AAH-1006G>`_ **or:**
+   -  Additional EVAL-CN0416-ARDZ, ADALM-UARTJTAG, and 2x5, 100mil cable such as `AMP A3AAH-1006G <https://www.digikey.com/en/products/detail/te-connectivity-amp-connectors/A3AAH-1006G/825887>`_ **or:**
 
       -  other RS485 host adapter
 
@@ -124,7 +124,7 @@ device:
 | IO2 configuration | Mode: Push-Pull, Alternate Function: RS-485, Active High |   |   |   |
 +-------------------+----------------------------------------------------------+---+---+---+
 
-Once the CP2103 is programmed, unplug from the host computer and connect P1 on the ADALM-UARTJTAG to P11 on the CN0416 with a 2x5-socket, 100mil cable such as `AMP A3AAH-1006G <https://www.digikey.com/A3AAH-1006G>`_. Be sure to connect with proper polarity - pin 1 on the ADALM-UARTJTAG must correspond to pin 1 on the CN0416.
+Once the CP2103 is programmed, unplug from the host computer and connect P1 on the ADALM-UARTJTAG to P11 on the CN0416 with a 2x5-socket, 100mil cable such as `AMP A3AAH-1006G <https://www.digikey.com/en/products/detail/te-connectivity-amp-connectors/A3AAH-1006G/825887>`_. Be sure to connect with proper polarity - pin 1 on the ADALM-UARTJTAG must correspond to pin 1 on the CN0416.
 
 +--------------+----------------------+----------------------+--------------------------+--------------------------+
 | CN0416 Setup |                      |                      |                          |                          |
@@ -1168,8 +1168,6 @@ The HART protocol is proprietary, customers implementing a full HART stack shoul
    d - Select HART channel                                              q - Quit
 
    Enter Option:
-
-*End of Document*
 
 .. |Common registers| image:: ../images/cn0435_qmodmaster_general_reg.png
    :width: 1500
