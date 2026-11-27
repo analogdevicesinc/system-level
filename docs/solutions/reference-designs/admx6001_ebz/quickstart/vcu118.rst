@@ -726,7 +726,7 @@ Create and navigate to the folder for saving the PyADI-IIO library,
 
 Clone the required PyADI-IIO library from the GitHub website,
 
-**git clone** :git-pyadi-iio:`tree/admx6001_v1`
+**git clone** :git-pyadi-iio:`admx6001_v1 <admx6001_v1:>`
 
 .. image:: ../images/clone_pyADI.jpg
    :align: center

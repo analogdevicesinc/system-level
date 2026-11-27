@@ -191,7 +191,7 @@ found on GitHub:
       :git-board-tests:`master:picozed-sdr2-fmc`
 
 First, write the latest available SD card image from
-`kuiper-linux <https://wiki.analog.com/resources/tools-software/linux-software/kuiper-linux>`_
+:ref:`Kuiper Linux <kuiper>`
 to a spare card and prepare it to boot into Linux as detailed on that page.
 
 FPGA bitstream

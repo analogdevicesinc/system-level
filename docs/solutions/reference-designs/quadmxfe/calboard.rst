@@ -79,7 +79,7 @@ Equipment Needed
 
 -  12V (150W) Wall Supply
 
-   -  `Power Brick Assembly <https://www.digikey.com/TE150A1251F01>`_
+   -  :digikey:`Power Brick Assembly <TE150A1251F01>`
 
 -  2x SMA Cables (50 Ω)
 -  MMCX to SMA cables

@@ -146,7 +146,7 @@ Support
 
 For questions about FMCOMMS3, :adi:`AD9361`, or libiio, please ask on the
 EngineerZone.
-:ez:`ADI Support <community/linux-device-drivers/microcontroller-no-os-drivers>`
+:ez:`ADI Support <microcontroller-no-os-drivers>`
 
 For questions about the ADS-B algorithm, please contact MathWorks.
 `MathWorks Support <https://www.mathworks.com/support/>`_

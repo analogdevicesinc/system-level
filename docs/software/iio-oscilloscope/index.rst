@@ -98,7 +98,7 @@ To build on a development host (e.g. x86 laptop or desktop) do the following:
          ./osc: error while loading shared libraries: libosc.so: cannot open shared object file: No such file or directory
 
      Or, worst case, when you are debugging things, you will see your modified
-     source code, but it will be running/executing the older shared shared object
+     source code, but it will be running/executing the older shared object
      which was loaded (since it didn't find things in the library path).
 
 Ubuntu 20 and Older
