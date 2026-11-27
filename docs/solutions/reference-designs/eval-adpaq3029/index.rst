@@ -25,14 +25,14 @@ Features:
 
 - :adi:`ADuCM3029` MCU: ARM Cortex-M3 up to 26 MHz, 256 KB flash with ECC,
   64 KB SRAM and a hardware cryptographic accelerator (AES-128/256, SHA-256)
-- Three SPI, I2C, UART and SPORT interfaces, GPIOs, three timers with PWM and
-  a 12-bit, 8-channel SAR ADC
+- Three SPI interfaces, plus I2C, UART and SPORT interfaces, GPIOs, three
+  timers with PWM and a 12-bit, 8-channel SAR ADC
 - Three evaluation headers (P1, P2, P3), a debug connector and an on-board
   :adi:`ADT7410` temperature sensor
 - Smartphone connectivity through the Moduware gateway (SPI to the gateway,
   BLE to the phone)
-- Free CrossCore Embedded Studio toolchain, with IAR and Keil also supported
-  over CMSIS-DAP
+- CrossCore Embedded Studio toolchain (license required), with IAR and Keil
+  also supported over CMSIS-DAP
 - Ready-to-use example projects: RGB LED, ADC, HC-SR04, SHT20, servo motor and
   UART
 

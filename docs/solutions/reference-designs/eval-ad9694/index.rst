@@ -78,7 +78,6 @@ Table of contents
 
       #. Using the :ref:`ZCU102/Zynq UltraScale+ MPSoC <ad9694 quickstart zcu102>`
       #. Using the :ref:`ADS7-V2EBZ (Windows) <ads7-v2>`
-      #. Using the :ref:`ADS7-V1EBZ (Obsolete) <ads7-v1>`
 
    #. Configure an SD Card with :external+kuiper:doc:`Kuiper <index>`
 
@@ -98,7 +97,7 @@ Table of contents
 
         #. About the device driver:
 
-           - :external+linux:ref:`AD9694 Linux IIO ADC driver <axi-adc-hdl>`
+           - :git-linux:`AD9694 Linux IIO ADC driver <main:drivers/iio/adc/ad9680.c>`
            - :external+linux:ref:`axi_jesd204_rx`
            - :external+linux:ref:`axi_adxcvr`
            - :external+linux:ref:`axi-adc-hdl`

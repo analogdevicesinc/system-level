@@ -189,6 +189,15 @@ smart app and printed onto the console.
 
 |image2|
 
+If you have the IoTNode app installed on your iOS device, these figures show
+the output in the app.
+
+.. TODO: The Android IoTNode app is no longer available and there is no valid
+   link or replacement for it. To be decided what to do with this part.
+
+   If you have the app installed on your phone, these figure shows the output on
+   android device.
+
 .. important::
 
    Do not try to connect directly (or pair) to the EVAL-ADICUP3029 from your
@@ -200,9 +209,6 @@ smart app and printed onto the console.
 
 .. TODO: The Android IoTNode app is no longer available and there is no valid
    link or replacement for it. To be decided what to do with this part.
-
-   If you have the app installed on your phone, these figure shows the output on
-   android device.
 
    -  **Android App display**
 
@@ -231,7 +237,8 @@ Figure shows the UART terminal when ADI_APP_USE_BLUETOOTH is set to 1
 .. image:: ../images/disco.png
    :width: 300
 
-**iOS App display**
+If you have the IoTNode app installed on your iOS device, these figures show
+the output in the app.
 
 .. TODO: The Android IoTNode app is no longer available and there is no valid
    link or replacement for it. To be decided what to do with this part.

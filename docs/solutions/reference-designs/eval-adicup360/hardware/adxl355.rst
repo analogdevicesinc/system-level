@@ -40,7 +40,7 @@ Power Supply Requirements
 When using the ADXL355 PMOD board, the 3.3V power for the PMOD comes directly
 from the host board it is connected to. The power from the host is generally
 capable of providing up to 100 mA at 3.3V, but for complete PMOD power
-specifications please click\ 
+specifications please click
 `here <https://digilent.com/reference/_media/reference/pmod/pmod-interface-specification-1_3_1.pdf>`_.
 
 Digital Interface (PMOD)
@@ -90,12 +90,10 @@ Schematics, PCB Layout, Bill of Materials
 
    :adi:`EVAL-ADXL355-PMDZ Design & Integration Files <media/en/evaluation-documentation/evaluation-design-files/eval-adxl355-pmdz-designsupport.zip>`
 
-   
    -  Schematic
    -  PCB Layout
    -  Bill of Materials
    -  Allegro Project
-   
 
 Registration
 ------------

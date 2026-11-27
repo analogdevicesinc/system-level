@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 resources app_adc:
+
 EVAL-ADPAQ3029 - ADC demo
 =========================
 
@@ -6,11 +8,11 @@ EVAL-ADPAQ3029 - ADC demo
 .. admonition:: Download
    :class: download
 
-   `ADC Firmware <adc.zip>`_
+   :download:`ADC Firmware <adc.zip>`
 
-   `Tile GUI application <moduware.tile.example-adc.zip>`_
+   :download:`Tile GUI application <moduware.tile.example-adc.zip>`
 
--  Follow the same steps as given :doc:`here </solutions/reference-designs/eval-adpaq3029/first_app>`
+-  Follow the same steps as given :ref:`here <eval-adpaq3029 first_app>`
 -  A potentiometer has been used in this project to modify the analog voltage
    values.
 

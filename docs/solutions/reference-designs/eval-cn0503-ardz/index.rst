@@ -232,6 +232,8 @@ slot in front of each **Fluorescent PD Board**  as shown below.
    :width: 500 px
    :align: center
 
+.. _eval-cn0503-ardz assembling-the-tower:
+
 Assembling the Tower
 ~~~~~~~~~~~~~~~~~~~~
 

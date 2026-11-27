@@ -124,7 +124,7 @@ Optical Path Setup
 
 The demo utilizes an optical path similar to the one used by :adi:`CN0503`, but only for a single channel. The single path base and cuvette holder are available as 3D-printable designs () and can also be ordered using Shapeways.
 
--  Assemble the cuvette holder. See `Assembling the Tower <https://wiki.analog.com/resources/eval/user-guides/circuits-from-the-lab/cn0503>`_ for instructions.
+-  Assemble the cuvette holder. See :ref:`Assembling the Tower <eval-cn0503-ardz assembling-the-tower>` for instructions.
 -  Insert the 365 nm LED Board to the base, as shown below.
 -  Insert the Transmit Photodiode Board at the bottom of the base, as shown below. The Transmit Photodiode Board uses the same photodiode as the one used as reference in the :adi:`CN0503`.
 -  Insert the Fluorescence Photodiode Board to the base, as shown below.

@@ -135,7 +135,7 @@ file pre-installed. Download the device family pack from the link below.
    :align: center
    :width: 600
 
-The CCES is now ready for ADPAQ firmware development which is explained :doc:`here </solutions/reference-designs/eval-adpaq3029/fw_dev>`.
+The CCES is now ready for ADPAQ firmware development which is explained :ref:`here <eval-adpaq3029 fw_dev>`.
 
 mbed Serial port driver
 -----------------------

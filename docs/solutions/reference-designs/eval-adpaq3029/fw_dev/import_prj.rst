@@ -3,7 +3,7 @@
 EVAL-ADPAQ3029 - Importing CCES project
 =======================================
 
-Please see the :doc:`resources </solutions/reference-designs/eval-adpaq3029/resources>` section to download source code.
+Please see the :ref:`resources <eval-adpaq3029 resources>` section to download source code.
 
 -  Launch the CCES IDE on your host & create a new workspace.
 -  Click on ``File`` -> ``Import..`` or click ``Import an existing CCES project`` from homepage as shown below.

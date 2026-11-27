@@ -1,3 +1,5 @@
+.. _eval-adpaq3029 resources app_uart:
+
 EVAL-ADPAQ3029 - UART(Arduino) demo
 ===================================
 
@@ -6,13 +8,13 @@ EVAL-ADPAQ3029 - UART(Arduino) demo
 .. admonition:: Download
    :class: download
 
-   `UART (Arduino) Firmware <uart.zip>`_
+   :download:`UART (Arduino) Firmware <uart.zip>`
 
-   `Tile GUI application <moduware.tile.example-uart.zip>`_
+   :download:`Tile GUI application <moduware.tile.example-uart.zip>`
 
-   `Arduino code <uart.ino.zip>`_
+   :download:`Arduino code <uart.ino.zip>`
 
--  Follow the same steps as given :doc:`here </solutions/reference-designs/eval-adpaq3029/first_app>`
+-  Follow the same steps as given :ref:`here <eval-adpaq3029 first_app>`
 -  In this project, an Arduino board has been used.
 
 .. image:: ../images/app11.png

@@ -57,7 +57,7 @@ Setup
 
 -  The ADPAQ module is inserted onto the gateway with the pins facing inward as shown in the image.
 -  Power the gateway by connecting the USB cable to the Power USB slot.
--  Once the hardware setup is complete, setting up software toolchain is explained :doc:`here </solutions/reference-designs/eval-adpaq3029/sw_tools_setup>`.
+-  Once the hardware setup is complete, setting up software toolchain is explained :ref:`here <eval-adpaq3029 sw_tools_setup>`.
 -  In addition to above setup, in order to debug/flash the firmware, debugger
    (EVAL-ADPAQ3029EBZ-DBG) must be connected between PC and ADPAQ Dev module.
 

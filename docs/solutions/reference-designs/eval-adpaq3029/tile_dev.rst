@@ -34,7 +34,7 @@ of:
 Development
 ~~~~~~~~~~~
 
-Please find the example source code for Tile development in :doc:`resources </solutions/reference-designs/eval-adpaq3029/resources>` page.
+Please find the example source code for Tile development in :ref:`resources <eval-adpaq3029 resources>` page.
 
 -  The files that make up the tile can be opened and edited in any text editor.
 -  Begin by initializing any functions declared in the MDK_REGISTER_CMD in the .json file.

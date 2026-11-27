@@ -119,7 +119,7 @@ The necessary instructions on how to import the ADuCM360_ISM43340_CN0357 project
 Debugging the ADuCM30_ISM43340_CN0357 project
 ---------------------------------------------
 
--  A debug configuration must be set up for this project in order to have the possibility to program and to debug the ADuCM360_demo_cn0357 project. To do this, follow the instructions from `Setting Up a Debug Configuration for the Project <https://wiki.analog.com/resources/eval/user-guides/eval-adicup360/quickstart/eclipse_user_guide>`_ page.
+-  A debug configuration must be set up for this project in order to have the possibility to program and to debug the ADuCM360_demo_cn0357 project. To do this, follow the instructions from :ref:`Setting Up a Debug Configuration for the Project <eval-adicup360 tools cces_user_guide>` page.
 
 - Make sure the target board is connected to the computer (via **DEBUG USB**) and using the tool bar, navigate to the small Debug icon|resources-eval-user-guides-eval-aducm360-ardz-quickstart-bug.png| and select the debugging session you created. The application will be programmed and the program execution will stop at the beginning of the main() function.
 

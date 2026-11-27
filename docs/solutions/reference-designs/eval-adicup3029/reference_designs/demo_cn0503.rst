@@ -28,7 +28,7 @@ The following is a list of items needed in order to replicate this demo.
    -  EVAL-CN0503-ARDZ
    -  Mirco USB to USB cable
    -  PC or Laptop with a USB port
-   -  3D printed mechanical fixtures described in the :dokuwiki:`Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0503>`
+   -  3D printed mechanical fixtures described in the :ref:`Hardware User Guide <eval-cn0503-ardz>`
 
 -  Software
 
@@ -43,7 +43,7 @@ The following is a list of items needed in order to replicate this demo.
 Setting up the Hardware
 -----------------------
 
--  Set up the the **EVAL-CN0503-ARDZ** as shown in the :dokuwiki:`Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0503>`.
+-  Set up the the **EVAL-CN0503-ARDZ** as shown in the :ref:`Hardware User Guide <eval-cn0503-ardz>`.
 -  Connect the board to the **EVAL-ADICUP3029** via the Arduino headers.
 
 .. image:: ../images/cn0503_arduino.jpg
@@ -336,10 +336,8 @@ Interacting with the CLI
 Hardware User Guide and Demo Guides
 -----------------------------------
 
--  :dokuwiki:`EVAL-CN0503-ARDZ Hardware User Guide <resources/eval/user-guides/circuits-from-the-lab/cn0503>`
--  :dokuwiki:`Optical Platform: Fluorescence Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/fluorescence>`
--  :dokuwiki:`Optical Platform: pH Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/colorimetry>`
--  :dokuwiki:`Optical Platform: Turbidity Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/turbidity>`
--  :dokuwiki:`Optical Platform: Nitrate Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <resources/eval/user-guides/circuits-from-the-lab/cn0503/nitrate-measurement>`
-
-*End of Document*
+-  :ref:`EVAL-CN0503-ARDZ Hardware User Guide <eval-cn0503-ardz>`
+-  :ref:`Optical Platform: Fluorescence Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <fluorescence-measurement>`
+-  :ref:`Optical Platform: pH Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <pH-measurement>`
+-  :ref:`Optical Platform: Turbidity Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <turbidity>`
+-  :ref:`Optical Platform: Nitrate Measurement Demo (ADICUP3029 + EVAL-CN0503-ADRZ) <nitrate-measurement>`

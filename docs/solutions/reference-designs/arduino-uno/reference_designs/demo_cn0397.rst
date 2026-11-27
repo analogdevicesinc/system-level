@@ -20,7 +20,7 @@ photosynthetically active.
 
 The **EVAL-CN0397-ARDZ** board uses :adi:`ad8500`, a low power,
 precision CMOS op amp with a low input bias current of a typical 1pA
-which is used in a transipedance amplifier configuration to convert the
+which is used in a transimpedance amplifier configuration to convert the
 current output of the photodiodes into voltage. It also features
 :adi:`ad7798` a 3-channel, low noise, low power 16-bit ADC that converts
 the analog voltage into digital data in for the processing of data into
