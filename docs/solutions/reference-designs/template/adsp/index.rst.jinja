@@ -1,0 +1,172 @@
+{% set ref = som ~ " " ~ carrier %}
+{% set boards = "/solutions/reference-designs/template/adsp/boards/" %}
+{% set templates = "/solutions/reference-designs/template/adsp/" %}
+.. _{{ ref }}:
+
+{{ som | upper }} on the {{ carrier | upper }}
+================================================================================
+
+{{ processor }} system-on-module on the {{ carrier | upper }} carrier board.
+
+Overview
+-------------------------------------------------------------------------------
+
+This page describes how to evaluate the :adi:`{{ processor }}`
+with the {{ som | upper }} system-on-module (SoM) on the {{ carrier | upper }}
+carrier board. The SoM carries the processor, its memories and power supplies;
+the carrier board provides the peripherals and the on-board debug agent.
+
+Recommendations
+-------------------------------------------------------------------------------
+
+People who follow the flow that is outlined, have a much better experience with
+things. However, like many things, documentation is never as complete as it
+should be. If you have any questions, check the
+:ref:`Help and Support <{{ ref }} help-and-support>` section at the bottom of
+the page.
+
+Table of contents
+-------------------------------------------------------------------------------
+
+#. Using the evaluation boards:
+
+   #. :ref:`Prerequisites <{{ ref }} prerequisites>`: what you need to get
+      started
+   #. :ref:`Quick start <{{ ref }} quickstart>`: set up the boards and boot
+      Linux
+   #. :ref:`{{ som | upper }} <{{ ref }} som>` and
+      :ref:`{{ carrier | upper }} <{{ ref }} carrier>`: board settings, and
+      the manuals of both boards
+
+#. Design with the {{ processor }}:
+
+   #. :adi:`{{ processor }} product page <{{ processor }}>`
+   #. :ref:`Linux support <adsp linux-support>`
+   #. :ref:`Getting started <adsp setup>` with OpenOCD, U-Boot and Linux
+
+#. :ref:`Help and Support <{{ ref }} help-and-support>`
+
+.. _{{ ref }} prerequisites:
+
+Prerequisites
+-------------------------------------------------------------------------------
+
+What you need, depends on what you are trying to do. As a minimum, you need to
+start out with:
+
+Hardware prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. The :adi:`{{ som | upper }} <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/{{ som }}.html>`
+   system-on-module
+#. The :adi:`{{ carrier | upper }} <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/{{ carrier }}.html>`
+   carrier board, with the power supply and USB cables that come with it
+#. Host PC (Windows or Linux)
+#. Ethernet cable, and a network with a DHCP server, to load Linux from the
+   host PC
+#. Optional: an external ICE, such as the ICE-1000 or ICE-1500, if the on-board
+   debug agent is not used (see :ref:`adsp-jtag`)
+
+Software prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. The ADI fork of OpenOCD, built as described in :ref:`adsp setup`
+#. A GDB that supports the ARM architecture (``gdb-multiarch`` on
+   Ubuntu/Debian)
+#. UART terminal application (PuTTY/TeraTerm/Minicom), 115200 8N1
+#. Python 3, to serve the Linux images to U-Boot over HTTP
+#. Optional: :adi:`CrossCore Embedded Studio <cces-quickstart>` and the
+   {{ som | upper }} Board Support Package (BSP), for baremetal and RTOS
+   development
+
+.. _{{ ref }} quickstart:
+
+Quick start
+-------------------------------------------------------------------------------
+
+This quick start sets up the {{ som | upper }} on the {{ carrier | upper }}
+carrier board, with JTAG through the on-board debug agent. The software steps,
+OpenOCD, U-Boot and Linux, are described in :ref:`adsp setup`; this section
+covers the board specific settings.
+
+Hardware setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Disconnect all power before changing switches and jumpers, or inserting the
+SoM.
+
+.. include-template:: {{ templates }}som-setup.rst.jinja
+   :file: {{ boards }}{{ som }}.yaml
+
+.. include-template:: {{ templates }}carrier-setup.rst.jinja
+   :file: {{ boards }}{{ carrier }}.yaml
+
+The sections :ref:`{{ som | upper }} <{{ ref }} som>` and
+:ref:`{{ carrier | upper }} <{{ ref }} carrier>` describe all the switches and
+jumpers used above.
+
+Software setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Follow :ref:`adsp setup`, with these settings:
+
+#. Start OpenOCD with the debug agent interface and the target configuration of
+   the {{ processor }}:
+
+   .. shell:: sh
+
+      ~/openocd
+      $ sudo src/openocd -f {{ openocd_interface }} \
+             -f {{ openocd_target }} \
+             --search tcl/ \
+             --search tcl/interface/ \
+             --search tcl/target/
+
+#. Open the serial console of the SoM at 115200 8N1.
+#. Download and extract the ``{{ release }}`` release, load U-Boot with GDB,
+   and boot Linux with the ``{{ dtb }}`` device tree.
+#. Optionally install U-Boot to the flash and Linux to the eMMC.
+
+.. _{{ ref }} som:
+
+{{ som | upper }}
+-------------------------------------------------------------------------------
+
+.. include-template:: {{ templates }}board-overview.rst.jinja
+   :file: {{ boards }}{{ som }}.yaml
+
+.. include-template:: {{ templates }}som-hardware.rst.jinja
+   :file: {{ boards }}{{ som }}.yaml
+
+.. _{{ ref }} carrier:
+
+{{ carrier | upper }}
+-------------------------------------------------------------------------------
+
+.. include-template:: {{ templates }}board-overview.rst.jinja
+   :file: {{ boards }}{{ carrier }}.yaml
+
+.. include-template:: {{ templates }}carrier-hardware.rst.jinja
+   :file: {{ boards }}{{ carrier }}.yaml
+
+Helpful documents
+-------------------------------------------------------------------------------
+
+.. include-template:: {{ templates }}documents.rst.jinja
+   :file: {{ boards }}{{ som }}.yaml
+
+.. include-template:: {{ templates }}documents.rst.jinja
+   :file: {{ boards }}{{ carrier }}.yaml
+
+Warning
+-------------------------------------------------------------------------------
+
+.. esd-warning::
+
+.. _{{ ref }} help-and-support:
+
+Help and support
+-------------------------------------------------------------------------------
+
+For questions and more information, please visit the
+:ez:`Processors and DSP <dsp>` community on EngineerZone.

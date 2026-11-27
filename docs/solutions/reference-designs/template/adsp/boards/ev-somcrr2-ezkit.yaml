@@ -1,0 +1,128 @@
+# EV-SOMCRR2-EZKIT carrier board
+# Rendered by the carrier-*.rst.jinja and documents.rst.jinja templates.
+# Sources: EV-SOMCRR2-EZKIT manual, Revision 1.0, June 2026, and the
+# EV-SOMCRR2-EZKIT schematic
+
+id: ev-somcrr2-ezkit
+
+description: >-
+  The :adi:`EV-SOMCRR2-EZKIT <en/resources/evaluation-hardware-and-software/evaluation-boards-kits/ev-somcrr2-ezkit.html>`
+  carrier board provides the peripherals needed to evaluate the processor on
+  the SoM: audio converters, S/PDIF, Gigabit Ethernet, CAN and A2B expansion.
+  It has two SoM 2.0 connectors, SOM A and SOM B, and an on-board debug agent,
+  so the processor can be debugged over JTAG without an external in-circuit
+  emulator (ICE).
+
+features:
+  - Two SoM 2.0 connectors (SOM A and SOM B)
+  - xSPI flash and RAM combo memory, and an SPI EEPROM
+  - >-
+    :adi:`ADAU1966A` 16-channel DAC and two :adi:`ADAU1979` quad ADCs, with
+    nine 3.5 mm stereo connectors (16 outputs, 8 inputs)
+  - DB25 connector for a TASCAM25 interface
+  - S/PDIF coaxial and optical interfaces
+  - Two A2B interface connectors per SoM location
+  - Two :adi:`ADIN1300` 10/100/1000 Ethernet PHYs, one per SoM location
+  - :adi:`ADM3056E` isolated CAN transceiver
+  - On-board debug agent (JTAG over USB)
+  - Reset and GPIO pushbuttons, 24 LEDs
+  - 12 V DC external power supply
+
+images:
+  - file: ev-somcrr2-ezkit.png
+    alt: Angled view of the EV-SOMCRR2-EZKIT with two SoMs installed
+    caption: EV-SOMCRR2-EZKIT with two SoMs installed
+  - file: ev-somcrr2-ezkit-top.png
+    alt: Top view of the EV-SOMCRR2-EZKIT with two SoMs installed
+    caption: EV-SOMCRR2-EZKIT top
+  - file: ev-somcrr2-ezkit-bottom.png
+    alt: Bottom view of the EV-SOMCRR2-EZKIT
+    caption: EV-SOMCRR2-EZKIT bottom
+
+manual: media/en/technical-documentation/user-guides/ev-somcrr2-ezkit-manual.pdf
+
+schematic: media/en/technical-documentation/eval-board-schematic/ev-somcrr2-ezkit-schematic.pdf
+bom_ref: adsp boms ev-somcrr2-ezkit
+
+# Power input
+power_input: P7
+power_supply: 12 V
+
+# SoM connectors, in the order they are documented
+slots:
+  - name: SOM A
+    ethernet: P1
+  - name: SOM B
+    ethernet: P2
+
+# SoM connector used by the quick start, and why
+recommended_slot: SOM A
+recommended_slot_reason: >-
+  The default SoftConfig settings of the carrier route the audio ADCs to SOM A.
+
+# On-board debug agent enable switch
+debug_agent:
+  switch: S11
+  columns: [S11.1 to S11.6, S11.7 and S11.8]
+  enable: ["ON", "OFF"]
+  disable: ["OFF", "OFF"]
+  enable_text: positions 1 to 6 ON, positions 7 and 8 OFF
+  note: >-
+    The "Debug Agent" section of the carrier board manual calls this switch SW1
+    and says to set all its positions to ON. The "Hardware Reference" chapter
+    and the schematic use S11, with positions 7 and 8 OFF.
+
+# JTAG routing switches, and their settings per route
+jtag_routing:
+  switches: [S1, S2]
+  routes:
+    - route: SOM A only
+      slot: SOM A
+      settings: ["1-2", "1-2"]
+    - route: SOM B only
+      slot: SOM B
+      settings: ["1-2", "2-3"]
+    - route: Daisy chain
+      settings: ["2-3", "1-2"]
+
+hardware_sections:
+  - title: Debug agent USB IDs
+    body: |
+      The debug agent enumerates on the host PC as one of two USB devices.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - USB ID
+           - Device
+           - OpenOCD interface
+         * - ``064b:250d``
+           - ADSPSC846 USB Debug Agent
+           - ``adi-dbgagent.cfg``
+         * - ``064b:250c``
+           - Multi-processor USB Debug Agent
+           - ``adi-mpdbgagent.cfg``
+
+      Both run the multi-processor debug agent firmware, version 0.0.1. With
+      ``adi-dbgagent.cfg``, OpenOCD warns that this firmware version is
+      obsolete. The warning can be ignored, as 0.0.1 is the current version
+      of this firmware.
+  - title: SigmaStudio connectors (S12, S13)
+    body: |
+      Each SoM connector has a 0.1" header that interfaces with SigmaStudio
+      through the EVAL-ADUSB2EBZ board. The pinout is in the schematic.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - SoM connector
+           - Header
+         * - SOM A
+           - S12
+         * - SOM B
+           - S13
+
+      .. note::
+
+         The "Connectors" section of the carrier board manual calls these
+         headers P30 and P31. The schematic uses S12 and S13.
